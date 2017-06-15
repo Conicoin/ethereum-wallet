@@ -19,7 +19,6 @@
 		14ACA1E71EF2BCC80059E430 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1E41EF2BCC80059E430 /* Keychain.swift */; };
 		14ACA1E91EF2BCD60059E430 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1E81EF2BCD60059E430 /* Wallet.swift */; };
 		14ACA1EB1EF2BCE00059E430 /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1EA1EF2BCE00059E430 /* WalletService.swift */; };
-		14ACA1ED1EF2BCE50059E430 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1EC1EF2BCE50059E430 /* GameService.swift */; };
 		14ACA1F01EF2BCF30059E430 /* Error+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1EE1EF2BCF30059E430 /* Error+Helpers.swift */; };
 		14ACA1F11EF2BCF30059E430 /* Timer+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1EF1EF2BCF30059E430 /* Timer+Helpers.swift */; };
 		14ACA1F41EF2BD050059E430 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1F21EF2BD050059E430 /* Constants.swift */; };
@@ -46,7 +45,6 @@
 		14ACA1E41EF2BCC80059E430 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = "ethereum-wallet/Keychain.swift"; sourceTree = SOURCE_ROOT; };
 		14ACA1E81EF2BCD60059E430 /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wallet.swift; path = "ethereum-wallet/Wallet.swift"; sourceTree = SOURCE_ROOT; };
 		14ACA1EA1EF2BCE00059E430 /* WalletService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WalletService.swift; path = "ethereum-wallet/WalletService.swift"; sourceTree = SOURCE_ROOT; };
-		14ACA1EC1EF2BCE50059E430 /* GameService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameService.swift; path = "ethereum-wallet/GameService.swift"; sourceTree = SOURCE_ROOT; };
 		14ACA1EE1EF2BCF30059E430 /* Error+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Error+Helpers.swift"; path = "ethereum-wallet/Error+Helpers.swift"; sourceTree = SOURCE_ROOT; };
 		14ACA1EF1EF2BCF30059E430 /* Timer+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Timer+Helpers.swift"; path = "ethereum-wallet/Timer+Helpers.swift"; sourceTree = SOURCE_ROOT; };
 		14ACA1F21EF2BD050059E430 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "ethereum-wallet/Constants.swift"; sourceTree = SOURCE_ROOT; };
@@ -152,7 +150,8 @@
 		144E4F281EB26F7A00AB62B6 /* Presentation layer */ = {
 			isa = PBXGroup;
 			children = (
-				144E4F311EB2766E00AB62B6 /* Game */,
+				144E4F311EB2766E00AB62B6 /* ViewControllers */,
+				14ACA1D81EF2BC930059E430 /* Main.storyboard */,
 			);
 			name = "Presentation layer";
 			sourceTree = "<group>";
@@ -170,13 +169,12 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
-		144E4F311EB2766E00AB62B6 /* Game */ = {
+		144E4F311EB2766E00AB62B6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				14ACA1D91EF2BC930059E430 /* SyncViewController.swift */,
-				14ACA1D81EF2BC930059E430 /* Main.storyboard */,
 			);
-			name = Game;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		144E4F341EB276C700AB62B6 /* Business layer */ = {
@@ -189,14 +187,6 @@
 				14C4D3CE1EDE209800FCA3AF /* Services */,
 			);
 			name = "Business layer";
-			sourceTree = "<group>";
-		};
-		144E4F351EB276FD00AB62B6 /* Game */ = {
-			isa = PBXGroup;
-			children = (
-				14ACA1EC1EF2BCE50059E430 /* GameService.swift */,
-			);
-			name = Game;
 			sourceTree = "<group>";
 		};
 		144E4F381EB2772B00AB62B6 /* Common */ = {
@@ -229,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				1456C0FB1ED4DDF90055BE93 /* Wallet */,
-				144E4F351EB276FD00AB62B6 /* Game */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -401,7 +390,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14ACA1ED1EF2BCE50059E430 /* GameService.swift in Sources */,
 				14ACA1DB1EF2BC930059E430 /* SyncViewController.swift in Sources */,
 				14ACA1E11EF2BCB70059E430 /* NewHeadHandler.swift in Sources */,
 				14ACA1E01EF2BCB70059E430 /* EthereumCore.swift in Sources */,
