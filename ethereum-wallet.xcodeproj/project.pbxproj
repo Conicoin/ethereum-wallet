@@ -27,6 +27,7 @@
 		14ACA1FA1EF2BD170059E430 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1F71EF2BD170059E430 /* Info.plist */; };
 		14ACA1FB1EF2BD170059E430 /* rinkeby.json in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1F81EF2BD170059E430 /* rinkeby.json */; };
 		14ACA1FE1EF2BD630059E430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1FC1EF2BD630059E430 /* LaunchScreen.storyboard */; };
+		14B3B6321EF3144B002A0623 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3B6311EF3144B002A0623 /* WelcomeViewController.swift */; };
 		C2722CA625D048F64B4350F4 /* Pods_ethereum_wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9520F72130C6C2267F53AE16 /* Pods_ethereum_wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		14ACA1F71EF2BD170059E430 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "ethereum-wallet/Info.plist"; sourceTree = SOURCE_ROOT; };
 		14ACA1F81EF2BD170059E430 /* rinkeby.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = rinkeby.json; path = "ethereum-wallet/rinkeby.json"; sourceTree = SOURCE_ROOT; };
 		14ACA1FD1EF2BD630059E430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "ethereum-wallet/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
+		14B3B6311EF3144B002A0623 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		14C4D3CD1EDE1F3700FCA3AF /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		471C561B090D913663E51D28 /* Pods-ethereum-wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		9520F72130C6C2267F53AE16 /* Pods_ethereum_wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ethereum_wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +174,7 @@
 		144E4F311EB2766E00AB62B6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				14B3B6311EF3144B002A0623 /* WelcomeViewController.swift */,
 				14ACA1D91EF2BC930059E430 /* SyncViewController.swift */,
 			);
 			name = ViewControllers;
@@ -396,6 +399,7 @@
 				14ACA1E51EF2BCC80059E430 /* Defaults.swift in Sources */,
 				14ACA1DD1EF2BCA30059E430 /* Balance.swift in Sources */,
 				14ACA1E71EF2BCC80059E430 /* Keychain.swift in Sources */,
+				14B3B6321EF3144B002A0623 /* WelcomeViewController.swift in Sources */,
 				14ACA1EB1EF2BCE00059E430 /* WalletService.swift in Sources */,
 				14ACA1E91EF2BCD60059E430 /* Wallet.swift in Sources */,
 				14ACA1D71EF2BC840059E430 /* AppDelegate.swift in Sources */,

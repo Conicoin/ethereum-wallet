@@ -48,8 +48,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 0 images.
+  /// This `R.image` struct is generated, and contains static references to 1 images.
   struct image {
+    /// Image `Welcome`.
+    static let welcome = Rswift.ImageResource(bundle: R.hostingBundle, name: "Welcome")
+    
+    /// `UIImage(named: "Welcome", bundle: ..., traitCollection: ...)`
+    static func welcome(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.welcome, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -118,19 +126,24 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try main.validate()
+      try launchScreen.validate()
     }
     
-    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
+    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
       
+      static func validate() throws {
+        if UIKit.UIImage(named: "Welcome") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Welcome' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+      }
+      
       fileprivate init() {}
     }
     
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = SyncViewController
+      typealias InitialController = WelcomeViewController
       
       let bundle = R.hostingBundle
       let name = "Main"
@@ -141,6 +154,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "Welcome") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Welcome' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().syncViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'syncViewController' could not be loaded from storyboard 'Main' as 'SyncViewController'.") }
       }
       
