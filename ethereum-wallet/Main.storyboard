@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DKX-zw-Zir">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sync View Controller-->
+        <scene sceneID="6Ou-WA-BN1">
+            <objects>
+                <viewController storyboardIdentifier="SyncViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DKX-zw-Zir" customClass="SyncViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3lo-Io-pKM"/>
+                        <viewControllerLayoutGuide type="bottom" id="tpY-eS-dRa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TEs-qD-6yV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cEg-qQ-ads">
+                                <rect key="frame" x="24" y="332.5" width="327" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2H-N4-5q7">
+                                <rect key="frame" x="24" y="350.5" width="327" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2De-QP-UEi">
+                                <rect key="frame" x="177" y="351" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cEg-qQ-ads" firstAttribute="centerY" secondItem="TEs-qD-6yV" secondAttribute="centerY" id="0Pi-QH-9MH"/>
+                            <constraint firstAttribute="trailing" secondItem="cEg-qQ-ads" secondAttribute="trailing" constant="24" id="2no-Lo-w90"/>
+                            <constraint firstItem="g2H-N4-5q7" firstAttribute="trailing" secondItem="cEg-qQ-ads" secondAttribute="trailing" id="6IA-cK-A5r"/>
+                            <constraint firstItem="cEg-qQ-ads" firstAttribute="centerX" secondItem="TEs-qD-6yV" secondAttribute="centerX" id="9lX-zL-SXR"/>
+                            <constraint firstItem="g2H-N4-5q7" firstAttribute="top" secondItem="cEg-qQ-ads" secondAttribute="bottom" constant="16" id="gmT-2V-g4D"/>
+                            <constraint firstItem="g2H-N4-5q7" firstAttribute="leading" secondItem="cEg-qQ-ads" secondAttribute="leading" id="gq8-uo-xsd"/>
+                            <constraint firstItem="2De-QP-UEi" firstAttribute="top" secondItem="cEg-qQ-ads" secondAttribute="bottom" constant="16" id="lK3-pw-o3t"/>
+                            <constraint firstItem="2De-QP-UEi" firstAttribute="centerX" secondItem="TEs-qD-6yV" secondAttribute="centerX" id="oJo-Am-pZ6"/>
+                            <constraint firstItem="cEg-qQ-ads" firstAttribute="leading" secondItem="TEs-qD-6yV" secondAttribute="leading" constant="24" id="pWy-dB-Baf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="2De-QP-UEi" id="vIQ-cY-okn"/>
+                        <outlet property="progressLabel" destination="g2H-N4-5q7" id="EmZ-OD-YHz"/>
+                        <outlet property="progressView" destination="cEg-qQ-ads" id="iyE-uV-dw4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ynl-c5-JXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112.8" y="158.77061469265368"/>
+        </scene>
+    </scenes>
+</document>
