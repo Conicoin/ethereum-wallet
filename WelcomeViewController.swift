@@ -13,8 +13,8 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var newWalletButton: UIButton!
     @IBOutlet weak var restoreWalletButton: UIButton!
     
-    override var prefersStatusBarHidden: Bool {
-        return true
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     override func viewDidLoad() {

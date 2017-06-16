@@ -48,6 +48,9 @@
                                                 <state key="normal" title="New Wallet">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="XJD-AY-rj3" kind="show" id="DVF-rY-KG6"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ2-ke-CBn">
                                                 <rect key="frame" x="87" y="484" width="200" height="44"/>
@@ -106,6 +109,46 @@
             </objects>
             <point key="canvasLocation" x="-682.39999999999998" y="158.77061469265368"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YQy-0B-kVS">
+            <objects>
+                <navigationController id="XJD-AY-rj3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NDl-yW-d7h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7wg-96-IJh" kind="relationship" relationship="rootViewController" id="wge-7s-hPX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z40-rw-inA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100" y="157"/>
+        </scene>
+        <!--Wallet passphrase-->
+        <scene sceneID="96V-Yk-xKZ">
+            <objects>
+                <viewController id="7wg-96-IJh" customClass="PasswordViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IJV-0K-dnw"/>
+                        <viewControllerLayoutGuide type="bottom" id="o3f-fR-gjz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5NQ-oL-Zqh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Wallet passphrase" id="2lX-iq-g87">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Continue" id="P0O-Kg-Rho"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="continueButton" destination="P0O-Kg-Rho" id="7MY-MU-2b8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t6M-68-Vf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="157"/>
+        </scene>
         <!--Sync View Controller-->
         <scene sceneID="6Ou-WA-BN1">
             <objects>
@@ -152,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ynl-c5-JXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112.8" y="158.77061469265368"/>
+            <point key="canvasLocation" x="-20" y="-537"/>
         </scene>
     </scenes>
     <resources>

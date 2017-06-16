@@ -1,18 +1,24 @@
 PODS:
+  - Eureka (3.0.0)
+  - GenericPasswordRow (2.1.0):
+    - Eureka (= 3.0)
   - Geth (1.6.5)
   - R.swift (3.3.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
 
 DEPENDENCIES:
+  - GenericPasswordRow
   - Geth
   - R.swift
 
 SPEC CHECKSUMS:
+  Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
+  GenericPasswordRow: 6e0c3ce243ffe8bcb7ba43f772564ba0f776234b
   Geth: 3b43a111de2480d9e183a2ee34e78371288a09f3
   R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
 
-PODFILE CHECKSUM: 140b21eabe51bb0932866a98a69602846d189ea5
+PODFILE CHECKSUM: e84816011a60ea16e730e6669db9cfcc3da31474
 
 COCOAPODS: 1.1.1
