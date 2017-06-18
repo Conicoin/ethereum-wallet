@@ -35,7 +35,6 @@
 		14ACA1F41EF2BD050059E430 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1F21EF2BD050059E430 /* Constants.swift */; };
 		14ACA1F51EF2BD050059E430 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1F31EF2BD050059E430 /* Helpers.swift */; };
 		14ACA1F91EF2BD170059E430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1F61EF2BD170059E430 /* Assets.xcassets */; };
-		14ACA1FA1EF2BD170059E430 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1F71EF2BD170059E430 /* Info.plist */; };
 		14ACA1FB1EF2BD170059E430 /* rinkeby.json in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1F81EF2BD170059E430 /* rinkeby.json */; };
 		14ACA1FE1EF2BD630059E430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1FC1EF2BD630059E430 /* LaunchScreen.storyboard */; };
 		14B3B6391EF483F3002A0623 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E4F2D1EB2764A00AB62B6 /* R.generated.swift */; };
@@ -381,7 +380,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Artur Guseinov";
 				TargetAttributes = {
 					144E4F111EB26F0600AB62B6 = {
@@ -414,7 +413,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14ACA1FA1EF2BD170059E430 /* Info.plist in Resources */,
 				144791C91EF5DC6200029818 /* Wallet.storyboard in Resources */,
 				14ACA1DA1EF2BC930059E430 /* Welcome.storyboard in Resources */,
 				14B3B6871EF491FE002A0623 /* Localizable.strings in Resources */,
@@ -634,6 +632,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 471C561B090D913663E51D28 /* Pods-ethereum-wallet.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V9XXJGN69B;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -658,6 +657,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DD5C5EFF4867DAB25F226AE1 /* Pods-ethereum-wallet.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V9XXJGN69B;
 				FRAMEWORK_SEARCH_PATHS = (
