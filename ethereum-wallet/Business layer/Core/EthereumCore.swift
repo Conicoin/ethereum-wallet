@@ -13,18 +13,13 @@ import Geth
 // MARK: - EthereumCoreProtocol
 
 protocol EthereumCoreProtocol {
-    func start()
-    weak var syncDelegate: EthereumCoreSyncDelegate? { get set }
-}
-
-
-// MARK: - EthereumCoreSyncDelegate
-
-protocol EthereumCoreSyncDelegate: class {
-    func didReceiveBlock(_ number: Int64)
-    func didFailed(with error: Error)
-    func syncProgressDidChange(current: Int64, total: Int64)
-    func syncFinished()
+    
+    var syncHandler: SyncHandler? { get set }
+    
+    func startSync(_ handler: SyncHandler?) throws
+    func createAccount(passphrase: String) throws -> GethAccount
+    func jsonKey(for account: GethAccount, passphrase: String) throws -> Data
+    func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount
 }
 
 
@@ -32,7 +27,7 @@ class Ethereum: EthereumCoreProtocol {
     
     static var core: EthereumCoreProtocol = Ethereum()
     
-    weak var syncDelegate: EthereumCoreSyncDelegate?
+    internal var syncHandler: SyncHandler?
     
     fileprivate var ethereumContext: GethContext = GethNewContext()
     fileprivate var keystore:        GethKeyStore!
@@ -42,22 +37,41 @@ class Ethereum: EthereumCoreProtocol {
    
     fileprivate var isSyncMode = false
     
-    func start() {
-        
-        Global { [unowned self] in
-            do {
-                try self.startNode()
-                try self.subscribeNewHead()
-                try self.startProgressTicks()
-                
-            } catch {
-                Main {
-                    self.syncDelegate?.didFailed(with: error)
-                }
-            }
+    
+    // MARK: - Synchronization public
+    
+    func startSync(_ handler: SyncHandler?) throws {
+            self.syncHandler = handler
+        try self.startNode()
+        try self.subscribeNewHead()
+        try self.startProgressTicks()
+    }
+    
+    
+    // MARK: - Acount managment public
+    
+    func createAccount(passphrase: String) throws -> GethAccount {
+        guard keystore.getAccounts().size() == 0 else {
+            throw EthereumError.accountExist
         }
         
+        return try keystore.newAccount(passphrase)
     }
+    
+    func jsonKey(for account: GethAccount, passphrase: String) throws -> Data {
+        return try keystore.exportKey(account, passphrase: passphrase, newPassphrase: passphrase)
+    }
+    
+    func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount  {
+        return try keystore.importKey(jsonKey, passphrase: passphrase, newPassphrase: passphrase)
+    }
+    
+}
+
+
+// MARK: - Synchronization privates
+
+extension Ethereum {
     
     fileprivate func startNode() throws {
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -88,23 +102,23 @@ class Ethereum: EthereumCoreProtocol {
     
     fileprivate func subscribeNewHead() throws {
         
-        let handler = NewHeadHandler(errorHandler: nil) { header in
+        let newBlockHandler = NewHeadHandler(errorHandler: nil) { header in
             Main {
-                self.syncDelegate?.didReceiveBlock(header.getNumber())
+                self.syncHandler?.didReceiveBlock(header.getNumber())
             }
         }
         
-        try ethereumNode.getEthereumClient().subscribeNewHead(ethereumContext, handler: handler, buffer: 16)
+        try ethereumNode.getEthereumClient().subscribeNewHead(ethereumContext, handler: newBlockHandler, buffer: 16)
     }
     
     fileprivate func startProgressTicks() throws {
         Main {
             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
                 if let syncProgress = try? self.ethereumNode.getEthereumClient().syncProgress(self.ethereumContext) {
-                    self.syncDelegate?.syncProgressDidChange(current: syncProgress.getCurrentBlock(), total: syncProgress.getHighestBlock())
+                    self.syncHandler?.didChangeProgress(syncProgress.getCurrentBlock(), syncProgress.getHighestBlock())
                     self.isSyncMode = true
                 } else if self.isSyncMode {
-                    self.syncDelegate?.syncFinished()
+                    self.syncHandler?.didFinished()
                     self.isSyncMode = false
                     timer.invalidate()
                 }

@@ -14,15 +14,13 @@ class SyncViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var counter = 0
+
+    lazy var syncService: EthereumSyncService = EthereumSyncService(delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Ethereum.core.syncDelegate = self
         
-        Global {
-            Ethereum.core.start()
-        }
+        syncService.start()
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -32,7 +30,7 @@ class SyncViewController: UIViewController {
 
 // MARK: - WalletServiceDelegate
 
-extension SyncViewController: EthereumCoreSyncDelegate {
+extension SyncViewController: EthereumSyncDelegate {
     func syncFinished() {
         progressLabel.text = "Finished!"
     }

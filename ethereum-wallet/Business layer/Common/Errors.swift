@@ -41,11 +41,14 @@ enum KeychainError: CustomError {
 enum EthereumError: CustomError {
     
     case nodeStartFailed(error: NSError)
+    case accountExist
     
     var description: ErrorInfo {
         switch self {
         case .nodeStartFailed(let error):
             return ("Starting node error", error.localizedDescription, true)
+        case .accountExist:
+            return (nil, "Account already exist", true)
         }
     }
     

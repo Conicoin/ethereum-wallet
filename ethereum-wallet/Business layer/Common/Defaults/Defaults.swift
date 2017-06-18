@@ -10,13 +10,13 @@ import UIKit
 
 final class Defaults: NSObject {
     
-    class var isTestnet: Bool {
+    class var isAuthorized: Bool {
         get {
-            return get(forKey: .isTestnet, fallback: true)
+            return getBool(forKey: .isAuthorized)
         }
         
         set {
-            set(value: newValue, forKey: .isTestnet)
+            set(value: newValue, forKey: .isAuthorized)
         }
     }
 }
@@ -24,7 +24,7 @@ final class Defaults: NSObject {
 fileprivate extension Defaults {
     
     enum Keys: String {
-        case isTestnet = "isTestnetKey"
+        case isAuthorized = "isAuthorizedKey"
     }
     
     static func set<T: Any>(value: T, forKey key: Keys) {
@@ -39,4 +39,9 @@ fileprivate extension Defaults {
         
         return fallback
     }
+    
+    static func getBool(forKey key: Keys) -> Bool {
+        return UserDefaults.standard.bool(forKey: key.rawValue)
+    }
+
 }

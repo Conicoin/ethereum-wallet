@@ -17,8 +17,7 @@ struct Constants {
     
     struct Keychain {
         static let serviceName = "ethereum-wallet"
-       
-        static let masterSeedNameKey = "MasterSeed"
+        static let jsonKey = "json_key_data"
     }
 
 }

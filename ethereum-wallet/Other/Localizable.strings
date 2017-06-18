@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  ethereum-wallet
+
+  Created by Artur Guseinov on 17/06/2017.
+  Copyright © 2017 Artur Guseinov. All rights reserved.
+*/
+
+
+// MARK: - Welcome
+"welcome.new.title" = "New Wallet";
+"welcome.restore.title" = "Restore with passphrase";
+
+// MARK: - Password
+"new.password.title" = "New account";
+"restore.password.title" = "Restore account";

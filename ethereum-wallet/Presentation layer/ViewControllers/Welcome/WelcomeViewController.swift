@@ -11,7 +11,10 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var newWalletButton: UIButton!
-    @IBOutlet weak var restoreWalletButton: UIButton!
+    
+    var isRestoringAvailable: Bool {
+        return Keychain.isAccountBackuped
+    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -20,10 +23,9 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let buttonTitle = isRestoringAvailable ? R.string.localizable.welcomeRestoreTitle() : R.string.localizable.welcomeNewTitle()
+        newWalletButton.setTitle(buttonTitle, for: .normal)
         newWalletButton.layer.cornerRadius = 5
-        restoreWalletButton.layer.cornerRadius = 5
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

@@ -52,26 +52,12 @@
                                                     <segue destination="XJD-AY-rj3" kind="show" id="DVF-rY-KG6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ2-ke-CBn">
-                                                <rect key="frame" x="87" y="484" width="200" height="44"/>
-                                                <color key="backgroundColor" red="0.1764705882" green="0.5568627451" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="5p4-2Y-72k"/>
-                                                    <constraint firstAttribute="height" constant="44" id="WCp-EO-CfF"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <state key="normal" title="Restore with passphrase">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="aik-CP-jNI" firstAttribute="centerX" secondItem="yvl-nR-JSH" secondAttribute="centerX" id="QjU-ak-CZB"/>
                                             <constraint firstItem="aik-CP-jNI" firstAttribute="top" secondItem="1nf-TU-OUV" secondAttribute="bottom" constant="24" id="VO0-AX-89Y"/>
-                                            <constraint firstItem="tZ2-ke-CBn" firstAttribute="top" secondItem="aik-CP-jNI" secondAttribute="bottom" constant="24" id="ZYS-hg-pGB"/>
                                             <constraint firstItem="1nf-TU-OUV" firstAttribute="centerX" secondItem="yvl-nR-JSH" secondAttribute="centerX" id="e2X-nX-0RZ"/>
-                                            <constraint firstItem="tZ2-ke-CBn" firstAttribute="centerX" secondItem="yvl-nR-JSH" secondAttribute="centerX" id="nQ4-Yb-8iL"/>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome" translatesAutoresizingMaskIntoConstraints="NO" id="sA2-es-qBJ">
@@ -102,7 +88,6 @@
                     </view>
                     <connections>
                         <outlet property="newWalletButton" destination="aik-CP-jNI" id="zWU-8U-Oef"/>
-                        <outlet property="restoreWalletButton" destination="tZ2-ke-CBn" id="OB7-VX-FZD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rf2-RV-KBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -123,9 +108,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z40-rw-inA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100" y="157"/>
+            <point key="canvasLocation" x="126" y="158"/>
         </scene>
-        <!--Wallet passphrase-->
+        <!--Wallet password-->
         <scene sceneID="96V-Yk-xKZ">
             <objects>
                 <viewController id="7wg-96-IJh" customClass="PasswordViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
@@ -138,16 +123,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Wallet passphrase" id="2lX-iq-g87">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Continue" id="P0O-Kg-Rho"/>
+                    <navigationItem key="navigationItem" title="Wallet password" id="2lX-iq-g87">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" id="GDU-a1-GBh">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RI9-xY-6Ai">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Continue"/>
+                                <connections>
+                                    <action selector="continuePressed:" destination="7wg-96-IJh" eventType="touchUpInside" id="Xbt-a6-l5z"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="continueButton" destination="P0O-Kg-Rho" id="7MY-MU-2b8"/>
+                        <outlet property="continueButton" destination="RI9-xY-6Ai" id="1j3-CC-H1w"/>
+                        <segue destination="vfb-25-y0b" kind="show" identifier="goToWallet" id="3yg-xh-b8X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6M-68-Vf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="157"/>
+            <point key="canvasLocation" x="932" y="159"/>
+        </scene>
+        <!--Wallet-->
+        <scene sceneID="p2P-cd-wJ9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Wallet" id="vfb-25-y0b" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70T-2Q-7ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1674" y="158"/>
         </scene>
         <!--Sync View Controller-->
         <scene sceneID="6Ou-WA-BN1">
@@ -195,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ynl-c5-JXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-20" y="-537"/>
+            <point key="canvasLocation" x="126" y="-659"/>
         </scene>
     </scenes>
     <resources>
