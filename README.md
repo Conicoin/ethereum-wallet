@@ -18,12 +18,13 @@ To start correctly, you will need to start the project first, as soon as the pro
 
 ### Features
  
- At the moment, the project contains only the blockchain synchronization module, but in the future, <b>ethereum-wallet</b> will grow into a full-fledged wallet. I hope 🤓
+ At the moment, the project contains only the blockchain synchronization and Account managment, but in the future, <b>ethereum-wallet</b> will grow into a full-fledged wallet. I hope 🤓
 
 
 ### ToDo:
 
-* Accoum managment
+✅ Blockchain synchronization
+✅ Account managment
 * Transactions
 * Design
 * Landing web page
