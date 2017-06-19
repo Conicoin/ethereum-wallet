@@ -68,12 +68,12 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `PasswordViewController`, and contains static references to 1 segues.
     struct passwordViewController {
       /// Segue identifier `goToWallet`.
-      static let goToWallet: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PasswordViewController, UIKit.UITabBarController> = Rswift.StoryboardSegueIdentifier(identifier: "goToWallet")
+      static let goToWallet: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PasswordViewController, RootTabBarController> = Rswift.StoryboardSegueIdentifier(identifier: "goToWallet")
       
       /// Optionally returns a typed version of segue `goToWallet`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToWallet(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PasswordViewController, UIKit.UITabBarController>? {
+      static func goToWallet(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PasswordViewController, RootTabBarController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.passwordViewController.goToWallet, segue: segue)
       }
       
@@ -191,7 +191,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct wallet: Rswift.StoryboardResourceWithInitialControllerType {
-      typealias InitialController = UIKit.UITabBarController
+      typealias InitialController = RootTabBarController
       
       let bundle = R.hostingBundle
       let name = "Wallet"
@@ -204,15 +204,9 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "Welcome"
-      let syncViewController = StoryboardViewControllerResource<SyncViewController>(identifier: "SyncViewController")
-      
-      func syncViewController(_: Void = ()) -> SyncViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: syncViewController)
-      }
       
       static func validate() throws {
         if UIKit.UIImage(named: "Welcome") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Welcome' is used in storyboard 'Welcome', but couldn't be loaded.") }
-        if _R.storyboard.welcome().syncViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'syncViewController' could not be loaded from storyboard 'Welcome' as 'SyncViewController'.") }
       }
       
       fileprivate init() {}

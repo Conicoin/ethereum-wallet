@@ -10,12 +10,8 @@ import Foundation
 
 class ApplicationConfigurator: ConfiguratorProtocol {
     
-    let syncService = EthereumSyncService()
-    
     func configure() {
-        
-        syncService.start()
-        
+                
         if Defaults.isAuthorized {
             AppDelegate.currentWindow.rootViewController = R.storyboard.wallet.instantiateInitialViewController()
         } else {

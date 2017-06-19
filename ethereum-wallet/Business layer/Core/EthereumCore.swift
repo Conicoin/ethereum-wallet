@@ -16,7 +16,7 @@ protocol EthereumCoreProtocol {
     
     var syncHandler: SyncHandler? { get set }
     
-    func startSync(_ handler: SyncHandler?) throws
+    func startSync(balanceHandler: BalanceHandler, syncHandler: SyncHandler?) throws
     func createAccount(passphrase: String) throws -> GethAccount
     func jsonKey(for account: GethAccount, passphrase: String) throws -> Data
     func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount
@@ -29,19 +29,23 @@ class Ethereum: EthereumCoreProtocol {
     
     internal var syncHandler: SyncHandler?
     
+    fileprivate lazy var keystore: GethKeyStore! = {
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        return GethNewKeyStore(documentDirectory + "/keystore", GethLightScryptN, GethLightScryptP)
+    }()
+    
     fileprivate var ethereumContext: GethContext = GethNewContext()
-    fileprivate var keystore:        GethKeyStore!
+    fileprivate var balanceHandler:  BalanceHandler!
     fileprivate var ethereumNode:    GethNode!
-    fileprivate var lastSeenBlock:   Int64?
-    fileprivate var balance:         Balance!
    
     fileprivate var isSyncMode = false
     
     
     // MARK: - Synchronization public
     
-    func startSync(_ handler: SyncHandler?) throws {
-            self.syncHandler = handler
+    func startSync(balanceHandler: BalanceHandler, syncHandler: SyncHandler?) throws {
+            self.balanceHandler = balanceHandler
+            self.syncHandler = syncHandler
         try self.startNode()
         try self.subscribeNewHead()
         try self.startProgressTicks()
@@ -74,8 +78,6 @@ class Ethereum: EthereumCoreProtocol {
 extension Ethereum {
     
     fileprivate func startNode() throws {
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        keystore = GethNewKeyStore(documentDirectory + "/keystore", GethLightScryptN, GethLightScryptP)
         
         var error: NSError?
         let bootNodes = GethNewEnodesEmpty()
@@ -105,6 +107,12 @@ extension Ethereum {
         let newBlockHandler = NewHeadHandler(errorHandler: nil) { header in
             Main {
                 self.syncHandler?.didReceiveBlock(header.getNumber())
+                
+                do {
+                    let address = try self.keystore.getAccounts().get(0).getAddress()
+                    let balance = try self.ethereumNode.getEthereumClient().getBalanceAt(self.ethereumContext, account: address, number: header.getNumber())
+                    self.balanceHandler.didUpdateBalance(balance.getInt64())
+                } catch {}
             }
         }
         

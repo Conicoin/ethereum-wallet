@@ -47,12 +47,9 @@ class PasswordViewController: FormViewController {
 
     @IBAction func continuePressed(_ sender: UIButton) {
         sender.loadingIndicator(true)
-        NSLog("1")
         if restoring {
-            NSLog("2")
             accountService.restoreAccount(passphrase: password)
         } else {
-            NSLog("3 %@", password)
             accountService.createAccount(passphrase: password)
         }
     }
@@ -64,14 +61,13 @@ class PasswordViewController: FormViewController {
 extension PasswordViewController: EthereumAccountDelegate {
     
     func success(account: Account) {
-        NSLog("15")
+        Wallet.createWithAddress(account.address)
         Defaults.isAuthorized = true
         continueButton.loadingIndicator(false)
         performSegue(withIdentifier: R.segue.passwordViewController.goToWallet.identifier, sender: nil)
     }
     
     func didFailed(with error: Error) {
-        NSLog("16")
         continueButton.loadingIndicator(false)
         error.showAllertIfNeeded(from: self)
     }

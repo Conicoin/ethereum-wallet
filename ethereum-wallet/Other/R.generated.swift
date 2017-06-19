@@ -212,15 +212,10 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "Welcome"
-      let syncViewController = StoryboardViewControllerResource<SyncViewController>(identifier: "SyncViewController")
-      
-      func syncViewController(_: Void = ()) -> SyncViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: syncViewController)
-      }
       
       static func validate() throws {
         if UIKit.UIImage(named: "Welcome") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Welcome' is used in storyboard 'Welcome', but couldn't be loaded.") }
-        if _R.storyboard.welcome().syncViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'syncViewController' could not be loaded from storyboard 'Welcome' as 'SyncViewController'.") }
+
       }
       
       fileprivate init() {}

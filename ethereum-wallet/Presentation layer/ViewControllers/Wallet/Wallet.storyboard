@@ -31,7 +31,7 @@
         <!--Item 1-->
         <scene sceneID="dL3-Mq-DOq">
             <objects>
-                <viewController id="EGi-bF-A84" sceneMemberID="viewController">
+                <viewController id="EGi-bF-A84" customClass="BalanceViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IGj-DI-nWP"/>
                         <viewControllerLayoutGuide type="bottom" id="X7O-Vz-a89"/>
@@ -39,18 +39,30 @@
                     <view key="view" contentMode="scaleToFill" id="ceD-ir-B0h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRB-HD-yjz">
+                                <rect key="frame" x="41" y="238" width="318" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="Zua-dn-wef"/>
+                    <connections>
+                        <outlet property="balanceLabel" destination="XRB-HD-yjz" id="9Iv-Ng-Fpr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQu-aQ-3Ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="294" y="-426"/>
+            <point key="canvasLocation" x="293.60000000000002" y="-426.83658170914543"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Root Tab Bar Controller-->
         <scene sceneID="dth-FK-EcP">
             <objects>
-                <tabBarController id="Y2q-tr-cny" sceneMemberID="viewController">
+                <tabBarController id="Y2q-tr-cny" customClass="RootTabBarController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="FbH-hT-Bgj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

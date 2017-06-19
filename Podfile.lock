@@ -6,11 +6,17 @@ PODS:
   - R.swift (3.3.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
+  - Realm (2.8.1):
+    - Realm/Headers (= 2.8.1)
+  - Realm/Headers (2.8.1)
+  - RealmSwift (2.8.1):
+    - Realm (= 2.8.1)
 
 DEPENDENCIES:
   - GenericPasswordRow
   - Geth
   - R.swift
+  - RealmSwift
 
 SPEC CHECKSUMS:
   Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
@@ -18,7 +24,9 @@ SPEC CHECKSUMS:
   Geth: 3b43a111de2480d9e183a2ee34e78371288a09f3
   R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
+  Realm: 2627602ad6818451f0cb8c2a6e072f7f10a5f360
+  RealmSwift: 4764ca7657f2193c256fb032c0b123926f70dbcd
 
-PODFILE CHECKSUM: e84816011a60ea16e730e6669db9cfcc3da31474
+PODFILE CHECKSUM: 89467b626932d11b99affee4add2e1d83b95a57a
 
 COCOAPODS: 1.1.1

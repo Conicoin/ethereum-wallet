@@ -7,20 +7,24 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 // MARK: - EthereumSyncDelegate
 
 protocol EthereumSyncDelegate: class {
-    func didReceiveBlock(_ number: Int64)
-    func didFailed(with error: Error)
-    func syncProgressDidChange(current: Int64, total: Int64)
-    func syncFinished()
+    func syncDidReceiveBlock(_ number: Int64)
+    func syncDidChangeBalance()
+    func syncDidFailedWithError(_ error: Error)
+    func syncDidChangeProgress(current: Int64, total: Int64)
+    func syncDidFinished()
 }
 
-struct EthereumSyncService {
+class EthereumSyncService {
     
-    weak var delegate: EthereumSyncDelegate?
+    internal weak var delegate: EthereumSyncDelegate?
+    
+    fileprivate var notificationToken: NotificationToken?
     
     init(delegate: EthereumSyncDelegate? = nil) {
         self.delegate = delegate
@@ -28,27 +32,33 @@ struct EthereumSyncService {
     
     func start() {
         
-        let handler = SyncHandler(didReceiveBlock: { number in
-            self.delegate?.didReceiveBlock(number)
-        }, didChangeProgress: { current, total in
-            self.delegate?.syncProgressDidChange(current: current, total: total)
-        }) { 
-            self.delegate?.syncFinished()
+        let wallet = Wallet.returnWallet()
+        notificationToken = wallet.addNotificationBlock { [weak self] change in
+            self?.delegate?.syncDidChangeBalance()
         }
         
+        let balanceHandler = BalanceHandler { newBalance in
+            wallet.updateBalance(newBalance)
+        }
+        
+        let syncHandler = SyncHandler(didReceiveBlock: { number in
+            self.delegate?.syncDidReceiveBlock(number)
+        }, didChangeProgress: { current, total in
+            self.delegate?.syncDidChangeProgress(current: current, total: total)
+        }) { 
+            self.delegate?.syncDidFinished()
+        }
         
         Global {
             do  {
-                try Ethereum.core.startSync(handler)
+                try Ethereum.core.startSync(balanceHandler: balanceHandler, syncHandler: syncHandler)
                 
             } catch {
                 Main {
-                    self.delegate?.didFailed(with: error)
+                    self.delegate?.syncDidFailedWithError(error)
                 }
             }
         }
-        
-        
     }
 
 }

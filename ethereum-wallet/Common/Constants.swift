@@ -19,5 +19,9 @@ struct Constants {
         static let serviceName = "ethereum-wallet"
         static let jsonKey = "json_key_data"
     }
+    
+    struct Realm {
+        static let walletPrivateKey = "Wallet_primaryKey"
+    }
 
 }

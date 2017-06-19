@@ -9,6 +9,7 @@ target 'ethereum-wallet' do
   pod 'R.swift'
   pod 'Geth'
   pod 'GenericPasswordRow'
+  pod 'RealmSwift'
 
 end
 
