@@ -185,8 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				14B3B6821EF491AB002A0623 /* PasswordViewController.swift */,
-				14ACA1D81EF2BC930059E430 /* Welcome.storyboard */,
 				14B3B6801EF491A1002A0623 /* WelcomeViewController.swift */,
+				14ACA1D81EF2BC930059E430 /* Welcome.storyboard */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -195,8 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				14D027E71EF80F5F00F125C3 /* RootTabBarController.swift */,
-				144791C81EF5DC6200029818 /* Wallet.storyboard */,
 				14D027E51EF7537900F125C3 /* BalanceViewController.swift */,
+				144791C81EF5DC6200029818 /* Wallet.storyboard */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -204,10 +204,10 @@
 		144E4F091EB26F0600AB62B6 = {
 			isa = PBXGroup;
 			children = (
+				144E4F141EB26F0600AB62B6 /* ethereum-wallet */,
+				144E4F131EB26F0600AB62B6 /* Products */,
 				ACD32142393BFB283A320AA3 /* Frameworks */,
 				AEAA578A13FE7C37D8E50B81 /* Pods */,
-				144E4F131EB26F0600AB62B6 /* Products */,
-				144E4F141EB26F0600AB62B6 /* ethereum-wallet */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,9 +224,9 @@
 			children = (
 				144E4F271EB26F6F00AB62B6 /* Application layer */,
 				144E4F341EB276C700AB62B6 /* Business layer */,
+				144E4F281EB26F7A00AB62B6 /* Presentation layer */,
 				144E4F381EB2772B00AB62B6 /* Common */,
 				144E4F291EB26FA300AB62B6 /* Other */,
-				144E4F281EB26F7A00AB62B6 /* Presentation layer */,
 			);
 			path = "ethereum-wallet";
 			sourceTree = "<group>";
@@ -275,11 +275,11 @@
 		144E4F341EB276C700AB62B6 /* Business layer */ = {
 			isa = PBXGroup;
 			children = (
+				14C4D3CE1EDE209800FCA3AF /* Services */,
 				142B5A1D1EDF117D007F73BA /* Common */,
 				1438CCDD1EF1AD1000C6AA3F /* Core */,
 				14C4D3CF1EDE20A200FCA3AF /* Managers */,
 				1438CCE01EF1BD8B00C6AA3F /* Models */,
-				14C4D3CE1EDE209800FCA3AF /* Services */,
 			);
 			path = "Business layer";
 			sourceTree = "<group>";
