@@ -61,10 +61,12 @@ class PasswordViewController: FormViewController {
 extension PasswordViewController: EthereumAccountDelegate {
     
     func success(account: Account) {
+        NSLog("address: %@", account.address)
         Wallet.createWithAddress(account.address)
         Defaults.isAuthorized = true
         continueButton.loadingIndicator(false)
-        performSegue(withIdentifier: R.segue.passwordViewController.goToWallet.identifier, sender: nil)
+        
+        AppDelegate.currentWindow.rootViewController = R.storyboard.wallet.instantiateInitialViewController()
     }
     
     func didFailed(with error: Error) {

@@ -13,7 +13,6 @@ import RealmSwift
 // MARK: - EthereumSyncDelegate
 
 protocol EthereumSyncDelegate: class {
-    func syncDidReceiveBlock(_ number: Int64)
     func syncDidChangeBalance()
     func syncDidFailedWithError(_ error: Error)
     func syncDidChangeProgress(current: Int64, total: Int64)
@@ -22,7 +21,7 @@ protocol EthereumSyncDelegate: class {
 
 class EthereumSyncService {
     
-    internal weak var delegate: EthereumSyncDelegate?
+    weak var delegate: EthereumSyncDelegate?
     
     fileprivate var notificationToken: NotificationToken?
     
@@ -34,16 +33,14 @@ class EthereumSyncService {
         
         let wallet = Wallet.returnWallet()
         notificationToken = wallet.addNotificationBlock { [weak self] change in
-            self?.delegate?.syncDidChangeBalance()
+            Main { self?.delegate?.syncDidChangeBalance() }
         }
         
         let balanceHandler = BalanceHandler { newBalance in
             wallet.updateBalance(newBalance)
         }
         
-        let syncHandler = SyncHandler(didReceiveBlock: { number in
-            self.delegate?.syncDidReceiveBlock(number)
-        }, didChangeProgress: { current, total in
+        let syncHandler = SyncHandler(didChangeProgress: { current, total in
             self.delegate?.syncDidChangeProgress(current: current, total: total)
         }) { 
             self.delegate?.syncDidFinished()

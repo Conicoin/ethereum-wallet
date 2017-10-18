@@ -40,10 +40,24 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
+    /// Image `BalanceTab`.
+    static let balanceTab = Rswift.ImageResource(bundle: R.hostingBundle, name: "BalanceTab")
+    /// Image `TransactionsTab`.
+    static let transactionsTab = Rswift.ImageResource(bundle: R.hostingBundle, name: "TransactionsTab")
     /// Image `Welcome`.
     static let welcome = Rswift.ImageResource(bundle: R.hostingBundle, name: "Welcome")
+    
+    /// `UIImage(named: "BalanceTab", bundle: ..., traitCollection: ...)`
+    static func balanceTab(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.balanceTab, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "TransactionsTab", bundle: ..., traitCollection: ...)`
+    static func transactionsTab(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.transactionsTab, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "Welcome", bundle: ..., traitCollection: ...)`
     static func welcome(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -58,8 +72,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 0 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `TransactionCell`.
+    static let transactionCell: Rswift.ReuseIdentifier<TransactionCell> = Rswift.ReuseIdentifier(identifier: "TransactionCell")
+    
     fileprivate init() {}
   }
   
@@ -173,6 +190,7 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try wallet.validate()
       try welcome.validate()
       try launchScreen.validate()
     }
@@ -190,11 +208,16 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct wallet: Rswift.StoryboardResourceWithInitialControllerType {
+    struct wallet: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = RootTabBarController
       
       let bundle = R.hostingBundle
       let name = "Wallet"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "TransactionsTab") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TransactionsTab' is used in storyboard 'Wallet', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "BalanceTab") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'BalanceTab' is used in storyboard 'Wallet', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }

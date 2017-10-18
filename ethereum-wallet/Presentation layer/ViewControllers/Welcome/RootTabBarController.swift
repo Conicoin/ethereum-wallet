@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RootTabBarController: UITabBarController {
+class RootTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     lazy var syncService: EthereumSyncService = EthereumSyncService(delegate: self)
     
@@ -18,7 +18,7 @@ class RootTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NSLog("START!@#!@#!@#")
         syncService.start()
     }
 
@@ -28,17 +28,13 @@ class RootTabBarController: UITabBarController {
 // MARK: - EthereumSyncDelegate
 
 extension RootTabBarController: EthereumSyncDelegate {
-    
-    func syncDidReceiveBlock(_ number: Int64) {
-        
-    }
-    
+
     func syncDidChangeBalance() {
         blanceViewController.updateBalance()
     }
     
     func syncDidFailedWithError(_ error: Error) {
-        
+        error.showAllertIfNeeded(from: self)
     }
     
     func syncDidChangeProgress(current: Int64, total: Int64) {
@@ -46,7 +42,7 @@ extension RootTabBarController: EthereumSyncDelegate {
     }
     
     func syncDidFinished() {
-        
+        NSLog("syncDidFinished")
     }
     
 }

@@ -43,6 +43,13 @@
 		14D027E21EF7446900F125C3 /* BalanceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027E11EF7446900F125C3 /* BalanceHandler.swift */; };
 		14D027E61EF7537900F125C3 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027E51EF7537900F125C3 /* BalanceViewController.swift */; };
 		14D027E81EF80F5F00F125C3 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027E71EF80F5F00F125C3 /* RootTabBarController.swift */; };
+		14D027EB1EF87A1D00F125C3 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027EA1EF87A1D00F125C3 /* Networking.swift */; };
+		14D027EE1EF9661100F125C3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027ED1EF9661100F125C3 /* API.swift */; };
+		14D027F01EF96ACC00F125C3 /* API+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027EF1EF96ACC00F125C3 /* API+Transaction.swift */; };
+		14D027F31EF96D4900F125C3 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027F21EF96D4900F125C3 /* TransactionsViewController.swift */; };
+		14D027F51EF96D9000F125C3 /* TransactionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027F41EF96D9000F125C3 /* TransactionsService.swift */; };
+		14D027F71EF9701A00F125C3 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027F61EF9701A00F125C3 /* Transaction.swift */; };
+		14D027FB1EF9AAA700F125C3 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027FA1EF9AAA700F125C3 /* TransactionCell.swift */; };
 		C2722CA625D048F64B4350F4 /* Pods_ethereum_wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9520F72130C6C2267F53AE16 /* Pods_ethereum_wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +93,13 @@
 		14D027E11EF7446900F125C3 /* BalanceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceHandler.swift; sourceTree = "<group>"; };
 		14D027E51EF7537900F125C3 /* BalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
 		14D027E71EF80F5F00F125C3 /* RootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootTabBarController.swift; path = ../Welcome/RootTabBarController.swift; sourceTree = "<group>"; };
+		14D027EA1EF87A1D00F125C3 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		14D027ED1EF9661100F125C3 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		14D027EF1EF96ACC00F125C3 /* API+Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API+Transaction.swift"; sourceTree = "<group>"; };
+		14D027F21EF96D4900F125C3 /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		14D027F41EF96D9000F125C3 /* TransactionsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsService.swift; sourceTree = "<group>"; };
+		14D027F61EF9701A00F125C3 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		14D027FA1EF9AAA700F125C3 /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		471C561B090D913663E51D28 /* Pods-ethereum-wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		9520F72130C6C2267F53AE16 /* Pods_ethereum_wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ethereum_wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5C5EFF4867DAB25F226AE1 /* Pods-ethereum-wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,8 +208,9 @@
 		144791D41EF5DF7000029818 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				14D027F81EF981D400F125C3 /* Balance */,
+				14D027F11EF96D1F00F125C3 /* Transactions */,
 				14D027E71EF80F5F00F125C3 /* RootTabBarController.swift */,
-				14D027E51EF7537900F125C3 /* BalanceViewController.swift */,
 				144791C81EF5DC6200029818 /* Wallet.storyboard */,
 			);
 			path = Wallet;
@@ -251,7 +266,6 @@
 		144E4F291EB26FA300AB62B6 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				1456C0D01ED4DBC30055BE93 /* External */,
 				14ACA1F61EF2BD170059E430 /* Assets.xcassets */,
 				14C4D3CD1EDE1F3700FCA3AF /* Bridging-Header.h */,
 				14ACA1F71EF2BD170059E430 /* Info.plist */,
@@ -275,6 +289,7 @@
 		144E4F341EB276C700AB62B6 /* Business layer */ = {
 			isa = PBXGroup;
 			children = (
+				14D027E91EF87A0800F125C3 /* Networking */,
 				14C4D3CE1EDE209800FCA3AF /* Services */,
 				142B5A1D1EDF117D007F73BA /* Common */,
 				1438CCDD1EF1AD1000C6AA3F /* Core */,
@@ -294,18 +309,12 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		1456C0D01ED4DBC30055BE93 /* External */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = External;
-			sourceTree = "<group>";
-		};
 		14C4D3CE1EDE209800FCA3AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				144791BE1EF58D9300029818 /* EthereumAccountService.swift */,
 				144791B91EF556A900029818 /* EthereumSyncService.swift */,
+				14D027F41EF96D9000F125C3 /* TransactionsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -330,8 +339,54 @@
 			isa = PBXGroup;
 			children = (
 				14D027DF1EF6D4CD00F125C3 /* Wallet.swift */,
+				14D027F61EF9701A00F125C3 /* Transaction.swift */,
 			);
 			name = Realm;
+			sourceTree = "<group>";
+		};
+		14D027E91EF87A0800F125C3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				14D027EC1EF965C400F125C3 /* API */,
+				14D027EA1EF87A1D00F125C3 /* Networking.swift */,
+			);
+			name = Networking;
+			path = Common;
+			sourceTree = "<group>";
+		};
+		14D027EC1EF965C400F125C3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				14D027ED1EF9661100F125C3 /* API.swift */,
+				14D027EF1EF96ACC00F125C3 /* API+Transaction.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		14D027F11EF96D1F00F125C3 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				14D027F91EF9AA9200F125C3 /* Cells */,
+				14D027F21EF96D4900F125C3 /* TransactionsViewController.swift */,
+			);
+			name = Transactions;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		14D027F81EF981D400F125C3 /* Balance */ = {
+			isa = PBXGroup;
+			children = (
+				14D027E51EF7537900F125C3 /* BalanceViewController.swift */,
+			);
+			name = Balance;
+			sourceTree = "<group>";
+		};
+		14D027F91EF9AA9200F125C3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				14D027FA1EF9AAA700F125C3 /* TransactionCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		ACD32142393BFB283A320AA3 /* Frameworks */ = {
@@ -508,17 +563,24 @@
 				14D027E61EF7537900F125C3 /* BalanceViewController.swift in Sources */,
 				144791CE1EF5DE0300029818 /* AppearanceConfigurator.swift in Sources */,
 				14ACA1E71EF2BCC80059E430 /* Keychain.swift in Sources */,
+				14D027FB1EF9AAA700F125C3 /* TransactionCell.swift in Sources */,
+				14D027F71EF9701A00F125C3 /* Transaction.swift in Sources */,
+				14D027F31EF96D4900F125C3 /* TransactionsViewController.swift in Sources */,
 				144791BF1EF58D9300029818 /* EthereumAccountService.swift in Sources */,
 				14D027E21EF7446900F125C3 /* BalanceHandler.swift in Sources */,
 				14D027E01EF6D4CD00F125C3 /* Wallet.swift in Sources */,
 				14ACA1D71EF2BC840059E430 /* AppDelegate.swift in Sources */,
 				144791CC1EF5DDD200029818 /* ConfiguratorProtocol.swift in Sources */,
+				14D027F51EF96D9000F125C3 /* TransactionsService.swift in Sources */,
 				14ACA1F01EF2BCF30059E430 /* Error+Helpers.swift in Sources */,
 				14ACA1F41EF2BD050059E430 /* Constants.swift in Sources */,
+				14D027EB1EF87A1D00F125C3 /* Networking.swift in Sources */,
 				144791981EF495F500029818 /* Data+Helpers.swift in Sources */,
+				14D027EE1EF9661100F125C3 /* API.swift in Sources */,
 				144791BD1EF55B2B00029818 /* SyncHandler.swift in Sources */,
 				14D027E81EF80F5F00F125C3 /* RootTabBarController.swift in Sources */,
 				144791C71EF5A95500029818 /* Keychain+Helpers.swift in Sources */,
+				14D027F01EF96ACC00F125C3 /* API+Transaction.swift in Sources */,
 				14ACA1E61EF2BCC80059E430 /* Errors.swift in Sources */,
 				14ACA1F51EF2BD050059E430 /* Helpers.swift in Sources */,
 				14ACA1F11EF2BCF30059E430 /* Timer+Helpers.swift in Sources */,

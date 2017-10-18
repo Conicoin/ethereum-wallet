@@ -105,15 +105,12 @@ extension Ethereum {
     fileprivate func subscribeNewHead() throws {
         
         let newBlockHandler = NewHeadHandler(errorHandler: nil) { header in
-            Main {
-                self.syncHandler?.didReceiveBlock(header.getNumber())
+            do {
+                let address = try self.keystore.getAccounts().get(0).getAddress()
+                let balance = try self.ethereumNode.getEthereumClient().getBalanceAt(self.ethereumContext, account: address, number: header.getNumber())
                 
-                do {
-                    let address = try self.keystore.getAccounts().get(0).getAddress()
-                    let balance = try self.ethereumNode.getEthereumClient().getBalanceAt(self.ethereumContext, account: address, number: header.getNumber())
-                    self.balanceHandler.didUpdateBalance(balance.getInt64())
-                } catch {}
-            }
+                self.balanceHandler.didUpdateBalance(balance.getInt64())
+            } catch {}
         }
         
         try ethereumNode.getEthereumClient().subscribeNewHead(ethereumContext, handler: newBlockHandler, buffer: 16)

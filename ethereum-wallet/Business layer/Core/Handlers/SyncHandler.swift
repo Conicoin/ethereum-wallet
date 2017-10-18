@@ -10,7 +10,6 @@ import UIKit
 
 struct SyncHandler {
     
-    let didReceiveBlock: (Int64) -> Void
     let didChangeProgress: (Int64, Int64) -> Void
     let didFinished: VoidBlock
 
