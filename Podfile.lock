@@ -1,53 +1,35 @@
 PODS:
-  - Alamofire (4.5.0)
-  - AlamofireObjectMapper (4.1.0):
+  - Alamofire (4.5.1)
+  - AlamofireObjectMapper (5.0.0):
     - Alamofire (~> 4.1)
-    - ObjectMapper (~> 2.0)
-  - DTModelStorage (5.1.0):
-    - DTModelStorage/Core (= 5.1.0)
-  - DTModelStorage/Core (5.1.0)
-  - DTModelStorage/Realm (5.1.0):
-    - DTModelStorage/Core
-    - RealmSwift (~> 2.0)
-  - DTTableViewManager (5.3.0):
-    - DTModelStorage (~> 5.0)
-  - Eureka (3.0.0)
-  - GenericPasswordRow (2.1.0):
-    - Eureka (= 3.0)
-  - Geth (1.6.5)
-  - ObjectMapper (2.2.7)
-  - R.swift (3.3.0):
-    - R.swift.Library (~> 3.0.2)
-  - R.swift.Library (3.0.2)
-  - Realm (2.8.3):
-    - Realm/Headers (= 2.8.3)
-  - Realm/Headers (2.8.3)
-  - RealmSwift (2.8.3):
-    - Realm (= 2.8.3)
+    - ObjectMapper (~> 3.0)
+  - Geth (1.7.2)
+  - ObjectMapper (3.0.0)
+  - R.swift (4.0.0):
+    - R.swift.Library (~> 4.0.0)
+  - R.swift.Library (4.0.0)
+  - Realm (3.0.0):
+    - Realm/Headers (= 3.0.0)
+  - Realm/Headers (3.0.0)
+  - RealmSwift (3.0.0):
+    - Realm (= 3.0.0)
 
 DEPENDENCIES:
   - AlamofireObjectMapper
-  - DTModelStorage/Realm
-  - DTTableViewManager
-  - GenericPasswordRow
   - Geth
   - R.swift
   - RealmSwift
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
-  AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
-  DTModelStorage: 47c56a07c59a5381902b0b10b835d1a83d0ea9f2
-  DTTableViewManager: ce8b4e784979787690a2187088f0b77bbfdaa913
-  Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
-  GenericPasswordRow: 6e0c3ce243ffe8bcb7ba43f772564ba0f776234b
-  Geth: 3b43a111de2480d9e183a2ee34e78371288a09f3
-  ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
-  R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
-  R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
-  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
-  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  Geth: 1efbf2eb4d4c697a7232c5385da127ca386b1060
+  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
+  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
+  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  Realm: dec0de73be8c57506e39db72694d513c189493b3
+  RealmSwift: 44a7090b16d1b22a406c6bf129bdd602db1bbecc
 
-PODFILE CHECKSUM: c3bb997efe3e88921ece011f831a1d42abe9631d
+PODFILE CHECKSUM: b61c052408bc407ddd9cd667cf777717414e2107
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.3.1

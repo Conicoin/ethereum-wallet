@@ -44,6 +44,7 @@ class Ethereum: EthereumCoreProtocol {
     // MARK: - Synchronization public
     
     func startSync(balanceHandler: BalanceHandler, syncHandler: SyncHandler?) throws {
+            GethSetVerbosity(9)
             self.balanceHandler = balanceHandler
             self.syncHandler = syncHandler
         try self.startNode()
@@ -93,7 +94,7 @@ extension Ethereum {
         config?.setEthereumNetStats("flypaper:Respect my authoritah!@stats.rinkeby.io")
         
         let datadir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        ethereumNode = GethNewNode(datadir, config, &error)
+        ethereumNode = GethNewNode(datadir + "/.rinkeby", config, &error)
         
         try ethereumNode.start()
         

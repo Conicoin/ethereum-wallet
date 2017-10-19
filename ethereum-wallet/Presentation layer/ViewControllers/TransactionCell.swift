@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import DTTableViewManager
-import DTModelStorage
-
 class TransactionCell: UITableViewCell {
     
     @IBOutlet weak var label: UILabel!
@@ -28,12 +25,14 @@ class TransactionCell: UITableViewCell {
 }
 
 
-// MARK: - ModelTransfer
+// TODO
+//// MARK: - ModelTransfer
+//
+//extension TransactionCell: ModelTransfer {
+//
+//    func update(with model: Transaction) {
+//        label.text = model.txHash
+//    }
+//
+//}
 
-extension TransactionCell: ModelTransfer {
-    
-    func update(with model: Transaction) {
-        label.text = model.txHash
-    }
-    
-}

@@ -16,7 +16,7 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 0 color palettes.
+  /// This `R.color` struct is generated, and contains static references to 0 colors.
   struct color {
     fileprivate init() {}
   }

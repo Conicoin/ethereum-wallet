@@ -7,11 +7,9 @@
 //
 
 import UIKit
-import DTModelStorage
-import DTTableViewManager
 import RealmSwift
 
-class TransactionsViewController: UIViewController, DTTableViewManageable {
+class TransactionsViewController: UIViewController {
     
     lazy var service: TransactionsService = TransactionsService(delegate: self)
     
@@ -20,13 +18,14 @@ class TransactionsViewController: UIViewController, DTTableViewManageable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        manager.startManaging(withDelegate: self)
-        manager.register(TransactionCell.self)
+        // TODO
+//        manager.startManaging(withDelegate: self)
+//        manager.register(TransactionCell.self)
         
         let address = Wallet.returnWallet().address
         let stored = Transaction.getTransactions(for: address)
-        manager.storage = RealmStorage()
-        (manager.storage as! RealmStorage).addSection(with: stored)
+//        manager.storage = RealmStorage()
+//        (manager.storage as! RealmStorage).addSection(with: stored)
     }
     
     

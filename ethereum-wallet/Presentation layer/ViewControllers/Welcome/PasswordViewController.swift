@@ -7,20 +7,18 @@
 //
 
 import UIKit
-import Eureka
-import GenericPasswordRow
 
-class PasswordViewController: FormViewController {
+class PasswordViewController: UITableViewController {
     
     lazy var accountService: EthereumAccountService = EthereumAccountService(delegate: self)
-    
-    @IBOutlet weak var continueButton: UIButton!
     
     var password: String!
     
     var restoring: Bool {
         return Keychain.isAccountBackuped
     }
+    
+    @IBOutlet weak var textField: UITextField!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
@@ -29,30 +27,54 @@ class PasswordViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = restoring ? R.string.localizable.restorePasswordTitle() : R.string.localizable.newPasswordTitle()
+        textField.enablesReturnKeyAutomatically = true
         
-        form +++ Section()
-            <<< GenericPasswordRow {
-                $0.onChange {
-                    self.password = $0.value
-                    self.navigationItem.rightBarButtonItem?.isEnabled = $0.isPasswordValid()
-                }
-        }
+        title = restoring ?
+            R.string.localizable.restorePasswordTitle() :
+            R.string.localizable.newPasswordTitle()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func continuePressed(_ sender: UIButton) {
-        sender.loadingIndicator(true)
+    
+    fileprivate func applyPassword() {
         if restoring {
             accountService.restoreAccount(passphrase: password)
         } else {
             accountService.createAccount(passphrase: password)
         }
     }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func didChangePassword(_ sender: UITextField) {
+        password = sender.text
+    }
+
+    @IBAction func continuePressed(_ sender: UIButton) {
+        sender.loadingIndicator(true)
+ 
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension PasswordViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        applyPassword()
+        return true
+    }
+    
 }
 
 
@@ -64,13 +86,11 @@ extension PasswordViewController: EthereumAccountDelegate {
         NSLog("address: %@", account.address)
         Wallet.createWithAddress(account.address)
         Defaults.isAuthorized = true
-        continueButton.loadingIndicator(false)
         
         AppDelegate.currentWindow.rootViewController = R.storyboard.wallet.instantiateInitialViewController()
     }
     
     func didFailed(with error: Error) {
-        continueButton.loadingIndicator(false)
         error.showAllertIfNeeded(from: self)
     }
 }

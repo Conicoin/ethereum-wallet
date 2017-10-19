@@ -32,7 +32,7 @@ class EthereumSyncService {
     func start() {
         
         let wallet = Wallet.returnWallet()
-        notificationToken = wallet.addNotificationBlock { [weak self] change in
+        notificationToken = wallet.observe { [weak self] change in
             Main { self?.delegate?.syncDidChangeBalance() }
         }
         

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EVo-6S-NMy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EVo-6S-NMy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -98,17 +99,17 @@
         <scene sceneID="YQy-0B-kVS">
             <objects>
                 <navigationController id="XJD-AY-rj3" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NDl-yW-d7h">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="NDl-yW-d7h">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="7wg-96-IJh" kind="relationship" relationship="rootViewController" id="wge-7s-hPX"/>
+                        <segue destination="cdV-tn-wwh" kind="relationship" relationship="rootViewController" id="6mb-aQ-JMC"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z40-rw-inA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="158"/>
+            <point key="canvasLocation" x="174" y="158"/>
         </scene>
         <!--Wallet password-->
         <scene sceneID="96V-Yk-xKZ">
@@ -137,12 +138,73 @@
                     </navigationItem>
                     <connections>
                         <outlet property="continueButton" destination="RI9-xY-6Ai" id="1j3-CC-H1w"/>
-                        <segue destination="vfb-25-y0b" kind="show" identifier="goToWallet" id="3yg-xh-b8X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6M-68-Vf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="159"/>
+            <point key="canvasLocation" x="967" y="-573"/>
+        </scene>
+        <!--Wallet password-->
+        <scene sceneID="Exd-gf-iG0">
+            <objects>
+                <tableViewController id="cdV-tn-wwh" customClass="PasswordViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="d3J-lT-otW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="6nJ-ju-4dc">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="kKy-Kl-8If">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kKy-Kl-8If" id="WzR-Y1-zhA">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmQ-cq-05A">
+                                                    <rect key="frame" x="16" y="12" width="74" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lXr-3I-7HI">
+                                                    <rect key="frame" x="106" y="13.5" width="253" height="17"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                    <connections>
+                                                        <action selector="didChangePassword:" destination="cdV-tn-wwh" eventType="editingChanged" id="nMj-UJ-VvM"/>
+                                                        <outlet property="delegate" destination="cdV-tn-wwh" id="Hov-Wg-pYs"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JmQ-cq-05A" firstAttribute="centerY" secondItem="WzR-Y1-zhA" secondAttribute="centerY" id="4f1-vm-6FL"/>
+                                                <constraint firstItem="lXr-3I-7HI" firstAttribute="centerY" secondItem="WzR-Y1-zhA" secondAttribute="centerY" id="bGT-kT-gSe"/>
+                                                <constraint firstItem="JmQ-cq-05A" firstAttribute="leading" secondItem="WzR-Y1-zhA" secondAttribute="leadingMargin" constant="8" id="tCx-Sq-4CG"/>
+                                                <constraint firstItem="lXr-3I-7HI" firstAttribute="leading" secondItem="JmQ-cq-05A" secondAttribute="trailing" constant="16" id="tda-TO-V9r"/>
+                                                <constraint firstAttribute="trailing" secondItem="lXr-3I-7HI" secondAttribute="trailing" constant="16" id="wOQ-iY-0B3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="cdV-tn-wwh" id="B47-0e-Bh8"/>
+                            <outlet property="delegate" destination="cdV-tn-wwh" id="Sne-h7-I66"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Wallet password" id="bMl-bO-jTK"/>
+                    <connections>
+                        <outlet property="textField" destination="lXr-3I-7HI" id="lmq-JI-DBK"/>
+                        <segue destination="vfb-25-y0b" kind="show" identifier="goToWallet" id="pPE-FV-Cmd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S62-l9-mtV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="965.60000000000002" y="157.87106446776613"/>
         </scene>
         <!--Wallet-->
         <scene sceneID="p2P-cd-wJ9">

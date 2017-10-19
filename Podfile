@@ -8,11 +8,8 @@ target 'ethereum-wallet' do
   # Pods for ethereum-wallet
   pod 'R.swift'
   pod 'Geth'
-  pod 'GenericPasswordRow'
   pod 'RealmSwift'
   pod 'AlamofireObjectMapper'
-  pod 'DTTableViewManager'
-  pod 'DTModelStorage/Realm'
 end
 
 
