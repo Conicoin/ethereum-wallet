@@ -11,9 +11,9 @@ import RealmSwift
 
 class Wallet: Object {
     
-    dynamic var privateKey = Constants.Realm.walletPrivateKey
-    dynamic var balance: Int64 = 0
-    dynamic var address: String = ""
+    @objc dynamic var privateKey = Constants.Realm.walletPrivateKey
+    @objc dynamic var balance: Int64 = 0
+    @objc dynamic var address: String = ""
 
     override static func primaryKey() -> String? {
         return "privateKey"

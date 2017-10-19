@@ -16,18 +16,18 @@ enum CustomRealmError: Error {
 
 class Transaction: Object, ImmutableMappable {
     
-    dynamic var blockNumber = ""
-    dynamic var timeStamp = ""
-    dynamic var txHash = ""
-    dynamic var blockHash = ""
-    dynamic var transactionIndex = ""
-    dynamic var from = ""
-    dynamic var to = ""
-    dynamic var confirmations = ""
-    dynamic var input = ""
-    dynamic var contractAddress = ""
-    dynamic var gasPrice = ""
-    dynamic var gas = ""
+    @objc dynamic var blockNumber = ""
+    @objc dynamic var timeStamp = ""
+    @objc dynamic var txHash = ""
+    @objc dynamic var blockHash = ""
+    @objc dynamic var transactionIndex = ""
+    @objc dynamic var from = ""
+    @objc dynamic var to = ""
+    @objc dynamic var confirmations = ""
+    @objc dynamic var input = ""
+    @objc dynamic var contractAddress = ""
+    @objc dynamic var gasPrice = ""
+    @objc dynamic var gas = ""
     
     required convenience init(map: Map) throws {
         self.init()
