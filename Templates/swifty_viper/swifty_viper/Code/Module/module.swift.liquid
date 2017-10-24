@@ -1,0 +1,28 @@
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+
+class {{ module_info.name }}Module {
+    
+  class func create() -> {{ module_info.name }}ModuleInput {
+    let router = {{ module_info.name }}Router()
+    let presenter = {{ module_info.name }}Presenter()
+    let interactor = {{ module_info.name }}Interactor()
+    let viewController = {{ module_info.name }}ViewController()
+
+    interactor.output = presenter
+
+    viewController.output = presenter
+
+    presenter.view = viewController
+    presenter.router = router
+    presenter.interactor = interactor
+        
+    return presenter
+  }
+    
+}

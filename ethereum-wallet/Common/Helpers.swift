@@ -10,15 +10,3 @@ import UIKit
 
 typealias VoidBlock = () -> Void
 typealias JSONDict = [String: Any]
-
-func Global(_ block: @escaping VoidBlock) {
-    DispatchQueue.global().async {
-        block()
-    }
-}
-
-func Main(_ block: @escaping VoidBlock) {
-    DispatchQueue.main.async {
-        block()
-    }
-}

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome View Controller-->
+        <scene sceneID="B23-lo-7jD">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeViewController" id="d5b-Bh-OpO" customClass="WelcomeViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ixn-e4-WnY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ihc-7E-8SY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ihx-nD-KY9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXk-Rm-bpt">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TiU-Ed-DLV">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's start create a new wallet or restore the existing one" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPv-UP-fui">
+                                                <rect key="frame" x="68" y="310" width="238" height="76"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="76" id="0lS-ga-kZg"/>
+                                                    <constraint firstAttribute="width" constant="238" id="lLO-kq-NK2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDW-X5-ZO0">
+                                                <rect key="frame" x="87" y="410" width="200" height="50"/>
+                                                <color key="backgroundColor" red="0.1764705882" green="0.5568627451" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="0qG-vG-Z6W"/>
+                                                    <constraint firstAttribute="height" constant="50" id="MGw-M3-I70"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="New Wallet">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="enterWalletPressed" destination="d5b-Bh-OpO" eventType="touchUpInside" id="o1v-mh-HDx"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="wDW-X5-ZO0" firstAttribute="top" secondItem="fPv-UP-fui" secondAttribute="bottom" constant="24" id="83O-ND-SKl"/>
+                                            <constraint firstItem="wDW-X5-ZO0" firstAttribute="centerX" secondItem="TiU-Ed-DLV" secondAttribute="centerX" id="TNA-Bw-4y5"/>
+                                            <constraint firstItem="fPv-UP-fui" firstAttribute="centerX" secondItem="TiU-Ed-DLV" secondAttribute="centerX" id="sem-1q-2VI"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome" translatesAutoresizingMaskIntoConstraints="NO" id="mhL-8v-DqX">
+                                        <rect key="frame" x="30" y="110" width="315" height="176"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="TiU-Ed-DLV" secondAttribute="trailing" id="11M-pT-HPD"/>
+                                    <constraint firstItem="mhL-8v-DqX" firstAttribute="leading" secondItem="XXk-Rm-bpt" secondAttribute="leading" constant="30" id="8K3-UL-yAn"/>
+                                    <constraint firstItem="TiU-Ed-DLV" firstAttribute="top" secondItem="XXk-Rm-bpt" secondAttribute="top" id="B1J-CO-e62"/>
+                                    <constraint firstItem="TiU-Ed-DLV" firstAttribute="width" secondItem="XXk-Rm-bpt" secondAttribute="width" id="BFZ-UO-U2e"/>
+                                    <constraint firstItem="TiU-Ed-DLV" firstAttribute="height" secondItem="XXk-Rm-bpt" secondAttribute="height" id="FtV-1s-eao"/>
+                                    <constraint firstItem="TiU-Ed-DLV" firstAttribute="leading" secondItem="XXk-Rm-bpt" secondAttribute="leading" id="HTa-bf-seQ"/>
+                                    <constraint firstItem="fPv-UP-fui" firstAttribute="top" secondItem="mhL-8v-DqX" secondAttribute="bottom" constant="24" id="XOc-LB-XVR"/>
+                                    <constraint firstAttribute="bottom" secondItem="TiU-Ed-DLV" secondAttribute="bottom" id="s0c-pa-0k6"/>
+                                    <constraint firstAttribute="trailing" secondItem="mhL-8v-DqX" secondAttribute="trailing" constant="30" id="xWK-Up-NV6"/>
+                                    <constraint firstItem="mhL-8v-DqX" firstAttribute="centerY" secondItem="XXk-Rm-bpt" secondAttribute="centerY" constant="-125" id="yVx-dX-dzi"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XXk-Rm-bpt" firstAttribute="leading" secondItem="ihx-nD-KY9" secondAttribute="leading" id="5rX-Vd-nNK"/>
+                            <constraint firstItem="Ihc-7E-8SY" firstAttribute="top" secondItem="XXk-Rm-bpt" secondAttribute="bottom" id="97I-xp-Jw7"/>
+                            <constraint firstItem="XXk-Rm-bpt" firstAttribute="top" secondItem="ixn-e4-WnY" secondAttribute="bottom" id="EFC-sw-Rog"/>
+                            <constraint firstAttribute="trailing" secondItem="XXk-Rm-bpt" secondAttribute="trailing" id="e6C-kf-cnd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="86G-Ha-h3x"/>
+                    </view>
+                    <connections>
+                        <outlet property="newWalletButton" destination="wDW-X5-ZO0" id="OMC-5V-3b8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FbL-1e-5gR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-756" y="158"/>
+        </scene>
+        <!--Wallet password-->
+        <scene sceneID="FHU-dd-Dod">
+            <objects>
+                <tableViewController storyboardIdentifier="PasswordViewController" id="6dL-AO-3dU" customClass="PasswordViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="cxO-Ba-XaL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="P1b-yc-3EG">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bOe-E9-02b">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bOe-E9-02b" id="9Ye-Mf-T1y">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUe-ke-gHH">
+                                                    <rect key="frame" x="16" y="12" width="74" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="icG-Dq-4A8">
+                                                    <rect key="frame" x="106" y="13.5" width="253" height="17"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="6dL-AO-3dU" id="Vb1-mb-e2Y"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="icG-Dq-4A8" firstAttribute="centerY" secondItem="9Ye-Mf-T1y" secondAttribute="centerY" id="5Qq-3E-qGx"/>
+                                                <constraint firstItem="icG-Dq-4A8" firstAttribute="leading" secondItem="dUe-ke-gHH" secondAttribute="trailing" constant="16" id="DCi-ds-gDG"/>
+                                                <constraint firstItem="dUe-ke-gHH" firstAttribute="centerY" secondItem="9Ye-Mf-T1y" secondAttribute="centerY" id="EYb-1m-xja"/>
+                                                <constraint firstItem="dUe-ke-gHH" firstAttribute="leading" secondItem="9Ye-Mf-T1y" secondAttribute="leadingMargin" constant="8" id="V2M-kb-XEe"/>
+                                                <constraint firstAttribute="trailing" secondItem="icG-Dq-4A8" secondAttribute="trailing" constant="16" id="u7H-Ub-Pef"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="6dL-AO-3dU" id="6qF-pS-nu2"/>
+                            <outlet property="delegate" destination="6dL-AO-3dU" id="rYj-XE-0wM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Wallet password" id="Jje-Yk-fIa"/>
+                    <connections>
+                        <outlet property="textField" destination="icG-Dq-4A8" id="WZ7-mQ-X1e"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wel-Nj-UIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14" y="158"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Welcome" width="194" height="176"/>
+    </resources>
+</document>

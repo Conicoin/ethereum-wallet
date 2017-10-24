@@ -80,23 +80,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 0 view controllers.
   struct segue {
-    /// This struct is generated for `PasswordViewController`, and contains static references to 1 segues.
-    struct passwordViewController {
-      /// Segue identifier `goToWallet`.
-      static let goToWallet: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PasswordViewController, RootTabBarController> = Rswift.StoryboardSegueIdentifier(identifier: "goToWallet")
-      
-      /// Optionally returns a typed version of segue `goToWallet`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToWallet(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PasswordViewController, RootTabBarController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.passwordViewController.goToWallet, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
     fileprivate init() {}
   }
   
@@ -104,24 +89,24 @@ struct R: Rswift.Validatable {
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
+    /// Storyboard `Start`.
+    static let start = _R.storyboard.start()
     /// Storyboard `Wallet`.
     static let wallet = _R.storyboard.wallet()
-    /// Storyboard `Welcome`.
-    static let welcome = _R.storyboard.welcome()
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
     }
     
+    /// `UIStoryboard(name: "Start", bundle: ...)`
+    static func start(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.start)
+    }
+    
     /// `UIStoryboard(name: "Wallet", bundle: ...)`
     static func wallet(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.wallet)
-    }
-    
-    /// `UIStoryboard(name: "Welcome", bundle: ...)`
-    static func welcome(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.welcome)
     }
     
     fileprivate init() {}
@@ -191,7 +176,7 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try wallet.validate()
-      try welcome.validate()
+      try start.validate()
       try launchScreen.validate()
     }
     
@@ -208,28 +193,54 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct wallet: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = RootTabBarController
-      
+    struct start: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
-      let name = "Wallet"
+      let name = "Start"
+      let passwordViewController = StoryboardViewControllerResource<PasswordViewController>(identifier: "PasswordViewController")
+      let welcomeViewController = StoryboardViewControllerResource<WelcomeViewController>(identifier: "WelcomeViewController")
+      
+      func passwordViewController(_: Void = ()) -> PasswordViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: passwordViewController)
+      }
+      
+      func welcomeViewController(_: Void = ()) -> WelcomeViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: welcomeViewController)
+      }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "TransactionsTab") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TransactionsTab' is used in storyboard 'Wallet', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "BalanceTab") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'BalanceTab' is used in storyboard 'Wallet', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Welcome") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Welcome' is used in storyboard 'Start', but couldn't be loaded.") }
+        if _R.storyboard.start().passwordViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'passwordViewController' could not be loaded from storyboard 'Start' as 'PasswordViewController'.") }
+        if _R.storyboard.start().welcomeViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'welcomeViewController' could not be loaded from storyboard 'Start' as 'WelcomeViewController'.") }
       }
       
       fileprivate init() {}
     }
     
-    struct welcome: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = WelcomeViewController
-      
+    struct wallet: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let balanceViewController = StoryboardViewControllerResource<BalanceViewController>(identifier: "BalanceViewController")
       let bundle = R.hostingBundle
-      let name = "Welcome"
+      let name = "Wallet"
+      let tabBarViewController = StoryboardViewControllerResource<TabBarViewController>(identifier: "TabBarViewController")
+      let transactionsViewController = StoryboardViewControllerResource<TransactionsViewController>(identifier: "TransactionsViewController")
+      
+      func balanceViewController(_: Void = ()) -> BalanceViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: balanceViewController)
+      }
+      
+      func tabBarViewController(_: Void = ()) -> TabBarViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBarViewController)
+      }
+      
+      func transactionsViewController(_: Void = ()) -> TransactionsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: transactionsViewController)
+      }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "Welcome") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Welcome' is used in storyboard 'Welcome', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "TransactionsTab") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TransactionsTab' is used in storyboard 'Wallet', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "BalanceTab") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'BalanceTab' is used in storyboard 'Wallet', but couldn't be loaded.") }
+        if _R.storyboard.wallet().tabBarViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarViewController' could not be loaded from storyboard 'Wallet' as 'TabBarViewController'.") }
+        if _R.storyboard.wallet().balanceViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'balanceViewController' could not be loaded from storyboard 'Wallet' as 'BalanceViewController'.") }
+        if _R.storyboard.wallet().transactionsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'transactionsViewController' could not be loaded from storyboard 'Wallet' as 'TransactionsViewController'.") }
       }
       
       fileprivate init() {}

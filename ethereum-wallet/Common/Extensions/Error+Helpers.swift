@@ -12,14 +12,16 @@ extension Error {
     
     func smartDescription() -> String? {
         if let error = self as? CustomError {
-            return error.description.message
+            return error.description?.message
         }
         return localizedDescription
     }
     
     func showAllertIfNeeded(from: UIViewController) {
-        if let error = self as? CustomError, error.description.showing {
-            let alert = UIAlertController(title: error.description.title, message: error.description.message, preferredStyle: .alert)
+        if
+          let error = self as? CustomError,
+          let description = error.description, description.showing {
+            let alert = UIAlertController(title: description.title, message: description.message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             from.present(alert, animated: true, completion: nil)
         } else {
