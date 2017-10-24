@@ -6,7 +6,7 @@
 //  Copyright © 2017 Artur Guseinov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class AppearanceConfigurator: ConfiguratorProtocol {
 

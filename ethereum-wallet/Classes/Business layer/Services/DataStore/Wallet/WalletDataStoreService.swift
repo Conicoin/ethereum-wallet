@@ -20,5 +20,12 @@ class WalletDataStoreService: RealmStorable<Wallet>, WalletDataStoreServiceProto
   func getWallet() -> Wallet {
     return find().first!
   }
+  
+  func observe(updateHandler: @escaping (Wallet) -> Void) {
+    super.observe { (wallets) in
+      guard let wallet = wallets.first else { return }
+      updateHandler(wallet)
+    }
+  }
 
 }

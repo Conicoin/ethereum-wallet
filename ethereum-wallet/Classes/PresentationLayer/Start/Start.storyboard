@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,14 +11,10 @@
     </dependencies>
     <scenes>
         <!--Welcome View Controller-->
-        <scene sceneID="B23-lo-7jD">
+        <scene sceneID="HUf-aK-EpP">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" id="d5b-Bh-OpO" customClass="WelcomeViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ixn-e4-WnY"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ihc-7E-8SY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ihx-nD-KY9">
+                <viewController storyboardIdentifier="WelcomeViewController" id="PNQ-tm-8MH" customClass="WelcomeViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8JY-4B-npb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -51,7 +46,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="enterWalletPressed" destination="d5b-Bh-OpO" eventType="touchUpInside" id="o1v-mh-HDx"/>
+                                                    <action selector="enterWalletPressed" destination="PNQ-tm-8MH" eventType="touchUpInside" id="Cna-rS-uLi"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -82,20 +77,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XXk-Rm-bpt" firstAttribute="leading" secondItem="ihx-nD-KY9" secondAttribute="leading" id="5rX-Vd-nNK"/>
-                            <constraint firstItem="Ihc-7E-8SY" firstAttribute="top" secondItem="XXk-Rm-bpt" secondAttribute="bottom" id="97I-xp-Jw7"/>
-                            <constraint firstItem="XXk-Rm-bpt" firstAttribute="top" secondItem="ixn-e4-WnY" secondAttribute="bottom" id="EFC-sw-Rog"/>
-                            <constraint firstAttribute="trailing" secondItem="XXk-Rm-bpt" secondAttribute="trailing" id="e6C-kf-cnd"/>
+                            <constraint firstAttribute="trailing" secondItem="XXk-Rm-bpt" secondAttribute="trailing" id="1ID-kl-LDf"/>
+                            <constraint firstItem="XXk-Rm-bpt" firstAttribute="top" secondItem="ghH-GN-Fnh" secondAttribute="top" id="TWo-F5-o9h"/>
+                            <constraint firstItem="XXk-Rm-bpt" firstAttribute="leading" secondItem="8JY-4B-npb" secondAttribute="leading" id="Yg5-rw-DaL"/>
+                            <constraint firstItem="XXk-Rm-bpt" firstAttribute="trailing" secondItem="ghH-GN-Fnh" secondAttribute="trailing" id="b0k-zs-ONI"/>
+                            <constraint firstItem="XXk-Rm-bpt" firstAttribute="bottom" secondItem="ghH-GN-Fnh" secondAttribute="bottom" id="gzT-jN-RyB"/>
+                            <constraint firstItem="XXk-Rm-bpt" firstAttribute="leading" secondItem="ghH-GN-Fnh" secondAttribute="leading" id="nQS-M9-894"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="86G-Ha-h3x"/>
+                        <viewLayoutGuide key="safeArea" id="ghH-GN-Fnh"/>
                     </view>
                     <connections>
-                        <outlet property="newWalletButton" destination="wDW-X5-ZO0" id="OMC-5V-3b8"/>
+                        <outlet property="newWalletButton" destination="wDW-X5-ZO0" id="BQf-Mb-HsW"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FbL-1e-5gR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o3O-mL-kN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-756" y="158"/>
+            <point key="canvasLocation" x="-830" y="158"/>
         </scene>
         <!--Wallet password-->
         <scene sceneID="FHU-dd-Dod">

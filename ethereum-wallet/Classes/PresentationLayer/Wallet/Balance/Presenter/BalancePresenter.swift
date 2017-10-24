@@ -25,6 +25,7 @@ extension BalancePresenter: BalanceViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
+    interactor.getWallet()
   }
 
 }
@@ -33,6 +34,11 @@ extension BalancePresenter: BalanceViewOutput {
 // MARK: - BalanceInteractorOutput
 
 extension BalancePresenter: BalanceInteractorOutput {
+  
+  func didReceiveWallet(_ wallet: Wallet) {
+    view.didReceiveWallet(wallet)
+  }
+  
 
 }
 
@@ -43,6 +49,14 @@ extension BalancePresenter: BalanceModuleInput {
   
   var viewController: UIViewController {
     return view.viewController
+  }
+  
+  func syncDidChangeProgress(current: Int64, total: Int64) {
+    view.syncDidChangeProgress(current: Float(current), total: Float(total))
+  }
+  
+  func syncDidFinished() {
+    view.syncDidFinished()
   }
 
 }

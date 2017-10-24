@@ -13,6 +13,7 @@ class TransactionsInteractor {
   weak var output: TransactionsInteractorOutput!
   
   var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
+  
 }
 
 
@@ -26,6 +27,8 @@ extension TransactionsInteractor: TransactionsInteractorInput {
     transactionsDataStoreService.observe { [unowned self]transactions in
       self.output.didReceiveTransactions(transactions)
     }
+    
+    
   }
 
 }

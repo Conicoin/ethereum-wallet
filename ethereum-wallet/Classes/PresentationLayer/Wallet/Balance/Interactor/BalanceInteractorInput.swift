@@ -10,5 +10,5 @@ import Foundation
 
 
 protocol BalanceInteractorInput: class {
-
+  func getWallet()
 }

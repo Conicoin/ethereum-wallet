@@ -16,6 +16,9 @@
 		10A06ED47E380B8CC274721C /* TabBarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D721A6C43F8AA0481FF5277 /* TabBarModule.swift */; };
 		1400FBB71F997CA600EBC84C /* RealmMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1400FBB61F997CA600EBC84C /* RealmMappable.swift */; };
 		1400FBB91F997DC100EBC84C /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1400FBB81F997DC100EBC84C /* Wallet.swift */; };
+		14293C2A1F9FCEB4009E49F1 /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */; };
+		14293C2C1F9FCEB4009E49F1 /* UIView+StoryboardSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14293C2B1F9FCEB4009E49F1 /* UIView+StoryboardSugar.swift */; };
+		14293C2F1F9FFC30009E49F1 /* Int64+Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14293C2E1F9FFC30009E49F1 /* Int64+Ethereum.swift */; };
 		142B5A1A1EDF0EEB007F73BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142B5A191EDF0EEB007F73BA /* Security.framework */; };
 		144791BD1EF55B2B00029818 /* SyncHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791BC1EF55B2B00029818 /* SyncHandler.swift */; };
 		144791C11EF59EB300029818 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791C01EF59EB300029818 /* Account.swift */; };
@@ -119,6 +122,9 @@
 		0E1188829331B84C9CDFBDFA /* TabBarRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarRouterInput.swift; sourceTree = "<group>"; };
 		1400FBB61F997CA600EBC84C /* RealmMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMappable.swift; sourceTree = "<group>"; };
 		1400FBB81F997DC100EBC84C /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
+		14293C2B1F9FCEB4009E49F1 /* UIView+StoryboardSugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+StoryboardSugar.swift"; sourceTree = "<group>"; };
+		14293C2E1F9FFC30009E49F1 /* Int64+Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Ethereum.swift"; sourceTree = "<group>"; };
 		142B5A191EDF0EEB007F73BA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		144791BC1EF55B2B00029818 /* SyncHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncHandler.swift; sourceTree = "<group>"; };
 		144791C01EF59EB300029818 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -287,6 +293,14 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		14293C2D1F9FFC1A009E49F1 /* Ethereum */ = {
+			isa = PBXGroup;
+			children = (
+				14293C2E1F9FFC30009E49F1 /* Int64+Ethereum.swift */,
+			);
+			path = Ethereum;
+			sourceTree = "<group>";
+		};
 		142B5A1D1EDF117D007F73BA /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,10 +315,13 @@
 		142B5A1E1EDF2A0D007F73BA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				14293C2D1F9FFC1A009E49F1 /* Ethereum */,
 				14ACA1EE1EF2BCF30059E430 /* Error+Helpers.swift */,
 				14ACA1EF1EF2BCF30059E430 /* Timer+Helpers.swift */,
 				14B3B6841EF491F0002A0623 /* UIButton+Helpers.swift */,
 				1489ED1C1F9C0EE800E0A5FC /* Data+Helpers.swift */,
+				14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */,
+				14293C2B1F9FCEB4009E49F1 /* UIView+StoryboardSugar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1026,6 +1043,7 @@
 				14ACA1E01EF2BCB70059E430 /* EthereumCore.swift in Sources */,
 				14ACA1E51EF2BCC80059E430 /* Defaults.swift in Sources */,
 				144791D01EF5DE4000029818 /* ApplicationConfigurator.swift in Sources */,
+				14293C2A1F9FCEB4009E49F1 /* UIViewController+Helpers.swift in Sources */,
 				14F419221F9BF6D6000C500A /* TransactionsDataStoreService.swift in Sources */,
 				1458212A1F995446005047B6 /* R.generated.swift in Sources */,
 				144791C11EF59EB300029818 /* Account.swift in Sources */,
@@ -1093,8 +1111,10 @@
 				C951BB60C54E7F507D2ACEBA /* TabBarModuleOutput.swift in Sources */,
 				10A06ED47E380B8CC274721C /* TabBarModule.swift in Sources */,
 				47F9443F0B19E10CF539BC09 /* BalanceViewInput.swift in Sources */,
+				14293C2F1F9FFC30009E49F1 /* Int64+Ethereum.swift in Sources */,
 				43A188DFE72E4045C0C40E12 /* BalanceViewOutput.swift in Sources */,
 				14B77EC01F9ACBBC00FCD923 /* WalletDataStoreService.swift in Sources */,
+				14293C2C1F9FCEB4009E49F1 /* UIView+StoryboardSugar.swift in Sources */,
 				7801565CD4A5A450E43A693A /* BalanceViewController.swift in Sources */,
 				87B0C07C69E1B0DD477636A1 /* BalancePresenter.swift in Sources */,
 				CD31E119F20960A64CAC1037 /* BalanceInteractorInput.swift in Sources */,
@@ -1251,7 +1271,7 @@
 					"$(PROJECT_DIR)/ethereum-wallet",
 				);
 				INFOPLIST_FILE = "ethereum-wallet/Other/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1278,7 +1298,7 @@
 					"$(PROJECT_DIR)/ethereum-wallet",
 				);
 				INFOPLIST_FILE = "ethereum-wallet/Other/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

@@ -14,8 +14,6 @@ class TabBarInteractor {
   var ethereumService: EthereumCoreProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
   var transactionsDataStoreServise: TransactionsDataStoreServiceProtocol!
-  
-  fileprivate let syncQueue = DispatchQueue(label: "com.ethereum-wallet.sync")
 }
 
 
@@ -26,19 +24,22 @@ extension TabBarInteractor: TabBarInteractorInput {
   func startSynchronization() {
     let balanceHandler = BalanceHandler(didUpdateBalance: { newBalance in
       self.output.syncDidUpdateBalance(newBalance)
-      Logger.debug("current balance: \(newBalance)")
     }, didReceiveTransactions: { gethTransactions in
       let transactions = gethTransactions.map { Transaction.mapFromGethTransaction($0) }
       self.transactionsDataStoreServise.saveTransactions(transactions)
     })
     
     let syncHandler = SyncHandler(didChangeProgress: { current, total in
-      self.output.syncDidChangeProgress(current: current, total: total)
+      DispatchQueue.main.async {
+        self.output.syncDidChangeProgress(current: current, total: total)
+      }
     }, didFinished: {
-      self.output.syncDidFinished()
+      DispatchQueue.main.async {
+        self.output.syncDidFinished()
+      }
     })
     
-    syncQueue.async {
+    ethereumService.syncQueue.async {
       do  {
         try Ethereum.core.startSync(balanceHandler: balanceHandler, syncHandler: syncHandler)
         

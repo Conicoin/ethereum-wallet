@@ -11,4 +11,5 @@ import UIKit
 protocol WalletDataStoreServiceProtocol {
   func createWallet(address: String)
   func getWallet() -> Wallet
+  func observe(updateHandler: @escaping (Wallet) -> Void)
 }

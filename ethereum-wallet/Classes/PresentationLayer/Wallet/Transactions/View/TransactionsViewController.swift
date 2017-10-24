@@ -23,10 +23,6 @@ class TransactionsViewController: UIViewController {
     super.viewDidLoad()
     output.viewIsReady()
   }
-  
-  @IBAction func addTestTransaction(_ sender: UIBarButtonItem) {
-
-  }
 
 }
 

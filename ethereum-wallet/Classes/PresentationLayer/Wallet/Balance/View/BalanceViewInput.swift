@@ -11,4 +11,7 @@ import UIKit
 
 protocol BalanceViewInput: class, Presentable {
   func setupInitialState()
+  func syncDidChangeProgress(current: Float, total: Float)
+  func syncDidFinished()
+  func didReceiveWallet(_ wallet: Wallet)
 }

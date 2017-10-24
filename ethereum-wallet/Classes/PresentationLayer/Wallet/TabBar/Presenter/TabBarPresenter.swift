@@ -19,11 +19,12 @@ class TabBarPresenter {
   fileprivate lazy var balanceModule: BalanceModuleInput = BalanceModule.create()
   fileprivate lazy var transactionsModule: TransactionsModuleInput = TransactionsModule.create()
   
-  fileprivate var highestBlock: Int?
-  
   fileprivate func insertViewControllers() {
-    let navigationController = UINavigationController(rootViewController: transactionsModule.viewController)
-    view.viewControllers = [balanceModule.viewController, navigationController]
+
+    view.viewControllers = [
+      balanceModule.viewController.wrapToNavigationController(),
+      transactionsModule.viewController.wrapToNavigationController()
+    ]
   }
   
 }
@@ -56,16 +57,11 @@ extension TabBarPresenter: TabBarInteractorOutput {
   }
   
   func syncDidChangeProgress(current: Int64, total: Int64) {
-    highestBlock = Int(total)
+    balanceModule.syncDidChangeProgress(current: current, total: total)
   }
   
   func syncDidFinished() {
-    let keychain = Keychain()
-    if let firstEnterBlock = keychain.firstEnterBlock {
-      interactor.getTransactions(from: firstEnterBlock, to: highestBlock!)
-    } else {
-      keychain.firstEnterBlock = highestBlock
-    }
+    balanceModule.syncDidFinished()
   }
 
 }

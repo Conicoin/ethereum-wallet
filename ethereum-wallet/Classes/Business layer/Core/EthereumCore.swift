@@ -13,6 +13,7 @@ import Geth
 // MARK: - EthereumCoreProtocol
 
 protocol EthereumCoreProtocol {
+  var syncQueue: DispatchQueue { get }
   func startSync(balanceHandler: BalanceHandler, syncHandler: SyncHandler) throws
   func createAccount(passphrase: String) throws -> GethAccount
   func jsonKey(for account: GethAccount, passphrase: String) throws -> Data
@@ -24,6 +25,8 @@ protocol EthereumCoreProtocol {
 class Ethereum: EthereumCoreProtocol {
   
   static var core: EthereumCoreProtocol = Ethereum()
+  
+  let syncQueue = DispatchQueue(label: "com.ethereum-wallet.sync")
   
   fileprivate lazy var keystore: GethKeyStore! = {
     let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -151,9 +154,9 @@ extension Ethereum {
     }
     try ethereumClient.subscribeNewHead(ethereumContext, handler: newBlockHandler, buffer: 16)
   }
+    
   
   fileprivate func startProgressTicks() throws {
-    let syncQueue = DispatchQueue(label: "com.ethereum-wallet.sync")
     syncTimer = Timer.createDispatchTimer(interval: .seconds(1), leeway: .seconds(0), queue: syncQueue) {
       self.timerTick()
     }
