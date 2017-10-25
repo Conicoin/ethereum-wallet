@@ -1,10 +1,24 @@
+//  MIT License
 //
-//  EthereumCore.swift
-//  ethereum-wallet
+//  Copyright (c) 2017 Artur Guseinov
 //
-//  Created by Artur Guseinov on 14/06/2017.
-//  Copyright © 2017 Artur Guseinov. All rights reserved.
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
 //
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 
 import UIKit
 import Geth
@@ -50,11 +64,8 @@ class Ethereum: EthereumCoreProtocol {
     self.balanceHandler = balanceHandler
     self.syncHandler = syncHandler
     try self.startNode()
-    Logger.debug("Node started")
     try self.startProgressTicks()
-    Logger.debug("Sync started")
     try self.subscribeNewHead()
-    Logger.debug("Subscribed on new head")
   }
   
   
@@ -96,7 +107,6 @@ class Ethereum: EthereumCoreProtocol {
         }
       }
     }
-    Logger.debug("123 returning \(transactions.count) transactions")
     return transactions
   }
   
@@ -141,13 +151,11 @@ extension Ethereum {
         let balance = try self.ethereumClient.getBalanceAt(self.ethereumContext, account: address, number: header.getNumber())
         self.balanceHandler.didUpdateBalance(balance.getInt64())
         
-        Logger.debug("Subscribe New Head Fire")
         
         if !self.isSyncMode {
           let transactions = self.getTransactions(address: address.getHex(), startBlockNumber: header.getNumber(), endBlockNumber: header.getNumber())
           if !transactions.isEmpty {
             self.balanceHandler.didReceiveTransactions(transactions)
-            Logger.debug("Did received transactions, count: \(transactions.count)")
           }
         }
       } catch {}
@@ -167,16 +175,11 @@ extension Ethereum {
       
       let currentBlock = syncProgress.getCurrentBlock()
       let highestBlock = syncProgress.getHighestBlock()
-      
-      if (currentBlock % 10000) == 0 {
-        Logger.debug("Sync progress \(currentBlock) / \(highestBlock)")
-      }
-    
+
       self.syncHandler?.didChangeProgress(currentBlock, highestBlock)
       self.isSyncMode = true
       
     } else if self.isSyncMode {
-      Logger.debug("Sync finished!")
       self.syncHandler?.didFinished()
       self.isSyncMode = false
       syncTimer?.cancel()

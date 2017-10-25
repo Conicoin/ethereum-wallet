@@ -20,10 +20,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import UIKit
+import Foundation
+import Alamofire
 
+class TransactionsNetworkService: NetworkLoadable, TransactionsNetworkServiceProtocol  {
+  
+  func getTransactions(address: String, result: @escaping (Result<[Transaction]>) -> Void) {
+    loadArray(request: API.Etherscan.transactions(address: address), keyPath: "result", completion: result)
+  }
 
-protocol TransactionsViewInput: class, Presentable {
-  func setupInitialState()
-  func didReceiveTransactions(_ transactions: [Transaction])
 }

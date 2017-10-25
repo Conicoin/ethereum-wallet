@@ -20,10 +20,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import UIKit
+import Foundation
+import Alamofire
 
-
-protocol TransactionsViewInput: class, Presentable {
-  func setupInitialState()
-  func didReceiveTransactions(_ transactions: [Transaction])
+protocol WalletNetworkServiceProtocol {
+  func getBalance(address: String, result: @escaping (Result<Int64>) -> Void)
 }

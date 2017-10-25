@@ -20,10 +20,29 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import UIKit
+import Foundation
+import Alamofire
 
+class WalletNetworkService: NetworkLoadable, WalletNetworkServiceProtocol {
 
-protocol TransactionsViewInput: class, Presentable {
-  func setupInitialState()
-  func didReceiveTransactions(_ transactions: [Transaction])
+  func getBalance(address: String, result: @escaping (Result<Int64>) -> Void) {
+    loadObjectJSON(request: API.Etherscan.balance(address: address)) { resultHandler in
+      
+      switch resultHandler {
+      case .success(let object):
+        
+        guard let json = object as? [String: Any], let balance = json["result"] as? String, let balanceInt = Int64(balance) else {
+          result(Result.failure(NetworkError.parseError))
+          return
+        }
+        
+        result(Result.success(balanceInt))
+        
+      case .failure(let error):
+        result(Result.failure(error))
+      }
+      
+    }
+  }
+  
 }
