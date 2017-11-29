@@ -3,6 +3,13 @@
 
 Core: go-ethereum (iGeth)
 
+<br>
+<p align="center">
+<img src="https://raw.githubusercontent.com/flypaper0/ethereum-wallet/master/Screenshots/1.png" width="350"/>
+<img src="https://raw.githubusercontent.com/flypaper0/ethereum-wallet/master/Screenshots/2.png" width="350"/>
+</p>
+<br>
+
 ## Getting Started
 
 To run the project you just need to install and update pods
@@ -34,3 +41,4 @@ pod install; pod update
 ## Authors
 
 * [**Artur Guseynov**](https://github.com/flypaper0) - *iOS dev*
+
