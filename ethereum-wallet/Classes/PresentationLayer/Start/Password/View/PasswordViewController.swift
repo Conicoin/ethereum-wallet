@@ -1,24 +1,19 @@
-//  MIT License
+// ethereum-wallet https://github.com/flypaper0/ethereum-wallet
+// Copyright (C) 2017 Artur Guseinov
 //
-//  Copyright (c) 2017 Artur Guseinov
+// This program is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation, either version 3 of the License, or (at your option)
+// any later version.
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// This program is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 import UIKit
 
@@ -26,7 +21,7 @@ import UIKit
 class PasswordViewController: UITableViewController {
 
   var output: PasswordViewOutput!
-
+  
   @IBOutlet weak var textField: UITextField!
 
   // MARK: Life cycle
@@ -37,20 +32,48 @@ class PasswordViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    output.viewIsReady()
     textField.becomeFirstResponder()
+    output.viewIsReady()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    output.viewIsAppear()
   }
   
   // MARK: Action
+
+}
+
+// MARK: - TableView
+
+extension PasswordViewController {
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard indexPath.section == 1 else {
+      return super.tableView(tableView, cellForRowAt: indexPath)
+    }
+    
+    let cell = ChainCell(style: .default, reuseIdentifier: "ChainCell")
+    cell.selectionStyle = .none
+    cell.textLabel?.text = output.chains[indexPath.row].localizedDescription
+    
+    return cell
+  }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+    return 2
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return section == 0 ? 1 : output.chains.count
   }
-
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard indexPath.section == 1 else { return }
+    output.selectChain(at: indexPath.row)
+  }
+  
 }
 
 // MARK: - UITextFieldDelegate
@@ -75,8 +98,13 @@ extension PasswordViewController: PasswordViewInput {
     textField.enablesReturnKeyAutomatically = true
     
     title = restoring ?
-      R.string.localizable.restorePasswordTitle() :
-      R.string.localizable.newPasswordTitle()
+      Localized.restorePasswordTitle() :
+      Localized.newPasswordTitle()
+  }
+  
+  func selectChain(at index: Int) {
+    let indexPath = IndexPath(row: index, section: 1)
+    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
   }
 
 }

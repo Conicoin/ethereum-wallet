@@ -1,24 +1,19 @@
-//  MIT License
+// ethereum-wallet https://github.com/flypaper0/ethereum-wallet
+// Copyright (C) 2017 Artur Guseinov
 //
-//  Copyright (c) 2017 Artur Guseinov
+// This program is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation, either version 3 of the License, or (at your option)
+// any later version.
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// This program is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 import Foundation
 import Geth
@@ -27,13 +22,17 @@ import ObjectMapper
 struct Transaction {
   var txHash: String!
   var to: String!
-  var amount: Int!
+  var amount: Ether!
+  var timestamp: Date!
+  var isIncoming: Bool!
   
-  static func mapFromGethTransaction(_ object: GethTransaction) -> Transaction {
+  static func mapFromGethTransaction(_ object: GethTransaction, time: TimeInterval) -> Transaction {
     var transaction = Transaction()
     transaction.txHash = object.getHash().getHex()
     transaction.to = object.getTo().getHex()
-    transaction.amount = Int(object.getValue().getInt64())
+    transaction.amount = Ether(object.getValue().string()!)
+    transaction.timestamp = Date(timeIntervalSince1970: time)
+//    transaction.isIncoming = object.isIncoming
     return transaction
   }
   
@@ -47,7 +46,9 @@ extension Transaction: RealmMappable {
     var transaction = Transaction()
     transaction.txHash = object.txHash
     transaction.to = object.to
-    transaction.amount = object.amount
+    transaction.amount = Ether(object.amount)
+    transaction.timestamp = object.timestamp
+    transaction.isIncoming = object.isIncoming
     return transaction
   }
   
@@ -55,7 +56,9 @@ extension Transaction: RealmMappable {
     let realmObject = RealmTransaction()
     realmObject.txHash = txHash
     realmObject.to = to
-    realmObject.amount = amount
+    realmObject.amount = amount.raw.stringValue
+    realmObject.timestamp = timestamp
+    realmObject.isIncoming = isIncoming
     return realmObject
   }
   
@@ -68,7 +71,9 @@ extension Transaction: ImmutableMappable {
   init(map: Map) throws {
     txHash = try map.value("hash")
     to = try map.value("to")
-    amount = try Int(map.value("value"))
+    let amountString: String = try map.value("value")
+    amount = Ether(amountString)
+    timestamp = try map.value("timeStamp", using: DateTransform())
   }
-
+  
 }

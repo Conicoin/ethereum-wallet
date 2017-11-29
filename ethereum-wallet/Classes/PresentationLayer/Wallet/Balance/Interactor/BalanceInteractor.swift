@@ -1,24 +1,19 @@
-//  MIT License
+// ethereum-wallet https://github.com/flypaper0/ethereum-wallet
+// Copyright (C) 2017 Artur Guseinov
 //
-//  Copyright (c) 2017 Artur Guseinov
+// This program is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation, either version 3 of the License, or (at your option)
+// any later version.
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// This program is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 import Foundation
 
@@ -28,6 +23,10 @@ class BalanceInteractor {
   
   var walletNetworkService: WalletNetworkServiceProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
+  var coinDataStoreService: CoinDataStoreServiceProtocol!
+  var ratesNetworkService: RatesNetworkServiceProtocol!
+  var ratesDataStoreService: RatesDataStoreServiceProtocol!
+  
 }
 
 
@@ -35,25 +34,58 @@ class BalanceInteractor {
 
 extension BalanceInteractor: BalanceInteractorInput {
   
-  func getWallet() {
-    let wallet = walletDataStoreService.getWallet()
-    output.didReceiveWallet(wallet)
-    walletDataStoreService.observe { [unowned self] wallet in
-      self.output.didReceiveWallet(wallet)
+  func updateRates() {
+    var coins = coinDataStoreService.find()
+    
+    guard coins.count > 0 else {
+      return
     }
-  }
-  
-  func loadBalance() {
-    var wallet = walletDataStoreService.getWallet()
-    walletNetworkService.getBalance(address: wallet.address) { [unowned self] result in
+    
+    let currencies = coins.map { $0.balance.iso }
+    ratesNetworkService.getRate(currencies: currencies) { [unowned self] result in
       switch result {
-      case .success(let balance):
-        wallet.balance = balance
-        self.walletDataStoreService.save(wallet)
+      case .success(let rates):
+        
+        for (i, coin) in coins.enumerated() {
+          let rates = rates.filter { $0.from == coin.balance.iso }
+          coins[i].rates = rates
+        }
+        self.coinDataStoreService.save(coins)
+        
       case .failure(let error):
         self.output.didFailedWalletReceiving(with: error)
       }
     }
   }
-
+  
+  func getWalletFromDataBase() {
+    walletDataStoreService.observe { [unowned self] wallet in
+      self.output.didReceiveWallet(wallet)
+    }
+  }
+  
+  func getCoinsFromDataBase() {
+    coinDataStoreService.observe { [unowned self] coins in
+      self.output.didReceiveCoins(coins)
+    }
+  }
+  
+  func getEthereumFromNetwork() {
+    let wallet = walletDataStoreService.getWallet()
+    walletNetworkService.getBalance(address: wallet.address) { [unowned self] result in
+      switch result {
+      case .success(let balance):
+        let ether = Ether(balance)
+        var coin = Coin()
+        coin.balance = ether
+        coin.lastUpdateTime = Date()
+        coin.rates = [Rate]() // TODO: avoid rewriting
+        self.coinDataStoreService.save(coin)
+        self.updateRates()
+      case .failure(let error):
+        self.output.didFailedWalletReceiving(with: error)
+      }
+    }
+  }
+  
 }

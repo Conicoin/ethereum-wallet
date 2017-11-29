@@ -1,24 +1,19 @@
-//  MIT License
+// ethereum-wallet https://github.com/flypaper0/ethereum-wallet
+// Copyright (C) 2017 Artur Guseinov
 //
-//  Copyright (c) 2017 Artur Guseinov
+// This program is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation, either version 3 of the License, or (at your option)
+// any later version.
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// This program is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 import Foundation
 
@@ -28,6 +23,7 @@ class TabBarInteractor {
   var ethereumService: EthereumCoreProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
   var transactionsDataStoreServise: TransactionsDataStoreServiceProtocol!
+  var coinsDataStoreService: CoinDataStoreServiceProtocol!
 }
 
 
@@ -36,18 +32,42 @@ class TabBarInteractor {
 extension TabBarInteractor: TabBarInteractorInput {
   
   func startSynchronization() {
-    let balanceHandler = BalanceHandler(didUpdateBalance: { newBalance in
-      self.output.syncDidUpdateBalance(newBalance)
-    }, didReceiveTransactions: { gethTransactions in
-      let transactions = gethTransactions.map { Transaction.mapFromGethTransaction($0) }
-      self.transactionsDataStoreServise.saveTransactions(transactions)
+    let balanceHandler = BalanceHandler(didUpdateBalance: { [unowned self] newBalanceHex, time in
+      
+      guard var coin = self.coinsDataStoreService.find(withIso: "ETH") else {
+        return
+      }
+      
+      let interval = TimeInterval(time)
+      let date = Date(timeIntervalSince1970: interval)
+      
+      guard coin.lastUpdateTime < date else {
+        return
+      }
+      
+      let newBalance = Decimal(hexString: newBalanceHex)
+      coin.balance = Ether(newBalance as NSDecimalNumber) // TODO: Remove  ALL NSDecimalNumbers
+      coin.lastUpdateTime = date
+      self.coinsDataStoreService.save(coin)
+      
+      self.output.syncDidUpdateBalance(Decimal(hexString: newBalanceHex))
+    }, didReceiveTransactions: { [unowned self] gethTransactions, time in
+      
+      var transactions = gethTransactions.map { Transaction.mapFromGethTransaction($0, time: TimeInterval(time)) }
+      let wallet = self.walletDataStoreService.getWallet()
+      self.transactionsDataStoreServise.markAndSaveTransactions(&transactions, address: wallet.address)
+      
+    }, didUpdateGasLimit: { [unowned self] gasLimit in
+      var wallet = self.walletDataStoreService.getWallet()
+      wallet.gasLimit = Decimal(gasLimit)
+      self.walletDataStoreService.save(wallet)
     })
     
-    let syncHandler = SyncHandler(didChangeProgress: { current, total in
+    let syncHandler = SyncHandler(didChangeProgress: { [unowned self] current, total in
       DispatchQueue.main.async {
         self.output.syncDidChangeProgress(current: current, total: total)
       }
-    }, didFinished: {
+    }, didFinished: { [unowned self] in
       DispatchQueue.main.async {
         self.output.syncDidFinished()
       }
@@ -55,7 +75,7 @@ extension TabBarInteractor: TabBarInteractorInput {
     
     ethereumService.syncQueue.async {
       do  {
-        try Ethereum.core.startSync(balanceHandler: balanceHandler, syncHandler: syncHandler)
+        try Ethereum.core.startSync(chain: Defaults.chain, balanceHandler: balanceHandler, syncHandler: syncHandler)
         
       } catch {
         DispatchQueue.main.async {

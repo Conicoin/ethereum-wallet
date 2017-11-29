@@ -1,45 +1,79 @@
-//  MIT License
+// ethereum-wallet https://github.com/flypaper0/ethereum-wallet
+// Copyright (C) 2017 Artur Guseinov
 //
-//  Copyright (c) 2017 Artur Guseinov
+// This program is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation, either version 3 of the License, or (at your option)
+// any later version.
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// This program is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 import UIKit
 
 
 class BalanceViewController: UIViewController {
-  @IBOutlet weak var loadingButton: UIButton!
+  @IBOutlet weak var syncButton: UIBarButtonItem!
   @IBOutlet weak var progressView: UIProgressView!
-  @IBOutlet weak var balanceLabel: UILabel!
-  @IBOutlet weak var addressLabel: UILabel!
-
-  var output: BalanceViewOutput!
+  @IBOutlet weak var sendButton: UIButton!
+  @IBOutlet weak var receiveButton: UIButton!
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
   
-
+  var output: BalanceViewOutput!
+  private var coins = [Coin]()
+  private var localCurrency = Constants.Wallet.defaultCurrency
+  
   // MARK: Life cycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
     output.viewIsReady()
-    loadingButton.loadingIndicator(true)
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    output.viewIsAppear()
+  }
+  
+  // MARK: - Privates
+  
+  // MARK: - Actions
+  
+  @IBAction func sendPressed(_ sender: UIButton) {
+    output.sendButtonPressed()
+  }
+  
+  @IBAction func receivePressed(_ sender: UIButton) {
+    output.receiveButtonPressed()
+  }
+  
+}
 
+// MARK: - TableView
+
+extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as! CoinCell
+    cell.configure(with: coins[indexPath.row], localCurrency: localCurrency)
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return coins.count
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 64
+  }
+  
 }
 
 
@@ -47,22 +81,34 @@ class BalanceViewController: UIViewController {
 
 extension BalanceViewController: BalanceViewInput {
   
-  func didReceiveWallet(_ wallet: Wallet) {
-    balanceLabel.text = wallet.balance.toEtherString()
-    addressLabel.text = wallet.address
-  }
-    
   func setupInitialState() {
-    
+
+  }
+  
+  func didReceiveWallet(_ wallet: Wallet) {
+    self.localCurrency = wallet.localCurrency
+    tableView.reloadData()
+  }
+  
+  func didReceiveCoins(_ coins: [Coin]) {
+    self.coins = coins
+    tableView.reloadData()
+    view.layoutIfNeeded() /* Looks like ios bug. contentSize after reloading is wrong */
+    tableViewHeightConstraint.constant = tableView.contentSize.height
+    view.layoutIfNeeded() // TODO: WHY layoutIfNeeded disable large titles ???
   }
   
   func syncDidChangeProgress(current: Float, total: Float) {
     progressView.setProgress(current/total, animated: true)
+    syncButton.title = "\(Int(current))/\(Int(total))"
+    UIApplication.shared.isIdleTimerDisabled = true
   }
   
   func syncDidFinished() {
     progressView.setProgress(0, animated: false)
-    loadingButton.loadingIndicator(false)
+    syncButton.title = nil
+    sendButton.isHidden = false
+    UIApplication.shared.isIdleTimerDisabled = false
   }
 
 }
