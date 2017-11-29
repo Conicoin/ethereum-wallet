@@ -1,5 +1,7 @@
 # ethereum-wallet-ios
-Native Ethereum Wallet - iOS
+<p><b>Native Ethereum Wallet - iOS</b></p>
+
+Core: go-ethereum (iGeth)
 
 ## Getting Started
 
@@ -9,24 +11,24 @@ To run the project you just need to install and update pods
 pod install; pod update
 ```
 
-### Tips 
-
-To start correctly, you will need to start the project first, as soon as the project starts, close the application, and after launch from the Home screen manually
-
-* debug mode not yet supported
-* project is working in test enviroment [rinkeby.io](https://www.rinkeby.io)
-
 ### Features
- 
- At the moment, the project contains only the blockchain synchronization and Account managment, but in the future, <b>ethereum-wallet</b> will grow into a full-fledged wallet. I hope 🤓
+
+<b>ethereum-wallet</b> is 100% native ethereum wallet, created with iOS version of Geth client. Currently supported Rinkeby, Ropsten and Mainnet(not fully tested).
+
+* keys <b>never</b> leave the device and stored in keychain in password protected UTC format
+* not a single line of Java script (no web3.js)
+* written with VIPER architecture principles
+* simple native iOS design
 
 
 ### ToDo:
 
-✅ Blockchain synchronization
-✅ Account managment
-* Transactions
-* Design
+* ✅ Blockchain synchronization
+* ✅ Account managment
+* ✅ Transactions list
+* ✅ Receiving funds
+* ✅ Sending funds
+* Transaction details
 * Landing web page
 
 ## Authors
