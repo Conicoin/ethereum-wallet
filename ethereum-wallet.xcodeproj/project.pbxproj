@@ -62,6 +62,10 @@
 		1491C51644B2B62A7D3E4391 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921BF13B4F6C6C76E2CF74EC /* PasswordViewController.swift */; };
 		14958E4B1FB7A4D3005CFC6C /* Decimal+Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */; };
 		149973D81FB1D71E00B16901 /* RatesDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149973D71FB1D71E00B16901 /* RatesDataStoreService.swift */; };
+		149AA05B1FD60E9400F961FA /* KeystoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA05A1FD60E9400F961FA /* KeystoreProtocol.swift */; };
+		149AA05D1FD60EAF00F961FA /* Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA05C1FD60EAF00F961FA /* Keystore.swift */; };
+		149AA0601FD614E400F961FA /* TransactionPublisherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA05F1FD614E400F961FA /* TransactionPublisherProtocol.swift */; };
+		149AA0621FD614F900F961FA /* TransactionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0611FD614F900F961FA /* TransactionPublisher.swift */; };
 		14ACA1D71EF2BC840059E430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1D61EF2BC840059E430 /* AppDelegate.swift */; };
 		14ACA1E01EF2BCB70059E430 /* EthereumCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1DE1EF2BCB70059E430 /* EthereumCore.swift */; };
 		14ACA1E11EF2BCB70059E430 /* NewHeadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1DF1EF2BCB70059E430 /* NewHeadHandler.swift */; };
@@ -267,6 +271,10 @@
 		1489ED1C1F9C0EE800E0A5FC /* Data+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Helpers.swift"; sourceTree = "<group>"; };
 		14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Ethereum.swift"; sourceTree = "<group>"; };
 		149973D71FB1D71E00B16901 /* RatesDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDataStoreService.swift; sourceTree = "<group>"; };
+		149AA05A1FD60E9400F961FA /* KeystoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreProtocol.swift; sourceTree = "<group>"; };
+		149AA05C1FD60EAF00F961FA /* Keystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keystore.swift; sourceTree = "<group>"; };
+		149AA05F1FD614E400F961FA /* TransactionPublisherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPublisherProtocol.swift; sourceTree = "<group>"; };
+		149AA0611FD614F900F961FA /* TransactionPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPublisher.swift; sourceTree = "<group>"; };
 		14ACA1D61EF2BC840059E430 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14ACA1DE1EF2BCB70059E430 /* EthereumCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumCore.swift; sourceTree = "<group>"; };
 		14ACA1DF1EF2BCB70059E430 /* NewHeadHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHeadHandler.swift; sourceTree = "<group>"; };
@@ -547,6 +555,8 @@
 		1438CCDD1EF1AD1000C6AA3F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				149AA05E1FD614A600F961FA /* TransactionPublisher */,
+				149AA0591FD60E7700F961FA /* Keystore */,
 				14FEBD761FBB2CB90084F1AB /* Wrappers */,
 				144791BB1EF55AFB00029818 /* Handlers */,
 				14ACA1DE1EF2BCB70059E430 /* EthereumCore.swift */,
@@ -769,6 +779,24 @@
 				4C1B62B2E7F85AB5A653580E /* Receive */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		149AA0591FD60E7700F961FA /* Keystore */ = {
+			isa = PBXGroup;
+			children = (
+				149AA05A1FD60E9400F961FA /* KeystoreProtocol.swift */,
+				149AA05C1FD60EAF00F961FA /* Keystore.swift */,
+			);
+			path = Keystore;
+			sourceTree = "<group>";
+		};
+		149AA05E1FD614A600F961FA /* TransactionPublisher */ = {
+			isa = PBXGroup;
+			children = (
+				149AA05F1FD614E400F961FA /* TransactionPublisherProtocol.swift */,
+				149AA0611FD614F900F961FA /* TransactionPublisher.swift */,
+			);
+			path = TransactionPublisher;
 			sourceTree = "<group>";
 		};
 		14B2193B1FC22D96003092F0 /* Cells */ = {
@@ -1757,6 +1785,7 @@
 				6AF6DAF448C27BB48BDCF4CD /* WelcomeInteractorInput.swift in Sources */,
 				99AA53CDE10710A6EFE5B0E5 /* WelcomeInteractorOutput.swift in Sources */,
 				14636D631F994BB7002BDFAC /* Presentable.swift in Sources */,
+				149AA05D1FD60EAF00F961FA /* Keystore.swift in Sources */,
 				146D0D1E1FC0DDBC003C0C3E /* Decimal+Helpers.swift in Sources */,
 				97C6DFDAC5C6F69DDBDFB874 /* WelcomeInteractor.swift in Sources */,
 				63C15D01BDCF21B7ED56B12A /* WelcomeRouterInput.swift in Sources */,
@@ -1850,6 +1879,7 @@
 				5F128A459101497C3BA454B3 /* SendModuleInput.swift in Sources */,
 				01D80743218DC806CE82FBA6 /* SendModuleOutput.swift in Sources */,
 				D025DFCF24E4D87631410C3E /* SendModule.swift in Sources */,
+				149AA05B1FD60E9400F961FA /* KeystoreProtocol.swift in Sources */,
 				1406465C1FAF46DB0013DFFF /* Coin.swift in Sources */,
 				5C142202D92AFEB49A810B5E /* ReceiveViewInput.swift in Sources */,
 				9979B5D0B82EB41F30F74A8A /* ReceiveViewOutput.swift in Sources */,
@@ -1871,6 +1901,7 @@
 				CD7EFAF754CE17A2F27280AD /* ScanInteractorOutput.swift in Sources */,
 				69E9D8117DC330353E9AAE47 /* ScanInteractor.swift in Sources */,
 				ECD48860ECEB56EEA82E30E4 /* ScanRouterInput.swift in Sources */,
+				149AA0621FD614F900F961FA /* TransactionPublisher.swift in Sources */,
 				1E6249F217CDD3504CEAC29F /* ScanRouter.swift in Sources */,
 				DF4C239FF3946F152551259F /* ScanModuleInput.swift in Sources */,
 				4E6E2DDFCDE7F98E1FFAB159 /* ScanModuleOutput.swift in Sources */,
@@ -1892,6 +1923,7 @@
 				111B76EB2B2A85F3877EF1E0 /* ChooseCurrencyViewOutput.swift in Sources */,
 				64D4104E1B9A9CB53B1C6892 /* ChooseCurrencyViewController.swift in Sources */,
 				8FEACE3A905D147DD4B66CB6 /* ChooseCurrencyPresenter.swift in Sources */,
+				149AA0601FD614E400F961FA /* TransactionPublisherProtocol.swift in Sources */,
 				A6BDE781AEBDF94A96C06383 /* ChooseCurrencyInteractorInput.swift in Sources */,
 				0524C999E2810D5100CD6549 /* ChooseCurrencyInteractorOutput.swift in Sources */,
 				05F877B12C349428291C737A /* ChooseCurrencyInteractor.swift in Sources */,

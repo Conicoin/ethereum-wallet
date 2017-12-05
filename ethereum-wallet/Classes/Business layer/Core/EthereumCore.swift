@@ -24,46 +24,54 @@ import Geth
 protocol EthereumCoreProtocol {
   var syncQueue: DispatchQueue { get }
   func startSync(chain: Chain, balanceHandler: BalanceHandler, syncHandler: SyncHandler) throws
-  func createAccount(passphrase: String) throws -> GethAccount
-  func jsonKey(for account: GethAccount, passphrase: String) throws -> Data
-  func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount
-  func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String) throws
   func getSuggestedGasLimit() throws -> Int64
   func getSuggestedGasPrice() throws -> Int64
+  func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String) throws
+  func createAccount(passphrase: String) throws -> GethAccount
+  func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount
+  func jsonKey(for account: GethAccount, passphrase: String) throws -> Data
 }
 
 
 class Ethereum: EthereumCoreProtocol {
   
-  static var core: EthereumCoreProtocol = Ethereum()
+  static let core: EthereumCoreProtocol = Ethereum()
   
   let syncQueue = DispatchQueue(label: "com.ethereum-wallet.sync")
   
-  private lazy var keystore: GethKeyStore! = {
-    let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-    return GethNewKeyStore(documentDirectory + "/keystore", GethLightScryptN, GethLightScryptP)
-  }()
+  private var context: GethContext!
+  private var client: GethEthereumClient!
+  private var chain: Chain!
   
   private var syncTimer: DispatchSourceTimer?
   private var syncHandler: SyncHandler!
   private var balanceHandler:  BalanceHandler!
-  private var ethereumContext: GethContext!
   private var node: NodeProtocol!
-  
-  private var _ethereumClient:  GethEthereumClient!
   
   private var isSyncing = false
   private var isSyncingFinished = false
+  
+  lazy private var keystore: KeystoreProtocol! = {
+    return Keystore()
+  }()
+  
+  lazy private var transactionPublisher: TransactionPublisherProtocol! = {
+    return TransactionPublisher(context: context, client: client)
+  }()
   
   
   // MARK: - Synchronization public
   
   func startSync(chain: Chain, balanceHandler: BalanceHandler, syncHandler: SyncHandler) throws {
-            GethSetVerbosity(9)
+    GethSetVerbosity(9)
+    
     self.balanceHandler = balanceHandler
     self.syncHandler = syncHandler
-    self.ethereumContext = GethNewContext()
-    try self.startNode(chain: chain)
+    
+    self.chain = chain
+    self.context = GethNewContext()!
+    self.client = try self.startNode(chain: chain)
+    
     try self.startProgressTicks()
     try self.subscribeNewHead()
   }
@@ -72,53 +80,37 @@ class Ethereum: EthereumCoreProtocol {
     try? node.stop()
   }
   
-  // MARK: - Acount managment public
+}
+
+
+// MARK: - Transactions
+
+extension Ethereum {
+  
+  func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String) throws {
+    let account = try keystore.getAccount(at: 0)
+    let transaction = try transactionPublisher.createTransaction(amountHex: amountHex, to: to, gasLimitHex: gasLimitHex, account: account)
+    let signedTransaction = try keystore.signTransaction(transaction, account: account, passphrase: passphrase, chainId: chain.chainId)
+    try transactionPublisher.sendTransaction(signedTransaction)
+  }
+  
+}
+
+
+// MARK: - Keystore
+
+extension Ethereum {
   
   func createAccount(passphrase: String) throws -> GethAccount {
-    guard keystore.getAccounts().size() == 0 else {
-      throw EthereumError.accountExist
-    }
-    
-    return try keystore.newAccount(passphrase)
+    return try keystore.createAccount(passphrase: passphrase)
+  }
+  
+  func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount {
+    return try keystore.restoreAccount(with: jsonKey, passphrase: passphrase)
   }
   
   func jsonKey(for account: GethAccount, passphrase: String) throws -> Data {
-    return try keystore.exportKey(account, passphrase: passphrase, newPassphrase: passphrase)
-  }
-  
-  func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount  {
-    return try keystore.importKey(jsonKey, passphrase: passphrase, newPassphrase: passphrase)
-  }
-  
-  
-  /// Send transaction
-  ///
-  /// - Parameters:
-  ///   - amount: Amount ot send base 16 string
-  ///   - to: Recepient address
-  ///   - gasLimit: Gas limit
-  ///   - passphrase: Password to unlick wallet
-  func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String) throws {
-    var error: NSError?
-    let gethAddress = GethNewAddressFromHex(to, &error)
-    
-    let account = try keystore.getAccounts().get(0)
-    
-    var noncePointer: Int64 = 0
-    try node.ethereumClient().getNonceAt(ethereumContext, account: account.getAddress(), number: -1, nonce: &noncePointer)
-    
-    let intAmount = GethNewBigInt(0)
-    intAmount?.setString(amountHex, base: 16)
-    
-    let gasLimit = GethNewBigInt(0)
-    gasLimit?.setString(gasLimitHex, base: 16)
-    let gasPrice = try node.ethereumClient().suggestGasPrice(ethereumContext)
-    
-    let transaction = GethNewTransaction(noncePointer, gethAddress, intAmount, gasLimit, gasPrice, nil)
-    let chainId = GethBigInt(node.chain.chainId)
-    let signedTransaction = try keystore.signTxPassphrase(account, passphrase: passphrase, tx: transaction, chainID: chainId)
-    
-    try node.ethereumClient().sendTransaction(ethereumContext, tx: signedTransaction)
+    return try jsonKey(for: account, passphrase: passphrase)
   }
   
 }
@@ -130,9 +122,10 @@ extension Ethereum {
   
   // MARK: - Creating node
   
-  private func startNode(chain: Chain) throws {
+  private func startNode(chain: Chain) throws -> GethEthereumClient {
     self.node = try Node(chain: chain)
     try node.start()
+    return try node.ethereumClient()
   }
   
   // MARK: - Subscribing on new head
@@ -153,8 +146,8 @@ extension Ethereum {
           self.isSyncingFinished = true
         }
         
-        let address = try self.keystore.getAccounts().get(0).getAddress()!
-        let balance = try self.node.ethereumClient().getBalanceAt(self.ethereumContext, account: address, number: header.getNumber()) // TODO: change to try! gethClient.getBalanceAt(GethNewContext(), account: address!, number: -1)
+        let address = try self.keystore.getAccount(at: 0).getAddress()!
+        let balance = try self.node.ethereumClient().getBalanceAt(self.context, account: address, number: header.getNumber()) // TODO: change to try! gethClient.getBalanceAt(GethNewContext(), account: address!, number: -1)
         let time = header.getTime()
         
         // TODO: change to string
@@ -167,7 +160,7 @@ extension Ethereum {
         }
       } catch {}
     }
-    try node.ethereumClient().subscribeNewHead(ethereumContext, handler: newBlockHandler, buffer: 16)
+    try client.subscribeNewHead(context, handler: newBlockHandler, buffer: 16)
   }
   
   
@@ -180,7 +173,7 @@ extension Ethereum {
   }
   
   private func timerTick() {
-    if let syncProgress = try? node.ethereumClient().syncProgress(ethereumContext) {
+    if let syncProgress = try? client.syncProgress(context) {
       let currentBlock = syncProgress.getCurrentBlock()
       let highestBlock = syncProgress.getHighestBlock()
       syncHandler?.didChangeProgress(currentBlock, highestBlock)
@@ -202,7 +195,7 @@ extension Ethereum {
     
     var transactions = [GethTransaction]()
     for blockNumber in startBlockNumber...endBlockNumber {
-      let block = try! node.ethereumClient().getBlockByNumber(ethereumContext, number: blockNumber)
+      let block = try! client.getBlockByNumber(context, number: blockNumber)
       let blockTransactions = block.getTransactions()!
       
       for index in 0...blockTransactions.size()  {
@@ -210,7 +203,7 @@ extension Ethereum {
           continue
         }
         
-        let from = try? node.ethereumClient().getTransactionSender(ethereumContext, tx: transaction, blockhash: block.getHash(), index: index)
+        let from = try? client.getTransactionSender(context, tx: transaction, blockhash: block.getHash(), index: index)
         let to = transaction.getTo()
         
         if to?.getHex() == address || from?.getHex() == address {
@@ -229,7 +222,7 @@ extension Ethereum {
   /// - Returns: Int64 GasLimit
   func getSuggestedGasLimit() throws -> Int64 {
     let msg = GethNewCallMsg()
-    let gasLimit = try node.ethereumClient().estimateGas(ethereumContext, msg: msg)
+    let gasLimit = try client.estimateGas(context, msg: msg)
     return gasLimit.getInt64()
   }
   
@@ -238,7 +231,7 @@ extension Ethereum {
   ///
   /// - Returns: Int64 GasPrice
   func getSuggestedGasPrice() throws -> Int64 {
-    let gasPrice = try node.ethereumClient().suggestGasPrice(ethereumContext)
+    let gasPrice = try client.suggestGasPrice(context)
     return gasPrice.getInt64()
   }
   

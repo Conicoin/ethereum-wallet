@@ -22,6 +22,7 @@ class PasswordInteractor {
   weak var output: PasswordInteractorOutput!
   
   var ethereumService: EthereumCoreProtocol!
+  
   var walletDataStoreService: WalletDataStoreServiceProtocol!
 }
 
