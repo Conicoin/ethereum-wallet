@@ -17,9 +17,23 @@
 
 import UIKit
 
-struct SyncHandler {
-    
-    let didChangeProgress: (Int64, Int64) -> Void
-    let didFinished: () -> Void
+protocol ModeCellDelegate: class {
+  func modeDidChanged(_ value: Bool)
+}
 
+class ModeCell: UITableViewCell {
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var switcher: UISwitch!
+  
+  weak var delegate: ModeCellDelegate?
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
+  
+  @IBAction func valueChanged(_ sender: UISwitch) {
+    delegate?.modeDidChanged(sender.isOn)
+  }
+  
 }

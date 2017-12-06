@@ -21,7 +21,7 @@ import Foundation
 class PasswordInteractor {
   weak var output: PasswordInteractorOutput!
   
-  var ethereumService: EthereumCoreProtocol!
+  var keystoreService: KeystoreServiceProtocol!
   
   var walletDataStoreService: WalletDataStoreServiceProtocol!
 }
@@ -38,8 +38,8 @@ extension PasswordInteractor: PasswordInteractorInput {
   
   func createAccount(passphrase: String) {
     do {
-      let account = try ethereumService.createAccount(passphrase: passphrase)
-      let jsonKey = try ethereumService.jsonKey(for: account, passphrase: passphrase)
+      let account = try keystoreService.createAccount(passphrase: passphrase)
+      let jsonKey = try keystoreService.jsonKey(for: account, passphrase: passphrase)
       let keychain = Keychain()
       keychain.jsonKey = jsonKey
       keychain.passphrase = passphrase
@@ -54,7 +54,7 @@ extension PasswordInteractor: PasswordInteractorInput {
     do {
       let keychain = Keychain()
       let jsonKey = try keychain.getJsonKey()
-      let account = try ethereumService.restoreAccount(with: jsonKey, passphrase: passphrase)
+      let account = try keystoreService.restoreAccount(with: jsonKey, passphrase: passphrase)
       output.didReceive(account: Account(address: account.getAddress().getHex()))
     } catch {
       output.didFailedAccountReceiving(with: error)

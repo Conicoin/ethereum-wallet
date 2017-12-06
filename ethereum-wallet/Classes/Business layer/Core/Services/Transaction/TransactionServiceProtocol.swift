@@ -17,10 +17,13 @@
 
 import Geth
 
-struct BalanceHandler {
-  
-  let didUpdateBalance: (String, Int64) -> Void
-  let didReceiveTransactions: ([GethTransaction], Int64) -> Void
-  let didUpdateGasLimit: (Int64) -> Void
-  
+protocol TransactionServiceProtocol {
+  /// Send transaction
+  ///
+  /// - Parameters:
+  ///   - amount: Amount ot send base 16 string
+  ///   - to: Recepient address
+  ///   - gasLimit: Gas limit hex string
+  ///   - passphrase: Password to unlock wallet
+  func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String) throws
 }

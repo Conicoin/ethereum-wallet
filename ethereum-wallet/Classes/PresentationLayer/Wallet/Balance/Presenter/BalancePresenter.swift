@@ -25,7 +25,6 @@ class BalancePresenter {
   var interactor: BalanceInteractorInput!
   var router: BalanceRouterInput!
   
-  lazy var sendPreviewModule: SendModuleInput = SendModule.create(forPreview: true)
 }
 
 

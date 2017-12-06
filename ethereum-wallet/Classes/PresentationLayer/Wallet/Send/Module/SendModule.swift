@@ -20,24 +20,25 @@ import UIKit
 
 class SendModule {
     
-  class func create(forPreview: Bool) -> SendModuleInput {
+  class func create() -> SendModuleInput {
     let router = SendRouter()
     let presenter = SendPresenter()
     let interactor = SendInteractor()
     
-    if forPreview {
-      let previewController = R.storyboard.wallet.sendPreviewViewController()!
-      previewController.output = presenter
-      presenter.view = previewController
-    } else {
-      let viewController = R.storyboard.wallet.sendViewController()!
-      viewController.output = presenter
-      presenter.view = viewController
-    }
+    let viewController = R.storyboard.wallet.sendViewController()!
+    viewController.output = presenter
+    presenter.view = viewController
+    
+    let core = Ethereum.core
+    let keystore = KeystoreService()
+    let transactionService = TransactionService(core: core, keystore: keystore)
+    interactor.transactionService = transactionService
+    
+    let gasService = GasService(core: core)
+    interactor.gasService = gasService
     
     interactor.walletDataStoreService = WalletDataStoreService()
     interactor.coinDataStoreService = CoinDataStoreService()
-    interactor.ethereumService = Ethereum.core
     interactor.output = presenter
     presenter.router = router
     presenter.interactor = interactor

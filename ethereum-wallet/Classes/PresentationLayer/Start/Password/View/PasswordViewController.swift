@@ -18,12 +18,14 @@
 import UIKit
 
 
-class PasswordViewController: UITableViewController {
+class PasswordViewController: UIViewController {
 
   var output: PasswordViewOutput!
   
+  @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var textField: UITextField!
-
+  @IBOutlet weak var helperTextView: UITextView!
+  
   // MARK: Life cycle
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -47,31 +49,55 @@ class PasswordViewController: UITableViewController {
 
 // MARK: - TableView
 
-extension PasswordViewController {
+extension PasswordViewController: UITableViewDelegate, UITableViewDataSource {
   
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard indexPath.section == 1 else {
-      return super.tableView(tableView, cellForRowAt: indexPath)
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    switch indexPath.section {
+    case 0:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "ChainCell", for: indexPath)
+      cell.selectionStyle = .none
+      cell.textLabel?.text = output.chains[indexPath.row].localizedDescription
+      return cell
+      
+    case 1:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "ModeCell", for: indexPath) as! ModeCell
+      cell.titleLabel.text = Localized.modeTitle()
+      cell.switcher.isOn = Bool(output.syncMode.rawValue)
+      cell.delegate = self
+      return cell
+      
+    default:
+      return UITableViewCell()
     }
     
-    let cell = ChainCell(style: .default, reuseIdentifier: "ChainCell")
-    cell.selectionStyle = .none
-    cell.textLabel?.text = output.chains[indexPath.row].localizedDescription
-    
-    return cell
   }
   
-  override func numberOfSections(in tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return 2
   }
   
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return section == 0 ? 1 : output.chains.count
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if section == 0 {
+      return output.chains.count
+    } else {
+      return 1
+    }
   }
   
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard indexPath.section == 1 else { return }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard indexPath.section == 0 else { return }
     output.selectChain(at: indexPath.row)
+  }
+  
+}
+
+// MARK: - ModeCellDelegate
+
+extension PasswordViewController: ModeCellDelegate {
+  
+  func modeDidChanged(_ value: Bool) {
+    output.didChangeSyncMode(value)
   }
   
 }
@@ -103,8 +129,12 @@ extension PasswordViewController: PasswordViewInput {
   }
   
   func selectChain(at index: Int) {
-    let indexPath = IndexPath(row: index, section: 1)
+    let indexPath = IndexPath(row: index, section: 0)
     tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+  }
+  
+  func didChangedMode(_ mode: SyncMode) {
+    helperTextView.text = mode.helperText
   }
 
 }

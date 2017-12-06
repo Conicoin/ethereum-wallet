@@ -28,7 +28,7 @@ class PasswordModule {
     let viewController = R.storyboard.start.passwordViewController()!
 
     interactor.output = presenter
-    interactor.ethereumService = Ethereum.core
+    interactor.keystoreService = KeystoreService()
     interactor.walletDataStoreService = WalletDataStoreService()
 
     viewController.output = presenter

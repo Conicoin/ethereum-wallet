@@ -16,14 +16,14 @@
 
 
 import Foundation
-
+import Geth
 
 class TabBarInteractor {
   weak var output: TabBarInteractorOutput!
-  var ethereumService: EthereumCoreProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
-  var transactionsDataStoreServise: TransactionsDataStoreServiceProtocol!
   var coinsDataStoreService: CoinDataStoreServiceProtocol!
+  var ethereumService: EthereumCoreProtocol!
+  var transactionsDataStoreServise: TransactionsDataStoreServiceProtocol!
 }
 
 
@@ -32,53 +32,12 @@ class TabBarInteractor {
 extension TabBarInteractor: TabBarInteractorInput {
   
   func startSynchronization() {
-    let balanceHandler = BalanceHandler(didUpdateBalance: { [unowned self] newBalanceHex, time in
-      
-      guard var coin = self.coinsDataStoreService.find(withIso: "ETH") else {
-        return
-      }
-      
-      let interval = TimeInterval(time)
-      let date = Date(timeIntervalSince1970: interval)
-      
-      guard coin.lastUpdateTime < date else {
-        return
-      }
-      
-      let newBalance = Decimal(hexString: newBalanceHex)
-      coin.balance = Ether(newBalance as NSDecimalNumber) // TODO: Remove  ALL NSDecimalNumbers
-      coin.lastUpdateTime = date
-      self.coinsDataStoreService.save(coin)
-      
-      self.output.syncDidUpdateBalance(Decimal(hexString: newBalanceHex))
-    }, didReceiveTransactions: { [unowned self] gethTransactions, time in
-      
-      var transactions = gethTransactions.map { Transaction.mapFromGethTransaction($0, time: TimeInterval(time)) }
-      let wallet = self.walletDataStoreService.getWallet()
-      self.transactionsDataStoreServise.markAndSaveTransactions(&transactions, address: wallet.address)
-      
-    }, didUpdateGasLimit: { [unowned self] gasLimit in
-      var wallet = self.walletDataStoreService.getWallet()
-      wallet.gasLimit = Decimal(gasLimit)
-      self.walletDataStoreService.save(wallet)
-    })
-    
-    let syncHandler = SyncHandler(didChangeProgress: { [unowned self] current, total in
-      DispatchQueue.main.async {
-        self.output.syncDidChangeProgress(current: current, total: total)
-      }
-    }, didFinished: { [unowned self] in
-      DispatchQueue.main.async {
-        self.output.syncDidFinished()
-      }
-    })
-    
-    ethereumService.syncQueue.async {
+    Ethereum.syncQueue.async { [unowned self] in
       do  {
-        try Ethereum.core.startSync(chain: Defaults.chain, balanceHandler: balanceHandler, syncHandler: syncHandler)
+        try self.ethereumService.start(chain: Defaults.chain, delegate: self)
         
       } catch {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
           self.output.syncDidFailedWithError(error)
         }
       }
@@ -86,4 +45,58 @@ extension TabBarInteractor: TabBarInteractorInput {
     
   }
 
+}
+
+
+// MARK: - SyncCoordinatorDelegate
+
+extension TabBarInteractor: SyncCoordinatorDelegate {
+  
+  func syncDidChangeProgress(current: Int64, max: Int64) {
+    DispatchQueue.main.async {
+      self.output.syncDidChangeProgress(current: current, total: max)
+    }
+  }
+  
+  func syncDidFinished() {
+    DispatchQueue.main.async {
+      self.output.syncDidFinished()
+    }
+  }
+  
+  func syncDidUpdateBalance(_ balanceHex: String, timestamp: Int64) {
+    guard var coin = coinsDataStoreService.find(withIso: "ETH") else {
+      return
+    }
+    
+    let interval = TimeInterval(timestamp)
+    let date = Date(timeIntervalSince1970: interval)
+    
+    guard coin.lastUpdateTime < date else {
+      return
+    }
+    
+    let newBalance = Decimal(hexString: balanceHex)
+    coin.balance = Ether(newBalance as NSDecimalNumber) // TODO: Remove  ALL NSDecimalNumbers
+    coin.lastUpdateTime = date
+    coinsDataStoreService.save(coin)
+    
+    output.syncDidUpdateBalance(newBalance)
+  }
+  
+  func syncDidUpdateGasLimit(_ gasLimit: Int64) {
+    var wallet = walletDataStoreService.getWallet()
+    wallet.gasLimit = Decimal(gasLimit)
+    walletDataStoreService.save(wallet)
+  }
+  
+  func syncDidReceiveTransactions(_ gethTransactions: [GethTransaction], timestamp: Int64) {
+    var transactions = gethTransactions.map { Transaction.mapFromGethTransaction($0, time: TimeInterval(timestamp)) }
+    let wallet = walletDataStoreService.getWallet()
+    transactionsDataStoreServise.markAndSaveTransactions(&transactions, address: wallet.address)
+  }
+  
+  
+  
+  
 }

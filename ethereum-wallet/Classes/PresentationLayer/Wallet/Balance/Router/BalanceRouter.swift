@@ -28,11 +28,7 @@ class BalanceRouter {
 extension BalanceRouter: BalanceRouterInput {
   
   func presentSend(from: UIViewController) {
-    SendModule.create(forPreview: false).presentSend(from: from)
-  }
-  
-  func presentSendPreview(from: UIViewController) {
-    SendModule.create(forPreview: true).presentSendPreview(from: from)
+    SendModule.create().presentSend(from: from)
   }
   
   func presentReceive(from: UIViewController) {

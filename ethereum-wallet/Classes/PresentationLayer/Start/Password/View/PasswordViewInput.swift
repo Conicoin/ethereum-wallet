@@ -21,4 +21,5 @@ import UIKit
 protocol PasswordViewInput: class, Presentable {
   func setupInitialState(restoring: Bool)
   func selectChain(at index: Int)
+  func didChangedMode(_ mode: SyncMode)
 }

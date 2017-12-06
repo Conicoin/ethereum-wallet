@@ -15,9 +15,12 @@
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import UIKit
+import Geth
 
-
-protocol PasswordRouterInput: class {
-  func presentWallet(from: UIViewController, isSecureMode: Bool)
+protocol KeystoreServiceProtocol {
+  func getAccount(at index: Int) throws -> GethAccount
+  func createAccount(passphrase: String) throws -> GethAccount
+  func jsonKey(for account: GethAccount, passphrase: String) throws -> Data
+  func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount
+  func signTransaction(_ transaction: GethTransaction, account: GethAccount, passphrase: String, chainId: Int64) throws -> GethTransaction
 }

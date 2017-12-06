@@ -17,7 +17,7 @@
 
 import Geth
 
-class Keystore: KeystoreProtocol {
+class KeystoreService: KeystoreServiceProtocol {
   
   private lazy var keystore: GethKeyStore! = {
     let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]

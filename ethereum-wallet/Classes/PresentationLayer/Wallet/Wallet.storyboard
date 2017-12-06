@@ -151,7 +151,7 @@
                         <viewLayoutGuide key="safeArea" id="50R-5g-LaW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="SettingsTab" id="0xI-SZ-1Rx"/>
-                    <navigationItem key="navigationItem" title="Settings" id="iD1-Tj-FjI"/>
+                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="never" id="iD1-Tj-FjI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="creditsTextView" destination="oOB-S4-30r" id="Xth-yh-dsX"/>
@@ -730,24 +730,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmU-WW-9Qh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2275" y="-315"/>
-        </scene>
-        <!--Send Preview View Controller-->
-        <scene sceneID="8t9-cX-4g7">
-            <objects>
-                <viewController storyboardIdentifier="SendPreviewViewController" hidesBottomBarWhenPushed="YES" id="zOh-zN-Hkr" customClass="SendPreviewViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Uej-mw-shd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="Jt3-Q6-Bun"/>
-                    </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="89R-R0-Mw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="366" y="-1093"/>
         </scene>
         <!--Choose Currency View Controller-->
         <scene sceneID="wjY-u8-r1v">

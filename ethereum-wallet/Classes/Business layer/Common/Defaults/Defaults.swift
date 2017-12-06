@@ -32,11 +32,22 @@ final class Defaults: NSObject {
   class var chain: Chain {
     get {
       let raw: String =  get(forKey: .chain, fallback: Chain.mainnet.rawValue)
-      return Chain(rawValue: raw) ?? Chain.mainnet
+      return Chain(rawValue: raw)!
     }
     
     set {
       set(value: newValue.rawValue, forKey: .chain)
+    }
+  }
+  
+  class var mode: SyncMode {
+    get {
+      let raw: Int = get(forKey: .mode, fallback: SyncMode.standard.rawValue)
+      return SyncMode(rawValue: raw)!
+    }
+    
+    set {
+      set(value: newValue.rawValue, forKey: .mode)
     }
   }
 }
@@ -46,6 +57,7 @@ private extension Defaults {
   enum Keys: String {
     case isAuthorized = "isAuthorizedKey"
     case chain = "chainKey"
+    case mode = "syncMode"
   }
   
   static func set<T: Any>(value: T, forKey key: Keys) {

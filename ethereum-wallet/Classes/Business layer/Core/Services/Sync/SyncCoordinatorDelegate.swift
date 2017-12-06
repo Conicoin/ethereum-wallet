@@ -15,9 +15,12 @@
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import UIKit
+import Geth
 
-
-protocol PasswordRouterInput: class {
-  func presentWallet(from: UIViewController, isSecureMode: Bool)
+protocol SyncCoordinatorDelegate: class {
+  func syncDidChangeProgress(current: Int64, max: Int64)
+  func syncDidFinished()
+  func syncDidUpdateBalance(_ balanceHex: String, timestamp: Int64)
+  func syncDidUpdateGasLimit(_ gasLimit: Int64)
+  func syncDidReceiveTransactions(_ transactions: [GethTransaction], timestamp: Int64)
 }

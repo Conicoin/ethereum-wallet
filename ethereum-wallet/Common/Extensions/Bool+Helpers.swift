@@ -15,19 +15,14 @@
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import Geth
+import Foundation
 
-protocol TransactionPublisherProtocol {
- 
-  /// Creating unsigned transaction
-  ///
-  /// - Parameters:
-  ///   - amount: Amount ot send base 16 string
-  ///   - to: Recepient address
-  ///   - gasLimit: Gas limit
-  ///   - account: Account from keystore
-  func createTransaction(amountHex: String, to: String, gasLimitHex: String, account: GethAccount) throws -> GethTransaction
+extension Bool {
+  init<T: BinaryInteger>(_ num: T) {
+    self.init(num != 0)
+  }
   
-  /// Send signedTransaction
-  func sendTransaction(_ signedTransaction: GethTransaction) throws
+  var intValue: Int {
+    return self ? 1 : 0
+  }
 }

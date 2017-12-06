@@ -20,14 +20,25 @@ import UIKit
 
 class TabBarModule {
     
-  class func create() -> TabBarModuleInput {
+  class func create(isSecureMode: Bool) -> TabBarModuleInput {
     let router = TabBarRouter()
     let presenter = TabBarPresenter()
     let interactor = TabBarInteractor()
     let viewController = R.storyboard.wallet.tabBarViewController()!
+    
+    let core = Ethereum.core
+    if isSecureMode {
+      let keystore = KeystoreService()
+      let syncCoordinator = LesSyncCoordinator(context: core.context, keystore: keystore)
+      core.syncCoordinator = syncCoordinator
+      interactor.ethereumService = core
+    } else {
+      let syncCoordinator = StandardSyncCoordinator()
+      core.syncCoordinator = syncCoordinator
+      interactor.ethereumService = core
+    }
 
     interactor.output = presenter
-    interactor.ethereumService = Ethereum.core
     interactor.walletDataStoreService = WalletDataStoreService()
     interactor.transactionsDataStoreServise = TransactionsDataStoreService()
     interactor.coinsDataStoreService = CoinDataStoreService()

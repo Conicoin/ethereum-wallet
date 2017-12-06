@@ -30,12 +30,20 @@
 		14285E841FB2831200DD3CB5 /* API+Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14285E831FB2831200DD3CB5 /* API+Rate.swift */; };
 		14293C2A1F9FCEB4009E49F1 /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */; };
 		142B5A1A1EDF0EEB007F73BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142B5A191EDF0EEB007F73BA /* Security.framework */; };
-		14313CAD1FB09701003AEB0C /* SendPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CAC1FB09701003AEB0C /* SendPreviewViewController.swift */; };
 		14313CAF1FB0B045003AEB0C /* LightShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CAE1FB0B045003AEB0C /* LightShadowView.swift */; };
 		14313CB21FB0B4B5003AEB0C /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */; };
 		14313CB41FB0BE01003AEB0C /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB31FB0BE01003AEB0C /* Formatter.swift */; };
 		14313CB81FB0C492003AEB0C /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB71FB0C492003AEB0C /* String+Helpers.swift */; };
-		144791BD1EF55B2B00029818 /* SyncHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791BC1EF55B2B00029818 /* SyncHandler.swift */; };
+		1433BDB71FD6C9780081D872 /* LesSyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDB11FD6C6910081D872 /* LesSyncCoordinator.swift */; };
+		1433BDB81FD6C9780081D872 /* SyncCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDB31FD6C6C20081D872 /* SyncCoordinatorProtocol.swift */; };
+		1433BDB91FD6C9780081D872 /* SyncCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDB51FD6C75D0081D872 /* SyncCoordinatorDelegate.swift */; };
+		1433BDBE1FD743120081D872 /* GasServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDBD1FD743120081D872 /* GasServiceProtocol.swift */; };
+		1433BDC01FD7431C0081D872 /* GasService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDBF1FD7431C0081D872 /* GasService.swift */; };
+		1433BDC21FD746430081D872 /* NewHeadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC11FD746430081D872 /* NewHeadHandler.swift */; };
+		1433BDC41FD750550081D872 /* StandardSyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC31FD750550081D872 /* StandardSyncCoordinator.swift */; };
+		1433BDC61FD767CF0081D872 /* ModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC51FD767CF0081D872 /* ModeCell.swift */; };
+		1433BDC81FD76B9B0081D872 /* SyncMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC71FD76B9B0081D872 /* SyncMode.swift */; };
+		1433BDCA1FD76E010081D872 /* Bool+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC91FD76E010081D872 /* Bool+Helpers.swift */; };
 		144791C11EF59EB300029818 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791C01EF59EB300029818 /* Account.swift */; };
 		144791C71EF5A95500029818 /* Keychain+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791C61EF5A95500029818 /* Keychain+Helpers.swift */; };
 		144791C91EF5DC6200029818 /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144791C81EF5DC6200029818 /* Wallet.storyboard */; };
@@ -62,13 +70,12 @@
 		1491C51644B2B62A7D3E4391 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921BF13B4F6C6C76E2CF74EC /* PasswordViewController.swift */; };
 		14958E4B1FB7A4D3005CFC6C /* Decimal+Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */; };
 		149973D81FB1D71E00B16901 /* RatesDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149973D71FB1D71E00B16901 /* RatesDataStoreService.swift */; };
-		149AA05B1FD60E9400F961FA /* KeystoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA05A1FD60E9400F961FA /* KeystoreProtocol.swift */; };
-		149AA05D1FD60EAF00F961FA /* Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA05C1FD60EAF00F961FA /* Keystore.swift */; };
-		149AA0601FD614E400F961FA /* TransactionPublisherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA05F1FD614E400F961FA /* TransactionPublisherProtocol.swift */; };
-		149AA0621FD614F900F961FA /* TransactionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0611FD614F900F961FA /* TransactionPublisher.swift */; };
+		149AA05B1FD60E9400F961FA /* KeystoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA05A1FD60E9400F961FA /* KeystoreServiceProtocol.swift */; };
+		149AA05D1FD60EAF00F961FA /* KeystoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA05C1FD60EAF00F961FA /* KeystoreService.swift */; };
+		149AA0601FD614E400F961FA /* TransactionServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA05F1FD614E400F961FA /* TransactionServiceProtocol.swift */; };
+		149AA0621FD614F900F961FA /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0611FD614F900F961FA /* TransactionService.swift */; };
 		14ACA1D71EF2BC840059E430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1D61EF2BC840059E430 /* AppDelegate.swift */; };
 		14ACA1E01EF2BCB70059E430 /* EthereumCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1DE1EF2BCB70059E430 /* EthereumCore.swift */; };
-		14ACA1E11EF2BCB70059E430 /* NewHeadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1DF1EF2BCB70059E430 /* NewHeadHandler.swift */; };
 		14ACA1E51EF2BCC80059E430 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1E21EF2BCC80059E430 /* Defaults.swift */; };
 		14ACA1E61EF2BCC80059E430 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1E31EF2BCC80059E430 /* Errors.swift */; };
 		14ACA1E71EF2BCC80059E430 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1E41EF2BCC80059E430 /* Keychain.swift */; };
@@ -94,7 +101,6 @@
 		14BE0A791FAFDCB00044E3A1 /* CoinDataStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BE0A781FAFDCB00044E3A1 /* CoinDataStoreServiceProtocol.swift */; };
 		14BE0A7B1FAFDCC50044E3A1 /* CoinDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BE0A7A1FAFDCC50044E3A1 /* CoinDataStoreService.swift */; };
 		14D027E01EF6D4CD00F125C3 /* RealmWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027DF1EF6D4CD00F125C3 /* RealmWallet.swift */; };
-		14D027E21EF7446900F125C3 /* BalanceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027E11EF7446900F125C3 /* BalanceHandler.swift */; };
 		14D027EB1EF87A1D00F125C3 /* NetworkLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027EA1EF87A1D00F125C3 /* NetworkLoadable.swift */; };
 		14D027EE1EF9661100F125C3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027ED1EF9661100F125C3 /* API.swift */; };
 		14D027F01EF96ACC00F125C3 /* API+Etherscan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027EF1EF96ACC00F125C3 /* API+Etherscan.swift */; };
@@ -239,12 +245,20 @@
 		14285E831FB2831200DD3CB5 /* API+Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Rate.swift"; sourceTree = "<group>"; };
 		14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		142B5A191EDF0EEB007F73BA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		14313CAC1FB09701003AEB0C /* SendPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendPreviewViewController.swift; sourceTree = "<group>"; };
 		14313CAE1FB0B045003AEB0C /* LightShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightShadowView.swift; sourceTree = "<group>"; };
 		14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
 		14313CB31FB0BE01003AEB0C /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		14313CB71FB0C492003AEB0C /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
-		144791BC1EF55B2B00029818 /* SyncHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncHandler.swift; sourceTree = "<group>"; };
+		1433BDB11FD6C6910081D872 /* LesSyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesSyncCoordinator.swift; sourceTree = "<group>"; };
+		1433BDB31FD6C6C20081D872 /* SyncCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		1433BDB51FD6C75D0081D872 /* SyncCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		1433BDBD1FD743120081D872 /* GasServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasServiceProtocol.swift; sourceTree = "<group>"; };
+		1433BDBF1FD7431C0081D872 /* GasService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasService.swift; sourceTree = "<group>"; };
+		1433BDC11FD746430081D872 /* NewHeadHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHeadHandler.swift; sourceTree = "<group>"; };
+		1433BDC31FD750550081D872 /* StandardSyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSyncCoordinator.swift; sourceTree = "<group>"; };
+		1433BDC51FD767CF0081D872 /* ModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeCell.swift; sourceTree = "<group>"; };
+		1433BDC71FD76B9B0081D872 /* SyncMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncMode.swift; sourceTree = "<group>"; };
+		1433BDC91FD76E010081D872 /* Bool+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Helpers.swift"; sourceTree = "<group>"; };
 		144791C01EF59EB300029818 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		144791C61EF5A95500029818 /* Keychain+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keychain+Helpers.swift"; sourceTree = "<group>"; };
 		144791C81EF5DC6200029818 /* Wallet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wallet.storyboard; sourceTree = "<group>"; };
@@ -271,13 +285,12 @@
 		1489ED1C1F9C0EE800E0A5FC /* Data+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Helpers.swift"; sourceTree = "<group>"; };
 		14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Ethereum.swift"; sourceTree = "<group>"; };
 		149973D71FB1D71E00B16901 /* RatesDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDataStoreService.swift; sourceTree = "<group>"; };
-		149AA05A1FD60E9400F961FA /* KeystoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreProtocol.swift; sourceTree = "<group>"; };
-		149AA05C1FD60EAF00F961FA /* Keystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keystore.swift; sourceTree = "<group>"; };
-		149AA05F1FD614E400F961FA /* TransactionPublisherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPublisherProtocol.swift; sourceTree = "<group>"; };
-		149AA0611FD614F900F961FA /* TransactionPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPublisher.swift; sourceTree = "<group>"; };
+		149AA05A1FD60E9400F961FA /* KeystoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreServiceProtocol.swift; sourceTree = "<group>"; };
+		149AA05C1FD60EAF00F961FA /* KeystoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreService.swift; sourceTree = "<group>"; };
+		149AA05F1FD614E400F961FA /* TransactionServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionServiceProtocol.swift; sourceTree = "<group>"; };
+		149AA0611FD614F900F961FA /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		14ACA1D61EF2BC840059E430 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14ACA1DE1EF2BCB70059E430 /* EthereumCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumCore.swift; sourceTree = "<group>"; };
-		14ACA1DF1EF2BCB70059E430 /* NewHeadHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHeadHandler.swift; sourceTree = "<group>"; };
 		14ACA1E21EF2BCC80059E430 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		14ACA1E31EF2BCC80059E430 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		14ACA1E41EF2BCC80059E430 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -306,7 +319,6 @@
 		14C4D3CD1EDE1F3700FCA3AF /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		14C6721940B7C90252875C7E /* WelcomeRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeRouterInput.swift; sourceTree = "<group>"; };
 		14D027DF1EF6D4CD00F125C3 /* RealmWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmWallet.swift; sourceTree = "<group>"; };
-		14D027E11EF7446900F125C3 /* BalanceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceHandler.swift; sourceTree = "<group>"; };
 		14D027EA1EF87A1D00F125C3 /* NetworkLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLoadable.swift; sourceTree = "<group>"; };
 		14D027ED1EF9661100F125C3 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		14D027EF1EF96ACC00F125C3 /* API+Etherscan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API+Etherscan.swift"; sourceTree = "<group>"; };
@@ -548,17 +560,36 @@
 				146D0D1F1FC1FA5D003C0C3E /* Date+Helpers.swift */,
 				14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */,
 				14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */,
+				1433BDC91FD76E010081D872 /* Bool+Helpers.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1433BDBB1FD73F650081D872 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1433BDBC1FD73F9B0081D872 /* Gas */,
+				149AA0631FD624CE00F961FA /* Sync */,
+				149AA05E1FD614A600F961FA /* Transaction */,
+				149AA0591FD60E7700F961FA /* Keystore */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1433BDBC1FD73F9B0081D872 /* Gas */ = {
+			isa = PBXGroup;
+			children = (
+				1433BDBD1FD743120081D872 /* GasServiceProtocol.swift */,
+				1433BDBF1FD7431C0081D872 /* GasService.swift */,
+			);
+			path = Gas;
 			sourceTree = "<group>";
 		};
 		1438CCDD1EF1AD1000C6AA3F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				149AA05E1FD614A600F961FA /* TransactionPublisher */,
-				149AA0591FD60E7700F961FA /* Keystore */,
+				1433BDBB1FD73F650081D872 /* Services */,
 				14FEBD761FBB2CB90084F1AB /* Wrappers */,
-				144791BB1EF55AFB00029818 /* Handlers */,
 				14ACA1DE1EF2BCB70059E430 /* EthereumCore.swift */,
 			);
 			path = Core;
@@ -572,16 +603,6 @@
 				14D027DD1EF6D4A400F125C3 /* Plain */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		144791BB1EF55AFB00029818 /* Handlers */ = {
-			isa = PBXGroup;
-			children = (
-				14ACA1DF1EF2BCB70059E430 /* NewHeadHandler.swift */,
-				144791BC1EF55B2B00029818 /* SyncHandler.swift */,
-				14D027E11EF7446900F125C3 /* BalanceHandler.swift */,
-			);
-			path = Handlers;
 			sourceTree = "<group>";
 		};
 		144791C41EF5A93100029818 /* Keychain */ = {
@@ -784,19 +805,30 @@
 		149AA0591FD60E7700F961FA /* Keystore */ = {
 			isa = PBXGroup;
 			children = (
-				149AA05A1FD60E9400F961FA /* KeystoreProtocol.swift */,
-				149AA05C1FD60EAF00F961FA /* Keystore.swift */,
+				149AA05A1FD60E9400F961FA /* KeystoreServiceProtocol.swift */,
+				149AA05C1FD60EAF00F961FA /* KeystoreService.swift */,
 			);
 			path = Keystore;
 			sourceTree = "<group>";
 		};
-		149AA05E1FD614A600F961FA /* TransactionPublisher */ = {
+		149AA05E1FD614A600F961FA /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
-				149AA05F1FD614E400F961FA /* TransactionPublisherProtocol.swift */,
-				149AA0611FD614F900F961FA /* TransactionPublisher.swift */,
+				149AA05F1FD614E400F961FA /* TransactionServiceProtocol.swift */,
+				149AA0611FD614F900F961FA /* TransactionService.swift */,
 			);
-			path = TransactionPublisher;
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		149AA0631FD624CE00F961FA /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				1433BDC31FD750550081D872 /* StandardSyncCoordinator.swift */,
+				1433BDB11FD6C6910081D872 /* LesSyncCoordinator.swift */,
+				1433BDB31FD6C6C20081D872 /* SyncCoordinatorProtocol.swift */,
+				1433BDB51FD6C75D0081D872 /* SyncCoordinatorDelegate.swift */,
+			);
+			path = Sync;
 			sourceTree = "<group>";
 		};
 		14B2193B1FC22D96003092F0 /* Cells */ = {
@@ -811,6 +843,7 @@
 			isa = PBXGroup;
 			children = (
 				14B2193F1FC2313A003092F0 /* ChainCell.swift */,
+				1433BDC51FD767CF0081D872 /* ModeCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -976,8 +1009,10 @@
 		14FEBD761FBB2CB90084F1AB /* Wrappers */ = {
 			isa = PBXGroup;
 			children = (
+				1433BDC11FD746430081D872 /* NewHeadHandler.swift */,
 				14FEBD721FBB1F210084F1AB /* Node.swift */,
 				14FEBD741FBB2A940084F1AB /* Chain.swift */,
+				1433BDC71FD76B9B0081D872 /* SyncMode.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -1445,7 +1480,6 @@
 				C757FFEB953C5FFFA39F32FF /* SendViewInput.swift */,
 				3517836A45FEE47323B6557F /* SendViewOutput.swift */,
 				241B4276BED5A4833F0D7E20 /* SendViewController.swift */,
-				14313CAC1FB09701003AEB0C /* SendPreviewViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1731,14 +1765,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1433BDC21FD746430081D872 /* NewHeadHandler.swift in Sources */,
+				1433BDB71FD6C9780081D872 /* LesSyncCoordinator.swift in Sources */,
+				1433BDB81FD6C9780081D872 /* SyncCoordinatorProtocol.swift in Sources */,
+				1433BDB91FD6C9780081D872 /* SyncCoordinatorDelegate.swift in Sources */,
 				14B3B6851EF491F0002A0623 /* UIButton+Helpers.swift in Sources */,
 				14313CAF1FB0B045003AEB0C /* LightShadowView.swift in Sources */,
 				14E3F5181FB1014700161EA2 /* QRService.swift in Sources */,
 				144791D21EF5DE7100029818 /* ThirdPartiesConfigurator.swift in Sources */,
-				14ACA1E11EF2BCB70059E430 /* NewHeadHandler.swift in Sources */,
 				14D47F011FB3D1460095C516 /* Currency.swift in Sources */,
 				146D0D201FC1FA5D003C0C3E /* Date+Helpers.swift in Sources */,
 				14ACA1E01EF2BCB70059E430 /* EthereumCore.swift in Sources */,
+				1433BDCA1FD76E010081D872 /* Bool+Helpers.swift in Sources */,
 				14ACA1E51EF2BCC80059E430 /* Defaults.swift in Sources */,
 				144791D01EF5DE4000029818 /* ApplicationConfigurator.swift in Sources */,
 				14293C2A1F9FCEB4009E49F1 /* UIViewController+Helpers.swift in Sources */,
@@ -1750,9 +1788,9 @@
 				1458426D1FB1D55200FA733F /* RatesNetworkService.swift in Sources */,
 				14D027F71EF9701A00F125C3 /* RealmTransaction.swift in Sources */,
 				14B77EC41F9ACD9300FCD923 /* WalletDataStoreServiceProtocol.swift in Sources */,
-				14D027E21EF7446900F125C3 /* BalanceHandler.swift in Sources */,
 				14D027E01EF6D4CD00F125C3 /* RealmWallet.swift in Sources */,
 				14313CB41FB0BE01003AEB0C /* Formatter.swift in Sources */,
+				1433BDBE1FD743120081D872 /* GasServiceProtocol.swift in Sources */,
 				14ACA1D71EF2BC840059E430 /* AppDelegate.swift in Sources */,
 				1489ED1D1F9C0EE800E0A5FC /* Data+Helpers.swift in Sources */,
 				144791CC1EF5DDD200029818 /* ConfiguratorProtocol.swift in Sources */,
@@ -1762,7 +1800,6 @@
 				14D027EB1EF87A1D00F125C3 /* NetworkLoadable.swift in Sources */,
 				14D027EE1EF9661100F125C3 /* API.swift in Sources */,
 				145842691FB1123E00FA733F /* Rate.swift in Sources */,
-				144791BD1EF55B2B00029818 /* SyncHandler.swift in Sources */,
 				14285E841FB2831200DD3CB5 /* API+Rate.swift in Sources */,
 				14E5CAB11FB925C300CE5419 /* String+Ethereum.swift in Sources */,
 				14F419241F9BF6E3000C500A /* TransactionsDataStoreServiceProtocol.swift in Sources */,
@@ -1785,7 +1822,7 @@
 				6AF6DAF448C27BB48BDCF4CD /* WelcomeInteractorInput.swift in Sources */,
 				99AA53CDE10710A6EFE5B0E5 /* WelcomeInteractorOutput.swift in Sources */,
 				14636D631F994BB7002BDFAC /* Presentable.swift in Sources */,
-				149AA05D1FD60EAF00F961FA /* Keystore.swift in Sources */,
+				149AA05D1FD60EAF00F961FA /* KeystoreService.swift in Sources */,
 				146D0D1E1FC0DDBC003C0C3E /* Decimal+Helpers.swift in Sources */,
 				97C6DFDAC5C6F69DDBDFB874 /* WelcomeInteractor.swift in Sources */,
 				63C15D01BDCF21B7ED56B12A /* WelcomeRouterInput.swift in Sources */,
@@ -1795,6 +1832,7 @@
 				0452F2CC567D5791911CA5C9 /* WelcomeModuleOutput.swift in Sources */,
 				A2949D797F273018C98217B3 /* WelcomeModule.swift in Sources */,
 				146DB0811FA007E7000D3564 /* TransactionsNetworkService.swift in Sources */,
+				1433BDC41FD750550081D872 /* StandardSyncCoordinator.swift in Sources */,
 				14E3F5161FB1013500161EA2 /* QRServiceProtocol.swift in Sources */,
 				664FEEFEAE997FB593FBB4D8 /* PasswordViewInput.swift in Sources */,
 				9131DFE632168FA1A7230811 /* PasswordViewOutput.swift in Sources */,
@@ -1806,6 +1844,7 @@
 				14B219421FC2458C003092F0 /* Bundle+Helpers.swift in Sources */,
 				149973D81FB1D71E00B16901 /* RatesDataStoreService.swift in Sources */,
 				14B219451FC2DFC8003092F0 /* ChooseCurrencyCell.swift in Sources */,
+				1433BDC01FD7431C0081D872 /* GasService.swift in Sources */,
 				C3B4AA17949E4D701D63FC38 /* PasswordInteractor.swift in Sources */,
 				455B6C722D3E5C8309886CC7 /* PasswordRouterInput.swift in Sources */,
 				70601C74B88312CD95D5D800 /* PasswordRouter.swift in Sources */,
@@ -1857,6 +1896,7 @@
 				14313CB81FB0C492003AEB0C /* String+Helpers.swift in Sources */,
 				14BE0A791FAFDCB00044E3A1 /* CoinDataStoreServiceProtocol.swift in Sources */,
 				14B219401FC2313A003092F0 /* ChainCell.swift in Sources */,
+				1433BDC61FD767CF0081D872 /* ModeCell.swift in Sources */,
 				E65833E73BA0D892D187575C /* TransactionsRouterInput.swift in Sources */,
 				67DA84FDEC2C0B1CF45AF2D2 /* TransactionsRouter.swift in Sources */,
 				14D47EFF1FB3CEE90095C516 /* Ether.swift in Sources */,
@@ -1868,7 +1908,6 @@
 				977DBCED56321E9DC4963E16 /* SendViewOutput.swift in Sources */,
 				1458426B1FB112A200FA733F /* RealmRate.swift in Sources */,
 				5FD8C7FE5484A74036C3E36E /* SendViewController.swift in Sources */,
-				14313CAD1FB09701003AEB0C /* SendPreviewViewController.swift in Sources */,
 				2C55D0ED3B3BCEB7B073ABD4 /* SendPresenter.swift in Sources */,
 				14B2193D1FC22DB5003092F0 /* SettingsCurrencyCell.swift in Sources */,
 				42534B9D2D18A9ADA1BA048F /* SendInteractorInput.swift in Sources */,
@@ -1879,7 +1918,7 @@
 				5F128A459101497C3BA454B3 /* SendModuleInput.swift in Sources */,
 				01D80743218DC806CE82FBA6 /* SendModuleOutput.swift in Sources */,
 				D025DFCF24E4D87631410C3E /* SendModule.swift in Sources */,
-				149AA05B1FD60E9400F961FA /* KeystoreProtocol.swift in Sources */,
+				149AA05B1FD60E9400F961FA /* KeystoreServiceProtocol.swift in Sources */,
 				1406465C1FAF46DB0013DFFF /* Coin.swift in Sources */,
 				5C142202D92AFEB49A810B5E /* ReceiveViewInput.swift in Sources */,
 				9979B5D0B82EB41F30F74A8A /* ReceiveViewOutput.swift in Sources */,
@@ -1901,7 +1940,7 @@
 				CD7EFAF754CE17A2F27280AD /* ScanInteractorOutput.swift in Sources */,
 				69E9D8117DC330353E9AAE47 /* ScanInteractor.swift in Sources */,
 				ECD48860ECEB56EEA82E30E4 /* ScanRouterInput.swift in Sources */,
-				149AA0621FD614F900F961FA /* TransactionPublisher.swift in Sources */,
+				149AA0621FD614F900F961FA /* TransactionService.swift in Sources */,
 				1E6249F217CDD3504CEAC29F /* ScanRouter.swift in Sources */,
 				DF4C239FF3946F152551259F /* ScanModuleInput.swift in Sources */,
 				4E6E2DDFCDE7F98E1FFAB159 /* ScanModuleOutput.swift in Sources */,
@@ -1918,12 +1957,13 @@
 				02D37BD9270EA4A9DF0A267B /* SettingsRouter.swift in Sources */,
 				DC5CA0086B8C2421E008E439 /* SettingsModuleInput.swift in Sources */,
 				C941D82209FD7A2E9F61C465 /* SettingsModuleOutput.swift in Sources */,
+				1433BDC81FD76B9B0081D872 /* SyncMode.swift in Sources */,
 				DE292A8CB9E5A207C140549A /* SettingsModule.swift in Sources */,
 				10D8A198B53906DCFFC2B123 /* ChooseCurrencyViewInput.swift in Sources */,
 				111B76EB2B2A85F3877EF1E0 /* ChooseCurrencyViewOutput.swift in Sources */,
 				64D4104E1B9A9CB53B1C6892 /* ChooseCurrencyViewController.swift in Sources */,
 				8FEACE3A905D147DD4B66CB6 /* ChooseCurrencyPresenter.swift in Sources */,
-				149AA0601FD614E400F961FA /* TransactionPublisherProtocol.swift in Sources */,
+				149AA0601FD614E400F961FA /* TransactionServiceProtocol.swift in Sources */,
 				A6BDE781AEBDF94A96C06383 /* ChooseCurrencyInteractorInput.swift in Sources */,
 				0524C999E2810D5100CD6549 /* ChooseCurrencyInteractorOutput.swift in Sources */,
 				05F877B12C349428291C737A /* ChooseCurrencyInteractor.swift in Sources */,

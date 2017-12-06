@@ -155,11 +155,6 @@ extension SendPresenter: SendModuleInput {
     view.present(fromViewController: from)
   }
   
-  func presentSendPreview(from: UIViewController) {
-    view.viewController.preferredContentSize = CGSize(width: 0, height: 300)
-    view.show(fromViewController: from)
-  }
-  
 }
 
 

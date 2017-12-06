@@ -23,5 +23,7 @@ protocol PasswordViewOutput: class {
   func viewIsAppear()
   func didConfirmPassword(_ password: String)
   var chains: [Chain] { get }
+  var syncMode: SyncMode { get }
   func selectChain(at index: Int)
+  func didChangeSyncMode(_ value: Bool)
 }

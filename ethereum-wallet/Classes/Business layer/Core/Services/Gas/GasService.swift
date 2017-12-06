@@ -15,9 +15,27 @@
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import UIKit
+import Geth
 
+class GasService: GasServiceProtocol {
+  
+  private let client: GethEthereumClient
+  private let context: GethContext
+  
+  init(core: Ethereum) {
+    self.client = core.client
+    self.context = core.context
+  }
+  
+  func getSuggestedGasLimit() throws -> Int64 {
+    let msg = GethNewCallMsg()
+    let gasLimit = try client.estimateGas(context, msg: msg)
+    return gasLimit.getInt64()
+  }
+  
+  func getSuggestedGasPrice() throws -> Int64 {
+    let gasPrice = try client.suggestGasPrice(context)
+    return gasPrice.getInt64()
+  }
 
-protocol PasswordRouterInput: class {
-  func presentWallet(from: UIViewController, isSecureMode: Bool)
 }

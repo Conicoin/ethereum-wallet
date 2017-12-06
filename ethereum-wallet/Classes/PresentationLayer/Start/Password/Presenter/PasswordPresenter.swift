@@ -26,6 +26,7 @@ class PasswordPresenter {
   var router: PasswordRouterInput!
   
   var chains = Chain.all()
+  var syncMode = SyncMode.standard
   
   private var password: String!
   private var restoring: Bool {
@@ -41,6 +42,7 @@ extension PasswordPresenter: PasswordViewOutput {
 
   func viewIsReady() {
     view.setupInitialState(restoring: restoring)
+    view.didChangedMode(syncMode)
   }
   
   func viewIsAppear() {
@@ -58,6 +60,12 @@ extension PasswordPresenter: PasswordViewOutput {
   func selectChain(at index: Int) {
     Defaults.chain = chains[index]
   }
+  
+  func didChangeSyncMode(_ value: Bool) {
+    syncMode = SyncMode(rawValue: value.intValue)!
+    Defaults.mode = syncMode
+    view.didChangedMode(syncMode)
+  }
 
 }
 
@@ -68,7 +76,7 @@ extension PasswordPresenter: PasswordInteractorOutput {
 
   func didReceive(account: Account) {
     interactor.createWallet(address: account.address)
-    router.presentWallet(from: view.viewController)
+    router.presentWallet(from: view.viewController, isSecureMode: syncMode.isSecureMode)
   }
   
   func didFailedAccountReceiving(with error: Error) {

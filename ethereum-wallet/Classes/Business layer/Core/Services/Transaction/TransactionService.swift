@@ -17,18 +17,29 @@
 
 import Geth
 
-class TransactionPublisher: TransactionPublisherProtocol {
+class TransactionService: TransactionServiceProtocol {
   
   private let context: GethContext
   private let client: GethEthereumClient
+  private let keystore: KeystoreService
+  private let chain: Chain
   
-  init(context: GethContext, client: GethEthereumClient) {
+  init(core: Ethereum, keystore: KeystoreService) {
     // TODO: Check objects
-    self.context = context
-    self.client = client
+    self.context = core.context
+    self.client = core.client
+    self.chain = core.chain
+    self.keystore = keystore
   }
   
-  func createTransaction(amountHex: String, to: String, gasLimitHex: String, account: GethAccount) throws -> GethTransaction {
+  func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String) throws {
+    let account = try keystore.getAccount(at: 0)
+    let transaction = try createTransaction(amountHex: amountHex, to: to, gasLimitHex: gasLimitHex, account: account)
+    let signedTransaction = try keystore.signTransaction(transaction, account: account, passphrase: passphrase, chainId: chain.chainId)
+    try sendTransaction(signedTransaction)
+  }
+  
+  private func createTransaction(amountHex: String, to: String, gasLimitHex: String, account: GethAccount) throws -> GethTransaction {
     var error: NSError?
     let gethAddress = GethNewAddressFromHex(to, &error)
     var noncePointer: Int64 = 0
@@ -44,7 +55,7 @@ class TransactionPublisher: TransactionPublisherProtocol {
     return GethNewTransaction(noncePointer, gethAddress, intAmount, gasLimit, gasPrice, nil)
   }
   
-  func sendTransaction(_ signedTransaction: GethTransaction) throws {
+  private func sendTransaction(_ signedTransaction: GethTransaction) throws {
     try client.sendTransaction(context, tx: signedTransaction)
   }
 

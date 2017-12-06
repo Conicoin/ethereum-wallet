@@ -21,7 +21,8 @@ class ApplicationConfigurator: ConfiguratorProtocol {
   
   func configure() {
     if Defaults.isAuthorized {
-      AppDelegate.currentWindow.rootViewController = TabBarModule.create().viewController
+      let isSecureMode = Defaults.mode.isSecureMode
+      AppDelegate.currentWindow.rootViewController = TabBarModule.create(isSecureMode: isSecureMode).viewController
     } else {
       AppDelegate.currentWindow.rootViewController = WelcomeModule.create().viewController
     }

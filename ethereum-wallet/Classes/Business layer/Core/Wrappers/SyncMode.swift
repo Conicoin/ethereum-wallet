@@ -17,54 +17,15 @@
 
 import UIKit
 
-class SendPreviewViewController: UIViewController {
+enum SyncMode: Int {
+  case standard
+  case secure
   
-  var output: SendViewOutput!
-  
-  // MARK: Life cycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    output.viewIsReady()
+  var isSecureMode: Bool {
+    return Bool(rawValue)
   }
   
-  // MARK: - Private methods
-
-  // MARK: - Actions
-  
-}
-
-
-// MARK: - SendViewInput
-
-extension SendPreviewViewController: SendViewInput {
-  
-  func setupInitialState() {
-    
+  var helperText: String{
+    return [Localized.modeStandardHelper(), Localized.modeSecureHelper()][rawValue]
   }
-  
-  func didDetectQRCode(_ code: String) {
-    
-  }
-  
-  func didChanged(totalAmount: Decimal, totalEther: Ether, fee: Decimal, feeEther: Ether, iso: String) {
-    
-  }
-  
-  func didReceiveCurrency(_ currency: String) {
-    
-  }
-  
-  func didReceiveGasLimit(_ gasLimit: Decimal) {
-    
-  }
-  
-  func didReceiveGasPrice(_ gasPrice: Decimal) {
-    
-  }
-  
-  func inputDataIsValid(_ isValid: Bool) {
-    
-  }
-  
 }

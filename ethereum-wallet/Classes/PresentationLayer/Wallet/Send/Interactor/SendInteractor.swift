@@ -23,7 +23,8 @@ class SendInteractor {
   
   var walletDataStoreService: WalletDataStoreServiceProtocol!
   var coinDataStoreService: CoinDataStoreServiceProtocol!
-  var ethereumService: EthereumCoreProtocol!
+  var transactionService: TransactionServiceProtocol!
+  var gasService: GasServiceProtocol!
 }
 
 
@@ -48,7 +49,7 @@ extension SendInteractor: SendInteractorInput {
     do {
       let keychain = Keychain()
       let passphrase = try keychain.getPassphrase()
-      try ethereumService.sendTransaction(amountHex: amount.toHex(), to: to, gasLimitHex: gasLimit.toHex(), passphrase: passphrase)
+      try transactionService.sendTransaction(amountHex: amount.toHex(), to: to, gasLimitHex: gasLimit.toHex(), passphrase: passphrase)
       output.didSendTransaction()
     } catch {
       output.didFailed(with: error)
@@ -57,7 +58,7 @@ extension SendInteractor: SendInteractorInput {
   
   func getGasPrice() {
     do {
-      let gasPrice = try ethereumService.getSuggestedGasPrice()
+      let gasPrice = try gasService.getSuggestedGasPrice()
       output.didReceiveGasPrice(Decimal(gasPrice))
     } catch {
       output.didFailed(with: error)
@@ -66,7 +67,7 @@ extension SendInteractor: SendInteractorInput {
   
   func getGasLimit() {
     do {
-      let gasLimit = try ethereumService.getSuggestedGasLimit()
+      let gasLimit = try gasService.getSuggestedGasLimit()
       output.didReceiveGasLimit(Decimal(gasLimit))
     } catch {
       output.didFailed(with: error)

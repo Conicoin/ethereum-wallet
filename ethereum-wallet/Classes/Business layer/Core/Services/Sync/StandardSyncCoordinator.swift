@@ -17,10 +17,22 @@
 
 import Geth
 
-protocol KeystoreProtocol {
-  func getAccount(at index: Int) throws -> GethAccount
-  func createAccount(passphrase: String) throws -> GethAccount
-  func jsonKey(for account: GethAccount, passphrase: String) throws -> Data
-  func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount
-  func signTransaction(_ transaction: GethTransaction, account: GethAccount, passphrase: String, chainId: Int64) throws -> GethTransaction
+class StandardSyncCoordinator: SyncCoordinatorProtocol {
+  
+  private var chain: Chain!
+  
+  func startSync(chain: Chain, delegate: SyncCoordinatorDelegate) throws {
+    self.chain = chain
+    delegate.syncDidFinished()
+  }
+  
+  func getClient() throws -> GethEthereumClient {
+    var error: NSError?
+    let client =  GethNewEthereumClient(chain.clientUrl, &error)
+    guard error == nil else {
+      throw error!
+    }
+    return client!
+  }
+
 }

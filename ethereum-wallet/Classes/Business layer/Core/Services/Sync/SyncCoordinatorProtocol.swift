@@ -15,9 +15,9 @@
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import UIKit
+import Geth
 
-
-protocol PasswordRouterInput: class {
-  func presentWallet(from: UIViewController, isSecureMode: Bool)
+protocol SyncCoordinatorProtocol {
+  func startSync(chain: Chain, delegate: SyncCoordinatorDelegate) throws
+  func getClient() throws -> GethEthereumClient 
 }

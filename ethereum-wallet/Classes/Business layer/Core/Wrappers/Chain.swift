@@ -96,6 +96,17 @@ enum Chain: String {
     }
   }
   
+  var clientUrl: String {
+    switch self {
+    case .mainnet:
+      return "https://mainnet.infura.io"
+    case .ropsten:
+      return "https://ropsten.infura.io"
+    case .rinkeby:
+      return "https://rinkeby.infura.io"
+    }
+  }
+  
   static func all() -> [Chain] {
     return [.mainnet, .ropsten, .rinkeby]
   }
