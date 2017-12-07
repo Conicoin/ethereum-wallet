@@ -36,11 +36,10 @@ extension BalancePresenter: BalanceViewOutput {
     view.setupInitialState()
     interactor.getWalletFromDataBase()
     interactor.getCoinsFromDataBase()
-    interactor.getEthereumFromNetwork()
   }
   
   func viewIsAppear() {
-    interactor.updateRates()
+    interactor.getEthereumFromNetwork()
   }
   
   func sendButtonPressed() {

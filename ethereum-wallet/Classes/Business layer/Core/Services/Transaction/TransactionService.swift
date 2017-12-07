@@ -32,11 +32,12 @@ class TransactionService: TransactionServiceProtocol {
     self.keystore = keystore
   }
   
-  func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String) throws {
+  func sendAndReturnTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String) throws -> GethTransaction {
     let account = try keystore.getAccount(at: 0)
     let transaction = try createTransaction(amountHex: amountHex, to: to, gasLimitHex: gasLimitHex, account: account)
     let signedTransaction = try keystore.signTransaction(transaction, account: account, passphrase: passphrase, chainId: chain.chainId)
     try sendTransaction(signedTransaction)
+    return signedTransaction
   }
   
   private func createTransaction(amountHex: String, to: String, gasLimitHex: String, account: GethAccount) throws -> GethTransaction {

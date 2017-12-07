@@ -35,6 +35,9 @@
 "send.amount" = "Amount: %@";
 "send.fee" = "Fee: %@";
 
+// MARK: - Transactions
+"transactions.pending" = "Pending";
+
 // MARK: Timestamp
 "time.today" = "Today";
 "time.yestarday" = "Yesterday";

@@ -205,14 +205,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nxq-xj-Mg0">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vH-l0-Uzt" customClass="BalanceCoinsView" customModule="ethereum_wallet" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="34" width="338" height="198.5"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zO8-Z3-nxj">
+                                        <rect key="frame" x="177" y="105.5" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vH-l0-Uzt" customClass="BalanceCoinsView" customModule="ethereum_wallet" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="34" width="338" height="162.5"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2nt-Qb-9mf">
-                                                <rect key="frame" x="0.0" y="80.5" width="338" height="100"/>
+                                                <rect key="frame" x="0.0" y="80.5" width="338" height="64"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="liQ-73-6Fa"/>
+                                                    <constraint firstAttribute="height" constant="64" id="liQ-73-6Fa"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CoinCell" rowHeight="64" id="ilS-wE-kHH" customClass="CoinCell" customModule="ethereum_wallet" customModuleProvider="target">
@@ -324,13 +327,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sending funds will become available after synchronization" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLe-Zn-XC2">
-                                        <rect key="frame" x="40" y="335" width="295" height="45"/>
+                                        <rect key="frame" x="40" y="299" width="295" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccA-Sp-j5F">
-                                        <rect key="frame" x="40" y="274.5" width="295" height="45"/>
+                                        <rect key="frame" x="40" y="238.5" width="295" height="45"/>
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="6dM-Gl-8bE"/>
@@ -354,7 +357,7 @@
                                         <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </progressView>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGy-uE-CRr">
-                                        <rect key="frame" x="40" y="335" width="295" height="45"/>
+                                        <rect key="frame" x="40" y="299" width="295" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="ike-lg-wLA"/>
@@ -379,6 +382,7 @@
                                     <constraint firstItem="ccA-Sp-j5F" firstAttribute="leading" secondItem="nxq-xj-Mg0" secondAttribute="leading" constant="40" id="DuO-xn-gTs"/>
                                     <constraint firstItem="zGy-uE-CRr" firstAttribute="top" secondItem="ccA-Sp-j5F" secondAttribute="bottom" constant="16" id="E2O-wr-lRa"/>
                                     <constraint firstAttribute="trailing" secondItem="ccA-Sp-j5F" secondAttribute="trailing" constant="40" id="J4y-p9-lNk"/>
+                                    <constraint firstItem="zO8-Z3-nxj" firstAttribute="centerX" secondItem="6vH-l0-Uzt" secondAttribute="centerX" id="Jyl-Zu-4tB"/>
                                     <constraint firstItem="sgi-Ob-aZX" firstAttribute="top" secondItem="nxq-xj-Mg0" secondAttribute="top" id="KzL-KL-1Ab"/>
                                     <constraint firstItem="jLe-Zn-XC2" firstAttribute="leading" secondItem="zGy-uE-CRr" secondAttribute="leading" id="QCL-Vv-4zS"/>
                                     <constraint firstItem="sgi-Ob-aZX" firstAttribute="leading" secondItem="nxq-xj-Mg0" secondAttribute="leading" id="QnH-XG-lrY"/>
@@ -392,6 +396,7 @@
                                     <constraint firstAttribute="trailing" secondItem="sgi-Ob-aZX" secondAttribute="trailing" id="dEu-5i-y8X"/>
                                     <constraint firstItem="zGy-uE-CRr" firstAttribute="leading" secondItem="ccA-Sp-j5F" secondAttribute="leading" id="i7P-tj-ugA"/>
                                     <constraint firstItem="zGy-uE-CRr" firstAttribute="trailing" secondItem="ccA-Sp-j5F" secondAttribute="trailing" id="jMG-gR-fdo"/>
+                                    <constraint firstItem="zO8-Z3-nxj" firstAttribute="centerY" secondItem="6vH-l0-Uzt" secondAttribute="centerY" id="r4Q-I9-zI6"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -418,6 +423,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="coinsView" destination="6vH-l0-Uzt" id="wSh-2d-HFV"/>
                         <outlet property="progressView" destination="sgi-Ob-aZX" id="ZnW-qB-k12"/>
                         <outlet property="receiveButton" destination="ccA-Sp-j5F" id="1PR-hZ-YX9"/>
                         <outlet property="sendButton" destination="zGy-uE-CRr" id="xl0-J3-Gn2"/>

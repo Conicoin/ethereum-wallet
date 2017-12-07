@@ -28,6 +28,7 @@ class RealmTransaction: Object {
   @objc dynamic var amount = ""
   @objc dynamic var timestamp = Date()
   @objc dynamic var isIncoming = false
+  @objc dynamic var isPending = false
   
   override static func primaryKey() -> String? {
     return "txHash"

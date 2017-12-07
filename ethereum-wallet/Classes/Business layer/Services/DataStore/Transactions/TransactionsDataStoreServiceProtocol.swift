@@ -21,4 +21,5 @@ protocol TransactionsDataStoreServiceProtocol {
   func getTransactions() -> [Transaction]
   func markAndSaveTransactions(_ transactions: inout [Transaction], address: String)
   func observe(updateHandler: @escaping ([Transaction]) -> Void)
+  func save(_ transaction: Transaction)
 }

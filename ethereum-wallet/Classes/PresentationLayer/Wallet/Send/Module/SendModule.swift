@@ -39,6 +39,7 @@ class SendModule {
     
     interactor.walletDataStoreService = WalletDataStoreService()
     interactor.coinDataStoreService = CoinDataStoreService()
+    interactor.transactionsDataStoreService = TransactionsDataStoreService()
     interactor.output = presenter
     presenter.router = router
     presenter.interactor = interactor

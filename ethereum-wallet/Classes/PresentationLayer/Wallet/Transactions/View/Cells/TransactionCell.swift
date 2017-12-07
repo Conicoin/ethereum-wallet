@@ -30,8 +30,13 @@ class TransactionCell: UITableViewCell {
   
   func configure(with transaction: Transaction) {
     addressLabel.text = transaction.to
-    timeLabel.text = transaction.timestamp.dayDifference()
     
+    if transaction.isPending {
+      timeLabel.text = Localized.transactionsPending()
+    } else {
+      timeLabel.text = transaction.timestamp.dayDifference()
+    }
+      
     if transaction.isIncoming {
       amountLabel.text = "+ " + transaction.amount.amount
       amountLabel.textColor = Theme.Color.green

@@ -66,6 +66,7 @@ extension BalanceInteractor: BalanceInteractorInput {
   
   func getCoinsFromDataBase() {
     coinDataStoreService.observe { [unowned self] coins in
+      guard coins.count > 0 else { return } 
       self.output.didReceiveCoins(coins)
     }
   }
@@ -75,11 +76,12 @@ extension BalanceInteractor: BalanceInteractorInput {
     walletNetworkService.getBalance(address: wallet.address) { [unowned self] result in
       switch result {
       case .success(let balance):
+        let old = self.coinDataStoreService.find(withIso: "ETH")
         let ether = Ether(balance)
         var coin = Coin()
         coin.balance = ether
         coin.lastUpdateTime = Date()
-        coin.rates = [Rate]() // TODO: avoid rewriting
+        coin.rates = old?.rates ?? [Rate]()
         self.coinDataStoreService.save(coin)
         self.updateRates()
       case .failure(let error):

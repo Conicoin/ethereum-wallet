@@ -23,6 +23,7 @@ class SendInteractor {
   
   var walletDataStoreService: WalletDataStoreServiceProtocol!
   var coinDataStoreService: CoinDataStoreServiceProtocol!
+  var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
   var transactionService: TransactionServiceProtocol!
   var gasService: GasServiceProtocol!
 }
@@ -49,7 +50,11 @@ extension SendInteractor: SendInteractorInput {
     do {
       let keychain = Keychain()
       let passphrase = try keychain.getPassphrase()
-      try transactionService.sendTransaction(amountHex: amount.toHex(), to: to, gasLimitHex: gasLimit.toHex(), passphrase: passphrase)
+      let sendedTransaction = try transactionService.sendAndReturnTransaction(amountHex: amount.toHex(), to: to, gasLimitHex: gasLimit.toHex(), passphrase: passphrase)
+      var transaction = Transaction.mapFromGethTransaction(sendedTransaction, time: Date().timeIntervalSince1970)
+      transaction.isPending = true
+      transaction.isIncoming = false
+      transactionsDataStoreService.save(transaction)
       output.didSendTransaction()
     } catch {
       output.didFailed(with: error)

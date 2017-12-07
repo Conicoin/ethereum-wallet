@@ -19,6 +19,7 @@ import UIKit
 
 
 class BalanceViewController: UIViewController {
+  @IBOutlet weak var coinsView: UIView!
   @IBOutlet weak var syncButton: UIBarButtonItem!
   @IBOutlet weak var progressView: UIProgressView!
   @IBOutlet weak var sendButton: UIButton!
@@ -92,10 +93,10 @@ extension BalanceViewController: BalanceViewInput {
   
   func didReceiveCoins(_ coins: [Coin]) {
     self.coins = coins
-    tableView.reloadData()
-    view.layoutIfNeeded() /* Looks like ios bug. contentSize after reloading is wrong */
     tableViewHeightConstraint.constant = tableView.contentSize.height
-    view.layoutIfNeeded() // TODO: WHY layoutIfNeeded disable large titles ???
+    tableView.reloadData()
+    view.layoutIfNeeded()
+    coinsView.isHidden = false
   }
   
   func syncDidChangeProgress(current: Float, total: Float) {

@@ -25,6 +25,7 @@ struct Transaction {
   var amount: Ether!
   var timestamp: Date!
   var isIncoming: Bool!
+  var isPending: Bool!
   
   static func mapFromGethTransaction(_ object: GethTransaction, time: TimeInterval) -> Transaction {
     var transaction = Transaction()
@@ -32,7 +33,7 @@ struct Transaction {
     transaction.to = object.getTo().getHex()
     transaction.amount = Ether(object.getValue().string()!)
     transaction.timestamp = Date(timeIntervalSince1970: time)
-//    transaction.isIncoming = object.isIncoming
+    transaction.isPending = false
     return transaction
   }
   
@@ -49,6 +50,7 @@ extension Transaction: RealmMappable {
     transaction.amount = Ether(object.amount)
     transaction.timestamp = object.timestamp
     transaction.isIncoming = object.isIncoming
+    transaction.isPending = object.isPending
     return transaction
   }
   
@@ -59,6 +61,7 @@ extension Transaction: RealmMappable {
     realmObject.amount = amount.raw.stringValue
     realmObject.timestamp = timestamp
     realmObject.isIncoming = isIncoming
+    realmObject.isPending = isPending
     return realmObject
   }
   
@@ -74,6 +77,7 @@ extension Transaction: ImmutableMappable {
     let amountString: String = try map.value("value")
     amount = Ether(amountString)
     timestamp = try map.value("timeStamp", using: DateTransform())
+    isPending = false
   }
   
 }

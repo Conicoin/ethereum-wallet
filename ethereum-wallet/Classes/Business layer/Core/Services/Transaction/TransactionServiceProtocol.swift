@@ -16,6 +16,7 @@
 
 
 import Geth
+import Alamofire
 
 protocol TransactionServiceProtocol {
   /// Send transaction
@@ -25,5 +26,5 @@ protocol TransactionServiceProtocol {
   ///   - to: Recepient address
   ///   - gasLimit: Gas limit hex string
   ///   - passphrase: Password to unlock wallet
-  func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String) throws
+  func sendAndReturnTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String) throws -> GethTransaction 
 }
