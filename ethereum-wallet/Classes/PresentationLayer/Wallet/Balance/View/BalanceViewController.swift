@@ -93,8 +93,9 @@ extension BalanceViewController: BalanceViewInput {
   
   func didReceiveCoins(_ coins: [Coin]) {
     self.coins = coins
-    tableViewHeightConstraint.constant = tableView.contentSize.height
     tableView.reloadData()
+    view.layoutIfNeeded()
+    tableViewHeightConstraint.constant = tableView.contentSize.height
     view.layoutIfNeeded()
     coinsView.isHidden = false
   }

@@ -16,6 +16,7 @@
 
 
 import Geth
+import Alamofire
 
 class GasService: GasServiceProtocol {
   
@@ -27,15 +28,27 @@ class GasService: GasServiceProtocol {
     self.context = core.context
   }
   
-  func getSuggestedGasLimit() throws -> Int64 {
-    let msg = GethNewCallMsg()
-    let gasLimit = try client.estimateGas(context, msg: msg)
-    return gasLimit.getInt64()
+  func getSuggestedGasLimit(result: @escaping (Result<Int64>) -> Void) {
+    Ethereum.syncQueue.async { [unowned self] in
+      do {
+        let msg = GethNewCallMsg()
+        let gasLimit = try self.client.estimateGas(self.context, msg: msg)
+        result(.success(gasLimit.getInt64()))
+      } catch {
+        result(.failure(error))
+      }
+    }
   }
   
-  func getSuggestedGasPrice() throws -> Int64 {
-    let gasPrice = try client.suggestGasPrice(context)
-    return gasPrice.getInt64()
+  func getSuggestedGasPrice(result: @escaping (Result<Int64>) -> Void) {
+    Ethereum.syncQueue.async { [unowned self] in
+      do {
+        let gasPrice = try self.client.suggestGasPrice(self.context)
+        result(.success(gasPrice.getInt64()))
+      } catch {
+        result(.failure(error))
+      }
+    }
   }
 
 }

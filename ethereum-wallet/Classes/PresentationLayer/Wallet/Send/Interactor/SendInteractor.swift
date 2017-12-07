@@ -50,6 +50,7 @@ extension SendInteractor: SendInteractorInput {
     do {
       let keychain = Keychain()
       let passphrase = try keychain.getPassphrase()
+      // TODO: All etherClient calls to sync thread
       let sendedTransaction = try transactionService.sendAndReturnTransaction(amountHex: amount.toHex(), to: to, gasLimitHex: gasLimit.toHex(), passphrase: passphrase)
       var transaction = Transaction.mapFromGethTransaction(sendedTransaction, time: Date().timeIntervalSince1970)
       transaction.isPending = true
@@ -62,20 +63,24 @@ extension SendInteractor: SendInteractorInput {
   }
   
   func getGasPrice() {
-    do {
-      let gasPrice = try gasService.getSuggestedGasPrice()
-      output.didReceiveGasPrice(Decimal(gasPrice))
-    } catch {
-      output.didFailed(with: error)
+    gasService.getSuggestedGasPrice() { [unowned self] result in
+      switch result {
+      case .success(let gasPrice):
+        self.output.didReceiveGasPrice(Decimal(gasPrice))
+      case .failure(let error):
+        self.output.didFailed(with: error)
+      }
     }
   }
   
   func getGasLimit() {
-    do {
-      let gasLimit = try gasService.getSuggestedGasLimit()
-      output.didReceiveGasLimit(Decimal(gasLimit))
-    } catch {
-      output.didFailed(with: error)
+    gasService.getSuggestedGasLimit() { [unowned self] result in
+      switch result {
+      case .success(let gasLimit):
+        self.output.didReceiveGasLimit(Decimal(gasLimit))
+      case .failure(let error):
+        self.output.didFailed(with: error)
+      }
     }
   }
 

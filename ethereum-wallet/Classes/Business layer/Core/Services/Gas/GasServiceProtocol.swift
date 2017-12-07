@@ -17,6 +17,7 @@
 
 
 import Geth
+import Alamofire
 
 protocol GasServiceProtocol {
   
@@ -26,12 +27,12 @@ protocol GasServiceProtocol {
   /// but it should provide a basis for setting a reasonable default.
   ///
   /// - Returns: Int64 GasLimit
-  func getSuggestedGasLimit() throws -> Int64
+  func getSuggestedGasLimit(result: @escaping (Result<Int64>) -> Void)
   
   /// SuggestGasPrice retrieves the currently suggested gas price to allow a timely
   /// execution of a transaction.
   ///
   /// - Returns: Int64 GasPrice
-  func getSuggestedGasPrice() throws -> Int64
+  func getSuggestedGasPrice(result: @escaping (Result<Int64>) -> Void)
 
 }
