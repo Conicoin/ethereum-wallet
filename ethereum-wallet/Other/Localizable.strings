@@ -24,7 +24,7 @@
 "new.password.title" = "New account";
 "restore.password.title" = "Restore account";
 "mode.title" = "Enable secure mode";
-"mode.secure.helper" = "Secure mode launch the node directly on the device. First synchronization can takes from 15 to 20 minutes";
+"mode.secure.helper" = "Secure mode launch node directly on the device. First synchronization can takes from 15 to 20 minutes";
 "mode.standard.helper" = "The standard mode doesn't require synchronization. Recommended for most users";
 
 // MARK: - Receive
