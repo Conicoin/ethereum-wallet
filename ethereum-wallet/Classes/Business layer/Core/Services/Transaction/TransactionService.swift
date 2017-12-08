@@ -16,6 +16,7 @@
 
 
 import Geth
+import Alamofire
 
 class TransactionService: TransactionServiceProtocol {
   
@@ -32,12 +33,22 @@ class TransactionService: TransactionServiceProtocol {
     self.keystore = keystore
   }
   
-  func sendAndReturnTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String) throws -> GethTransaction {
-    let account = try keystore.getAccount(at: 0)
-    let transaction = try createTransaction(amountHex: amountHex, to: to, gasLimitHex: gasLimitHex, account: account)
-    let signedTransaction = try keystore.signTransaction(transaction, account: account, passphrase: passphrase, chainId: chain.chainId)
-    try sendTransaction(signedTransaction)
-    return signedTransaction
+  func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String, result: @escaping (Result<GethTransaction>) -> Void) {
+    Ethereum.syncQueue.async { [unowned self] in
+      do {
+        let account = try self.keystore.getAccount(at: 0)
+        let transaction = try self.createTransaction(amountHex: amountHex, to: to, gasLimitHex: gasLimitHex, account: account)
+        let signedTransaction = try self.keystore.signTransaction(transaction, account: account, passphrase: passphrase, chainId: self.chain.chainId)
+        try self.sendTransaction(signedTransaction)
+        DispatchQueue.main.async {
+          result(.success(signedTransaction))
+        }
+      } catch {
+        DispatchQueue.main.async {
+          result(.failure(error))
+        }
+      }
+    }
   }
   
   private func createTransaction(amountHex: String, to: String, gasLimitHex: String, account: GethAccount) throws -> GethTransaction {

@@ -25,4 +25,5 @@ protocol SendInteractorOutput: class {
   func didReceiveGasPrice(_ gasPrice: Decimal)
   func didSendTransaction()
   func didFailed(with error: Error)
+  func didFailedSending(with error: Error)
 }

@@ -33,9 +33,13 @@ class GasService: GasServiceProtocol {
       do {
         let msg = GethNewCallMsg()
         let gasLimit = try self.client.estimateGas(self.context, msg: msg)
-        result(.success(gasLimit.getInt64()))
+        DispatchQueue.main.async {
+          result(.success(gasLimit.getInt64()))
+        }
       } catch {
-        result(.failure(error))
+        DispatchQueue.main.async {
+          result(.failure(error))
+        }
       }
     }
   }
@@ -44,9 +48,13 @@ class GasService: GasServiceProtocol {
     Ethereum.syncQueue.async { [unowned self] in
       do {
         let gasPrice = try self.client.suggestGasPrice(self.context)
-        result(.success(gasPrice.getInt64()))
+        DispatchQueue.main.async {
+          result(.success(gasPrice.getInt64()))
+        }
       } catch {
-        result(.failure(error))
+        DispatchQueue.main.async {
+          result(.failure(error))
+        }
       }
     }
   }

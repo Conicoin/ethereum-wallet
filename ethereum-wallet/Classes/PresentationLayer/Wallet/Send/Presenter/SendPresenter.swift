@@ -75,6 +75,7 @@ extension SendPresenter: SendViewOutput {
     }
     let amountEther = amount.localToEther(rate: rate.value).etherToWei()
     
+    view.showLoading()
     interactor.sendTransaction(amount: amountEther, to: address, gasLimit: gasLimit)
   }
   
@@ -129,6 +130,7 @@ extension SendPresenter: SendInteractorOutput {
   }
   
   func didSendTransaction() {
+    view.loadingSuccess()
     view.dissmiss()
   }
   
@@ -138,6 +140,11 @@ extension SendPresenter: SendInteractorOutput {
   }
   
   func didFailed(with error: Error) {
+    error.showAllertIfNeeded(from: view.viewController)
+  }
+  
+  func didFailedSending(with error: Error) {
+    view.loadingFilure()
     error.showAllertIfNeeded(from: view.viewController)
   }
 }
@@ -163,8 +170,9 @@ extension SendPresenter: SendModuleInput {
 extension SendPresenter: ScanModuleOutput {
   
   func didDetectQRCode(_ code: String) {
-    self.address = code
-    view.didDetectQRCode(code)
+    let rawAddress = code.retriveAddress()
+    self.address = rawAddress
+    view.didDetectQRCode(rawAddress)
     validate()
   }
   

@@ -83,7 +83,7 @@
                         <viewLayoutGuide key="safeArea" id="QmV-PF-j39"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" image="TransactionsTab" id="quz-NH-8Lk"/>
-                    <navigationItem key="navigationItem" title="Transactions" id="uqO-h6-YSo"/>
+                    <navigationItem key="navigationItem" title="Transactions" largeTitleDisplayMode="never" id="uqO-h6-YSo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="aUL-K2-pLy" id="2oB-Lt-ZpB"/>

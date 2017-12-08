@@ -21,4 +21,5 @@ import UIKit
 protocol TransactionsViewOutput: class {
   func viewIsReady()
   func viewIsAppear()
+  func didRefresh()
 }

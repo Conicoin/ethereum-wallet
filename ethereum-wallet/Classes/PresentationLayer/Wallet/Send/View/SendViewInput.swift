@@ -25,5 +25,8 @@ protocol SendViewInput: class, Presentable {
   func didReceiveGasLimit(_ gasLimit: Decimal)
   func didReceiveGasPrice(_ gasPrice: Decimal)
   func didDetectQRCode(_ code: String)
-  func didChanged(totalAmount: Decimal, totalEther: Ether, fee: Decimal, feeEther: Ether, iso: String) 
+  func didChanged(totalAmount: Decimal, totalEther: Ether, fee: Decimal, feeEther: Ether, iso: String)
+  func showLoading()
+  func loadingSuccess()
+  func loadingFilure()
 }

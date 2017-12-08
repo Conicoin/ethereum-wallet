@@ -25,6 +25,7 @@
 		1400FBB91F997DC100EBC84C /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1400FBB81F997DC100EBC84C /* Wallet.swift */; };
 		1406465A1FAF457A0013DFFF /* RealmCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140646591FAF457A0013DFFF /* RealmCoin.swift */; };
 		1406465C1FAF46DB0013DFFF /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406465B1FAF46DB0013DFFF /* Coin.swift */; };
+		141749D11FD9B91A00AD5F07 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141749D01FD9B91A00AD5F07 /* Loading.swift */; };
 		142730FA1FB8CF0F00ED9968 /* QRCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */; };
 		142730FD1FB8CF3400ED9968 /* QRCaptureServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142730FC1FB8CF3400ED9968 /* QRCaptureServiceProtocol.swift */; };
 		14285E841FB2831200DD3CB5 /* API+Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14285E831FB2831200DD3CB5 /* API+Rate.swift */; };
@@ -32,7 +33,6 @@
 		142B5A1A1EDF0EEB007F73BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142B5A191EDF0EEB007F73BA /* Security.framework */; };
 		14313CAF1FB0B045003AEB0C /* LightShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CAE1FB0B045003AEB0C /* LightShadowView.swift */; };
 		14313CB21FB0B4B5003AEB0C /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */; };
-		14313CB41FB0BE01003AEB0C /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB31FB0BE01003AEB0C /* Formatter.swift */; };
 		14313CB81FB0C492003AEB0C /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB71FB0C492003AEB0C /* String+Helpers.swift */; };
 		1433BDB71FD6C9780081D872 /* LesSyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDB11FD6C6910081D872 /* LesSyncCoordinator.swift */; };
 		1433BDB81FD6C9780081D872 /* SyncCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDB31FD6C6C20081D872 /* SyncCoordinatorProtocol.swift */; };
@@ -240,6 +240,7 @@
 		1400FBB81F997DC100EBC84C /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		140646591FAF457A0013DFFF /* RealmCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCoin.swift; sourceTree = "<group>"; };
 		1406465B1FAF46DB0013DFFF /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		141749D01FD9B91A00AD5F07 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCaptureService.swift; sourceTree = "<group>"; };
 		142730FC1FB8CF3400ED9968 /* QRCaptureServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCaptureServiceProtocol.swift; sourceTree = "<group>"; };
 		14285E831FB2831200DD3CB5 /* API+Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Rate.swift"; sourceTree = "<group>"; };
@@ -247,7 +248,6 @@
 		142B5A191EDF0EEB007F73BA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		14313CAE1FB0B045003AEB0C /* LightShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightShadowView.swift; sourceTree = "<group>"; };
 		14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
-		14313CB31FB0BE01003AEB0C /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		14313CB71FB0C492003AEB0C /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		1433BDB11FD6C6910081D872 /* LesSyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesSyncCoordinator.swift; sourceTree = "<group>"; };
 		1433BDB31FD6C6C20081D872 /* SyncCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCoordinatorProtocol.swift; sourceTree = "<group>"; };
@@ -708,7 +708,6 @@
 				14ACA1F21EF2BD050059E430 /* Constants.swift */,
 				14BE0A741FAF9D610044E3A1 /* Theme.swift */,
 				14ACA1F31EF2BD050059E430 /* Helpers.swift */,
-				14313CB31FB0BE01003AEB0C /* Formatter.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -889,6 +888,7 @@
 			children = (
 				14BE0A6F1FAF96610044E3A1 /* BalanceCoinsView.swift */,
 				14313CAE1FB0B045003AEB0C /* LightShadowView.swift */,
+				141749D01FD9B91A00AD5F07 /* Loading.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1722,6 +1722,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -1731,6 +1732,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -1775,6 +1777,7 @@
 				144791D21EF5DE7100029818 /* ThirdPartiesConfigurator.swift in Sources */,
 				14D47F011FB3D1460095C516 /* Currency.swift in Sources */,
 				146D0D201FC1FA5D003C0C3E /* Date+Helpers.swift in Sources */,
+				141749D11FD9B91A00AD5F07 /* Loading.swift in Sources */,
 				14ACA1E01EF2BCB70059E430 /* EthereumCore.swift in Sources */,
 				1433BDCA1FD76E010081D872 /* Bool+Helpers.swift in Sources */,
 				14ACA1E51EF2BCC80059E430 /* Defaults.swift in Sources */,
@@ -1789,7 +1792,6 @@
 				14D027F71EF9701A00F125C3 /* RealmTransaction.swift in Sources */,
 				14B77EC41F9ACD9300FCD923 /* WalletDataStoreServiceProtocol.swift in Sources */,
 				14D027E01EF6D4CD00F125C3 /* RealmWallet.swift in Sources */,
-				14313CB41FB0BE01003AEB0C /* Formatter.swift in Sources */,
 				1433BDBE1FD743120081D872 /* GasServiceProtocol.swift in Sources */,
 				14ACA1D71EF2BC840059E430 /* AppDelegate.swift in Sources */,
 				1489ED1D1F9C0EE800E0A5FC /* Data+Helpers.swift in Sources */,

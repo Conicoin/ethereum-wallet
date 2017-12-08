@@ -16,6 +16,7 @@
 
 
 import UIKit
+import PKHUD
 
 
 class SendViewController: UIViewController {
@@ -148,4 +149,19 @@ extension SendViewController: SendViewInput {
     let gwei = gasPrice.weiToGwei()
     gasPriceLabel.text = Localized.sendGasPrice("\(gwei)")
   }
+  
+  func showLoading() {
+    view.endEditing(true)
+    Loading.show()
+  }
+  
+  func loadingSuccess() {
+    Loading.success()
+  }
+  
+  func loadingFilure() {
+    Loading.dismiss()
+    amountTextField?.becomeFirstResponder()
+  }
+
 }

@@ -34,10 +34,15 @@ extension TransactionsPresenter: TransactionsViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
+    interactor.getTransactions()
   }
   
   func viewIsAppear() {
-    interactor.getTransactions()
+    interactor.updateTransactions()
+  }
+  
+  func didRefresh() {
+    interactor.updateTransactions()
   }
 }
 

@@ -50,20 +50,28 @@ extension SendInteractor: SendInteractorInput {
     do {
       let keychain = Keychain()
       let passphrase = try keychain.getPassphrase()
-      // TODO: All etherClient calls to sync thread
-      let sendedTransaction = try transactionService.sendAndReturnTransaction(amountHex: amount.toHex(), to: to, gasLimitHex: gasLimit.toHex(), passphrase: passphrase)
-      var transaction = Transaction.mapFromGethTransaction(sendedTransaction, time: Date().timeIntervalSince1970)
-      transaction.isPending = true
-      transaction.isIncoming = false
-      transactionsDataStoreService.save(transaction)
-      output.didSendTransaction()
+
+      transactionService.sendTransaction(amountHex: amount.toHex(), to: to, gasLimitHex: gasLimit.toHex(), passphrase: passphrase) { [weak self] result in
+        guard let `self` = self else { return }
+        switch result {
+        case .success(let sendedTransaction):
+          var transaction = Transaction.mapFromGethTransaction(sendedTransaction, time: Date().timeIntervalSince1970)
+          transaction.isPending = true
+          transaction.isIncoming = false
+          self.transactionsDataStoreService.save(transaction)
+          self.output.didSendTransaction()
+        case .failure(let error):
+          self.output.didFailedSending(with: error)
+        }
+      }
     } catch {
-      output.didFailed(with: error)
+      output.didFailedSending(with: error)
     }
   }
   
   func getGasPrice() {
-    gasService.getSuggestedGasPrice() { [unowned self] result in
+    gasService.getSuggestedGasPrice() { [weak self] result in
+      guard let `self` = self else { return }
       switch result {
       case .success(let gasPrice):
         self.output.didReceiveGasPrice(Decimal(gasPrice))
@@ -74,7 +82,8 @@ extension SendInteractor: SendInteractorInput {
   }
   
   func getGasLimit() {
-    gasService.getSuggestedGasLimit() { [unowned self] result in
+    gasService.getSuggestedGasLimit() { [weak self] result in
+      guard let `self` = self else { return }
       switch result {
       case .success(let gasLimit):
         self.output.didReceiveGasLimit(Decimal(gasLimit))

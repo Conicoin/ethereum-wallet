@@ -31,11 +31,22 @@ class TransactionsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     output.viewIsReady()
+    setupPullToRefresh()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     output.viewIsAppear()
+  }
+  
+  private func setupPullToRefresh() {
+    let refresh = UIRefreshControl()
+    refresh.addTarget(self, action: #selector(refresh(_:)), for: UIControlEvents.valueChanged)
+    tableView.refreshControl = refresh
+  }
+    
+  @objc func refresh(_ sender: UIRefreshControl) {
+    output.didRefresh()
   }
 
 }
@@ -52,6 +63,7 @@ extension TransactionsViewController: TransactionsViewInput {
   func didReceiveTransactions(_ transactions: [Transaction]) {
     self.transactions = transactions
     tableView.reloadData()
+    tableView.refreshControl?.endRefreshing()
   }
 
 }

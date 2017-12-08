@@ -20,4 +20,5 @@ import Foundation
 
 protocol TransactionsInteractorInput: class {
   func getTransactions()
+  func updateTransactions()
 }

@@ -37,6 +37,10 @@ extension TransactionsInteractor: TransactionsInteractorInput {
       self.output.didReceiveTransactions(transactions)
     }
     
+    updateTransactions()
+  }
+  
+  func updateTransactions() {
     let wallet = walletDataStoreService.getWallet()
     transactionsNetworkService.getTransactions(address: wallet.address) { [unowned self] result in
       switch result {
