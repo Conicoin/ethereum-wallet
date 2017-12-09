@@ -19,6 +19,7 @@ import UIKit
 
 
 class BalanceViewController: UIViewController {
+  @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var chainLabel: UILabel!
   @IBOutlet weak var coinsView: UIView!
   @IBOutlet weak var syncButton: UIBarButtonItem!
@@ -27,6 +28,7 @@ class BalanceViewController: UIViewController {
   @IBOutlet weak var receiveButton: UIButton!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+  private var refreshControl: UIRefreshControl!
   
   var output: BalanceViewOutput!
   private var coins = [Coin]()
@@ -37,6 +39,7 @@ class BalanceViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     output.viewIsReady()
+    setupPullToRefresh()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +49,17 @@ class BalanceViewController: UIViewController {
   
   // MARK: - Privates
   
+  private func setupPullToRefresh() {
+    refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+    scrollView.addSubview(refreshControl)
+  }
+  
   // MARK: - Actions
+  
+  @objc func refresh(_ sender: UIRefreshControl) {
+    output.didRefresh()
+  }
   
   @IBAction func sendPressed(_ sender: UIButton) {
     output.sendButtonPressed()
@@ -93,12 +106,17 @@ extension BalanceViewController: BalanceViewInput {
   }
   
   func didReceiveCoins(_ coins: [Coin]) {
+    refreshControl.endRefreshing()
     self.coins = coins
     tableView.reloadData()
     view.layoutIfNeeded()
     tableViewHeightConstraint.constant = tableView.contentSize.height
     view.layoutIfNeeded()
     coinsView.isHidden = false
+  }
+  
+  func stopRefreshing() {
+    refreshControl.endRefreshing()
   }
   
   func syncDidChangeProgress(current: Float, total: Float) {

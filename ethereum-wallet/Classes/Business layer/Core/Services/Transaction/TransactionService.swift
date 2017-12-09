@@ -34,7 +34,7 @@ class TransactionService: TransactionServiceProtocol {
   }
   
   func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String, result: @escaping (Result<GethTransaction>) -> Void) {
-    Ethereum.syncQueue.async { [unowned self] in
+    Ethereum.syncQueue.async {
       do {
         let account = try self.keystore.getAccount(at: 0)
         let transaction = try self.createTransaction(amountHex: amountHex, to: to, gasLimitHex: gasLimitHex, account: account)

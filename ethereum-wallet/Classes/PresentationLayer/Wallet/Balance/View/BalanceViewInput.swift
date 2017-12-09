@@ -25,4 +25,5 @@ protocol BalanceViewInput: class, Presentable {
   func didReceiveWallet(_ wallet: Wallet)
   func didReceiveCoins(_ coins: [Coin])
   func didReceiveChain(_ chain: Chain)
+  func stopRefreshing()
 }

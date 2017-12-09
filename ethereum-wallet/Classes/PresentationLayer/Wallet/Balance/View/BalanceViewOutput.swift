@@ -23,4 +23,5 @@ protocol BalanceViewOutput: class {
   func viewIsAppear()
   func receiveButtonPressed()
   func sendButtonPressed()
+  func didRefresh()
 }

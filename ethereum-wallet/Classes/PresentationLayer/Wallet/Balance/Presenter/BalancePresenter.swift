@@ -43,6 +43,10 @@ extension BalancePresenter: BalanceViewOutput {
     interactor.getEthereumFromNetwork()
   }
   
+  func didRefresh() {
+    interactor.getEthereumFromNetwork()
+  }
+  
   func sendButtonPressed() {
     router.presentSend(from: view.viewController)
   }
@@ -67,6 +71,7 @@ extension BalancePresenter: BalanceInteractorOutput {
   }
   
   func didFailedWalletReceiving(with error: Error) {
+    view.stopRefreshing()
     error.showAllertIfNeeded(from: view.viewController)
   }
 

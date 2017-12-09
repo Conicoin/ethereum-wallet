@@ -29,7 +29,7 @@ class GasService: GasServiceProtocol {
   }
   
   func getSuggestedGasLimit(result: @escaping (Result<Int64>) -> Void) {
-    Ethereum.syncQueue.async { [unowned self] in
+    Ethereum.syncQueue.async {
       do {
         let msg = GethNewCallMsg()
         let gasLimit = try self.client.estimateGas(self.context, msg: msg)
@@ -45,7 +45,7 @@ class GasService: GasServiceProtocol {
   }
   
   func getSuggestedGasPrice(result: @escaping (Result<Int64>) -> Void) {
-    Ethereum.syncQueue.async { [unowned self] in
+    Ethereum.syncQueue.async {
       do {
         let gasPrice = try self.client.suggestGasPrice(self.context)
         DispatchQueue.main.async {
