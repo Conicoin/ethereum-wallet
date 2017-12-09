@@ -34,6 +34,7 @@ extension BalancePresenter: BalanceViewOutput {
   
   func viewIsReady() {
     view.setupInitialState()
+    view.didReceiveChain(Defaults.chain)
     interactor.getWalletFromDataBase()
     interactor.getCoinsFromDataBase()
   }

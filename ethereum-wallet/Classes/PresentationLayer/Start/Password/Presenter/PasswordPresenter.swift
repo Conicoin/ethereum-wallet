@@ -26,6 +26,8 @@ class PasswordPresenter {
   var router: PasswordRouterInput!
   
   var chains = Chain.all()
+  var selectedChain = Chain.default
+  
   var syncMode = SyncMode.standard
   
   private var password: String!
@@ -46,7 +48,8 @@ extension PasswordPresenter: PasswordViewOutput {
   }
   
   func viewIsAppear() {
-    view.selectChain(at: 2)
+    let index = chains.index(of: selectedChain)!
+    view.selectChain(at: index)
   }
   
   func didConfirmPassword(_ password: String) {

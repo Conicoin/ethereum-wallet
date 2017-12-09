@@ -24,6 +24,10 @@ enum Chain: String {
   case ropsten
   case rinkeby
   
+  static var `default`: Chain {
+    return .mainnet
+  }
+  
   var chainId: Int64 {
     switch self {
     case .mainnet:

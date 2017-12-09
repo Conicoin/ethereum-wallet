@@ -20,5 +20,6 @@ import UIKit
 
 protocol TransactionsViewInput: class, Presentable {
   func setupInitialState()
+  func stopRefreshing()
   func didReceiveTransactions(_ transactions: [Transaction])
 }

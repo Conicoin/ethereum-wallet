@@ -65,6 +65,10 @@ extension TransactionsViewController: TransactionsViewInput {
     tableView.reloadData()
     tableView.refreshControl?.endRefreshing()
   }
+  
+  func stopRefreshing() {
+    tableView.refreshControl?.endRefreshing()
+  }
 
 }
 

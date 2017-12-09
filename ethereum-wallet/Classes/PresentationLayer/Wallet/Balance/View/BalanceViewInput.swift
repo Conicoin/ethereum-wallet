@@ -24,4 +24,5 @@ protocol BalanceViewInput: class, Presentable {
   func syncDidFinished()
   func didReceiveWallet(_ wallet: Wallet)
   func didReceiveCoins(_ coins: [Coin])
+  func didReceiveChain(_ chain: Chain)
 }

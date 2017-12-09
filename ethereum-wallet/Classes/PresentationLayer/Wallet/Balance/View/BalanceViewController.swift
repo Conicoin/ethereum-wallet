@@ -19,6 +19,7 @@ import UIKit
 
 
 class BalanceViewController: UIViewController {
+  @IBOutlet weak var chainLabel: UILabel!
   @IBOutlet weak var coinsView: UIView!
   @IBOutlet weak var syncButton: UIBarButtonItem!
   @IBOutlet weak var progressView: UIProgressView!
@@ -111,6 +112,10 @@ extension BalanceViewController: BalanceViewInput {
     syncButton.title = nil
     sendButton.isHidden = false
     UIApplication.shared.isIdleTimerDisabled = false
+  }
+  
+  func didReceiveChain(_ chain: Chain) {
+    chainLabel.text = chain.localizedDescription.uppercased()
   }
 
 }

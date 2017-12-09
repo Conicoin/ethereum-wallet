@@ -21,7 +21,7 @@ import AVFoundation
 protocol QRCaptureServiceDelegate: class {
   func qrCaptureDidStart(session: AVCaptureSession)
   func qrCaptureDidFailed(with error: Error)
-  func qrCaptureDidDetect(object: AVMetadataMachineReadableCodeObject?)
+  func qrCaptureDidDetect(object: AVMetadataMachineReadableCodeObject)
 }
 
 class QRCaptureService: NSObject, QRCaptureServiceProtocol {
@@ -66,10 +66,9 @@ extension QRCaptureService: AVCaptureMetadataOutputObjectsDelegate {
   func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
       guard let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
         metadataObject.type == .qr else {
-          delegate?.qrCaptureDidDetect(object: nil)
           return
       }
-  
+      stop()
       delegate?.qrCaptureDidDetect(object: metadataObject)
   }
   

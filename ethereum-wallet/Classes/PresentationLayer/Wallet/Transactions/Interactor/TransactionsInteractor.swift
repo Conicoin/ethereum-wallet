@@ -46,6 +46,7 @@ extension TransactionsInteractor: TransactionsInteractorInput {
       switch result {
       case .success(var transactions):
         self.transactionsDataStoreService.markAndSaveTransactions(&transactions, address: wallet.address)
+        self.output.didReceiveTransactions()
       case .failure(let error):
         self.output.didFailedTransactionsReceiving(with: error)
       }

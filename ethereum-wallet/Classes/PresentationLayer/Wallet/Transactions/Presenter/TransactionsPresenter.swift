@@ -51,6 +51,10 @@ extension TransactionsPresenter: TransactionsViewOutput {
 
 extension TransactionsPresenter: TransactionsInteractorOutput {
   
+  func didReceiveTransactions() {
+    view.stopRefreshing()
+  }
+  
   func didReceiveTransactions(_ transactions: [Transaction]) {
     view.didReceiveTransactions(transactions.sorted { $0.timestamp > $1.timestamp })
   }

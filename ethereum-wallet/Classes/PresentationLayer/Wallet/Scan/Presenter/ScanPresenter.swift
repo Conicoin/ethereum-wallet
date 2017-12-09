@@ -58,8 +58,8 @@ extension ScanPresenter: ScanInteractorOutput {
     view.dissmiss()
   }
   
-  func qrCaptureDidDetect(object: AVMetadataMachineReadableCodeObject?) {
-    guard let code = object?.stringValue else {
+  func qrCaptureDidDetect(object: AVMetadataMachineReadableCodeObject) {
+    guard let code = object.stringValue else {
       return
     }
     output?.didDetectQRCode(code)
