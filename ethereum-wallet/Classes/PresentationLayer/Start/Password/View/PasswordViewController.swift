@@ -35,6 +35,7 @@ class PasswordViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     textField.becomeFirstResponder()
+    tableView.tableFooterView?.isHidden = true // removing until better times
     output.viewIsReady()
   }
   
@@ -74,7 +75,7 @@ extension PasswordViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
+    return 1 // removing until better times
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
