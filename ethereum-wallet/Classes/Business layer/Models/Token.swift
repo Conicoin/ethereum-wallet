@@ -17,28 +17,43 @@
 
 import RealmSwift
 
-struct Coin {
+struct Token {
   
-  var balance: Ether!
+  var balance: TokenValue!
   var rates: [Rate]!
   var lastUpdateTime: Date!
+  var iconURL: String!
+  var about: String!
+  var address: String!
+  var decimals: Int!
+  var totalSupply: String!
+  var transfersCount: Int!
+  var holdersCount: Int!
   
 }
 
 // MARK: - RealmMappable
 
-extension Coin: RealmMappable {
+extension Token: RealmMappable {
   
-  static func mapFromRealmObject(_ object: RealmCoin) -> Coin {
-    var coin = Coin()
-    coin.balance = Ether(object.balance)
-    coin.rates = object.rates.map { Rate.mapFromRealmObject($0) }
-    coin.lastUpdateTime = object.lastUpdateTime
-    return coin
+  static func mapFromRealmObject(_ object: RealmToken) -> Token {
+    var token = Token()
+    let tokenValue = TokenValue(object.balance, name: object.name, iso: object.iso)
+    token.balance = tokenValue
+    token.rates = object.rates.map { Rate.mapFromRealmObject($0) }
+    token.lastUpdateTime = object.lastUpdateTime
+    token.iconURL = object.iconURL
+    token.about = object.about
+    token.address = object.address
+    token.decimals = object.decimals
+    token.totalSupply = object.totalSupply
+    token.transfersCount = object.transfersCount
+    token.holdersCount = object.holdersCount
+    return token
   }
   
-  func mapToRealmObject() -> RealmCoin {
-    let realmObject = RealmCoin()
+  func mapToRealmObject() -> RealmToken {
+    let realmObject = RealmToken()
     realmObject.balance = balance.raw.stringValue
     realmObject.name = balance.name
     realmObject.iso = balance.iso

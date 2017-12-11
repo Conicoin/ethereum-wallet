@@ -22,28 +22,26 @@
 
 import UIKit
 
-class CoinCell: UITableViewCell {
+class CoinCell: UICollectionViewCell {
   
-  @IBOutlet weak var coinImageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var amountLabel: UILabel!
-  @IBOutlet weak var localAmountLabel: UILabel!
+  @IBOutlet weak var isoLabel: UILabel!
+  @IBOutlet weak var iconImageView: UIImageView!
+  @IBOutlet weak var coloredView: UIView!
+  @IBOutlet weak var localBalanceLabel: UILabel!
+  @IBOutlet weak var balanceLabel: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    coinImageView.layer.cornerRadius = 10
-    coinImageView.layer.borderColor = Theme.Color.gray.withAlphaComponent(0.5).cgColor
-    coinImageView.layer.borderWidth = 0.5
-    coinImageView.layer.masksToBounds = true
   }
   
   func configure(with coin: Coin, localCurrency: String) {
-    coinImageView.image = UIImage(named: coin.balance.name)
     nameLabel.text = coin.balance.name
-    amountLabel.text = coin.balance.amount
+    isoLabel.text = coin.balance.iso
+    balanceLabel.text = coin.balance.amount
     
     if let rate = coin.rates.filter({ $0.to == localCurrency }).first {
-      localAmountLabel.text = coin.balance.amount(in: localCurrency, rate: rate.value)
+      localBalanceLabel.text = coin.balance.amount(in: localCurrency, rate: rate.value)
     }
   }
   

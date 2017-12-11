@@ -19,20 +19,11 @@ import UIKit
 
 
 class BalanceViewController: UIViewController {
-  @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var chainLabel: UILabel!
-  @IBOutlet weak var coinsView: UIView!
   @IBOutlet weak var syncButton: UIBarButtonItem!
   @IBOutlet weak var progressView: UIProgressView!
-  @IBOutlet weak var sendButton: UIButton!
-  @IBOutlet weak var receiveButton: UIButton!
-  @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
-  private var refreshControl: UIRefreshControl!
+  @IBOutlet weak var collectionView: UICollectionView!
   
   var output: BalanceViewOutput!
-  private var coins = [Coin]()
-  private var localCurrency = Constants.Wallet.defaultCurrency
   
   // MARK: Life cycle
 
@@ -50,9 +41,9 @@ class BalanceViewController: UIViewController {
   // MARK: - Privates
   
   private func setupPullToRefresh() {
-    refreshControl = UIRefreshControl()
+    let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
-    scrollView.addSubview(refreshControl)
+    collectionView.refreshControl = refreshControl
   }
   
   // MARK: - Actions
@@ -61,32 +52,35 @@ class BalanceViewController: UIViewController {
     output.didRefresh()
   }
   
-  @IBAction func sendPressed(_ sender: UIButton) {
-    output.sendButtonPressed()
-  }
-  
-  @IBAction func receivePressed(_ sender: UIButton) {
-    output.receiveButtonPressed()
-  }
-  
 }
 
 // MARK: - TableView
 
-extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
+extension BalanceViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as! CoinCell
-    cell.configure(with: coins[indexPath.row], localCurrency: localCurrency)
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return output.coins.count
+  }
+
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoinCell", for: indexPath) as! CoinCell
+    cell.configure(with: output.coins[indexPath.row], localCurrency: output.localCurrency)
     return cell
   }
   
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return coins.count
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CoinHeader", for: indexPath) as! CoinHeader
+    view.subtitleLabel.text = output.chain.localizedDescription.uppercased()
+    view.titleLabel.text = Localized.balanceEtherTitle()
+    return view
+  }
+
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
   }
   
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 64
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: collectionView.frame.size.width, height: 142)
   }
   
 }
@@ -100,23 +94,17 @@ extension BalanceViewController: BalanceViewInput {
 
   }
   
-  func didReceiveWallet(_ wallet: Wallet) {
-    self.localCurrency = wallet.localCurrency
-    tableView.reloadData()
+  func didReceiveWallet() {
+    collectionView.reloadData()
   }
   
-  func didReceiveCoins(_ coins: [Coin]) {
-    refreshControl.endRefreshing()
-    self.coins = coins
-    tableView.reloadData()
-    view.layoutIfNeeded()
-    tableViewHeightConstraint.constant = tableView.contentSize.height
-    view.layoutIfNeeded()
-    coinsView.isHidden = false
+  func didReceiveCoins() {
+    collectionView.refreshControl?.endRefreshing()
+    collectionView.reloadData()
   }
   
   func stopRefreshing() {
-    refreshControl.endRefreshing()
+    collectionView.refreshControl?.endRefreshing()
   }
   
   func syncDidChangeProgress(current: Float, total: Float) {
@@ -128,12 +116,7 @@ extension BalanceViewController: BalanceViewInput {
   func syncDidFinished() {
     progressView.setProgress(0, animated: false)
     syncButton.title = nil
-    sendButton.isHidden = false
     UIApplication.shared.isIdleTimerDisabled = false
-  }
-  
-  func didReceiveChain(_ chain: Chain) {
-    chainLabel.text = chain.localizedDescription.uppercased()
   }
 
 }

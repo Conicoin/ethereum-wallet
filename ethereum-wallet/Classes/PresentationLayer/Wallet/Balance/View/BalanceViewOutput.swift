@@ -19,9 +19,10 @@ import UIKit
 
 
 protocol BalanceViewOutput: class {
+  var localCurrency: String { get }
+  var coins: [Coin] { get }
+  var chain: Chain { get }
   func viewIsReady()
   func viewIsAppear()
-  func receiveButtonPressed()
-  func sendButtonPressed()
   func didRefresh()
 }

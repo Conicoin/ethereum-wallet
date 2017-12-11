@@ -25,6 +25,12 @@ class BalancePresenter {
   var interactor: BalanceInteractorInput!
   var router: BalanceRouterInput!
   
+  var coins = [Coin]()
+  var localCurrency = Constants.Wallet.defaultCurrency
+  var chain: Chain {
+    return Defaults.chain
+  }
+  
 }
 
 
@@ -34,7 +40,6 @@ extension BalancePresenter: BalanceViewOutput {
   
   func viewIsReady() {
     view.setupInitialState()
-    view.didReceiveChain(Defaults.chain)
     interactor.getWalletFromDataBase()
     interactor.getCoinsFromDataBase()
   }
@@ -46,14 +51,6 @@ extension BalancePresenter: BalanceViewOutput {
   func didRefresh() {
     interactor.getEthereumFromNetwork()
   }
-  
-  func sendButtonPressed() {
-    router.presentSend(from: view.viewController)
-  }
-  
-  func receiveButtonPressed() {
-    router.presentReceive(from: view.viewController)
-  }
 
 }
 
@@ -63,11 +60,13 @@ extension BalancePresenter: BalanceViewOutput {
 extension BalancePresenter: BalanceInteractorOutput {
   
   func didReceiveWallet(_ wallet: Wallet) {
-    view.didReceiveWallet(wallet)
+    self.localCurrency = wallet.localCurrency
+    view.didReceiveWallet()
   }
   
   func didReceiveCoins(_ coins: [Coin]) {
-    view.didReceiveCoins(coins)
+    self.coins = coins
+    view.didReceiveCoins()
   }
   
   func didFailedWalletReceiving(with error: Error) {

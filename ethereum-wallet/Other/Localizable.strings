@@ -27,6 +27,11 @@
 "mode.secure.helper" = "Secure mode launch node directly on the device. First synchronization can takes from 15 to 20 minutes";
 "mode.standard.helper" = "The standard mode doesn't require synchronization. Recommended for most users";
 
+// MARK: - Balance
+"balance.ether.title" = "Balance";
+"balance.coins.title" = "Coins";
+"balance.coins.subtitle" = "ERC20";
+
 // MARK: - Receive
 "receive.alert.copy" = "You address was copied to clipboard";
 

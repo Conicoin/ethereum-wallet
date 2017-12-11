@@ -22,8 +22,7 @@ protocol BalanceViewInput: class, Presentable {
   func setupInitialState()
   func syncDidChangeProgress(current: Float, total: Float)
   func syncDidFinished()
-  func didReceiveWallet(_ wallet: Wallet)
-  func didReceiveCoins(_ coins: [Coin])
-  func didReceiveChain(_ chain: Chain)
+  func didReceiveWallet()
+  func didReceiveCoins()
   func stopRefreshing()
 }

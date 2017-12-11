@@ -15,17 +15,25 @@
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import UIKit
+import RealmSwift
 
-class BalanceCoinsView: UIView {
+class RealmToken: Object {
   
-  override func layoutSubviews() {
-    layer.cornerRadius = 14
-    layer.shadowColor = UIColor.black.cgColor
-    layer.shadowOffset = CGSize(width: 0, height: 14)
-    layer.shadowOpacity = 0.15
-    layer.shadowRadius = 23
-    layer.masksToBounds =  false
+  @objc dynamic var balance: String = "0"
+  @objc dynamic var name: String = ""
+  @objc dynamic var iso: String = ""
+  @objc dynamic var iconURL: String = ""
+  @objc dynamic var about: String = ""
+  @objc dynamic var address: String = ""
+  @objc dynamic var decimals: Int = 0
+  @objc dynamic var totalSupply: String = ""
+  @objc dynamic var transfersCount: Int = 0
+  @objc dynamic var holdersCount: Int = 0
+  @objc dynamic var lastUpdateTime: Date = .distantPast
+  var rates = List<RealmRate>()
+  
+  override static func primaryKey() -> String? {
+    return "name"
   }
-  
+
 }

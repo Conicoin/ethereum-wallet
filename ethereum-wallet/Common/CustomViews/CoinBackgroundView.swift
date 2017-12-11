@@ -17,15 +17,15 @@
 
 import UIKit
 
-class LightShadowView: UIView {
-
+class CoinBackgroundView: UIView {
+  
   override func layoutSubviews() {
+    layer.cornerRadius = 14
     layer.shadowColor = UIColor.black.cgColor
-    layer.shadowOffset = CGSize(width: 0, height: 1)
-    layer.shadowOpacity = 0.18
-    layer.shadowRadius = 4
-    layer.cornerRadius = 10
+    layer.shadowOffset = CGSize(width: 0, height: 14)
+    layer.shadowOpacity = 0.15
+    layer.shadowRadius = 23
     layer.masksToBounds =  false
   }
-
+        
 }

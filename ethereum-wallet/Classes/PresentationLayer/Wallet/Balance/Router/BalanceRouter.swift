@@ -26,12 +26,5 @@ class BalanceRouter {
 // MARK: - BalanceRouterInput
 
 extension BalanceRouter: BalanceRouterInput {
-  
-  func presentSend(from: UIViewController) {
-    SendModule.create().presentSend(from: from)
-  }
-  
-  func presentReceive(from: UIViewController) {
-    ReceiveModule.create().presentReceive(from: from)
-  }
+
 }

@@ -19,6 +19,5 @@ import UIKit
 
 
 protocol BalanceRouterInput: class {
-  func presentSend(from: UIViewController)
-  func presentReceive(from: UIViewController)
+  
 }
