@@ -17,11 +17,12 @@
 
 
 import Foundation
-
+import RealmSwift
 
 class SettingsInteractor {
   weak var output: SettingsInteractorOutput!
   
+  var keystore: KeystoreServiceProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
 }
 
@@ -39,6 +40,51 @@ extension SettingsInteractor: SettingsInteractorInput {
     var wallet = walletDataStoreService.getWallet()
     wallet.localCurrency = currency
     walletDataStoreService.save(wallet)
+  }
+  
+  func exportKey(with password: String) {
+    do {
+      let account = try keystore.getAccount(at: 0)
+      let jsonKey = try keystore.jsonKey(for: account, passphrase: password, newPassphrase: password)
+      let keyString = String(data: jsonKey, encoding: .utf8)!
+      let filename = "conicoin_key.json"
+      let path = NSTemporaryDirectory().appending(filename)
+      let tempUrl = URL(fileURLWithPath: path)
+      try keyString.write(to: tempUrl, atomically: false, encoding: .utf8)
+      output.didStoreKey(at: tempUrl)
+    } catch let error {
+      output.didFailed(with: error)
+    }
+  }
+  
+  func deleteTempBackup(at url: URL) {
+    do {
+      try FileManager.default.removeItem(at: url)
+    } catch let error {
+      output.didFailed(with: error)
+    }
+  }
+  
+  func clearAll(passphrase: String) {
+    do {
+      // Clear all geth accounts
+      try keystore.deleteAllAccounts(passphrase: passphrase)
+      
+      // Clear keychain
+      let keychain = Keychain()
+      keychain.deleteAll()
+      // Clear defaults
+      Defaults.deleteAll()
+      // Clear realm
+      let realm = try! Realm()
+      try! realm.write {
+        realm.deleteAll()
+      }
+      output.didClearAllData()
+    } catch {
+      output.didFailed(with: error)
+    }
+    
   }
 
 }

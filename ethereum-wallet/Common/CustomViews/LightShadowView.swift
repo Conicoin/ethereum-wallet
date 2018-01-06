@@ -24,7 +24,6 @@ class LightShadowView: UIView {
     layer.shadowOffset = CGSize(width: 0, height: 1)
     layer.shadowOpacity = 0.18
     layer.shadowRadius = 4
-    layer.cornerRadius = 10
     layer.masksToBounds =  false
   }
 

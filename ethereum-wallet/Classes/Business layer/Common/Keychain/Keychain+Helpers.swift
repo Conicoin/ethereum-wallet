@@ -19,10 +19,8 @@ import UIKit
 
 extension Keychain {
   
-  enum KeychainKeys: String {
+  enum KeychainKeys: String, EnumCollection {
     case jsonKey = "json_key_data"
-    case firstEnterDate = "firstEnterDate"
-    case firstEnterBlock = "firstEnterBlock"
     case passphrase = "passphrase"
   }
   
@@ -36,25 +34,6 @@ extension Keychain {
     }
     set {
       setData(newValue, for: .jsonKey)
-    }
-  }
-  
-  var firstEnterBlock: Int? {
-    get {
-      return getInt(key: .firstEnterBlock)
-    }
-    set {
-      setInt(newValue, for: .firstEnterBlock)
-    }
-  }
-  
-  var firstEnterDate: Date? {
-    get {
-      return getDate(key: .firstEnterDate)
-    }
-    
-    set {
-      setDate(newValue, for: .firstEnterDate)
     }
   }
     
@@ -82,6 +61,18 @@ extension Keychain {
       throw KeychainError.noPassphrase
     }
     return passphrase
+  }
+  
+  var isAuthorized: Bool {
+    return passphrase != nil && jsonKey != nil
+  }
+  
+  // MARK: - Utils
+  
+  func deleteAll() {
+    for key in KeychainKeys.allValues {
+      delete(for: key.rawValue)
+    }
   }
   
 }

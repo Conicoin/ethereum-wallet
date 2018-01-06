@@ -121,15 +121,20 @@ extension SendViewController: SendViewInput {
     inputDataIsValid(false)
   }
   
+  func didReceiveCoin(_ coin: CoinDisplayable) {
+    let title = Localized.sendTitle(coin.balance.name)
+    navigationItem.title = title
+  }
+  
   func didDetectQRCode(_ code: String) {
     addressTextField.text = code
   }
   
-  func didChanged(totalAmount: Decimal, totalEther: Ether, fee: Decimal, feeEther: Ether, iso: String) {
-    amountLabel.text = totalEther.amount
-    localAmountLabel.text = Localized.sendAmount(totalAmount.amount(for: iso))
-    feeLabel.text = feeEther.amount
-    localFeeLabel.text = Localized.sendFee(fee.amount(for: iso))
+  func didReceiveCheckout(_ checkout: SendCheckout) {
+    amountLabel.text = checkout.totalAmount
+    localAmountLabel.text = Localized.sendAmount(checkout.localAmount)
+    feeLabel.text = checkout.feeAmount
+    localFeeLabel.text = Localized.sendFee(checkout.localFeeAmount)
   }
   
   func didReceiveCurrency(_ currency: String) {

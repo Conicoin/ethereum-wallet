@@ -20,7 +20,7 @@ import UIKit
 
 class SendModule {
     
-  class func create() -> SendModuleInput {
+  class func create(with coin: CoinDisplayable) -> SendModuleInput {
     let router = SendRouter()
     let presenter = SendPresenter()
     let interactor = SendInteractor()
@@ -28,6 +28,7 @@ class SendModule {
     let viewController = R.storyboard.wallet.sendViewController()!
     viewController.output = presenter
     presenter.view = viewController
+    presenter.coin = coin
     
     let core = Ethereum.core
     let keystore = KeystoreService()
@@ -38,8 +39,14 @@ class SendModule {
     interactor.gasService = gasService
     
     interactor.walletDataStoreService = WalletDataStoreService()
-    interactor.coinDataStoreService = CoinDataStoreService()
     interactor.transactionsDataStoreService = TransactionsDataStoreService()
+    
+    if coin is Coin {
+      interactor.checkoutService = SendCoinCheckoutService()
+    } else {
+      interactor.checkoutService = SendTokenCheckoutService()
+    }
+    
     interactor.output = presenter
     presenter.router = router
     presenter.interactor = interactor

@@ -36,6 +36,7 @@ enum KeychainError: CustomError {
   
   case noJsonKey
   case noPassphrase
+  case keyIsInvalid
   
   var description: CustomError.ErrorInfo? {
     switch self {
@@ -43,6 +44,8 @@ enum KeychainError: CustomError {
       return criticalError
     case .noPassphrase:
       return criticalError
+    case .keyIsInvalid:
+      return (title: "Invalid key", message: "The provided key is not valid", showing: true)
     }
   }
   
@@ -87,6 +90,18 @@ enum SendError: CustomError {
   
   var description: ErrorInfo? {
     return nil
+  }
+  
+}
+
+// MARK: - SendCheckout errors
+
+enum SendCheckoutError: CustomError {
+  
+  case noRate
+  
+  var description: ErrorInfo? {
+    return ("Currency rates haven't been downloaded for some reasons", nil, true)
   }
   
 }

@@ -20,16 +20,16 @@ import UIKit
 
 struct Ether {
   
-  let raw: NSDecimalNumber
+  let raw: Decimal
   let value: Double
 
-  init(_ value: NSDecimalNumber) {
+  init(_ value: Decimal) {
     self.raw = value
-    self.value = value.doubleValue / 1e18
+    self.value = value.double / 1e18
   }
   
   init(_ string: String) {
-    let number = NSDecimalNumber(string: string)
+    let number = Decimal(string)
     self.init(number)
   }
 

@@ -20,5 +20,5 @@ import UIKit
 
 protocol PasswordModuleInput: class {
   var output: PasswordModuleOutput? { get set }
-  func present(from: UIViewController)
+  func present(from viewController: UIViewController)
 }

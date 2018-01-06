@@ -32,6 +32,8 @@ class BalanceModule {
     interactor.coinDataStoreService = CoinDataStoreService()
     interactor.ratesNetworkService = RatesNetworkService()
     interactor.ratesDataStoreService = RatesDataStoreService()
+    interactor.tokensNetworkService = TokensNetworkService()
+    interactor.tokensDataStoreService = TokenDataStoreService()
 
     viewController.output = presenter
 

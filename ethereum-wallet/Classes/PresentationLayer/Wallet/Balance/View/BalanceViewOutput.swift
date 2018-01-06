@@ -21,8 +21,11 @@ import UIKit
 protocol BalanceViewOutput: class {
   var localCurrency: String { get }
   var coins: [Coin] { get }
+  var tokens: [Token] { get }
   var chain: Chain { get }
   func viewIsReady()
   func viewIsAppear()
   func didRefresh()
+  func didSelectCoin(at index: Int)
+  func didSelectToken(at index: Int)
 }

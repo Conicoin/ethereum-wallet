@@ -27,4 +27,5 @@ protocol TransactionServiceProtocol {
   ///   - gasLimit: Gas limit hex string
   ///   - passphrase: Password to unlock wallet
   func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String, result: @escaping (Result<GethTransaction>) -> Void)
+  func sendTokenTransaction(contractAddress: String, to: String, amountHex: String, passphrase: String, result: @escaping (Result<GethTransaction>) -> Void)
 }

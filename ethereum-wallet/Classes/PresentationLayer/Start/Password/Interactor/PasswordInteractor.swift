@@ -33,7 +33,7 @@ extension PasswordInteractor: PasswordInteractorInput {
   
   func createWallet(address: String) {
     walletDataStoreService.createWallet(address: address)
-    Defaults.isAuthorized = true
+    Defaults.isWalletCreated = true
   }
   
   func createAccount(passphrase: String) {
@@ -43,7 +43,6 @@ extension PasswordInteractor: PasswordInteractorInput {
       let keychain = Keychain()
       keychain.jsonKey = jsonKey
       keychain.passphrase = passphrase
-      keychain.firstEnterDate = Date()
       output.didReceive(account: Account(address: account.getAddress().getHex()))
     } catch {
       output.didFailedAccountReceiving(with: error)
@@ -55,6 +54,7 @@ extension PasswordInteractor: PasswordInteractorInput {
       let keychain = Keychain()
       let jsonKey = try keychain.getJsonKey()
       let account = try keystoreService.restoreAccount(with: jsonKey, passphrase: passphrase)
+      keychain.passphrase = passphrase
       output.didReceive(account: Account(address: account.getAddress().getHex()))
     } catch {
       output.didFailedAccountReceiving(with: error)

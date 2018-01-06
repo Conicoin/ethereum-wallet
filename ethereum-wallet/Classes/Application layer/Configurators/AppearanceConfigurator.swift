@@ -20,12 +20,12 @@ import UIKit
 class AppearanceConfigurator: ConfiguratorProtocol {
 
     func configure() {
-      switch UIDevice.current.screenType! {
-      case .iPhone4, .iPhoneSE:
-        UINavigationBar.appearance().prefersLargeTitles = false
-      default:
-        UINavigationBar.appearance().prefersLargeTitles = true
-      }
+//      switch UIDevice.current.screenType! {
+//      case .iPhone4, .iPhoneSE:
+//        UINavigationBar.appearance().prefersLargeTitles = false
+//      default:
+//        UINavigationBar.appearance().prefersLargeTitles = true
+//      }
     }
     
 }

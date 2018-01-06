@@ -24,5 +24,6 @@ protocol BalanceViewInput: class, Presentable {
   func syncDidFinished()
   func didReceiveWallet()
   func didReceiveCoins()
+  func didReceiveTokens()
   func stopRefreshing()
 }

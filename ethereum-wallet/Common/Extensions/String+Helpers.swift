@@ -39,6 +39,23 @@ extension String {
     let end = index(start, offsetBy: range.upperBound - range.lowerBound)
     return String(self[start ..< end])
   }
+  
+  func renderImage(font: UIFont, size: CGSize, color: UIColor) -> UIImage {
+    let renderer = UIGraphicsImageRenderer(size: size)
+    return renderer.image { ctx in
+      let paragraphStyle = NSMutableParagraphStyle()
+      paragraphStyle.alignment = .center
+      let attrs = [
+        NSAttributedStringKey.font: font,
+        NSAttributedStringKey.paragraphStyle: paragraphStyle,
+        NSAttributedStringKey.foregroundColor: color
+      ]
+      let textSize = (self as NSString).size(withAttributes: attrs)
+      let origin = CGPoint(x: 0, y: size.height/2 - textSize.height/2)
+      let rect = CGRect(origin: origin, size: size)
+      self.draw(with: rect, options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
+    }
+  }
 }
 
 

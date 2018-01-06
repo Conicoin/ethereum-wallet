@@ -67,11 +67,6 @@ class Keychain {
     return data
   }
   
-  private func delete(for key: String) {
-    let query = generateQuery(for: key)
-    SecItemDelete(query as CFDictionary)
-  }
-  
   private func generateQuery(for key: String) -> [String: Any] {
     return [
       kSecClassValue: kSecClassGenericPasswordValue,
@@ -154,6 +149,11 @@ extension Keychain {
   // MARK: - Helpers
   func exist(_ key: KeychainKeys) -> Bool {
     return get(for: key.rawValue) != nil
+  }
+  
+  func delete(for key: String) {
+    let query = generateQuery(for: key)
+    SecItemDelete(query as CFDictionary)
   }
   
 }

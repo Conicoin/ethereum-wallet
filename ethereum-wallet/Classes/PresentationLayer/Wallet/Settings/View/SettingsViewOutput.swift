@@ -23,4 +23,7 @@ protocol SettingsViewOutput: class {
   func viewIsReady()
   var currencies: [String] { get }
   func didSelectCurrency(at index: Int)
+  func didEnterPasswordForBackup(_ password: String)
+  func didShareBackup(at url: URL)
+  func didExitWalletPressed(passphrase: String)
 }

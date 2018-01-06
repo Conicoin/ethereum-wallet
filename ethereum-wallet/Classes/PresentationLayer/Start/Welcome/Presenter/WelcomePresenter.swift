@@ -26,7 +26,8 @@ class WelcomePresenter {
   var router: WelcomeRouterInput!
   
   var isRestoring: Bool {
-    return Keychain().isAccountBackuped
+    let keychain = Keychain()
+    return keychain.isAccountBackuped
   }
     
 }
@@ -39,9 +40,13 @@ extension WelcomePresenter: WelcomeViewOutput {
   func viewIsReady() {
     view.setupInitialState(restoring: isRestoring)
   }
-  
-  func presentPassword() {
+
+  func newDidPressed() {
     router.presentPassword(from: view.viewController)
+  }
+  
+  func importDidPressed() {
+    router.presentImport(from: view.viewController)
   }
 
 }
@@ -58,8 +63,8 @@ extension WelcomePresenter: WelcomeInteractorOutput {
 
 extension WelcomePresenter: WelcomeModuleInput {
   
-  var viewController: UIViewController {
-    return view.viewController
+  func present() {
+    view.present()
   }
 
 }

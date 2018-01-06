@@ -20,8 +20,8 @@ import Foundation
 
 protocol SendInteractorInput: class {
   func getWallet()
-  func getCoin()
   func getGasLimit()
   func getGasPrice()
   func sendTransaction(amount: Decimal, to: String, gasLimit: Decimal)
+  func getCheckout(for coin: CoinDisplayable, amount: Decimal, iso: String, fee: Decimal)
 }

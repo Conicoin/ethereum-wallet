@@ -58,7 +58,7 @@ extension Transaction: RealmMappable {
     let realmObject = RealmTransaction()
     realmObject.txHash = txHash
     realmObject.to = to
-    realmObject.amount = amount.raw.stringValue
+    realmObject.amount = amount.raw.string
     realmObject.timestamp = timestamp
     realmObject.isIncoming = isIncoming
     realmObject.isPending = isPending

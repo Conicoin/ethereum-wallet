@@ -26,6 +26,7 @@ class BalancePresenter {
   var router: BalanceRouterInput!
   
   var coins = [Coin]()
+  var tokens = [Token]()
   var localCurrency = Constants.Wallet.defaultCurrency
   var chain: Chain {
     return Defaults.chain
@@ -42,14 +43,25 @@ extension BalancePresenter: BalanceViewOutput {
     view.setupInitialState()
     interactor.getWalletFromDataBase()
     interactor.getCoinsFromDataBase()
+    interactor.getTokensFromDataBase()
   }
   
   func viewIsAppear() {
     interactor.getEthereumFromNetwork()
+    interactor.getTokensFromNetwork()
   }
   
   func didRefresh() {
     interactor.getEthereumFromNetwork()
+    interactor.getTokensFromNetwork()
+  }
+  
+  func didSelectCoin(at index: Int) {
+    router.presentDetails(for: coins[index], from: view.viewController)
+  }
+  
+  func didSelectToken(at index: Int) {
+    router.presentDetails(for: tokens[index], from: view.viewController)
   }
 
 }
@@ -67,6 +79,11 @@ extension BalancePresenter: BalanceInteractorOutput {
   func didReceiveCoins(_ coins: [Coin]) {
     self.coins = coins
     view.didReceiveCoins()
+  }
+  
+  func didReceiveTokens(_ tokens: [Token]) {
+    self.tokens = tokens
+    view.didReceiveTokens()
   }
   
   func didFailedWalletReceiving(with error: Error) {

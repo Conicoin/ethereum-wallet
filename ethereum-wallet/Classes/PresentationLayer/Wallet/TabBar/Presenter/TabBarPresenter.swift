@@ -19,71 +19,71 @@ import UIKit
 
 
 class TabBarPresenter {
+  
+  weak var view: TabBarViewInput!
+  weak var output: TabBarModuleOutput?
+  var interactor: TabBarInteractorInput!
+  var router: TabBarRouterInput!
+  
+  private lazy var balanceModule: BalanceModuleInput = BalanceModule.create()
+  private lazy var transactionsModule: TransactionsModuleInput = TransactionsModule.create()
+  private lazy var settingsModule: SettingsModuleInput = SettingsModule.create()
+  
+  private func insertViewControllers() {
     
-    weak var view: TabBarViewInput!
-    weak var output: TabBarModuleOutput?
-    var interactor: TabBarInteractorInput!
-    var router: TabBarRouterInput!
-    
-    private lazy var balanceModule: BalanceModuleInput = BalanceModule.create()
-    private lazy var transactionsModule: TransactionsModuleInput = TransactionsModule.create()
-    private lazy var settingsModule: SettingsModuleInput = SettingsModule.create()
-    
-    private func insertViewControllers() {
-        
-        view.viewControllers = [
-            balanceModule.viewController.wrapToNavigationController(),
-            transactionsModule.viewController.wrapToNavigationController(),
-            settingsModule.viewController.wrapToNavigationController()
-        ]
-    }
-    
+    view.viewControllers = [
+      balanceModule.viewController.wrapToNavigationController(),
+      transactionsModule.viewController.wrapToNavigationController(),
+      settingsModule.viewController.wrapToNavigationController()
+    ]
+  }
+  
 }
 
 
 // MARK: - TabBarViewOutput
 
 extension TabBarPresenter: TabBarViewOutput {
-    
-    func viewIsReady() {
-        view.setupInitialState()
-        insertViewControllers()
-        interactor.startSynchronization()
-    }
+  
+  func viewIsReady() {
+    view.setupInitialState()
+    insertViewControllers()
+    interactor.startSynchronization()
+  }
 }
 
 
 // MARK: - TabBarInteractorOutput
 
 extension TabBarPresenter: TabBarInteractorOutput {
+  
+  func syncDidUpdateBalance(_ balance: Decimal) {
     
-    func syncDidUpdateBalance(_ balance: Decimal) {
-        
+  }
+  
+  func syncDidFailedWithError(_ error: Error) {
+    DispatchQueue.main.async {
+      error.showAllertIfNeeded(from: self.view.viewController)
     }
-    
-    func syncDidFailedWithError(_ error: Error) {
-        DispatchQueue.main.async {
-            error.showAllertIfNeeded(from: self.view.viewController)
-        }
-    }
-    
-    func syncDidChangeProgress(current: Int64, total: Int64) {
-        balanceModule.syncDidChangeProgress(current: current, total: total)
-    }
-    
-    func syncDidFinished() {
-        balanceModule.syncDidFinished()
-    }
-    
+  }
+  
+  func syncDidChangeProgress(current: Int64, total: Int64) {
+    balanceModule.syncDidChangeProgress(current: current, total: total)
+  }
+  
+  func syncDidFinished() {
+    balanceModule.syncDidFinished()
+  }
+  
 }
 
 
 // MARK: - TabBarModuleInput
 
 extension TabBarPresenter: TabBarModuleInput {
-    
-    var viewController: UIViewController {
-        return view.viewController
-    }
-    
+  
+  func present() {
+    view.present()
+  }
+  
 }

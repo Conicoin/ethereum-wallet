@@ -22,11 +22,11 @@ import UIKit
 
 extension Decimal {
 
-  func weiToEther() -> Decimal {
+  func fromWei() -> Decimal {
     return self / 1e18
   }
   
-  func etherToWei() -> Decimal {
+  func toWei() -> Decimal {
     return self * 1e18
   }
   

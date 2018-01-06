@@ -20,5 +20,6 @@ import UIKit
 
 protocol WelcomeViewOutput: class {
   func viewIsReady()
-  func presentPassword()
+  func newDidPressed()
+  func importDidPressed()
 }

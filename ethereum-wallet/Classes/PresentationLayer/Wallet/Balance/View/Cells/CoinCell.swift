@@ -21,6 +21,7 @@
 //  SOFTWARE.A
 
 import UIKit
+import Kingfisher
 
 class CoinCell: UICollectionViewCell {
   
@@ -31,18 +32,30 @@ class CoinCell: UICollectionViewCell {
   @IBOutlet weak var localBalanceLabel: UILabel!
   @IBOutlet weak var balanceLabel: UILabel!
   
+  static var cellHeight: CGFloat = 142
+  
   override func awakeFromNib() {
     super.awakeFromNib()
   }
   
-  func configure(with coin: Coin, localCurrency: String) {
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    localBalanceLabel.text = "-"
+  }
+  
+  func configure(with coin: CoinDisplayable, localCurrency: String) {
     nameLabel.text = coin.balance.name
     isoLabel.text = coin.balance.iso
     balanceLabel.text = coin.balance.amount
+    coloredView.backgroundColor = coin.color
     
     if let rate = coin.rates.filter({ $0.to == localCurrency }).first {
       localBalanceLabel.text = coin.balance.amount(in: localCurrency, rate: rate.value)
     }
+
+    let placeholder = coin.placeholder(with: iconImageView.bounds.size)
+    iconImageView.kf.setImage(with: coin.iconUrl, placeholder: placeholder)
+    iconImageView.tintColor = coin.color
   }
   
 }

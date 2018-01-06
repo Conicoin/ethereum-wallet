@@ -28,7 +28,7 @@ class PasswordRouter {
 extension PasswordRouter: PasswordRouterInput {
   
   func presentWallet(from: UIViewController, isSecureMode: Bool) {
-    AppDelegate.currentWindow.rootViewController = TabBarModule.create(isSecureMode: isSecureMode).viewController
+    TabBarModule.create(isSecureMode: isSecureMode).present()
   }
     
 }

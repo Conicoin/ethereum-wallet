@@ -30,7 +30,11 @@ struct Constants {
   
   struct Wallet {
     static let defaultCurrency = "USD"
-    static let supportedCurrencies = ["BTC","USD","EUR","CNY","GBP"]
+    static let supportedCurrencies = ["BTC","ETH","USD","EUR","CNY","GBP"]
+  }
+  
+  struct Common {
+    static let githubUrl = "https://github.com/flypaper0/ethereum-wallet"
   }
   
 }

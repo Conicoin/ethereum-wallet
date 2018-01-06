@@ -26,4 +26,5 @@ protocol PasswordViewOutput: class {
   var syncMode: SyncMode { get }
   func selectChain(at index: Int)
   func didChangeSyncMode(_ value: Bool)
+  func closeDidPressed()
 }

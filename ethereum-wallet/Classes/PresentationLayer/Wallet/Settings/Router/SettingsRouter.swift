@@ -27,5 +27,9 @@ class SettingsRouter {
 // MARK: - SettingsRouterInput
 
 extension SettingsRouter: SettingsRouterInput {
+  
+  func presentWelcome() {
+    WelcomeModule.create().present()
+  }
     
 }

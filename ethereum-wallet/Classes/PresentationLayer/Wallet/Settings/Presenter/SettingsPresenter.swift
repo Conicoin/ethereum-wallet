@@ -43,6 +43,18 @@ extension SettingsPresenter: SettingsViewOutput {
   func didSelectCurrency(at index: Int) {
     interactor.selectCurrency(currencies[index])
   }
+  
+  func didEnterPasswordForBackup(_ password: String) {
+    interactor.exportKey(with: password)
+  }
+  
+  func didShareBackup(at url: URL) {
+    interactor.deleteTempBackup(at: url)
+  }
+  
+  func didExitWalletPressed(passphrase: String) {
+    interactor.clearAll(passphrase: passphrase)
+  }
 
 }
 
@@ -54,6 +66,18 @@ extension SettingsPresenter: SettingsInteractorOutput {
   func didReceiveWallet(_ wallet: Wallet) {
     guard let index = currencies.index(of: wallet.localCurrency) else { return }
     view.selectCurrency(at: index)
+  }
+  
+  func didStoreKey(at url: URL) {
+    view.didStoreKey(at: url)
+  }
+  
+  func didClearAllData() {
+    router.presentWelcome()
+  }
+  
+  func didFailed(with error: Error) {
+    error.showAllertIfNeeded(from: view.viewController)
   }
 
 }

@@ -29,6 +29,7 @@ class SettingsModule {
 
     interactor.output = presenter
     interactor.walletDataStoreService = WalletDataStoreService()
+    interactor.keystore = KeystoreService()
 
     viewController.output = presenter
 

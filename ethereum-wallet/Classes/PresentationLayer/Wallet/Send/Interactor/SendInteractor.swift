@@ -22,10 +22,11 @@ class SendInteractor {
   weak var output: SendInteractorOutput!
   
   var walletDataStoreService: WalletDataStoreServiceProtocol!
-  var coinDataStoreService: CoinDataStoreServiceProtocol!
   var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
   var transactionService: TransactionServiceProtocol!
   var gasService: GasServiceProtocol!
+  var checkoutService: SendCheckoutServiceProtocol!
+
 }
 
 
@@ -33,17 +34,18 @@ class SendInteractor {
 
 extension SendInteractor: SendInteractorInput {
   
+  func getCheckout(for coin: CoinDisplayable, amount: Decimal, iso: String, fee: Decimal) {
+    do {
+      let checkout = try checkoutService.checkout(for: coin, amount: amount, iso: iso, fee: fee)
+      output.didReceiveCheckout(checkout)
+    } catch let error {
+      output.didFailed(with: error)
+    }
+  }
+  
   func getWallet() {
     let wallet = walletDataStoreService.getWallet()
     output.didReceiveWallet(wallet)
-  }
-  
-  func getCoin() {
-    guard let coin = coinDataStoreService.find().first else {
-      output.didFailed(with: SendError.coinNotFound)
-      return
-    }
-    output.didReceiveCoin(coin)
   }
   
   func sendTransaction(amount: Decimal, to: String, gasLimit: Decimal) {

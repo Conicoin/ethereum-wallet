@@ -19,9 +19,9 @@ import RealmSwift
 
 struct Coin {
   
-  var balance: Ether!
-  var rates: [Rate]!
-  var lastUpdateTime: Date!
+  var balance: Currency!
+  var rates = [Rate]()
+  var lastUpdateTime = Date()
   
 }
 
@@ -39,7 +39,7 @@ extension Coin: RealmMappable {
   
   func mapToRealmObject() -> RealmCoin {
     let realmObject = RealmCoin()
-    realmObject.balance = balance.raw.stringValue
+    realmObject.balance = balance.raw.string
     realmObject.name = balance.name
     realmObject.iso = balance.iso
     realmObject.rates.append(objectsIn: rates.map { $0.mapToRealmObject() })

@@ -19,5 +19,6 @@ import UIKit
 
 
 protocol WelcomeRouterInput: class {
-  func presentPassword(from: UIViewController)
+  func presentPassword(from viewController: UIViewController)
+  func presentImport(from viewController: UIViewController)
 }

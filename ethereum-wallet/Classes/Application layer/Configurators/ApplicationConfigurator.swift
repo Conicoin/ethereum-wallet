@@ -20,11 +20,11 @@ import Foundation
 class ApplicationConfigurator: ConfiguratorProtocol {
   
   func configure() {
-    if Defaults.isAuthorized {
+    if Defaults.isWalletCreated {
       let isSecureMode = Defaults.mode.isSecureMode
-      AppDelegate.currentWindow.rootViewController = TabBarModule.create(isSecureMode: isSecureMode).viewController
+      TabBarModule.create(isSecureMode: isSecureMode).present()
     } else {
-      AppDelegate.currentWindow.rootViewController = WelcomeModule.create().viewController
+      WelcomeModule.create().present()
     }
   }
   

@@ -21,6 +21,8 @@ import Foundation
 protocol BalanceInteractorInput: class {
   func getWalletFromDataBase()
   func getCoinsFromDataBase()
+  func getTokensFromDataBase()
   func getEthereumFromNetwork()
+  func getTokensFromNetwork()
   func updateRates()
 }

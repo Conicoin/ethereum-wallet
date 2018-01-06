@@ -20,5 +20,5 @@ import UIKit
 
 
 protocol SettingsRouterInput: class {
-
+  func presentWelcome()
 }

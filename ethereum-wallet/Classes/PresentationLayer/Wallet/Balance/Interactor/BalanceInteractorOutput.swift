@@ -21,5 +21,6 @@ import Foundation
 protocol BalanceInteractorOutput: class {
   func didReceiveWallet(_ wallet: Wallet)
   func didReceiveCoins(_ coins: [Coin])
+  func didReceiveTokens(_ tokens: [Token])
   func didFailedWalletReceiving(with error: Error)
 }

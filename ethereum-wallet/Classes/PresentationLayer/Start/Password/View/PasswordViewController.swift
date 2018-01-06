@@ -45,6 +45,10 @@ class PasswordViewController: UIViewController {
   }
   
   // MARK: Action
+  
+  @IBAction func closePressed(_ sender: UIBarButtonItem) {
+    output.closeDidPressed()
+  }
 
 }
 
@@ -56,13 +60,13 @@ extension PasswordViewController: UITableViewDelegate, UITableViewDataSource {
 
     switch indexPath.section {
     case 0:
-      let cell = tableView.dequeueReusableCell(withIdentifier: "ChainCell", for: indexPath)
+      let cell = tableView.dequeue(ChainCell.self, for: indexPath)
       cell.selectionStyle = .none
       cell.textLabel?.text = output.chains[indexPath.row].localizedDescription
       return cell
       
     case 1:
-      let cell = tableView.dequeueReusableCell(withIdentifier: "ModeCell", for: indexPath) as! ModeCell
+      let cell = tableView.dequeue(ModeCell.self, for: indexPath)
       cell.titleLabel.text = Localized.modeTitle()
       cell.switcher.isOn = Bool(output.syncMode.rawValue)
       cell.delegate = self

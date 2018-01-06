@@ -26,17 +26,17 @@ extension Error {
         return localizedDescription
     }
     
-    func showAllertIfNeeded(from: UIViewController) {
+    func showAllertIfNeeded(from viewController: UIViewController) {
         if
           let error = self as? CustomError,
           let description = error.description, description.showing {
             let alert = UIAlertController(title: description.title, message: description.message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            from.present(alert, animated: true, completion: nil)
+            viewController.present(alert, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: nil, message: self.localizedDescription, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            from.present(alert, animated: true, completion: nil)
+            viewController.present(alert, animated: true, completion: nil)
         }
     }
     

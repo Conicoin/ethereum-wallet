@@ -19,16 +19,6 @@ import UIKit
 
 final class Defaults: NSObject {
   
-  class var isAuthorized: Bool {
-    get {
-      return getBool(forKey: .isAuthorized)
-    }
-    
-    set {
-      set(value: newValue, forKey: .isAuthorized)
-    }
-  }
-  
   class var chain: Chain {
     get {
       let raw: String =  get(forKey: .chain, fallback: Chain.mainnet.rawValue)
@@ -50,14 +40,30 @@ final class Defaults: NSObject {
       set(value: newValue.rawValue, forKey: .mode)
     }
   }
+  
+  class var isWalletCreated: Bool {
+    get {
+      return getBool(forKey: .isWalletCreated)
+    }
+    
+    set {
+      set(value: newValue, forKey: .isWalletCreated)
+    }
+  }
+  
+  class func deleteAll() {
+    for key in Keys.allValues {
+      UserDefaults.standard.removeObject(forKey: key.rawValue)
+    }
+  }
 }
 
 private extension Defaults {
   
-  enum Keys: String {
-    case isAuthorized = "isAuthorizedKey"
+  enum Keys: String, EnumCollection {
     case chain = "chainKey"
     case mode = "syncMode"
+    case isWalletCreated = "isWalletCreated"
   }
   
   static func set<T: Any>(value: T, forKey key: Keys) {

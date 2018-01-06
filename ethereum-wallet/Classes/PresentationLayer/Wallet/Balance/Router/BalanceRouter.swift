@@ -26,5 +26,13 @@ class BalanceRouter {
 // MARK: - BalanceRouterInput
 
 extension BalanceRouter: BalanceRouterInput {
-
+  
+  func presentDetails(for coin: Coin, from: UIViewController) {
+    CoinDetailsModule.create().present(with: coin, from: from)
+  }
+  
+  func presentDetails(for token: Token, from: UIViewController) {
+    TokenDetailsModule.create().present(with: token, from: from)
+  }
+  
 }

@@ -19,9 +19,18 @@
 // MARK: - Welcome
 "welcome.new.title" = "New Wallet";
 "welcome.restore.title" = "Restore with passphrase";
+"welcome.import.title" = "Import wallet";
+"welcome.title" = "Welcome to Conicoin";
+"welcome.subtitle" = "Lets start by creating a new wallet or restoring the existing one";
+"welcome.gitgub.link" = "Source code available on Github";
+
+// MARK: - Import
+"import.json.title" = "Enter JSON Key";
+"import.icloud.title" = "Import from iCloud";
+"import.confirm.title" = "Confirm";
 
 // MARK: - Password
-"new.password.title" = "New account";
+"new.password.title" = "New Wallet";
 "restore.password.title" = "Restore account";
 "mode.title" = "Enable secure mode";
 "mode.secure.helper" = "Secure mode launch node directly on the device. First synchronization can takes from 15 to 20 minutes";
@@ -29,13 +38,21 @@
 
 // MARK: - Balance
 "balance.ether.title" = "Balance";
-"balance.coins.title" = "Coins";
+"balance.coins.title" = "Tokens";
 "balance.coins.subtitle" = "ERC20";
 
+// MARK: - Coin details
+"coin.details.balance" = "Balance: %@";
+
+// MARK: - Token details
+"token.details.balance" = "Balance: %@";
+
 // MARK: - Receive
+"receive.title" = "Receive %@";
 "receive.alert.copy" = "You address was copied to clipboard";
 
 // MARK: - Send
+"send.title" = "Transfer %@";
 "send.gasPrice" = "Current gas price: %@ gwi";
 "send.amount" = "Amount: %@";
 "send.fee" = "Fee: %@";
@@ -51,7 +68,27 @@
 "time.inDays" = "In %@ days";
 
 // MARK: Settings
-"settings.currency.title" = "Currency";
+"settings.currency.header" = "Currency";
+"settings.backup.header" = "Backup";
+"settings.backup.title" = "Backup wallet";
+"settings.backup.alert.title" = "Confirm passphrase";
+"settings.backup.alert.message" = "Enter the encryption passphrase you specified during wallet setup";
+"settings.backup.alert.ok" = "Backup";
+"settings.backup.alert.cancel" = "Cancel";
+"settings.backup.alert.password" = "Password";
+"settings.exit.title" = "Exit wallet";
+"settings.exit.alert.title" = "Exit the wallet";
+"settings.exit.aler.message" = "All data will be erased. If you are sure you have made a backup enter the encryption passphrase";
+"settings.exit.placeholder" = "passphrase";
+"settings.exit.confirm" = "Exit";
+"settings.exit.cancel" = "Cancel";
 
 // MARK: ChooseCurrency
 "chooseCurrency.header" = "Currency";
+
+// Import JSON or enter the Private key
+// Import from iCloud
+
+// Send:
+// Total amount to transfer
+// Including fee

@@ -1,9 +1,11 @@
 PODS:
-  - Alamofire (4.5.1)
+  - Alamofire (4.6.0)
   - AlamofireObjectMapper (5.0.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.0)
+  - CryptoSwift (0.8.0)
   - Geth (1.7.3)
+  - Kingfisher (4.6.1)
   - ObjectMapper (3.1.0)
   - PKHUD (5.0.0)
   - R.swift (4.0.0):
@@ -17,15 +19,19 @@ PODS:
 
 DEPENDENCIES:
   - AlamofireObjectMapper
+  - CryptoSwift
   - Geth
+  - Kingfisher
   - PKHUD
   - R.swift
   - RealmSwift
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  CryptoSwift: f81907430ebbe38b8404b4f6fb40f3c576a8755f
   Geth: 45a08eeef7a20e58dfc09a455563ffe210941a96
+  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
@@ -33,6 +39,6 @@ SPEC CHECKSUMS:
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
   RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
 
-PODFILE CHECKSUM: e4ff4da313ab0a9845ad00835034ba3c5b0355d3
+PODFILE CHECKSUM: 97b6f9f2f16c74550d73e70a31cf33df26c3729e
 
 COCOAPODS: 1.3.1

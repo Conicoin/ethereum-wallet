@@ -16,13 +16,17 @@
 
 
 import UIKit
-
+import SafariServices
 
 class WelcomeViewController: UIViewController {
 
   var output: WelcomeViewOutput!
     
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var subtitleLabel: UILabel!
+  @IBOutlet weak var sourceButton: UIButton!
   @IBOutlet weak var newWalletButton: UIButton!
+  @IBOutlet weak var importWalletButton: UIButton!
 
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -33,13 +37,33 @@ class WelcomeViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    localize()
     output.viewIsReady()
+  }
+  
+  // MARK: Privates
+  
+  private func localize() {
+    titleLabel.text = Localized.welcomeTitle()
+    subtitleLabel.text = Localized.welcomeSubtitle()
+    importWalletButton.setTitle(Localized.welcomeImportTitle(), for: .normal)
+    sourceButton.setTitle(Localized.welcomeGitgubLink(), for: .normal)
   }
   
   // MARK: Actions
   
-  @IBAction func enterWalletPressed() {
-    output.presentPassword()
+  @IBAction func newWalletPressed(_ sender: UIButton) {
+    output.newDidPressed()
+  }
+  
+  @IBAction func importWalletPressed(_ sender: UIButton) {
+    output.importDidPressed()
+  }
+  
+  @IBAction func sourcePressed(_ sender: UIButton) {
+    guard let url = URL(string: Constants.Common.githubUrl) else { return }
+    let svc = SFSafariViewController(url: url)
+    present(svc, animated: true, completion: nil)
   }
 
 }

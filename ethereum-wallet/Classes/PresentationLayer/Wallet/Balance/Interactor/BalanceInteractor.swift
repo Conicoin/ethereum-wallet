@@ -26,7 +26,8 @@ class BalanceInteractor {
   var coinDataStoreService: CoinDataStoreServiceProtocol!
   var ratesNetworkService: RatesNetworkServiceProtocol!
   var ratesDataStoreService: RatesDataStoreServiceProtocol!
-  
+  var tokensNetworkService: TokensNetworkServiceProtocol!
+  var tokensDataStoreService: TokenDataStoreServiceProtocol!
 }
 
 
@@ -36,21 +37,30 @@ extension BalanceInteractor: BalanceInteractorInput {
   
   func updateRates() {
     var coins = coinDataStoreService.find()
+    var tokens = tokensDataStoreService.find()
+    let coinsCurrenies = coins.map { $0.balance.iso }
+    let tokensCurrencies = tokens.map { $0.balance.iso }
+    let currencies = coinsCurrenies + tokensCurrencies
     
-    guard coins.count > 0 else {
+    guard currencies.count > 0 else {
       return
     }
     
-    let currencies = coins.map { $0.balance.iso }
     ratesNetworkService.getRate(currencies: currencies) { [unowned self] result in
       switch result {
       case .success(let rates):
-        
+        // TODO: Refactor - move to rate service
         for (i, coin) in coins.enumerated() {
           let rates = rates.filter { $0.from == coin.balance.iso }
           coins[i].rates = rates
         }
         self.coinDataStoreService.save(coins)
+        
+        for (i, token) in tokens.enumerated() {
+          let rates = rates.filter { $0.from == token.balance.iso }
+          tokens[i].rates = rates
+        }
+        self.tokensDataStoreService.save(tokens)
         
       case .failure(let error):
         self.output.didFailedWalletReceiving(with: error)
@@ -70,24 +80,40 @@ extension BalanceInteractor: BalanceInteractorInput {
       self.output.didReceiveCoins(coins)
     }
   }
+    
+  func getTokensFromDataBase() {
+    tokensDataStoreService.observe { tokens in
+      self.output.didReceiveTokens(tokens)
+    }
+  }
   
   func getEthereumFromNetwork() {
     let wallet = walletDataStoreService.getWallet()
     walletNetworkService.getBalance(address: wallet.address) { [unowned self] result in
       switch result {
       case .success(let balance):
-        let old = self.coinDataStoreService.find(withIso: "ETH")
         let ether = Ether(balance)
         var coin = Coin()
         coin.balance = ether
-        coin.lastUpdateTime = Date()
-        coin.rates = old?.rates ?? [Rate]()
         self.coinDataStoreService.save(coin)
         self.updateRates()
       case .failure(let error):
         self.output.didFailedWalletReceiving(with: error)
       }
     }
+  }
+  
+  func getTokensFromNetwork() {
+    let wallet = walletDataStoreService.getWallet() // TODO: Remove mock
+    tokensNetworkService.getTokens(address: "0x8c8cc09addf50fc01e4b75a0cf34da37e216b2e7") { [unowned self] result in
+      switch result {
+      case .success(let tokens):
+        self.tokensDataStoreService.save(tokens)
+      case .failure(let error):
+        self.output.didFailedWalletReceiving(with: error)
+      }
+    }
+    
   }
   
 }

@@ -20,5 +20,5 @@ import UIKit
 
 protocol TabBarModuleInput: class  {
   var output: TabBarModuleOutput? { get set }
-  var viewController: UIViewController { get }
+  func present()
 }

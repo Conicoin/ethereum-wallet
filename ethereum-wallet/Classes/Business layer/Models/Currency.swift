@@ -19,12 +19,14 @@
 import UIKit
 
 protocol Currency {
-  var raw: NSDecimalNumber { get }
+  var raw: Decimal { get }
   var value: Double { get }
   var name: String { get }
   var iso: String { get }
   var symbol: String { get }
 }
+
+// MARK: - Common helpers
 
 extension Currency {
   var fullName: String {
@@ -43,6 +45,20 @@ extension Currency {
   func amount(in iso: String, rate: Double) -> String {
     let total = value * rate
     return total.amount(for: iso)
+  }
+  
+}
+
+// MARK: - Fabrics
+
+extension Currency {
+  
+  func tokenValue(with amount: Decimal) -> TokenValue {
+    return TokenValue(amount, name: name, iso: iso)
+  }
+  
+  func etherValue(with amount: Decimal) -> Ether {
+    return Ether(amount)
   }
   
 }

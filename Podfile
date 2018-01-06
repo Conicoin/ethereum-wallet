@@ -10,6 +10,8 @@ target 'ethereum-wallet' do
   pod 'RealmSwift'
   pod 'AlamofireObjectMapper'
   pod 'PKHUD'
+  pod 'CryptoSwift'
+  pod 'Kingfisher'
 end
 
 

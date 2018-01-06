@@ -10,20 +10,20 @@ import UIKit
 
 struct TokenValue: Currency {
   
-  let raw: NSDecimalNumber
+  let raw: Decimal
   let value: Double
   let name: String
   let iso: String
   
-  init(_ value: NSDecimalNumber, name: String, iso: String) {
+  init(_ value: Decimal, name: String, iso: String) {
     self.raw = value
-    self.value = value.doubleValue / 1e18
+    self.value = value.double / 1e18
     self.name = name
     self.iso = iso
   }
   
   init(_ string: String, name: String, iso: String) {
-    let number = NSDecimalNumber(string: string)
+    let number = Decimal(string)
     self.init(number, name: name, iso: iso)
   }
   

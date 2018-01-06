@@ -32,7 +32,8 @@ class PasswordPresenter {
   
   private var password: String!
   private var restoring: Bool {
-    return Keychain().isAccountBackuped
+    let keychain = Keychain()
+    return keychain.isAccountBackuped
   }
   
 }
@@ -69,6 +70,10 @@ extension PasswordPresenter: PasswordViewOutput {
     Defaults.mode = syncMode
     view.didChangedMode(syncMode)
   }
+  
+  func closeDidPressed() {
+    view.dissmissModal()
+  }
 
 }
 
@@ -93,9 +98,9 @@ extension PasswordPresenter: PasswordInteractorOutput {
 
 extension PasswordPresenter: PasswordModuleInput {
   
-  func present(from: UIViewController) {
+  func present(from viewController: UIViewController) {
     let navigationController = UINavigationController(rootViewController: view.viewController)
-    from.present(navigationController, animated: true, completion: nil)
+    viewController.present(navigationController, animated: true, completion: nil)
   }
 
 }

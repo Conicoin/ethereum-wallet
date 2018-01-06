@@ -38,7 +38,7 @@ class ChooseCurrencyViewController: UIViewController {
 extension ChooseCurrencyViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseCurrencyCell", for: indexPath)
+    let cell = tableView.dequeue(ChooseCurrencyCell.self, for: indexPath)
     cell.textLabel?.text = output.currencies[indexPath.row]
     return cell
   }

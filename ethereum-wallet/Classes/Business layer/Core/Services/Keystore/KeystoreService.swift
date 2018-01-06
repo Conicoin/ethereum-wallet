@@ -42,8 +42,24 @@ class KeystoreService: KeystoreServiceProtocol {
     return try keystore.exportKey(account, passphrase: passphrase, newPassphrase: passphrase)
   }
   
+  func jsonKey(for account: GethAccount, passphrase: String, newPassphrase: String) throws -> Data {
+    return try keystore.exportKey(account, passphrase: passphrase, newPassphrase: newPassphrase)
+  }
+  
   func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount  {
     return try keystore.importKey(jsonKey, passphrase: passphrase, newPassphrase: passphrase)
+  }
+  
+  func deleteAccount(_ account: GethAccount, passphrase: String) throws {
+    return try keystore.delete(account, passphrase: passphrase)
+  }
+  
+  func deleteAllAccounts(passphrase: String) throws {
+    let size = keystore.getAccounts().size()
+    for i in 0..<size {
+      let account = try getAccount(at: i)
+      try keystore.delete(account, passphrase: passphrase)
+    }
   }
   
   // MARK: Sign transaction

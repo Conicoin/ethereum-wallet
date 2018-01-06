@@ -30,8 +30,8 @@ class TransactionsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    output.viewIsReady()
     setupPullToRefresh()
+    output.viewIsReady()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +77,7 @@ extension TransactionsViewController: TransactionsViewInput {
 extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionCell
+    let cell = tableView.dequeue(TransactionCell.self, for: indexPath)
     cell.configure(with: transactions[indexPath.row])
     return cell
   }

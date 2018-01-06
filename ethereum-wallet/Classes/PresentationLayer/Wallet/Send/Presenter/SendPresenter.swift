@@ -25,13 +25,18 @@ class SendPresenter {
   var interactor: SendInteractorInput!
   var router: SendRouterInput!
     
-  private var coin: Coin!
+  var coin: CoinDisplayable!
+  
   private var amount: Decimal = 0
   private var address: String!
   private var gasLimit: Decimal = 21000
   private var gasPrice: Decimal = 2000000000 // 2 gwei
   
   private var selectedCurrency = Constants.Wallet.defaultCurrency
+  
+  private var isTokenTransfer: Bool {
+    return coin is Token
+  }
   
   private func validate() {
     let isValid = coin != nil &&
@@ -40,20 +45,12 @@ class SendPresenter {
       address != nil && address.isValidAddress()
     view.inputDataIsValid(isValid)
   }
-
+  
   private func calculateTotalAmount() {
-    let fee = gasPrice * gasLimit
-    guard
-      let rate = coin.rates.filter({ $0.to == selectedCurrency }).first else {
-      return
-    }
-    let etherFee = Ether(fee as NSDecimalNumber)
-    let etherAmount = amount / Decimal(rate.value)
-    let etherTotal = Ether(etherAmount.etherToWei() as NSDecimalNumber)
-    let feeAmount = fee.etherToLocal(rate: rate.value).weiToEther()
-    let totalAmount = amount + feeAmount
-    view.didChanged(totalAmount: totalAmount, totalEther: etherTotal, fee: feeAmount, feeEther: etherFee, iso: selectedCurrency)
+    let fee = gasLimit * gasPrice
+    interactor.getCheckout(for: coin, amount: amount, iso: selectedCurrency, fee: fee)
   }
+
 }
 
 
@@ -73,7 +70,7 @@ extension SendPresenter: SendViewOutput {
     guard let rate = coin.rates.filter({ $0.to == selectedCurrency }).first else {
       return
     }
-    let amountEther = amount.localToEther(rate: rate.value).etherToWei()
+    let amountEther = amount.localToEther(rate: rate.value).toWei()
     
     view.showLoading()
     interactor.sendTransaction(amount: amountEther, to: address, gasLimit: gasLimit)
@@ -83,14 +80,15 @@ extension SendPresenter: SendViewOutput {
     view.setupInitialState()
     view.didReceiveGasLimit(gasLimit)
     view.didReceiveGasPrice(gasPrice)
+    view.didReceiveCoin(coin)
     interactor.getWallet()
-    interactor.getCoin()
     interactor.getGasLimit()
     interactor.getGasPrice()
+    calculateTotalAmount()
   }
   
   func didChangeAmount(_ amount: String) {
-    self.amount = Decimal(string: amount) ?? 0
+    self.amount = Decimal(amount)
     validate()
     calculateTotalAmount()
   }
@@ -101,7 +99,7 @@ extension SendPresenter: SendViewOutput {
   }
   
   func didChangeGasLimit(_ gasLimit: String) {
-    self.gasLimit = Decimal(string: gasLimit) ?? 0
+    self.gasLimit = Decimal(gasLimit)
     validate()
     calculateTotalAmount()
   }
@@ -134,9 +132,8 @@ extension SendPresenter: SendInteractorOutput {
     view.dissmiss()
   }
   
-  func didReceiveCoin(_ coin: Coin) {
-    self.coin = coin
-    calculateTotalAmount()
+  func didReceiveCheckout(_ checkout: SendCheckout) {
+    view.didReceiveCheckout(checkout)
   }
   
   func didFailed(with error: Error) {
@@ -158,8 +155,8 @@ extension SendPresenter: SendModuleInput {
     return view.viewController
   }
   
-  func presentSend(from: UIViewController) {
-    view.present(fromViewController: from)
+  func presentSend(from viewController: UIViewController) {
+    view.present(fromViewController: viewController)
   }
   
 }

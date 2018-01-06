@@ -47,6 +47,11 @@ class ReceiveViewController: UIViewController {
 
 extension ReceiveViewController: ReceiveViewInput {
   
+  func didReceiveCoin(_ coin: CoinDisplayable) {
+    let title = Localized.receiveTitle(coin.balance.name)
+    navigationItem.title = title
+  }
+  
   func didReceiveWallet(_ wallet: Wallet) {
     addressLabel.text = wallet.address
   }

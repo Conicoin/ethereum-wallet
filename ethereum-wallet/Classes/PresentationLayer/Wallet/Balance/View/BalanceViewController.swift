@@ -35,7 +35,13 @@ class BalanceViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    navigationController?.setNavigationBarHidden(true, animated: animated)
     output.viewIsAppear()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    navigationController?.setNavigationBarHidden(false, animated: animated)
   }
   
   // MARK: - Privates
@@ -59,28 +65,52 @@ class BalanceViewController: UIViewController {
 extension BalanceViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return output.coins.count
+    let counts = [output.coins.count, output.tokens.count]
+    return counts[section]
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoinCell", for: indexPath) as! CoinCell
-    cell.configure(with: output.coins[indexPath.row], localCurrency: output.localCurrency)
+    let cell = collectionView.dequeue(CoinCell.self, for: indexPath)
+    let coins = [output.coins, output.tokens] as [[CoinDisplayable]]
+    let coin = coins[indexPath.section][indexPath.row]
+    cell.configure(with: coin, localCurrency: output.localCurrency)
     return cell
   }
   
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CoinHeader", for: indexPath) as! CoinHeader
-    view.subtitleLabel.text = output.chain.localizedDescription.uppercased()
-    view.titleLabel.text = Localized.balanceEtherTitle()
+    let view = collectionView.dequeue(CoinHeader.self, kind: kind, for: indexPath)!
+    let chainTitle = output.chain.localizedDescription.uppercased()
+    let titles = [Localized.balanceEtherTitle(), Localized.balanceCoinsTitle()]
+    let subtitles = [chainTitle, Localized.balanceCoinsSubtitle()]
+    view.subtitleLabel.text = subtitles[indexPath.section]
+    view.titleLabel.text = titles[indexPath.section]
     return view
+  }
+  
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 2
   }
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
+    if indexPath.section == 0 {
+      output.didSelectCoin(at: indexPath.row)
+    } else {
+      output.didSelectToken(at: indexPath.row)
+    }
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: collectionView.frame.size.width, height: 142)
+    return CGSize(width: collectionView.frame.size.width, height: CoinCell.cellHeight)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+    let cell = collectionView.cellForItem(at: indexPath)!
+    cell.alpha = 0.5
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+    let cell = collectionView.cellForItem(at: indexPath)!
+    cell.alpha = 1
   }
   
 }
@@ -95,6 +125,10 @@ extension BalanceViewController: BalanceViewInput {
   }
   
   func didReceiveWallet() {
+    collectionView.reloadData()
+  }
+  
+  func didReceiveTokens() {
     collectionView.reloadData()
   }
   

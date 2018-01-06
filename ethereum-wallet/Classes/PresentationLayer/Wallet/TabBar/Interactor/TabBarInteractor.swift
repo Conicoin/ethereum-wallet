@@ -77,7 +77,7 @@ extension TabBarInteractor: SyncCoordinatorDelegate {
     }
     
     let newBalance = Decimal(hexString: balanceHex)
-    coin.balance = Ether(newBalance as NSDecimalNumber) // TODO: Remove  ALL NSDecimalNumbers
+    coin.balance = Ether(newBalance)
     coin.lastUpdateTime = date
     coinsDataStoreService.save(coin)
     

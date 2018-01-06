@@ -20,10 +20,10 @@ import Foundation
 
 protocol SendInteractorOutput: class {
   func didReceiveWallet(_ wallet: Wallet)
-  func didReceiveCoin(_ coin: Coin)
   func didReceiveGasLimit(_ gasLimit: Decimal)
   func didReceiveGasPrice(_ gasPrice: Decimal)
   func didSendTransaction()
+  func didReceiveCheckout(_ checkout: SendCheckout)
   func didFailed(with error: Error)
   func didFailedSending(with error: Error)
 }
