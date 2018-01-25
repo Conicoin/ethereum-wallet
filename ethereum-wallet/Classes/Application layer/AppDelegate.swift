@@ -22,11 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
-  private lazy var configurators: [ConfiguratorProtocol] = [
-    AppearanceConfigurator(),
-    ApplicationConfigurator(),
-    ThirdPartiesConfigurator()
-  ]
+  private var configurators: [ConfiguratorProtocol] = {
+    return [
+      AppearanceConfigurator(),
+      ApplicationConfigurator(),
+      ThirdPartiesConfigurator()]
+  }()
   
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -37,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     for configurator in configurators {
       configurator.configure()
     }
-        
+    
     return true
   }
   

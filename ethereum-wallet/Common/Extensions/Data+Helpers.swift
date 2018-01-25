@@ -28,4 +28,9 @@ extension Data {
     return self.withUnsafeBytes { $0.pointee }
   }
   
+  func toHexString() -> String {
+    return map { String(format: "%02x", $0) }
+      .joined(separator: "")
+  }
+  
 }

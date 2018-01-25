@@ -121,7 +121,7 @@ extension SendViewController: SendViewInput {
     inputDataIsValid(false)
   }
   
-  func didReceiveCoin(_ coin: CoinDisplayable) {
+  func didReceiveCoin(_ coin: CoinSendable) {
     let title = Localized.sendTitle(coin.balance.name)
     navigationItem.title = title
   }

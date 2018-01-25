@@ -22,6 +22,7 @@ import ObjectMapper
 struct Transaction {
   var txHash: String!
   var to: String!
+  var from: String!
   var amount: Ether!
   var timestamp: Date!
   var isIncoming: Bool!
@@ -31,6 +32,7 @@ struct Transaction {
     var transaction = Transaction()
     transaction.txHash = object.getHash().getHex()
     transaction.to = object.getTo().getHex()
+    transaction.from = "" 
     transaction.amount = Ether(object.getValue().string()!)
     transaction.timestamp = Date(timeIntervalSince1970: time)
     transaction.isPending = false
@@ -47,6 +49,7 @@ extension Transaction: RealmMappable {
     var transaction = Transaction()
     transaction.txHash = object.txHash
     transaction.to = object.to
+    transaction.from = object.from
     transaction.amount = Ether(object.amount)
     transaction.timestamp = object.timestamp
     transaction.isIncoming = object.isIncoming
@@ -58,6 +61,7 @@ extension Transaction: RealmMappable {
     let realmObject = RealmTransaction()
     realmObject.txHash = txHash
     realmObject.to = to
+    realmObject.from = from
     realmObject.amount = amount.raw.string
     realmObject.timestamp = timestamp
     realmObject.isIncoming = isIncoming
@@ -74,6 +78,7 @@ extension Transaction: ImmutableMappable {
   init(map: Map) throws {
     txHash = try map.value("hash")
     to = try map.value("to")
+    from = try map.value("from")
     let amountString: String = try map.value("value")
     amount = Ether(amountString)
     timestamp = try map.value("timeStamp", using: DateTransform())

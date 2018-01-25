@@ -22,7 +22,7 @@ protocol SendViewInput: class, Presentable {
   func setupInitialState()
   func didReceiveCurrency(_ currency: String)
   func inputDataIsValid(_ isValid: Bool)
-  func didReceiveCoin(_ coin: CoinDisplayable)
+  func didReceiveCoin(_ coin: CoinSendable)
   func didReceiveGasLimit(_ gasLimit: Decimal)
   func didReceiveGasPrice(_ gasPrice: Decimal)
   func didDetectQRCode(_ code: String)

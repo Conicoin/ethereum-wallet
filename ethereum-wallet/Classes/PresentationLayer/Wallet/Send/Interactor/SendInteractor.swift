@@ -34,7 +34,7 @@ class SendInteractor {
 
 extension SendInteractor: SendInteractorInput {
   
-  func getCheckout(for coin: CoinDisplayable, amount: Decimal, iso: String, fee: Decimal) {
+  func getCheckout(for coin: CoinSendable, amount: Decimal, iso: String, fee: Decimal) {
     do {
       let checkout = try checkoutService.checkout(for: coin, amount: amount, iso: iso, fee: fee)
       output.didReceiveCheckout(checkout)
@@ -48,12 +48,13 @@ extension SendInteractor: SendInteractorInput {
     output.didReceiveWallet(wallet)
   }
   
-  func sendTransaction(amount: Decimal, to: String, gasLimit: Decimal) {
+  func sendTransaction(for coin: CoinSendable, amount: Decimal, to: String, gasLimit: Decimal) {
     do {
       let keychain = Keychain()
       let passphrase = try keychain.getPassphrase()
-
-      transactionService.sendTransaction(amountHex: amount.toHex(), to: to, gasLimitHex: gasLimit.toHex(), passphrase: passphrase) { [weak self] result in
+      /// TOTOTOTOT
+      let info = TransactionInfo(amount: amount, address: to, contractAddress: "0x0a057a87ce9c56d7e336b417c79cf30e8d27860b", gasLimit: gasLimit)
+      transactionService.sendTransaction(with: info, passphrase: passphrase) { [weak self] result in
         guard let `self` = self else { return }
         switch result {
         case .success(let sendedTransaction):

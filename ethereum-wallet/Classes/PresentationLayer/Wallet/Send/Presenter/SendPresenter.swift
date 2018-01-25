@@ -25,7 +25,7 @@ class SendPresenter {
   var interactor: SendInteractorInput!
   var router: SendRouterInput!
     
-  var coin: CoinDisplayable!
+  var coin: CoinSendable!
   
   private var amount: Decimal = 0
   private var address: String!
@@ -73,7 +73,7 @@ extension SendPresenter: SendViewOutput {
     let amountEther = amount.localToEther(rate: rate.value).toWei()
     
     view.showLoading()
-    interactor.sendTransaction(amount: amountEther, to: address, gasLimit: gasLimit)
+    interactor.sendTransaction(for: coin, amount: amountEther, to: address, gasLimit: gasLimit)
   }
   
   func viewIsReady() {
@@ -129,7 +129,7 @@ extension SendPresenter: SendInteractorOutput {
   
   func didSendTransaction() {
     view.loadingSuccess()
-    view.dissmiss()
+    view.popToRoot()
   }
   
   func didReceiveCheckout(_ checkout: SendCheckout) {
@@ -155,7 +155,8 @@ extension SendPresenter: SendModuleInput {
     return view.viewController
   }
   
-  func presentSend(from viewController: UIViewController) {
+  func presentSend(with coin: CoinSendable, from viewController: UIViewController) {
+    self.coin = coin
     view.present(fromViewController: viewController)
   }
   

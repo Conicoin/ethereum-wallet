@@ -19,7 +19,7 @@ import Foundation
 
 class SendCoinCheckoutService: SendCheckoutServiceProtocol {
   
-  func checkout(for coin: CoinDisplayable, amount: Decimal, iso: String, fee: Decimal) throws -> SendCheckout {
+  func checkout(for coin: CoinSendable, amount: Decimal, iso: String, fee: Decimal) throws -> SendCheckout {
     guard let rate = coin.rates.first(where: {$0.to == iso}) else {
         throw SendCheckoutError.noRate
     }

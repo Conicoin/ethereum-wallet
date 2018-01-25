@@ -28,7 +28,7 @@ protocol Presentable {
   func show(fromViewController viewController: UIViewController)
   func dissmiss()
   func dissmissModal()
-  
+  func popToRoot()
 }
 
 
@@ -60,6 +60,10 @@ extension Presentable where Self: UIViewController {
   
   func dissmissModal() {
     dismiss(animated: true, completion: nil)
+  }
+  
+  func popToRoot() {
+    viewController.navigationController?.popToRootViewController(animated: true)
   }
   
 }

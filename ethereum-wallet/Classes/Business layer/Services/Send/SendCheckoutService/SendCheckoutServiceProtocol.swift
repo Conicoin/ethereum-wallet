@@ -18,5 +18,5 @@
 import Foundation
 
 protocol SendCheckoutServiceProtocol {
-  func checkout(for coin: CoinDisplayable, amount: Decimal, iso: String, fee: Decimal) throws -> SendCheckout
+  func checkout(for coin: CoinSendable, amount: Decimal, iso: String, fee: Decimal) throws -> SendCheckout
 }

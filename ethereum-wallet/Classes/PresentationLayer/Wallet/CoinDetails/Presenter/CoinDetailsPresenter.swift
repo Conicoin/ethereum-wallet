@@ -61,6 +61,7 @@ extension CoinDetailsPresenter: CoinDetailsInteractorOutput {
 extension CoinDetailsPresenter: CoinDetailsModuleInput {
   
   func present(with coin: Coin, from: UIViewController) {
+    // TODO: coin balance observing
     self.coin = coin
     view.present(fromViewController: from)
   }

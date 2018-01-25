@@ -22,10 +22,7 @@ protocol TransactionServiceProtocol {
   /// Send transaction
   ///
   /// - Parameters:
-  ///   - amount: Amount ot send base 16 string
-  ///   - to: Recepient address
-  ///   - gasLimit: Gas limit hex string
+  ///   - info: TransactionInfo object containing: amount, address, gas limit
   ///   - passphrase: Password to unlock wallet
-  func sendTransaction(amountHex: String, to: String, gasLimitHex: String, passphrase: String, result: @escaping (Result<GethTransaction>) -> Void)
-  func sendTokenTransaction(contractAddress: String, to: String, amountHex: String, passphrase: String, result: @escaping (Result<GethTransaction>) -> Void)
+  func sendTransaction(with info: TransactionInfo, passphrase: String, result: @escaping (Result<GethTransaction>) -> Void)
 }

@@ -25,6 +25,7 @@ class RealmTransaction: Object {
   
   @objc dynamic var txHash = ""
   @objc dynamic var to = ""
+  @objc dynamic var from = ""
   @objc dynamic var amount = ""
   @objc dynamic var timestamp = Date()
   @objc dynamic var isIncoming = false
