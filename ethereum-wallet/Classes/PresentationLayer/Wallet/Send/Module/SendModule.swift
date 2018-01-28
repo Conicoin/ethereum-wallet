@@ -20,14 +20,19 @@ import UIKit
 
 class SendModule {
     
-  class func create(with transterType: TransferType) -> SendModuleInput {
+  class func create() -> SendModuleInput {
     let router = SendRouter()
     let presenter = SendPresenter()
     let interactor = SendInteractor()
-    
     let viewController = R.storyboard.wallet.sendViewController()!
+    
+    interactor.output = presenter
+    
     viewController.output = presenter
+    
     presenter.view = viewController
+    presenter.router = router
+    presenter.interactor = interactor
     
     let core = Ethereum.core
     let keystore = KeystoreService()
@@ -36,18 +41,7 @@ class SendModule {
     interactor.gasService = gasService
     interactor.walletDataStoreService = WalletDataStoreService()
     interactor.transactionsDataStoreService = TransactionsDataStoreService()
-    interactor.transactionService = TransactionService(core: core, keystore: keystore, transferType: transterType)
-    
-    switch transterType {
-    case .default:
-      interactor.checkoutService = SendCoinCheckoutService()
-    case .token:
-      interactor.checkoutService = SendTokenCheckoutService()
-    }
-    
-    interactor.output = presenter
-    presenter.router = router
-    presenter.interactor = interactor
+    interactor.transactionService = TransactionService(core: core, keystore: keystore, transferType: .default)
         
     return presenter
   }

@@ -1,30 +1,22 @@
-// ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
 //
-// This program is free software: you can redistribute it and/or modify it
-// under the terms of the GNU General Public License as published by the Free
-// Software Foundation, either version 3 of the License, or (at your option)
-// any later version.
+//  SendTokenSendTokenPresenter.swift
+//  ethereum-wallet
 //
-// This program is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or
-// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
-// more details.
+//  Created by Artur Guseynov on 25/01/2018.
+//  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
-// You should have received a copy of the GNU General Public License along with
-// this program.  If not, see <http://www.gnu.org/licenses/>.
-
 
 import UIKit
 
-class SendPresenter {
-  
-  weak var view: SendViewInput!
-  weak var output: SendModuleOutput?
-  var interactor: SendInteractorInput!
-  var router: SendRouterInput!
+
+class SendTokenPresenter {
     
-  var coin: Coin!
+  weak var view: SendTokenViewInput!
+  weak var output: SendTokenModuleOutput?
+  var interactor: SendTokenInteractorInput!
+  var router: SendTokenRouterInput!
+  
+  var token: Token!
   
   private var amount: Decimal = 0
   private var address: String!
@@ -42,43 +34,34 @@ class SendPresenter {
   
   private func calculateTotalAmount() {
     let fee = gasLimit * gasPrice
-    interactor.getCheckout(for: coin, amount: amount, iso: selectedCurrency, fee: fee)
+    interactor.getCheckout(iso: selectedCurrency, fee: fee)
   }
-
+    
 }
 
 
-// MARK: - SendViewOutput
+// MARK: - SendTokenViewOutput
 
-extension SendPresenter: SendViewOutput {
+extension SendTokenPresenter: SendTokenViewOutput {
   
   func viewIsReady() {
     view.setupInitialState()
     view.didReceiveGasLimit(gasLimit)
     view.didReceiveGasPrice(gasPrice)
-    view.didReceiveCoin(coin)
+    view.didReceiveToken(token)
     interactor.getWallet()
     interactor.getGasLimit()
     interactor.getGasPrice()
     calculateTotalAmount()
   }
   
-  func didCurrencyPressed() {
-    router.presentChooseCurrency(from: view.viewController, output: self)
+  func didSendPressed() {
+    view.showLoading()
+    interactor.sendTransaction(for: token, amount: amount, to: address, gasLimit: gasLimit)
   }
   
   func didScanPressed() {
     router.presentScan(from: view.viewController, output: self)
-  }
-  
-  func didSendPressed() {
-    guard let rate = coin.rates.filter({ $0.to == selectedCurrency }).first else {
-      return
-    }
-    let amountEther = amount.localToEther(rate: rate.value).toWei()
-    
-    view.showLoading()
-    interactor.sendTransaction(amount: amountEther, to: address, gasLimit: gasLimit)
   }
   
   func didChangeAmount(_ amount: String) {
@@ -97,16 +80,17 @@ extension SendPresenter: SendViewOutput {
     validate()
     calculateTotalAmount()
   }
-  
+
 }
 
 
-// MARK: - SendInteractorOutput
+// MARK: - SendTokenInteractorOutput
 
-extension SendPresenter: SendInteractorOutput {
+extension SendTokenPresenter: SendTokenInteractorOutput {
+  
   func didReceiveWallet(_ wallet: Wallet) {
     self.selectedCurrency = wallet.localCurrency
-    view.didReceiveCurrency(wallet.localCurrency)
+    calculateTotalAmount()
   }
   
   func didReceiveGasLimit(_ gasLimit: Decimal) {
@@ -126,8 +110,8 @@ extension SendPresenter: SendInteractorOutput {
     view.popToRoot()
   }
   
-  func didReceiveCheckout(amount: String, fiatAmount: String, fee: String, fiatFee: String) {
-    view.didReceiveCheckout(amount: amount, fiatAmount: fiatAmount, fee: fee, fiatFee: fiatFee)
+  func didReceiveCheckout(ethFee: String, fiatFee: String) {
+    view.didReceiveCheckout(ethFee: ethFee, fiatFee: fiatFee)
   }
   
   func didFailed(with error: Error) {
@@ -138,15 +122,16 @@ extension SendPresenter: SendInteractorOutput {
     view.loadingFilure()
     error.showAllertIfNeeded(from: view.viewController)
   }
+
 }
 
 
-// MARK: - SendModuleInput
+// MARK: - SendTokenModuleInput
 
-extension SendPresenter: SendModuleInput {
+extension SendTokenPresenter: SendTokenModuleInput {
   
-  func presentSend(with coin: Coin, from viewController: UIViewController) {
-    self.coin = coin
+  func presentSendToken(with token: Token, from viewController: UIViewController) {
+    self.token = token
     view.present(fromViewController: viewController)
   }
   
@@ -155,7 +140,7 @@ extension SendPresenter: SendModuleInput {
 
 // MARK: - ScanModuleOutput
 
-extension SendPresenter: ScanModuleOutput {
+extension SendTokenPresenter: ScanModuleOutput {
   
   func didDetectQRCode(_ code: String) {
     let rawAddress = code.retriveAddress()
@@ -170,15 +155,3 @@ extension SendPresenter: ScanModuleOutput {
   
 }
 
-
-// MARK: - ChooseCurrencyModuleOutput
-
-extension SendPresenter: ChooseCurrencyModuleOutput {
-  
-  func didSelectCurrency(_ currency: String) {
-    selectedCurrency = currency
-    view.didReceiveCurrency(currency)
-    calculateTotalAmount()
-  }
-  
-}

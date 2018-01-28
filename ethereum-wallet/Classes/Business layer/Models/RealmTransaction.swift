@@ -27,6 +27,7 @@ class RealmTransaction: Object {
   @objc dynamic var to = ""
   @objc dynamic var from = ""
   @objc dynamic var amount = ""
+  @objc dynamic var input: Data? = nil
   @objc dynamic var timestamp = Date()
   @objc dynamic var isIncoming = false
   @objc dynamic var isPending = false

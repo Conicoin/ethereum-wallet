@@ -28,7 +28,7 @@ class TokenDetailsRouter {
 extension TokenDetailsRouter: TokenDetailsRouterInput {
   
   func presentSend(for token: Token, from: UIViewController) {
-    SendModule.create(with: .token).presentSend(with: token, from: from)
+    SendTokenModule.create().presentSendToken(with: token, from: from)
   }
   
   func presentReceive(for token: Token, from: UIViewController) {

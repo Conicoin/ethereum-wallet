@@ -1,49 +1,39 @@
-// ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
 //
-// This program is free software: you can redistribute it and/or modify it
-// under the terms of the GNU General Public License as published by the Free
-// Software Foundation, either version 3 of the License, or (at your option)
-// any later version.
+//  SendTokenSendTokenInteractor.swift
+//  ethereum-wallet
 //
-// This program is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or
-// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
-// more details.
+//  Created by Artur Guseynov on 25/01/2018.
+//  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
-// You should have received a copy of the GNU General Public License along with
-// this program.  If not, see <http://www.gnu.org/licenses/>.
-
 
 import Foundation
 
 
-class SendInteractor {
-  weak var output: SendInteractorOutput!
+class SendTokenInteractor {
+  weak var output: SendTokenInteractorOutput!
   
+  var coinDataStoreService: CoinDataStoreServiceProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
   var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
   var transactionService: TransactionServiceProtocol!
   var gasService: GasServiceProtocol!
-
 }
 
 
-// MARK: - SendInteractorInput
+// MARK: - SendTokenInteractorInput
 
-extension SendInteractor: SendInteractorInput {
+extension SendTokenInteractor: SendTokenInteractorInput {
   
-  func getCheckout(for coin: Coin, amount: Decimal, iso: String, fee: Decimal) {
+  func getCheckout(iso: String, fee: Decimal) {
     do {
-      guard let rate = coin.rates.first(where: {$0.to == iso}) else {
+      guard
+        let coin = coinDataStoreService.find(withIso: "ETH"),
+        let rate = coin.rates.first(where: { $0.to == iso }) else {
         throw SendCheckoutError.noRate
       }
-      let feeAmount = Ether(fee)
-      let fiatFee = feeAmount.amount(in: iso, rate: rate.value)
-      let rawLocalAmount = amount.localToEther(rate: rate.value).toWei()
-      let ethAmount = Ether(rawLocalAmount + fee)
-      let fiatAmount = ethAmount.amount(in: iso, rate: rate.value)
-      output.didReceiveCheckout(amount: ethAmount.amount, fiatAmount: fiatAmount, fee: feeAmount.amount, fiatFee: fiatFee)
+      let ethFee = Ether(fee)
+      let fiatFee = ethFee.amount(in: iso, rate: rate.value)
+      output.didReceiveCheckout(ethFee: ethFee.amount, fiatFee: fiatFee)
     } catch let error {
       output.didFailed(with: error)
     }
@@ -54,11 +44,11 @@ extension SendInteractor: SendInteractorInput {
     output.didReceiveWallet(wallet)
   }
   
-  func sendTransaction(amount: Decimal, to: String, gasLimit: Decimal) {
+  func sendTransaction(for token: Token, amount: Decimal, to: String, gasLimit: Decimal) {
     do {
       let keychain = Keychain()
       let passphrase = try keychain.getPassphrase()
-      let info = TransactionInfo(amount: amount, address: to, contractAddress: nil, gasLimit: gasLimit)
+      let info = TransactionInfo(amount: amount, address: to, contractAddress: token.address, gasLimit: gasLimit)
       transactionService.sendTransaction(with: info, passphrase: passphrase) { [weak self] result in
         guard let `self` = self else { return }
         switch result {

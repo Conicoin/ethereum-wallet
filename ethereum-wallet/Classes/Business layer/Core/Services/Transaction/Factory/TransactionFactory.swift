@@ -59,7 +59,8 @@ extension TransactionFactory {
     let transactionTemplate = try buildTransaction(with: info)
     let transferSignature = Data(bytes: [0xa9, 0x05, 0x9c, 0xbb])
     let address = info.address.lowercased().replacingOccurrences(of: "0x", with: "")
-    let amount = String(format: "%064x", info.amount.string)
+    let intAmount = (info.amount as NSDecimalNumber).int64Value
+    let amount = String(format: "%064x", intAmount)
     let hexData = transferSignature.toHexString() + "000000000000000000000000" + address + amount
     guard let data = hexData.toHexData() else {
       throw TransactionFactoryError.badSignature

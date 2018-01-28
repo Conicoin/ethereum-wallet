@@ -19,5 +19,5 @@ import Foundation
 import Alamofire
 
 protocol TokensNetworkServiceProtocol {
-  func getTokens(address address: String, result: @escaping (Result<[Token]>) -> Void)
+  func getTokens(address: String, result: @escaping (Result<[Token]>) -> Void)
 }

@@ -29,7 +29,6 @@ class TransactionCell: UITableViewCell {
   }
   
   func configure(with transaction: Transaction) {
-    addressLabel.text = transaction.to
     
     if transaction.isPending {
       timeLabel.text = Localized.transactionsPending()
@@ -38,12 +37,18 @@ class TransactionCell: UITableViewCell {
     }
       
     if transaction.isIncoming {
-      amountLabel.text = "+ " + transaction.amount.amount
+      amountLabel.text = "+ " + amount(for: transaction)
       amountLabel.textColor = Theme.Color.green
+      addressLabel.text = "from: \(transaction.from!)"
     } else {
-      amountLabel.text = "- " + transaction.amount.amount
+      amountLabel.text = "- " + amount(for: transaction)
       amountLabel.textColor = Theme.Color.red
+      addressLabel.text = "to: \(transaction.to!)"
     }
+  }
+  
+  private func amount(for transaction: Transaction) -> String {
+    return transaction.input?.amount.string ?? transaction.amount.amount
   }
   
 }

@@ -1,44 +1,32 @@
-// ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
 //
-// This program is free software: you can redistribute it and/or modify it
-// under the terms of the GNU General Public License as published by the Free
-// Software Foundation, either version 3 of the License, or (at your option)
-// any later version.
+//  SendTokenSendTokenViewController.swift
+//  ethereum-wallet
 //
-// This program is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or
-// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
-// more details.
+//  Created by Artur Guseynov on 25/01/2018.
+//  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
-// You should have received a copy of the GNU General Public License along with
-// this program.  If not, see <http://www.gnu.org/licenses/>.
-
 
 import UIKit
-import PKHUD
 
 
-class SendViewController: UIViewController, ShadowHidable {
+class SendTokenViewController: UIViewController, ShadowHidable {
   @IBOutlet weak var addressTextField: UITextField!
   @IBOutlet weak var amountTextField: UITextField!
   @IBOutlet weak var gasLimitTextField: UITextField!
   @IBOutlet weak var scanQRButton: UIButton!
-  @IBOutlet weak var currencyButton: UIButton!
+  @IBOutlet weak var currencyLabel: UILabel!
   @IBOutlet weak var gasPriceLabel: UILabel!
-  @IBOutlet weak var localAmountLabel: UILabel!
-  @IBOutlet weak var amountLabel: UILabel!
   @IBOutlet weak var localFeeLabel: UILabel!
   @IBOutlet weak var feeLabel: UILabel!
   @IBOutlet weak var sendButton: UIButton!
   @IBOutlet weak var keyboardConstraint: NSLayoutConstraint!
-  
-  var output: SendViewOutput!
+
+  var output: SendTokenViewOutput!
   var shadowImage: UIImage!
-  
-  
+
+
   // MARK: Life cycle
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     output.viewIsReady()
@@ -82,10 +70,6 @@ class SendViewController: UIViewController, ShadowHidable {
     output.didSendPressed()
   }
   
-  @IBAction func currencyPressed(_ sender: UIButton) {
-    output.didCurrencyPressed()
-  }
-  
   @IBAction func scanQRPressed(_ sender: UIButton) {
     output.didScanPressed()
   }
@@ -101,20 +85,20 @@ class SendViewController: UIViewController, ShadowHidable {
   @IBAction func gasLimitDidChange(_ sender: UITextField) {
     output.didChangeGasLimit(sender.text!)
   }
-  
+
 }
 
 
-// MARK: - SendViewInput
+// MARK: - SendTokenViewInput
 
-extension SendViewController: SendViewInput {
-  
+extension SendTokenViewController: SendTokenViewInput {
+
   func setupInitialState() {
     inputDataIsValid(false)
   }
   
-  func didReceiveCoin(_ coin: Coin) {
-    let title = Localized.sendTitle(coin.balance.name)
+  func didReceiveToken(_ token: Token) {
+    let title = Localized.sendTitle(token.balance.name)
     navigationItem.title = title
   }
   
@@ -122,15 +106,9 @@ extension SendViewController: SendViewInput {
     addressTextField.text = code
   }
   
-  func didReceiveCheckout(amount: String, fiatAmount: String, fee: String, fiatFee: String) {
-    amountLabel.text = amount
-    localAmountLabel.text = Localized.sendAmount(fiatAmount)
-    feeLabel.text = fee
+  func didReceiveCheckout(ethFee: String, fiatFee: String) {
+    feeLabel.text = ethFee
     localFeeLabel.text = Localized.sendFee(fiatFee)
-  }
-  
-  func didReceiveCurrency(_ currency: String) {
-    currencyButton.setTitle(currency, for: .normal)
   }
   
   func inputDataIsValid(_ isValid: Bool) {

@@ -23,7 +23,7 @@ protocol SendInteractorOutput: class {
   func didReceiveGasLimit(_ gasLimit: Decimal)
   func didReceiveGasPrice(_ gasPrice: Decimal)
   func didSendTransaction()
-  func didReceiveCheckout(_ checkout: SendCheckout)
+  func didReceiveCheckout(amount: String, fiatAmount: String, fee: String, fiatFee: String)
   func didFailed(with error: Error)
   func didFailedSending(with error: Error)
 }

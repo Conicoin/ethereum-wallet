@@ -104,8 +104,8 @@ extension BalanceInteractor: BalanceInteractorInput {
   }
   
   func getTokensFromNetwork() {
-    let wallet = walletDataStoreService.getWallet() // TODO: Remove mock
-    tokensNetworkService.getTokens(address: "0x8c8cc09addf50fc01e4b75a0cf34da37e216b2e7") { [unowned self] result in
+    let wallet = walletDataStoreService.getWallet() 
+    tokensNetworkService.getTokens(address: wallet.address) { [unowned self] result in
       switch result {
       case .success(let tokens):
         self.tokensDataStoreService.save(tokens)
