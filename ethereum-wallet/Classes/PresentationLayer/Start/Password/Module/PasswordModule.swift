@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -25,7 +25,7 @@ class PasswordModule {
     let presenter = PasswordPresenter()
     let interactor = PasswordInteractor()
     
-    let viewController = R.storyboard.start.passwordViewController()!
+    let viewController = R.storyboard.password.passwordViewController()!
 
     interactor.output = presenter
     interactor.keystoreService = KeystoreService()

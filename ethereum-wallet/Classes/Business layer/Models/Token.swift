@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -28,6 +28,13 @@ struct Token {
   var address: String!
   var totalSupply: String!
   var holdersCount: Int!
+  
+  func getTokenMeta() -> TokenMeta {
+    var tokenMeta = TokenMeta()
+    tokenMeta.iso = balance.iso
+    tokenMeta.name = balance.name
+    return tokenMeta
+  }
   
 }
 
@@ -75,7 +82,7 @@ extension Token: ImmutableMappable {
     let decimalCount = Decimal("\(count)")
     let name: String = try map.value("tokenInfo.name")
     let iso: String = try map.value("tokenInfo.symbol")
-    balance = TokenValue(decimalCount, name: name, iso: iso)
+    balance = TokenValue(weiValue: decimalCount, name: name, iso: iso)
     iconUrl = try? map.value("tokenInfo.image")
     about = try? map.value("tokenInfo.description")
     address = try map.value("tokenInfo.address")

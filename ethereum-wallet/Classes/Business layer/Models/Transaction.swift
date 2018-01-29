@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -24,10 +24,10 @@ struct Transaction {
   var to: String!
   var from: String!
   var amount: Ether!
-  var input: TransactionInput?
   var timestamp: Date!
   var isIncoming: Bool!
   var isPending: Bool!
+  var success: Bool!
   
   static func mapFromGethTransaction(_ object: GethTransaction, time: TimeInterval) -> Transaction {
     var transaction = Transaction()
@@ -36,9 +36,8 @@ struct Transaction {
     transaction.from = "" 
     transaction.amount = Ether(object.getValue().string()!)
     transaction.timestamp = Date(timeIntervalSince1970: time)
-    let input = object.getData() as Data
-    transaction.input = TransactionInput(input: input)
     transaction.isPending = false
+    transaction.success = true
     return transaction
   }
   
@@ -55,11 +54,9 @@ extension Transaction: RealmMappable {
     transaction.from = object.from
     transaction.amount = Ether(object.amount)
     transaction.timestamp = object.timestamp
-    if let input = object.input {
-      transaction.input = TransactionInput(input: input)
-    }
     transaction.isIncoming = object.isIncoming
     transaction.isPending = object.isPending
+    transaction.success = object.success
     return transaction
   }
   
@@ -70,9 +67,9 @@ extension Transaction: RealmMappable {
     realmObject.from = from
     realmObject.amount = amount.raw.string
     realmObject.timestamp = timestamp
-    realmObject.input = input?.raw
     realmObject.isIncoming = isIncoming
     realmObject.isPending = isPending
+    realmObject.success = success
     return realmObject
   }
   
@@ -86,11 +83,11 @@ extension Transaction: ImmutableMappable {
     txHash = try map.value("hash")
     to = try map.value("to")
     from = try map.value("from")
-    input = TransactionInput(input: try map.value("input", using: HexDataTransform()))
-    let amountString: String = try map.value("value")
+    let amountString: Double = try map.value("value")
     amount = Ether(amountString)
-    timestamp = try map.value("timeStamp", using: DateTransform())
+    timestamp = try map.value("timestamp", using: DateTransform())
     isPending = false
+    success = try map.value("success")
   }
   
 }

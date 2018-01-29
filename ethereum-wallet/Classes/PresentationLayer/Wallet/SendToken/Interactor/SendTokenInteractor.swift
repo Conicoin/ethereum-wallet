@@ -1,10 +1,19 @@
+// ethereum-wallet https://github.com/flypaper0/ethereum-wallet
+// Copyright (C) 2018 Artur Guseinov
 //
-//  SendTokenSendTokenInteractor.swift
-//  ethereum-wallet
+// This program is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation, either version 3 of the License, or (at your option)
+// any later version.
 //
-//  Created by Artur Guseynov on 25/01/2018.
-//  Copyright © 2018 Artur Guseinov. All rights reserved.
+// This program is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
 //
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 import Foundation
 
@@ -14,7 +23,7 @@ class SendTokenInteractor {
   
   var coinDataStoreService: CoinDataStoreServiceProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
-  var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
+  var tokenTransactionsDataStoreService: TokenTransactionsDataStoreServiceProtocol!
   var transactionService: TransactionServiceProtocol!
   var gasService: GasServiceProtocol!
 }
@@ -31,7 +40,7 @@ extension SendTokenInteractor: SendTokenInteractorInput {
         let rate = coin.rates.first(where: { $0.to == iso }) else {
         throw SendCheckoutError.noRate
       }
-      let ethFee = Ether(fee)
+      let ethFee = Ether(weiValue: fee)
       let fiatFee = ethFee.amount(in: iso, rate: rate.value)
       output.didReceiveCheckout(ethFee: ethFee.amount, fiatFee: fiatFee)
     } catch let error {
@@ -53,10 +62,10 @@ extension SendTokenInteractor: SendTokenInteractorInput {
         guard let `self` = self else { return }
         switch result {
         case .success(let sendedTransaction):
-          var transaction = Transaction.mapFromGethTransaction(sendedTransaction, time: Date().timeIntervalSince1970)
+          var transaction = TokenTransaction.mapFromGethTransaction(sendedTransaction, time: Date().timeIntervalSince1970, token: token)
           transaction.isPending = true
           transaction.isIncoming = false
-          self.transactionsDataStoreService.save(transaction)
+          self.tokenTransactionsDataStoreService.save(transaction)
           self.output.didSendTransaction()
         case .failure(let error):
           self.output.didFailedSending(with: error)

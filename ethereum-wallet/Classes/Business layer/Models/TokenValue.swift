@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -26,14 +26,23 @@ struct TokenValue: Currency {
   
   init(_ value: Decimal, name: String, iso: String) {
     self.raw = value
-    self.value = value.double / 1e18
+    self.value = value.double
     self.name = name
     self.iso = iso
+  }
+  
+  init(weiValue: Decimal, name: String, iso: String) {
+    self.init(weiValue / 1e18, name: name, iso: iso)
   }
   
   init(_ string: String, name: String, iso: String) {
     let number = Decimal(string)
     self.init(number, name: name, iso: iso)
+  }
+  
+  init(weiString: String, name: String, iso: String) {
+    let number = Decimal(weiString)
+    self.init(weiValue: number, name: name, iso: iso)
   }
   
   var symbol: String {

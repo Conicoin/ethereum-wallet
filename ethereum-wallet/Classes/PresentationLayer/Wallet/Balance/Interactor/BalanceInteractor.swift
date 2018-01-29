@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -92,7 +92,7 @@ extension BalanceInteractor: BalanceInteractorInput {
     walletNetworkService.getBalance(address: wallet.address) { [unowned self] result in
       switch result {
       case .success(let balance):
-        let ether = Ether(balance)
+        let ether = Ether(weiString: balance)
         var coin = Coin()
         coin.balance = ether
         self.coinDataStoreService.save(coin)
@@ -109,8 +109,9 @@ extension BalanceInteractor: BalanceInteractorInput {
       switch result {
       case .success(let tokens):
         self.tokensDataStoreService.save(tokens)
-      case .failure(let error):
-        self.output.didFailedWalletReceiving(with: error)
+      case .failure:
+        break
+//        self.output.didFailedWalletReceiving(with: error)
       }
     }
     

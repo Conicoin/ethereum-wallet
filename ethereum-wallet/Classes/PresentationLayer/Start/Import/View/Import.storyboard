@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Import Wallet-->
+        <scene sceneID="WAO-Lb-Eg9">
+            <objects>
+                <viewController storyboardIdentifier="ImportViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y0X-6Y-mmk" customClass="ImportViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KTk-eI-oPX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LW-wS-4bg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAJ-8R-fSX" customClass="LightShadowView" customModule="ethereum_wallet" customModuleProvider="target">
+                                        <rect key="frame" x="-1" y="-1" width="375" height="65.5"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZQw-1G-TlM">
+                                                <rect key="frame" x="16" y="16" width="339" height="33"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Y0X-6Y-mmk" id="rHu-tI-HBo"/>
+                                                </connections>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Enter JSON KEY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6I-1z-zMx">
+                                                <rect key="frame" x="20" y="24" width="114" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELK-Fx-4gT">
+                                                <rect key="frame" x="16" y="49" width="359" height="0.5"/>
+                                                <color key="backgroundColor" red="0.80392156859999997" green="0.80784313730000001" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="0.5" id="wbL-Ko-x3f"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="ELK-Fx-4gT" firstAttribute="leading" secondItem="gAJ-8R-fSX" secondAttribute="leading" constant="16" id="1b3-m1-h60"/>
+                                            <constraint firstAttribute="bottom" secondItem="ELK-Fx-4gT" secondAttribute="bottom" constant="16" id="4j0-Ab-bs4"/>
+                                            <constraint firstItem="ELK-Fx-4gT" firstAttribute="leading" secondItem="ZQw-1G-TlM" secondAttribute="leading" id="9kb-j7-hUF"/>
+                                            <constraint firstItem="ZQw-1G-TlM" firstAttribute="top" secondItem="gAJ-8R-fSX" secondAttribute="top" constant="16" id="ZB6-gt-3Hb"/>
+                                            <constraint firstItem="ELK-Fx-4gT" firstAttribute="top" secondItem="s6I-1z-zMx" secondAttribute="bottom" constant="8" id="aQ5-hZ-Nsi"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZQw-1G-TlM" secondAttribute="trailing" constant="20" id="ieU-mJ-ZnT"/>
+                                            <constraint firstAttribute="trailing" secondItem="ELK-Fx-4gT" secondAttribute="trailing" id="jAP-AK-B9h"/>
+                                            <constraint firstItem="ELK-Fx-4gT" firstAttribute="top" secondItem="ZQw-1G-TlM" secondAttribute="bottom" id="vfV-ok-DsU"/>
+                                            <constraint firstItem="s6I-1z-zMx" firstAttribute="leading" secondItem="gAJ-8R-fSX" secondAttribute="leading" constant="20" id="zWY-Ah-UXt"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BfW-JF-QFg">
+                                        <rect key="frame" x="40" y="88.5" width="293" height="50"/>
+                                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="TJe-op-e2X"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <state key="normal" title="$Import from ICloud">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="icloudPressed:" destination="Y0X-6Y-mmk" eventType="touchUpInside" id="MEo-62-yAM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgS-zn-O3S">
+                                        <rect key="frame" x="40" y="154.5" width="293" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="q6j-xb-P0z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <state key="normal" title="$Confirm">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="confirmPressed:" destination="Y0X-6Y-mmk" eventType="touchUpInside" id="3Je-Ri-diu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gAJ-8R-fSX" secondAttribute="trailing" constant="-1" id="92L-s8-6Gp"/>
+                                    <constraint firstAttribute="trailing" secondItem="vgS-zn-O3S" secondAttribute="trailing" constant="40" id="I8f-3y-RWi"/>
+                                    <constraint firstAttribute="trailing" secondItem="BfW-JF-QFg" secondAttribute="trailing" constant="40" id="LVO-sn-WS9"/>
+                                    <constraint firstItem="gAJ-8R-fSX" firstAttribute="leading" secondItem="2LW-wS-4bg" secondAttribute="leading" constant="-1" id="Lhw-7e-eb6"/>
+                                    <constraint firstItem="vgS-zn-O3S" firstAttribute="top" secondItem="BfW-JF-QFg" secondAttribute="bottom" constant="16" id="Nxu-dj-i46"/>
+                                    <constraint firstItem="BfW-JF-QFg" firstAttribute="top" secondItem="gAJ-8R-fSX" secondAttribute="bottom" constant="24" id="XjM-2f-Set"/>
+                                    <constraint firstItem="vgS-zn-O3S" firstAttribute="leading" secondItem="2LW-wS-4bg" secondAttribute="leading" constant="40" id="a5c-vk-9ci"/>
+                                    <constraint firstItem="BfW-JF-QFg" firstAttribute="leading" secondItem="2LW-wS-4bg" secondAttribute="leading" constant="40" id="c3H-86-1gr"/>
+                                    <constraint firstItem="gAJ-8R-fSX" firstAttribute="top" secondItem="2LW-wS-4bg" secondAttribute="top" constant="-1" id="g12-bu-rz2"/>
+                                    <constraint firstAttribute="bottom" secondItem="vgS-zn-O3S" secondAttribute="bottom" constant="16" id="gey-cN-rEO"/>
+                                    <constraint firstItem="gAJ-8R-fSX" firstAttribute="width" secondItem="2LW-wS-4bg" secondAttribute="width" id="yuQ-Jg-BXc"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2LW-wS-4bg" firstAttribute="leading" secondItem="p4b-wu-bgw" secondAttribute="leading" id="E5Z-rF-GPj"/>
+                            <constraint firstItem="2LW-wS-4bg" firstAttribute="bottom" secondItem="p4b-wu-bgw" secondAttribute="bottom" id="Nk1-ay-n3b"/>
+                            <constraint firstItem="2LW-wS-4bg" firstAttribute="top" secondItem="KTk-eI-oPX" secondAttribute="top" id="cet-th-S5G"/>
+                            <constraint firstAttribute="trailing" secondItem="2LW-wS-4bg" secondAttribute="trailing" id="fAb-XA-ehl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="p4b-wu-bgw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Import Wallet" id="JBv-nM-hNO">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Exit" id="Abc-9m-5T8">
+                            <color key="tintColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="closePressed:" destination="Y0X-6Y-mmk" id="HcO-UF-UIl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="gey-cN-rEO" id="mPF-Ak-STQ"/>
+                        <outlet property="confirmButton" destination="vgS-zn-O3S" id="Uun-2I-5iX"/>
+                        <outlet property="icloudButton" destination="BfW-JF-QFg" id="jEk-BZ-0J5"/>
+                        <outlet property="jsonLabel" destination="s6I-1z-zMx" id="MMe-d4-FSP"/>
+                        <outlet property="jsonTextView" destination="ZQw-1G-TlM" id="mmM-7w-dmC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Afc-ty-jnN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-90.400000000000006" y="157.87106446776613"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Exit" width="18" height="18"/>
+    </resources>
+</document>

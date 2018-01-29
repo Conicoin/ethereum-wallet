@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -38,10 +38,10 @@ extension SendInteractor: SendInteractorInput {
       guard let rate = coin.rates.first(where: {$0.to == iso}) else {
         throw SendCheckoutError.noRate
       }
-      let feeAmount = Ether(fee)
+      let feeAmount = Ether(weiValue: fee)
       let fiatFee = feeAmount.amount(in: iso, rate: rate.value)
       let rawLocalAmount = amount.localToEther(rate: rate.value).toWei()
-      let ethAmount = Ether(rawLocalAmount + fee)
+      let ethAmount = Ether(weiValue: rawLocalAmount + fee)
       let fiatAmount = ethAmount.amount(in: iso, rate: rate.value)
       output.didReceiveCheckout(amount: ethAmount.amount, fiatAmount: fiatAmount, fee: feeAmount.amount, fiatFee: fiatFee)
     } catch let error {

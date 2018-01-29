@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -17,14 +17,13 @@
 
 import UIKit
 import RealmSwift
+import SafariServices
 
 class TransactionsViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
 
   var output: TransactionsViewOutput!
-  var transactions = [Transaction]()
-  
 
   // MARK: Life cycle
 
@@ -37,6 +36,22 @@ class TransactionsViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     output.viewIsAppear()
+  }
+  
+  private func showAlert(for index: Int) {
+    let alert = UIAlertController(title: Localized.transactionsAlertTitle(), message: nil, preferredStyle: .alert)
+
+    let ok = UIAlertAction(title: Localized.transactionsAlertOk(), style: .default) { action in
+      let transaction = self.output.filteredTransactions[index]
+      let urlString = Defaults.chain.etherscanUrl + "/tx/\(transaction.txHash!)"
+      guard let url = URL(string: urlString) else { return }
+      let svc = SFSafariViewController(url: url)
+      self.present(svc, animated: true, completion: nil)
+    }
+    let cancel = UIAlertAction(title: Localized.transactionsAlertCancel(), style: .default, handler: nil)
+    alert.addAction(ok)
+    alert.addAction(cancel)
+    present(alert, animated: true, completion: nil)
   }
   
   private func setupPullToRefresh() {
@@ -60,10 +75,8 @@ extension TransactionsViewController: TransactionsViewInput {
 
   }
   
-  func didReceiveTransactions(_ transactions: [Transaction]) {
-    self.transactions = transactions
+  func didReceiveTransactions() {
     tableView.reloadData()
-    tableView.refreshControl?.endRefreshing()
   }
   
   func stopRefreshing() {
@@ -78,20 +91,21 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(TransactionCell.self, for: indexPath)
-    cell.configure(with: transactions[indexPath.row])
+    cell.configure(with: output.filteredTransactions[indexPath.row])
     return cell
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return transactions.count
+    return output.filteredTransactions.count
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 60
+    return 55
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    showAlert(for: indexPath.row)
   }
   
 }

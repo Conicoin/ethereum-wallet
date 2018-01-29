@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ class ChooseCurrencyModule {
     let router = ChooseCurrencyRouter()
     let presenter = ChooseCurrencyPresenter()
     let interactor = ChooseCurrencyInteractor()
-    let viewController = R.storyboard.wallet.chooseCurrencyViewController()!
+    let viewController = R.storyboard.chooseCurrency.chooseCurrencyViewController()!
 
     interactor.output = presenter
 

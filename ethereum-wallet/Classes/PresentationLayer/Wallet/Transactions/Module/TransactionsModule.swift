@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -24,12 +24,14 @@ class TransactionsModule {
     let router = TransactionsRouter()
     let presenter = TransactionsPresenter()
     let interactor = TransactionsInteractor()
-    let viewController = R.storyboard.wallet.transactionsViewController()!
+    let viewController = R.storyboard.transactions.transactionsViewController()!
 
     interactor.output = presenter
     interactor.transactionsDataStoreService = TransactionsDataStoreService()
     interactor.transactionsNetworkService = TransactionsNetworkService()
     interactor.walletDataStoreService = WalletDataStoreService()
+    interactor.tokenTransactionsNetworkService = TokenTransactionsNetworkService()
+    interactor.tokenTransactionsDataStoreService = TokenTransactionsDataStoreService()
 
     viewController.output = presenter
 

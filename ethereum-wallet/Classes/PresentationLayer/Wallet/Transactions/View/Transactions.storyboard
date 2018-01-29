@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Transactions-->
+        <scene sceneID="m8B-We-5Rp">
+            <objects>
+                <viewController storyboardIdentifier="TransactionsViewController" id="h3z-3e-NEV" customClass="TransactionsViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bdA-4f-rP6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hQQ-Ty-lEq">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TransactionCell" rowHeight="54" id="kPK-gu-98S" customClass="TransactionCell" customModule="ethereum_wallet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kPK-gu-98S" id="tz7-MT-RjF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0x18788EdabBABc203BC7C157518dc4B2d4529F884" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkM-PT-m8D">
+                                                    <rect key="frame" x="16" y="8" width="296.5" height="13"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                                    <color key="textColor" red="0.23364602230000001" green="0.25161021500000003" blue="0.28701973079999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rad-LA-pPV">
+                                                    <rect key="frame" x="16" y="29" width="32.5" height="14"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="14" id="9I8-8e-pa3"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 0.1692 Ethers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uV-qa-t7j">
+                                                    <rect key="frame" x="246.5" y="26" width="116.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <color key="textColor" red="0.86274509799999999" green="0.24313725489999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ERC20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0P-cT-b5U">
+                                                    <rect key="frame" x="332" y="7.5" width="31" height="14"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="31" id="erK-jw-y24"/>
+                                                        <constraint firstAttribute="height" constant="14" id="kBG-Hv-UCg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="7"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="7"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="5uV-qa-t7j" secondAttribute="bottom" constant="8" id="5VS-X6-oM1"/>
+                                                <constraint firstItem="zkM-PT-m8D" firstAttribute="leading" secondItem="tz7-MT-RjF" secondAttribute="leading" constant="16" id="9si-he-Fle"/>
+                                                <constraint firstItem="zkM-PT-m8D" firstAttribute="top" secondItem="tz7-MT-RjF" secondAttribute="top" constant="8" id="MDE-rv-OgI"/>
+                                                <constraint firstItem="Rad-LA-pPV" firstAttribute="top" secondItem="zkM-PT-m8D" secondAttribute="bottom" constant="8" id="Wo4-MJ-Lb8"/>
+                                                <constraint firstItem="O0P-cT-b5U" firstAttribute="centerY" secondItem="zkM-PT-m8D" secondAttribute="centerY" id="jIJ-oF-Q6l"/>
+                                                <constraint firstAttribute="trailing" secondItem="5uV-qa-t7j" secondAttribute="trailing" constant="12" id="kA6-W4-BQc"/>
+                                                <constraint firstItem="O0P-cT-b5U" firstAttribute="trailing" secondItem="5uV-qa-t7j" secondAttribute="trailing" id="mUM-7N-Pht"/>
+                                                <constraint firstItem="Rad-LA-pPV" firstAttribute="leading" secondItem="zkM-PT-m8D" secondAttribute="leading" id="poR-dv-5qd"/>
+                                                <constraint firstItem="5uV-qa-t7j" firstAttribute="centerY" secondItem="Rad-LA-pPV" secondAttribute="centerY" id="smD-Yr-Ghm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addressLabel" destination="zkM-PT-m8D" id="4vD-nP-fOu"/>
+                                            <outlet property="amountLabel" destination="5uV-qa-t7j" id="yqL-5R-V9H"/>
+                                            <outlet property="timeLabel" destination="Rad-LA-pPV" id="s7c-Hb-CD4"/>
+                                            <outlet property="tokenLabel" destination="O0P-cT-b5U" id="OV7-f2-Fgp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="h3z-3e-NEV" id="7rO-4M-jX6"/>
+                                    <outlet property="delegate" destination="h3z-3e-NEV" id="vKB-kt-YQs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7hV-Td-7Q5" firstAttribute="bottom" secondItem="hQQ-Ty-lEq" secondAttribute="bottom" id="1DW-n6-0jc"/>
+                            <constraint firstItem="hQQ-Ty-lEq" firstAttribute="top" secondItem="7hV-Td-7Q5" secondAttribute="top" id="8q6-XY-XeW"/>
+                            <constraint firstItem="hQQ-Ty-lEq" firstAttribute="leading" secondItem="7hV-Td-7Q5" secondAttribute="leading" id="cJh-Mr-kj7"/>
+                            <constraint firstItem="7hV-Td-7Q5" firstAttribute="trailing" secondItem="hQQ-Ty-lEq" secondAttribute="trailing" id="kAO-jF-EBM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7hV-Td-7Q5"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Transactions" image="TransactionsTab" id="0QL-6q-XeN"/>
+                    <navigationItem key="navigationItem" title="Transactions" largeTitleDisplayMode="never" id="hrf-i3-M1w"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="hQQ-Ty-lEq" id="8zj-3p-SEe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8F-Yr-azo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="365.60000000000002" y="441.22938530734638"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TransactionsTab" width="22" height="23"/>
+    </resources>
+</document>

@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -89,7 +89,7 @@ enum Chain: String {
     return "/.\(description)"
   }
   
-  var etherscanUrl: String {
+  var etherscanApiUrl: String {
     switch self {
     case .mainnet:
       return "api.etherscan.io"
@@ -109,6 +109,21 @@ enum Chain: String {
     case .rinkeby:
       return "https://rinkeby.infura.io"
     }
+  }
+  
+  var etherscanUrl: String {
+    switch self {
+    case .mainnet:
+      return "https://etherscan.io"
+    case .ropsten:
+      return "https://ropsten.etherscan.io"
+    case .rinkeby:
+      return "https://rinkeby.etherscan.io"
+    }
+  }
+  
+  var isMainnet: Bool {
+    return self == .mainnet
   }
   
   static func all() -> [Chain] {

@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -21,7 +21,7 @@ import Alamofire
 class TransactionsNetworkService: NetworkLoadable, TransactionsNetworkServiceProtocol  {
   
   func getTransactions(address: String, result: @escaping (Result<[Transaction]>) -> Void) {
-    loadArray(request: API.Etherscan.transactions(address: address), keyPath: "result", completion: result)
+    loadArray(request: API.Ethplorer.transactions(address: address), completion: result)
   }
 
 }

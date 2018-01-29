@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -23,6 +23,8 @@ class TransactionsInteractor {
   
   var transactionsNetworkService: TransactionsNetworkServiceProtocol!
   var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
+  var tokenTransactionsNetworkService: TokenTransactionsNetworkServiceProtocol!
+  var tokenTransactionsDataStoreService: TokenTransactionsDataStoreServiceProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
   
 }
@@ -38,6 +40,27 @@ extension TransactionsInteractor: TransactionsInteractorInput {
     }
     
     updateTransactions()
+  }
+  
+  func getTokenTransactions() {
+    tokenTransactionsDataStoreService.observe { [unowned self] transactions in
+      self.output.didReceiveTokenTransactions(transactions)
+    }
+    
+    updateTokenTransactions()
+  }
+
+  func updateTokenTransactions() {
+    let wallet = walletDataStoreService.getWallet()
+    tokenTransactionsNetworkService.getTokenTransactions(address: wallet.address) { [unowned self] result in
+      switch result {
+      case .success(var transactions):
+        self.tokenTransactionsDataStoreService.markAndSaveTransactions(&transactions, address: wallet.address)
+        self.output.didReceiveTransactions()
+      case .failure(let error):
+        self.output.didFailedTransactionsReceiving(with: error)
+      }
+    }
   }
   
   func updateTransactions() {

@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -25,12 +25,27 @@ struct Ether {
 
   init(_ value: Decimal) {
     self.raw = value
-    self.value = value.double / 1e18
+    self.value = value.double
+  }
+  
+  init(weiValue: Decimal) {
+    self.raw = weiValue / 1e18
+    self.value = weiValue.double / 1e18
+  }
+  
+  init(_ double: Double) {
+    self.raw = Decimal(double)
+    self.value = double
   }
   
   init(_ string: String) {
     let number = Decimal(string)
     self.init(number)
+  }
+  
+  init(weiString: String) {
+    let number = Decimal(weiString)
+    self.init(weiValue: number)
   }
 
 }

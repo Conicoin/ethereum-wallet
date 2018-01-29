@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome View Controller-->
+        <scene sceneID="nIk-eq-3Gb">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeViewController" id="URA-Q5-tt6" customClass="WelcomeViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g1t-XX-igj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0EM-0E-5a8">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pee-JE-a7j">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Let's start create a new wallet or restore the existing one" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSA-f9-BlN">
+                                                <rect key="frame" x="46.5" y="152" width="282" height="38.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="282" id="ACY-sI-eEi"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Welcome to Conicoin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF8-5o-VTR">
+                                                <rect key="frame" x="30" y="109" width="316.5" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="37" id="enL-Nf-czB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Conicoin" translatesAutoresizingMaskIntoConstraints="NO" id="9XP-Gs-ZPL">
+                                                <rect key="frame" x="162" y="56" width="50" height="48"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2L-al-SZ8">
+                                                <rect key="frame" x="72" y="214.5" width="231" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="bcN-2G-CI6"/>
+                                                </constraints>
+                                                <state key="normal" title="$Source code available on Github"/>
+                                                <connections>
+                                                    <action selector="sourcePressed:" destination="URA-Q5-tt6" eventType="touchUpInside" id="cvW-Xy-rcF"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="nCW-vn-fwh">
+                                                <rect key="frame" x="40" y="504" width="295" height="113"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpa-US-tuP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="hoy-x4-hbo"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                        <state key="normal" title="$New wallet">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="7"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="newWalletPressed:" destination="URA-Q5-tt6" eventType="touchUpInside" id="Vxv-JT-5OK"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgo-zw-KKD">
+                                                        <rect key="frame" x="0.0" y="63" width="295" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="Obz-y6-faZ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                        <state key="normal" title="$Import wallet">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="7"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="importWalletPressed:" destination="URA-Q5-tt6" eventType="touchUpInside" id="Kmu-rB-lAl"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="nCW-vn-fwh" firstAttribute="leading" secondItem="pee-JE-a7j" secondAttribute="leading" constant="40" id="Brt-KR-cnM"/>
+                                            <constraint firstItem="B2L-al-SZ8" firstAttribute="centerX" secondItem="pee-JE-a7j" secondAttribute="centerX" id="NIg-7u-koU"/>
+                                            <constraint firstItem="B2L-al-SZ8" firstAttribute="top" secondItem="sSA-f9-BlN" secondAttribute="bottom" constant="24" id="PPr-ZC-0S8"/>
+                                            <constraint firstItem="sSA-f9-BlN" firstAttribute="top" secondItem="gF8-5o-VTR" secondAttribute="bottom" constant="6" id="ccb-5n-tVT"/>
+                                            <constraint firstItem="9XP-Gs-ZPL" firstAttribute="top" secondItem="pee-JE-a7j" secondAttribute="top" constant="56" id="g9a-mH-lsF"/>
+                                            <constraint firstAttribute="trailing" secondItem="nCW-vn-fwh" secondAttribute="trailing" constant="40" id="kHE-Vt-Ynu"/>
+                                            <constraint firstItem="gF8-5o-VTR" firstAttribute="top" secondItem="9XP-Gs-ZPL" secondAttribute="bottom" constant="5" id="knH-gA-2am"/>
+                                            <constraint firstItem="9XP-Gs-ZPL" firstAttribute="centerX" secondItem="pee-JE-a7j" secondAttribute="centerX" id="n6v-G6-mEA"/>
+                                            <constraint firstAttribute="bottom" secondItem="nCW-vn-fwh" secondAttribute="bottom" constant="30" id="o4q-hs-okx"/>
+                                            <constraint firstItem="gF8-5o-VTR" firstAttribute="centerX" secondItem="pee-JE-a7j" secondAttribute="centerX" id="u8e-M3-3x7"/>
+                                            <constraint firstItem="sSA-f9-BlN" firstAttribute="centerX" secondItem="pee-JE-a7j" secondAttribute="centerX" id="y39-gO-PVW"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pee-JE-a7j" firstAttribute="top" secondItem="0EM-0E-5a8" secondAttribute="top" id="8mV-Ex-GEC"/>
+                                    <constraint firstItem="pee-JE-a7j" firstAttribute="leading" secondItem="0EM-0E-5a8" secondAttribute="leading" id="FLy-0k-9dt"/>
+                                    <constraint firstItem="pee-JE-a7j" firstAttribute="width" secondItem="0EM-0E-5a8" secondAttribute="width" id="QFp-TR-bnK"/>
+                                    <constraint firstItem="pee-JE-a7j" firstAttribute="height" secondItem="0EM-0E-5a8" secondAttribute="height" id="X21-W6-Yti"/>
+                                    <constraint firstAttribute="bottom" secondItem="pee-JE-a7j" secondAttribute="bottom" id="d0s-2e-sWI"/>
+                                    <constraint firstAttribute="trailing" secondItem="pee-JE-a7j" secondAttribute="trailing" id="ngg-WS-u52"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0EM-0E-5a8" firstAttribute="trailing" secondItem="0Sd-ph-Aiz" secondAttribute="trailing" id="1p3-M0-1rm"/>
+                            <constraint firstItem="0EM-0E-5a8" firstAttribute="top" secondItem="0Sd-ph-Aiz" secondAttribute="top" id="9g0-I6-z1Z"/>
+                            <constraint firstItem="0EM-0E-5a8" firstAttribute="leading" secondItem="g1t-XX-igj" secondAttribute="leading" id="9sm-zG-WU3"/>
+                            <constraint firstAttribute="trailing" secondItem="0EM-0E-5a8" secondAttribute="trailing" id="P6w-L7-dDJ"/>
+                            <constraint firstItem="0EM-0E-5a8" firstAttribute="bottom" secondItem="0Sd-ph-Aiz" secondAttribute="bottom" id="R7w-rv-9Mf"/>
+                            <constraint firstItem="0EM-0E-5a8" firstAttribute="leading" secondItem="0Sd-ph-Aiz" secondAttribute="leading" id="lDR-gh-CCS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Sd-ph-Aiz"/>
+                    </view>
+                    <connections>
+                        <outlet property="importWalletButton" destination="vgo-zw-KKD" id="9Nt-Fn-6YJ"/>
+                        <outlet property="newWalletButton" destination="Zpa-US-tuP" id="lQ7-jt-Gp2"/>
+                        <outlet property="sourceButton" destination="B2L-al-SZ8" id="dpI-rD-rEx"/>
+                        <outlet property="subtitleLabel" destination="sSA-f9-BlN" id="eLT-nz-o3L"/>
+                        <outlet property="titleLabel" destination="gF8-5o-VTR" id="NQu-ft-5YU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iq1-F7-IOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-831.20000000000005" y="157.87106446776613"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Conicoin" width="50" height="48"/>
+    </resources>
+</document>

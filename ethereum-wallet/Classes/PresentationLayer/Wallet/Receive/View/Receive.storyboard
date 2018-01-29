@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Receive-->
+        <scene sceneID="1Ji-s9-BVL">
+            <objects>
+                <viewController storyboardIdentifier="ReceiveViewController" id="Jhb-iy-3Ha" customClass="ReceiveViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eEk-Af-HO4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xam-rh-1v3">
+                                <rect key="frame" x="15" y="50" width="345" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g5L-1q-9VE">
+                                <rect key="frame" x="40" y="90" width="295" height="295"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="g5L-1q-9VE" secondAttribute="height" multiplier="1:1" id="TRw-2f-CLt"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xG9-3w-A0h">
+                                <rect key="frame" x="40" y="429" width="295" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Zs9-Km-UlW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Copy address">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="copyAddressPressed" destination="Jhb-iy-3Ha" eventType="touchUpInside" id="47T-c2-AWD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4YV-xo-tcI" firstAttribute="trailing" secondItem="xam-rh-1v3" secondAttribute="trailing" constant="15" id="72x-OV-EYF"/>
+                            <constraint firstItem="xG9-3w-A0h" firstAttribute="leading" secondItem="4YV-xo-tcI" secondAttribute="leading" constant="40" id="Jk6-KP-Vwj"/>
+                            <constraint firstItem="xG9-3w-A0h" firstAttribute="top" secondItem="g5L-1q-9VE" secondAttribute="bottom" constant="44" id="OT7-lr-wag"/>
+                            <constraint firstItem="g5L-1q-9VE" firstAttribute="centerX" secondItem="eEk-Af-HO4" secondAttribute="centerX" id="Qoh-RL-mwr"/>
+                            <constraint firstItem="xam-rh-1v3" firstAttribute="top" secondItem="4YV-xo-tcI" secondAttribute="top" constant="30" id="Yi6-y1-frX"/>
+                            <constraint firstItem="g5L-1q-9VE" firstAttribute="top" secondItem="xam-rh-1v3" secondAttribute="bottom" constant="24" id="aSe-bv-DKy"/>
+                            <constraint firstItem="xam-rh-1v3" firstAttribute="leading" secondItem="4YV-xo-tcI" secondAttribute="leading" constant="15" id="c5U-A7-HUC"/>
+                            <constraint firstItem="4YV-xo-tcI" firstAttribute="trailing" secondItem="xG9-3w-A0h" secondAttribute="trailing" constant="40" id="csc-fB-1jp"/>
+                            <constraint firstItem="g5L-1q-9VE" firstAttribute="leading" secondItem="4YV-xo-tcI" secondAttribute="leading" constant="40" id="tCQ-ER-52r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4YV-xo-tcI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Receive" largeTitleDisplayMode="never" id="cLy-dc-g0R"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="xam-rh-1v3" id="77X-B6-ys9"/>
+                        <outlet property="copyAddressButton" destination="xG9-3w-A0h" id="FN0-1d-XI5"/>
+                        <outlet property="qrImageView" destination="g5L-1q-9VE" id="Rct-Ly-Amv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z3q-ky-7MW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4014" y="-297"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -25,6 +25,25 @@ class TransactionsPresenter {
   var interactor: TransactionsInteractorInput!
   var router: TransactionsRouterInput!
   
+  var filteredTransactions = [TransactionDisplayable]()
+  
+  private var transactions = [TransactionDisplayable]() {
+    didSet {
+      filterTransactions()
+    }
+  }
+  private var tokenTransactions = [TransactionDisplayable]() {
+    didSet {
+      filterTransactions()
+    }
+  }
+  
+  private func filterTransactions() {
+    let joined: [TransactionDisplayable] = Array([transactions, tokenTransactions].joined())
+    filteredTransactions = joined.sorted { $0.timestamp > $1.timestamp }
+    view.didReceiveTransactions()
+  }
+  
 }
 
 
@@ -35,15 +54,19 @@ extension TransactionsPresenter: TransactionsViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     interactor.getTransactions()
+    interactor.getTokenTransactions()
   }
   
   func viewIsAppear() {
     interactor.updateTransactions()
+    interactor.updateTokenTransactions()
   }
   
   func didRefresh() {
     interactor.updateTransactions()
+    interactor.updateTokenTransactions()
   }
+
 }
 
 
@@ -51,15 +74,20 @@ extension TransactionsPresenter: TransactionsViewOutput {
 
 extension TransactionsPresenter: TransactionsInteractorOutput {
   
+  func didReceiveTransactions(_ transactions: [Transaction]) {
+    self.transactions = transactions
+  }
+  
+  func didReceiveTokenTransactions(_ transactions: [TokenTransaction]) {
+    self.tokenTransactions = transactions
+  }
+  
   func didReceiveTransactions() {
     view.stopRefreshing()
   }
   
-  func didReceiveTransactions(_ transactions: [Transaction]) {
-    view.didReceiveTransactions(transactions.sorted { $0.timestamp > $1.timestamp })
-  }
-  
   func didFailedTransactionsReceiving(with error: Error) {
+    view.stopRefreshing()
     error.showAllertIfNeeded(from: view.viewController)
   }
 

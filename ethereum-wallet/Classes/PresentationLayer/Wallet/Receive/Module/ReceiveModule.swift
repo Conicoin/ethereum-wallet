@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ class ReceiveModule {
     let router = ReceiveRouter()
     let presenter = ReceivePresenter()
     let interactor = ReceiveInteractor()
-    let viewController = R.storyboard.wallet.receiveViewController()!
+    let viewController = R.storyboard.receive.receiveViewController()!
 
     interactor.output = presenter
     interactor.walletDataStoreService = WalletDataStoreService()

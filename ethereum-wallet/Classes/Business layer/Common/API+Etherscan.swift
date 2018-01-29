@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -34,7 +34,7 @@ extension API.Etherscan: APIMethodProtocol {
   
   var path: String {
     let chain = Defaults.chain
-    return "https://\(chain.etherscanUrl)/api?"
+    return "https://\(chain.etherscanApiUrl)/api?"
   }
   
   var params: Params? {

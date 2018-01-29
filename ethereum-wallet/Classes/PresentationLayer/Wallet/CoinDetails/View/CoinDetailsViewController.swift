@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -58,6 +58,7 @@ extension CoinDetailsViewController: CoinDetailsViewInput {
   func didReceiveCoin(_ coin: Coin) {
     let placeholder = coin.placeholder(with: iconImageView.bounds.size)
     iconImageView.kf.setImage(with: coin.iconUrl, placeholder: placeholder)
+    iconImageView.tintColor = coin.color
     balanceLabel.text = Localized.coinDetailsBalance(coin.balance.amount)
     nameLabel.text = coin.balance.name
     symbolLabel.text = coin.balance.iso

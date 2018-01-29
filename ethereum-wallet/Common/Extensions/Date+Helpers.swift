@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -19,19 +19,21 @@ import UIKit
 
 extension Date {
   
-  func dayDifference() -> String{
+  func dayDifference() -> String {
     let calendar = NSCalendar.current
     if calendar.isDateInYesterday(self) { return Localized.timeYestarday() }
     else if calendar.isDateInToday(self) { return Localized.timeToday() }
     else if calendar.isDateInTomorrow(self) { return Localized.timeTomorrow() }
     else {
-      let startOfNow = calendar.startOfDay(for: Date())
-      let startOfTimeStamp = calendar.startOfDay(for: self)
-      let components = calendar.dateComponents([.day], from: startOfNow, to: startOfTimeStamp)
-      let day = components.day!
-      if day < 1 { return Localized.timeDaysAgo("\(abs(day))") }
-      else { return Localized.timeInDays("\(day)") }
+      return humanReadable()
     }
+  }
+  
+  func humanReadable() -> String {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .none
+    return formatter.string(from: self)
   }
 
 }

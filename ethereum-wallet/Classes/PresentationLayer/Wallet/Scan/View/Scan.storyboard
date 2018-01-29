@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scan-->
+        <scene sceneID="ggl-KR-HiJ">
+            <objects>
+                <viewController storyboardIdentifier="ScanViewController" id="X36-BY-C0V" customClass="ScanViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="99E-W2-cNb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scan_focus" translatesAutoresizingMaskIntoConstraints="NO" id="fg0-9l-yRH">
+                                <rect key="frame" x="78" y="224.5" width="219" height="218"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fg0-9l-yRH" secondAttribute="height" multiplier="1:1" constant="1" id="h9a-Vh-QAY"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fg0-9l-yRH" firstAttribute="centerX" secondItem="99E-W2-cNb" secondAttribute="centerX" id="K42-im-rQv"/>
+                            <constraint firstItem="fg0-9l-yRH" firstAttribute="leading" secondItem="Usj-mj-meG" secondAttribute="leading" constant="78" id="l0a-yG-kKj"/>
+                            <constraint firstItem="fg0-9l-yRH" firstAttribute="centerY" secondItem="99E-W2-cNb" secondAttribute="centerY" id="ttx-Ci-Qo1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Usj-mj-meG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Scan" largeTitleDisplayMode="never" id="YWZ-ps-iCB"/>
+                    <connections>
+                        <outlet property="focusImageView" destination="fg0-9l-yRH" id="YTf-Pz-Hmb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VHw-C5-nuQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3046" y="1173"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="scan_focus" width="219" height="221"/>
+    </resources>
+</document>

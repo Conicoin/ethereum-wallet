@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -19,7 +19,7 @@
 // MARK: - Welcome
 "welcome.new.title" = "New Wallet";
 "welcome.restore.title" = "Restore with passphrase";
-"welcome.import.title" = "Import wallet";
+"welcome.import.title" = "Import Wallet";
 "welcome.title" = "Welcome to Conicoin";
 "welcome.subtitle" = "Lets start by creating a new wallet or restoring the existing one";
 "welcome.gitgub.link" = "Source code available on Github";
@@ -40,6 +40,8 @@
 "balance.ether.title" = "Balance";
 "balance.coins.title" = "Tokens";
 "balance.coins.subtitle" = "ERC20";
+"balance.hint.token.notAvailable" = "Sorry, ERC20 tokens available only on mainnet";
+"balance.hint.token.empty" = "You don't have any ERC20 tokens yet";
 
 // MARK: - Coin details
 "coin.details.balance" = "Balance: %@";
@@ -59,6 +61,9 @@
 
 // MARK: - Transactions
 "transactions.pending" = "Pending";
+"transactions.alert.title" = "Show transaction info on Etherscan?";
+"transactions.alert.ok" = "OK";
+"transactions.alert.cancel" = "Cancel";
 
 // MARK: Timestamp
 "time.today" = "Today";

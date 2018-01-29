@@ -1,5 +1,5 @@
 // ethereum-wallet https://github.com/flypaper0/ethereum-wallet
-// Copyright (C) 2017 Artur Guseinov
+// Copyright (C) 2018 Artur Guseinov
 //
 // This program is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by the Free
@@ -65,11 +65,21 @@ class BalanceViewController: UIViewController {
 extension BalanceViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    let counts = [output.coins.count, output.tokens.count]
+    let counts = [output.coins.count, max(1, output.tokens.count)]
     return counts[section]
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+    if output.tokens.count == 0 && indexPath.section == 1 {
+      let cell = collectionView.dequeue(HintCell.self, for: indexPath)
+      let chain = Defaults.chain
+      let title = chain.isMainnet ?
+        Localized.balanceHintTokenEmpty() : Localized.balanceHintTokenNotAvailable()
+      cell.label.text = title
+      return cell
+    }
+    
     let cell = collectionView.dequeue(CoinCell.self, for: indexPath)
     let coins = [output.coins, output.tokens] as [[CoinDisplayable]]
     let coin = coins[indexPath.section][indexPath.row]
