@@ -1,4 +1,4 @@
-# ethereum-wallet-ios
+# Conicoin
 <p><b>Native Ethereum Wallet - iOS</b></p>
 
 Core: go-ethereum (iGeth)
@@ -20,7 +20,7 @@ pod install; pod update
 
 ### Features
 
-<b>ethereum-wallet</b> is 100% native ethereum wallet, created with iOS version of Geth client. Currently supported Rinkeby, Ropsten and Mainnet(not fully tested).
+<b>Conicoin</b> is 100% native ethereum wallet, created with iOS version of Geth client. Currently supported Rinkeby, Ropsten and Mainnet(not fully tested).
 
 * keys <b>never</b> leave the device and stored in keychain in password protected UTC format
 * not a single line of Java script (no web3.js)
@@ -35,6 +35,7 @@ pod install; pod update
 * ✅ Transactions list
 * ✅ Receiving funds
 * ✅ Sending funds
+* ✅ ERC20 tokens
 * Transaction details
 * Landing web page
 
