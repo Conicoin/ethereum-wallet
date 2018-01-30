@@ -42,6 +42,9 @@
 		14046CF9201F776F007BD203 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14046CF8201F776F007BD203 /* Welcome.storyboard */; };
 		14046CFB201F778E007BD203 /* Import.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14046CFA201F778E007BD203 /* Import.storyboard */; };
 		14046CFD201F77BA007BD203 /* Password.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14046CFC201F77BA007BD203 /* Password.storyboard */; };
+		14046D04201FB9C4007BD203 /* TokenTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14046D03201FB9C4007BD203 /* TokenTransaction.swift */; };
+		14046D07201FBA7B007BD203 /* TokenTransactionsDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14046D06201FBA7B007BD203 /* TokenTransactionsDataStoreService.swift */; };
+		14046D0B201FBA9E007BD203 /* TokenTransactionsDataStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14046D0A201FBA9E007BD203 /* TokenTransactionsDataStoreServiceProtocol.swift */; };
 		1406465A1FAF457A0013DFFF /* RealmCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140646591FAF457A0013DFFF /* RealmCoin.swift */; };
 		1406465C1FAF46DB0013DFFF /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406465B1FAF46DB0013DFFF /* Coin.swift */; };
 		1409C1311FE876A200803E78 /* UITableView+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C1301FE876A200803E78 /* UITableView+Sugar.swift */; };
@@ -97,10 +100,6 @@
 		146DB0871FA00819000D3564 /* WalletNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0861FA00819000D3564 /* WalletNetworkService.swift */; };
 		1475B74B201A67820020EA8A /* TransactionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475B74A201A67820020EA8A /* TransactionInput.swift */; };
 		14786ED7201E05E1009ECC11 /* HexDataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786ED6201E05E1009ECC11 /* HexDataTransform.swift */; };
-		14786ED9201E60A5009ECC11 /* TokenTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786ED8201E60A5009ECC11 /* TokenTransaction.swift */; };
-		14786EDB201E628A009ECC11 /* RealmTokenTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EDA201E628A009ECC11 /* RealmTokenTransaction.swift */; };
-		14786EDE201E694A009ECC11 /* TokenTransactionsDataStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EDD201E694A009ECC11 /* TokenTransactionsDataStoreServiceProtocol.swift */; };
-		14786EE0201E6954009ECC11 /* TokenTransactionsDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EDF201E6954009ECC11 /* TokenTransactionsDataStoreService.swift */; };
 		14786EE3201E6ABD009ECC11 /* TokenTransactionsNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EE2201E6ABD009ECC11 /* TokenTransactionsNetworkServiceProtocol.swift */; };
 		14786EE5201E6AC9009ECC11 /* TokenTransactionsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EE4201E6AC9009ECC11 /* TokenTransactionsNetworkService.swift */; };
 		14786EE7201E6D2F009ECC11 /* TransactionDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EE6201E6D2F009ECC11 /* TransactionDisplayable.swift */; };
@@ -126,7 +125,6 @@
 		14ACA1F41EF2BD050059E430 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1F21EF2BD050059E430 /* Constants.swift */; };
 		14ACA1F51EF2BD050059E430 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1F31EF2BD050059E430 /* Helpers.swift */; };
 		14ACA1F91EF2BD170059E430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1F61EF2BD170059E430 /* Assets.xcassets */; };
-		14ACA1FB1EF2BD170059E430 /* rinkeby.json in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1F81EF2BD170059E430 /* rinkeby.json */; };
 		14ACA1FE1EF2BD630059E430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1FC1EF2BD630059E430 /* LaunchScreen.storyboard */; };
 		14B2193D1FC22DB5003092F0 /* SettingsCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2193C1FC22DB5003092F0 /* SettingsCurrencyCell.swift */; };
 		14B219401FC2313A003092F0 /* ChainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2193F1FC2313A003092F0 /* ChainCell.swift */; };
@@ -346,6 +344,9 @@
 		14046CF8201F776F007BD203 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		14046CFA201F778E007BD203 /* Import.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Import.storyboard; sourceTree = "<group>"; };
 		14046CFC201F77BA007BD203 /* Password.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Password.storyboard; sourceTree = "<group>"; };
+		14046D03201FB9C4007BD203 /* TokenTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTransaction.swift; sourceTree = "<group>"; };
+		14046D06201FBA7B007BD203 /* TokenTransactionsDataStoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTransactionsDataStoreService.swift; sourceTree = "<group>"; };
+		14046D0A201FBA9E007BD203 /* TokenTransactionsDataStoreServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTransactionsDataStoreServiceProtocol.swift; sourceTree = "<group>"; };
 		140646591FAF457A0013DFFF /* RealmCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCoin.swift; sourceTree = "<group>"; };
 		1406465B1FAF46DB0013DFFF /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		1409C1301FE876A200803E78 /* UITableView+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Sugar.swift"; sourceTree = "<group>"; };
@@ -403,10 +404,6 @@
 		146DB0861FA00819000D3564 /* WalletNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNetworkService.swift; sourceTree = "<group>"; };
 		1475B74A201A67820020EA8A /* TransactionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInput.swift; sourceTree = "<group>"; };
 		14786ED6201E05E1009ECC11 /* HexDataTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexDataTransform.swift; sourceTree = "<group>"; };
-		14786ED8201E60A5009ECC11 /* TokenTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTransaction.swift; sourceTree = "<group>"; };
-		14786EDA201E628A009ECC11 /* RealmTokenTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTokenTransaction.swift; sourceTree = "<group>"; };
-		14786EDD201E694A009ECC11 /* TokenTransactionsDataStoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTransactionsDataStoreServiceProtocol.swift; sourceTree = "<group>"; };
-		14786EDF201E6954009ECC11 /* TokenTransactionsDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTransactionsDataStoreService.swift; sourceTree = "<group>"; };
 		14786EE2201E6ABD009ECC11 /* TokenTransactionsNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTransactionsNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		14786EE4201E6AC9009ECC11 /* TokenTransactionsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTransactionsNetworkService.swift; sourceTree = "<group>"; };
 		14786EE6201E6D2F009ECC11 /* TransactionDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDisplayable.swift; sourceTree = "<group>"; };
@@ -432,7 +429,6 @@
 		14ACA1F31EF2BD050059E430 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		14ACA1F61EF2BD170059E430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14ACA1F71EF2BD170059E430 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14ACA1F81EF2BD170059E430 /* rinkeby.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rinkeby.json; sourceTree = "<group>"; };
 		14ACA1FD1EF2BD630059E430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14B2193C1FC22DB5003092F0 /* SettingsCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCurrencyCell.swift; sourceTree = "<group>"; };
 		14B2193F1FC2313A003092F0 /* ChainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainCell.swift; sourceTree = "<group>"; };
@@ -715,6 +711,15 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		14046D05201FBA6B007BD203 /* TokenTransactions */ = {
+			isa = PBXGroup;
+			children = (
+				14046D0A201FBA9E007BD203 /* TokenTransactionsDataStoreServiceProtocol.swift */,
+				14046D06201FBA7B007BD203 /* TokenTransactionsDataStoreService.swift */,
+			);
+			path = TokenTransactions;
+			sourceTree = "<group>";
+		};
 		1416FA5A1FB6FC2D0053D12C /* Ethereum */ = {
 			isa = PBXGroup;
 			children = (
@@ -882,7 +887,6 @@
 				14ACA1F71EF2BD170059E430 /* Info.plist */,
 				14ACA1FC1EF2BD630059E430 /* LaunchScreen.storyboard */,
 				14B3B6861EF491FE002A0623 /* Localizable.strings */,
-				14ACA1F81EF2BD170059E430 /* rinkeby.json */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1008,15 +1012,6 @@
 			path = Transforms;
 			sourceTree = "<group>";
 		};
-		14786EDC201E6933009ECC11 /* TokenTransaction */ = {
-			isa = PBXGroup;
-			children = (
-				14786EDD201E694A009ECC11 /* TokenTransactionsDataStoreServiceProtocol.swift */,
-				14786EDF201E6954009ECC11 /* TokenTransactionsDataStoreService.swift */,
-			);
-			path = TokenTransaction;
-			sourceTree = "<group>";
-		};
 		14786EE1201E6A9D009ECC11 /* TokenTransaction */ = {
 			isa = PBXGroup;
 			children = (
@@ -1113,7 +1108,7 @@
 		14B77EC11F9ACD6300FCD923 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
-				14786EDC201E6933009ECC11 /* TokenTransaction */,
+				14046D05201FBA6B007BD203 /* TokenTransactions */,
 				14D5188E1FE087CD00A4FB94 /* Token */,
 				1458426E1FB1D68400FA733F /* Rates */,
 				14BE0A771FAFDC990044E3A1 /* Coin */,
@@ -1209,8 +1204,8 @@
 				145A90FB1FDDE6C200DED3AC /* Token.swift */,
 				1400FBB81F997DC100EBC84C /* Wallet.swift */,
 				14F419251F9BF88E000C500A /* Transaction.swift */,
+				14046D03201FB9C4007BD203 /* TokenTransaction.swift */,
 				14786EEA201E7A1C009ECC11 /* TokenMeta.swift */,
-				14786ED8201E60A5009ECC11 /* TokenTransaction.swift */,
 				1475B74A201A67820020EA8A /* TransactionInput.swift */,
 			);
 			name = Plain;
@@ -1220,7 +1215,6 @@
 			isa = PBXGroup;
 			children = (
 				14D027DF1EF6D4CD00F125C3 /* RealmWallet.swift */,
-				14786EDA201E628A009ECC11 /* RealmTokenTransaction.swift */,
 				14D027F61EF9701A00F125C3 /* RealmTransaction.swift */,
 				140646591FAF457A0013DFFF /* RealmCoin.swift */,
 				145A90F91FDDE58A00DED3AC /* RealmToken.swift */,
@@ -2220,7 +2214,6 @@
 				14046CED201F7644007BD203 /* TokenDetails.storyboard in Resources */,
 				14046CFB201F778E007BD203 /* Import.storyboard in Resources */,
 				14ACA1FE1EF2BD630059E430 /* LaunchScreen.storyboard in Resources */,
-				14ACA1FB1EF2BD170059E430 /* rinkeby.json in Resources */,
 				14D7E745201A0B9D00DADBC3 /* SendToken.storyboard in Resources */,
 				14046CE5201F751F007BD203 /* Balance.storyboard in Resources */,
 				14046CE9201F75C1007BD203 /* Transactions.storyboard in Resources */,
@@ -2357,13 +2350,13 @@
 				14ACA1F01EF2BCF30059E430 /* Error+Helpers.swift in Sources */,
 				14BF259E2012653200CAFCFD /* TransactionInfo.swift in Sources */,
 				14ACA1F41EF2BD050059E430 /* Constants.swift in Sources */,
+				14046D0B201FBA9E007BD203 /* TokenTransactionsDataStoreServiceProtocol.swift in Sources */,
 				14D027EB1EF87A1D00F125C3 /* NetworkLoadable.swift in Sources */,
 				14D027EE1EF9661100F125C3 /* API.swift in Sources */,
 				145842691FB1123E00FA733F /* Rate.swift in Sources */,
 				14285E841FB2831200DD3CB5 /* API+Rate.swift in Sources */,
 				14E5CAB11FB925C300CE5419 /* String+Ethereum.swift in Sources */,
 				14F419241F9BF6E3000C500A /* TransactionsDataStoreServiceProtocol.swift in Sources */,
-				14786EE0201E6954009ECC11 /* TokenTransactionsDataStoreService.swift in Sources */,
 				14786EE9201E7980009ECC11 /* RealmTokenMeta.swift in Sources */,
 				14F90FDA1FB4FA5100314288 /* Double+Helpers.swift in Sources */,
 				144791C71EF5A95500029818 /* Keychain+Helpers.swift in Sources */,
@@ -2444,7 +2437,6 @@
 				141CCF2A1FF424E900CA4176 /* EnumCollection.swift in Sources */,
 				7801565CD4A5A450E43A693A /* BalanceViewController.swift in Sources */,
 				87B0C07C69E1B0DD477636A1 /* BalancePresenter.swift in Sources */,
-				14786ED9201E60A5009ECC11 /* TokenTransaction.swift in Sources */,
 				CD31E119F20960A64CAC1037 /* BalanceInteractorInput.swift in Sources */,
 				9B90C7A4AB8DB3F5BB924967 /* BalanceInteractorOutput.swift in Sources */,
 				60FFB8EADF46EEDFD856D972 /* BalanceInteractor.swift in Sources */,
@@ -2460,7 +2452,6 @@
 				A6EB2074CF07678E771B62CA /* TransactionsViewOutput.swift in Sources */,
 				6613C9796674488D78CEFDFA /* TransactionsViewController.swift in Sources */,
 				9FE6B6A40A81AC72E5122D00 /* TransactionsPresenter.swift in Sources */,
-				14786EDE201E694A009ECC11 /* TokenTransactionsDataStoreServiceProtocol.swift in Sources */,
 				FDD3F07044EEF6E854645185 /* TransactionsInteractorInput.swift in Sources */,
 				14FEBD731FBB1F210084F1AB /* Node.swift in Sources */,
 				437D18BC71E49AE3BBB15EB5 /* TransactionsInteractorOutput.swift in Sources */,
@@ -2487,11 +2478,12 @@
 				14B2193D1FC22DB5003092F0 /* SettingsCurrencyCell.swift in Sources */,
 				42534B9D2D18A9ADA1BA048F /* SendInteractorInput.swift in Sources */,
 				51506D804AA6C5804C3940CD /* SendInteractorOutput.swift in Sources */,
-				14786EDB201E628A009ECC11 /* RealmTokenTransaction.swift in Sources */,
 				BC6115126651451990D4D46D /* SendInteractor.swift in Sources */,
 				8E4DD7577CC4D2F374295B4D /* SendRouterInput.swift in Sources */,
+				14046D07201FBA7B007BD203 /* TokenTransactionsDataStoreService.swift in Sources */,
 				9C99544075FF16B392AC685A /* SendRouter.swift in Sources */,
 				5F128A459101497C3BA454B3 /* SendModuleInput.swift in Sources */,
+				14046D04201FB9C4007BD203 /* TokenTransaction.swift in Sources */,
 				01D80743218DC806CE82FBA6 /* SendModuleOutput.swift in Sources */,
 				D025DFCF24E4D87631410C3E /* SendModule.swift in Sources */,
 				149AA05B1FD60E9400F961FA /* KeystoreServiceProtocol.swift in Sources */,

@@ -66,12 +66,21 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ErrorIcon" translatesAutoresizingMaskIntoConstraints="NO" id="3sU-ui-oQZ">
+                                                    <rect key="frame" x="337.5" y="17" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="2rH-UF-Ajj"/>
+                                                        <constraint firstAttribute="height" constant="20" id="wl6-jv-gaG"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="5uV-qa-t7j" secondAttribute="bottom" constant="8" id="5VS-X6-oM1"/>
                                                 <constraint firstItem="zkM-PT-m8D" firstAttribute="leading" secondItem="tz7-MT-RjF" secondAttribute="leading" constant="16" id="9si-he-Fle"/>
                                                 <constraint firstItem="zkM-PT-m8D" firstAttribute="top" secondItem="tz7-MT-RjF" secondAttribute="top" constant="8" id="MDE-rv-OgI"/>
                                                 <constraint firstItem="Rad-LA-pPV" firstAttribute="top" secondItem="zkM-PT-m8D" secondAttribute="bottom" constant="8" id="Wo4-MJ-Lb8"/>
+                                                <constraint firstItem="3sU-ui-oQZ" firstAttribute="centerY" secondItem="tz7-MT-RjF" secondAttribute="centerY" id="YnA-Wh-myO"/>
+                                                <constraint firstItem="3sU-ui-oQZ" firstAttribute="centerX" secondItem="O0P-cT-b5U" secondAttribute="centerX" id="glG-Sz-NXH"/>
                                                 <constraint firstItem="O0P-cT-b5U" firstAttribute="centerY" secondItem="zkM-PT-m8D" secondAttribute="centerY" id="jIJ-oF-Q6l"/>
                                                 <constraint firstAttribute="trailing" secondItem="5uV-qa-t7j" secondAttribute="trailing" constant="12" id="kA6-W4-BQc"/>
                                                 <constraint firstItem="O0P-cT-b5U" firstAttribute="trailing" secondItem="5uV-qa-t7j" secondAttribute="trailing" id="mUM-7N-Pht"/>
@@ -82,6 +91,7 @@
                                         <connections>
                                             <outlet property="addressLabel" destination="zkM-PT-m8D" id="4vD-nP-fOu"/>
                                             <outlet property="amountLabel" destination="5uV-qa-t7j" id="yqL-5R-V9H"/>
+                                            <outlet property="errorImageView" destination="3sU-ui-oQZ" id="E4R-HK-RfC"/>
                                             <outlet property="timeLabel" destination="Rad-LA-pPV" id="s7c-Hb-CD4"/>
                                             <outlet property="tokenLabel" destination="O0P-cT-b5U" id="OV7-f2-Fgp"/>
                                         </connections>
@@ -115,6 +125,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ErrorIcon" width="24" height="24"/>
         <image name="TransactionsTab" width="22" height="23"/>
     </resources>
 </document>

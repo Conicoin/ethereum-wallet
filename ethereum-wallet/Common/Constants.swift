@@ -37,4 +37,10 @@ struct Constants {
     static let githubUrl = "https://github.com/flypaper0/ethereum-wallet"
   }
   
+  struct Send {
+    static let defaultGasLimit: Decimal = 21000
+    static let defaultGasLimitToken: Decimal = 53000
+    static let defaultGasPrice: Decimal = 2000000000
+  }
+  
 }

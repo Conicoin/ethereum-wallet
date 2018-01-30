@@ -23,21 +23,23 @@ struct Transaction {
   var txHash: String!
   var to: String!
   var from: String!
-  var amount: Ether!
+  var amount: Currency!
   var timestamp: Date!
   var isIncoming: Bool!
   var isPending: Bool!
-  var success: Bool!
+  var isError: Bool!
+  var isTokenTransfer: Bool!
   
   static func mapFromGethTransaction(_ object: GethTransaction, time: TimeInterval) -> Transaction {
     var transaction = Transaction()
     transaction.txHash = object.getHash().getHex()
     transaction.to = object.getTo().getHex()
     transaction.from = "" 
-    transaction.amount = Ether(object.getValue().string()!)
+    transaction.amount = Ether(weiString: object.getValue().string()!)
     transaction.timestamp = Date(timeIntervalSince1970: time)
     transaction.isPending = false
-    transaction.success = true
+    transaction.isError = false
+    transaction.isTokenTransfer = false
     return transaction
   }
   
@@ -56,7 +58,8 @@ extension Transaction: RealmMappable {
     transaction.timestamp = object.timestamp
     transaction.isIncoming = object.isIncoming
     transaction.isPending = object.isPending
-    transaction.success = object.success
+    transaction.isError = object.isError
+    transaction.isTokenTransfer = object.isTokenTransfer
     return transaction
   }
   
@@ -69,7 +72,8 @@ extension Transaction: RealmMappable {
     realmObject.timestamp = timestamp
     realmObject.isIncoming = isIncoming
     realmObject.isPending = isPending
-    realmObject.success = success
+    realmObject.isError = isError
+    realmObject.isTokenTransfer = isTokenTransfer
     return realmObject
   }
   
@@ -83,11 +87,13 @@ extension Transaction: ImmutableMappable {
     txHash = try map.value("hash")
     to = try map.value("to")
     from = try map.value("from")
-    let amountString: Double = try map.value("value")
-    amount = Ether(amountString)
-    timestamp = try map.value("timestamp", using: DateTransform())
+    let amountString: String = try map.value("value")
+    amount = Ether(weiString: amountString)
+    timestamp = try map.value("timeStamp", using: DateTransform())
+    let isErrorString: String = try map.value("isError")
+    isError = Bool(isErrorString)
     isPending = false
-    success = try map.value("success")
+    isTokenTransfer = false
   }
   
 }

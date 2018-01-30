@@ -54,11 +54,11 @@ extension SendInteractor: SendInteractorInput {
     output.didReceiveWallet(wallet)
   }
   
-  func sendTransaction(amount: Decimal, to: String, gasLimit: Decimal) {
+  func sendTransaction(amount: Decimal, to: String, gasLimit: Decimal, gasPrice: Decimal) {
     do {
       let keychain = Keychain()
       let passphrase = try keychain.getPassphrase()
-      let info = TransactionInfo(amount: amount, address: to, contractAddress: nil, gasLimit: gasLimit)
+      let info = TransactionInfo(amount: amount, address: to, contractAddress: nil, gasLimit: gasLimit, gasPrice: gasPrice)
       transactionService.sendTransaction(with: info, passphrase: passphrase) { [weak self] result in
         guard let `self` = self else { return }
         switch result {

@@ -29,8 +29,8 @@ class SendTokenPresenter {
   
   private var amount: Decimal = 0
   private var address: String!
-  private var gasLimit: Decimal = 21000
-  private var gasPrice: Decimal = 2000000000 // 2 gwei
+  private var gasLimit: Decimal = 53000
+  private var gasPrice: Decimal = 2000000000
   
   private var selectedCurrency = Constants.Wallet.defaultCurrency
   
@@ -66,7 +66,7 @@ extension SendTokenPresenter: SendTokenViewOutput {
   
   func didSendPressed() {
     view.showLoading()
-    interactor.sendTransaction(for: token, amount: amount, to: address, gasLimit: gasLimit)
+    interactor.sendTransaction(for: token, amount: amount, to: address, gasLimit: gasLimit, gasPrice: gasPrice)
   }
   
   func didScanPressed() {
@@ -74,7 +74,8 @@ extension SendTokenPresenter: SendTokenViewOutput {
   }
   
   func didChangeAmount(_ amount: String) {
-    self.amount = Decimal(amount)
+    let formated = amount.replacingOccurrences(of: ",", with: ".")
+    self.amount = Decimal(formated)
     validate()
     calculateTotalAmount()
   }
@@ -85,7 +86,11 @@ extension SendTokenPresenter: SendTokenViewOutput {
   }
   
   func didChangeGasLimit(_ gasLimit: String) {
-    self.gasLimit = Decimal(gasLimit)
+    var newValue = Decimal(gasLimit)
+    if newValue == 0 {
+      newValue = Constants.Send.defaultGasLimitToken
+    }
+    self.gasLimit = newValue
     validate()
     calculateTotalAmount()
   }
@@ -109,9 +114,10 @@ extension SendTokenPresenter: SendTokenInteractorOutput {
   }
   
   func didReceiveGasPrice(_ gasPrice: Decimal) {
-    self.gasPrice = gasPrice
+    let reduced = gasPrice / 2
+    self.gasPrice = reduced
     calculateTotalAmount()
-    view.didReceiveGasPrice(gasPrice)
+    view.didReceiveGasPrice(reduced)
   }
   
   func didSendTransaction() {

@@ -22,4 +22,5 @@ struct TransactionInfo {
   let address: String
   let contractAddress: String?
   let gasLimit: Decimal
+  let gasPrice: Decimal
 }

@@ -21,7 +21,7 @@ import Alamofire
 class TransactionsNetworkService: NetworkLoadable, TransactionsNetworkServiceProtocol  {
   
   func getTransactions(address: String, result: @escaping (Result<[Transaction]>) -> Void) {
-    loadArray(request: API.Ethplorer.transactions(address: address), completion: result)
+    loadArray(request: API.Etherscan.transactions(address: address), keyPath: "result", completion: result)
   }
 
 }

@@ -58,18 +58,18 @@ extension TransactionFactory {
     
     let gethGasLimit = GethNewBigInt(0)
     gethGasLimit?.setString(info.gasLimit.toHex(), base: 16)
-    let gasPrice = try client.suggestGasPrice(context)
+    let gethGasPrice = GethNewBigInt(0)
+    gethGasPrice?.setString(info.gasPrice.toHex(), base: 16)
     
-    return GethNewTransaction(noncePointer, gethAddress, intAmount, gethGasLimit, gasPrice, nil)
+    return GethNewTransaction(noncePointer, gethAddress, intAmount, gethGasLimit, gethGasPrice, nil)
   }
   
   private func buildTokenTransaction(with info: TransactionInfo) throws -> GethTransaction {
     let transactionTemplate = try buildTransaction(with: info)
     let transferSignature = Data(bytes: [0xa9, 0x05, 0x9c, 0xbb])
     let address = info.address.lowercased().replacingOccurrences(of: "0x", with: "")
-    let intAmount = (info.amount as NSDecimalNumber).int64Value
-    let amount = String(format: "%064x", intAmount)
-    let hexData = transferSignature.toHexString() + "000000000000000000000000" + address + amount
+    let hexAmount = (info.amount * 1e18).toHex().withLeadingZero(64)
+    let hexData = transferSignature.toHexString() + "000000000000000000000000" + address + hexAmount
     guard let data = hexData.toHexData() else {
       throw TransactionFactoryError.badSignature
     }

@@ -48,17 +48,3 @@ extension Currency {
   }
   
 }
-
-// MARK: - Fabrics
-
-extension Currency {
-  
-  func tokenValue(with amount: Decimal) -> TokenValue {
-    return TokenValue(amount, name: name, iso: iso)
-  }
-  
-  func etherValue(with amount: Decimal) -> Ether {
-    return Ether(amount)
-  }
-  
-}

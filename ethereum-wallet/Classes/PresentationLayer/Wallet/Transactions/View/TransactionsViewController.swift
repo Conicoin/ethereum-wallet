@@ -49,8 +49,8 @@ class TransactionsViewController: UIViewController {
       self.present(svc, animated: true, completion: nil)
     }
     let cancel = UIAlertAction(title: Localized.transactionsAlertCancel(), style: .default, handler: nil)
-    alert.addAction(ok)
     alert.addAction(cancel)
+    alert.addAction(ok)
     present(alert, animated: true, completion: nil)
   }
   

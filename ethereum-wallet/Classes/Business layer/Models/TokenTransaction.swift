@@ -29,6 +29,8 @@ struct TokenTransaction {
   var timestamp: Date!
   var isIncoming: Bool!
   var isPending: Bool!
+  var isTokenTransfer: Bool!
+  var isError: Bool!
   
   static func mapFromGethTransaction(_ object: GethTransaction, time: TimeInterval, token: Token) -> TokenTransaction {
     var transaction = TokenTransaction()
@@ -41,6 +43,9 @@ struct TokenTransaction {
     let tokenMeta = token.getTokenMeta()
     transaction.tokenMeta = tokenMeta
     transaction.amount = TokenValue(weiString: object.getValue().string()!, name: tokenMeta.name, iso: tokenMeta.iso)
+    transaction.isPending = false
+    transaction.isTokenTransfer = true
+    transaction.isError = false
     return transaction
   }
 }
@@ -49,7 +54,7 @@ struct TokenTransaction {
 
 extension TokenTransaction: RealmMappable {
   
-  static func mapFromRealmObject(_ object: RealmTokenTransaction) -> TokenTransaction {
+  static func mapFromRealmObject(_ object: RealmTransaction) -> TokenTransaction {
     var transaction = TokenTransaction()
     transaction.txHash = object.txHash
     transaction.to = object.to
@@ -61,20 +66,24 @@ extension TokenTransaction: RealmMappable {
     transaction.timestamp = object.timestamp
     transaction.isIncoming = object.isIncoming
     transaction.isPending = object.isPending
+    transaction.isTokenTransfer = object.isTokenTransfer
+    transaction.isError = object.isError
     return transaction
   }
   
-  func mapToRealmObject() -> RealmTokenTransaction {
-    let realmObject = RealmTokenTransaction()
+  func mapToRealmObject() -> RealmTransaction {
+    let realmObject = RealmTransaction()
     realmObject.txHash = txHash
     realmObject.to = to
     realmObject.from = from
     realmObject.type = type
     realmObject.amount = amount.raw.string
     realmObject.timestamp = timestamp
+    realmObject.token = tokenMeta.mapToRealmObject()
     realmObject.isIncoming = isIncoming
     realmObject.isPending = isPending
-    realmObject.token = tokenMeta.mapToRealmObject()
+    realmObject.isTokenTransfer = isTokenTransfer
+    realmObject.isError = isError
     return realmObject
   }
   
@@ -97,6 +106,8 @@ extension TokenTransaction: ImmutableMappable {
     }
     tokenMeta = Mapper<TokenMeta>().map(JSON: tokenInfo)
     isPending = false
+    isTokenTransfer = true
+    isError = false
   }
   
 }

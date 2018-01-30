@@ -30,7 +30,10 @@ class RealmTransaction: Object {
   @objc dynamic var timestamp = Date()
   @objc dynamic var isIncoming = false
   @objc dynamic var isPending = false
-  @objc dynamic var success = false
+  @objc dynamic var token: RealmTokenMeta!
+  @objc dynamic var type = ""
+  @objc dynamic var isError = false
+  @objc dynamic var isTokenTransfer = false
   
   override static func primaryKey() -> String? {
     return "txHash"

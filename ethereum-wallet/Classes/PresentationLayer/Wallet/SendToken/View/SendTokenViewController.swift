@@ -109,6 +109,7 @@ extension SendTokenViewController: SendTokenViewInput {
   func didReceiveToken(_ token: Token) {
     let title = Localized.sendTitle(token.balance.name)
     navigationItem.title = title
+    currencyLabel.text = token.balance.iso.uppercased()
   }
   
   func didDetectQRCode(_ code: String) {
@@ -126,7 +127,7 @@ extension SendTokenViewController: SendTokenViewInput {
   }
   
   func didReceiveGasLimit(_ gasLimit: Decimal) {
-    gasLimitTextField.text = "\(gasLimit)"
+    gasLimitTextField.placeholder = "\(gasLimit)"
   }
   
   func didReceiveGasPrice(_ gasPrice: Decimal) {

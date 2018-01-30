@@ -28,8 +28,8 @@ class SendPresenter {
   
   private var amount: Decimal = 0
   private var address: String!
-  private var gasLimit: Decimal = 21000
-  private var gasPrice: Decimal = 2000000000 // 2 gwei
+  private var gasLimit: Decimal = Constants.Send.defaultGasLimit
+  private var gasPrice: Decimal = Constants.Send.defaultGasPrice
   
   private var selectedCurrency = Constants.Wallet.defaultCurrency
   
@@ -58,7 +58,8 @@ extension SendPresenter: SendViewOutput {
     view.didReceiveGasPrice(gasPrice)
     view.didReceiveCoin(coin)
     interactor.getWallet()
-    interactor.getGasLimit()
+    /// Disabled for normal transactions
+    //  interactor.getGasLimit()
     interactor.getGasPrice()
     calculateTotalAmount()
   }
@@ -78,11 +79,12 @@ extension SendPresenter: SendViewOutput {
     let amountEther = amount.localToEther(rate: rate.value).toWei()
     
     view.showLoading()
-    interactor.sendTransaction(amount: amountEther, to: address, gasLimit: gasLimit)
+    interactor.sendTransaction(amount: amountEther, to: address, gasLimit: gasLimit, gasPrice: gasPrice)
   }
   
   func didChangeAmount(_ amount: String) {
-    self.amount = Decimal(amount)
+    let formated = amount.replacingOccurrences(of: ",", with: ".")
+    self.amount = Decimal(formated)
     validate()
     calculateTotalAmount()
   }
@@ -93,7 +95,11 @@ extension SendPresenter: SendViewOutput {
   }
   
   func didChangeGasLimit(_ gasLimit: String) {
-    self.gasLimit = Decimal(gasLimit)
+    var newValue = Decimal(gasLimit)
+    if newValue == 0 {
+      newValue = Constants.Send.defaultGasLimit
+    }
+    self.gasLimit = newValue
     validate()
     calculateTotalAmount()
   }
@@ -116,9 +122,10 @@ extension SendPresenter: SendInteractorOutput {
   }
   
   func didReceiveGasPrice(_ gasPrice: Decimal) {
-    self.gasPrice = gasPrice
+    let reduced = gasPrice / 2
+    self.gasPrice = reduced
     calculateTotalAmount()
-    view.didReceiveGasPrice(gasPrice)
+    view.didReceiveGasPrice(reduced)
   }
   
   func didSendTransaction() {

@@ -22,6 +22,10 @@ extension Bool {
     self.init(num != 0)
   }
   
+  init(_ string: String) {
+    self.init(string != "0")
+  }
+  
   var intValue: Int {
     return self ? 1 : 0
   }

@@ -22,9 +22,10 @@ protocol TransactionDisplayable {
   var timestamp: Date! { get }
   var value: String { get }
   var valueColor: UIColor { get }
-  var isTokenTransfer: Bool { get }
+  var isTokenTransfer: Bool! { get }
   var time: String { get }
   var txHash: String! { get }
+  var isError: Bool! { get }
 }
 
 extension Transaction: TransactionDisplayable {
@@ -44,10 +45,6 @@ extension Transaction: TransactionDisplayable {
     return isIncoming ? Theme.Color.green : Theme.Color.red
   }
   
-  var isTokenTransfer: Bool {
-    return false
-  }
-  
 }
 
 extension TokenTransaction: TransactionDisplayable {
@@ -65,10 +62,6 @@ extension TokenTransaction: TransactionDisplayable {
   
   var valueColor: UIColor {
     return isIncoming ? Theme.Color.green : Theme.Color.red
-  }
-  
-  var isTokenTransfer: Bool {
-    return true
   }
   
 }

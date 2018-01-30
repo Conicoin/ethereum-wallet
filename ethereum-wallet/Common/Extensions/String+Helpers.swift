@@ -71,6 +71,14 @@ extension String {
     
     return data
   }
+
+  func withLeadingZero(_ count: Int) -> String {
+    var string = self
+    while string.count != 64 {
+      string = "0" + string
+    }
+    return string
+  }
   
 }
 

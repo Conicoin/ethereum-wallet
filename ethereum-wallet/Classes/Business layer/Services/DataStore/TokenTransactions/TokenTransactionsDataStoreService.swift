@@ -15,23 +15,25 @@
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+import Foundation
 import RealmSwift
 
-class RealmTokenTransaction: Object {
+class TokenTransactionsDataStoreService: RealmStorable<TokenTransaction>, TokenTransactionsDataStoreServiceProtocol {
   
-  @objc dynamic var txHash = ""
-  @objc dynamic var to = ""
-  @objc dynamic var from = ""
-  @objc dynamic var amount = ""
-  @objc dynamic var timestamp = Date()
-  @objc dynamic var isIncoming = false
-  @objc dynamic var isPending = false
-  @objc dynamic var type = ""
-  @objc dynamic var token: RealmTokenMeta!
+  func markAndSaveTransactions(_ transactions: inout [TokenTransaction], address: String) {
+    for (i, transaction) in transactions.enumerated() {
+      transactions[i].isIncoming = transaction.to == address
+    }
+    save(transactions)
+  }
   
-  override static func primaryKey() -> String? {
-    return "txHash"
+  override func observe(updateHandler: @escaping ([TokenTransaction]) -> Void) {
+    let realm = try! Realm()
+    let objects = realm.objects(RealmTransaction.self).filter("isTokenTransfer == 1")
+    notificationToken?.invalidate()
+    notificationToken = objects.observe { changes in
+      updateHandler(objects.map { TokenTransaction.mapFromRealmObject($0) } )
+    }
   }
   
 }
-

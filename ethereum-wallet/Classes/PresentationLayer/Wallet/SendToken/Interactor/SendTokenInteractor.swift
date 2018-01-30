@@ -53,16 +53,17 @@ extension SendTokenInteractor: SendTokenInteractorInput {
     output.didReceiveWallet(wallet)
   }
   
-  func sendTransaction(for token: Token, amount: Decimal, to: String, gasLimit: Decimal) {
+  func sendTransaction(for token: Token, amount: Decimal, to: String, gasLimit: Decimal, gasPrice: Decimal) {
     do {
       let keychain = Keychain()
       let passphrase = try keychain.getPassphrase()
-      let info = TransactionInfo(amount: amount, address: to, contractAddress: token.address, gasLimit: gasLimit)
+      let info = TransactionInfo(amount: amount, address: to, contractAddress: token.address, gasLimit: gasLimit, gasPrice: gasPrice)
       transactionService.sendTransaction(with: info, passphrase: passphrase) { [weak self] result in
         guard let `self` = self else { return }
         switch result {
         case .success(let sendedTransaction):
           var transaction = TokenTransaction.mapFromGethTransaction(sendedTransaction, time: Date().timeIntervalSince1970, token: token)
+          transaction.amount = TokenValue(amount, name: token.balance.name, iso: token.balance.iso)
           transaction.isPending = true
           transaction.isIncoming = false
           self.tokenTransactionsDataStoreService.save(transaction)

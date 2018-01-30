@@ -23,6 +23,7 @@ class TransactionCell: UITableViewCell {
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
   @IBOutlet weak var amountLabel: UILabel!
+  @IBOutlet weak var errorImageView: UIImageView!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -30,6 +31,11 @@ class TransactionCell: UITableViewCell {
   }
   
   func configure(with transaction: TransactionDisplayable) {
+    
+    errorImageView.isHidden = !transaction.isError
+    amountLabel.isHidden = transaction.isError
+    tokenLabel.isHidden = transaction.isError
+    
     timeLabel.text = transaction.time
     addressLabel.text = transaction.address
     amountLabel.text = transaction.value

@@ -16,6 +16,7 @@
 
 
 import Foundation
+import RealmSwift
 
 class TransactionsDataStoreService: RealmStorable<Transaction>, TransactionsDataStoreServiceProtocol {
   
@@ -29,7 +30,24 @@ class TransactionsDataStoreService: RealmStorable<Transaction>, TransactionsData
     for (i, transaction) in transactions.enumerated() {
       transactions[i].isIncoming = transaction.to == address
     }
-    save(transactions)
+    // TODO: Ethplorer api workarounds (remove later)
+    let realm = try! Realm()
+    for transaction in transactions {
+      if let _ = realm.objects(RealmTransaction.self).filter("txHash == '\(transaction.txHash!)' && isTokenTransfer == 1").first {
+        continue
+      }
+      save(transaction)
+    }
+    
+  }
+  
+  override func observe(updateHandler: @escaping ([Transaction]) -> Void) {
+    let realm = try! Realm()
+    let objects = realm.objects(RealmTransaction.self).filter("isTokenTransfer == 0")
+    notificationToken?.invalidate()
+    notificationToken = objects.observe { changes in
+      updateHandler(objects.map { Transaction.mapFromRealmObject($0) } )
+    }
   }
 
 }

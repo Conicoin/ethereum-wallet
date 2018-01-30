@@ -26,7 +26,7 @@ struct TokenMeta {
 
 extension TokenMeta: RealmMappable {
   
-  static func mapFromRealmObject(_ object: RealmType) -> TokenMeta {
+  static func mapFromRealmObject(_ object: RealmTokenMeta) -> TokenMeta {
     var tokenMeta = TokenMeta()
     tokenMeta.name = object.name
     tokenMeta.iso = object.iso

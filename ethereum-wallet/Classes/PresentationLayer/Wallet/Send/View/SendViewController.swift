@@ -139,7 +139,7 @@ extension SendViewController: SendViewInput {
   }
   
   func didReceiveGasLimit(_ gasLimit: Decimal) {
-    gasLimitTextField.text = "\(gasLimit)"
+    gasLimitTextField.placeholder = "\(gasLimit)"
   }
   
   func didReceiveGasPrice(_ gasPrice: Decimal) {
