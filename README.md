@@ -1,12 +1,14 @@
 # Conicoin
 <p><b>Native Ethereum Wallet - iOS</b></p>
 
-Core: go-ethereum (iGeth)
+<p>
+[<img src=Screenshots/appstore.png height="50">](https://itunes.apple.com/us/app/conicoin-ethereum-wallet/id1317351647?ls=1&mt=8)
+</p>
 
 <br>
 <p align="center">
-<img src="https://raw.githubusercontent.com/flypaper0/ethereum-wallet/master/Screenshots/1.png" width="350"/>
-<img src="https://raw.githubusercontent.com/flypaper0/ethereum-wallet/master/Screenshots/2.png" width="350"/>
+<img src=Screenshots/1.png width="350"/>
+<img src=Screenshots/2.png width="350"/>
 </p>
 <br>
 
@@ -42,4 +44,3 @@ pod install; pod update
 ## Authors
 
 * [**Artur Guseynov**](https://github.com/flypaper0) - *iOS dev*
-
