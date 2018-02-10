@@ -1,9 +1,7 @@
 # Conicoin
 <p><b>Native Ethereum Wallet - iOS</b></p>
 
-<p>
 [<img src=Screenshots/appstore.png height="50">](https://itunes.apple.com/us/app/conicoin-ethereum-wallet/id1317351647?ls=1&mt=8)
-</p>
 
 <br>
 <p align="center">
