@@ -898,7 +898,6 @@
 				14C4D3CE1EDE209800FCA3AF /* Services */,
 				142B5A1D1EDF117D007F73BA /* Common */,
 				1438CCDD1EF1AD1000C6AA3F /* Core */,
-				14C4D3CF1EDE20A200FCA3AF /* Managers */,
 				1438CCE01EF1BD8B00C6AA3F /* Models */,
 			);
 			path = "Business layer";
@@ -908,7 +907,6 @@
 			isa = PBXGroup;
 			children = (
 				14786ED5201E05D2009ECC11 /* Transforms */,
-				14D47ED61FB3C7240095C516 /* External */,
 				14BE0A6E1FAF8ADC0044E3A1 /* CustomViews */,
 				14636D5F1F994BA0002BDFAC /* Protocols */,
 				142B5A1E1EDF2A0D007F73BA /* Extensions */,
@@ -1071,13 +1069,6 @@
 			path = Sync;
 			sourceTree = "<group>";
 		};
-		14A3FD6A20013CEE00C4B054 /* Send */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Send;
-			sourceTree = "<group>";
-		};
 		14B2193B1FC22D96003092F0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1177,7 +1168,6 @@
 		14C4D3CE1EDE209800FCA3AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				14A3FD6A20013CEE00C4B054 /* Send */,
 				142730FB1FB8CF2000ED9968 /* QRCapture */,
 				14E3F5141FB100EE00161EA2 /* QRGenerate */,
 				146DB07C1FA00695000D3564 /* Base */,
@@ -1185,13 +1175,6 @@
 				14B77EC11F9ACD6300FCD923 /* DataStore */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		14C4D3CF1EDE20A200FCA3AF /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		14D027DD1EF6D4A400F125C3 /* Plain */ = {
@@ -1242,13 +1225,6 @@
 				145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */,
 			);
 			name = API;
-			sourceTree = "<group>";
-		};
-		14D47ED61FB3C7240095C516 /* External */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = External;
 			sourceTree = "<group>";
 		};
 		14D47EFB1FB3CE320095C516 /* Currency */ = {
