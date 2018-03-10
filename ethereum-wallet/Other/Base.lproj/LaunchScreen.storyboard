@@ -20,19 +20,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ConicoinBig" translatesAutoresizingMaskIntoConstraints="NO" id="pyO-Yn-UYp">
-                                <rect key="frame" x="30" y="183.5" width="315" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Conicoin" translatesAutoresizingMaskIntoConstraints="NO" id="pyO-Yn-UYp">
+                                <rect key="frame" x="145.5" y="293.5" width="84" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="txd-3m-CmR"/>
+                                    <constraint firstAttribute="width" constant="84" id="g7H-pc-Row"/>
+                                    <constraint firstAttribute="height" constant="80" id="txd-3m-CmR"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="pyO-Yn-UYp" secondAttribute="trailing" constant="30" id="7dq-BA-glQ"/>
                             <constraint firstItem="pyO-Yn-UYp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Dg5-q7-h7G"/>
-                            <constraint firstItem="pyO-Yn-UYp" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="LEa-1j-Bo8"/>
-                            <constraint firstItem="pyO-Yn-UYp" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="30" id="XcD-BH-dn2"/>
+                            <constraint firstItem="pyO-Yn-UYp" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LEa-1j-Bo8"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -43,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ConicoinBig" width="1024" height="1024"/>
+        <image name="Conicoin" width="84" height="80"/>
     </resources>
 </document>
