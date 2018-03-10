@@ -17,9 +17,9 @@
 
 
 // MARK: - Welcome
-"welcome.new.title" = "New Wallet";
+"welcome.new.title" = "Create new wallet";
 "welcome.restore.title" = "Restore with passphrase";
-"welcome.import.title" = "Import Wallet";
+"welcome.import.title" = "Import wallet";
 "welcome.title" = "Welcome to Conicoin";
 "welcome.subtitle" = "Lets start by creating a new wallet or restoring the existing one";
 "welcome.gitgub.link" = "Source code available on Github";

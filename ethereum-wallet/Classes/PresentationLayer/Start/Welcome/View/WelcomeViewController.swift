@@ -24,7 +24,6 @@ class WelcomeViewController: UIViewController {
     
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
-  @IBOutlet weak var sourceButton: UIButton!
   @IBOutlet weak var newWalletButton: UIButton!
   @IBOutlet weak var importWalletButton: UIButton!
 
@@ -47,7 +46,6 @@ class WelcomeViewController: UIViewController {
     titleLabel.text = Localized.welcomeTitle()
     subtitleLabel.text = Localized.welcomeSubtitle()
     importWalletButton.setTitle(Localized.welcomeImportTitle(), for: .normal)
-    sourceButton.setTitle(Localized.welcomeGitgubLink(), for: .normal)
   }
   
   // MARK: Actions
@@ -60,11 +58,6 @@ class WelcomeViewController: UIViewController {
     output.importDidPressed()
   }
   
-  @IBAction func sourcePressed(_ sender: UIButton) {
-    guard let url = URL(string: Constants.Common.githubUrl) else { return }
-    let svc = SFSafariViewController(url: url)
-    present(svc, animated: true, completion: nil)
-  }
 
 }
 

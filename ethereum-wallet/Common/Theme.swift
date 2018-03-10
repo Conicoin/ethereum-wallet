@@ -20,7 +20,7 @@ import UIKit
 struct Theme {
   
   struct Color {
-    static let blue = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
+    static let blue = UIColor(red: 19/255, green: 121/255, blue: 222/255, alpha: 1)
     static let gray = UIColor(red: 142/255, green: 142/255, blue: 157/255, alpha: 1)
     static let green = UIColor(red: 89/255, green: 172/255, blue: 15/255, alpha: 1)
     static let red = UIColor(red: 220/255, green: 62/255, blue: 32/255, alpha: 1)

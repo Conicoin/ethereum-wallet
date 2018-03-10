@@ -71,6 +71,8 @@
 		1433BDC61FD767CF0081D872 /* ModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC51FD767CF0081D872 /* ModeCell.swift */; };
 		1433BDC81FD76B9B0081D872 /* SyncMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC71FD76B9B0081D872 /* SyncMode.swift */; };
 		1433BDCA1FD76E010081D872 /* Bool+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC91FD76E010081D872 /* Bool+Helpers.swift */; };
+		144102D32053FE0A00F4D192 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102D22053FE0A00F4D192 /* DefaultButton.swift */; };
+		144102D6205403B400F4D192 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102D5205403B400F4D192 /* PlainButton.swift */; };
 		144791C11EF59EB300029818 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791C01EF59EB300029818 /* Account.swift */; };
 		144791C71EF5A95500029818 /* Keychain+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791C61EF5A95500029818 /* Keychain+Helpers.swift */; };
 		144791CC1EF5DDD200029818 /* ConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791CB1EF5DDD200029818 /* ConfiguratorProtocol.swift */; };
@@ -374,6 +376,8 @@
 		1433BDC51FD767CF0081D872 /* ModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeCell.swift; sourceTree = "<group>"; };
 		1433BDC71FD76B9B0081D872 /* SyncMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncMode.swift; sourceTree = "<group>"; };
 		1433BDC91FD76E010081D872 /* Bool+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Helpers.swift"; sourceTree = "<group>"; };
+		144102D22053FE0A00F4D192 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
+		144102D5205403B400F4D192 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
 		144791C01EF59EB300029818 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		144791C61EF5A95500029818 /* Keychain+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keychain+Helpers.swift"; sourceTree = "<group>"; };
 		144791CB1EF5DDD200029818 /* ConfiguratorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguratorProtocol.swift; sourceTree = "<group>"; };
@@ -812,6 +816,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		144102D12053FDEE00F4D192 /* conicoin */ = {
+			isa = PBXGroup;
+			children = (
+				144102D22053FE0A00F4D192 /* DefaultButton.swift */,
+				144102D5205403B400F4D192 /* PlainButton.swift */,
+			);
+			path = conicoin;
+			sourceTree = "<group>";
+		};
 		144791C41EF5A93100029818 /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -1129,6 +1142,7 @@
 		14BE0A6E1FAF8ADC0044E3A1 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				144102D12053FDEE00F4D192 /* conicoin */,
 				14313CAE1FB0B045003AEB0C /* LightShadowView.swift */,
 				141749D01FD9B91A00AD5F07 /* Loading.swift */,
 				1481ADD21FDDD53600A5AC88 /* CoinBackgroundView.swift */,
@@ -2460,6 +2474,7 @@
 				9C99544075FF16B392AC685A /* SendRouter.swift in Sources */,
 				5F128A459101497C3BA454B3 /* SendModuleInput.swift in Sources */,
 				14046D04201FB9C4007BD203 /* TokenTransaction.swift in Sources */,
+				144102D32053FE0A00F4D192 /* DefaultButton.swift in Sources */,
 				01D80743218DC806CE82FBA6 /* SendModuleOutput.swift in Sources */,
 				D025DFCF24E4D87631410C3E /* SendModule.swift in Sources */,
 				149AA05B1FD60E9400F961FA /* KeystoreServiceProtocol.swift in Sources */,
@@ -2470,6 +2485,7 @@
 				16B56704FE92CC4FCE8DE351 /* ReceivePresenter.swift in Sources */,
 				B7A016AF6086E391029095CC /* ReceiveInteractorInput.swift in Sources */,
 				C75338CCF20BCFEFAF84E542 /* ReceiveInteractorOutput.swift in Sources */,
+				144102D6205403B400F4D192 /* PlainButton.swift in Sources */,
 				A85C249674FC58464027178A /* ReceiveInteractor.swift in Sources */,
 				2EBD9E3202AC8101D58D7C85 /* ReceiveRouterInput.swift in Sources */,
 				14046CE3201E9A14007BD203 /* HintCell.swift in Sources */,
