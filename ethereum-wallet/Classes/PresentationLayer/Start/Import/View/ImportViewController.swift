@@ -19,8 +19,8 @@ import UIKit
 
 
 class ImportViewController: UIViewController {
-  @IBOutlet weak var jsonLabel: UILabel!
-  @IBOutlet weak var jsonTextView: UITextView!
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var inputTextView: DefaultTextField!
   @IBOutlet weak var icloudButton: UIButton!
   @IBOutlet weak var confirmButton: UIButton!
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -33,26 +33,17 @@ class ImportViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    inputTextView.textField.delegate = self
+    setupKeyboardNotifications()
     localize()
     output.viewIsReady()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    showNavBarSeparator(false)
-    setupKeyboardNotifications()
-    jsonTextView.becomeFirstResponder()
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    showNavBarSeparator(true)
   }
   
   // MARK: Privates
   
   private func localize() {
-    jsonLabel.text = Localized.importJsonTitle()
+    titleLabel.text = Localized.importTitle()
+    inputTextView.placeholder = Localized.importJsonTitle()
     icloudButton.setTitle(Localized.importIcloudTitle(), for: .normal)
     confirmButton.setTitle(Localized.importConfirmTitle(), for: .normal)
   }
@@ -60,15 +51,6 @@ class ImportViewController: UIViewController {
   private func setupKeyboardNotifications() {
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
-  }
-  
-  private func showNavBarSeparator(_ show: Bool) {
-    if show {
-      navigationController?.navigationBar.shadowImage = shadowImage
-    } else {
-      shadowImage = navigationController?.navigationBar.shadowImage
-      navigationController?.navigationBar.shadowImage = UIImage()
-    }
   }
   
   @objc func keyboardWillShow(notification: Notification){
@@ -92,11 +74,7 @@ class ImportViewController: UIViewController {
   }
   
   @IBAction func confirmPressed(_ sender: UIButton) {
-    output.didConfirmJsonKey(jsonTextView.text)
-  }
-  
-  @IBAction func closePressed(_ sender: UIBarButtonItem) {
-    output.closeDidPressed()
+    output.didConfirmJsonKey(inputTextView.textField.text!)
   }
   
 }
@@ -113,18 +91,17 @@ extension ImportViewController: ImportViewInput {
 }
 
 
-// MARK: - UITextViewDelegateextension
+// MARK: - UITextFieldDelegate
 
-extension ImportViewController: UITextViewDelegate {
+extension ImportViewController: UITextFieldDelegate {
   
-  func textViewDidChange(_ textView: UITextView) {
-    jsonLabel.isHidden = !textView.text.isEmpty
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    confirmButton.isEnabled = string != ""
+    return true
   }
   
-  func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-    if text == "\n" {
-      confirmPressed(confirmButton)
-    }
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    confirmPressed(confirmButton)
     return true
   }
   

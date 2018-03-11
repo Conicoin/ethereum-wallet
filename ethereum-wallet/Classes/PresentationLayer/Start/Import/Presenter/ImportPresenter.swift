@@ -67,8 +67,7 @@ extension ImportPresenter: ImportInteractorOutput {
 extension ImportPresenter: ImportModuleInput {
   
   func present(from viewController: UIViewController) {
-    let navigationController = UINavigationController(rootViewController: view.viewController)
-    viewController.present(navigationController, animated: true, completion: nil)
+    view.present(fromViewController: viewController)
   }
 
 }

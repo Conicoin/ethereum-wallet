@@ -35,7 +35,7 @@
                                     <constraint firstAttribute="width" constant="84" id="uq4-1w-wNq"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgo-zw-KKD" customClass="PlainButton" customModule="ethereum_wallet" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgo-zw-KKD">
                                 <rect key="frame" x="32" y="603" width="311" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="2cy-wt-pG1"/>
@@ -54,7 +54,7 @@
                                     <constraint firstAttribute="height" constant="40" id="ToM-on-z6v"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpa-US-tuP" customClass="DefaultButton" customModule="ethereum_wallet" customModuleProvider="target">

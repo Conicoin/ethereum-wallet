@@ -20,12 +20,19 @@ import UIKit
 struct Theme {
   
   struct Color {
+    static let black = UIColor(red: 25/255, green: 28/255, blue: 31/255, alpha: 1)
     static let blue = UIColor(red: 19/255, green: 121/255, blue: 222/255, alpha: 1)
-    static let gray = UIColor(red: 142/255, green: 142/255, blue: 157/255, alpha: 1)
+    static let gray = UIColor(red: 139/255, green: 149/255, blue: 158/255, alpha: 1)
     static let green = UIColor(red: 89/255, green: 172/255, blue: 15/255, alpha: 1)
     static let red = UIColor(red: 220/255, green: 62/255, blue: 32/255, alpha: 1)
     static let ethereum = UIColor(red: 19/255, green: 121/255, blue: 222/255, alpha: 1)
     static let token = UIColor(red: 167/255, green: 167/255, blue: 167/255, alpha: 1)
   }
+    
+    struct Font {
+        static let regular16 = UIFont.systemFont(ofSize: 16, weight: .regular)
+        static let regular12 = UIFont.systemFont(ofSize: 12, weight: .regular)
+        static let regular14 = UIFont.systemFont(ofSize: 14, weight: .regular)
+    }
 
 }

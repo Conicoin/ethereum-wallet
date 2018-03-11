@@ -99,8 +99,7 @@ extension PasswordPresenter: PasswordInteractorOutput {
 extension PasswordPresenter: PasswordModuleInput {
   
   func present(from viewController: UIViewController) {
-    let navigationController = UINavigationController(rootViewController: view.viewController)
-    viewController.present(navigationController, animated: true, completion: nil)
+    view.present(fromViewController: viewController)
   }
 
 }

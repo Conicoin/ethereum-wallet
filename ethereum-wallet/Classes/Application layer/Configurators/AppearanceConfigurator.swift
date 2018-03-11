@@ -18,14 +18,17 @@
 import UIKit
 
 class AppearanceConfigurator: ConfiguratorProtocol {
-
-    func configure() {
-//      switch UIDevice.current.screenType! {
-//      case .iPhone4, .iPhoneSE:
-//        UINavigationBar.appearance().prefersLargeTitles = false
-//      default:
-//        UINavigationBar.appearance().prefersLargeTitles = true
-//      }
-    }
-    
+  
+  func configure() {
+    let back = UIImage(named: "BackIcon")?.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: -2, right: 0))
+    UINavigationBar.appearance().backIndicatorImage = back
+    UINavigationBar.appearance().backIndicatorTransitionMaskImage = back
+    UINavigationBar.appearance().isTranslucent = true
+    UINavigationBar.appearance().barTintColor = .white
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.Color.black]
+    UINavigationBar.appearance().shadowImage = UIImage()
+    UIBarButtonItem.appearance().tintColor = Theme.Color.black
+    UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -100, vertical:0), for: .default)
+  }
+  
 }

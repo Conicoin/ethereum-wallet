@@ -72,7 +72,9 @@
 		1433BDC81FD76B9B0081D872 /* SyncMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC71FD76B9B0081D872 /* SyncMode.swift */; };
 		1433BDCA1FD76E010081D872 /* Bool+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC91FD76E010081D872 /* Bool+Helpers.swift */; };
 		144102D32053FE0A00F4D192 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102D22053FE0A00F4D192 /* DefaultButton.swift */; };
-		144102D6205403B400F4D192 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102D5205403B400F4D192 /* PlainButton.swift */; };
+		144102D8205409A900F4D192 /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102D7205409A900F4D192 /* DefaultTextField.swift */; };
+		144102DC205409E300F4D192 /* DefaultTextFieldUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102DB205409E300F4D192 /* DefaultTextFieldUtils.swift */; };
+		144102DE20541A0700F4D192 /* UIImage+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102DD20541A0700F4D192 /* UIImage+Helpers.swift */; };
 		144791C11EF59EB300029818 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791C01EF59EB300029818 /* Account.swift */; };
 		144791C71EF5A95500029818 /* Keychain+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791C61EF5A95500029818 /* Keychain+Helpers.swift */; };
 		144791CC1EF5DDD200029818 /* ConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791CB1EF5DDD200029818 /* ConfiguratorProtocol.swift */; };
@@ -377,7 +379,9 @@
 		1433BDC71FD76B9B0081D872 /* SyncMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncMode.swift; sourceTree = "<group>"; };
 		1433BDC91FD76E010081D872 /* Bool+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Helpers.swift"; sourceTree = "<group>"; };
 		144102D22053FE0A00F4D192 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
-		144102D5205403B400F4D192 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
+		144102D7205409A900F4D192 /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
+		144102DB205409E300F4D192 /* DefaultTextFieldUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextFieldUtils.swift; sourceTree = "<group>"; };
+		144102DD20541A0700F4D192 /* UIImage+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Helpers.swift"; sourceTree = "<group>"; };
 		144791C01EF59EB300029818 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		144791C61EF5A95500029818 /* Keychain+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keychain+Helpers.swift"; sourceTree = "<group>"; };
 		144791CB1EF5DDD200029818 /* ConfiguratorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguratorProtocol.swift; sourceTree = "<group>"; };
@@ -772,6 +776,7 @@
 				1433BDC91FD76E010081D872 /* Bool+Helpers.swift */,
 				1409C1301FE876A200803E78 /* UITableView+Sugar.swift */,
 				1409C1341FE877FD00803E78 /* UICollectionView+Sugar.swift */,
+				144102DD20541A0700F4D192 /* UIImage+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -819,10 +824,27 @@
 		144102D12053FDEE00F4D192 /* conicoin */ = {
 			isa = PBXGroup;
 			children = (
-				144102D22053FE0A00F4D192 /* DefaultButton.swift */,
-				144102D5205403B400F4D192 /* PlainButton.swift */,
+				144102DA205409BA00F4D192 /* TextField */,
+				144102D9205409B000F4D192 /* Button */,
 			);
 			path = conicoin;
+			sourceTree = "<group>";
+		};
+		144102D9205409B000F4D192 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				144102D22053FE0A00F4D192 /* DefaultButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		144102DA205409BA00F4D192 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				144102D7205409A900F4D192 /* DefaultTextField.swift */,
+				144102DB205409E300F4D192 /* DefaultTextFieldUtils.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 		144791C41EF5A93100029818 /* Keychain */ = {
@@ -2446,6 +2468,7 @@
 				14FEBD731FBB1F210084F1AB /* Node.swift in Sources */,
 				437D18BC71E49AE3BBB15EB5 /* TransactionsInteractorOutput.swift in Sources */,
 				D46109B070B77F3B2FE90E34 /* TransactionsInteractor.swift in Sources */,
+				144102DE20541A0700F4D192 /* UIImage+Helpers.swift in Sources */,
 				14313CB81FB0C492003AEB0C /* String+Helpers.swift in Sources */,
 				14786ED7201E05E1009ECC11 /* HexDataTransform.swift in Sources */,
 				14BE0A791FAFDCB00044E3A1 /* CoinDataStoreServiceProtocol.swift in Sources */,
@@ -2465,6 +2488,7 @@
 				1458426B1FB112A200FA733F /* RealmRate.swift in Sources */,
 				5FD8C7FE5484A74036C3E36E /* SendViewController.swift in Sources */,
 				2C55D0ED3B3BCEB7B073ABD4 /* SendPresenter.swift in Sources */,
+				144102DC205409E300F4D192 /* DefaultTextFieldUtils.swift in Sources */,
 				14B2193D1FC22DB5003092F0 /* SettingsCurrencyCell.swift in Sources */,
 				42534B9D2D18A9ADA1BA048F /* SendInteractorInput.swift in Sources */,
 				51506D804AA6C5804C3940CD /* SendInteractorOutput.swift in Sources */,
@@ -2485,7 +2509,6 @@
 				16B56704FE92CC4FCE8DE351 /* ReceivePresenter.swift in Sources */,
 				B7A016AF6086E391029095CC /* ReceiveInteractorInput.swift in Sources */,
 				C75338CCF20BCFEFAF84E542 /* ReceiveInteractorOutput.swift in Sources */,
-				144102D6205403B400F4D192 /* PlainButton.swift in Sources */,
 				A85C249674FC58464027178A /* ReceiveInteractor.swift in Sources */,
 				2EBD9E3202AC8101D58D7C85 /* ReceiveRouterInput.swift in Sources */,
 				14046CE3201E9A14007BD203 /* HintCell.swift in Sources */,
@@ -2582,6 +2605,7 @@
 				9204BAA078D1037AB14A2A23 /* SendTokenPresenter.swift in Sources */,
 				1EF69A008740C301A7A0CCD0 /* SendTokenInteractorInput.swift in Sources */,
 				C7D7D319060D9AB725558ECD /* SendTokenInteractorOutput.swift in Sources */,
+				144102D8205409A900F4D192 /* DefaultTextField.swift in Sources */,
 				606FE893173FE3FBC5037C6F /* SendTokenInteractor.swift in Sources */,
 				03EAF6F5905AAD14038B837E /* SendTokenRouterInput.swift in Sources */,
 				984600EFA50D591138D88648 /* SendTokenRouter.swift in Sources */,

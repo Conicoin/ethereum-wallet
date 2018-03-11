@@ -64,7 +64,8 @@ extension WelcomePresenter: WelcomeInteractorOutput {
 extension WelcomePresenter: WelcomeModuleInput {
   
   func present() {
-    view.present()
+    let navigationController = UINavigationController(rootViewController: view.viewController)
+    AppDelegate.currentWindow.rootViewController = navigationController
   }
 
 }
