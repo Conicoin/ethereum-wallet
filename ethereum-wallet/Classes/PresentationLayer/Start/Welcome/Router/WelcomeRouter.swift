@@ -27,8 +27,12 @@ class WelcomeRouter {
 
 extension WelcomeRouter: WelcomeRouterInput {
   
-  func presentPassword(from viewController: UIViewController) {
-    PasswordModule.create().present(from: viewController)
+  func presentPinNew(from viewController: UIViewController) {
+    PinModule.create(.set).present(from: viewController)
+  }
+  
+  func presentPinRestore(from viewController: UIViewController) {
+    PinModule.create(.restore).present(from: viewController)
   }
   
   func presentImport(from viewController: UIViewController) {

@@ -19,5 +19,5 @@ import UIKit
 
 
 protocol ImportRouterInput: class {
-  func presentPassword(from viewController: UIViewController)
+  func presentPin(from viewController: UIViewController)
 }

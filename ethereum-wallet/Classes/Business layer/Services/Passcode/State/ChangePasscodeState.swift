@@ -15,11 +15,27 @@
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import UIKit
+import Foundation
 
-
-protocol WelcomeRouterInput: class {
-  func presentPinNew(from viewController: UIViewController)
-  func presentPinRestore(from viewController: UIViewController)
-  func presentImport(from viewController: UIViewController)
+struct ChangePasscodeState: PasscodeStateProtocol {
+    
+    let title: String
+    let isCancellableAction = true
+    var isTouchIDAllowed = false
+    
+    init() {
+        title = Localized.passcodeChangeTitle()
+    }
+    
+    func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {
+        guard let currentPasscode = lock.repository.passcode else {
+            return
+        }
+        if passcode == currentPasscode {
+            let nextState = SetPasscodeState()
+            lock.changeStateTo(nextState)
+        } else {
+            lock.delegate?.passcodeLockDidFail(lock)
+        }
+    }
 }

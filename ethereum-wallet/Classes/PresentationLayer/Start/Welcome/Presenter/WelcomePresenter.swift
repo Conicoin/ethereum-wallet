@@ -42,7 +42,11 @@ extension WelcomePresenter: WelcomeViewOutput {
   }
 
   func newDidPressed() {
-    router.presentPassword(from: view.viewController)
+    if isRestoring {
+      router.presentPinRestore(from: view.viewController)
+    } else {
+      router.presentPinNew(from: view.viewController)
+    }
   }
   
   func importDidPressed() {

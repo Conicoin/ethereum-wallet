@@ -14,12 +14,13 @@
 // You should have received a copy of the GNU General Public License along with
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import Foundation
 
-import UIKit
-
-
-protocol WelcomeRouterInput: class {
-  func presentPinNew(from viewController: UIViewController)
-  func presentPinRestore(from viewController: UIViewController)
-  func presentImport(from viewController: UIViewController)
+protocol PasscodeRepositoryProtocol {
+    
+    var hasPasscode: Bool {get}
+    var passcode: [String]? {get}
+    
+    func savePasscode(_ passcode: [String])
+    func deletePasscode()
 }

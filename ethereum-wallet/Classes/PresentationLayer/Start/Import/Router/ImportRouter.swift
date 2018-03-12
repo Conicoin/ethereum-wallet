@@ -27,8 +27,8 @@ class ImportRouter {
 
 extension ImportRouter: ImportRouterInput {
   
-  func presentPassword(from viewController: UIViewController) {
-    PasswordModule.create().present(from: viewController)
+  func presentPin(from viewController: UIViewController) {
+    PinModule.create(.restore).present(from: viewController)
   }
     
 }

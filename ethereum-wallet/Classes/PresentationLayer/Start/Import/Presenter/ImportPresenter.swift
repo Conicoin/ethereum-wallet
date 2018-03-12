@@ -52,7 +52,7 @@ extension ImportPresenter: ImportViewOutput {
 extension ImportPresenter: ImportInteractorOutput {
   
   func didConfirmValidJsonKey() {
-    router.presentPassword(from: view.viewController)
+    router.presentPin(from: view.viewController)
   }
   
   func didFailed(with error: Error) {

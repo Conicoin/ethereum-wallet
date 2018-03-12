@@ -146,6 +146,20 @@ extension Keychain {
     set(data, for: key.rawValue)
   }
   
+  //MARK: - Array
+  func getObject<T: Codable>(key: KeychainKeys) -> T? {
+    guard let data = get(for: key.rawValue) else {
+      return nil
+    }
+    let object = try? JSONDecoder().decode(T.self, from: data)
+    return object
+  }
+  
+  func setObject<T: Codable>(_ object: T, for key: KeychainKeys) {
+    let data = try? JSONEncoder().encode(object)
+    set(data, for: key.rawValue)
+  }
+  
   // MARK: - Helpers
   func exist(_ key: KeychainKeys) -> Bool {
     return get(for: key.rawValue) != nil

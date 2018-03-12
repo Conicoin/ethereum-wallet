@@ -20,24 +20,24 @@ import UIKit
 
 class PasswordModule {
     
-  class func create() -> PasswordModuleInput {
-    let router = PasswordRouter()
-    let presenter = PasswordPresenter()
-    let interactor = PasswordInteractor()
-    
-    let viewController = R.storyboard.password.passwordViewController()!
-
-    interactor.output = presenter
-    interactor.keystoreService = KeystoreService()
-    interactor.walletDataStoreService = WalletDataStoreService()
-
-    viewController.output = presenter
-
-    presenter.view = viewController
-    presenter.router = router
-    presenter.interactor = interactor
-    
-    return presenter
-  }
+//  class func create() -> PasswordModuleInput {
+//    let router = PasswordRouter()
+//    let presenter = PasswordPresenter()
+//    let interactor = PasswordInteractor()
+//    
+//    let viewController = R.storyboard.password.passwordViewController()!
+//
+//    interactor.output = presenter
+//    interactor.keystoreService = KeystoreService()
+//    interactor.walletDataStoreService = WalletDataStoreService()
+//
+//    viewController.output = presenter
+//
+//    presenter.view = viewController
+//    presenter.router = router
+//    presenter.interactor = interactor
+//    
+//    return presenter
+//  }
     
 }
