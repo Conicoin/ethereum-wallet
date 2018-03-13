@@ -9,13 +9,12 @@
 import Foundation
 
 enum PasscodeState {
-  case enter
-  case set
-  case change
-  case restore
+  case enter(onSuccess: () -> Void)
+  case set(onSuccess: () -> Void)
+  case change(onSuccess: () -> Void)
+  case restore(onSuccess: () -> Void)
   
   func getState() -> PasscodeStateProtocol {
-    
     switch self {
     case .enter:
       return EnterPasscodeState(title: Localized.passcodeEnterTitle())

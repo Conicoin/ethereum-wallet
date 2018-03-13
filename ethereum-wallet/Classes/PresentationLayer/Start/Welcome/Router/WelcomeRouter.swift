@@ -19,6 +19,12 @@ import Foundation
 import UIKit
 
 class WelcomeRouter {
+  
+  private func onPinSucess() -> () -> Void {
+    return {
+      TabBarModule.create(isSecureMode: false).present()
+    }
+  }
 
 }
 
@@ -28,11 +34,13 @@ class WelcomeRouter {
 extension WelcomeRouter: WelcomeRouterInput {
   
   func presentPinNew(from viewController: UIViewController) {
-    PinModule.create(.set).present(from: viewController)
+    let module = PinModule.create(.set(onSuccess: onPinSucess()))
+    module.present(from: viewController)
   }
   
   func presentPinRestore(from viewController: UIViewController) {
-    PinModule.create(.restore).present(from: viewController)
+    let module = PinModule.create(.restore(onSuccess: onPinSucess()))
+    module.present(from: viewController)
   }
   
   func presentImport(from viewController: UIViewController) {

@@ -46,6 +46,10 @@ extension PinPresenter: PinInteractorOutput {
   func didReceivePasscodeInfo(_ info: PasscodeInfo) {
     view.didReceivePasscodeInfo(info)
   }
+  
+  func didFailed(with error: Error) {
+    error.showAllertIfNeeded(from: view.viewController)
+  }
 
 }
 
@@ -67,6 +71,7 @@ extension PinPresenter: PasscodeServiceDelegate {
  
   func passcodeLockDidSucceed(_ lock: PasscodeServiceProtocol) {
     view.didSucceed()
+    interactor.performPostProcess()
   }
   
   func passcodeLockDidFail(_ lock: PasscodeServiceProtocol) {

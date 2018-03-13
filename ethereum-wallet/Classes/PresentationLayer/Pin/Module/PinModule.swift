@@ -17,8 +17,11 @@ class PinModule {
     var passcodeService = PasscodeServiceFactory.create(with: passcodeState)
     passcodeService.delegate = presenter
     interactor.passcodeService = passcodeService
-    interactor.output = presenter
     
+    let postProcess = PasscodePostProcessFactory(passcodeState: passcodeState, keychainService: KeystoreService(), walletDataStoreService: WalletDataStoreService())
+    interactor.passcodePostProcess = postProcess.create()
+
+    interactor.output = presenter
     viewController.output = presenter
 
     presenter.view = viewController

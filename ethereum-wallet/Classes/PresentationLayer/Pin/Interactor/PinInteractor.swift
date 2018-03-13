@@ -14,6 +14,7 @@ class PinInteractor {
   weak var output: PinInteractorOutput!
   
   var passcodeService: PasscodeServiceProtocol!
+  var passcodePostProcess: PasscodePostProcessProtocol!
 }
 
 
@@ -36,6 +37,17 @@ extension PinInteractor: PinInteractorInput {
   
   func didDeleteSign() {
     passcodeService.removeSign()
+  }
+  
+  func performPostProcess() {
+    do {
+      guard let passcode = passcodeService.repository.passcode?.joined() else {
+        throw KeychainError.noPassphrase
+      }
+      try passcodePostProcess.perform(with: passcode)
+    } catch {
+      output.didFailed(with: error)
+    }
   }
 
 }
