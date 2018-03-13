@@ -71,11 +71,16 @@ extension PinPresenter: PasscodeServiceDelegate {
  
   func passcodeLockDidSucceed(_ lock: PasscodeServiceProtocol) {
     view.didSucceed()
-    interactor.performPostProcess()
+    let deadlineTime = DispatchTime.now() + .milliseconds(300)
+    DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+      self.interactor.performPostProcess()
+    }
   }
   
   func passcodeLockDidFail(_ lock: PasscodeServiceProtocol) {
     view.didFailed()
+    let generator = UINotificationFeedbackGenerator()
+    generator.notificationOccurred(.error)
   }
   
   func passcodeLockDidChangeState(_ lock: PasscodeServiceProtocol) {
@@ -85,10 +90,14 @@ extension PinPresenter: PasscodeServiceDelegate {
   
   func passcodeLock(_ lock: PasscodeServiceProtocol, addedSignAtIndex index: Int) {
     view.didAddSignAtIndex(index)
+    let generator = UIImpactFeedbackGenerator(style: .light)
+    generator.impactOccurred()
   }
   
   func passcodeLock(_ lock: PasscodeServiceProtocol, removedSignAtIndex index: Int) {
     view.didRemoveSignAtIndex(index)
+    let generator = UIImpactFeedbackGenerator(style: .light)
+    generator.impactOccurred()
   }
   
   

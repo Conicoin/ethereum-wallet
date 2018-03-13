@@ -25,7 +25,11 @@ class TabBarPresenter {
   var interactor: TabBarInteractorInput!
   var router: TabBarRouterInput!
   
-  private lazy var balanceModule: BalanceModuleInput = BalanceModule.create()
+  private lazy var balanceModule: BalanceModuleInput = {
+    let module = BalanceModule.create()
+    module.output = self
+    return module
+  }()
   private lazy var transactionsModule: TransactionsModuleInput = TransactionsModule.create()
   private lazy var settingsModule: SettingsModuleInput = SettingsModule.create()
   
@@ -48,7 +52,6 @@ extension TabBarPresenter: TabBarViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     insertViewControllers()
-    interactor.startSynchronization()
   }
 }
 
@@ -84,6 +87,17 @@ extension TabBarPresenter: TabBarModuleInput {
   
   func present() {
     view.present()
+  }
+  
+}
+
+
+// MARK: - BalanceModuleOutput
+
+extension TabBarPresenter: BalanceModuleOutput {
+  
+  func balanceViewIsReady() {
+    interactor.startSynchronization()
   }
   
 }
