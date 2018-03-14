@@ -20,12 +20,6 @@ import UIKit
 
 class ImportRouter {
   
-  private func onPinSuccess() -> () -> Void {
-    return {
-      TabBarModule.create(isSecureMode: false).present()
-    }
-  }
-
 }
 
 
@@ -34,8 +28,11 @@ class ImportRouter {
 extension ImportRouter: ImportRouterInput {
   
   func presentPin(from viewController: UIViewController) {
-    let module = PinModule.create(.restore(onSuccess: onPinSuccess()))
-    module.present(from: viewController)
+    PinModule.create(.restore).present(from: viewController) { vc in
+      PopupModule.create(.touchId).present(from: vc) { _ in
+        TabBarModule.create(isSecureMode: false).present()
+      }
+    }
   }
     
 }

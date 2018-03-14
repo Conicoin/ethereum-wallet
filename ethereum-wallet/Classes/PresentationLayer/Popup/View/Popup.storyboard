@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="jBh-IX-9vo">
+            <objects>
+                <navigationController id="iLQ-K4-TxL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vVg-90-Nv8">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UG6-yC-OX7" kind="relationship" relationship="rootViewController" id="3np-W1-VYx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IbY-zt-Er7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-762" y="113"/>
+        </scene>
+        <!--Popup View Controller-->
+        <scene sceneID="6LR-sn-R5z">
+            <objects>
+                <viewController storyboardIdentifier="PopupViewController" id="UG6-yC-OX7" customClass="PopupViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5a0-HZ-pdx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIw-aS-yLk" customClass="DefaultButton" customModule="ethereum_wallet" customModuleProvider="target">
+                                <rect key="frame" x="32" y="599" width="311" height="48"/>
+                                <color key="backgroundColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="aoc-5q-fUU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="$Use Touch ID">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmPressed:" destination="UG6-yC-OX7" eventType="touchUpInside" id="PI1-We-emv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Let's start create a new wallet or restore the existing one" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWj-kV-WDx">
+                                <rect key="frame" x="32" y="378.5" width="311" height="33.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="311" id="kVw-5s-cbW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Welcome to Conicoin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4Y-lU-5bG">
+                                <rect key="frame" x="32" y="339.5" width="311" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PopupTouchID" translatesAutoresizingMaskIntoConstraints="NO" id="Zw9-w1-O5v">
+                                <rect key="frame" x="135" y="211.5" width="104" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="G12-qD-ISt"/>
+                                    <constraint firstAttribute="height" constant="104" id="iqu-VG-grA"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uWj-kV-WDx" firstAttribute="top" secondItem="p4Y-lU-5bG" secondAttribute="bottom" constant="15" id="30M-EZ-WBK"/>
+                            <constraint firstItem="p4Y-lU-5bG" firstAttribute="leading" secondItem="QHp-kp-7IR" secondAttribute="leading" constant="32" id="3HV-J3-iPC"/>
+                            <constraint firstItem="QHp-kp-7IR" firstAttribute="trailing" secondItem="p4Y-lU-5bG" secondAttribute="trailing" constant="32" id="3LL-nq-1Q4"/>
+                            <constraint firstItem="p4Y-lU-5bG" firstAttribute="top" secondItem="Zw9-w1-O5v" secondAttribute="bottom" constant="24" id="F1W-6O-gsc"/>
+                            <constraint firstItem="uWj-kV-WDx" firstAttribute="centerX" secondItem="5a0-HZ-pdx" secondAttribute="centerX" id="IOr-HO-UL1"/>
+                            <constraint firstItem="QHp-kp-7IR" firstAttribute="trailing" secondItem="sIw-aS-yLk" secondAttribute="trailing" constant="32" id="Ol5-sk-hWr"/>
+                            <constraint firstItem="Zw9-w1-O5v" firstAttribute="centerY" secondItem="5a0-HZ-pdx" secondAttribute="centerY" constant="-70" id="Y8I-g2-NZ6"/>
+                            <constraint firstItem="QHp-kp-7IR" firstAttribute="bottom" secondItem="sIw-aS-yLk" secondAttribute="bottom" constant="20" id="e5r-4b-Hl4"/>
+                            <constraint firstItem="sIw-aS-yLk" firstAttribute="leading" secondItem="QHp-kp-7IR" secondAttribute="leading" constant="32" id="hIk-Uq-4Ep"/>
+                            <constraint firstItem="Zw9-w1-O5v" firstAttribute="centerX" secondItem="5a0-HZ-pdx" secondAttribute="centerX" id="zi2-Tx-v4B"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QHp-kp-7IR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LgE-Pl-Vfv">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="P53-EK-QOM">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="umu-DQ-5Uj">
+                                <rect key="frame" x="276" y="6" width="83" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="$Not now">
+                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipPressed:" destination="UG6-yC-OX7" eventType="touchUpInside" id="LlZ-uJ-EOL"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="confirmButton" destination="sIw-aS-yLk" id="3Hc-8i-4Bz"/>
+                        <outlet property="descriptionLabel" destination="uWj-kV-WDx" id="uVI-0C-ves"/>
+                        <outlet property="imageView" destination="Zw9-w1-O5v" id="kMb-Ds-OVb"/>
+                        <outlet property="skipButton" destination="umu-DQ-5Uj" id="JAg-vf-eJj"/>
+                        <outlet property="titleLabel" destination="p4Y-lU-5bG" id="Rca-Qh-hVD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c0Q-K6-ZmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103" y="113"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="PopupTouchID" width="108" height="108"/>
+    </resources>
+</document>

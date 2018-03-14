@@ -16,8 +16,15 @@
 
 import Foundation
 
+enum PasscodeState {
+  case enter
+  case set
+  case change
+  case restore
+}
+
 protocol PasscodeStateProtocol {
-    
+  
     var title: String {get}
     var isCancellableAction: Bool {get}
     var isTouchIDAllowed: Bool {get}

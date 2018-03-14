@@ -15,7 +15,8 @@ class PinPresenter {
   weak var output: PinModuleOutput?
   var interactor: PinInteractorInput!
   var router: PinRouterInput!
-    
+  
+  private var onSuccess: ((UIViewController) -> Void)!
 }
 
 
@@ -58,10 +59,11 @@ extension PinPresenter: PinInteractorOutput {
 
 extension PinPresenter: PinModuleInput {
   
-  func present(from viewController: UIViewController) {
+  func present(from viewController: UIViewController, onSuccess: @escaping (UIViewController) -> Void) {
+    self.onSuccess = onSuccess
     view.present(fromViewController: viewController)
   }
-
+  
 }
 
 
@@ -74,6 +76,7 @@ extension PinPresenter: PasscodeServiceDelegate {
     let deadlineTime = DispatchTime.now() + .milliseconds(300)
     DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
       self.interactor.performPostProcess()
+      self.onSuccess(self.view.viewController)
     }
   }
   

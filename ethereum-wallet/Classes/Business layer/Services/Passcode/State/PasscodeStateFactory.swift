@@ -8,14 +8,17 @@
 
 import Foundation
 
-enum PasscodeState {
-  case enter(onSuccess: () -> Void)
-  case set(onSuccess: () -> Void)
-  case change(onSuccess: () -> Void)
-  case restore(onSuccess: () -> Void)
+
+class PasscodeStateFactory {
   
-  func getState() -> PasscodeStateProtocol {
-    switch self {
+  let state: PasscodeState
+  
+  init(state: PasscodeState) {
+    self.state = state
+  }
+  
+  func create() -> PasscodeStateProtocol {
+    switch state {
     case .enter:
       return EnterPasscodeState(title: Localized.passcodeEnterTitle())
     case .set:
@@ -26,4 +29,5 @@ enum PasscodeState {
       return EnterPasscodeState(allowCancellation: true, title: Localized.welcomeRestoreTitle())
     }
   }
+  
 }

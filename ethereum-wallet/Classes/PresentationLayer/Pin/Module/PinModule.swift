@@ -13,20 +13,21 @@ class PinModule {
     let presenter = PinPresenter()
     let interactor = PinInteractor()
     let viewController = R.storyboard.pin.pinViewController()!
-
-    var passcodeService = PasscodeServiceFactory.create(with: passcodeState)
-    passcodeService.delegate = presenter
-    interactor.passcodeService = passcodeService
     
-    let postProcess = PasscodePostProcessFactory(passcodeState: passcodeState, keychainService: KeystoreService(), walletDataStoreService: WalletDataStoreService())
-    interactor.passcodePostProcess = postProcess.create()
-
     interactor.output = presenter
     viewController.output = presenter
-
+    
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    
+    // MARK: Injection
+
+    let passcodeService = PasscodeServiceFactory.create(with: passcodeState, delegate: presenter)
+    interactor.passcodeService = passcodeService
+    
+    let postProcessFactory = PasscodePostProcessFactory(keychainService: KeystoreService(), walletDataStoreService: WalletDataStoreService())
+    interactor.passcodePostProcess = postProcessFactory.create(with: passcodeState)
         
     return presenter
   }

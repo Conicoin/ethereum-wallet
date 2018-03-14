@@ -9,6 +9,5 @@
 import UIKit
 
 protocol PasscodePostProcessProtocol {
-  var onSuccess: () -> Void { get }
   func perform(with passphrase: String) throws
 }

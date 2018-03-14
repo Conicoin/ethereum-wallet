@@ -10,14 +10,8 @@ import UIKit
 
 class PasscodeEnterPostProcess: PasscodePostProcessProtocol {
   
-  let onSuccess: () -> Void
-  
-  init(onSuccess: @escaping () -> Void) {
-    self.onSuccess = onSuccess
-  }
-  
   func perform(with passphrase: String) throws {
-    onSuccess()
+
   }
   
 }

@@ -92,29 +92,19 @@
 // MARK: ChooseCurrency
 "chooseCurrency.header" = "Currency";
 
-
 // MARK: Passcode
-
-/* Enter Passcode State */
 "passcode.enterTitle" = "Enter Passcode";
-
-/* Restore Passcode State */
 "passcode.restoreTitle" = "Enter your passcode\nto restore account";
-
-/* Set Passcode State */
 "passcode.setTitle" = "Create a passcode\nfor your  Conicoin account";
-
-/* Confirm Passcode State */
 "passcode.confirmTitle" = "Repeat a passcode";
-
-/* Change Passcode State */
 "passcode.changeTitle" = "Enter Old Passcode";
-
-/* Passcode Mismatch State */
 "passcode.mismatchTitle" = "Try again";
-
-/* Touch ID Reason */
 "passcode.touchIDReason" = "Authentication required to proceed";
-
-/* Touch ID Fallback Button */
 "passcode.touchIDButton" = "Enter Passcode";
+
+// MARK: Popup
+"popup.notNow" = "Not now";
+"popup.touch.title" = "Unlock Conicoin with Touch ID";
+"popup.touch.description" = "Use your Touch ID for quick and easy entry.";
+"popup.touch.confirm" = "Use Touch ID";
+

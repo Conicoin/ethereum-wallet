@@ -102,6 +102,9 @@ extension BalanceViewController: UICollectionViewDataSource, UICollectionViewDel
   }
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    // TODO: Disable taping on hint cell
+    
     if indexPath.section == 0 {
       output.didSelectCoin(at: indexPath.row)
     } else {
