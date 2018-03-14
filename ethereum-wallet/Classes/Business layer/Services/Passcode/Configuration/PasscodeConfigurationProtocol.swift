@@ -20,7 +20,7 @@ protocol PasscodeConfigurationProtocol {
     
     var repository: PasscodeRepositoryProtocol { get }
     var passcodeLength: Int { get }
-    var isTouchIDAllowed: Bool { get set }
+    var isTouchIDAllowed: Bool { get }
     var shouldRequestTouchIDImmediately: Bool { get }
     var maximumInccorectPasscodeAttempts: Int { get }
 }

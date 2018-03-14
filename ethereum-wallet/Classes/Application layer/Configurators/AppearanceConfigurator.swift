@@ -20,9 +20,13 @@ import UIKit
 class AppearanceConfigurator: ConfiguratorProtocol {
   
   func configure() {
-    let back = UIImage(named: "BackIcon")?.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: -2, right: 0))
-    UINavigationBar.appearance().backIndicatorImage = back
-    UINavigationBar.appearance().backIndicatorTransitionMaskImage = back
+    let back = UIImage(named: "BackIcon")
+    
+    UIBarButtonItem.appearance().setBackButtonBackgroundImage(back, for: .normal, barMetrics: .defaultPrompt)
+    
+//
+//    UINavigationBar.appearance().backIndicatorImage = back
+//    UINavigationBar.appearance().backIndicatorTransitionMaskImage = back
     UINavigationBar.appearance().isTranslucent = true
     UINavigationBar.appearance().barTintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.Color.black]

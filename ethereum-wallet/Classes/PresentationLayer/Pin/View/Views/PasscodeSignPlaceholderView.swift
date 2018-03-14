@@ -58,19 +58,7 @@ class PasscodeSignPlaceholderView: UIView {
   
   func animateState(_ state: State) {
     let colors = colorsForState(state)
-    UIView.animate(
-      withDuration: 0.5,
-      delay: 0,
-      usingSpringWithDamping: 1,
-      initialSpringVelocity: 0,
-      options: [],
-      animations: {
-        
-        self.backgroundColor = colors.backgroundColor
-        self.layer.borderColor = colors.borderColor.cgColor
-        
-    },
-      completion: nil
-    )
+    backgroundColor = colors.backgroundColor
+    layer.borderColor = colors.borderColor.cgColor
   }
 }

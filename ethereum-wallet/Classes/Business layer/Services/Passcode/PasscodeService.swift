@@ -19,68 +19,72 @@ import Foundation
 import LocalAuthentication
 
 class PasscodeService: PasscodeServiceProtocol {
+  
+  weak var delegate: PasscodeServiceDelegate?
+  
+  let configuration: PasscodeConfigurationProtocol
+  let repository: PasscodeRepositoryProtocol
+  var lockState: PasscodeStateProtocol
+  
+  private lazy var passcode = [String]()
+  
+  init(state: PasscodeStateProtocol, configuration: PasscodeConfigurationProtocol) {
+    precondition(configuration.passcodeLength > 0, "Passcode length sould be greather than zero.")
+    self.lockState = state
+    self.configuration = configuration
+    self.repository = configuration.repository
+  }
+  
+  var isTouchIDAllowed: Bool {
+    return isTouchIDEnabled() && configuration.isTouchIDAllowed && lockState.isTouchIDAllowed
+  }
+  
+  func addSign(_ sign: String) {
+    passcode.append(sign)
+    delegate?.passcodeLock(self, addedSignAtIndex: passcode.count - 1)
     
-    weak var delegate: PasscodeServiceDelegate?
-    
-    let configuration: PasscodeConfigurationProtocol
-    let repository: PasscodeRepositoryProtocol
-    var lockState: PasscodeStateProtocol
-    
-    private lazy var passcode = [String]()
-    
-    init(state: PasscodeStateProtocol, configuration: PasscodeConfigurationProtocol) {
-        precondition(configuration.passcodeLength > 0, "Passcode length sould be greather than zero.")
-        self.lockState = state
-        self.configuration = configuration
-        self.repository = configuration.repository
+    let deadlineTime = DispatchTime.now() + .milliseconds(200)
+    DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+      if self.passcode.count >= self.configuration.passcodeLength {
+        self.lockState.acceptPasscode(self.passcode, fromLock: self)
+        self.passcode.removeAll(keepingCapacity: true)
+      }
     }
-    
-    var isTouchIDAllowed: Bool {
-        return isTouchIDEnabled() && configuration.isTouchIDAllowed && lockState.isTouchIDAllowed
+  }
+  
+  func removeSign() {
+    guard passcode.count > 0 else { return }
+    passcode.removeLast()
+    delegate?.passcodeLock(self, removedSignAtIndex: passcode.count)
+  }
+  
+  func changeStateTo(_ state: PasscodeStateProtocol) {
+    lockState = state
+    delegate?.passcodeLockDidChangeState(self)
+  }
+  
+  func authenticateWithBiometrics() {
+    guard isTouchIDAllowed else { return }
+    let context = LAContext()
+    let reason = Localized.passcodeTouchIDButton()
+    context.localizedFallbackTitle = Localized.passcodeTouchIDButton()
+    context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+      success, error in
+      self.handleTouchIDResult(success)
     }
-    
-    func addSign(_ sign: String) {
-        passcode.append(sign)
-        delegate?.passcodeLock(self, addedSignAtIndex: passcode.count - 1)
-        if passcode.count >= configuration.passcodeLength {
-            lockState.acceptPasscode(passcode, fromLock: self)
-            passcode.removeAll(keepingCapacity: true)
-        }
+  }
+  
+  private func handleTouchIDResult(_ success: Bool) {
+    DispatchQueue.main.async {
+      if success {
+        self.delegate?.passcodeLockDidSucceed(self)
+      }
     }
-    
-    func removeSign() {
-        guard passcode.count > 0 else { return }
-        passcode.removeLast()
-        delegate?.passcodeLock(self, removedSignAtIndex: passcode.count)
-    }
-    
-    func changeStateTo(_ state: PasscodeStateProtocol) {
-        lockState = state
-        delegate?.passcodeLockDidChangeState(self)
-    }
-    
-    func authenticateWithBiometrics() {
-        guard isTouchIDAllowed else { return }
-        let context = LAContext()
-        let reason = Localized.passcodeTouchIDButton()
-        context.localizedFallbackTitle = Localized.passcodeTouchIDButton()
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
-            success, error in
-            self.handleTouchIDResult(success)
-        }
-    }
-    
-    private func handleTouchIDResult(_ success: Bool) {
-        DispatchQueue.main.async {
-            if success {
-                self.delegate?.passcodeLockDidSucceed(self)
-            }
-        }
-    }
-    
-    private func isTouchIDEnabled() -> Bool {
-        let context = LAContext()
-        return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
-    }
+  }
+  
+  private func isTouchIDEnabled() -> Bool {
+    let context = LAContext()
+    return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+  }
 }
 

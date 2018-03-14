@@ -18,27 +18,29 @@
 import Foundation
 
 struct ConfirmPasscodeState: PasscodeStateProtocol {
-    
-    let title: String
-    let isCancellableAction = true
-    var isTouchIDAllowed = false
-    
-    private var passcodeToConfirm: [String]
-    
-    init(passcode: [String]) {
-        passcodeToConfirm = passcode
-        title = Localized.passcodeConfirmTitle()
+  
+  let title: String
+  let isCancellableAction: Bool
+  let isTouchIDAllowed: Bool
+  
+  private var passcodeToConfirm: [String]
+  
+  init(passcode: [String]) {
+    self.passcodeToConfirm = passcode
+    self.title = Localized.passcodeConfirmTitle()
+    self.isCancellableAction = true
+    self.isTouchIDAllowed = false
+  }
+  
+  func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {
+    if passcode == passcodeToConfirm {
+      lock.repository.savePasscode(passcode)
+      lock.delegate?.passcodeLockDidSucceed(lock)
+    } else {
+      let mismatchTitle = Localized.passcodeMismatchTitle()
+      let nextState = SetPasscodeState(title: mismatchTitle)
+      lock.changeStateTo(nextState)
+      lock.delegate?.passcodeLockDidFail(lock)
     }
-    
-    func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {
-        if passcode == passcodeToConfirm {
-            lock.repository.savePasscode(passcode)
-            lock.delegate?.passcodeLockDidSucceed(lock)
-        } else {
-            let mismatchTitle = Localized.passcodeMismatchTitle()
-            let nextState = SetPasscodeState(title: mismatchTitle)
-            lock.changeStateTo(nextState)
-            lock.delegate?.passcodeLockDidFail(lock)
-        }
-    }
+  }
 }

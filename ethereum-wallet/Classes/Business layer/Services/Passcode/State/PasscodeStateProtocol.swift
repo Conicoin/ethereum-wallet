@@ -25,9 +25,9 @@ enum PasscodeState {
 
 protocol PasscodeStateProtocol {
   
-    var title: String {get}
-    var isCancellableAction: Bool {get}
-    var isTouchIDAllowed: Bool {get}
+    var title: String { get }
+    var isCancellableAction: Bool { get }
+    var isTouchIDAllowed: Bool { get }
     
     mutating func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol)
 }

@@ -105,3 +105,18 @@ enum SendCheckoutError: CustomError {
   }
   
 }
+
+// MARK: - TouchId errors
+
+enum TouchIdError: CustomError {
+  
+  case error(error: NSError?)
+  
+  var description: ErrorInfo? {
+    switch self {
+    case .error(let error):
+      return (Localized.touchIdErrorTitle(), error?.touchIdMessage(), true)
+    }
+  }
+  
+}

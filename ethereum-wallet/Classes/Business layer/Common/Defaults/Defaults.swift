@@ -51,6 +51,17 @@ final class Defaults: NSObject {
     }
   }
   
+  
+  class var isTouchIDAllowed: Bool {
+    get {
+      return getBool(forKey: .isTouchIDAllowed)
+    }
+    
+    set {
+      set(value: newValue, forKey: .isTouchIDAllowed)
+    }
+  }
+  
   class func deleteAll() {
     for key in Keys.allValues {
       UserDefaults.standard.removeObject(forKey: key.rawValue)
@@ -64,6 +75,7 @@ private extension Defaults {
     case chain = "chainKey"
     case mode = "syncMode"
     case isWalletCreated = "isWalletCreated"
+    case isTouchIDAllowed = "isTouchIDAllowed"
   }
   
   static func set<T: Any>(value: T, forKey key: Keys) {

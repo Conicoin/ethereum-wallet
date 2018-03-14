@@ -6,9 +6,9 @@
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import Alamofire
 
 protocol PopupPostProcessProtocol {
-  func onConfirm()
-  func onSkip()
+  func onConfirm(_ completion: (Result<Bool>) -> Void)
 }

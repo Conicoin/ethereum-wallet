@@ -6,7 +6,7 @@ target 'ethereum-wallet' do
   
   # Pods for ethereum-wallet
   pod 'R.swift'
-  pod 'Geth'
+  pod 'Geth', '~> 1.7.3'
   pod 'RealmSwift'
   pod 'AlamofireObjectMapper'
   pod 'PKHUD'

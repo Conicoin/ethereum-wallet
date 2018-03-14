@@ -6,22 +6,21 @@
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import LocalAuthentication
+import Alamofire
 
 class PopupTouchPostProcess: PopupPostProcessProtocol {
   
-  let state: PopupState
-  
-  init(state: PopupState) {
-    self.state = state
+  func onConfirm(_ completion: (Result<Bool>) -> Void) {
+    let context = LAContext()
+    var error: NSError?
+    let isSuccess = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+    if isSuccess {
+        completion(.success(true))
+    } else {
+        completion(.failure(TouchIdError.error(error: error)))
+    }
   }
-  
-  func onConfirm() {
-    
-  }
-  
-  func onSkip() {
-    
-  }
-  
+
 }

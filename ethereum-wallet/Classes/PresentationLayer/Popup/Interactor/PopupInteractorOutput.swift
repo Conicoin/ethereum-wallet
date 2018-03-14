@@ -10,5 +10,6 @@ import Foundation
 
 
 protocol PopupInteractorOutput: class {
-
+  func postProcessDidSucced()
+  func didFailed(with error: Error)
 }

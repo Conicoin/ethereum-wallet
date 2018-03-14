@@ -21,16 +21,17 @@ public let PasscodeLockIncorrectPasscodeNotification = "passcode.lock.incorrect.
 
 struct EnterPasscodeState: PasscodeStateProtocol {
   
-  var title: String
+  let title: String
   let isCancellableAction: Bool
-  var isTouchIDAllowed = true
+  let isTouchIDAllowed: Bool
   
   private var inccorectPasscodeAttempts = 0
   private var isNotificationSent = false
   
   init(allowCancellation: Bool = false, title: String) {
-    isCancellableAction = allowCancellation
     self.title = title
+    self.isTouchIDAllowed = true
+    self.isCancellableAction = allowCancellation
   }
   
   mutating func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {

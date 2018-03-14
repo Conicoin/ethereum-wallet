@@ -59,6 +59,8 @@
 		1414E70820589B4A0080680E /* PopupStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E70720589B4A0080680E /* PopupStateFactory.swift */; };
 		1414E70B20589FC90080680E /* PopupPostProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E70A20589FC90080680E /* PopupPostProcessProtocol.swift */; };
 		1414E70D2058A0350080680E /* PopupTouchPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E70C2058A0350080680E /* PopupTouchPostProcess.swift */; };
+		1414E71320594CD10080680E /* PopupPostProcessFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E71220594CD10080680E /* PopupPostProcessFactory.swift */; };
+		1414E7162059584F0080680E /* NSError+LAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E7152059584F0080680E /* NSError+LAError.swift */; };
 		141749D11FD9B91A00AD5F07 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141749D01FD9B91A00AD5F07 /* Loading.swift */; };
 		141CCF2A1FF424E900CA4176 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141CCF291FF424E900CA4176 /* EnumCollection.swift */; };
 		142730FA1FB8CF0F00ED9968 /* QRCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */; };
@@ -414,6 +416,8 @@
 		1414E70720589B4A0080680E /* PopupStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupStateFactory.swift; sourceTree = "<group>"; };
 		1414E70A20589FC90080680E /* PopupPostProcessProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPostProcessProtocol.swift; sourceTree = "<group>"; };
 		1414E70C2058A0350080680E /* PopupTouchPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTouchPostProcess.swift; sourceTree = "<group>"; };
+		1414E71220594CD10080680E /* PopupPostProcessFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPostProcessFactory.swift; sourceTree = "<group>"; };
+		1414E7152059584F0080680E /* NSError+LAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+LAError.swift"; sourceTree = "<group>"; };
 		141749D01FD9B91A00AD5F07 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		141CCF291FF424E900CA4176 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCaptureService.swift; sourceTree = "<group>"; };
@@ -862,6 +866,7 @@
 		1414E70920589FA80080680E /* PostProcess */ = {
 			isa = PBXGroup;
 			children = (
+				1414E71220594CD10080680E /* PopupPostProcessFactory.swift */,
 				1414E70A20589FC90080680E /* PopupPostProcessProtocol.swift */,
 				1414E70C2058A0350080680E /* PopupTouchPostProcess.swift */,
 			);
@@ -918,6 +923,7 @@
 				1409C1341FE877FD00803E78 /* UICollectionView+Sugar.swift */,
 				144102DD20541A0700F4D192 /* UIImage+Helpers.swift */,
 				14991DA0205733410046E6CD /* UIView+Helpers.swift */,
+				1414E7152059584F0080680E /* NSError+LAError.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2861,6 +2867,7 @@
 				A85C249674FC58464027178A /* ReceiveInteractor.swift in Sources */,
 				2EBD9E3202AC8101D58D7C85 /* ReceiveRouterInput.swift in Sources */,
 				14046CE3201E9A14007BD203 /* HintCell.swift in Sources */,
+				1414E7162059584F0080680E /* NSError+LAError.swift in Sources */,
 				390495A9595407CFB451A82F /* ReceiveRouter.swift in Sources */,
 				14991D7B205699840046E6CD /* ChangePasscodeState.swift in Sources */,
 				F9250D5B1071EF6CC9B3AC6C /* ReceiveModuleInput.swift in Sources */,
@@ -2913,6 +2920,7 @@
 				7E2F0AB3A7935A35ECFA8392 /* ChooseCurrencyModuleOutput.swift in Sources */,
 				E0FDE68F274BCCEE3F683D9C /* ChooseCurrencyModule.swift in Sources */,
 				14D518901FE087E600A4FB94 /* TokenDataStoreService.swift in Sources */,
+				1414E71320594CD10080680E /* PopupPostProcessFactory.swift in Sources */,
 				0BF2BD416F2B8B3855FCE4C8 /* TokenDetailsViewInput.swift in Sources */,
 				D51AC86AE75F00189D49E912 /* TokenDetailsViewOutput.swift in Sources */,
 				A6A1313DF360EB259B2506E2 /* TokenDetailsViewController.swift in Sources */,

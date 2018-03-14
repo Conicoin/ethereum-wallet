@@ -9,21 +9,23 @@
 import Foundation
 
 struct SetPasscodeState: PasscodeStateProtocol {
-    
-    let title: String
-    let isCancellableAction = true
-    var isTouchIDAllowed = false
-    
-    init(title: String) {
-        self.title = title
-    }
-    
-    init() {
-        title = Localized.passcodeSetTitle()
-    }
-    
-    func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {
-        let nextState = ConfirmPasscodeState(passcode: passcode)
-        lock.changeStateTo(nextState)
-    }
+  
+  let title: String
+  let isCancellableAction: Bool
+  let isTouchIDAllowed: Bool
+  
+  init(title: String) {
+    self.title = title
+    self.isCancellableAction = true
+    self.isTouchIDAllowed = false
+  }
+  
+  init() {
+    self.init(title: Localized.passcodeSetTitle())
+  }
+  
+  func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {
+    let nextState = ConfirmPasscodeState(passcode: passcode)
+    lock.changeStateTo(nextState)
+  }
 }

@@ -73,11 +73,8 @@ extension PinPresenter: PasscodeServiceDelegate {
  
   func passcodeLockDidSucceed(_ lock: PasscodeServiceProtocol) {
     view.didSucceed()
-    let deadlineTime = DispatchTime.now() + .milliseconds(300)
-    DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-      self.interactor.performPostProcess()
-      self.onSuccess(self.view.viewController)
-    }
+    interactor.performPostProcess()
+    onSuccess(self.view.viewController)
   }
   
   func passcodeLockDidFail(_ lock: PasscodeServiceProtocol) {

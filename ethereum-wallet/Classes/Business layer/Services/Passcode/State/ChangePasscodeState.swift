@@ -18,24 +18,26 @@
 import Foundation
 
 struct ChangePasscodeState: PasscodeStateProtocol {
-    
-    let title: String
-    let isCancellableAction = true
-    var isTouchIDAllowed = false
-    
-    init() {
-        title = Localized.passcodeChangeTitle()
+  
+  let title: String
+  let isCancellableAction: Bool
+  let isTouchIDAllowed: Bool
+  
+  init() {
+    self.title = Localized.passcodeChangeTitle()
+    self.isCancellableAction = true
+    self.isTouchIDAllowed = false
+  }
+  
+  func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {
+    guard let currentPasscode = lock.repository.passcode else {
+      return
     }
-    
-    func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {
-        guard let currentPasscode = lock.repository.passcode else {
-            return
-        }
-        if passcode == currentPasscode {
-            let nextState = SetPasscodeState()
-            lock.changeStateTo(nextState)
-        } else {
-            lock.delegate?.passcodeLockDidFail(lock)
-        }
+    if passcode == currentPasscode {
+      let nextState = SetPasscodeState()
+      lock.changeStateTo(nextState)
+    } else {
+      lock.delegate?.passcodeLockDidFail(lock)
     }
+  }
 }

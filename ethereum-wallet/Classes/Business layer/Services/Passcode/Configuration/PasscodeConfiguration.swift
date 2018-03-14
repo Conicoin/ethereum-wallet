@@ -11,13 +11,17 @@ import UIKit
 class PasscodeConfiguration: PasscodeConfigurationProtocol {
   
   let repository: PasscodeRepositoryProtocol
-  let passcodeLength = 6
-  let shouldRequestTouchIDImmediately = false
-  let maximumInccorectPasscodeAttempts = 5
-  var isTouchIDAllowed = true
+  let passcodeLength: Int
+  let shouldRequestTouchIDImmediately: Bool
+  let maximumInccorectPasscodeAttempts: Int
+  let isTouchIDAllowed: Bool
   
   init(repository: PasscodeRepositoryProtocol) {
     self.repository = repository
+    self.passcodeLength = 6
+    self.shouldRequestTouchIDImmediately = false
+    self.maximumInccorectPasscodeAttempts = 5
+    self.isTouchIDAllowed = Defaults.isTouchIDAllowed
   }
 
 }

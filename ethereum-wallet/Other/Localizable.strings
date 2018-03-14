@@ -108,3 +108,6 @@
 "popup.touch.description" = "Use your Touch ID for quick and easy entry.";
 "popup.touch.confirm" = "Use Touch ID";
 
+// MARK: TouchId
+"touchId.error.title" = "Touch ID error";
+

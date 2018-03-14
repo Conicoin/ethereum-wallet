@@ -24,6 +24,7 @@ class PopupModule {
     
     // MARK: Injection
     presenter.popupState = PopupStateFactory(state: popupState).create()
+    interactor.postProcess = PopupPostProcessFactory(state: popupState).create()
         
     return presenter
   }

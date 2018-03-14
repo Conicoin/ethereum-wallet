@@ -10,5 +10,5 @@ import Foundation
 
 
 protocol PopupInteractorInput: class {
-
+  func executePostProcess()
 }

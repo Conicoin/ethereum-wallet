@@ -32,7 +32,7 @@ extension PopupPresenter: PopupViewOutput {
   }
   
   func didConfirmPressed() {
-    completion(view.viewController)
+    interactor.executePostProcess()
   }
   
   func didSkipPressed() {
@@ -45,6 +45,13 @@ extension PopupPresenter: PopupViewOutput {
 // MARK: - PopupInteractorOutput
 
 extension PopupPresenter: PopupInteractorOutput {
+  func postProcessDidSucced() {
+    completion(view.viewController)
+  }
+  
+  func didFailed(with error: Error) {
+    error.showAllertIfNeeded(from: view.viewController)
+  }
 
 }
 
