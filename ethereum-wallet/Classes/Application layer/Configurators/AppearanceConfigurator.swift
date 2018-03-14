@@ -23,10 +23,6 @@ class AppearanceConfigurator: ConfiguratorProtocol {
     let back = UIImage(named: "BackIcon")
     
     UIBarButtonItem.appearance().setBackButtonBackgroundImage(back, for: .normal, barMetrics: .defaultPrompt)
-    
-//
-//    UINavigationBar.appearance().backIndicatorImage = back
-//    UINavigationBar.appearance().backIndicatorTransitionMaskImage = back
     UINavigationBar.appearance().isTranslucent = true
     UINavigationBar.appearance().barTintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.Color.black]
