@@ -109,9 +109,8 @@ extension BalanceInteractor: BalanceInteractorInput {
       switch result {
       case .success(let tokens):
         self.tokensDataStoreService.save(tokens)
-      case .failure:
-        break
-//        self.output.didFailedWalletReceiving(with: error)
+      case .failure(let error):
+        self.output.didFailedTokensReceiving(with: error)
       }
     }
     

@@ -17,14 +17,14 @@
 
 import UIKit
 
-class CoinBackgroundView: UIView {
+class TokenBackgroundView: UIView {
   
   override func layoutSubviews() {
-    layer.cornerRadius = 14
+    layer.cornerRadius = 8
     layer.shadowColor = UIColor.black.cgColor
-    layer.shadowOffset = CGSize(width: 0, height: 14)
-    layer.shadowOpacity = 0.15
-    layer.shadowRadius = 23
+    layer.shadowOffset = CGSize(width: 0, height: 5)
+    layer.shadowOpacity = 0.08
+    layer.shadowRadius = 30
     layer.masksToBounds =  false
   }
         

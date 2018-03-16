@@ -23,4 +23,5 @@ protocol BalanceInteractorOutput: class {
   func didReceiveCoins(_ coins: [Coin])
   func didReceiveTokens(_ tokens: [Token])
   func didFailedWalletReceiving(with error: Error)
+  func didFailedTokensReceiving(with error: Error)
 }

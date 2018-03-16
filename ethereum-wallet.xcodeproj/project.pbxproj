@@ -61,6 +61,7 @@
 		1414E70D2058A0350080680E /* PopupTouchPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E70C2058A0350080680E /* PopupTouchPostProcess.swift */; };
 		1414E71320594CD10080680E /* PopupPostProcessFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E71220594CD10080680E /* PopupPostProcessFactory.swift */; };
 		1414E7162059584F0080680E /* NSError+LAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E7152059584F0080680E /* NSError+LAError.swift */; };
+		1414E7192059A9F50080680E /* TokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E7182059A9F50080680E /* TokenCell.swift */; };
 		141749D11FD9B91A00AD5F07 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141749D01FD9B91A00AD5F07 /* Loading.swift */; };
 		141CCF2A1FF424E900CA4176 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141CCF291FF424E900CA4176 /* EnumCollection.swift */; };
 		142730FA1FB8CF0F00ED9968 /* QRCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */; };
@@ -125,7 +126,7 @@
 		14786EE9201E7980009ECC11 /* RealmTokenMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EE8201E7980009ECC11 /* RealmTokenMeta.swift */; };
 		14786EEB201E7A1C009ECC11 /* TokenMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EEA201E7A1C009ECC11 /* TokenMeta.swift */; };
 		1481ADD11FDDD02D00A5AC88 /* CoinHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481ADD01FDDD02D00A5AC88 /* CoinHeader.swift */; };
-		1481ADD31FDDD53600A5AC88 /* CoinBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481ADD21FDDD53600A5AC88 /* CoinBackgroundView.swift */; };
+		1481ADD31FDDD53600A5AC88 /* TokenBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481ADD21FDDD53600A5AC88 /* TokenBackgroundView.swift */; };
 		1489ED1D1F9C0EE800E0A5FC /* Data+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1489ED1C1F9C0EE800E0A5FC /* Data+Helpers.swift */; };
 		1491C51644B2B62A7D3E4391 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921BF13B4F6C6C76E2CF74EC /* PasswordViewController.swift */; };
 		14958E4B1FB7A4D3005CFC6C /* Decimal+Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */; };
@@ -418,6 +419,7 @@
 		1414E70C2058A0350080680E /* PopupTouchPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTouchPostProcess.swift; sourceTree = "<group>"; };
 		1414E71220594CD10080680E /* PopupPostProcessFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPostProcessFactory.swift; sourceTree = "<group>"; };
 		1414E7152059584F0080680E /* NSError+LAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+LAError.swift"; sourceTree = "<group>"; };
+		1414E7182059A9F50080680E /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
 		141749D01FD9B91A00AD5F07 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		141CCF291FF424E900CA4176 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCaptureService.swift; sourceTree = "<group>"; };
@@ -484,7 +486,7 @@
 		14786EE8201E7980009ECC11 /* RealmTokenMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTokenMeta.swift; sourceTree = "<group>"; };
 		14786EEA201E7A1C009ECC11 /* TokenMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenMeta.swift; sourceTree = "<group>"; };
 		1481ADD01FDDD02D00A5AC88 /* CoinHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinHeader.swift; sourceTree = "<group>"; };
-		1481ADD21FDDD53600A5AC88 /* CoinBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinBackgroundView.swift; sourceTree = "<group>"; };
+		1481ADD21FDDD53600A5AC88 /* TokenBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenBackgroundView.swift; sourceTree = "<group>"; };
 		1489ED1C1F9C0EE800E0A5FC /* Data+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Helpers.swift"; sourceTree = "<group>"; };
 		14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Ethereum.swift"; sourceTree = "<group>"; };
 		14991D732056943A0046E6CD /* PasscodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeService.swift; sourceTree = "<group>"; };
@@ -871,6 +873,14 @@
 				1414E70C2058A0350080680E /* PopupTouchPostProcess.swift */,
 			);
 			path = PostProcess;
+			sourceTree = "<group>";
+		};
+		1414E7172059A9D10080680E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1414E7182059A9F50080680E /* TokenCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		1416FA5A1FB6FC2D0053D12C /* Ethereum */ = {
@@ -1387,20 +1397,20 @@
 				144102D12053FDEE00F4D192 /* conicoin */,
 				14313CAE1FB0B045003AEB0C /* LightShadowView.swift */,
 				141749D01FD9B91A00AD5F07 /* Loading.swift */,
-				1481ADD21FDDD53600A5AC88 /* CoinBackgroundView.swift */,
+				1481ADD21FDDD53600A5AC88 /* TokenBackgroundView.swift */,
 				14280E6E1FE1F6F900121F85 /* BigTokenIconImageView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
-		14BE0A711FAF9B440044E3A1 /* Cells */ = {
+		14BE0A711FAF9B440044E3A1 /* OldCells */ = {
 			isa = PBXGroup;
 			children = (
 				14BE0A721FAF9B600044E3A1 /* CoinCell.swift */,
 				1481ADD01FDDD02D00A5AC88 /* CoinHeader.swift */,
 				14046CE2201E9A14007BD203 /* HintCell.swift */,
 			);
-			path = Cells;
+			path = OldCells;
 			sourceTree = "<group>";
 		};
 		14BE0A771FAFDC990044E3A1 /* Coin */ = {
@@ -1939,7 +1949,8 @@
 		7B36BFEF2D268AA30A054256 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				14BE0A711FAF9B440044E3A1 /* Cells */,
+				1414E7172059A9D10080680E /* Cells */,
+				14BE0A711FAF9B440044E3A1 /* OldCells */,
 				67BD8CAD9C02AE0DE1C3E117 /* BalanceViewInput.swift */,
 				D31E63BCAF4ACBEF755C1079 /* BalanceViewOutput.swift */,
 				A2454C178684434DB69F1710 /* BalanceViewController.swift */,
@@ -2801,7 +2812,7 @@
 				CD31E119F20960A64CAC1037 /* BalanceInteractorInput.swift in Sources */,
 				9B90C7A4AB8DB3F5BB924967 /* BalanceInteractorOutput.swift in Sources */,
 				60FFB8EADF46EEDFD856D972 /* BalanceInteractor.swift in Sources */,
-				1481ADD31FDDD53600A5AC88 /* CoinBackgroundView.swift in Sources */,
+				1481ADD31FDDD53600A5AC88 /* TokenBackgroundView.swift in Sources */,
 				4BDC1B70EB35E47E9013F38D /* BalanceRouterInput.swift in Sources */,
 				5A0948E0D8E920C4EB2F115B /* BalanceRouter.swift in Sources */,
 				05A0D283D3BEC593481A23E1 /* BalanceModuleInput.swift in Sources */,
@@ -2918,6 +2929,7 @@
 				71BAB3056DCC8788CB6C26AD /* ChooseCurrencyRouter.swift in Sources */,
 				2F6BE70AFE63B5CAF3477F3E /* ChooseCurrencyModuleInput.swift in Sources */,
 				7E2F0AB3A7935A35ECFA8392 /* ChooseCurrencyModuleOutput.swift in Sources */,
+				1414E7192059A9F50080680E /* TokenCell.swift in Sources */,
 				E0FDE68F274BCCEE3F683D9C /* ChooseCurrencyModule.swift in Sources */,
 				14D518901FE087E600A4FB94 /* TokenDataStoreService.swift in Sources */,
 				1414E71320594CD10080680E /* PopupPostProcessFactory.swift in Sources */,
