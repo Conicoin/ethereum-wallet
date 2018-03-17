@@ -22,8 +22,8 @@ class PasscodePostProcessFactory {
     switch state {
     case .set:
       return PasscodeNewPostProcess(keystoreService: keychainService, walletDataStoreService: walletDataStoreService)
-    case .restore:
-      return PasscodeRestorePostProcess(keystoreService: keychainService, walletDataStoreService: walletDataStoreService)
+    case .restore(let key):
+      return PasscodeRestorePostProcess(key: key, keystoreService: keychainService, walletDataStoreService: walletDataStoreService)
     case .enter:
       return PasscodeEnterPostProcess()
     case .change:

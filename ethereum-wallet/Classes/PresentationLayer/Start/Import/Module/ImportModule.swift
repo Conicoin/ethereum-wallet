@@ -20,20 +20,26 @@ import UIKit
 
 class ImportModule {
     
-  class func create() -> ImportModuleInput {
+  class func create(with state: ImportState) -> ImportModuleInput {
     let router = ImportRouter()
     let presenter = ImportPresenter()
     let interactor = ImportInteractor()
     let viewController = R.storyboard.import.importViewController()!
 
     interactor.output = presenter
-    interactor.keystore = KeystoreService()
 
     viewController.output = presenter
 
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    
+    // MARK: Injection
+    
+    let keystore = KeystoreService()
+    interactor.postProcess = ImportPostProcessFactory(state: state, keystore: keystore).create()
+    presenter.state = ImportStateFactory(state: state).create()
+    
         
     return presenter
   }

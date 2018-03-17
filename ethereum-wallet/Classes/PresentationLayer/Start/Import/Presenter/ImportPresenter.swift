@@ -24,6 +24,7 @@ class ImportPresenter {
   weak var output: ImportModuleOutput?
   var interactor: ImportInteractorInput!
   var router: ImportRouterInput!
+  var state: ImportStateProtocol!
     
 }
 
@@ -34,10 +35,11 @@ extension ImportPresenter: ImportViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
+    view.didReceiveState(state)
   }
   
-  func didConfirmJsonKey(_ jsonKey: String) {
-    interactor.importJsonKey(jsonKey)
+  func didConfirmKey(_ key: String) {
+    interactor.verifyKey(key)
   }
   
   func closeDidPressed() {
@@ -51,8 +53,9 @@ extension ImportPresenter: ImportViewOutput {
 
 extension ImportPresenter: ImportInteractorOutput {
   
-  func didConfirmValidJsonKey() {
-    router.presentPin(from: view.viewController)
+  func didConfirmValidKey(_ key: String) {
+    let keyData = key.data(using: .utf8)!
+    router.presentPin(from: view.viewController, key: keyData)
   }
   
   func didFailed(with error: Error) {

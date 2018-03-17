@@ -21,5 +21,5 @@ import UIKit
 protocol ImportViewOutput: class {
   func viewIsReady()
   func closeDidPressed()
-  func didConfirmJsonKey(_ jsonKey: String)
+  func didConfirmKey(_ key: String)
 }

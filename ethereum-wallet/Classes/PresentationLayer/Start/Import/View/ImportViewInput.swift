@@ -20,4 +20,5 @@ import UIKit
 
 protocol ImportViewInput: class, Presentable {
   func setupInitialState()
+  func didReceiveState(_ state: ImportStateProtocol)
 }

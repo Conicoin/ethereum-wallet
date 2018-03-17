@@ -43,7 +43,6 @@ class ImportViewController: UIViewController {
   
   private func localize() {
     titleLabel.text = Localized.importTitle()
-    inputTextView.placeholder = Localized.importJsonTitle()
     icloudButton.setTitle(Localized.importIcloudTitle(), for: .normal)
     confirmButton.setTitle(Localized.importConfirmTitle(), for: .normal)
   }
@@ -74,7 +73,7 @@ class ImportViewController: UIViewController {
   }
   
   @IBAction func confirmPressed(_ sender: UIButton) {
-    output.didConfirmJsonKey(inputTextView.textField.text!)
+    output.didConfirmKey(inputTextView.textField.text!)
   }
   
 }
@@ -86,6 +85,11 @@ extension ImportViewController: ImportViewInput {
     
   func setupInitialState() {
 
+  }
+  
+  func didReceiveState(_ state: ImportStateProtocol) {
+    inputTextView.placeholder = state.placeholder
+    icloudButton.isHidden = !state.iCloudImportEnabled
   }
 
 }
@@ -114,7 +118,7 @@ extension ImportViewController: UIDocumentPickerDelegate {
   
   func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
     if let url = urls.first, let text = try? String(contentsOfFile: url.path) {
-      output.didConfirmJsonKey(text)
+      output.didConfirmKey(text)
     }
   }
   

@@ -12,16 +12,18 @@ class PasscodeRestorePostProcess: PasscodePostProcessProtocol {
   
   let keystoreService: KeystoreServiceProtocol
   let walletDataStoreService: WalletDataStoreServiceProtocol
+  let key: Data
   
-  init(keystoreService: KeystoreServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
+  init(key: Data, keystoreService: KeystoreServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
+    self.key = key
     self.keystoreService = keystoreService
     self.walletDataStoreService = walletDataStoreService
   }
   
   func perform(with passphrase: String) throws {
+    let account = try keystoreService.restoreAccount(with: key, passphrase: passphrase)
     let keychain = Keychain()
-    let jsonKey = try keychain.getJsonKey()
-    let account = try keystoreService.restoreAccount(with: jsonKey, passphrase: passphrase)
+    keychain.jsonKey = key
     keychain.passphrase = passphrase
     let address = account.getAddress().getHex()!
     walletDataStoreService.createWallet(address: address)

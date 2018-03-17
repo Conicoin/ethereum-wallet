@@ -20,6 +20,6 @@ import UIKit
 
 protocol WelcomeRouterInput: class {
   func presentPinNew(from viewController: UIViewController)
-  func presentPinRestore(from viewController: UIViewController)
+  func presentPinRestore(from viewController: UIViewController, key: Data)
   func presentImport(from viewController: UIViewController)
 }

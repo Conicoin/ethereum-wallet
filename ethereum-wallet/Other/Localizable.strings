@@ -27,6 +27,7 @@
 // MARK: - Import
 "import.title" = "Import wallet";
 "import.json.title" = "Enter JSON Key";
+"import.private.title" = "Enter private key";
 "import.icloud.title" = "Import from iCloud";
 "import.confirm.title" = "Confirm";
 

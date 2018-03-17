@@ -27,8 +27,8 @@ class ImportRouter {
 
 extension ImportRouter: ImportRouterInput {
   
-  func presentPin(from viewController: UIViewController) {
-    PinModule.create(.restore).present(from: viewController) { vc in
+  func presentPin(from viewController: UIViewController, key: Data) {
+    PinModule.create(.restore(key: key)).present(from: viewController) { vc in
       PopupModule.create(.touchId).present(from: vc) { _ in
         TabBarModule.create(isSecureMode: false).present()
       }

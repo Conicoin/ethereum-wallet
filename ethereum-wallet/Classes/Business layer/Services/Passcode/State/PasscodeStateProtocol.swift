@@ -20,7 +20,7 @@ enum PasscodeState {
   case enter
   case set
   case change
-  case restore
+  case restore(key: Data)
 }
 
 protocol PasscodeStateProtocol {
