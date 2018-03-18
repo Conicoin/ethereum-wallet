@@ -1,5 +1,5 @@
 //
-//  PasscodeRepository.swift
+//  PinRepository.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 12/03/2018.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class PasscodeRepository: PasscodeRepositoryProtocol {
+class PinRepository: PinRepositoryProtocol {
   
-  var hasPasscode: Bool {
+  var hasPin: Bool {
     let keychain = Keychain()
     return keychain.passphrase != nil
   }
   
-  var passcode: [String]? {
+  var pin: [String]? {
     let keychain = Keychain()
     guard let passphrase = keychain.passphrase else {
       return nil
@@ -23,13 +23,13 @@ class PasscodeRepository: PasscodeRepositoryProtocol {
     return passphrase.map { String($0) }
   }
   
-  func savePasscode(_ passcode: [String]) {
-    let pin = passcode.joined()
+  func savePin(_ pin: [String]) {
+    let pin = pin.joined()
     let keychain = Keychain()
     keychain.passphrase = pin
   }
   
-  func deletePasscode() {
+  func deletePin() {
     let keychain = Keychain()
     keychain.passphrase = nil
   }

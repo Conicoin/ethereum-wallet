@@ -10,8 +10,8 @@ import Foundation
 
 
 protocol PinInteractorInput: class {
-  func getPasscodeInfo()
+  func getPinInfo()
   func didAddSign(_ sign: String)
   func didDeleteSign()
-  func performPostProcess(with passcode: [String])
+  func performPostProcess(with pin: [String])
 }

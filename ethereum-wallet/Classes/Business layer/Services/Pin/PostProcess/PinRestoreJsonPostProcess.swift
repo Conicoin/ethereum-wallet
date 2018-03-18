@@ -1,5 +1,5 @@
 //
-//  PasscodeRestoreJsonPostProcess.swift
+//  PinRestoreJsonPostProcess.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 13/03/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PasscodeRestoreJsonPostProcess: PasscodePostProcessProtocol {
+class PinRestoreJsonPostProcess: PinPostProcessProtocol {
   
   let keystoreService: KeystoreServiceProtocol
   let walletDataStoreService: WalletDataStoreServiceProtocol

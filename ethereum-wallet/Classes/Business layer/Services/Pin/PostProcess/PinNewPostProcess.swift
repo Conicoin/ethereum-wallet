@@ -1,5 +1,5 @@
 //
-//  PasscodeNewPostProcess.swift
+//  PinNewPostProcess.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 13/03/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PasscodeNewPostProcess: PasscodePostProcessProtocol {
+class PinNewPostProcess: PinPostProcessProtocol {
   
   let keystoreService: KeystoreServiceProtocol
   let walletDataStoreService: WalletDataStoreServiceProtocol

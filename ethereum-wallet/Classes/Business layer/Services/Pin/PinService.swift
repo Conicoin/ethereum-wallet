@@ -18,18 +18,18 @@
 import Foundation
 import LocalAuthentication
 
-class PasscodeService: PasscodeServiceProtocol {
+class PinService: PinServiceProtocol {
   
-  weak var delegate: PasscodeServiceDelegate?
+  weak var delegate: PinServiceDelegate?
   
-  let configuration: PasscodeConfigurationProtocol
-  let repository: PasscodeRepositoryProtocol
-  var lockState: PasscodeStateProtocol
+  let configuration: PinConfigurationProtocol
+  let repository: PinRepositoryProtocol
+  var lockState: PinStateProtocol
   
-  private lazy var passcode = [String]()
+  private lazy var pin = [String]()
   
-  init(state: PasscodeStateProtocol, configuration: PasscodeConfigurationProtocol) {
-    precondition(configuration.passcodeLength > 0, "Passcode length sould be greather than zero.")
+  init(state: PinStateProtocol, configuration: PinConfigurationProtocol) {
+    precondition(configuration.pinLength > 0, "Pin length sould be greather than zero.")
     self.lockState = state
     self.configuration = configuration
     self.repository = configuration.repository
@@ -40,34 +40,34 @@ class PasscodeService: PasscodeServiceProtocol {
   }
   
   func addSign(_ sign: String) {
-    passcode.append(sign)
-    delegate?.passcodeLock(self, addedSignAtIndex: passcode.count - 1)
+    pin.append(sign)
+    delegate?.pinLock(self, addedSignAtIndex: pin.count - 1)
     
     let deadlineTime = DispatchTime.now() + .milliseconds(200)
     DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-      if self.passcode.count >= self.configuration.passcodeLength {
-        self.lockState.acceptPasscode(self.passcode, fromLock: self)
-        self.passcode.removeAll(keepingCapacity: true)
+      if self.pin.count >= self.configuration.pinLength {
+        self.lockState.acceptPin(self.pin, fromLock: self)
+        self.pin.removeAll(keepingCapacity: true)
       }
     }
   }
   
   func removeSign() {
-    guard passcode.count > 0 else { return }
-    passcode.removeLast()
-    delegate?.passcodeLock(self, removedSignAtIndex: passcode.count)
+    guard pin.count > 0 else { return }
+    pin.removeLast()
+    delegate?.pinLock(self, removedSignAtIndex: pin.count)
   }
   
-  func changeStateTo(_ state: PasscodeStateProtocol) {
+  func changeStateTo(_ state: PinStateProtocol) {
     lockState = state
-    delegate?.passcodeLockDidChangeState(self)
+    delegate?.pinLockDidChangeState(self)
   }
   
   func authenticateWithBiometrics() {
     guard isTouchIDAllowed else { return }
     let context = LAContext()
-    let reason = Localized.passcodeTouchIDButton()
-    context.localizedFallbackTitle = Localized.passcodeTouchIDButton()
+    let reason = Localized.pinTouchIDButton()
+    context.localizedFallbackTitle = Localized.pinTouchIDButton()
     context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
       success, error in
       self.handleTouchIDResult(success)
@@ -77,10 +77,10 @@ class PasscodeService: PasscodeServiceProtocol {
   private func handleTouchIDResult(_ success: Bool) {
     DispatchQueue.main.async {
       if success {
-        guard let passcode = self.repository.passcode else {
+        guard let pin = self.repository.pin else {
           return
         }
-        self.delegate?.passcodeLockDidSucceed(self, acceptedPasscode: passcode)
+        self.delegate?.pinLockDidSucceed(self, acceptedPin: pin)
       }
     }
   }

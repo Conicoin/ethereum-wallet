@@ -8,13 +8,13 @@
 
 import Foundation
 
-typealias PasscodeInfo = (title: String, isCancellable: Bool, isTouchIDAllowed: Bool)
+typealias PinInfo = (title: String, isCancellable: Bool, isTouchIDAllowed: Bool)
 
 class PinInteractor {
   weak var output: PinInteractorOutput!
   
-  var passcodeService: PasscodeServiceProtocol!
-  var passcodePostProcess: PasscodePostProcessProtocol!
+  var pinService: PinServiceProtocol!
+  var pinPostProcess: PinPostProcessProtocol!
 }
 
 
@@ -22,26 +22,26 @@ class PinInteractor {
 
 extension PinInteractor: PinInteractorInput {
   
-  func getPasscodeInfo() {
+  func getPinInfo() {
     let info = (
-      title: passcodeService.lockState.title,
-      isCancellable: passcodeService.lockState.isCancellableAction,
-      isTouchIDAllowed: passcodeService.isTouchIDAllowed
+      title: pinService.lockState.title,
+      isCancellable: pinService.lockState.isCancellableAction,
+      isTouchIDAllowed: pinService.isTouchIDAllowed
     )
-    output.didReceivePasscodeInfo(info)
+    output.didReceivePinInfo(info)
   }
   
   func didAddSign(_ sign: String) {
-    passcodeService.addSign(sign)
+    pinService.addSign(sign)
   }
   
   func didDeleteSign() {
-    passcodeService.removeSign()
+    pinService.removeSign()
   }
   
-  func performPostProcess(with passcode: [String]) {
+  func performPostProcess(with pin: [String]) {
     do {
-      try passcodePostProcess.perform(with: passcode.joined())
+      try pinPostProcess.perform(with: pin.joined())
       output.didPreformPostProccess()
     } catch {
       output.didFailedPostProcess(with: error)

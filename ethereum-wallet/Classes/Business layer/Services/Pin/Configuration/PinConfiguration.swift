@@ -1,5 +1,5 @@
 //
-//  PasscodeConfiguration.swift
+//  PinConfiguration.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 12/03/2018.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-class PasscodeConfiguration: PasscodeConfigurationProtocol {
+class PinConfiguration: PinConfigurationProtocol {
   
-  let repository: PasscodeRepositoryProtocol
-  let passcodeLength: Int
+  let repository: PinRepositoryProtocol
+  let pinLength: Int
   let shouldRequestTouchIDImmediately: Bool
-  let maximumInccorectPasscodeAttempts: Int
+  let maximumInccorectPinAttempts: Int
   let isTouchIDAllowed: Bool
   
-  init(repository: PasscodeRepositoryProtocol) {
+  init(repository: PinRepositoryProtocol) {
     self.repository = repository
-    self.passcodeLength = 6
+    self.pinLength = 6
     self.shouldRequestTouchIDImmediately = false
-    self.maximumInccorectPasscodeAttempts = 5
+    self.maximumInccorectPinAttempts = 5
     self.isTouchIDAllowed = Defaults.isTouchIDAllowed
   }
 

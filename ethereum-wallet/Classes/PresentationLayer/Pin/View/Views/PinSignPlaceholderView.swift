@@ -17,7 +17,7 @@
 
 import UIKit
 
-class PasscodeSignPlaceholderView: UIView {
+class PinSignPlaceholderView: UIView {
   
   enum State {
     case inactive

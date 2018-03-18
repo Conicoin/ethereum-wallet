@@ -16,26 +16,26 @@
 
 import Foundation
 
-protocol PasscodeServiceProtocol {
+protocol PinServiceProtocol {
   
   var isTouchIDAllowed: Bool { get }
   
-  var delegate: PasscodeServiceDelegate? { get set }
-  var configuration: PasscodeConfigurationProtocol { get }
-  var repository: PasscodeRepositoryProtocol { get }
-  var lockState: PasscodeStateProtocol { get }
+  var delegate: PinServiceDelegate? { get set }
+  var configuration: PinConfigurationProtocol { get }
+  var repository: PinRepositoryProtocol { get }
+  var lockState: PinStateProtocol { get }
   
   func addSign(_ sign: String)
   func removeSign()
-  func changeStateTo(_ state: PasscodeStateProtocol)
+  func changeStateTo(_ state: PinStateProtocol)
   func authenticateWithBiometrics()
 }
 
-protocol PasscodeServiceDelegate: class {
+protocol PinServiceDelegate: class {
   
-  func passcodeLockDidSucceed(_ lock: PasscodeServiceProtocol, acceptedPasscode passcode: [String])
-  func passcodeLockDidFail(_ lock: PasscodeServiceProtocol)
-  func passcodeLockDidChangeState(_ lock: PasscodeServiceProtocol)
-  func passcodeLock(_ lock: PasscodeServiceProtocol, addedSignAtIndex index: Int)
-  func passcodeLock(_ lock: PasscodeServiceProtocol, removedSignAtIndex index: Int)
+  func pinLockDidSucceed(_ lock: PinServiceProtocol, acceptedPin pin: [String])
+  func pinLockDidFail(_ lock: PinServiceProtocol)
+  func pinLockDidChangeState(_ lock: PinServiceProtocol)
+  func pinLock(_ lock: PinServiceProtocol, addedSignAtIndex index: Int)
+  func pinLock(_ lock: PinServiceProtocol, removedSignAtIndex index: Int)
 }

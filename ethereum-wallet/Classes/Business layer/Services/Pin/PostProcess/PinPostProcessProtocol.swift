@@ -1,5 +1,5 @@
 //
-//  PasscodePostProcessProtocol.swift
+//  PinPostProcessProtocol.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 13/03/2018.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol PasscodePostProcessProtocol {
+protocol PinPostProcessProtocol {
   func perform(with passphrase: String) throws
 }

@@ -17,15 +17,15 @@
 
 import Foundation
 
-public let PasscodeLockIncorrectPasscodeNotification = "passcode.lock.incorrect.passcode.notification"
+public let PinLockIncorrectPinNotification = "pin.lock.incorrect.pin.notification"
 
-struct EnterPasscodeState: PasscodeStateProtocol {
+struct EnterPinState: PinStateProtocol {
   
   let title: String
   let isCancellableAction: Bool
   let isTouchIDAllowed: Bool
   
-  private var inccorectPasscodeAttempts = 0
+  private var inccorectPinAttempts = 0
   private var isNotificationSent = false
   
   init(allowCancellation: Bool = false, title: String) {
@@ -34,25 +34,25 @@ struct EnterPasscodeState: PasscodeStateProtocol {
     self.isCancellableAction = allowCancellation
   }
   
-  mutating func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {
-    guard let currentPasscode = lock.repository.passcode else {
+  mutating func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol) {
+    guard let currentPin = lock.repository.pin else {
       return
     }
     
-    if passcode == currentPasscode {
-      lock.delegate?.passcodeLockDidSucceed(lock, acceptedPasscode: passcode)
+    if pin == currentPin {
+      lock.delegate?.pinLockDidSucceed(lock, acceptedPin: pin)
     } else {
-      inccorectPasscodeAttempts += 1
-      if inccorectPasscodeAttempts >= lock.configuration.maximumInccorectPasscodeAttempts {
+      inccorectPinAttempts += 1
+      if inccorectPinAttempts >= lock.configuration.maximumInccorectPinAttempts {
         postNotification()
       }
-      lock.delegate?.passcodeLockDidFail(lock)
+      lock.delegate?.pinLockDidFail(lock)
     }
   }
   
   private mutating func postNotification() {
     guard !isNotificationSent else { return }
-    let name = NSNotification.Name(rawValue: PasscodeLockIncorrectPasscodeNotification)
+    let name = NSNotification.Name(rawValue: PinLockIncorrectPinNotification)
     NotificationCenter.default.post(name: name, object: nil)
     isNotificationSent = true
   }

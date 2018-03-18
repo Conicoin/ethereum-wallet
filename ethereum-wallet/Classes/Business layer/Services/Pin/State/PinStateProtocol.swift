@@ -14,34 +14,21 @@
 // You should have received a copy of the GNU General Public License along with
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 import Foundation
-import UIKit
 
-class ImportRouter {
-  
+enum PinState {
+  case enter
+  case set
+  case change
+  case restoreJson(key: Data)
+  case restorePrivate(key: Data)
 }
 
-
-// MARK: - ImportRouterInput
-
-extension ImportRouter: ImportRouterInput {
+protocol PinStateProtocol {
   
-  func presentPin(from viewController: UIViewController, key: Data, importType: ImportState) {
+    var title: String { get }
+    var isCancellableAction: Bool { get }
+    var isTouchIDAllowed: Bool { get }
     
-    var pinState: PinState!
-    switch importType {
-    case .jsonKey:
-      pinState = .restoreJson(key: key)
-    case .privateKey:
-      pinState = .restorePrivate(key: key)
-    }
-    
-    PinModule.create(pinState).present(from: viewController) { vc in
-      PopupModule.create(.touchId).present(from: vc) { _ in
-        TabBarModule.create(isSecureMode: false).present()
-      }
-    }
-  }
-    
+    mutating func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol)
 }

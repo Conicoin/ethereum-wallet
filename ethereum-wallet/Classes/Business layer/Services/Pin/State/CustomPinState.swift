@@ -1,5 +1,5 @@
 //
-//  CustomPasscodeState.swift
+//  CustomPinState.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 18/03/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct CustomPasscodeState: PasscodeStateProtocol {
+struct CustomPinState: PinStateProtocol {
   
   let title: String
   let isCancellableAction: Bool
@@ -20,8 +20,8 @@ struct CustomPasscodeState: PasscodeStateProtocol {
     self.isCancellableAction = allowCancellation
   }
   
-  mutating func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {
-    lock.delegate?.passcodeLockDidSucceed(lock, acceptedPasscode: passcode)
+  mutating func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol) {
+    lock.delegate?.pinLockDidSucceed(lock, acceptedPin: pin)
   }
   
 }

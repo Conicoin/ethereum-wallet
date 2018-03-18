@@ -16,11 +16,11 @@
 
 import Foundation
 
-protocol PasscodeConfigurationProtocol {
+protocol PinConfigurationProtocol {
     
-    var repository: PasscodeRepositoryProtocol { get }
-    var passcodeLength: Int { get }
+    var repository: PinRepositoryProtocol { get }
+    var pinLength: Int { get }
     var isTouchIDAllowed: Bool { get }
     var shouldRequestTouchIDImmediately: Bool { get }
-    var maximumInccorectPasscodeAttempts: Int { get }
+    var maximumInccorectPinAttempts: Int { get }
 }

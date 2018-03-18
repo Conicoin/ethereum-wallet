@@ -1,5 +1,5 @@
 //
-//  PasscodeRestorePrivatePostProcess.swift
+//  PinRestorePrivatePostProcess.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 19/03/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PasscodeRestorePrivatePostProcess: PasscodePostProcessProtocol {
+class PinRestorePrivatePostProcess: PinPostProcessProtocol {
   
   let keystoreService: KeystoreServiceProtocol
   let walletDataStoreService: WalletDataStoreServiceProtocol

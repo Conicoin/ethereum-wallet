@@ -14,21 +14,30 @@
 // You should have received a copy of the GNU General Public License along with
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
 import Foundation
 
-enum PasscodeState {
-  case enter
-  case set
-  case change
-  case restoreJson(key: Data)
-  case restorePrivate(key: Data)
-}
-
-protocol PasscodeStateProtocol {
+struct ChangePinState: PinStateProtocol {
   
-    var title: String { get }
-    var isCancellableAction: Bool { get }
-    var isTouchIDAllowed: Bool { get }
-    
-    mutating func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol)
+  let title: String
+  let isCancellableAction: Bool
+  let isTouchIDAllowed: Bool
+  
+  init() {
+    self.title = Localized.pinChangeTitle()
+    self.isCancellableAction = true
+    self.isTouchIDAllowed = false
+  }
+  
+  func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol) {
+    guard let currentPin = lock.repository.pin else {
+      return
+    }
+    if pin == currentPin {
+      let nextState = NewPinState()
+      lock.changeStateTo(nextState)
+    } else {
+      lock.delegate?.pinLockDidFail(lock)
+    }
+  }
 }

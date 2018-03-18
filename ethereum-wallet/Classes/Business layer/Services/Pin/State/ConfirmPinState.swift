@@ -14,13 +14,33 @@
 // You should have received a copy of the GNU General Public License along with
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
 import Foundation
 
-protocol PasscodeRepositoryProtocol {
-    
-    var hasPasscode: Bool {get}
-    var passcode: [String]? {get}
-    
-    func savePasscode(_ passcode: [String])
-    func deletePasscode()
+struct ConfirmPinState: PinStateProtocol {
+  
+  let title: String
+  let isCancellableAction: Bool
+  let isTouchIDAllowed: Bool
+  
+  private var pinToConfirm: [String]
+  
+  init(pin: [String]) {
+    self.pinToConfirm = pin
+    self.title = Localized.pinConfirmTitle()
+    self.isCancellableAction = true
+    self.isTouchIDAllowed = false
+  }
+  
+  func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol) {
+    if pin == pinToConfirm {
+      lock.repository.savePin(pin)
+      lock.delegate?.pinLockDidSucceed(lock, acceptedPin: pin)
+    } else {
+      let mismatchTitle = Localized.pinMismatchTitle()
+      let nextState = NewPinState(title: mismatchTitle)
+      lock.changeStateTo(nextState)
+      lock.delegate?.pinLockDidFail(lock)
+    }
+  }
 }

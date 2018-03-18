@@ -1,6 +1,6 @@
 //
-//  NewPasscodeState.swift
-//  PasscodeLock
+//  NewPinState.swift
+//  PinLock
 //
 //  Created by Yanko Dimitrov on 8/28/15.
 //  Copyright © 2015 Yanko Dimitrov. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NewPasscodeState: PasscodeStateProtocol {
+struct NewPinState: PinStateProtocol {
   
   let title: String
   let isCancellableAction: Bool
@@ -21,11 +21,11 @@ struct NewPasscodeState: PasscodeStateProtocol {
   }
   
   init() {
-    self.init(title: Localized.passcodeSetTitle())
+    self.init(title: Localized.pinSetTitle())
   }
   
-  func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {
-    let nextState = ConfirmPasscodeState(passcode: passcode)
+  func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol) {
+    let nextState = ConfirmPinState(pin: pin)
     lock.changeStateTo(nextState)
   }
 }

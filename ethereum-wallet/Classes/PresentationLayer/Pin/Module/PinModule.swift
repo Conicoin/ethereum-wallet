@@ -8,7 +8,7 @@ import UIKit
 
 class PinModule {
     
-  class func create(_ passcodeState: PasscodeState) -> PinModuleInput {
+  class func create(_ pinState: PinState) -> PinModuleInput {
     let router = PinRouter()
     let presenter = PinPresenter()
     let interactor = PinInteractor()
@@ -23,11 +23,11 @@ class PinModule {
     
     // MARK: Injection
 
-    let passcodeService = PasscodeServiceFactory.create(with: passcodeState, delegate: presenter)
-    interactor.passcodeService = passcodeService
+    let pinService = PinServiceFactory.create(with: pinState, delegate: presenter)
+    interactor.pinService = pinService
     
-    let postProcessFactory = PasscodePostProcessFactory(keychainService: KeystoreService(), walletDataStoreService: WalletDataStoreService())
-    interactor.passcodePostProcess = postProcessFactory.create(with: passcodeState)
+    let postProcessFactory = PinPostProcessFactory(keychainService: KeystoreService(), walletDataStoreService: WalletDataStoreService())
+    interactor.pinPostProcess = postProcessFactory.create(with: pinState)
         
     return presenter
   }
