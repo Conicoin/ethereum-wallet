@@ -39,7 +39,6 @@ class ImportModule {
     let keystore = KeystoreService()
     interactor.postProcess = ImportPostProcessFactory(state: state, keystore: keystore).create()
     presenter.state = ImportStateFactory(state: state).create()
-    
         
     return presenter
   }

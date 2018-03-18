@@ -9,14 +9,16 @@
 import UIKit
 
 class ImportPrivateKeyState: ImportStateProtocol {
-    
-    let placeholder: String
-    let iCloudImportEnabled: Bool
-    
-
-    init() {
-        self.placeholder = Localized.importPrivateTitle()
-        self.iCloudImportEnabled = false
-    }
-    
+  
+  let importType: ImportState
+  let placeholder: String
+  let iCloudImportEnabled: Bool
+  
+  
+  init() {
+    self.importType = .privateKey
+    self.placeholder = Localized.importPrivateTitle()
+    self.iCloudImportEnabled = false
+  }
+  
 }

@@ -23,6 +23,10 @@
 "welcome.title" = "Welcome to Conicoin";
 "welcome.subtitle" = "Lets start by creating a new wallet or restoring the existing one";
 "welcome.gitgub.link" = "Source code available on Github";
+"welcome.import.alert" = "Import";
+"welcome.import.private" = "Private key";
+"welcome.import.json" = "JSON key";
+"welcome.import.cancel" = "Cancel";
 
 // MARK: - Import
 "import.title" = "Import wallet";

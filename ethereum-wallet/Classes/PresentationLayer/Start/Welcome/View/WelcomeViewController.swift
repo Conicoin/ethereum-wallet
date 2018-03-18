@@ -58,6 +58,22 @@ class WelcomeViewController: UIViewController {
     importWalletButton.setTitle(Localized.welcomeImportTitle(), for: .normal)
   }
   
+  private func showActionSheet() {
+    let sheet = UIAlertController(title: Localized.welcomeImportAlert(), message: nil, preferredStyle: .actionSheet)
+    let jsonKey = UIAlertAction(title: Localized.welcomeImportJson(), style: .default) { [unowned self] _ in
+      self.output.didImportJsonKeyPressed()
+    }
+    let privateKey = UIAlertAction(title: Localized.welcomeImportPrivate(), style: .default) { [unowned self] _ in
+      self.output.didImportPrivateKeyPressed()
+    }
+    let cancel = UIAlertAction(title: Localized.welcomeImportCancel(), style: .cancel, handler: nil)
+    sheet.addAction(jsonKey)
+    sheet.addAction(privateKey)
+    sheet.addAction(cancel)
+
+    present(sheet, animated: true, completion: nil)
+  }
+  
   // MARK: Actions
   
   @IBAction func newWalletPressed(_ sender: UIButton) {
@@ -65,7 +81,7 @@ class WelcomeViewController: UIViewController {
   }
   
   @IBAction func importWalletPressed(_ sender: UIButton) {
-    output.importDidPressed()
+    showActionSheet()
   }
   
 

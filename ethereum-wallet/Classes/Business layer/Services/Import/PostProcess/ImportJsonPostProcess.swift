@@ -11,12 +11,6 @@ import Alamofire
 
 class ImportJsonPostProcess:  ImportPostProcessProtocol {
   
-  let keystore: KeystoreServiceProtocol
-  
-  init(keystore: KeystoreServiceProtocol) {
-    self.keystore = keystore
-  }
-  
   func verifyKey(_ jsonKey: String, completion: (Result<Data>) -> Void) {
     do {
       guard let data = jsonKey.data(using: .utf8) else {

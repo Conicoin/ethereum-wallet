@@ -11,17 +11,15 @@ import UIKit
 class ImportPostProcessFactory {
   
   let state: ImportState
-  let keystore: KeystoreServiceProtocol
 
   init(state: ImportState, keystore: KeystoreServiceProtocol) {
     self.state = state
-    self.keystore = keystore
   }
   
   func create() -> ImportPostProcessProtocol {
     switch state {
     case .jsonKey:
-      return ImportJsonPostProcess(keystore: keystore)
+      return ImportJsonPostProcess()
     case .privateKey:
       return ImportPrivatePostProcess()
     }

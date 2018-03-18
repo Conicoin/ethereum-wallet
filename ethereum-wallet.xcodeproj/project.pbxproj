@@ -99,6 +99,7 @@
 		1436EE41205D931900196AAF /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE40205D931900196AAF /* Address.swift */; };
 		1436EE42205D948E00196AAF /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE40205D931900196AAF /* Address.swift */; };
 		1436EE44205EFB5900196AAF /* CustomPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE43205EFB5800196AAF /* CustomPasscodeState.swift */; };
+		1436EE49205F162600196AAF /* PasscodeRestorePrivatePostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE48205F162600196AAF /* PasscodeRestorePrivatePostProcess.swift */; };
 		144102D32053FE0A00F4D192 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102D22053FE0A00F4D192 /* DefaultButton.swift */; };
 		144102D8205409A900F4D192 /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102D7205409A900F4D192 /* DefaultTextField.swift */; };
 		144102DC205409E300F4D192 /* DefaultTextFieldUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102DB205409E300F4D192 /* DefaultTextFieldUtils.swift */; };
@@ -159,7 +160,7 @@
 		14991DA1205733410046E6CD /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DA0205733410046E6CD /* UIView+Helpers.swift */; };
 		14991DA62057C4F80046E6CD /* PasscodePostProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DA52057C4F80046E6CD /* PasscodePostProcessProtocol.swift */; };
 		14991DA82057C54A0046E6CD /* PasscodeNewPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DA72057C54A0046E6CD /* PasscodeNewPostProcess.swift */; };
-		14991DAA2057C6E60046E6CD /* PasscodeRestorePostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DA92057C6E60046E6CD /* PasscodeRestorePostProcess.swift */; };
+		14991DAA2057C6E60046E6CD /* PasscodeRestoreJsonPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DA92057C6E60046E6CD /* PasscodeRestoreJsonPostProcess.swift */; };
 		14991DAC2057C9E90046E6CD /* PasscodeEnterPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DAB2057C9E90046E6CD /* PasscodeEnterPostProcess.swift */; };
 		14991DAF2057CA880046E6CD /* PasscodePostProcessFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DAE2057CA880046E6CD /* PasscodePostProcessFactory.swift */; };
 		149973D81FB1D71E00B16901 /* RatesDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149973D71FB1D71E00B16901 /* RatesDataStoreService.swift */; };
@@ -475,6 +476,7 @@
 		1436EE3C205D8C5000196AAF /* Secp256k1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1.swift; sourceTree = "<group>"; };
 		1436EE40205D931900196AAF /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		1436EE43205EFB5800196AAF /* CustomPasscodeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasscodeState.swift; sourceTree = "<group>"; };
+		1436EE48205F162600196AAF /* PasscodeRestorePrivatePostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeRestorePrivatePostProcess.swift; sourceTree = "<group>"; };
 		144102D22053FE0A00F4D192 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		144102D7205409A900F4D192 /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
 		144102DB205409E300F4D192 /* DefaultTextFieldUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextFieldUtils.swift; sourceTree = "<group>"; };
@@ -536,7 +538,7 @@
 		14991DA0205733410046E6CD /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		14991DA52057C4F80046E6CD /* PasscodePostProcessProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodePostProcessProtocol.swift; sourceTree = "<group>"; };
 		14991DA72057C54A0046E6CD /* PasscodeNewPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeNewPostProcess.swift; sourceTree = "<group>"; };
-		14991DA92057C6E60046E6CD /* PasscodeRestorePostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeRestorePostProcess.swift; sourceTree = "<group>"; };
+		14991DA92057C6E60046E6CD /* PasscodeRestoreJsonPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeRestoreJsonPostProcess.swift; sourceTree = "<group>"; };
 		14991DAB2057C9E90046E6CD /* PasscodeEnterPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeEnterPostProcess.swift; sourceTree = "<group>"; };
 		14991DAE2057CA880046E6CD /* PasscodePostProcessFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodePostProcessFactory.swift; sourceTree = "<group>"; };
 		149973D71FB1D71E00B16901 /* RatesDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDataStoreService.swift; sourceTree = "<group>"; };
@@ -1372,7 +1374,8 @@
 				14991DAE2057CA880046E6CD /* PasscodePostProcessFactory.swift */,
 				14991DA52057C4F80046E6CD /* PasscodePostProcessProtocol.swift */,
 				14991DA72057C54A0046E6CD /* PasscodeNewPostProcess.swift */,
-				14991DA92057C6E60046E6CD /* PasscodeRestorePostProcess.swift */,
+				14991DA92057C6E60046E6CD /* PasscodeRestoreJsonPostProcess.swift */,
+				1436EE48205F162600196AAF /* PasscodeRestorePrivatePostProcess.swift */,
 				14991DAB2057C9E90046E6CD /* PasscodeEnterPostProcess.swift */,
 			);
 			path = PostProcess;
@@ -2941,7 +2944,7 @@
 				9420179ECA842F06CAA0BCB8 /* TabBarInteractorOutput.swift in Sources */,
 				14BE0A7B1FAFDCC50044E3A1 /* CoinDataStoreService.swift in Sources */,
 				9909D25449030BC31831AFC9 /* TabBarInteractor.swift in Sources */,
-				14991DAA2057C6E60046E6CD /* PasscodeRestorePostProcess.swift in Sources */,
+				14991DAA2057C6E60046E6CD /* PasscodeRestoreJsonPostProcess.swift in Sources */,
 				5F557B63976EB753D05D3A99 /* TabBarRouterInput.swift in Sources */,
 				14FEBD751FBB2A940084F1AB /* Chain.swift in Sources */,
 				3AF57957F09B9C361F9B92D3 /* TabBarRouter.swift in Sources */,
@@ -3031,6 +3034,7 @@
 				14046CE3201E9A14007BD203 /* HintCell.swift in Sources */,
 				1414E7162059584F0080680E /* NSError+LAError.swift in Sources */,
 				390495A9595407CFB451A82F /* ReceiveRouter.swift in Sources */,
+				1436EE49205F162600196AAF /* PasscodeRestorePrivatePostProcess.swift in Sources */,
 				14991D7B205699840046E6CD /* ChangePasscodeState.swift in Sources */,
 				F9250D5B1071EF6CC9B3AC6C /* ReceiveModuleInput.swift in Sources */,
 				3BBF9E5C3B744B3E44EB1B93 /* ReceiveModuleOutput.swift in Sources */,

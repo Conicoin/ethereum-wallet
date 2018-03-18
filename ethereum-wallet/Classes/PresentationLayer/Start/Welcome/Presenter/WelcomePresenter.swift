@@ -50,8 +50,12 @@ extension WelcomePresenter: WelcomeViewOutput {
     }
   }
   
-  func importDidPressed() {
-    router.presentImport(from: view.viewController)
+  func didImportJsonKeyPressed() {
+    router.presentImportJson(from: view.viewController)
+  }
+  
+  func didImportPrivateKeyPressed() {
+    router.presentImportPrivate(from: view.viewController)
   }
 
 }

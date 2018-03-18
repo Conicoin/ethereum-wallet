@@ -10,9 +10,19 @@ import Foundation
 import Alamofire
 
 class ImportPrivatePostProcess: ImportPostProcessProtocol {
-    
-    func verifyKey(_ key: String, completion: (Result<Data>) -> Void) {
-        
+  
+  func verifyKey(_ key: String, completion: (Result<Data>) -> Void) {
+    guard key.count == 64 else {
+      completion(.failure(ImportError.invalidLength))
+      return
     }
     
+    guard let data = try? Data(hexString: key) else {
+      completion(.failure(ImportError.invalidFormat))
+      return
+    }
+    
+    completion(.success(data))
+  }
+  
 }

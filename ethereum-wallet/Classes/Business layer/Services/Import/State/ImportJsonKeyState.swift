@@ -9,14 +9,16 @@
 import UIKit
 
 class ImportJsonKeyState: ImportStateProtocol {
-    
-    let placeholder: String
-    let iCloudImportEnabled: Bool
-    
-    
-    init() {
-        self.placeholder = Localized.importJsonTitle()
-        self.iCloudImportEnabled = true
-    }
-    
+  
+  let importType: ImportState
+  let placeholder: String
+  let iCloudImportEnabled: Bool
+  
+  
+  init() {
+    self.importType = .jsonKey
+    self.placeholder = Localized.importJsonTitle()
+    self.iCloudImportEnabled = true
+  }
+  
 }

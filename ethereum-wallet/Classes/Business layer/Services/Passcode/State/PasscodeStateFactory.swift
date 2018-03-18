@@ -25,7 +25,7 @@ class PasscodeStateFactory {
       return NewPasscodeState()
     case .change:
       return ChangePasscodeState()
-    case .restore:
+    case .restoreJson, .restorePrivate:
       return CustomPasscodeState(allowCancellation: true, isTouchIDAllowed: false, title: Localized.welcomeRestoreTitle())
     }
   }
