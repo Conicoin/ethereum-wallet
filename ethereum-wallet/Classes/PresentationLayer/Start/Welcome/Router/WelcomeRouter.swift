@@ -35,16 +35,20 @@ extension WelcomeRouter: WelcomeRouterInput {
     }
   }
   
-  func presentPinRestore(from viewController: UIViewController) {
-    PinModule.create(.restore).present(from: viewController) { vc in
+  func presentPinRestore(from viewController: UIViewController, key: Data) {
+    PinModule.create(.restoreJson(key: key)).present(from: viewController) { vc in
       PopupModule.create(.touchId).present(from: vc) { _ in
         TabBarModule.create(isSecureMode: false).present()
       }
     }
   }
   
-  func presentImport(from viewController: UIViewController) {
-    ImportModule.create().present(from: viewController)
+  func presentImportJson(from viewController: UIViewController) {
+    ImportModule.create(with: .jsonKey).present(from: viewController)
+  }
+  
+  func presentImportPrivate(from viewController: UIViewController) {
+    ImportModule.create(with: .privateKey).present(from: viewController)
   }
     
 }

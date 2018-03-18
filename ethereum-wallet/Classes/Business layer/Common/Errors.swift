@@ -120,3 +120,19 @@ enum TouchIdError: CustomError {
   }
   
 }
+
+// MARK: - Import errors
+
+enum ImportError: CustomError {
+  case invalidLength
+  case invalidFormat
+  
+  var description: ErrorInfo? {
+    switch self {
+    case .invalidLength:
+      return ("Import error", "Invalid key length", true)
+    case .invalidFormat:
+      return ("Import error", "Invalid format", true)
+    }
+  }
+}

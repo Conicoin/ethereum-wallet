@@ -16,5 +16,5 @@ protocol PinViewInput: class, Presentable {
   func didChangeState()
   func didAddSignAtIndex(_ index: Int)
   func didRemoveSignAtIndex(_ index: Int)
-  func didReceivePasscodeInfo(_ info: PasscodeInfo)
+  func didReceivePinInfo(_ info: PinInfo)
 }

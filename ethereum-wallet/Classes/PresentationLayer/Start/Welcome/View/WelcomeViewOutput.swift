@@ -21,5 +21,6 @@ import UIKit
 protocol WelcomeViewOutput: class {
   func viewIsReady()
   func newDidPressed()
-  func importDidPressed()
+  func didImportPrivateKeyPressed()
+  func didImportJsonKeyPressed()
 }

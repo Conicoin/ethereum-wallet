@@ -20,7 +20,8 @@ import Foundation
 
 class ImportInteractor {
   weak var output: ImportInteractorOutput!
-  var keystore: KeystoreServiceProtocol!
+  var postProcess: ImportPostProcessProtocol!
+
 }
 
 
@@ -28,19 +29,12 @@ class ImportInteractor {
 
 extension ImportInteractor: ImportInteractorInput {
   
-  func importJsonKey(_ jsonKey: String) {
-    do {
-      guard let data = jsonKey.data(using: .utf8) else {
-        throw KeychainError.keyIsInvalid
-      }
-      try _ = keystore.restoreAccount(with: data, passphrase: "")
-    } catch let error {
-      // FIXME: Add UTC json key validation
-      if error.localizedDescription == "could not decrypt key with given passphrase" {
-        let keychain = Keychain()
-        keychain.jsonKey = jsonKey.data(using: .utf8)
-        output.didConfirmValidJsonKey()
-      } else {
+  func verifyKey(_ key: String) {
+    postProcess.verifyKey(key) { result in
+      switch result {
+      case .success(let key):
+        output.didConfirmValidKey(key)
+      case .failure(let error):
         output.didFailed(with: error)
       }
     }

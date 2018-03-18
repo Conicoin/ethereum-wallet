@@ -42,15 +42,20 @@ extension WelcomePresenter: WelcomeViewOutput {
   }
 
   func newDidPressed() {
-    if isRestoring {
-      router.presentPinRestore(from: view.viewController)
+    let keychain = Keychain()
+    if let jsonKey = keychain.jsonKey {
+      router.presentPinRestore(from: view.viewController, key: jsonKey)
     } else {
       router.presentPinNew(from: view.viewController)
     }
   }
   
-  func importDidPressed() {
-    router.presentImport(from: view.viewController)
+  func didImportJsonKeyPressed() {
+    router.presentImportJson(from: view.viewController)
+  }
+  
+  func didImportPrivateKeyPressed() {
+    router.presentImportPrivate(from: view.viewController)
   }
 
 }

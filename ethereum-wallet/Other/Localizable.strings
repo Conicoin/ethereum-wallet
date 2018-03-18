@@ -23,10 +23,15 @@
 "welcome.title" = "Welcome to Conicoin";
 "welcome.subtitle" = "Lets start by creating a new wallet or restoring the existing one";
 "welcome.gitgub.link" = "Source code available on Github";
+"welcome.import.alert" = "Import";
+"welcome.import.private" = "Private key";
+"welcome.import.json" = "JSON key";
+"welcome.import.cancel" = "Cancel";
 
 // MARK: - Import
 "import.title" = "Import wallet";
 "import.json.title" = "Enter JSON Key";
+"import.private.title" = "Enter private key";
 "import.icloud.title" = "Import from iCloud";
 "import.confirm.title" = "Confirm";
 
@@ -93,14 +98,14 @@
 "chooseCurrency.header" = "Currency";
 
 // MARK: Passcode
-"passcode.enterTitle" = "Enter Passcode";
-"passcode.restoreTitle" = "Enter your passcode\nto restore account";
-"passcode.setTitle" = "Create a passcode\nfor your  Conicoin account";
-"passcode.confirmTitle" = "Repeat a passcode";
-"passcode.changeTitle" = "Enter Old Passcode";
-"passcode.mismatchTitle" = "Try again";
-"passcode.touchIDReason" = "Authentication required to proceed";
-"passcode.touchIDButton" = "Enter Passcode";
+"pin.enterTitle" = "Enter Passcode";
+"pin.restoreTitle" = "Enter your passcode\nto restore account";
+"pin.setTitle" = "Create a passcode\nfor your  Conicoin account";
+"pin.confirmTitle" = "Repeat a passcode";
+"pin.changeTitle" = "Enter Old Passcode";
+"pin.mismatchTitle" = "Try again";
+"pin.touchIDReason" = "Authentication required to proceed";
+"pin.touchIDButton" = "Enter Passcode";
 
 // MARK: Popup
 "popup.notNow" = "Not now";

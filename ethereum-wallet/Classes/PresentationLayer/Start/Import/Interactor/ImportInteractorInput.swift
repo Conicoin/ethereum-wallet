@@ -19,5 +19,5 @@ import Foundation
 
 
 protocol ImportInteractorInput: class {
-  func importJsonKey(_ jsonKey: String)
+  func verifyKey(_ key: String)
 }

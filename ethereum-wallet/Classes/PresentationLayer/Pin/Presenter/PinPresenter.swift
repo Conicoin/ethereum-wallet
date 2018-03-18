@@ -26,7 +26,7 @@ extension PinPresenter: PinViewOutput {
   
   func viewIsReady() {
     view.setupInitialState()
-    interactor.getPasscodeInfo()
+    interactor.getPinInfo()
   }
   
   func didAddSign(_ sign: String) {
@@ -44,11 +44,17 @@ extension PinPresenter: PinViewOutput {
 
 extension PinPresenter: PinInteractorOutput {
   
-  func didReceivePasscodeInfo(_ info: PasscodeInfo) {
-    view.didReceivePasscodeInfo(info)
+  func didReceivePinInfo(_ info: PinInfo) {
+    view.didReceivePinInfo(info)
   }
   
-  func didFailed(with error: Error) {
+  func didPreformPostProccess() {
+    view.didSucceed()
+    onSuccess(self.view.viewController)
+  }
+  
+  func didFailedPostProcess(with error: Error) {
+    view.didFailed()
     error.showAllertIfNeeded(from: view.viewController)
   }
 
@@ -67,34 +73,32 @@ extension PinPresenter: PinModuleInput {
 }
 
 
-// MARK: - PasscodeServiceDelegate
+// MARK: - PinServiceDelegate
 
-extension PinPresenter: PasscodeServiceDelegate {
+extension PinPresenter: PinServiceDelegate {
  
-  func passcodeLockDidSucceed(_ lock: PasscodeServiceProtocol) {
-    view.didSucceed()
-    interactor.performPostProcess()
-    onSuccess(self.view.viewController)
+  func pinLockDidSucceed(_ lock: PinServiceProtocol, acceptedPin pin: [String]) {
+    interactor.performPostProcess(with: pin)
   }
   
-  func passcodeLockDidFail(_ lock: PasscodeServiceProtocol) {
+  func pinLockDidFail(_ lock: PinServiceProtocol) {
     view.didFailed()
     let generator = UINotificationFeedbackGenerator()
     generator.notificationOccurred(.error)
   }
   
-  func passcodeLockDidChangeState(_ lock: PasscodeServiceProtocol) {
-    interactor.getPasscodeInfo()
+  func pinLockDidChangeState(_ lock: PinServiceProtocol) {
+    interactor.getPinInfo()
     view.didChangeState()
   }
   
-  func passcodeLock(_ lock: PasscodeServiceProtocol, addedSignAtIndex index: Int) {
+  func pinLock(_ lock: PinServiceProtocol, addedSignAtIndex index: Int) {
     view.didAddSignAtIndex(index)
     let generator = UIImpactFeedbackGenerator(style: .light)
     generator.impactOccurred()
   }
   
-  func passcodeLock(_ lock: PasscodeServiceProtocol, removedSignAtIndex index: Int) {
+  func pinLock(_ lock: PinServiceProtocol, removedSignAtIndex index: Int) {
     view.didRemoveSignAtIndex(index)
     let generator = UIImpactFeedbackGenerator(style: .light)
     generator.impactOccurred()

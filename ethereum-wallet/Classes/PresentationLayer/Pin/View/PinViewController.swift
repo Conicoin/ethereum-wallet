@@ -11,7 +11,7 @@ import UIKit
 
 class PinViewController: UIViewController {
   @IBOutlet public weak var titleLabel: UILabel!
-  @IBOutlet public var placeholders: [PasscodeSignPlaceholderView]!
+  @IBOutlet public var placeholders: [PinSignPlaceholderView]!
   @IBOutlet public weak var deleteSignButton: UIButton!
   @IBOutlet public weak var touchIDButton: UIButton!
   @IBOutlet public weak var placeholdersX: NSLayoutConstraint!
@@ -29,13 +29,13 @@ class PinViewController: UIViewController {
   
   // MARK: Privates
   
-  private func animatePlaceholders(_ placeholders: [PasscodeSignPlaceholderView], toState state: PasscodeSignPlaceholderView.State) {
+  private func animatePlaceholders(_ placeholders: [PinSignPlaceholderView], toState state: PinSignPlaceholderView.State) {
     for placeholder in placeholders {
       placeholder.animateState(state)
     }
   }
   
-  private func animatePlacehodlerAtIndex(_ index: Int, toState state: PasscodeSignPlaceholderView.State) {
+  private func animatePlacehodlerAtIndex(_ index: Int, toState state: PinSignPlaceholderView.State) {
     guard index < placeholders.count && index >= 0 else { return }
     placeholders[index].animateState(state)
   }
@@ -109,7 +109,7 @@ extension PinViewController: PinViewInput {
     animatePlacehodlerAtIndex(index, toState: .inactive)
   }
   
-  func didReceivePasscodeInfo(_ info: PasscodeInfo) {
+  func didReceivePinInfo(_ info: PinInfo) {
     titleLabel.text = info.title
     touchIDButton.isTransparent = !info.isTouchIDAllowed
     navigationItem.hidesBackButton = !info.isCancellable
