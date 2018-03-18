@@ -17,19 +17,16 @@ class ImportJsonPostProcess:  ImportPostProcessProtocol {
     self.keystore = keystore
   }
   
-  func verifyKey(_ jsonKey: String, completion: (Result<String>) -> Void) {
+  func verifyKey(_ jsonKey: String, completion: (Result<Data>) -> Void) {
     do {
       guard let data = jsonKey.data(using: .utf8) else {
         throw KeychainError.keyIsInvalid
       }
-      try _ = keystore.restoreAccount(with: data, passphrase: "")
-    } catch let error {
-      // FIXME: Add UTC json key validation
-      if error.localizedDescription == "could not decrypt key with given passphrase" {
-        completion(.success(jsonKey))
-      } else {
-        completion(.failure(error))
-      }
+
+      let _ = try JSONDecoder().decode(Key.self, from: data)
+      completion(.success(data))
+    } catch {
+      completion(.failure(error))
     }
   }
   

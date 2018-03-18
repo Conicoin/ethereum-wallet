@@ -48,7 +48,13 @@ extension PinPresenter: PinInteractorOutput {
     view.didReceivePasscodeInfo(info)
   }
   
-  func didFailed(with error: Error) {
+  func didPreformPostProccess() {
+    view.didSucceed()
+    onSuccess(self.view.viewController)
+  }
+  
+  func didFailedPostProcess(with error: Error) {
+    view.didFailed()
     error.showAllertIfNeeded(from: view.viewController)
   }
 
@@ -71,10 +77,8 @@ extension PinPresenter: PinModuleInput {
 
 extension PinPresenter: PasscodeServiceDelegate {
  
-  func passcodeLockDidSucceed(_ lock: PasscodeServiceProtocol) {
-    view.didSucceed()
-    interactor.performPostProcess()
-    onSuccess(self.view.viewController)
+  func passcodeLockDidSucceed(_ lock: PasscodeServiceProtocol, acceptedPasscode passcode: [String]) {
+    interactor.performPostProcess(with: passcode)
   }
   
   func passcodeLockDidFail(_ lock: PasscodeServiceProtocol) {

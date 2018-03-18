@@ -11,5 +11,6 @@ import Foundation
 
 protocol PinInteractorOutput: class {
   func didReceivePasscodeInfo(_ info: PasscodeInfo)
-  func didFailed(with error: Error)
+  func didFailedPostProcess(with error: Error)
+  func didPreformPostProccess()
 }

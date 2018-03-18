@@ -9,5 +9,5 @@
 import Alamofire
 
 protocol ImportPostProcessProtocol {
-    func verifyKey(_ key: String, completion: (Result<String>) -> Void)
+    func verifyKey(_ key: String, completion: (Result<Data>) -> Void)
 }

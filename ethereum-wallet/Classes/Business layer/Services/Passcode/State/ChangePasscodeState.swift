@@ -34,7 +34,7 @@ struct ChangePasscodeState: PasscodeStateProtocol {
       return
     }
     if passcode == currentPasscode {
-      let nextState = SetPasscodeState()
+      let nextState = NewPasscodeState()
       lock.changeStateTo(nextState)
     } else {
       lock.delegate?.passcodeLockDidFail(lock)

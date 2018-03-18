@@ -9,7 +9,7 @@
 import Foundation
 
 struct Key: Codable {
-  let version: Int = 3
+  var version: Int = 3
   let id: String
   let address: String
   let crypto: KeyCrypto
@@ -36,8 +36,27 @@ extension Key {
     case address
     case version
     case id
-    case crypto = "Crypto"
+    case crypto
   }
+  
+  enum UppercaseKeys: String, CodingKey {
+    case crypto
+  }
+  
+  init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+    self.version = try values.decode(Int.self, forKey: .version)
+    self.id = try values.decode(String.self, forKey: .id)
+    self.address = try values.decode(String.self, forKey: .address)
+    
+    if let crypto = try? values.decode(KeyCrypto.self, forKey: .crypto) {
+      self.crypto = crypto
+    } else {
+      let upperValues = try decoder.container(keyedBy: UppercaseKeys.self)
+      self.crypto = try upperValues.decode(KeyCrypto.self, forKey: UppercaseKeys.crypto)
+    }
+  }
+  
 }
 
 enum KeyError: Error {

@@ -53,9 +53,8 @@ extension ImportPresenter: ImportViewOutput {
 
 extension ImportPresenter: ImportInteractorOutput {
   
-  func didConfirmValidKey(_ key: String) {
-    let keyData = key.data(using: .utf8)!
-    router.presentPin(from: view.viewController, key: keyData)
+  func didConfirmValidKey(_ key: Data) {
+    router.presentPin(from: view.viewController, key: key)
   }
   
   func didFailed(with error: Error) {

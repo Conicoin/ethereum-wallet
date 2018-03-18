@@ -35,10 +35,10 @@ struct ConfirmPasscodeState: PasscodeStateProtocol {
   func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeServiceProtocol) {
     if passcode == passcodeToConfirm {
       lock.repository.savePasscode(passcode)
-      lock.delegate?.passcodeLockDidSucceed(lock)
+      lock.delegate?.passcodeLockDidSucceed(lock, acceptedPasscode: passcode)
     } else {
       let mismatchTitle = Localized.passcodeMismatchTitle()
-      let nextState = SetPasscodeState(title: mismatchTitle)
+      let nextState = NewPasscodeState(title: mismatchTitle)
       lock.changeStateTo(nextState)
       lock.delegate?.passcodeLockDidFail(lock)
     }

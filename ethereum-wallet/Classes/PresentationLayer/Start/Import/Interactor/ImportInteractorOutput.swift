@@ -19,6 +19,6 @@ import Foundation
 
 
 protocol ImportInteractorOutput: class {
-  func didConfirmValidKey(_ key: String)
+  func didConfirmValidKey(_ key: Data)
   func didFailed(with error: Error)
 }

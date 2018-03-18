@@ -39,14 +39,12 @@ extension PinInteractor: PinInteractorInput {
     passcodeService.removeSign()
   }
   
-  func performPostProcess() {
+  func performPostProcess(with passcode: [String]) {
     do {
-      guard let passcode = passcodeService.repository.passcode?.joined() else {
-        throw KeychainError.noPassphrase
-      }
-      try passcodePostProcess.perform(with: passcode)
+      try passcodePostProcess.perform(with: passcode.joined())
+      output.didPreformPostProccess()
     } catch {
-      output.didFailed(with: error)
+      output.didFailedPostProcess(with: error)
     }
   }
 

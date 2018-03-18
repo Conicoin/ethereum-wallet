@@ -40,7 +40,7 @@ struct EnterPasscodeState: PasscodeStateProtocol {
     }
     
     if passcode == currentPasscode {
-      lock.delegate?.passcodeLockDidSucceed(lock)
+      lock.delegate?.passcodeLockDidSucceed(lock, acceptedPasscode: passcode)
     } else {
       inccorectPasscodeAttempts += 1
       if inccorectPasscodeAttempts >= lock.configuration.maximumInccorectPasscodeAttempts {

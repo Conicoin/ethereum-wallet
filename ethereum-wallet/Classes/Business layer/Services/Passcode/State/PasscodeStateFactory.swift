@@ -22,11 +22,11 @@ class PasscodeStateFactory {
     case .enter:
       return EnterPasscodeState(title: Localized.passcodeEnterTitle())
     case .set:
-      return SetPasscodeState()
+      return NewPasscodeState()
     case .change:
       return ChangePasscodeState()
     case .restore:
-      return EnterPasscodeState(allowCancellation: true, title: Localized.welcomeRestoreTitle())
+      return CustomPasscodeState(allowCancellation: true, isTouchIDAllowed: false, title: Localized.welcomeRestoreTitle())
     }
   }
   

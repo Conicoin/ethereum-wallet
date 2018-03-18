@@ -1,5 +1,5 @@
 //
-//  SetPasscodeState.swift
+//  NewPasscodeState.swift
 //  PasscodeLock
 //
 //  Created by Yanko Dimitrov on 8/28/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SetPasscodeState: PasscodeStateProtocol {
+struct NewPasscodeState: PasscodeStateProtocol {
   
   let title: String
   let isCancellableAction: Bool

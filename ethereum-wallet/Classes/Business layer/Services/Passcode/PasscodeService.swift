@@ -77,7 +77,10 @@ class PasscodeService: PasscodeServiceProtocol {
   private func handleTouchIDResult(_ success: Bool) {
     DispatchQueue.main.async {
       if success {
-        self.delegate?.passcodeLockDidSucceed(self)
+        guard let passcode = self.repository.passcode else {
+          return
+        }
+        self.delegate?.passcodeLockDidSucceed(self, acceptedPasscode: passcode)
       }
     }
   }

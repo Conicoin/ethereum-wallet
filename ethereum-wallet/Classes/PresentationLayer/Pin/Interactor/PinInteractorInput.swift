@@ -13,5 +13,5 @@ protocol PinInteractorInput: class {
   func getPasscodeInfo()
   func didAddSign(_ sign: String)
   func didDeleteSign()
-  func performPostProcess()
+  func performPostProcess(with passcode: [String])
 }

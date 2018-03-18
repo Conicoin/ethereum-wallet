@@ -17,25 +17,25 @@
 import Foundation
 
 protocol PasscodeServiceProtocol {
-    
-    var isTouchIDAllowed: Bool { get }
-    
-    var delegate: PasscodeServiceDelegate? { get set }
-    var configuration: PasscodeConfigurationProtocol { get }
-    var repository: PasscodeRepositoryProtocol { get }
-    var lockState: PasscodeStateProtocol { get }
-    
-    func addSign(_ sign: String)
-    func removeSign()
-    func changeStateTo(_ state: PasscodeStateProtocol)
-    func authenticateWithBiometrics()
+  
+  var isTouchIDAllowed: Bool { get }
+  
+  var delegate: PasscodeServiceDelegate? { get set }
+  var configuration: PasscodeConfigurationProtocol { get }
+  var repository: PasscodeRepositoryProtocol { get }
+  var lockState: PasscodeStateProtocol { get }
+  
+  func addSign(_ sign: String)
+  func removeSign()
+  func changeStateTo(_ state: PasscodeStateProtocol)
+  func authenticateWithBiometrics()
 }
 
 protocol PasscodeServiceDelegate: class {
-    
-    func passcodeLockDidSucceed(_ lock: PasscodeServiceProtocol)
-    func passcodeLockDidFail(_ lock: PasscodeServiceProtocol)
-    func passcodeLockDidChangeState(_ lock: PasscodeServiceProtocol)
-    func passcodeLock(_ lock: PasscodeServiceProtocol, addedSignAtIndex index: Int)
-    func passcodeLock(_ lock: PasscodeServiceProtocol, removedSignAtIndex index: Int)
+  
+  func passcodeLockDidSucceed(_ lock: PasscodeServiceProtocol, acceptedPasscode passcode: [String])
+  func passcodeLockDidFail(_ lock: PasscodeServiceProtocol)
+  func passcodeLockDidChangeState(_ lock: PasscodeServiceProtocol)
+  func passcodeLock(_ lock: PasscodeServiceProtocol, addedSignAtIndex index: Int)
+  func passcodeLock(_ lock: PasscodeServiceProtocol, removedSignAtIndex index: Int)
 }
