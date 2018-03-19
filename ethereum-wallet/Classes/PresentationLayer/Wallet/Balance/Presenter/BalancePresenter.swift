@@ -91,6 +91,10 @@ extension BalancePresenter: BalanceInteractorOutput {
     view.stopRefreshing()
     error.showAllertIfNeeded(from: view.viewController)
   }
+  
+  func didFailedTokensReceiving(with error: Error) {
+    view.stopRefreshing()
+  }
 
 }
 

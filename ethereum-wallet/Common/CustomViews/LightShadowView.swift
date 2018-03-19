@@ -18,8 +18,18 @@
 import UIKit
 
 class LightShadowView: UIView {
-
-  override func layoutSubviews() {
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    setup()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    setup()
+  }
+  
+  func setup() {
     layer.shadowColor = UIColor.black.cgColor
     layer.shadowOffset = CGSize(width: 0, height: 1)
     layer.shadowOpacity = 0.18

@@ -20,7 +20,7 @@ class PinStateFactory {
   func create() -> PinStateProtocol {
     switch state {
     case .enter:
-      return EnterPinState(title: Localized.pinEnterTitle())
+      return EnterPinState(title: Localized.pinEnterTitle(), isTouchIDAllowed: true)
     case .set:
       return NewPinState()
     case .change:

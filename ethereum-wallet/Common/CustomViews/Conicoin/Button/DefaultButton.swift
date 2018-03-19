@@ -10,15 +10,20 @@ import UIKit
 
 enum FloatingButtonStyle: Int {
   case blue
+  case white
 }
 
 @IBDesignable
 class DefaultButton: UIButton {
   
-  var buttonStyle: FloatingButtonStyle = FloatingButtonStyle.blue {
+  @IBInspectable var butonStyleRaw: Int = 0 {
     didSet {
       updateAppearance()
     }
+  }
+  
+  var buttonStyle: FloatingButtonStyle  {
+    return FloatingButtonStyle(rawValue: butonStyleRaw) ?? .blue
   }
   
   override init(frame: CGRect) {
@@ -65,6 +70,8 @@ class DefaultButton: UIButton {
     switch buttonStyle {
     case .blue:
       return Theme.Color.blue
+    case .white:
+      return UIColor.white
     }
   }
   
@@ -72,6 +79,8 @@ class DefaultButton: UIButton {
     switch buttonStyle {
     case .blue:
       return Theme.Color.blue.cgColor
+    case .white:
+      return Theme.Color.black.cgColor
     }
   }
   

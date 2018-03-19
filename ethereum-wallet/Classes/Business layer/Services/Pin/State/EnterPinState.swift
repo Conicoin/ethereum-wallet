@@ -28,9 +28,9 @@ struct EnterPinState: PinStateProtocol {
   private var inccorectPinAttempts = 0
   private var isNotificationSent = false
   
-  init(allowCancellation: Bool = false, title: String) {
+  init(allowCancellation: Bool = false, title: String, isTouchIDAllowed: Bool) {
     self.title = title
-    self.isTouchIDAllowed = true
+    self.isTouchIDAllowed = isTouchIDAllowed
     self.isCancellableAction = allowCancellation
   }
   
