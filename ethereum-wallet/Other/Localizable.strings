@@ -43,7 +43,10 @@
 "mode.standard.helper" = "The standard mode doesn't require synchronization. Recommended for most users";
 
 // MARK: - Balance
-
+"balance.token.count" = "%@ Tokens";
+"balance.receive" = "Receive";
+"balance.send" = "Send";
+"balance.eth.title" = "ETH ∙ Ethereum";
 
 // MARK: - Coin details
 "coin.details.balance" = "Balance: %@";

@@ -31,11 +31,15 @@ class BalanceViewController: UIViewController {
     
   var output: BalanceViewOutput!
   
+  private var tokens = [Token]()
+  private var localCurrency = Constants.Wallet.defaultCurrency
+  
   // MARK: Life cycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setupTableView()
+    localize()
     output.viewIsReady()
   }
   
@@ -57,15 +61,25 @@ class BalanceViewController: UIViewController {
     let size = CGSize(width: tableWidth, height: tableWidth+50)
     tableView.tableHeaderView?.frame = CGRect(origin: .zero, size: size)
     tableView.contentInsetAdjustmentBehavior = .never
-//    tableView.tableHeaderView?.layer.zPosition = 0
     tableView.backgroundColor = Theme.Color.lightGray
   }
   
-  // MARK: - Actions
-  
-  @objc func refresh(_ sender: UIRefreshControl) {
-    output.didRefresh()
+  private func localize() {
+    titleLabel.text = Localized.balanceEthTitle()
+    receiveLabel.text = Localized.balanceReceive()
+    sendLabel.text = Localized.balanceSend()
   }
+  
+  private func updateTokensDetails() {
+    var summ: Double = 0
+    for token in tokens {
+      summ += token.rawAmount(for: localCurrency)
+    }
+    tokenBalanceLabel.text = summ.amount(for: localCurrency)
+    tokenCountLabel.text = Localized.balanceTokenCount("\(tokens.count)")
+  }
+  
+  // MARK: - Actions
   
 }
 
@@ -75,13 +89,13 @@ extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(TokenCell.self, for: indexPath)
-    cell.configure(with: output.tokens[indexPath.row])
+    cell.configure(with: tokens[indexPath.row])
     cell.layer.zPosition = 1
     return cell
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return output.tokens.count
+    return tokens.count
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -89,7 +103,7 @@ extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
   }
     
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    output.didSelectToken(at: indexPath.row)
+    output.didSelectToken(tokens[indexPath.row])
   }
 
 }
@@ -102,26 +116,20 @@ extension BalanceViewController: BalanceViewInput {
   func setupInitialState() {
   }
   
-  func didReceiveWallet() {
-
+  func didReceiveWallet(_ wallet: Wallet) {
+    self.localCurrency = wallet.localCurrency
+    updateTokensDetails()
   }
   
-  func didReceiveTokens() {
+  func didReceiveTokens(_ tokens: [Token]) {
+    self.tokens = tokens
     tableView.reloadData()
+    updateTokensDetails()
+    
   }
   
-  func didReceiveCoins() {
-
-  }
-  
-  func stopRefreshing() {
-    tableView.refreshControl?.endRefreshing()
-  }
-  
-  func syncDidChangeProgress(current: Float, total: Float) {
-  }
-  
-  func syncDidFinished() {
+  func didReceiveCoin(_ coin: Coin) {
+    balanceLabel.text = coin.balance.amount
   }
 
 }

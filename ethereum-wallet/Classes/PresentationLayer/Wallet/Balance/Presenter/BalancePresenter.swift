@@ -25,13 +25,6 @@ class BalancePresenter {
   var interactor: BalanceInteractorInput!
   var router: BalanceRouterInput!
   
-  var coins = [Coin]()
-  var tokens = [Token]()
-  var localCurrency = Constants.Wallet.defaultCurrency
-  var chain: Chain {
-    return Defaults.chain
-  }
-  
 }
 
 
@@ -52,17 +45,8 @@ extension BalancePresenter: BalanceViewOutput {
     interactor.getTokensFromNetwork()
   }
   
-  func didRefresh() {
-    interactor.getEthereumFromNetwork()
-    interactor.getTokensFromNetwork()
-  }
-  
-  func didSelectCoin(at index: Int) {
-    router.presentDetails(for: coins[index], from: view.viewController)
-  }
-  
-  func didSelectToken(at index: Int) {
-    router.presentDetails(for: tokens[index], from: view.viewController)
+  func didSelectToken(_ token: Token) {
+    router.presentDetails(for: token, from: view.viewController)
   }
 
 }
@@ -73,27 +57,23 @@ extension BalancePresenter: BalanceViewOutput {
 extension BalancePresenter: BalanceInteractorOutput {
   
   func didReceiveWallet(_ wallet: Wallet) {
-    self.localCurrency = wallet.localCurrency
-    view.didReceiveWallet()
+    view.didReceiveWallet(wallet)
   }
   
   func didReceiveCoins(_ coins: [Coin]) {
-    self.coins = coins
-    view.didReceiveCoins()
+    guard let coin = coins.first else { return }
+    view.didReceiveCoin(coin)
   }
   
   func didReceiveTokens(_ tokens: [Token]) {
-    self.tokens = tokens
-    view.didReceiveTokens()
+    view.didReceiveTokens(tokens)
   }
   
   func didFailedWalletReceiving(with error: Error) {
-    view.stopRefreshing()
     error.showAllertIfNeeded(from: view.viewController)
   }
   
   func didFailedTokensReceiving(with error: Error) {
-    view.stopRefreshing()
   }
 
 }
@@ -108,11 +88,10 @@ extension BalancePresenter: BalanceModuleInput {
   }
   
   func syncDidChangeProgress(current: Int64, total: Int64) {
-    view.syncDidChangeProgress(current: Float(current), total: Float(total))
+    
   }
   
   func syncDidFinished() {
-    view.syncDidFinished()
   }
 
 }

@@ -46,5 +46,5 @@ extension Currency {
     let total = value * rate
     return total.amount(for: iso)
   }
-  
+    
 }
