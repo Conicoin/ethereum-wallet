@@ -33,10 +33,6 @@ struct Constants {
     static let supportedCurrencies = ["BTC","ETH","USD","EUR","CNY","GBP"]
   }
   
-  struct Common {
-    static let githubUrl = "https://github.com/flypaper0/ethereum-wallet"
-  }
-  
   struct Send {
     static let defaultGasLimit: Decimal = 21000
     static let defaultGasLimitToken: Decimal = 53000

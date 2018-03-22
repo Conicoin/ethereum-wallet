@@ -71,4 +71,12 @@ extension ChooseCurrencyViewController: ChooseCurrencyViewInput {
     
   }
   
+  func selectCurrency(with iso: String) {
+    guard let index = currencies.index(where: { $0.iso == iso }) else {
+      return
+    }
+    let indexPath = IndexPath(row: index, section: 0)
+    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+  }
+  
 }

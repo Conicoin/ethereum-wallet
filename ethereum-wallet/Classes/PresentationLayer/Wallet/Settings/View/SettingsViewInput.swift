@@ -21,6 +21,5 @@ import UIKit
 
 protocol SettingsViewInput: class, Presentable {
   func setupInitialState()
-  func selectCurrency(at index: Int)
-  func didStoreKey(at url: URL)
+  func didReceiveCurrency(_ currency: FiatCurrency)
 }

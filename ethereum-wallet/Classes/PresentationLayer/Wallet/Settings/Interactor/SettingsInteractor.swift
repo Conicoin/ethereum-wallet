@@ -32,8 +32,9 @@ class SettingsInteractor {
 extension SettingsInteractor: SettingsInteractorInput {
   
   func getWallet() {
-    let wallet = walletDataStoreService.getWallet()
-    output.didReceiveWallet(wallet)
+    walletDataStoreService.observe { [unowned self] wallet in
+      self.output.didReceiveWallet(wallet)
+    }
   }
   
   func selectCurrency(_ currency: String) {

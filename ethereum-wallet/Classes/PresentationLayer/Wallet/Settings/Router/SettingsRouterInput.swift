@@ -20,5 +20,6 @@ import UIKit
 
 
 protocol SettingsRouterInput: class {
+  func presentChooseCurrency(from: UIViewController, selectedIso: String, output: ChooseCurrencyModuleOutput)
   func presentWelcome()
 }

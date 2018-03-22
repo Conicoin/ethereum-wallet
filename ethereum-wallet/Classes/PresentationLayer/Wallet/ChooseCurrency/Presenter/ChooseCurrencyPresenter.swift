@@ -25,6 +25,7 @@ class ChooseCurrencyPresenter {
   var interactor: ChooseCurrencyInteractorInput!
   var router: ChooseCurrencyRouterInput!
   
+  var selectedIso: String!
 }
 
 
@@ -34,6 +35,7 @@ extension ChooseCurrencyPresenter: ChooseCurrencyViewOutput {
   
   func viewIsReady() {
     view.setupInitialState()
+    view.selectCurrency(with: selectedIso)
   }
   
   func didSelectCurrency(_ currency: FiatCurrency) {
@@ -55,8 +57,9 @@ extension ChooseCurrencyPresenter: ChooseCurrencyInteractorOutput {
 
 extension ChooseCurrencyPresenter: ChooseCurrencyModuleInput {
   
-  func present(from: UIViewController, output: ChooseCurrencyModuleOutput) {
+  func present(from: UIViewController, selectedIso: String, output: ChooseCurrencyModuleOutput) {
     self.output = output
+    self.selectedIso = selectedIso
     view.present(fromViewController: from)
   }
 

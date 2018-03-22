@@ -21,9 +21,9 @@ import UIKit
 
 protocol SettingsViewOutput: class {
   func viewIsReady()
-  var currencies: [String] { get }
-  func didSelectCurrency(at index: Int)
-  func didEnterPasswordForBackup(_ password: String)
-  func didShareBackup(at url: URL)
-  func didExitWalletPressed(passphrase: String)
+  func didCurrencyPressed()
+  func didChangePasscodePressed()
+  func didBackupPressed()
+  func didTouchIdValueChanged(_ isOn: Bool)
+  func didLogoutPressed()
 }

@@ -20,5 +20,5 @@ import UIKit
 
 protocol SendRouterInput: class {
   func presentScan(from: UIViewController, output: ScanModuleOutput)
-  func presentChooseCurrency(from: UIViewController, output: ChooseCurrencyModuleOutput)
+  func presentChooseCurrency(from: UIViewController, selectedIso: String, output: ChooseCurrencyModuleOutput)
 }

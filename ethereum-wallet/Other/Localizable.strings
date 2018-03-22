@@ -78,20 +78,13 @@
 "time.inDays" = "In %@ days";
 
 // MARK: Settings
-"settings.currency.header" = "Currency";
-"settings.backup.header" = "Backup";
-"settings.backup.title" = "Backup wallet";
-"settings.backup.alert.title" = "Confirm passphrase";
-"settings.backup.alert.message" = "Enter the encryption passphrase you specified during wallet setup";
-"settings.backup.alert.ok" = "Backup";
-"settings.backup.alert.cancel" = "Cancel";
-"settings.backup.alert.password" = "Password";
-"settings.exit.title" = "Exit wallet";
-"settings.exit.alert.title" = "Exit the wallet";
-"settings.exit.aler.message" = "All data will be erased. If you are sure you have made a backup enter the encryption passphrase";
-"settings.exit.placeholder" = "passphrase";
-"settings.exit.confirm" = "Exit";
-"settings.exit.cancel" = "Cancel";
+"settings.title" = "Settings";
+"settings.currency" = "Reference currency";
+"settings.changePasscode" = "Change passcode";
+"settings.touchId" = "Use Touch ID";
+"settings.backup" = "Backup wallet";
+"settings.logout" = "Log out";
+"settings.version" = "Version %@";
 
 // MARK: ChooseCurrency
 "chooseCurrency.title" = "Reference currency";

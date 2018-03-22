@@ -16,7 +16,7 @@
 
 
 
-import Foundation
+import UIKit
 
 
 class SettingsRouter {
@@ -27,6 +27,10 @@ class SettingsRouter {
 // MARK: - SettingsRouterInput
 
 extension SettingsRouter: SettingsRouterInput {
+  
+  func presentChooseCurrency(from: UIViewController, selectedIso: String, output: ChooseCurrencyModuleOutput) {
+    ChooseCurrencyModule.create().present(from: from, selectedIso: selectedIso, output: output)
+  }
   
   func presentWelcome() {
     WelcomeModule.create().present()

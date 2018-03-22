@@ -27,7 +27,7 @@ class SettingsPresenter {
   var router: SettingsRouterInput!
   
   var currencies = Constants.Wallet.supportedCurrencies
-  
+  var selectedCurrency = Constants.Wallet.defaultCurrency
 }
 
 
@@ -40,20 +40,24 @@ extension SettingsPresenter: SettingsViewOutput {
     interactor.getWallet()
   }
   
-  func didSelectCurrency(at index: Int) {
-    interactor.selectCurrency(currencies[index])
+  func didCurrencyPressed() {
+    router.presentChooseCurrency(from: view.viewController, selectedIso: selectedCurrency, output: self)
   }
   
-  func didEnterPasswordForBackup(_ password: String) {
-    interactor.exportKey(with: password)
+  func didChangePasscodePressed() {
+    
   }
   
-  func didShareBackup(at url: URL) {
-    interactor.deleteTempBackup(at: url)
+  func didBackupPressed() {
+    
   }
   
-  func didExitWalletPressed(passphrase: String) {
-    interactor.clearAll(passphrase: passphrase)
+  func didTouchIdValueChanged(_ isOn: Bool) {
+    
+  }
+  
+  func didLogoutPressed() {
+    
   }
 
 }
@@ -64,12 +68,12 @@ extension SettingsPresenter: SettingsViewOutput {
 extension SettingsPresenter: SettingsInteractorOutput {
   
   func didReceiveWallet(_ wallet: Wallet) {
-    guard let index = currencies.index(of: wallet.localCurrency) else { return }
-    view.selectCurrency(at: index)
+    selectedCurrency = wallet.localCurrency
+    let currency = FiatCurrencyFactory.create(iso: wallet.localCurrency)
+    view.didReceiveCurrency(currency)
   }
   
   func didStoreKey(at url: URL) {
-    view.didStoreKey(at: url)
   }
   
   func didClearAllData() {
@@ -91,4 +95,16 @@ extension SettingsPresenter: SettingsModuleInput {
     return view.viewController
   }
 
+}
+
+
+// MARK: - ChooseCurrencyModuleOutput
+
+extension SettingsPresenter: ChooseCurrencyModuleOutput {
+  
+  func didSelectCurrency(_ currency: FiatCurrency) {
+    view.didReceiveCurrency(currency)
+    interactor.selectCurrency(currency.iso)
+  }
+  
 }
