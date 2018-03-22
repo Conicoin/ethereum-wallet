@@ -28,7 +28,7 @@ class CoinDetailsRouter {
 extension CoinDetailsRouter: CoinDetailsRouterInput {
   
   func presentSend(for coin: Coin, from: UIViewController) {
-    SendModule.create().presentSend(with: coin, from: from)
+    SendModule.create(.default).presentSend(with: coin, from: from)
   }
   
   func presentReceive(for coin: Coin, from: UIViewController) {

@@ -20,7 +20,7 @@ import UIKit
 
 class SendModule {
     
-  class func create() -> SendModuleInput {
+  class func create(_ type: TransferType) -> SendModuleInput {
     let router = SendRouter()
     let presenter = SendPresenter()
     let interactor = SendInteractor()
@@ -41,7 +41,8 @@ class SendModule {
     interactor.gasService = gasService
     interactor.walletDataStoreService = WalletDataStoreService()
     interactor.transactionsDataStoreService = TransactionsDataStoreService()
-    interactor.transactionService = TransactionService(core: core, keystore: keystore, transferType: .default)
+    interactor.transactionService = TransactionService(core: core, keystore: keystore, transferType: type)
+    interactor.checkoutService = SendCheckoutServiceFactory().create(type)
         
     return presenter
   }

@@ -59,7 +59,7 @@ extension CoinDetailsViewController: CoinDetailsViewInput {
     let placeholder = coin.placeholder(with: iconImageView.bounds.size)
     iconImageView.kf.setImage(with: coin.iconUrl, placeholder: placeholder)
     iconImageView.tintColor = coin.color
-    balanceLabel.text = Localized.coinDetailsBalance(coin.balance.amount)
+    balanceLabel.text = Localized.coinDetailsBalance(coin.balance.amountString)
     nameLabel.text = coin.balance.name
     symbolLabel.text = coin.balance.iso
   }

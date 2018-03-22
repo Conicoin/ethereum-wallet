@@ -59,10 +59,10 @@
 "receive.alert.copy" = "You address was copied to clipboard";
 
 // MARK: - Send
-"send.title" = "Transfer %@";
-"send.gasPrice" = "Current gas price: %@ gwi";
-"send.amount" = "Amount: %@";
-"send.fee" = "Fee: %@";
+"send.title" = "Send %@";
+"send.fee" = "Fee";
+"send.total" = "Total";
+"send.address.placeholder" = "Recepient address";
 
 // MARK: - Transactions
 "transactions.pending" = "Pending";
@@ -94,7 +94,7 @@
 "settings.exit.cancel" = "Cancel";
 
 // MARK: ChooseCurrency
-"chooseCurrency.header" = "Currency";
+"chooseCurrency.title" = "Reference currency";
 
 // MARK: Passcode
 "pin.enterTitle" = "Enter Passcode";

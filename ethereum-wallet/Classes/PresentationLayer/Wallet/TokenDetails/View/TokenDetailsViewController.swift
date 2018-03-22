@@ -56,7 +56,7 @@ extension TokenDetailsViewController: TokenDetailsViewInput {
   }
   
   func didReceiveToken(_ token: Token) {
-    balanceLabel.text = Localized.tokenDetailsBalance(token.balance.amount)
+    balanceLabel.text = Localized.tokenDetailsBalance(token.balance.amountString)
     nameLabel.text = token.balance.name
     symbolLabel.text = token.balance.iso
     if let iconUrl = token.iconUrl {

@@ -23,7 +23,7 @@ class TokenCell: UITableViewCell {
   func configure(with token: Token) {
     titleLabel.text = token.balance.name
     symbolLabel.text = token.balance.iso
-    balanceLabel.text = token.balance.amount
+    balanceLabel.text = token.balance.amountString
     
     iconImageView.kf.setImage(with: token.iconUrl, placeholder: nil)
   }

@@ -38,7 +38,7 @@ extension Transaction: TransactionDisplayable {
   }
   
   var value: String {
-    return isIncoming ? "+ \(amount.amount)" : "- \(amount.amount)"
+    return isIncoming ? "+ \(amount.amountString)" : "- \(amount.amountString)"
   }
   
   var valueColor: UIColor {
@@ -57,7 +57,7 @@ extension TokenTransaction: TransactionDisplayable {
   }
 
   var value: String {
-    return isIncoming ? "+ \(amount.amount)" : "- \(amount.amount)"
+    return isIncoming ? "+ \(amount.amountString)" : "- \(amount.amountString)"
   }
   
   var valueColor: UIColor {

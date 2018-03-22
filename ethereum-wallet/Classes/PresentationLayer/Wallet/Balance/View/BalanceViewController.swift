@@ -75,12 +75,20 @@ class BalanceViewController: UIViewController {
     for token in tokens {
       summ += token.rawAmount(for: localCurrency)
     }
-    tokenBalanceLabel.text = summ.amount(for: localCurrency)
+    
+    tokenBalanceLabel.text = FiatCurrencyFactory.amount(amount: summ, iso: localCurrency)
     tokenCountLabel.text = Localized.balanceTokenCount("\(tokens.count)")
   }
   
   // MARK: - Actions
   
+  @IBAction func sendPressed(_ sender: UIButton) {
+    output.didSendPressed()
+  }
+  
+  @IBAction func receivePressed(_ sender: UIButton) {
+    output.didReceivePressed()
+  }
 }
 
 // MARK: - TableView
@@ -129,7 +137,7 @@ extension BalanceViewController: BalanceViewInput {
   }
   
   func didReceiveCoin(_ coin: Coin) {
-    balanceLabel.text = coin.balance.amount
+    balanceLabel.text = coin.balance.amountString
   }
 
 }
