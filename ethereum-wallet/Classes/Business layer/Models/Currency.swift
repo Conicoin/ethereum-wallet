@@ -38,7 +38,7 @@ extension Currency {
   }
   
   var amount: String {
-    let valueString = NSDecimalNumber(string: "\(value)").stringValue
+    let valueString = String(format: "%.3f", value)
     return "\(valueString) \(symbol)"
   }
   
@@ -46,5 +46,5 @@ extension Currency {
     let total = value * rate
     return total.amount(for: iso)
   }
-  
+    
 }

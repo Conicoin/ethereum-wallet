@@ -27,10 +27,15 @@ class TabBarViewController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     output.viewIsReady()
+    tabBar.isTranslucent = false
     tabBar.barTintColor = .white
     tabBar.tintColor = Theme.Color.blue
     tabBar.shadowImage = UIImage()
     tabBar.backgroundImage = UIImage()
+    tabBar.layer.shadowColor = UIColor.blue.cgColor
+    tabBar.layer.shadowOffset = CGSize(width: 0, height: -6)
+    tabBar.layer.shadowRadius = 6
+    tabBar.layer.shadowOpacity = 0.04
   }
     
 }

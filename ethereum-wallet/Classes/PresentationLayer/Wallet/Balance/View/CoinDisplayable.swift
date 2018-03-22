@@ -52,4 +52,22 @@ extension Token: CoinDisplayable {
     return balance.iso.renderImage(font: font, size: size, color: color)
   }
   
+  func amount(for currency: String) -> String? {
+    guard let rate = rate(for: currency) else {
+      return nil
+    }
+    return balance.amount(in: currency, rate: rate.value)
+  }
+  
+  func rawAmount(for currency: String) -> Double {
+    guard let rate = rate(for: currency) else {
+      return 0
+    }
+    return balance.value * rate.value
+  }
+  
+  private func rate(for currency: String) -> Rate? {
+    return rates.filter({ $0.to == currency }).first
+  }
+  
 }

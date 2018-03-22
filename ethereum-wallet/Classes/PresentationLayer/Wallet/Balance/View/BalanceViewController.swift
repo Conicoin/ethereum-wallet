@@ -19,18 +19,28 @@ import UIKit
 
 
 class BalanceViewController: UIViewController {
-  @IBOutlet weak var syncButton: UIBarButtonItem!
-  @IBOutlet weak var progressView: UIProgressView!
-  @IBOutlet weak var collectionView: UICollectionView!
-  
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var balanceLabel: UILabel!
+  @IBOutlet weak var receiveButton: UIButton!
+  @IBOutlet weak var receiveLabel: UILabel!
+  @IBOutlet weak var sendButton: UIButton!
+  @IBOutlet weak var sendLabel: UILabel!
+  @IBOutlet weak var tokenCountLabel: UILabel!
+  @IBOutlet weak var tokenBalanceLabel: UILabel!
+    
   var output: BalanceViewOutput!
+  
+  private var tokens = [Token]()
+  private var localCurrency = Constants.Wallet.defaultCurrency
   
   // MARK: Life cycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupTableView()
+    localize()
     output.viewIsReady()
-    setupPullToRefresh()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -46,86 +56,56 @@ class BalanceViewController: UIViewController {
   
   // MARK: - Privates
   
-  private func setupPullToRefresh() {
-    let refreshControl = UIRefreshControl()
-    refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
-    collectionView.refreshControl = refreshControl
+  private func setupTableView() {
+    let tableWidth = view.bounds.width
+    let size = CGSize(width: tableWidth, height: tableWidth+50)
+    tableView.tableHeaderView?.frame = CGRect(origin: .zero, size: size)
+    tableView.contentInsetAdjustmentBehavior = .never
+    tableView.backgroundColor = Theme.Color.lightGray
+  }
+  
+  private func localize() {
+    titleLabel.text = Localized.balanceEthTitle()
+    receiveLabel.text = Localized.balanceReceive()
+    sendLabel.text = Localized.balanceSend()
+  }
+  
+  private func updateTokensDetails() {
+    var summ: Double = 0
+    for token in tokens {
+      summ += token.rawAmount(for: localCurrency)
+    }
+    tokenBalanceLabel.text = summ.amount(for: localCurrency)
+    tokenCountLabel.text = Localized.balanceTokenCount("\(tokens.count)")
   }
   
   // MARK: - Actions
-  
-  @objc func refresh(_ sender: UIRefreshControl) {
-    output.didRefresh()
-  }
   
 }
 
 // MARK: - TableView
 
-extension BalanceViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
   
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    let counts = [output.coins.count, max(1, output.tokens.count)]
-    return counts[section]
-  }
-
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-    if output.tokens.count == 0 && indexPath.section == 1 {
-      let cell = collectionView.dequeue(HintCell.self, for: indexPath)
-      let chain = Defaults.chain
-      let title = chain.isMainnet ?
-        Localized.balanceHintTokenEmpty() : Localized.balanceHintTokenNotAvailable()
-      cell.label.text = title
-      return cell
-    }
-    
-    let cell = collectionView.dequeue(CoinCell.self, for: indexPath)
-    let coins = [output.coins, output.tokens] as [[CoinDisplayable]]
-    let coin = coins[indexPath.section][indexPath.row]
-    cell.configure(with: coin, localCurrency: output.localCurrency)
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeue(TokenCell.self, for: indexPath)
+    cell.configure(with: tokens[indexPath.row])
+    cell.layer.zPosition = 1
     return cell
   }
   
-  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    let view = collectionView.dequeue(CoinHeader.self, kind: kind, for: indexPath)!
-    let chainTitle = output.chain.localizedDescription.uppercased()
-    let titles = [Localized.balanceEtherTitle(), Localized.balanceCoinsTitle()]
-    let subtitles = [chainTitle, Localized.balanceCoinsSubtitle()]
-    view.subtitleLabel.text = subtitles[indexPath.section]
-    view.titleLabel.text = titles[indexPath.section]
-    return view
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return tokens.count
   }
   
-  func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 2
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 184
+  }
+    
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    output.didSelectToken(tokens[indexPath.row])
   }
 
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
-    // TODO: Disable taping on hint cell
-    
-    if indexPath.section == 0 {
-      output.didSelectCoin(at: indexPath.row)
-    } else {
-      output.didSelectToken(at: indexPath.row)
-    }
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: collectionView.frame.size.width, height: CoinCell.cellHeight)
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-    let cell = collectionView.cellForItem(at: indexPath)!
-    cell.alpha = 0.5
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-    let cell = collectionView.cellForItem(at: indexPath)!
-    cell.alpha = 1
-  }
-  
 }
 
 
@@ -134,36 +114,22 @@ extension BalanceViewController: UICollectionViewDataSource, UICollectionViewDel
 extension BalanceViewController: BalanceViewInput {
   
   func setupInitialState() {
-
   }
   
-  func didReceiveWallet() {
-    collectionView.reloadData()
+  func didReceiveWallet(_ wallet: Wallet) {
+    self.localCurrency = wallet.localCurrency
+    updateTokensDetails()
   }
   
-  func didReceiveTokens() {
-    collectionView.reloadData()
+  func didReceiveTokens(_ tokens: [Token]) {
+    self.tokens = tokens
+    tableView.reloadData()
+    updateTokensDetails()
+    
   }
   
-  func didReceiveCoins() {
-    collectionView.refreshControl?.endRefreshing()
-    collectionView.reloadData()
-  }
-  
-  func stopRefreshing() {
-    collectionView.refreshControl?.endRefreshing()
-  }
-  
-  func syncDidChangeProgress(current: Float, total: Float) {
-    progressView.setProgress(current/total, animated: true)
-    syncButton.title = "\(Int(current))/\(Int(total))"
-    UIApplication.shared.isIdleTimerDisabled = true
-  }
-  
-  func syncDidFinished() {
-    progressView.setProgress(0, animated: false)
-    syncButton.title = nil
-    UIApplication.shared.isIdleTimerDisabled = false
+  func didReceiveCoin(_ coin: Coin) {
+    balanceLabel.text = coin.balance.amount
   }
 
 }

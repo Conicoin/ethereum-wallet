@@ -27,6 +27,7 @@ struct Theme {
     static let red = UIColor(red: 220/255, green: 62/255, blue: 32/255, alpha: 1)
     static let ethereum = UIColor(red: 19/255, green: 121/255, blue: 222/255, alpha: 1)
     static let token = UIColor(red: 167/255, green: 167/255, blue: 167/255, alpha: 1)
+    static let lightGray = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
   }
     
     struct Font {

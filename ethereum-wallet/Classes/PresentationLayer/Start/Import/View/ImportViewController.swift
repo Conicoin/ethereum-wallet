@@ -100,7 +100,7 @@ extension ImportViewController: ImportViewInput {
 extension ImportViewController: UITextFieldDelegate {
   
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    confirmButton.isEnabled = string != ""
+    confirmButton.isEnabled = textField.text! != ""
     return true
   }
   
