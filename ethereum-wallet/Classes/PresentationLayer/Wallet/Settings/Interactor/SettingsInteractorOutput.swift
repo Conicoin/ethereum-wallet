@@ -22,6 +22,6 @@ import Foundation
 protocol SettingsInteractorOutput: class {
   func didReceiveWallet(_ wallet: Wallet)
   func didStoreKey(at url: URL)
-  func didClearAllData() 
+  func didClearAllData()
   func didFailed(with error: Error)
 }

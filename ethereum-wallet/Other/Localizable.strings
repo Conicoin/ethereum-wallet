@@ -98,6 +98,8 @@
 "pin.mismatchTitle" = "Try again";
 "pin.touchIDReason" = "Authentication required to proceed";
 "pin.touchIDButton" = "Enter Passcode";
+"pin.exitTitle" = "Enter your passcode\nto exit wallet";
+"pin.backupTitle" = "Enter your passcode\nto backup wallet";
 
 // MARK: Popup
 "popup.notNow" = "Not now";

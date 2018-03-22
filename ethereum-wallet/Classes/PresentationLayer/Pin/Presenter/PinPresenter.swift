@@ -66,7 +66,6 @@ extension PinPresenter: PinInteractorOutput {
 extension PinPresenter: PinModuleInput {
   
   func present(from viewController: UIViewController, onSuccess: @escaping (UIViewController) -> Void) {
-    self.onSuccess = onSuccess
     view.present(fromViewController: viewController)
   }
   

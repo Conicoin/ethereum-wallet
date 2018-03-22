@@ -57,7 +57,9 @@ extension SettingsPresenter: SettingsViewOutput {
   }
   
   func didLogoutPressed() {
-    
+    router.presentPinOnExit(from: view.viewController) { [unowned self] pin in
+      self.interactor.clearAll(passphrase: pin)
+    }
   }
 
 }
@@ -76,12 +78,12 @@ extension SettingsPresenter: SettingsInteractorOutput {
   func didStoreKey(at url: URL) {
   }
   
-  func didClearAllData() {
-    router.presentWelcome()
-  }
-  
   func didFailed(with error: Error) {
     error.showAllertIfNeeded(from: view.viewController)
+  }
+  
+  func didClearAllData() {
+    router.presentWelcome()
   }
 
 }

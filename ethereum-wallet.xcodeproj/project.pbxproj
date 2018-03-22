@@ -204,6 +204,7 @@
 		14BF25992012624900CAFCFD /* TransactionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF25982012624900CAFCFD /* TransactionFactory.swift */; };
 		14BF259C2012626800CAFCFD /* TransactionFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF259B2012626800CAFCFD /* TransactionFactoryProtocol.swift */; };
 		14BF259E2012653200CAFCFD /* TransactionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF259D2012653200CAFCFD /* TransactionInfo.swift */; };
+		14C1152A2064064700DC4C25 /* PinNoPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C115292064064700DC4C25 /* PinNoPostProcess.swift */; };
 		14D027E01EF6D4CD00F125C3 /* RealmWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027DF1EF6D4CD00F125C3 /* RealmWallet.swift */; };
 		14D027EB1EF87A1D00F125C3 /* NetworkLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027EA1EF87A1D00F125C3 /* NetworkLoadable.swift */; };
 		14D027EE1EF9661100F125C3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027ED1EF9661100F125C3 /* API.swift */; };
@@ -581,6 +582,7 @@
 		14BF25982012624900CAFCFD /* TransactionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFactory.swift; sourceTree = "<group>"; };
 		14BF259B2012626800CAFCFD /* TransactionFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFactoryProtocol.swift; sourceTree = "<group>"; };
 		14BF259D2012653200CAFCFD /* TransactionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInfo.swift; sourceTree = "<group>"; };
+		14C115292064064700DC4C25 /* PinNoPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinNoPostProcess.swift; sourceTree = "<group>"; };
 		14C4D3CD1EDE1F3700FCA3AF /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		14C6721940B7C90252875C7E /* WelcomeRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeRouterInput.swift; sourceTree = "<group>"; };
 		14D027DF1EF6D4CD00F125C3 /* RealmWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmWallet.swift; sourceTree = "<group>"; };
@@ -1401,6 +1403,7 @@
 				14991DA92057C6E60046E6CD /* PinRestoreJsonPostProcess.swift */,
 				1436EE48205F162600196AAF /* PinRestorePrivatePostProcess.swift */,
 				14991DAB2057C9E90046E6CD /* PinEnterPostProcess.swift */,
+				14C115292064064700DC4C25 /* PinNoPostProcess.swift */,
 			);
 			path = PostProcess;
 			sourceTree = "<group>";
@@ -2838,6 +2841,7 @@
 				1433BDBE1FD743120081D872 /* GasServiceProtocol.swift in Sources */,
 				14ACA1D71EF2BC840059E430 /* AppDelegate.swift in Sources */,
 				1489ED1D1F9C0EE800E0A5FC /* Data+Helpers.swift in Sources */,
+				14C1152A2064064700DC4C25 /* PinNoPostProcess.swift in Sources */,
 				144791CC1EF5DDD200029818 /* ConfiguratorProtocol.swift in Sources */,
 				145842671FB111E800FA733F /* RatesNetworkServiceProtocol.swift in Sources */,
 				14ACA1F01EF2BCF30059E430 /* Error+Helpers.swift in Sources */,

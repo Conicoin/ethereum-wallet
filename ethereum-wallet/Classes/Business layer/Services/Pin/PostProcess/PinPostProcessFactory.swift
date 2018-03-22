@@ -26,10 +26,12 @@ class PinPostProcessFactory {
       return PinRestoreJsonPostProcess(key: key, keystoreService: keychainService, walletDataStoreService: walletDataStoreService)
     case .restorePrivate(let key):
       return PinRestorePrivatePostProcess(key: key, keystoreService: keychainService, walletDataStoreService: walletDataStoreService)
-    case .enter:
-      return PinEnterPostProcess()
+    case .backup(let completion):
+      return PinEnterPostProcess(completion: completion)
+    case .exit(let completion):
+      return PinEnterPostProcess(completion: completion)
     case .change:
-      return PinEnterPostProcess()
+      return PinNoPostProcess()
     }
   }
 

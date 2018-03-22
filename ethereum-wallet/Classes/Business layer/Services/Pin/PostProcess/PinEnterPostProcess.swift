@@ -10,8 +10,14 @@ import UIKit
 
 class PinEnterPostProcess: PinPostProcessProtocol {
   
+  let completion: (String) -> Void
+  
+  init(completion: @escaping (String) -> Void) {
+    self.completion = completion
+  }
+  
   func perform(with passphrase: String) throws {
-
+    completion(passphrase)
   }
   
 }

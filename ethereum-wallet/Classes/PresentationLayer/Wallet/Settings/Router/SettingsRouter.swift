@@ -32,6 +32,18 @@ extension SettingsRouter: SettingsRouterInput {
     ChooseCurrencyModule.create().present(from: from, selectedIso: selectedIso, output: output)
   }
   
+  func presentPinOnBackup(from: UIViewController, completion: @escaping (String) -> Void) {
+    PinModule.create(.backup(completion: completion)).present(from: from) { vc in
+      vc.navigationController?.popViewController(animated: true)
+    }
+  }
+  
+  func presentPinOnExit(from: UIViewController, completion: @escaping (String) -> Void) {
+    PinModule.create(.exit(completion: completion)).present(from: from) { vc in
+      
+    }
+  }
+  
   func presentWelcome() {
     WelcomeModule.create().present()
   }

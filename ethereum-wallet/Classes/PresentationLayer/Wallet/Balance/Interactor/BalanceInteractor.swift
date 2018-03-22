@@ -82,7 +82,7 @@ extension BalanceInteractor: BalanceInteractorInput {
   }
     
   func getTokensFromDataBase() {
-    tokensDataStoreService.observe { tokens in
+    tokensDataStoreService.observe { [unowned self] tokens in
       self.output.didReceiveTokens(tokens)
     }
   }
