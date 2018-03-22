@@ -49,36 +49,40 @@
                                     <action selector="icloudPressed:" destination="Y0X-6Y-mmk" eventType="touchUpInside" id="A7L-Iv-w4Z"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TR5-Ko-Qbg" customClass="DefaultButton" customModule="ethereum_wallet" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfc-dX-CGp" customClass="DefaultButton" customModule="ethereum_wallet" customModuleProvider="target">
                                 <rect key="frame" x="32" y="603" width="311" height="48"/>
+                                <color key="backgroundColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="HlZ-0M-ePL"/>
+                                    <constraint firstAttribute="height" constant="48" id="EZ6-SO-mdm"/>
                                 </constraints>
-                                <state key="normal" title="$Confirm"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="$Confirm">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="confirmPressed:" destination="Y0X-6Y-mmk" eventType="touchUpInside" id="zQU-oY-izE"/>
+                                    <action selector="confirmPressed:" destination="Y0X-6Y-mmk" eventType="touchUpInside" id="QXF-kj-LO7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="IiM-77-fzg" firstAttribute="trailing" secondItem="VVs-m8-Pdw" secondAttribute="trailing" id="2nX-Me-DEf"/>
+                            <constraint firstItem="p4b-wu-bgw" firstAttribute="bottom" secondItem="Jfc-dX-CGp" secondAttribute="bottom" constant="16" id="7xI-jx-2xx"/>
+                            <constraint firstItem="Jfc-dX-CGp" firstAttribute="leading" secondItem="p4b-wu-bgw" secondAttribute="leading" constant="32" id="G3c-KC-wej"/>
                             <constraint firstItem="Sdu-wc-ovv" firstAttribute="top" secondItem="p4b-wu-bgw" secondAttribute="top" constant="8" id="J0z-TJ-uF2"/>
                             <constraint firstItem="IiM-77-fzg" firstAttribute="leading" secondItem="VVs-m8-Pdw" secondAttribute="leading" id="JB2-vM-e6b"/>
                             <constraint firstItem="IiM-77-fzg" firstAttribute="top" secondItem="VVs-m8-Pdw" secondAttribute="bottom" id="K5Q-Cn-MrN"/>
-                            <constraint firstItem="p4b-wu-bgw" firstAttribute="bottom" secondItem="TR5-Ko-Qbg" secondAttribute="bottom" constant="16" id="PL8-SZ-CZp"/>
-                            <constraint firstItem="TR5-Ko-Qbg" firstAttribute="leading" secondItem="p4b-wu-bgw" secondAttribute="leading" constant="32" id="R5m-Qh-KM2"/>
                             <constraint firstItem="Sdu-wc-ovv" firstAttribute="centerX" secondItem="KTk-eI-oPX" secondAttribute="centerX" id="V3E-2B-9QN"/>
                             <constraint firstItem="VVs-m8-Pdw" firstAttribute="trailing" secondItem="p4b-wu-bgw" secondAttribute="trailing" constant="-16" id="YNa-S0-dTq"/>
-                            <constraint firstItem="p4b-wu-bgw" firstAttribute="trailing" secondItem="TR5-Ko-Qbg" secondAttribute="trailing" constant="32" id="c1Z-2z-OHa"/>
+                            <constraint firstItem="p4b-wu-bgw" firstAttribute="trailing" secondItem="Jfc-dX-CGp" secondAttribute="trailing" constant="32" id="gXP-gA-LWC"/>
                             <constraint firstItem="VVs-m8-Pdw" firstAttribute="leading" secondItem="p4b-wu-bgw" secondAttribute="leading" constant="16" id="h9P-jE-Jto"/>
                             <constraint firstItem="VVs-m8-Pdw" firstAttribute="centerY" secondItem="KTk-eI-oPX" secondAttribute="centerY" constant="-140" id="oIQ-gJ-Khw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p4b-wu-bgw"/>
                     </view>
                     <connections>
-                        <outlet property="bottomConstraint" destination="PL8-SZ-CZp" id="87G-xW-Rxn"/>
-                        <outlet property="confirmButton" destination="TR5-Ko-Qbg" id="Ycu-uv-yzV"/>
+                        <outlet property="bottomConstraint" destination="7xI-jx-2xx" id="1tg-y2-mXS"/>
+                        <outlet property="confirmButton" destination="Jfc-dX-CGp" id="xOc-Jb-Gws"/>
                         <outlet property="icloudButton" destination="IiM-77-fzg" id="MoP-5j-0DI"/>
                         <outlet property="inputTextView" destination="VVs-m8-Pdw" id="d7v-ds-LRz"/>
                         <outlet property="titleLabel" destination="Sdu-wc-ovv" id="a2H-wC-9md"/>

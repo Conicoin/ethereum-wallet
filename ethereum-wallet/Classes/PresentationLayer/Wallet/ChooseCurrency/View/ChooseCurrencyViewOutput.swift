@@ -20,6 +20,5 @@ import UIKit
 
 protocol ChooseCurrencyViewOutput: class {
   func viewIsReady()
-  var currencies: [String] { get }
-  func didSelectCurrency(at index: Int)
+  func didSelectCurrency(_ currency: FiatCurrency)
 }

@@ -23,11 +23,17 @@ class ChooseCurrencyViewController: UIViewController {
   
   var output: ChooseCurrencyViewOutput!
   
+  private var border = BorderView()
+  
+  var currencies: [FiatCurrency] = FiatCurrencyFactory.create()
   
   // MARK: Life cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationItem.title = Localized.chooseCurrencyTitle()
+    tableView.contentInset.top = 16
+    border.attach(to: tableView)
     output.viewIsReady()
   }
 
@@ -39,21 +45,20 @@ extension ChooseCurrencyViewController: UITableViewDelegate, UITableViewDataSour
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(ChooseCurrencyCell.self, for: indexPath)
-    cell.textLabel?.text = output.currencies[indexPath.row]
+    cell.configure(with: currencies[indexPath.row])
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard indexPath.section == 0 else { return }
-    output.didSelectCurrency(at: indexPath.row)
+    output.didSelectCurrency(currencies[indexPath.row])
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return output.currencies.count
+    return currencies.count
   }
   
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return Localized.chooseCurrencyHeader()
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 56
   }
   
 }

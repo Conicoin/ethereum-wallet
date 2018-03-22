@@ -25,8 +25,6 @@ class ChooseCurrencyPresenter {
   var interactor: ChooseCurrencyInteractorInput!
   var router: ChooseCurrencyRouterInput!
   
-  var currencies = Constants.Wallet.supportedCurrencies
-
 }
 
 
@@ -38,8 +36,8 @@ extension ChooseCurrencyPresenter: ChooseCurrencyViewOutput {
     view.setupInitialState()
   }
   
-  func didSelectCurrency(at index: Int) {
-    output?.didSelectCurrency(currencies[index])
+  func didSelectCurrency(_ currency: FiatCurrency) {
+    output?.didSelectCurrency(currency)
     view.dissmiss()
   }
 

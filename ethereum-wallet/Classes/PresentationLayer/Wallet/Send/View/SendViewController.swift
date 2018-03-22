@@ -19,44 +19,56 @@ import UIKit
 import PKHUD
 
 
-class SendViewController: UIViewController, ShadowHidable {
-  @IBOutlet weak var addressTextField: UITextField!
-  @IBOutlet weak var amountTextField: UITextField!
-  @IBOutlet weak var gasLimitTextField: UITextField!
-  @IBOutlet weak var scanQRButton: UIButton!
-  @IBOutlet weak var currencyButton: UIButton!
-  @IBOutlet weak var gasPriceLabel: UILabel!
-  @IBOutlet weak var localAmountLabel: UILabel!
-  @IBOutlet weak var amountLabel: UILabel!
-  @IBOutlet weak var localFeeLabel: UILabel!
-  @IBOutlet weak var feeLabel: UILabel!
+class SendViewController: UIViewController {
+  @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var sendButton: UIButton!
+  @IBOutlet weak var balanceLabel: UILabel!
+  @IBOutlet weak var currencyLabel: UILabel!
+  @IBOutlet weak var amountTextField: UITextField!
+  @IBOutlet weak var currencyButton: UIButton!
+  @IBOutlet weak var localAmountLabel: UILabel!
+  @IBOutlet weak var recepientTextField: DefaultTextField!
+  @IBOutlet weak var scanQrButton: UIButton!
+  @IBOutlet weak var feeTitleLabel: UILabel!
+  @IBOutlet weak var totalTitleLabel: UILabel!
+  @IBOutlet weak var feeLabel: UILabel!
+  @IBOutlet weak var totalLabel: UILabel!
   @IBOutlet weak var keyboardConstraint: NSLayoutConstraint!
+  @IBOutlet weak var sendButtonConstraint: NSLayoutConstraint!
+  
+  private let border = BorderView()
   
   var output: SendViewOutput!
-  var shadowImage: UIImage!
-  
   
   // MARK: Life cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    localize()
+    setupTextFields()
+    border.attach(to: scrollView)
     output.viewIsReady()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    showNavBarSeparator(false)
     setupKeyboardNotifications()
     amountTextField.becomeFirstResponder()
   }
   
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    showNavBarSeparator(true)
+  // MARK: Privates
+    
+  private func localize() {
+    feeTitleLabel.text = Localized.sendFee()
+    totalTitleLabel.text = Localized.sendTotal()
+    recepientTextField.placeholder = Localized.sendAddressPlaceholder()
   }
   
-  // MARK: Privates
+  private func setupTextFields() {
+    recepientTextField.textField.delegate = self
+    recepientTextField.textField.setRightPadding(30)
+
+  }
   
   private func setupKeyboardNotifications() {
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
@@ -67,13 +79,13 @@ class SendViewController: UIViewController, ShadowHidable {
     let userInfo = notification.userInfo!
     let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
     
-    keyboardConstraint.constant = keyboardFrame.size.height + 10
-    view.layoutIfNeeded()
+    keyboardConstraint.constant = keyboardFrame.size.height
+    sendButtonConstraint.constant = keyboardFrame.size.height + 16
   }
   
   @objc func keyboardWillHide(notification: Notification){
-    keyboardConstraint.constant = 10
-    view.layoutIfNeeded()
+    keyboardConstraint.constant = 0
+    sendButtonConstraint.constant = 16
   }
   
   // MARK: Actions
@@ -90,20 +102,26 @@ class SendViewController: UIViewController, ShadowHidable {
     output.didScanPressed()
   }
   
-  @IBAction func addressDidChange(_ sender: UITextField) {
-    output.didChangeAddress(sender.text!)
-  }
-  
   @IBAction func amountDidChange(_ sender: UITextField) {
     output.didChangeAmount(sender.text!)
   }
   
-  @IBAction func gasLimitDidChange(_ sender: UITextField) {
-    output.didChangeGasLimit(sender.text!)
+}
+
+// MARK: - UITextFieldDelegate
+
+extension SendViewController: UITextFieldDelegate {
+  
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    output.didChangeAddress(textField.text!)
+    return true
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    return true
   }
   
 }
-
 
 // MARK: - SendViewInput
 
@@ -113,20 +131,21 @@ extension SendViewController: SendViewInput {
     inputDataIsValid(false)
   }
   
-  func didReceiveCoin(_ coin: Coin) {
+  func didReceiveCoin(_ coin: CoinDisplayable) {
     let title = Localized.sendTitle(coin.balance.name)
     navigationItem.title = title
+    balanceLabel.text = coin.balance.amountString
+    currencyLabel.text = coin.balance.symbol
   }
   
   func didDetectQRCode(_ code: String) {
-    addressTextField.text = code
+    recepientTextField.textField.text = code
   }
   
-  func didReceiveCheckout(amount: String, fiatAmount: String, fee: String, fiatFee: String) {
-    amountLabel.text = amount
-    localAmountLabel.text = Localized.sendAmount(fiatAmount)
+  func didReceiveCheckout(amount: String, fiatAmount: String, fee: String) {
+    totalLabel.text = amount
     feeLabel.text = fee
-    localFeeLabel.text = Localized.sendFee(fiatFee)
+    localAmountLabel.text = fiatAmount
   }
   
   func didReceiveCurrency(_ currency: String) {
@@ -134,17 +153,7 @@ extension SendViewController: SendViewInput {
   }
   
   func inputDataIsValid(_ isValid: Bool) {
-    sendButton.alpha = isValid ? 1.0 : 0.5
     sendButton.isEnabled = isValid
-  }
-  
-  func didReceiveGasLimit(_ gasLimit: Decimal) {
-    gasLimitTextField.placeholder = "\(gasLimit)"
-  }
-  
-  func didReceiveGasPrice(_ gasPrice: Decimal) {
-    let gwei = gasPrice.weiToGwei()
-    gasPriceLabel.text = Localized.sendGasPrice("\(gwei)")
   }
   
   func showLoading() {

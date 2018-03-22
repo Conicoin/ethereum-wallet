@@ -37,14 +37,8 @@ extension Currency {
     return "\(symbol)\t\(fullName)"
   }
   
-  var amount: String {
-    let valueString = String(format: "%.3f", value)
-    return "\(valueString) \(symbol)"
-  }
-  
-  func amount(in iso: String, rate: Double) -> String {
-    let total = value * rate
-    return total.amount(for: iso)
+  var amountString: String {
+    return FiatCurrencyFactory.amount(currency: self)
   }
     
 }

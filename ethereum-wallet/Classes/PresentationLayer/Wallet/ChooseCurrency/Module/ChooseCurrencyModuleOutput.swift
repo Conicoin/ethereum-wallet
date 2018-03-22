@@ -19,5 +19,5 @@ import Foundation
 
 
 protocol ChooseCurrencyModuleOutput: class {
-  func didSelectCurrency(_ currency: String)
+  func didSelectCurrency(_ currency: FiatCurrency)
 }

@@ -1,0 +1,14 @@
+{
+  "BTC": {
+    "symbol": "฿",
+    "name": "Bitcoin"
+  },
+  "ETH": {
+    "symbol": "Ξ",
+    "name": "Ethereum"
+  },
+  "CNY": {
+    "symbol": "¥",
+    "name": "China Yuan Renminbi"
+  }
+}

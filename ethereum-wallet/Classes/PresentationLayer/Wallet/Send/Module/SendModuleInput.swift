@@ -20,5 +20,5 @@ import UIKit
 
 protocol SendModuleInput: class {
   var output: SendModuleOutput? { get set }
-  func presentSend(with coin: Coin, from viewController: UIViewController)
+  func presentSend(with coin: CoinDisplayable, from viewController: UIViewController)
 }

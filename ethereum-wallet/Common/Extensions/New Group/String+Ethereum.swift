@@ -22,6 +22,7 @@ extension String {
   
   func isValidAddress() -> Bool {
     return count == 42 && self[0..<2] == "0x"
+      && (try? Data(hexString: self)) != nil
   }
   
   func retriveAddress() -> String {

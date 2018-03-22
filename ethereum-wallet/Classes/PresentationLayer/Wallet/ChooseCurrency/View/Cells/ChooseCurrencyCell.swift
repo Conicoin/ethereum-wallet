@@ -19,6 +19,11 @@ import UIKit
 
 class ChooseCurrencyCell: UITableViewCell {
   
+  @IBOutlet weak var iconImageView: UIImageView!
+  @IBOutlet weak var isoLabel: UILabel!
+  @IBOutlet weak var nameLabel: UILabel!
+
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -27,6 +32,12 @@ class ChooseCurrencyCell: UITableViewCell {
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     accessoryType = selected ? .checkmark : .none
+  }
+  
+  func configure(with currency: FiatCurrency) {
+    iconImageView.image = currency.icon
+    isoLabel.text = currency.iso
+    nameLabel.text = currency.name
   }
   
 }

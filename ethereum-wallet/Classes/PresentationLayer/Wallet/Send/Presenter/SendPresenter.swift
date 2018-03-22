@@ -24,7 +24,7 @@ class SendPresenter {
   var interactor: SendInteractorInput!
   var router: SendRouterInput!
     
-  var coin: Coin!
+  var coin: CoinDisplayable!
   
   private var amount: Decimal = 0
   private var address: String!
@@ -54,12 +54,8 @@ extension SendPresenter: SendViewOutput {
   
   func viewIsReady() {
     view.setupInitialState()
-    view.didReceiveGasLimit(gasLimit)
-    view.didReceiveGasPrice(gasPrice)
     view.didReceiveCoin(coin)
     interactor.getWallet()
-    /// Disabled for normal transactions
-    //  interactor.getGasLimit()
     interactor.getGasPrice()
     calculateTotalAmount()
   }
@@ -118,14 +114,12 @@ extension SendPresenter: SendInteractorOutput {
   func didReceiveGasLimit(_ gasLimit: Decimal) {
     self.gasLimit = gasLimit
     calculateTotalAmount()
-    view.didReceiveGasLimit(gasLimit)
   }
   
   func didReceiveGasPrice(_ gasPrice: Decimal) {
     let reduced = gasPrice / 2
     self.gasPrice = reduced
     calculateTotalAmount()
-    view.didReceiveGasPrice(reduced)
   }
   
   func didSendTransaction() {
@@ -133,8 +127,8 @@ extension SendPresenter: SendInteractorOutput {
     view.popToRoot()
   }
   
-  func didReceiveCheckout(amount: String, fiatAmount: String, fee: String, fiatFee: String) {
-    view.didReceiveCheckout(amount: amount, fiatAmount: fiatAmount, fee: fee, fiatFee: fiatFee)
+  func didReceiveCheckout(amount: String, fiatAmount: String, fee: String) {
+    view.didReceiveCheckout(amount: amount, fiatAmount: fiatAmount, fee: fee)
   }
   
   func didFailed(with error: Error) {
@@ -152,7 +146,7 @@ extension SendPresenter: SendInteractorOutput {
 
 extension SendPresenter: SendModuleInput {
   
-  func presentSend(with coin: Coin, from viewController: UIViewController) {
+  func presentSend(with coin: CoinDisplayable, from viewController: UIViewController) {
     self.coin = coin
     view.present(fromViewController: viewController)
   }
@@ -182,9 +176,9 @@ extension SendPresenter: ScanModuleOutput {
 
 extension SendPresenter: ChooseCurrencyModuleOutput {
   
-  func didSelectCurrency(_ currency: String) {
-    selectedCurrency = currency
-    view.didReceiveCurrency(currency)
+  func didSelectCurrency(_ currency: FiatCurrency) {
+    selectedCurrency = currency.iso
+    view.didReceiveCurrency(currency.iso)
     calculateTotalAmount()
   }
   

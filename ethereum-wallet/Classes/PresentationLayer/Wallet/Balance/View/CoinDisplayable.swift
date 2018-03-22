@@ -56,7 +56,7 @@ extension Token: CoinDisplayable {
     guard let rate = rate(for: currency) else {
       return nil
     }
-    return balance.amount(in: currency, rate: rate.value)
+    return FiatCurrencyFactory.amount(currency: balance, rate: rate.value)
   }
   
   func rawAmount(for currency: String) -> Double {

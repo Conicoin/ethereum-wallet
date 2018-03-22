@@ -25,7 +25,7 @@ class SendInteractor {
   var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
   var transactionService: TransactionServiceProtocol!
   var gasService: GasServiceProtocol!
-
+  var checkoutService: SendCheckoutServiceProtocol!
 }
 
 
@@ -33,17 +33,10 @@ class SendInteractor {
 
 extension SendInteractor: SendInteractorInput {
   
-  func getCheckout(for coin: Coin, amount: Decimal, iso: String, fee: Decimal) {
+  func getCheckout(for coin: CoinDisplayable, amount: Decimal, iso: String, fee: Decimal) {
     do {
-      guard let rate = coin.rates.first(where: {$0.to == iso}) else {
-        throw SendCheckoutError.noRate
-      }
-      let feeAmount = Ether(weiValue: fee)
-      let fiatFee = feeAmount.amount(in: iso, rate: rate.value)
-      let rawLocalAmount = amount.localToEther(rate: rate.value).toWei()
-      let ethAmount = Ether(weiValue: rawLocalAmount + fee)
-      let fiatAmount = ethAmount.amount(in: iso, rate: rate.value)
-      output.didReceiveCheckout(amount: ethAmount.amount, fiatAmount: fiatAmount, fee: feeAmount.amount, fiatFee: fiatFee)
+      let checkout = try checkoutService.checkout(for: coin, amount: amount, iso: iso, fee: fee)
+      output.didReceiveCheckout(amount: checkout.amount, fiatAmount: checkout.fiatAmount, fee: checkout.fee)
     } catch let error {
       output.didFailed(with: error)
     }

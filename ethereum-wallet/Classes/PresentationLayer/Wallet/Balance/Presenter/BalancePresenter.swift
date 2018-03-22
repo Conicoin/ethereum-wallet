@@ -24,7 +24,7 @@ class BalancePresenter {
   weak var output: BalanceModuleOutput?
   var interactor: BalanceInteractorInput!
   var router: BalanceRouterInput!
-  
+  var coin: Coin?
 }
 
 
@@ -45,6 +45,17 @@ extension BalancePresenter: BalanceViewOutput {
     interactor.getTokensFromNetwork()
   }
   
+  func didSendPressed() {
+    guard let coin = coin else { return }
+    router.presentSend(for: coin, from: viewController)
+  }
+  
+  func didReceivePressed() {
+    guard let coin = coin else { return }
+    router.presentReceive(for: coin, from: view.viewController)
+  }
+  
+  
   func didSelectToken(_ token: Token) {
     router.presentDetails(for: token, from: view.viewController)
   }
@@ -62,6 +73,7 @@ extension BalancePresenter: BalanceInteractorOutput {
   
   func didReceiveCoins(_ coins: [Coin]) {
     guard let coin = coins.first else { return }
+    self.coin = coin
     view.didReceiveCoin(coin)
   }
   
