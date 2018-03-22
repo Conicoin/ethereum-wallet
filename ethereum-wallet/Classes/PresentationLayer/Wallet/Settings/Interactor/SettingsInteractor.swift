@@ -18,6 +18,7 @@
 
 import Foundation
 import RealmSwift
+import Alamofire
 
 class SettingsInteractor {
   weak var output: SettingsInteractorOutput!
@@ -66,7 +67,7 @@ extension SettingsInteractor: SettingsInteractorInput {
     }
   }
   
-  func clearAll(passphrase: String) {
+  func clearAll(passphrase: String, completion: PinResult) {
     do {
       // Clear all geth accounts
       try keystore.deleteAllAccounts(passphrase: passphrase)
@@ -81,9 +82,9 @@ extension SettingsInteractor: SettingsInteractorInput {
       try! realm.write {
         realm.deleteAll()
       }
-      output.didClearAllData()
+      completion(.success(true))
     } catch {
-      output.didFailed(with: error)
+      completion(.failure(error))
     }
     
   }

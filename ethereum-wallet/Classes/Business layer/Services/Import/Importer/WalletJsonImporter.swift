@@ -1,14 +1,14 @@
 //
-//  PinNewPostProcess.swift
+//  WalletJsonImporter.swift
 //  ethereum-wallet
 //
-//  Created by Artur Guseinov on 13/03/2018.
+//  Created by Artur Guseinov on 23/03/2018.
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class PinNewPostProcess: PinPostProcessProtocol {
+class WalletJsonImporter: WalletImporterProtocol {
   
   let keystoreService: KeystoreServiceProtocol
   let walletDataStoreService: WalletDataStoreServiceProtocol
@@ -18,15 +18,14 @@ class PinNewPostProcess: PinPostProcessProtocol {
     self.walletDataStoreService = walletDataStoreService
   }
   
-  func perform(with passphrase: String) throws {
-    let account = try keystoreService.createAccount(passphrase: passphrase)
-    let jsonKey = try keystoreService.jsonKey(for: account, passphrase: passphrase)
+  func importKey(_ key: Data, passcode: String) throws {
+    let account = try keystoreService.restoreAccount(with: key, passphrase: passcode)
     let keychain = Keychain()
-    keychain.jsonKey = jsonKey
-    keychain.passphrase = passphrase
+    keychain.jsonKey = key
+    keychain.passphrase = passcode
     let address = account.getAddress().getHex()!
     walletDataStoreService.createWallet(address: address)
     Defaults.isWalletCreated = true
   }
-
+  
 }

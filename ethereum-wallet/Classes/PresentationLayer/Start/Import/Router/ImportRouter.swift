@@ -27,7 +27,7 @@ class ImportRouter {
 
 extension ImportRouter: ImportRouterInput {
   
-  func presentPin(from viewController: UIViewController, key: Data, importType: ImportState) {
+  func presentPin(from viewController: UIViewController, key: Data, importType: ImportState, postProcess: @escaping PinPostProcess) {
     
     var pinState: PinState!
     switch importType {
@@ -37,7 +37,7 @@ extension ImportRouter: ImportRouterInput {
       pinState = .restorePrivate(key: key)
     }
     
-    PinModule.create(pinState).present(from: viewController) { vc in
+    PinModule.create(pinState).present(from: viewController, postProcess: postProcess) { vc in
       PopupModule.create(.touchId).present(from: vc) { _ in
         TabBarModule.create(isSecureMode: false).present()
       }

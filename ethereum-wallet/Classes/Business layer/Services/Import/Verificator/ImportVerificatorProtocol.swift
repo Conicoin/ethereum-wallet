@@ -1,5 +1,5 @@
 //
-//  ImportPostProcessProtocol.swift
+//  ImportVerificatorProtocol.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 16/03/2018.
@@ -8,6 +8,6 @@
 
 import Alamofire
 
-protocol ImportPostProcessProtocol {
+protocol ImportVerificatorProtocol {
     func verifyKey(_ key: String, completion: (Result<Data>) -> Void)
 }

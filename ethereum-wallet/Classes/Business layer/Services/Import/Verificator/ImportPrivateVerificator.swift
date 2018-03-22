@@ -1,5 +1,5 @@
 //
-//  ImportPrivatePostProcess.swift
+//  ImportPrivateVerificator.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 16/03/2018.
@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class ImportPrivatePostProcess: ImportPostProcessProtocol {
+class ImportPrivateVerificator: ImportVerificatorProtocol {
   
   func verifyKey(_ key: String, completion: (Result<Data>) -> Void) {
     guard key.count == 64 else {

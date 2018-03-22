@@ -19,5 +19,6 @@ import Foundation
 
 
 protocol WelcomeInteractorInput: class {
-
+  func createWallet(passcode: String, completion: PinResult)
+  func importKey(_ key: Data, passcode: String, completion: PinResult)
 }

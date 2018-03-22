@@ -17,10 +17,14 @@
 
 import UIKit
 
+enum WelcomeState {
+  case new
+  case restore(key: Data)
+}
 
 class WelcomeModule {
     
-  class func create() -> WelcomeModuleInput {
+  class func create(_ state: WelcomeState) -> WelcomeModuleInput {
     let router = WelcomeRouter()
     let presenter = WelcomePresenter()
     let interactor = WelcomeInteractor()
@@ -33,7 +37,17 @@ class WelcomeModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
-        
+    
+    // MARK: Injection
+    
+    let keystore = KeystoreService()
+    let walletDataStore = WalletDataStoreService()
+
+    interactor.walletCreator = WalletCreator(keystoreService: keystore, walletDataStoreService: walletDataStore)
+    interactor.walletImporter = WalletJsonImporter(keystoreService: keystore, walletDataStoreService: walletDataStore)
+    
+    presenter.state = state
+    
     return presenter
   }
     

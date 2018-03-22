@@ -44,7 +44,7 @@
                                                     <color key="textColor" red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140.59 Ξ " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80j-ju-lQI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Ξ " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80j-ju-lQI">
                                                     <rect key="frame" x="16" y="109.5" width="343" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="AyF-EU-Gb6"/>
@@ -54,13 +54,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Receive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yu8-lq-Jo0">
-                                                    <rect key="frame" x="91" y="279" width="60" height="17"/>
+                                                    <rect key="frame" x="91" y="279.5" width="60" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8e-Un-dZF" customClass="DefaultButton" customModule="ethereum_wallet" customModuleProvider="target">
-                                                    <rect key="frame" x="93" y="212.5" width="56" height="56"/>
+                                                    <rect key="frame" x="93" y="213" width="56" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="56" id="5ea-eK-zTo"/>
                                                         <constraint firstAttribute="height" constant="56" id="YfW-vN-sbk"/>
@@ -76,13 +76,13 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Send" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lym-aH-e96">
-                                                    <rect key="frame" x="233" y="278" width="43" height="17"/>
+                                                    <rect key="frame" x="233" y="278.5" width="43" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZjA-3n-AWs" customClass="DefaultButton" customModule="ethereum_wallet" customModuleProvider="target">
-                                                    <rect key="frame" x="226" y="212" width="56" height="56"/>
+                                                    <rect key="frame" x="226" y="212.5" width="56" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="56" id="2gp-MA-j6V"/>
                                                         <constraint firstAttribute="height" constant="56" id="rgu-jX-yaA"/>
@@ -98,7 +98,7 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hg-3Z-wtD">
-                                                    <rect key="frame" x="149" y="212" width="77" height="0.0"/>
+                                                    <rect key="frame" x="149" y="212.5" width="77" height="0.0"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" id="Hxu-wm-vF1"/>
@@ -126,8 +126,8 @@
                                                 <constraint firstItem="lym-aH-e96" firstAttribute="centerX" secondItem="ZjA-3n-AWs" secondAttribute="centerX" id="u4A-L9-lGD"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5 Tokens" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkI-wb-dOg">
-                                            <rect key="frame" x="21" y="396" width="76" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Tokens" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkI-wb-dOg">
+                                            <rect key="frame" x="21" y="396" width="65.5" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="rk9-vD-p04"/>
                                             </constraints>
@@ -135,8 +135,8 @@
                                             <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="207 Ξ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LA-zu-lEZ">
-                                            <rect key="frame" x="312" y="398" width="42" height="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Ξ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LA-zu-lEZ">
+                                            <rect key="frame" x="329" y="398" width="25" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.1019607843" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>

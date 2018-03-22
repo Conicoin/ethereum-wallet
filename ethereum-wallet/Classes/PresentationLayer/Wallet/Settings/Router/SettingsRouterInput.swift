@@ -21,7 +21,5 @@ import UIKit
 
 protocol SettingsRouterInput: class {
   func presentChooseCurrency(from: UIViewController, selectedIso: String, output: ChooseCurrencyModuleOutput)
-  func presentPinOnBackup(from: UIViewController, completion: @escaping (String) -> Void)
-  func presentPinOnExit(from: UIViewController, completion: @escaping (String) -> Void)
-  func presentWelcome()
+  func presentPinOnExit(from: UIViewController, postProcess: @escaping PinPostProcess)
 }

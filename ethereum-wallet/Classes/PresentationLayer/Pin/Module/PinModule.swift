@@ -25,10 +25,7 @@ class PinModule {
 
     let pinService = PinServiceFactory.create(with: pinState, delegate: presenter)
     interactor.pinService = pinService
-    
-    let postProcessFactory = PinPostProcessFactory(keychainService: KeystoreService(), walletDataStoreService: WalletDataStoreService())
-    interactor.pinPostProcess = postProcessFactory.create(with: pinState)
-        
+
     return presenter
   }
     

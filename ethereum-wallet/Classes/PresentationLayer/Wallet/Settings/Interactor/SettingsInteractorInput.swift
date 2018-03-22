@@ -17,12 +17,12 @@
 
 
 import Foundation
-
+import Alamofire
 
 protocol SettingsInteractorInput: class {
   func getWallet()
   func selectCurrency(_ currency: String)
   func exportKey(with password: String)
   func deleteTempBackup(at url: URL)
-  func clearAll(passphrase: String)
+  func clearAll(passphrase: String, completion: PinResult)
 }

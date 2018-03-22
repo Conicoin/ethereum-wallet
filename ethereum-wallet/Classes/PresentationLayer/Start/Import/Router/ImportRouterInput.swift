@@ -19,5 +19,5 @@ import UIKit
 
 
 protocol ImportRouterInput: class {
-  func presentPin(from viewController: UIViewController, key: Data, importType: ImportState)
+  func presentPin(from viewController: UIViewController, key: Data, importType: ImportState, postProcess: @escaping PinPostProcess)
 }

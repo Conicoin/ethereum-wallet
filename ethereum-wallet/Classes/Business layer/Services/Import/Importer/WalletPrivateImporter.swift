@@ -1,35 +1,33 @@
 //
-//  PinRestorePrivatePostProcess.swift
+//  WalletPrivateImporter.swift
 //  ethereum-wallet
 //
-//  Created by Artur Guseinov on 19/03/2018.
+//  Created by Artur Guseinov on 23/03/2018.
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class PinRestorePrivatePostProcess: PinPostProcessProtocol {
+class WalletPrivateImporter: WalletImporterProtocol {
   
   let keystoreService: KeystoreServiceProtocol
   let walletDataStoreService: WalletDataStoreServiceProtocol
-  let key: Data
   
-  init(key: Data, keystoreService: KeystoreServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
-    self.key = key
+  init(keystoreService: KeystoreServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
     self.keystoreService = keystoreService
     self.walletDataStoreService = walletDataStoreService
   }
   
-  func perform(with passphrase: String) throws {
-    let keyObject = try Key(privateKey: key, password: passphrase)
+  func importKey(_ key: Data, passcode: String) throws {
+    let keyObject = try Key(privateKey: key, password: passcode)
     let data = try JSONEncoder().encode(keyObject)
-    let account = try keystoreService.restoreAccount(with: data, passphrase: passphrase)
+    let account = try keystoreService.restoreAccount(with: data, passphrase: passcode)
     let keychain = Keychain()
     keychain.jsonKey = key
-    keychain.passphrase = passphrase
+    keychain.passphrase = passcode
     let address = account.getAddress().getHex()!
     walletDataStoreService.createWallet(address: address)
     Defaults.isWalletCreated = true
   }
-
+  
 }

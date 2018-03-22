@@ -14,7 +14,6 @@ class PinInteractor {
   weak var output: PinInteractorOutput!
   
   var pinService: PinServiceProtocol!
-  var pinPostProcess: PinPostProcessProtocol!
 }
 
 
@@ -37,15 +36,6 @@ extension PinInteractor: PinInteractorInput {
   
   func didDeleteSign() {
     pinService.removeSign()
-  }
-  
-  func performPostProcess(with pin: [String]) {
-    do {
-      try pinPostProcess.perform(with: pin.joined())
-      output.didPreformPostProccess()
-    } catch {
-      output.didFailedPostProcess(with: error)
-    }
   }
 
 }

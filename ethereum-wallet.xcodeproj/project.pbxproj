@@ -103,7 +103,6 @@
 		1436EE41205D931900196AAF /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE40205D931900196AAF /* Address.swift */; };
 		1436EE42205D948E00196AAF /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE40205D931900196AAF /* Address.swift */; };
 		1436EE44205EFB5900196AAF /* CustomPinState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE43205EFB5800196AAF /* CustomPinState.swift */; };
-		1436EE49205F162600196AAF /* PinRestorePrivatePostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE48205F162600196AAF /* PinRestorePrivatePostProcess.swift */; };
 		144102D32053FE0A00F4D192 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102D22053FE0A00F4D192 /* DefaultButton.swift */; };
 		144102D8205409A900F4D192 /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102D7205409A900F4D192 /* DefaultTextField.swift */; };
 		144102DC205409E300F4D192 /* DefaultTextFieldUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102DB205409E300F4D192 /* DefaultTextFieldUtils.swift */; };
@@ -161,11 +160,6 @@
 		14991D9920570F690046E6CD /* PinRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991D9820570F690046E6CD /* PinRepository.swift */; };
 		14991D9F20571A9B0046E6CD /* PinSignPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991D9D20571A9B0046E6CD /* PinSignPlaceholderView.swift */; };
 		14991DA1205733410046E6CD /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DA0205733410046E6CD /* UIView+Helpers.swift */; };
-		14991DA62057C4F80046E6CD /* PinPostProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DA52057C4F80046E6CD /* PinPostProcessProtocol.swift */; };
-		14991DA82057C54A0046E6CD /* PinNewPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DA72057C54A0046E6CD /* PinNewPostProcess.swift */; };
-		14991DAA2057C6E60046E6CD /* PinRestoreJsonPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DA92057C6E60046E6CD /* PinRestoreJsonPostProcess.swift */; };
-		14991DAC2057C9E90046E6CD /* PinEnterPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DAB2057C9E90046E6CD /* PinEnterPostProcess.swift */; };
-		14991DAF2057CA880046E6CD /* PinPostProcessFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991DAE2057CA880046E6CD /* PinPostProcessFactory.swift */; };
 		149973D81FB1D71E00B16901 /* RatesDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149973D71FB1D71E00B16901 /* RatesDataStoreService.swift */; };
 		149AA05B1FD60E9400F961FA /* KeystoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA05A1FD60E9400F961FA /* KeystoreServiceProtocol.swift */; };
 		149AA05D1FD60EAF00F961FA /* KeystoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA05C1FD60EAF00F961FA /* KeystoreService.swift */; };
@@ -182,14 +176,14 @@
 		14ACA1F51EF2BD050059E430 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1F31EF2BD050059E430 /* Helpers.swift */; };
 		14ACA1F91EF2BD170059E430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1F61EF2BD170059E430 /* Assets.xcassets */; };
 		14ACA1FE1EF2BD630059E430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ACA1FC1EF2BD630059E430 /* LaunchScreen.storyboard */; };
-		14ADC337205C206400F57875 /* ImportPostProcessFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADC336205C206400F57875 /* ImportPostProcessFactory.swift */; };
+		14ADC337205C206400F57875 /* ImportVerificatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADC336205C206400F57875 /* ImportVerificatorFactory.swift */; };
 		14B126AE205BDAFD00B98AE1 /* ImportStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126AD205BDAFD00B98AE1 /* ImportStateProtocol.swift */; };
 		14B126B0205BDB8000B98AE1 /* ImportPrivateKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126AF205BDB8000B98AE1 /* ImportPrivateKeyState.swift */; };
 		14B126B2205BDC1900B98AE1 /* ImportJsonKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126B1205BDC1900B98AE1 /* ImportJsonKeyState.swift */; };
 		14B126B4205BDC4E00B98AE1 /* ImportStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126B3205BDC4E00B98AE1 /* ImportStateFactory.swift */; };
-		14B126B7205BDCD300B98AE1 /* ImportPostProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126B6205BDCD300B98AE1 /* ImportPostProcessProtocol.swift */; };
-		14B126B9205BDD2500B98AE1 /* ImportPrivatePostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126B8205BDD2500B98AE1 /* ImportPrivatePostProcess.swift */; };
-		14B126BB205BDD4D00B98AE1 /* ImportJsonPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126BA205BDD4D00B98AE1 /* ImportJsonPostProcess.swift */; };
+		14B126B7205BDCD300B98AE1 /* ImportVerificatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126B6205BDCD300B98AE1 /* ImportVerificatorProtocol.swift */; };
+		14B126B9205BDD2500B98AE1 /* ImportPrivateVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126B8205BDD2500B98AE1 /* ImportPrivateVerificator.swift */; };
+		14B126BB205BDD4D00B98AE1 /* ImportJsonVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126BA205BDD4D00B98AE1 /* ImportJsonVerificator.swift */; };
 		14B2193D1FC22DB5003092F0 /* SettingsCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2193C1FC22DB5003092F0 /* SettingsCurrencyCell.swift */; };
 		14B219421FC2458C003092F0 /* Bundle+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B219411FC2458C003092F0 /* Bundle+Helpers.swift */; };
 		14B219451FC2DFC8003092F0 /* ChooseCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B219441FC2DFC8003092F0 /* ChooseCurrencyCell.swift */; };
@@ -204,7 +198,12 @@
 		14BF25992012624900CAFCFD /* TransactionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF25982012624900CAFCFD /* TransactionFactory.swift */; };
 		14BF259C2012626800CAFCFD /* TransactionFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF259B2012626800CAFCFD /* TransactionFactoryProtocol.swift */; };
 		14BF259E2012653200CAFCFD /* TransactionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF259D2012653200CAFCFD /* TransactionInfo.swift */; };
-		14C1152A2064064700DC4C25 /* PinNoPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C115292064064700DC4C25 /* PinNoPostProcess.swift */; };
+		14C1152F2064671700DC4C25 /* WalletImporterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C1152E2064671700DC4C25 /* WalletImporterProtocol.swift */; };
+		14C115312064674100DC4C25 /* WalletJsonImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C115302064674100DC4C25 /* WalletJsonImporter.swift */; };
+		14C115332064681A00DC4C25 /* WalletPrivateImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C115322064681A00DC4C25 /* WalletPrivateImporter.swift */; };
+		14C115352064689500DC4C25 /* WalletImporterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C115342064689500DC4C25 /* WalletImporterFactory.swift */; };
+		14C1153A20646A7000DC4C25 /* WalletCreatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C1153920646A7000DC4C25 /* WalletCreatorProtocol.swift */; };
+		14C1153C20646A9C00DC4C25 /* WalletCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C1153B20646A9C00DC4C25 /* WalletCreator.swift */; };
 		14D027E01EF6D4CD00F125C3 /* RealmWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027DF1EF6D4CD00F125C3 /* RealmWallet.swift */; };
 		14D027EB1EF87A1D00F125C3 /* NetworkLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027EA1EF87A1D00F125C3 /* NetworkLoadable.swift */; };
 		14D027EE1EF9661100F125C3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027ED1EF9661100F125C3 /* API.swift */; };
@@ -479,7 +478,6 @@
 		1436EE3C205D8C5000196AAF /* Secp256k1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1.swift; sourceTree = "<group>"; };
 		1436EE40205D931900196AAF /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		1436EE43205EFB5800196AAF /* CustomPinState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinState.swift; sourceTree = "<group>"; };
-		1436EE48205F162600196AAF /* PinRestorePrivatePostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinRestorePrivatePostProcess.swift; sourceTree = "<group>"; };
 		144102D22053FE0A00F4D192 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		144102D7205409A900F4D192 /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
 		144102DB205409E300F4D192 /* DefaultTextFieldUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextFieldUtils.swift; sourceTree = "<group>"; };
@@ -538,11 +536,6 @@
 		14991D9820570F690046E6CD /* PinRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinRepository.swift; sourceTree = "<group>"; };
 		14991D9D20571A9B0046E6CD /* PinSignPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinSignPlaceholderView.swift; sourceTree = "<group>"; };
 		14991DA0205733410046E6CD /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
-		14991DA52057C4F80046E6CD /* PinPostProcessProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPostProcessProtocol.swift; sourceTree = "<group>"; };
-		14991DA72057C54A0046E6CD /* PinNewPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinNewPostProcess.swift; sourceTree = "<group>"; };
-		14991DA92057C6E60046E6CD /* PinRestoreJsonPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinRestoreJsonPostProcess.swift; sourceTree = "<group>"; };
-		14991DAB2057C9E90046E6CD /* PinEnterPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinEnterPostProcess.swift; sourceTree = "<group>"; };
-		14991DAE2057CA880046E6CD /* PinPostProcessFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPostProcessFactory.swift; sourceTree = "<group>"; };
 		149973D71FB1D71E00B16901 /* RatesDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDataStoreService.swift; sourceTree = "<group>"; };
 		149AA05A1FD60E9400F961FA /* KeystoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreServiceProtocol.swift; sourceTree = "<group>"; };
 		149AA05C1FD60EAF00F961FA /* KeystoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreService.swift; sourceTree = "<group>"; };
@@ -560,14 +553,14 @@
 		14ACA1F61EF2BD170059E430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14ACA1F71EF2BD170059E430 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14ACA1FD1EF2BD630059E430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		14ADC336205C206400F57875 /* ImportPostProcessFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPostProcessFactory.swift; sourceTree = "<group>"; };
+		14ADC336205C206400F57875 /* ImportVerificatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportVerificatorFactory.swift; sourceTree = "<group>"; };
 		14B126AD205BDAFD00B98AE1 /* ImportStateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportStateProtocol.swift; sourceTree = "<group>"; };
 		14B126AF205BDB8000B98AE1 /* ImportPrivateKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPrivateKeyState.swift; sourceTree = "<group>"; };
 		14B126B1205BDC1900B98AE1 /* ImportJsonKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportJsonKeyState.swift; sourceTree = "<group>"; };
 		14B126B3205BDC4E00B98AE1 /* ImportStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportStateFactory.swift; sourceTree = "<group>"; };
-		14B126B6205BDCD300B98AE1 /* ImportPostProcessProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPostProcessProtocol.swift; sourceTree = "<group>"; };
-		14B126B8205BDD2500B98AE1 /* ImportPrivatePostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPrivatePostProcess.swift; sourceTree = "<group>"; };
-		14B126BA205BDD4D00B98AE1 /* ImportJsonPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportJsonPostProcess.swift; sourceTree = "<group>"; };
+		14B126B6205BDCD300B98AE1 /* ImportVerificatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportVerificatorProtocol.swift; sourceTree = "<group>"; };
+		14B126B8205BDD2500B98AE1 /* ImportPrivateVerificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPrivateVerificator.swift; sourceTree = "<group>"; };
+		14B126BA205BDD4D00B98AE1 /* ImportJsonVerificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportJsonVerificator.swift; sourceTree = "<group>"; };
 		14B2193C1FC22DB5003092F0 /* SettingsCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCurrencyCell.swift; sourceTree = "<group>"; };
 		14B219411FC2458C003092F0 /* Bundle+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Helpers.swift"; sourceTree = "<group>"; };
 		14B219441FC2DFC8003092F0 /* ChooseCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyCell.swift; sourceTree = "<group>"; };
@@ -582,7 +575,12 @@
 		14BF25982012624900CAFCFD /* TransactionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFactory.swift; sourceTree = "<group>"; };
 		14BF259B2012626800CAFCFD /* TransactionFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFactoryProtocol.swift; sourceTree = "<group>"; };
 		14BF259D2012653200CAFCFD /* TransactionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInfo.swift; sourceTree = "<group>"; };
-		14C115292064064700DC4C25 /* PinNoPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinNoPostProcess.swift; sourceTree = "<group>"; };
+		14C1152E2064671700DC4C25 /* WalletImporterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImporterProtocol.swift; sourceTree = "<group>"; };
+		14C115302064674100DC4C25 /* WalletJsonImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletJsonImporter.swift; sourceTree = "<group>"; };
+		14C115322064681A00DC4C25 /* WalletPrivateImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPrivateImporter.swift; sourceTree = "<group>"; };
+		14C115342064689500DC4C25 /* WalletImporterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImporterFactory.swift; sourceTree = "<group>"; };
+		14C1153920646A7000DC4C25 /* WalletCreatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreatorProtocol.swift; sourceTree = "<group>"; };
+		14C1153B20646A9C00DC4C25 /* WalletCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreator.swift; sourceTree = "<group>"; };
 		14C4D3CD1EDE1F3700FCA3AF /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		14C6721940B7C90252875C7E /* WelcomeRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeRouterInput.swift; sourceTree = "<group>"; };
 		14D027DF1EF6D4CD00F125C3 /* RealmWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmWallet.swift; sourceTree = "<group>"; };
@@ -1109,7 +1107,6 @@
 		144102DF205673E100F4D192 /* Pin */ = {
 			isa = PBXGroup;
 			children = (
-				14991DA42057C4AF0046E6CD /* PostProcess */,
 				14991D9720570F490046E6CD /* Repository */,
 				14991D9220570E920046E6CD /* Factory */,
 				14991D8F20570D8A0046E6CD /* Configuration */,
@@ -1394,20 +1391,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		14991DA42057C4AF0046E6CD /* PostProcess */ = {
-			isa = PBXGroup;
-			children = (
-				14991DAE2057CA880046E6CD /* PinPostProcessFactory.swift */,
-				14991DA52057C4F80046E6CD /* PinPostProcessProtocol.swift */,
-				14991DA72057C54A0046E6CD /* PinNewPostProcess.swift */,
-				14991DA92057C6E60046E6CD /* PinRestoreJsonPostProcess.swift */,
-				1436EE48205F162600196AAF /* PinRestorePrivatePostProcess.swift */,
-				14991DAB2057C9E90046E6CD /* PinEnterPostProcess.swift */,
-				14C115292064064700DC4C25 /* PinNoPostProcess.swift */,
-			);
-			path = PostProcess;
-			sourceTree = "<group>";
-		};
 		149AA0591FD60E7700F961FA /* Keystore */ = {
 			isa = PBXGroup;
 			children = (
@@ -1443,7 +1426,9 @@
 		14B126AB205BDADC00B98AE1 /* Import */ = {
 			isa = PBXGroup;
 			children = (
-				14B126B5205BDCA100B98AE1 /* PostProcess */,
+				14C1153820646A5300DC4C25 /* Creator */,
+				14C1152D2064670700DC4C25 /* Importer */,
+				14B126B5205BDCA100B98AE1 /* Verificator */,
 				14B126AC205BDAE600B98AE1 /* State */,
 			);
 			path = Import;
@@ -1460,15 +1445,15 @@
 			path = State;
 			sourceTree = "<group>";
 		};
-		14B126B5205BDCA100B98AE1 /* PostProcess */ = {
+		14B126B5205BDCA100B98AE1 /* Verificator */ = {
 			isa = PBXGroup;
 			children = (
-				14B126B6205BDCD300B98AE1 /* ImportPostProcessProtocol.swift */,
-				14B126B8205BDD2500B98AE1 /* ImportPrivatePostProcess.swift */,
-				14B126BA205BDD4D00B98AE1 /* ImportJsonPostProcess.swift */,
-				14ADC336205C206400F57875 /* ImportPostProcessFactory.swift */,
+				14B126B6205BDCD300B98AE1 /* ImportVerificatorProtocol.swift */,
+				14B126B8205BDD2500B98AE1 /* ImportPrivateVerificator.swift */,
+				14B126BA205BDD4D00B98AE1 /* ImportJsonVerificator.swift */,
+				14ADC336205C206400F57875 /* ImportVerificatorFactory.swift */,
 			);
-			path = PostProcess;
+			path = Verificator;
 			sourceTree = "<group>";
 		};
 		14B2193B1FC22D96003092F0 /* Cells */ = {
@@ -1547,6 +1532,26 @@
 				14BF259B2012626800CAFCFD /* TransactionFactoryProtocol.swift */,
 			);
 			path = Factory;
+			sourceTree = "<group>";
+		};
+		14C1152D2064670700DC4C25 /* Importer */ = {
+			isa = PBXGroup;
+			children = (
+				14C1152E2064671700DC4C25 /* WalletImporterProtocol.swift */,
+				14C115302064674100DC4C25 /* WalletJsonImporter.swift */,
+				14C115322064681A00DC4C25 /* WalletPrivateImporter.swift */,
+				14C115342064689500DC4C25 /* WalletImporterFactory.swift */,
+			);
+			path = Importer;
+			sourceTree = "<group>";
+		};
+		14C1153820646A5300DC4C25 /* Creator */ = {
+			isa = PBXGroup;
+			children = (
+				14C1153920646A7000DC4C25 /* WalletCreatorProtocol.swift */,
+				14C1153B20646A9C00DC4C25 /* WalletCreator.swift */,
+			);
+			path = Creator;
 			sourceTree = "<group>";
 		};
 		14C4D3CE1EDE209800FCA3AF /* Services */ = {
@@ -2812,8 +2817,7 @@
 				141749D11FD9B91A00AD5F07 /* Loading.swift in Sources */,
 				14ACA1E01EF2BCB70059E430 /* EthereumCore.swift in Sources */,
 				1433BDCA1FD76E010081D872 /* Bool+Helpers.swift in Sources */,
-				14991DA82057C54A0046E6CD /* PinNewPostProcess.swift in Sources */,
-				14ADC337205C206400F57875 /* ImportPostProcessFactory.swift in Sources */,
+				14ADC337205C206400F57875 /* ImportVerificatorFactory.swift in Sources */,
 				14ACA1E51EF2BCC80059E430 /* Defaults.swift in Sources */,
 				14D7E747201A13A000DADBC3 /* UIViewController+NavBarShadow.swift in Sources */,
 				144791D01EF5DE4000029818 /* ApplicationConfigurator.swift in Sources */,
@@ -2834,6 +2838,7 @@
 				1421A7092062AF2300B4DBC2 /* SendCoinCheckoutService.swift in Sources */,
 				14D027F71EF9701A00F125C3 /* RealmTransaction.swift in Sources */,
 				145A90FE1FDDEDDC00DED3AC /* TokenValue.swift in Sources */,
+				14C115312064674100DC4C25 /* WalletJsonImporter.swift in Sources */,
 				14BF259C2012626800CAFCFD /* TransactionFactoryProtocol.swift in Sources */,
 				14B77EC41F9ACD9300FCD923 /* WalletDataStoreServiceProtocol.swift in Sources */,
 				14D027E01EF6D4CD00F125C3 /* RealmWallet.swift in Sources */,
@@ -2841,7 +2846,6 @@
 				1433BDBE1FD743120081D872 /* GasServiceProtocol.swift in Sources */,
 				14ACA1D71EF2BC840059E430 /* AppDelegate.swift in Sources */,
 				1489ED1D1F9C0EE800E0A5FC /* Data+Helpers.swift in Sources */,
-				14C1152A2064064700DC4C25 /* PinNoPostProcess.swift in Sources */,
 				144791CC1EF5DDD200029818 /* ConfiguratorProtocol.swift in Sources */,
 				145842671FB111E800FA733F /* RatesNetworkServiceProtocol.swift in Sources */,
 				14ACA1F01EF2BCF30059E430 /* Error+Helpers.swift in Sources */,
@@ -2850,7 +2854,6 @@
 				14046D0B201FBA9E007BD203 /* TokenTransactionsDataStoreServiceProtocol.swift in Sources */,
 				14D027EB1EF87A1D00F125C3 /* NetworkLoadable.swift in Sources */,
 				14D027EE1EF9661100F125C3 /* API.swift in Sources */,
-				14991DAC2057C9E90046E6CD /* PinEnterPostProcess.swift in Sources */,
 				145842691FB1123E00FA733F /* Rate.swift in Sources */,
 				1414E70D2058A0350080680E /* PopupTouchPostProcess.swift in Sources */,
 				14285E841FB2831200DD3CB5 /* API+Rate.swift in Sources */,
@@ -2904,7 +2907,6 @@
 				0A529C94F8AEE5862B69145C /* TabBarViewInput.swift in Sources */,
 				145A91051FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift in Sources */,
 				DD1C3D52DAF19C4559391431 /* TabBarViewOutput.swift in Sources */,
-				14991DA62057C4F80046E6CD /* PinPostProcessProtocol.swift in Sources */,
 				E0850219B4525F5FEF7DAEB2 /* TabBarViewController.swift in Sources */,
 				29C073848D352631119886FD /* TabBarPresenter.swift in Sources */,
 				14958E4B1FB7A4D3005CFC6C /* Decimal+Ethereum.swift in Sources */,
@@ -2915,7 +2917,6 @@
 				9420179ECA842F06CAA0BCB8 /* TabBarInteractorOutput.swift in Sources */,
 				14BE0A7B1FAFDCC50044E3A1 /* CoinDataStoreService.swift in Sources */,
 				9909D25449030BC31831AFC9 /* TabBarInteractor.swift in Sources */,
-				14991DAA2057C6E60046E6CD /* PinRestoreJsonPostProcess.swift in Sources */,
 				5F557B63976EB753D05D3A99 /* TabBarRouterInput.swift in Sources */,
 				14FEBD751FBB2A940084F1AB /* Chain.swift in Sources */,
 				3AF57957F09B9C361F9B92D3 /* TabBarRouter.swift in Sources */,
@@ -2949,10 +2950,12 @@
 				14991D9920570F690046E6CD /* PinRepository.swift in Sources */,
 				A6EB2074CF07678E771B62CA /* TransactionsViewOutput.swift in Sources */,
 				6613C9796674488D78CEFDFA /* TransactionsViewController.swift in Sources */,
+				14C1152F2064671700DC4C25 /* WalletImporterProtocol.swift in Sources */,
 				144102E52056743000F4D192 /* PinServiceProtocol.swift in Sources */,
 				144102E62056743000F4D192 /* PinConfigurationProtocol.swift in Sources */,
 				9FE6B6A40A81AC72E5122D00 /* TransactionsPresenter.swift in Sources */,
 				FDD3F07044EEF6E854645185 /* TransactionsInteractorInput.swift in Sources */,
+				14C1153A20646A7000DC4C25 /* WalletCreatorProtocol.swift in Sources */,
 				14FEBD731FBB1F210084F1AB /* Node.swift in Sources */,
 				437D18BC71E49AE3BBB15EB5 /* TransactionsInteractorOutput.swift in Sources */,
 				D46109B070B77F3B2FE90E34 /* TransactionsInteractor.swift in Sources */,
@@ -2993,9 +2996,10 @@
 				D025DFCF24E4D87631410C3E /* SendModule.swift in Sources */,
 				149AA05B1FD60E9400F961FA /* KeystoreServiceProtocol.swift in Sources */,
 				1406465C1FAF46DB0013DFFF /* Coin.swift in Sources */,
+				14C1153C20646A9C00DC4C25 /* WalletCreator.swift in Sources */,
 				5C142202D92AFEB49A810B5E /* ReceiveViewInput.swift in Sources */,
 				9979B5D0B82EB41F30F74A8A /* ReceiveViewOutput.swift in Sources */,
-				14B126B9205BDD2500B98AE1 /* ImportPrivatePostProcess.swift in Sources */,
+				14B126B9205BDD2500B98AE1 /* ImportPrivateVerificator.swift in Sources */,
 				14E26DBE20613A9E00976CD1 /* BorderView.swift in Sources */,
 				A5EB7F5A8F282AFA74B46773 /* ReceiveViewController.swift in Sources */,
 				16B56704FE92CC4FCE8DE351 /* ReceivePresenter.swift in Sources */,
@@ -3005,12 +3009,11 @@
 				2EBD9E3202AC8101D58D7C85 /* ReceiveRouterInput.swift in Sources */,
 				1414E7162059584F0080680E /* NSError+LAError.swift in Sources */,
 				390495A9595407CFB451A82F /* ReceiveRouter.swift in Sources */,
-				1436EE49205F162600196AAF /* PinRestorePrivatePostProcess.swift in Sources */,
 				14991D7B205699840046E6CD /* ChangePinState.swift in Sources */,
 				F9250D5B1071EF6CC9B3AC6C /* ReceiveModuleInput.swift in Sources */,
 				3BBF9E5C3B744B3E44EB1B93 /* ReceiveModuleOutput.swift in Sources */,
 				2A46EDFCD4AB58E13B2495ED /* ReceiveModule.swift in Sources */,
-				14B126B7205BDCD300B98AE1 /* ImportPostProcessProtocol.swift in Sources */,
+				14B126B7205BDCD300B98AE1 /* ImportVerificatorProtocol.swift in Sources */,
 				730C62F82E21085B2E925EFA /* ScanViewInput.swift in Sources */,
 				69889D672FD86D2ECB0810F2 /* ScanViewOutput.swift in Sources */,
 				9D7DEFF5252AE5F5BF580F2D /* ScanViewController.swift in Sources */,
@@ -3073,6 +3076,7 @@
 				14991D9120570D9B0046E6CD /* PinConfiguration.swift in Sources */,
 				14786EE3201E6ABD009ECC11 /* TokenTransactionsNetworkServiceProtocol.swift in Sources */,
 				49207D2EE0BB08A745296831 /* TokenDetailsInteractorOutput.swift in Sources */,
+				14C115332064681A00DC4C25 /* WalletPrivateImporter.swift in Sources */,
 				FC19ABE5FFEF2B39A891118F /* TokenDetailsInteractor.swift in Sources */,
 				64BF51EC0F892161E5D29690 /* TokenDetailsRouterInput.swift in Sources */,
 				4BB78C17A9CBBC490D8F40E4 /* TokenDetailsRouter.swift in Sources */,
@@ -3086,9 +3090,8 @@
 				5D3680865AF0DDC0E581818B /* CoinDetailsPresenter.swift in Sources */,
 				D33C7BCFDB9BEFA72A68454B /* CoinDetailsInteractorInput.swift in Sources */,
 				B07A4987A0D0C2595207B982 /* CoinDetailsInteractorOutput.swift in Sources */,
-				14991DAF2057CA880046E6CD /* PinPostProcessFactory.swift in Sources */,
 				0CAD49C87E94FC69CA400C76 /* CoinDetailsInteractor.swift in Sources */,
-				14B126BB205BDD4D00B98AE1 /* ImportJsonPostProcess.swift in Sources */,
+				14B126BB205BDD4D00B98AE1 /* ImportJsonVerificator.swift in Sources */,
 				14991D7F205699840046E6CD /* NewPinState.swift in Sources */,
 				B1C95A71BE32232CA402A914 /* CoinDetailsRouterInput.swift in Sources */,
 				1FB9A9338DB51D624E49E600 /* CoinDetailsRouter.swift in Sources */,
@@ -3096,6 +3099,7 @@
 				FF338867AE61C30594F8D003 /* CoinDetailsModuleInput.swift in Sources */,
 				F748B35BD0835394B9F1EAC1 /* CoinDetailsModuleOutput.swift in Sources */,
 				8F468B5E8AF03015425B5FF2 /* CoinDetailsModule.swift in Sources */,
+				14C115352064689500DC4C25 /* WalletImporterFactory.swift in Sources */,
 				F19BD5AA3D3FA25CC0FACA7B /* ImportViewInput.swift in Sources */,
 				14B126B0205BDB8000B98AE1 /* ImportPrivateKeyState.swift in Sources */,
 				93B9D841C6D8EDE22A25C654 /* ImportViewOutput.swift in Sources */,

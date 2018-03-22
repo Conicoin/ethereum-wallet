@@ -7,7 +7,11 @@
 //
 
 import UIKit
+import Alamofire
 
+typealias PinPostProcess = ((String, ((Result<Bool>) -> Void)) -> Void)
+typealias PinNextScene = ((UIViewController) -> Void)
+typealias PinResult = (Result<Bool>) -> Void
 
 class PinPresenter {
     
@@ -16,7 +20,8 @@ class PinPresenter {
   var interactor: PinInteractorInput!
   var router: PinRouterInput!
   
-  private var onSuccess: ((UIViewController) -> Void)!
+  private var postProcess: PinPostProcess!
+  private var nextScene: PinNextScene!
 }
 
 
@@ -50,7 +55,6 @@ extension PinPresenter: PinInteractorOutput {
   
   func didPreformPostProccess() {
     view.didSucceed()
-    onSuccess(self.view.viewController)
   }
   
   func didFailedPostProcess(with error: Error) {
@@ -65,7 +69,9 @@ extension PinPresenter: PinInteractorOutput {
 
 extension PinPresenter: PinModuleInput {
   
-  func present(from viewController: UIViewController, onSuccess: @escaping (UIViewController) -> Void) {
+  func present(from viewController: UIViewController, postProcess: @escaping PinPostProcess, nextScene: @escaping PinNextScene) {
+    self.nextScene = nextScene
+    self.postProcess = postProcess
     view.present(fromViewController: viewController)
   }
   
@@ -77,7 +83,16 @@ extension PinPresenter: PinModuleInput {
 extension PinPresenter: PinServiceDelegate {
  
   func pinLockDidSucceed(_ lock: PinServiceProtocol, acceptedPin pin: [String]) {
-    interactor.performPostProcess(with: pin)
+    let passcode = pin.joined()
+    postProcess(passcode) { result in
+      switch result {
+      case .success:
+        self.nextScene(self.view.viewController)
+      case .failure:
+        self.view.viewController.pop()
+      }
+    }
+      
   }
   
   func pinLockDidFail(_ lock: PinServiceProtocol) {

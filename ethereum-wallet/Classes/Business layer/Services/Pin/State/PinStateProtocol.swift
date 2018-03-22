@@ -17,8 +17,8 @@
 import Foundation
 
 enum PinState {
-  case exit(completion: (String) -> Void)
-  case backup(completion: (String) -> Void)
+  case exit
+  case backup
   case set
   case change
   case restoreJson(key: Data)

@@ -25,6 +25,8 @@ class WelcomePresenter {
   var interactor: WelcomeInteractorInput!
   var router: WelcomeRouterInput!
   
+  var state = WelcomeState.new
+  
   var isRestoring: Bool {
     let keychain = Keychain()
     return keychain.isAccountBackuped
@@ -42,11 +44,15 @@ extension WelcomePresenter: WelcomeViewOutput {
   }
 
   func newDidPressed() {
-    let keychain = Keychain()
-    if let jsonKey = keychain.jsonKey {
-      router.presentPinRestore(from: view.viewController, key: jsonKey)
-    } else {
-      router.presentPinNew(from: view.viewController)
+    switch state {
+    case .restore(let key):
+      router.presentPinRestore(from: view.viewController, key: key) { [unowned self] pin, postProcess in
+        self.interactor.importKey(key, passcode: pin, completion: postProcess)
+      }
+    case .new:
+      router.presentPinNew(from: view.viewController) { [unowned self] pin, postProcess in
+        self.interactor.createWallet(passcode: pin, completion: postProcess)
+      }
     }
   }
   
