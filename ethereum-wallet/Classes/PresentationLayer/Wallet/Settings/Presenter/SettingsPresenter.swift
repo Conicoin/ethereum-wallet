@@ -45,7 +45,11 @@ extension SettingsPresenter: SettingsViewOutput {
   }
   
   func didChangePasscodePressed() {
-    
+    let keychain = Keychain()
+    let oldPin = keychain.passphrase!
+    router.presentPinOnChangePin(from: view.viewController) { [unowned self] pin, postProcess in
+      self.interactor.changePin(oldPin: oldPin, newPin: pin, completion: postProcess)
+    }
   }
   
   func didBackupPressed() {
@@ -57,7 +61,7 @@ extension SettingsPresenter: SettingsViewOutput {
   }
   
   func didLogoutPressed() {
-    router.presentPinOnExit(from: view.viewController) { pin, postProcess in
+    router.presentPinOnExit(from: view.viewController) { [unowned self] pin, postProcess in
       self.interactor.clearAll(passphrase: pin, completion: postProcess)
     }
   }

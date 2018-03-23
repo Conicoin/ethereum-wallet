@@ -63,7 +63,11 @@ class SettingsViewController: UIViewController {
   }
   
   @IBAction func changePasscodePressed(_ sender: UIButton) {
-    output.didChangePasscodePressed()
+    showAlert(title: Localized.settingsChangeAlertTitle(),
+              message: Localized.settingsChangeAlertMsg(),
+              cancelable: true) { _ in
+      self.output.didChangePasscodePressed()
+    }
   }
   
   @IBAction func touchIdPressed(_ sender: UIButton) {
@@ -80,7 +84,11 @@ class SettingsViewController: UIViewController {
   }
   
   @IBAction func logoutPressed(_ sender: UIButton) {
-    output.didLogoutPressed()
+    showAlert(title: Localized.settingsExitAlertTitle(),
+              message: Localized.settingsExitAlertMsg(),
+              cancelable: true) { _ in
+      self.output.didLogoutPressed()
+    }
   }
 }
 

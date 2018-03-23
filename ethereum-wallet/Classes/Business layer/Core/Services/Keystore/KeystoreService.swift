@@ -50,6 +50,14 @@ class KeystoreService: KeystoreServiceProtocol {
     return try keystore.importKey(jsonKey, passphrase: passphrase, newPassphrase: passphrase)
   }
   
+  func changePassphrase(_ old: String, new: String, key: Data) throws -> Data {
+    let account = try getAccount(at: 0)
+    let newAccount = try keystore.importKey(key, passphrase: old, newPassphrase: new)
+    try keystore.delete(account, passphrase: old)
+    let newKey = try keystore.exportKey(newAccount, passphrase: new, newPassphrase: new)
+    return newKey
+  }
+  
   func deleteAccount(_ account: GethAccount, passphrase: String) throws {
     return try keystore.delete(account, passphrase: passphrase)
   }

@@ -25,4 +25,5 @@ protocol SettingsInteractorInput: class {
   func exportKey(with password: String)
   func deleteTempBackup(at url: URL)
   func clearAll(passphrase: String, completion: PinResult?)
+  func changePin(oldPin: String, newPin: String, completion: PinResult?) 
 }

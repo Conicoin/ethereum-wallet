@@ -41,14 +41,14 @@ class TransactionsViewController: UIViewController {
   private func showAlert(for index: Int) {
     let alert = UIAlertController(title: Localized.transactionsAlertTitle(), message: nil, preferredStyle: .alert)
 
-    let ok = UIAlertAction(title: Localized.transactionsAlertOk(), style: .default) { action in
+    let ok = UIAlertAction(title: Localized.commonOk(), style: .default) { action in
       let transaction = self.output.filteredTransactions[index]
       let urlString = Defaults.chain.etherscanUrl + "/tx/\(transaction.txHash!)"
       guard let url = URL(string: urlString) else { return }
       let svc = SFSafariViewController(url: url)
       self.present(svc, animated: true, completion: nil)
     }
-    let cancel = UIAlertAction(title: Localized.transactionsAlertCancel(), style: .default, handler: nil)
+    let cancel = UIAlertAction(title: Localized.commonCancel(), style: .default, handler: nil)
     alert.addAction(cancel)
     alert.addAction(ok)
     present(alert, animated: true, completion: nil)
