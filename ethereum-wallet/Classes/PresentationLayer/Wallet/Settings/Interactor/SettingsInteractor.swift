@@ -67,7 +67,7 @@ extension SettingsInteractor: SettingsInteractorInput {
     }
   }
   
-  func clearAll(passphrase: String, completion: PinResult) {
+  func clearAll(passphrase: String, completion: PinResult?) {
     do {
       // Clear all geth accounts
       try keystore.deleteAllAccounts(passphrase: passphrase)
@@ -82,9 +82,9 @@ extension SettingsInteractor: SettingsInteractorInput {
       try! realm.write {
         realm.deleteAll()
       }
-      completion(.success(true))
+      completion?(.success(true))
     } catch {
-      completion(.failure(error))
+      completion?(.failure(error))
     }
     
   }

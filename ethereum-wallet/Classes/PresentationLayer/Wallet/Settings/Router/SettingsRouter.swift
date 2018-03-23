@@ -32,7 +32,7 @@ extension SettingsRouter: SettingsRouterInput {
     ChooseCurrencyModule.create().present(from: from, selectedIso: selectedIso, output: output)
   }
   
-  func presentPinOnExit(from: UIViewController, postProcess: @escaping PinPostProcess) {
+  func presentPinOnExit(from: UIViewController, postProcess: PinPostProcess?) {
     PinModule.create(.exit).present(from: from, postProcess: postProcess) { vc in
       WelcomeModule.create(.new).present()
     }

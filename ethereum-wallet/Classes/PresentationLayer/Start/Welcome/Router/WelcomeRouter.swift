@@ -27,7 +27,7 @@ class WelcomeRouter {
 
 extension WelcomeRouter: WelcomeRouterInput {
   
-  func presentPinNew(from viewController: UIViewController, postProcessor: @escaping PinPostProcess) {
+  func presentPinNew(from viewController: UIViewController, postProcessor: PinPostProcess?) {
     PinModule.create(.set).present(from: viewController, postProcess: postProcessor) { vc in
       PopupModule.create(.touchId).present(from: vc) { _ in
         TabBarModule.create(isSecureMode: false).present()
@@ -35,7 +35,7 @@ extension WelcomeRouter: WelcomeRouterInput {
     }
   }
   
-  func presentPinRestore(from viewController: UIViewController, key: Data, postProcess: @escaping PinPostProcess) {
+  func presentPinRestore(from viewController: UIViewController, key: Data, postProcess: PinPostProcess?) {
     PinModule.create(.restoreJson(key: key)).present(from: viewController, postProcess: postProcess) { vc in
       PopupModule.create(.touchId).present(from: vc) { _ in
         TabBarModule.create(isSecureMode: false).present()

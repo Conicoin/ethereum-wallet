@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-typealias PinPostProcess = ((String, ((Result<Bool>) -> Void)) -> Void)
+typealias PinPostProcess = ((String, PinResult?) -> Void)
 typealias PinNextScene = ((UIViewController) -> Void)
 typealias PinResult = (Result<Bool>) -> Void
 
@@ -20,8 +20,8 @@ class PinPresenter {
   var interactor: PinInteractorInput!
   var router: PinRouterInput!
   
-  private var postProcess: PinPostProcess!
-  private var nextScene: PinNextScene!
+  private var postProcess: PinPostProcess?
+  private var nextScene: PinNextScene?
 }
 
 
@@ -69,7 +69,7 @@ extension PinPresenter: PinInteractorOutput {
 
 extension PinPresenter: PinModuleInput {
   
-  func present(from viewController: UIViewController, postProcess: @escaping PinPostProcess, nextScene: @escaping PinNextScene) {
+  func present(from viewController: UIViewController, postProcess: PinPostProcess?, nextScene: PinNextScene?) {
     self.nextScene = nextScene
     self.postProcess = postProcess
     view.present(fromViewController: viewController)
@@ -84,11 +84,14 @@ extension PinPresenter: PinServiceDelegate {
  
   func pinLockDidSucceed(_ lock: PinServiceProtocol, acceptedPin pin: [String]) {
     let passcode = pin.joined()
-    postProcess(passcode) { result in
+    Loader.start()
+    postProcess?(passcode) { result in
       switch result {
       case .success:
-        self.nextScene(self.view.viewController)
+        Loader.stop()
+        self.nextScene?(self.view.viewController)
       case .failure:
+        Loader.stop()
         self.view.viewController.pop()
       }
     }

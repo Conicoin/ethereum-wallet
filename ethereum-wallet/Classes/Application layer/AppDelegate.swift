@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     for configurator in configurators {
       configurator.configure()
     }
-            
+                
     return true
   }
   

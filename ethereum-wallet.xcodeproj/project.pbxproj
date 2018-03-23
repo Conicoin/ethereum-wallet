@@ -138,6 +138,8 @@
 		146DB0831FA007F9000D3564 /* TransactionsNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0821FA007F9000D3564 /* TransactionsNetworkServiceProtocol.swift */; };
 		146DB0851FA0080A000D3564 /* WalletNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0841FA0080A000D3564 /* WalletNetworkServiceProtocol.swift */; };
 		146DB0871FA00819000D3564 /* WalletNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0861FA00819000D3564 /* WalletNetworkService.swift */; };
+		146F32122064F2240023B52A /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F32112064F2240023B52A /* LoaderView.swift */; };
+		146F32152064F48C0023B52A /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F32142064F48C0023B52A /* Loader.swift */; };
 		1475B74B201A67820020EA8A /* TransactionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475B74A201A67820020EA8A /* TransactionInput.swift */; };
 		14786ED7201E05E1009ECC11 /* HexDataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786ED6201E05E1009ECC11 /* HexDataTransform.swift */; };
 		14786EE3201E6ABD009ECC11 /* TokenTransactionsNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EE2201E6ABD009ECC11 /* TokenTransactionsNetworkServiceProtocol.swift */; };
@@ -514,6 +516,8 @@
 		146DB0821FA007F9000D3564 /* TransactionsNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		146DB0841FA0080A000D3564 /* WalletNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		146DB0861FA00819000D3564 /* WalletNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNetworkService.swift; sourceTree = "<group>"; };
+		146F32112064F2240023B52A /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		146F32142064F48C0023B52A /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		1475B74A201A67820020EA8A /* TransactionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInput.swift; sourceTree = "<group>"; };
 		14786ED6201E05E1009ECC11 /* HexDataTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexDataTransform.swift; sourceTree = "<group>"; };
 		14786EE2201E6ABD009ECC11 /* TokenTransactionsNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTransactionsNetworkServiceProtocol.swift; sourceTree = "<group>"; };
@@ -1080,6 +1084,7 @@
 		144102D12053FDEE00F4D192 /* Conicoin */ = {
 			isa = PBXGroup;
 			children = (
+				146F32102064F2080023B52A /* Loader */,
 				14E26DBC20613A7900976CD1 /* BorderView */,
 				144102DA205409BA00F4D192 /* TextField */,
 				144102D9205409B000F4D192 /* Button */,
@@ -1307,6 +1312,15 @@
 				146DB0801FA007E7000D3564 /* TransactionsNetworkService.swift */,
 			);
 			path = Transactions;
+			sourceTree = "<group>";
+		};
+		146F32102064F2080023B52A /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				146F32112064F2240023B52A /* LoaderView.swift */,
+				146F32142064F48C0023B52A /* Loader.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 		14786ED5201E05D2009ECC11 /* Transforms */ = {
@@ -2903,6 +2917,7 @@
 				1433BDC01FD7431C0081D872 /* GasService.swift in Sources */,
 				14786EE7201E6D2F009ECC11 /* TransactionDisplayable.swift in Sources */,
 				1400FBB71F997CA600EBC84C /* RealmMappable.swift in Sources */,
+				146F32122064F2240023B52A /* LoaderView.swift in Sources */,
 				1409C1371FE87DBC00803E78 /* SettingsBackupCell.swift in Sources */,
 				0A529C94F8AEE5862B69145C /* TabBarViewInput.swift in Sources */,
 				145A91051FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift in Sources */,
@@ -3015,6 +3030,7 @@
 				2A46EDFCD4AB58E13B2495ED /* ReceiveModule.swift in Sources */,
 				14B126B7205BDCD300B98AE1 /* ImportVerificatorProtocol.swift in Sources */,
 				730C62F82E21085B2E925EFA /* ScanViewInput.swift in Sources */,
+				146F32152064F48C0023B52A /* Loader.swift in Sources */,
 				69889D672FD86D2ECB0810F2 /* ScanViewOutput.swift in Sources */,
 				9D7DEFF5252AE5F5BF580F2D /* ScanViewController.swift in Sources */,
 				14004B82205D3FB000EA8199 /* KeyKDFParams.swift in Sources */,

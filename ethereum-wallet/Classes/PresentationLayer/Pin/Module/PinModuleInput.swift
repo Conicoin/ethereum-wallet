@@ -11,5 +11,5 @@ import UIKit
 
 protocol PinModuleInput: class {
   var output: PinModuleOutput? { get set }
-  func present(from viewController: UIViewController, postProcess: @escaping PinPostProcess, nextScene: @escaping PinNextScene)
+  func present(from viewController: UIViewController, postProcess: PinPostProcess?, nextScene: PinNextScene?)
 }

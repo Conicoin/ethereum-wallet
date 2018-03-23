@@ -30,21 +30,21 @@ class WelcomeInteractor {
 
 extension WelcomeInteractor: WelcomeInteractorInput {
   
-  func createWallet(passcode: String, completion: PinResult) {
+  func createWallet(passcode: String, completion: PinResult?) {
     do {
       try walletCreator.createWallet(with: passcode)
-      completion(.success(true))
+      completion?(.success(true))
     } catch {
-      completion(.failure(error))
+      completion?(.failure(error))
     }
   }
   
-  func importKey(_ key: Data, passcode: String, completion: PinResult) {
+  func importKey(_ key: Data, passcode: String, completion: PinResult?) {
     do {
       try walletImporter.importKey(key, passcode: passcode)
-      completion(.success(true))
+      completion?(.success(true))
     } catch {
-      completion(.failure(error))
+      completion?(.failure(error))
     }
   }
 

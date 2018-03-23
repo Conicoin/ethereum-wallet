@@ -20,5 +20,5 @@ import Foundation
 
 protocol ImportInteractorInput: class {
   func verifyKey(_ key: String)
-  func importKey(_ key: Data, passcode: String, completion: PinResult)
+  func importKey(_ key: Data, passcode: String, completion: PinResult?)
 }

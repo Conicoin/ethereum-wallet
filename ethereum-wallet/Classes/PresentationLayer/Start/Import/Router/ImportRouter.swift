@@ -27,7 +27,7 @@ class ImportRouter {
 
 extension ImportRouter: ImportRouterInput {
   
-  func presentPin(from viewController: UIViewController, key: Data, importType: ImportState, postProcess: @escaping PinPostProcess) {
+  func presentPin(from viewController: UIViewController, key: Data, importType: ImportState, postProcess: PinPostProcess?) {
     
     var pinState: PinState!
     switch importType {
