@@ -30,10 +30,17 @@ extension UIViewController {
     view.insertSubview(imageView, at: 0)
   }
   
-  func showAlert(title: String?, message: String?) {
+  func showAlert(title: String?, message: String?, cancelable: Bool = false,  handler: ((UIAlertAction) -> Void)? = nil) {
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    if cancelable {
+      alert.addAction(UIAlertAction(title: Localized.commonCancel(), style: .cancel, handler: nil))
+    }
+    alert.addAction(UIAlertAction(title: Localized.commonOk(), style: .default, handler: handler))
     present(alert, animated: true, completion: nil)
+  }
+  
+  func pop() {
+    navigationController?.popViewController(animated: true)
   }
 
 }

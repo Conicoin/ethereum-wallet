@@ -34,6 +34,8 @@ class SendModule {
     presenter.router = router
     presenter.interactor = interactor
     
+    // MARK: - Injection
+    
     let core = Ethereum.core
     let keystore = KeystoreService()
     

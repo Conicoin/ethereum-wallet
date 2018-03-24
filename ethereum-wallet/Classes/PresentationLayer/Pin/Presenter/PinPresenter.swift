@@ -7,7 +7,11 @@
 //
 
 import UIKit
+import Alamofire
 
+typealias PinPostProcess = ((String, PinResult?) -> Void)
+typealias PinNextScene = ((UIViewController) -> Void)
+typealias PinResult = (Result<Any>) -> Void
 
 class PinPresenter {
     
@@ -16,7 +20,8 @@ class PinPresenter {
   var interactor: PinInteractorInput!
   var router: PinRouterInput!
   
-  private var onSuccess: ((UIViewController) -> Void)!
+  private var postProcess: PinPostProcess?
+  private var nextScene: PinNextScene?
 }
 
 
@@ -27,14 +32,19 @@ extension PinPresenter: PinViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     interactor.getPinInfo()
+    interactor.authenticateWithBiometrics()
   }
   
   func didAddSign(_ sign: String) {
-    interactor.didAddSign(sign)
+    interactor.addSign(sign)
   }
   
   func didDeleteSign() {
-    interactor.didDeleteSign()
+    interactor.deleteSign()
+  }
+  
+  func didTouchIdPressed() {
+    interactor.authenticateWithBiometrics()
   }
 
 }
@@ -50,7 +60,6 @@ extension PinPresenter: PinInteractorOutput {
   
   func didPreformPostProccess() {
     view.didSucceed()
-    onSuccess(self.view.viewController)
   }
   
   func didFailedPostProcess(with error: Error) {
@@ -65,8 +74,9 @@ extension PinPresenter: PinInteractorOutput {
 
 extension PinPresenter: PinModuleInput {
   
-  func present(from viewController: UIViewController, onSuccess: @escaping (UIViewController) -> Void) {
-    self.onSuccess = onSuccess
+  func present(from viewController: UIViewController, postProcess: PinPostProcess?, nextScene: PinNextScene?) {
+    self.nextScene = nextScene
+    self.postProcess = postProcess
     view.present(fromViewController: viewController)
   }
   
@@ -78,7 +88,19 @@ extension PinPresenter: PinModuleInput {
 extension PinPresenter: PinServiceDelegate {
  
   func pinLockDidSucceed(_ lock: PinServiceProtocol, acceptedPin pin: [String]) {
-    interactor.performPostProcess(with: pin)
+    let passcode = pin.joined()
+    Loader.start()
+    postProcess?(passcode) { result in
+      switch result {
+      case .success:
+        Loader.stop()
+        self.nextScene?(self.view.viewController)
+      case .failure:
+        Loader.stop()
+        self.view.viewController.pop()
+      }
+    }
+      
   }
   
   func pinLockDidFail(_ lock: PinServiceProtocol) {

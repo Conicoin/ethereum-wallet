@@ -27,6 +27,15 @@ class BalanceModule {
     let viewController = R.storyboard.balance.balanceViewController()!
 
     interactor.output = presenter
+
+    viewController.output = presenter
+
+    presenter.view = viewController
+    presenter.router = router
+    presenter.interactor = interactor
+    
+    // MARK: - Injection
+    
     interactor.walletDataStoreService = WalletDataStoreService()
     interactor.walletNetworkService = WalletNetworkService()
     interactor.coinDataStoreService = CoinDataStoreService()
@@ -34,12 +43,6 @@ class BalanceModule {
     interactor.ratesDataStoreService = RatesDataStoreService()
     interactor.tokensNetworkService = TokensNetworkService()
     interactor.tokensDataStoreService = TokenDataStoreService()
-
-    viewController.output = presenter
-
-    presenter.view = viewController
-    presenter.router = router
-    presenter.interactor = interactor
         
     return presenter
   }

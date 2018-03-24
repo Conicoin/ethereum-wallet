@@ -18,6 +18,7 @@
 
 import Foundation
 import RealmSwift
+import Alamofire
 
 class SettingsInteractor {
   weak var output: SettingsInteractorOutput!
@@ -32,29 +33,15 @@ class SettingsInteractor {
 extension SettingsInteractor: SettingsInteractorInput {
   
   func getWallet() {
-    let wallet = walletDataStoreService.getWallet()
-    output.didReceiveWallet(wallet)
+    walletDataStoreService.observe { [unowned self] wallet in
+      self.output.didReceiveWallet(wallet)
+    }
   }
   
   func selectCurrency(_ currency: String) {
     var wallet = walletDataStoreService.getWallet()
     wallet.localCurrency = currency
     walletDataStoreService.save(wallet)
-  }
-  
-  func exportKey(with password: String) {
-    do {
-      let account = try keystore.getAccount(at: 0)
-      let jsonKey = try keystore.jsonKey(for: account, passphrase: password, newPassphrase: password)
-      let keyString = String(data: jsonKey, encoding: .utf8)!
-      let filename = "conicoin_key.json"
-      let path = NSTemporaryDirectory().appending(filename)
-      let tempUrl = URL(fileURLWithPath: path)
-      try keyString.write(to: tempUrl, atomically: false, encoding: .utf8)
-      output.didStoreKey(at: tempUrl)
-    } catch let error {
-      output.didFailed(with: error)
-    }
   }
   
   func deleteTempBackup(at url: URL) {
@@ -65,7 +52,7 @@ extension SettingsInteractor: SettingsInteractorInput {
     }
   }
   
-  func clearAll(passphrase: String) {
+  func clearAll(passphrase: String, completion: PinResult?) {
     do {
       // Clear all geth accounts
       try keystore.deleteAllAccounts(passphrase: passphrase)
@@ -80,11 +67,44 @@ extension SettingsInteractor: SettingsInteractorInput {
       try! realm.write {
         realm.deleteAll()
       }
-      output.didClearAllData()
+      completion?(.success(true))
+    } catch {
+      completion?(.failure(error))
+    }
+  }
+    
+  func changePin(oldPin: String, newPin: String, completion: PinResult?) {
+    do {
+      let keychain = Keychain()
+      let key = try keychain.getJsonKey()
+      let newKey = try keystore.changePassphrase(oldPin, new: newPin, key: key)
+      keychain.jsonKey = newKey
+      completion?(.success(true))
+    } catch {
+      completion?(.failure(error))
+    }
+  }
+  
+  func getExportKeyUrl(passcode: String) {
+    do {
+      guard let keyUrl = try FileManager.default.contentsOfDirectory(atPath: keystore.keystoreUrl).first else {
+        throw KeystoreError.noJsonKey
+      }
+      
+      let url = URL(fileURLWithPath: keystore.keystoreUrl + "/" + keyUrl)
+      
+      let timestamp = Int(Date().timeIntervalSince1970)
+      let filename = "conicoin_key_\(timestamp).json"
+      let path = NSTemporaryDirectory().appending(filename)
+      let tempUrl = URL(fileURLWithPath: path)
+      
+      let data = try Data(contentsOf: url)
+      try data.write(to: tempUrl)
+      
+      output.didReceiveExportKeyUrl(tempUrl)
     } catch {
       output.didFailed(with: error)
     }
-    
   }
-
+  
 }

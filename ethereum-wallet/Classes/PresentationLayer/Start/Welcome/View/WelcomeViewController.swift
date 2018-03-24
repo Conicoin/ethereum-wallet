@@ -66,7 +66,7 @@ class WelcomeViewController: UIViewController {
     let privateKey = UIAlertAction(title: Localized.welcomeImportPrivate(), style: .default) { [unowned self] _ in
       self.output.didImportPrivateKeyPressed()
     }
-    let cancel = UIAlertAction(title: Localized.welcomeImportCancel(), style: .cancel, handler: nil)
+    let cancel = UIAlertAction(title: Localized.commonCancel(), style: .cancel, handler: nil)
     sheet.addAction(jsonKey)
     sheet.addAction(privateKey)
     sheet.addAction(cancel)

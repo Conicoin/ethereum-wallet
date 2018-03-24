@@ -61,7 +61,7 @@ extension SendPresenter: SendViewOutput {
   }
   
   func didCurrencyPressed() {
-    router.presentChooseCurrency(from: view.viewController, output: self)
+    router.presentChooseCurrency(from: view.viewController, selectedIso: selectedCurrency, output: self)
   }
   
   func didScanPressed() {

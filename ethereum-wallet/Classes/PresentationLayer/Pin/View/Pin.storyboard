@@ -13,7 +13,7 @@
         <!--Pin View Controller-->
         <scene sceneID="sg3-RK-x0U">
             <objects>
-                <viewController storyboardIdentifier="PinViewController" id="OWu-Mv-DQZ" customClass="PinViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PinViewController" hidesBottomBarWhenPushed="YES" id="OWu-Mv-DQZ" customClass="PinViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YDw-Zi-BYc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,6 +177,9 @@
                                                 <state key="normal" image="PinTouchId">
                                                     <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="touchIdPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="hiB-nS-KSL"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnG-fw-FOt">
                                                 <rect key="frame" x="114.5" y="0.0" width="114" height="95"/>

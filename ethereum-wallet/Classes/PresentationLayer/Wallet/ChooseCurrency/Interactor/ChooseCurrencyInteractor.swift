@@ -20,7 +20,7 @@ import Foundation
 
 class ChooseCurrencyInteractor {
   weak var output: ChooseCurrencyInteractorOutput!
-  
+
 }
 
 

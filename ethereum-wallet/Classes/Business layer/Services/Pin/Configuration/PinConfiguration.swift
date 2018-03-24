@@ -14,14 +14,15 @@ class PinConfiguration: PinConfigurationProtocol {
   let pinLength: Int
   let shouldRequestTouchIDImmediately: Bool
   let maximumInccorectPinAttempts: Int
-  let isTouchIDAllowed: Bool
+  var isTouchIDAllowed: Bool {
+    return Defaults.isTouchIDAllowed
+  }
   
   init(repository: PinRepositoryProtocol) {
     self.repository = repository
     self.pinLength = 6
     self.shouldRequestTouchIDImmediately = false
     self.maximumInccorectPinAttempts = 5
-    self.isTouchIDAllowed = Defaults.isTouchIDAllowed
   }
 
 }

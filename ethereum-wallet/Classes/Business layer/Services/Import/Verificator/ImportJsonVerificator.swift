@@ -1,5 +1,5 @@
 //
-//  ImportJsonPostProcess.swift
+//  ImportJsonVerificator.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 16/03/2018.
@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class ImportJsonPostProcess:  ImportPostProcessProtocol {
+class ImportJsonVerificator: ImportVerificatorProtocol {
   
   func verifyKey(_ jsonKey: String, completion: (Result<Data>) -> Void) {
     do {

@@ -33,7 +33,9 @@ class ChooseCurrencyModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
-        
+    
+    // MARK: - Injection
+          
     return presenter
   }
     

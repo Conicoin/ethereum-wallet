@@ -32,6 +32,8 @@ class ChooseCurrencyCell: UITableViewCell {
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     accessoryType = selected ? .checkmark : .none
+    isoLabel.textColor = selected ? Theme.Color.blue : Theme.Color.gray
+    nameLabel.textColor = selected ? Theme.Color.blue : Theme.Color.gray
   }
   
   func configure(with currency: FiatCurrency) {

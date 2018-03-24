@@ -17,10 +17,11 @@ class PopupTouchPostProcess: PopupPostProcessProtocol {
     var error: NSError?
     let isSuccess = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
     if isSuccess {
-        completion(.success(true))
+      Defaults.isTouchIDAllowed = true
+      completion(.success(true))
     } else {
-        completion(.failure(TouchIdError.error(error: error)))
+      completion(.failure(TouchIdError.error(error: error)))
     }
   }
-
+  
 }

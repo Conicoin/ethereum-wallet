@@ -14,6 +14,9 @@
 // You should have received a copy of the GNU General Public License along with
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
+// MARK: - Common
+"common.ok" = "OK";
+"common.cancel" = "Cancel";
 
 
 // MARK: - Welcome
@@ -26,7 +29,6 @@
 "welcome.import.alert" = "Import";
 "welcome.import.private" = "Private key";
 "welcome.import.json" = "JSON key";
-"welcome.import.cancel" = "Cancel";
 
 // MARK: - Import
 "import.title" = "Import wallet";
@@ -67,8 +69,6 @@
 // MARK: - Transactions
 "transactions.pending" = "Pending";
 "transactions.alert.title" = "Show transaction info on Etherscan?";
-"transactions.alert.ok" = "OK";
-"transactions.alert.cancel" = "Cancel";
 
 // MARK: Timestamp
 "time.today" = "Today";
@@ -78,20 +78,17 @@
 "time.inDays" = "In %@ days";
 
 // MARK: Settings
-"settings.currency.header" = "Currency";
-"settings.backup.header" = "Backup";
-"settings.backup.title" = "Backup wallet";
-"settings.backup.alert.title" = "Confirm passphrase";
-"settings.backup.alert.message" = "Enter the encryption passphrase you specified during wallet setup";
-"settings.backup.alert.ok" = "Backup";
-"settings.backup.alert.cancel" = "Cancel";
-"settings.backup.alert.password" = "Password";
-"settings.exit.title" = "Exit wallet";
-"settings.exit.alert.title" = "Exit the wallet";
-"settings.exit.aler.message" = "All data will be erased. If you are sure you have made a backup enter the encryption passphrase";
-"settings.exit.placeholder" = "passphrase";
-"settings.exit.confirm" = "Exit";
-"settings.exit.cancel" = "Cancel";
+"settings.title" = "Settings";
+"settings.currency" = "Reference currency";
+"settings.changePasscode" = "Change passcode";
+"settings.touchId" = "Use Touch ID";
+"settings.backup" = "Backup wallet";
+"settings.logout" = "Exit wallet";
+"settings.version" = "Version %@";
+"settings.exit.alert.title" = "Exit wallet";
+"settings.exit.alert.msg" = "All data will be erased. Please make sure you have made a backup, otherwise you will not be able to restore your wallet";
+"settings.change.alert.title" = "Change passcode";
+"settings.change.alert.msg" = "Please note that all previously made backups still require your old password";
 
 // MARK: ChooseCurrency
 "chooseCurrency.title" = "Reference currency";
@@ -105,6 +102,8 @@
 "pin.mismatchTitle" = "Try again";
 "pin.touchIDReason" = "Authentication required to proceed";
 "pin.touchIDButton" = "Enter Passcode";
+"pin.exitTitle" = "Enter your passcode\nto exit wallet";
+"pin.backupTitle" = "Enter your passcode\nto backup wallet";
 
 // MARK: Popup
 "popup.notNow" = "Not now";

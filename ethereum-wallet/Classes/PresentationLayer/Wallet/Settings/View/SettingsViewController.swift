@@ -20,9 +20,18 @@ import UIKit
 
 
 class SettingsViewController: UIViewController {
-  @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var creditsTextView: UITextView!
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var currencyImageView: UIImageView!
+  @IBOutlet weak var currencyIsoLabel: UILabel!
+  @IBOutlet weak var currencyButton: UIButton!
+  @IBOutlet weak var changePasscodeButton: UIButton!
+  @IBOutlet weak var touchIdButton: UIButton!
+  @IBOutlet weak var touchIdSwitch: UISwitch!
+  @IBOutlet weak var backupButton: UIButton!
+  @IBOutlet weak var logoutButton: UIButton!
+  @IBOutlet weak var versionLabel: UILabel!
   
+  private let border = BorderView()
   var output: SettingsViewOutput!
   
   
@@ -30,123 +39,59 @@ class SettingsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupCredits()
+    navigationItem.title = Localized.settingsTitle()
+    border.attach(to: scrollView)
+    localize()
     output.viewIsReady()
   }
   
   // MARK: Privates
   
-  private func setupCredits() {
-    let credits = """
-    \(Bundle.main.displayName)
-    \(Bundle.main.versionAndBuild)
-    
-    Source code:
-    \(Constants.Common.githubUrl)
-    """
-    
-    creditsTextView.delegate = self
-    creditsTextView.text = credits
+  private func localize() {
+    currencyButton.setTitle(Localized.settingsCurrency(), for: .normal)
+    changePasscodeButton.setTitle(Localized.settingsChangePasscode(), for: .normal)
+    touchIdButton.setTitle(Localized.settingsTouchId(), for: .normal)
+    backupButton.setTitle(Localized.settingsBackup(), for: .normal)
+    logoutButton.setTitle(Localized.settingsLogout(), for: .normal)
+    versionLabel.text = Localized.settingsVersion(Bundle.main.version)
   }
   
-  private func showBackupAlert() {
-    let alert = UIAlertController(title: Localized.settingsBackupAlertTitle(), message: Localized.settingsBackupAlertMessage(), preferredStyle: .alert)
-    alert.addTextField { textField in
-      textField.placeholder = Localized.settingsBackupAlertPassword()
-      textField.isSecureTextEntry = true
-    }
-    let backup = UIAlertAction(title: Localized.settingsBackupAlertOk(), style: .default) { action in
-      guard let password = alert.textFields?.first?.text else {
-        return
-      }
-      self.output.didEnterPasswordForBackup(password)
-    }
-    let cancel = UIAlertAction(title: Localized.settingsBackupAlertCancel(), style: .default, handler: nil)
-    alert.addAction(backup)
-    alert.addAction(cancel)
-    present(alert, animated: true, completion: nil)
+  // MARK: Actions
+  
+  @IBAction func currencyPressed(_ sender: UIButton) {
+    output.didCurrencyPressed()
   }
   
-  private func showExitAlert() {
-    let alert = UIAlertController(title: Localized.settingsExitTitle(), message: Localized.settingsExitAlerMessage(), preferredStyle: .alert)
-    alert.addTextField { textField in
-      textField.placeholder = Localized.settingsExitPlaceholder()
-      textField.isSecureTextEntry = true
+  @IBAction func changePasscodePressed(_ sender: UIButton) {
+    showAlert(title: Localized.settingsChangeAlertTitle(),
+              message: Localized.settingsChangeAlertMsg(),
+              cancelable: true) { _ in
+      self.output.didChangePasscodePressed()
     }
-    let exit = UIAlertAction(title: Localized.settingsExitConfirm(), style: .destructive) { action in
-      guard let password = alert.textFields?.first?.text else {
-        return
-      }
-      self.output.didExitWalletPressed(passphrase: password)
-    }
-    let cancel = UIAlertAction(title: Localized.settingsExitCancel(), style: .default, handler: nil)
-    alert.addAction(exit)
-    alert.addAction(cancel)
-    present(alert, animated: true, completion: nil)
   }
   
+  @IBAction func touchIdPressed(_ sender: UIButton) {
+    let isOn = !touchIdSwitch.isOn
+    touchIdSwitch.setOn(isOn, animated: true)
+    output.didTouchIdValueChanged(isOn)
+  }
+  
+  @IBAction func backupPressed(_ sender: UIButton) {
+    output.didBackupPressed()
+  }
+  
+  @IBAction func touchIdValueChanged(_ sender: UISwitch) {
+    output.didTouchIdValueChanged(sender.isOn)
+  }
+  
+  @IBAction func logoutPressed(_ sender: UIButton) {
+    showAlert(title: Localized.settingsExitAlertTitle(),
+              message: Localized.settingsExitAlertMsg(),
+              cancelable: true) { _ in
+      self.output.didLogoutPressed()
+    }
+  }
 }
-
-// MARK: - UITextViewDelegate
-
-extension SettingsViewController: UITextViewDelegate {
-  
-  func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
-    return true
-  }
-  
-}
-
-// MARK: - TableView
-
-extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    switch indexPath.section {
-    case 0:
-      let cell = tableView.dequeue(SettingsCurrencyCell.self, for: indexPath)
-      cell.textLabel?.text = output.currencies[indexPath.row]
-      return cell
-    case 1:
-      let cell = tableView.dequeue(SettingsBackupCell.self, for: indexPath)
-      cell.textLabel?.text = Localized.settingsBackupTitle()
-      return cell
-    default:
-      let cell = tableView.dequeue(SettingsExitCell.self, for: indexPath)
-      cell.textLabel?.text = Localized.settingsExitTitle()
-      return cell
-    }
-  }
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    switch indexPath.section {
-    case 0:
-      output.didSelectCurrency(at: indexPath.row)
-    case 1:
-      tableView.deselectRow(at: indexPath, animated: true) // TODO: Currency deselecting bug
-      showBackupAlert()
-    default:
-      tableView.deselectRow(at: indexPath, animated: true)
-      showExitAlert()
-    }
-  }
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let count = [output.currencies.count, 1, 1]
-    return count[section]
-  }
-  
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    let headers = [Localized.settingsCurrencyHeader(), Localized.settingsBackupHeader(), ""]
-    return headers[section]
-  }
-  
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 3
-  }
-  
-}
-
 
 // MARK: - SettingsViewInput
 
@@ -156,17 +101,19 @@ extension SettingsViewController: SettingsViewInput {
     
   }
   
-  func selectCurrency(at index: Int) {
-    let indexPath = IndexPath(row: index, section: 0)
-    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+  func didReceiveIsTouchIdEnabled(_ isTouchIdEnabled: Bool) {
+    touchIdSwitch.isOn = isTouchIdEnabled
   }
   
-  func didStoreKey(at url: URL) {
-    let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-    activityViewController.completionWithItemsHandler = { _, _, _, _ in
-      self.output.didShareBackup(at: url)
-    }
-    present(activityViewController, animated: true, completion: nil)
+  func didReceiveCurrency(_ currency: FiatCurrency) {
+    currencyImageView.image = currency.icon
+    currencyIsoLabel.text = currency.iso
+  }
+  
+  func shareFileAtUrl(_ url: URL) {
+    let objectsToShare = [url]
+    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+    present(activityVC, animated: true, completion: nil)
   }
   
 }

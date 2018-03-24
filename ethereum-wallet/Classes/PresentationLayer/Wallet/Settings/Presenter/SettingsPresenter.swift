@@ -27,7 +27,7 @@ class SettingsPresenter {
   var router: SettingsRouterInput!
   
   var currencies = Constants.Wallet.supportedCurrencies
-  
+  var selectedCurrency = Constants.Wallet.defaultCurrency
 }
 
 
@@ -37,23 +37,37 @@ extension SettingsPresenter: SettingsViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
+    view.didReceiveIsTouchIdEnabled(Defaults.isTouchIDAllowed)
     interactor.getWallet()
   }
   
-  func didSelectCurrency(at index: Int) {
-    interactor.selectCurrency(currencies[index])
+  func didCurrencyPressed() {
+    router.presentChooseCurrency(from: view.viewController, selectedIso: selectedCurrency, output: self)
   }
   
-  func didEnterPasswordForBackup(_ password: String) {
-    interactor.exportKey(with: password)
+  func didChangePasscodePressed() {
+    let keychain = Keychain()
+    let oldPin = keychain.passphrase!
+    router.presentPinOnChangePin(from: view.viewController) { [unowned self] pin, routing in
+      self.interactor.changePin(oldPin: oldPin, newPin: pin, completion: routing)
+    }
   }
   
-  func didShareBackup(at url: URL) {
-    interactor.deleteTempBackup(at: url)
+  func didBackupPressed() {
+    router.presentPinOnBackup(from: view.viewController) { [unowned self] pin, routing in
+      routing?(.success(true))
+      self.interactor.getExportKeyUrl(passcode: pin)
+    }
   }
   
-  func didExitWalletPressed(passphrase: String) {
-    interactor.clearAll(passphrase: passphrase)
+  func didTouchIdValueChanged(_ isOn: Bool) {
+    Defaults.isTouchIDAllowed = isOn
+  }
+  
+  func didLogoutPressed() {
+    router.presentPinOnExit(from: view.viewController) { [unowned self] pin, routing in
+      self.interactor.clearAll(passphrase: pin, completion: routing)
+    }
   }
 
 }
@@ -64,20 +78,17 @@ extension SettingsPresenter: SettingsViewOutput {
 extension SettingsPresenter: SettingsInteractorOutput {
   
   func didReceiveWallet(_ wallet: Wallet) {
-    guard let index = currencies.index(of: wallet.localCurrency) else { return }
-    view.selectCurrency(at: index)
-  }
-  
-  func didStoreKey(at url: URL) {
-    view.didStoreKey(at: url)
-  }
-  
-  func didClearAllData() {
-    router.presentWelcome()
+    selectedCurrency = wallet.localCurrency
+    let currency = FiatCurrencyFactory.create(iso: wallet.localCurrency)
+    view.didReceiveCurrency(currency)
   }
   
   func didFailed(with error: Error) {
     error.showAllertIfNeeded(from: view.viewController)
+  }
+  
+  func didReceiveExportKeyUrl(_ url: URL) {
+    view.shareFileAtUrl(url)
   }
 
 }
@@ -91,4 +102,16 @@ extension SettingsPresenter: SettingsModuleInput {
     return view.viewController
   }
 
+}
+
+
+// MARK: - ChooseCurrencyModuleOutput
+
+extension SettingsPresenter: ChooseCurrencyModuleOutput {
+  
+  func didSelectCurrency(_ currency: FiatCurrency) {
+    view.didReceiveCurrency(currency)
+    interactor.selectCurrency(currency.iso)
+  }
+  
 }

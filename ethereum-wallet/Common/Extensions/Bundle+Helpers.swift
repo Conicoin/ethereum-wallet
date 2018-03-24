@@ -20,11 +20,16 @@ import UIKit
 extension Bundle {
   
   var versionAndBuild: String {
-    let version = infoDictionary!["CFBundleShortVersionString"] as! String
-    let build = infoDictionary!["CFBundleVersion"] as! String
     return "\(version) build \(build)"
   }
   
+  var version: String {
+    return infoDictionary!["CFBundleShortVersionString"] as! String
+  }
+  
+  var build: String {
+    return infoDictionary!["CFBundleVersion"] as! String
+  }
   
   var displayName: String {
     return object(forInfoDictionaryKey: "CFBundleDisplayName") as! String

@@ -21,7 +21,6 @@ struct ConfirmPinState: PinStateProtocol {
   
   let title: String
   let isCancellableAction: Bool
-  let isTouchIDAllowed: Bool
   
   private var pinToConfirm: [String]
   
@@ -29,7 +28,6 @@ struct ConfirmPinState: PinStateProtocol {
     self.pinToConfirm = pin
     self.title = Localized.pinConfirmTitle()
     self.isCancellableAction = true
-    self.isTouchIDAllowed = false
   }
   
   func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol) {

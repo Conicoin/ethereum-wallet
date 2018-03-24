@@ -51,6 +51,14 @@ enum KeychainError: CustomError {
   
 }
 
+enum KeystoreError: CustomError {
+  case noJsonKey
+  
+  var description: CustomError.ErrorInfo? {
+    return criticalError
+  }
+}
+
 enum NetworkError: CustomError {
   case parseError
   

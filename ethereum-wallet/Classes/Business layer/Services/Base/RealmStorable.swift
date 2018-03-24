@@ -21,7 +21,12 @@ import RealmSwift
 class RealmStorable<PlainType: RealmMappable> {
   
   var notificationToken: NotificationToken?
-
+  
+  deinit {
+    notificationToken?.invalidate()
+    notificationToken = nil
+  }
+  
   func observe(updateHandler: @escaping ([PlainType]) -> Void) {
     let realm = try! Realm()
     let objects = realm.objects(PlainType.RealmType.self)

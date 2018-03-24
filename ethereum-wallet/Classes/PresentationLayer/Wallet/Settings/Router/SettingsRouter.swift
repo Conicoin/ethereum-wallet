@@ -16,7 +16,7 @@
 
 
 
-import Foundation
+import UIKit
 
 
 class SettingsRouter {
@@ -28,8 +28,26 @@ class SettingsRouter {
 
 extension SettingsRouter: SettingsRouterInput {
   
-  func presentWelcome() {
-    WelcomeModule.create().present()
+  func presentChooseCurrency(from: UIViewController, selectedIso: String, output: ChooseCurrencyModuleOutput) {
+    ChooseCurrencyModule.create().present(from: from, selectedIso: selectedIso, output: output)
+  }
+  
+  func presentPinOnExit(from: UIViewController, postProcess: PinPostProcess?) {
+    PinModule.create(.exit).present(from: from, postProcess: postProcess) { vc in
+      WelcomeModule.create(.new).present()
+    }
+  }
+  
+  func presentPinOnChangePin(from: UIViewController, postProcess: PinPostProcess?) {
+    PinModule.create(.change).present(from: from, postProcess: postProcess) { vc in
+      vc.pop()
+    }
+  }
+  
+  func presentPinOnBackup(from: UIViewController, postProcess: PinPostProcess?) {
+    PinModule.create(.backup).present(from: from, postProcess: postProcess) { vc in
+      vc.pop()
+    }
   }
     
 }

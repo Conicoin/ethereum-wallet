@@ -31,8 +31,8 @@ extension SendRouter: SendRouterInput {
     ScanModule.create().present(from: from, output: output)
   }
   
-  func presentChooseCurrency(from: UIViewController, output: ChooseCurrencyModuleOutput) {
-    ChooseCurrencyModule.create().present(from: from, output: output)
+  func presentChooseCurrency(from: UIViewController, selectedIso: String, output: ChooseCurrencyModuleOutput) {
+    ChooseCurrencyModule.create().present(from: from, selectedIso: selectedIso, output: output)
   }
     
 }

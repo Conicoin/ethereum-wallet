@@ -17,7 +17,8 @@
 import Foundation
 
 enum PinState {
-  case enter
+  case exit
+  case backup
   case set
   case change
   case restoreJson(key: Data)
@@ -26,9 +27,22 @@ enum PinState {
 
 protocol PinStateProtocol {
   
-    var title: String { get }
-    var isCancellableAction: Bool { get }
-    var isTouchIDAllowed: Bool { get }
-    
-    mutating func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol)
+  var title: String { get }
+  var isCancellableAction: Bool { get }
+  var isTouchIDAllowed: Bool { get }
+  var touchIdReason: String? { get }
+  
+  mutating func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol)
+}
+
+extension PinStateProtocol {
+  
+  var touchIdReason: String? {
+    return nil
+  }
+  
+  var isTouchIDAllowed: Bool {
+    return touchIdReason != nil
+  }
+  
 }

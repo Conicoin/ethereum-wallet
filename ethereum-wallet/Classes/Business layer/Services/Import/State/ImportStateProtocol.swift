@@ -8,11 +8,6 @@
 
 import Foundation
 
-enum ImportState {
-  case jsonKey
-  case privateKey
-}
-
 protocol ImportStateProtocol {
   var importType: ImportState { get }
   var placeholder: String { get }

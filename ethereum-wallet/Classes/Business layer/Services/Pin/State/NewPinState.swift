@@ -12,12 +12,10 @@ struct NewPinState: PinStateProtocol {
   
   let title: String
   let isCancellableAction: Bool
-  let isTouchIDAllowed: Bool
   
   init(title: String) {
     self.title = title
     self.isCancellableAction = true
-    self.isTouchIDAllowed = false
   }
   
   init() {

@@ -19,9 +19,13 @@ import Geth
 
 class KeystoreService: KeystoreServiceProtocol {
   
+  var keystoreUrl: String {
+    let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    return documents + "/keystore"
+  }
+  
   private lazy var keystore: GethKeyStore! = {
-    let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-    return GethNewKeyStore(documentDirectory + "/keystore", GethLightScryptN, GethLightScryptP)
+    return GethNewKeyStore(keystoreUrl, GethLightScryptN, GethLightScryptP)
   }()
   
   // MARK: Account managment
@@ -48,6 +52,14 @@ class KeystoreService: KeystoreServiceProtocol {
   
   func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount  {
     return try keystore.importKey(jsonKey, passphrase: passphrase, newPassphrase: passphrase)
+  }
+  
+  func changePassphrase(_ old: String, new: String, key: Data) throws -> Data {
+    let account = try getAccount(at: 0)
+    let newAccount = try keystore.importKey(key, passphrase: old, newPassphrase: new)
+    try keystore.delete(account, passphrase: old)
+    let newKey = try keystore.exportKey(newAccount, passphrase: new, newPassphrase: new)
+    return newKey
   }
   
   func deleteAccount(_ account: GethAccount, passphrase: String) throws {

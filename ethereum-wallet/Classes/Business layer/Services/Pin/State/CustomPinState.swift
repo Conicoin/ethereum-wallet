@@ -12,11 +12,11 @@ struct CustomPinState: PinStateProtocol {
   
   let title: String
   let isCancellableAction: Bool
-  let isTouchIDAllowed: Bool
+  let touchIdReason: String?
   
-  init(allowCancellation: Bool, isTouchIDAllowed: Bool, title: String) {
+  init(allowCancellation: Bool, touchIdReason: String?, title: String) {
     self.title = title
-    self.isTouchIDAllowed = isTouchIDAllowed
+    self.touchIdReason = touchIdReason
     self.isCancellableAction = allowCancellation
   }
   

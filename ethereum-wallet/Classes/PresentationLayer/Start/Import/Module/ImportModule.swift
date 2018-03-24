@@ -17,6 +17,10 @@
 
 import UIKit
 
+enum ImportState {
+  case jsonKey
+  case privateKey
+}
 
 class ImportModule {
     
@@ -37,7 +41,10 @@ class ImportModule {
     // MARK: Injection
     
     let keystore = KeystoreService()
-    interactor.postProcess = ImportPostProcessFactory(state: state, keystore: keystore).create()
+    let walletDataStore = WalletDataStoreService()
+    
+    interactor.verificator = ImportVerificatorFactory().create(state)
+    interactor.walletImporter = WalletImporterFactory(keystoreService: keystore, walletDataStoreService: walletDataStore).create(state)
     presenter.state = ImportStateFactory(state: state).create()
         
     return presenter

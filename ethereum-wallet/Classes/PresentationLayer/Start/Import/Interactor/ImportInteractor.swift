@@ -20,8 +20,9 @@ import Foundation
 
 class ImportInteractor {
   weak var output: ImportInteractorOutput!
-  var postProcess: ImportPostProcessProtocol!
-
+  
+  var verificator: ImportVerificatorProtocol!
+  var walletImporter: WalletImporterProtocol!
 }
 
 
@@ -30,7 +31,7 @@ class ImportInteractor {
 extension ImportInteractor: ImportInteractorInput {
   
   func verifyKey(_ key: String) {
-    postProcess.verifyKey(key) { result in
+    verificator.verifyKey(key) { result in
       switch result {
       case .success(let key):
         output.didConfirmValidKey(key)
@@ -39,6 +40,22 @@ extension ImportInteractor: ImportInteractorInput {
       }
     }
   }
-
+  
+  func importKey(_ key: Data, passcode: String, completion: PinResult?) {
+    DispatchQueue.global().async { [unowned self] in
+      do {
+        try self.walletImporter.importKey(key, passcode: passcode)
+        DispatchQueue.main.async {
+          completion?(.success(true))
+        }
+      } catch {
+        DispatchQueue.main.async {
+          completion?(.failure(error))
+        }
+      }
+    }
+    
+  }
+  
 }
 

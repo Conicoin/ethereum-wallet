@@ -20,4 +20,5 @@ import UIKit
 
 protocol ChooseCurrencyViewInput: class, Presentable {
   func setupInitialState()
+  func selectCurrency(with iso: String)
 }

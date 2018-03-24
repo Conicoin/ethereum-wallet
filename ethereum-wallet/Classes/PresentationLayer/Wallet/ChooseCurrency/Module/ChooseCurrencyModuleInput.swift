@@ -20,5 +20,5 @@ import UIKit
 
 protocol ChooseCurrencyModuleInput: class {
   var output: ChooseCurrencyModuleOutput? { get set }
-  func present(from: UIViewController, output: ChooseCurrencyModuleOutput)
+  func present(from: UIViewController, selectedIso: String, output: ChooseCurrencyModuleOutput)
 }
