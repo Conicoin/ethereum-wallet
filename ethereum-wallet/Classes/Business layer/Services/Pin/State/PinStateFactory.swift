@@ -20,15 +20,15 @@ class PinStateFactory {
   func create() -> PinStateProtocol {
     switch state {
     case .backup:
-      return EnterPinState(allowCancellation: true, title: Localized.pinBackupTitle(), isTouchIDAllowed: true)
+      return EnterPinState(allowCancellation: true, title: Localized.pinBackupTitle(), touchIdReason: Localized.pinTouchIDReason())
     case .exit:
-      return EnterPinState(allowCancellation: true, title: Localized.pinExitTitle(), isTouchIDAllowed: true)
+      return EnterPinState(allowCancellation: true, title: Localized.pinExitTitle(), touchIdReason: nil)
     case .set:
       return NewPinState()
     case .change:
       return ChangePinState()
     case .restoreJson, .restorePrivate:
-      return CustomPinState(allowCancellation: true, isTouchIDAllowed: false, title: Localized.welcomeRestoreTitle())
+      return CustomPinState(allowCancellation: true, touchIdReason: nil, title: Localized.welcomeRestoreTitle())
     }
   }
   

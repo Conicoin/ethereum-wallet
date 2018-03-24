@@ -11,7 +11,7 @@ import Alamofire
 
 typealias PinPostProcess = ((String, PinResult?) -> Void)
 typealias PinNextScene = ((UIViewController) -> Void)
-typealias PinResult = (Result<Bool>) -> Void
+typealias PinResult = (Result<Any>) -> Void
 
 class PinPresenter {
     
@@ -32,14 +32,19 @@ extension PinPresenter: PinViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     interactor.getPinInfo()
+    interactor.authenticateWithBiometrics()
   }
   
   func didAddSign(_ sign: String) {
-    interactor.didAddSign(sign)
+    interactor.addSign(sign)
   }
   
   func didDeleteSign() {
-    interactor.didDeleteSign()
+    interactor.deleteSign()
+  }
+  
+  func didTouchIdPressed() {
+    interactor.authenticateWithBiometrics()
   }
 
 }

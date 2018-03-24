@@ -11,6 +11,7 @@ import Foundation
 
 protocol PinInteractorInput: class {
   func getPinInfo()
-  func didAddSign(_ sign: String)
-  func didDeleteSign()
+  func addSign(_ sign: String)
+  func deleteSign()
+  func authenticateWithBiometrics()
 }

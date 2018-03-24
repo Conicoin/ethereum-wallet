@@ -177,6 +177,9 @@
                                                 <state key="normal" image="PinTouchId">
                                                     <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="touchIdPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="hiB-nS-KSL"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnG-fw-FOt">
                                                 <rect key="frame" x="114.5" y="0.0" width="114" height="95"/>

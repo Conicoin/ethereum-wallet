@@ -59,7 +59,6 @@
 		1406465C1FAF46DB0013DFFF /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406465B1FAF46DB0013DFFF /* Coin.swift */; };
 		1409C1311FE876A200803E78 /* UITableView+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C1301FE876A200803E78 /* UITableView+Sugar.swift */; };
 		1409C1351FE877FD00803E78 /* UICollectionView+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C1341FE877FD00803E78 /* UICollectionView+Sugar.swift */; };
-		1409C1371FE87DBC00803E78 /* SettingsBackupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C1361FE87DBC00803E78 /* SettingsBackupCell.swift */; };
 		1414E6FF20586B3C0080680E /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1414E6FE20586B3C0080680E /* Popup.storyboard */; };
 		1414E702205894030080680E /* PopupStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E701205894030080680E /* PopupStateProtocol.swift */; };
 		1414E704205894D90080680E /* PopupTouchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E703205894D90080680E /* PopupTouchState.swift */; };
@@ -70,7 +69,6 @@
 		1414E7162059584F0080680E /* NSError+LAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E7152059584F0080680E /* NSError+LAError.swift */; };
 		1414E7192059A9F50080680E /* TokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E7182059A9F50080680E /* TokenCell.swift */; };
 		141749D11FD9B91A00AD5F07 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141749D01FD9B91A00AD5F07 /* Loading.swift */; };
-		1418E856205FEE010054F312 /* TokenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1418E855205FEE010054F312 /* TokenHeaderView.swift */; };
 		141CCF2A1FF424E900CA4176 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141CCF291FF424E900CA4176 /* EnumCollection.swift */; };
 		1421A7092062AF2300B4DBC2 /* SendCoinCheckoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421A7082062AF2300B4DBC2 /* SendCoinCheckoutService.swift */; };
 		1421A70B2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421A70A2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift */; };
@@ -82,7 +80,6 @@
 		14285E841FB2831200DD3CB5 /* API+Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14285E831FB2831200DD3CB5 /* API+Rate.swift */; };
 		14293C2A1F9FCEB4009E49F1 /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */; };
 		142B5A1A1EDF0EEB007F73BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142B5A191EDF0EEB007F73BA /* Security.framework */; };
-		14313CAF1FB0B045003AEB0C /* LightShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CAE1FB0B045003AEB0C /* LightShadowView.swift */; };
 		14313CB21FB0B4B5003AEB0C /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */; };
 		14313CB81FB0C492003AEB0C /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB71FB0C492003AEB0C /* String+Helpers.swift */; };
 		143172BB20627DA700238D70 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 143172BA20627DA700238D70 /* currencies.json */; };
@@ -129,7 +126,6 @@
 		145A91001FDF002000DED3AC /* API+Ethplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */; };
 		145A91031FDF02AE00DED3AC /* TokensNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A91021FDF02AE00DED3AC /* TokensNetworkService.swift */; };
 		145A91051FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A91041FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift */; };
-		145F616A1FE9D4E700BFDFA3 /* SettingsExitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145F61691FE9D4E700BFDFA3 /* SettingsExitCell.swift */; };
 		146209271F9AA21900C01CE7 /* RealmStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146209261F9AA21900C01CE7 /* RealmStorable.swift */; };
 		14636D631F994BB7002BDFAC /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14636D611F994BB7002BDFAC /* Presentable.swift */; };
 		146D0D1E1FC0DDBC003C0C3E /* Decimal+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D0D1D1FC0DDBC003C0C3E /* Decimal+Helpers.swift */; };
@@ -186,7 +182,6 @@
 		14B126B7205BDCD300B98AE1 /* ImportVerificatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126B6205BDCD300B98AE1 /* ImportVerificatorProtocol.swift */; };
 		14B126B9205BDD2500B98AE1 /* ImportPrivateVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126B8205BDD2500B98AE1 /* ImportPrivateVerificator.swift */; };
 		14B126BB205BDD4D00B98AE1 /* ImportJsonVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126BA205BDD4D00B98AE1 /* ImportJsonVerificator.swift */; };
-		14B2193D1FC22DB5003092F0 /* SettingsCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2193C1FC22DB5003092F0 /* SettingsCurrencyCell.swift */; };
 		14B219421FC2458C003092F0 /* Bundle+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B219411FC2458C003092F0 /* Bundle+Helpers.swift */; };
 		14B219451FC2DFC8003092F0 /* ChooseCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B219441FC2DFC8003092F0 /* ChooseCurrencyCell.swift */; };
 		14B3B6851EF491F0002A0623 /* UIButton+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3B6841EF491F0002A0623 /* UIButton+Helpers.swift */; };
@@ -440,7 +435,6 @@
 		1406465B1FAF46DB0013DFFF /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		1409C1301FE876A200803E78 /* UITableView+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Sugar.swift"; sourceTree = "<group>"; };
 		1409C1341FE877FD00803E78 /* UICollectionView+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Sugar.swift"; sourceTree = "<group>"; };
-		1409C1361FE87DBC00803E78 /* SettingsBackupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBackupCell.swift; sourceTree = "<group>"; };
 		1414E6FE20586B3C0080680E /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 		1414E701205894030080680E /* PopupStateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupStateProtocol.swift; sourceTree = "<group>"; };
 		1414E703205894D90080680E /* PopupTouchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTouchState.swift; sourceTree = "<group>"; };
@@ -451,7 +445,6 @@
 		1414E7152059584F0080680E /* NSError+LAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+LAError.swift"; sourceTree = "<group>"; };
 		1414E7182059A9F50080680E /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
 		141749D01FD9B91A00AD5F07 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
-		1418E855205FEE010054F312 /* TokenHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHeaderView.swift; sourceTree = "<group>"; };
 		141CCF291FF424E900CA4176 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		1421A7082062AF2300B4DBC2 /* SendCoinCheckoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinCheckoutService.swift; sourceTree = "<group>"; };
 		1421A70A2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTokenCheckoutService.swift; sourceTree = "<group>"; };
@@ -463,7 +456,6 @@
 		14285E831FB2831200DD3CB5 /* API+Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Rate.swift"; sourceTree = "<group>"; };
 		14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		142B5A191EDF0EEB007F73BA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		14313CAE1FB0B045003AEB0C /* LightShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightShadowView.swift; sourceTree = "<group>"; };
 		14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
 		14313CB71FB0C492003AEB0C /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		143172BA20627DA700238D70 /* currencies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
@@ -507,7 +499,6 @@
 		145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Ethplorer.swift"; sourceTree = "<group>"; };
 		145A91021FDF02AE00DED3AC /* TokensNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensNetworkService.swift; sourceTree = "<group>"; };
 		145A91041FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensNetworkServiceProtocol.swift; sourceTree = "<group>"; };
-		145F61691FE9D4E700BFDFA3 /* SettingsExitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsExitCell.swift; sourceTree = "<group>"; };
 		146209261F9AA21900C01CE7 /* RealmStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorable.swift; sourceTree = "<group>"; };
 		14636D611F994BB7002BDFAC /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		146D0D1D1FC0DDBC003C0C3E /* Decimal+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Helpers.swift"; sourceTree = "<group>"; };
@@ -565,7 +556,6 @@
 		14B126B6205BDCD300B98AE1 /* ImportVerificatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportVerificatorProtocol.swift; sourceTree = "<group>"; };
 		14B126B8205BDD2500B98AE1 /* ImportPrivateVerificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPrivateVerificator.swift; sourceTree = "<group>"; };
 		14B126BA205BDD4D00B98AE1 /* ImportJsonVerificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportJsonVerificator.swift; sourceTree = "<group>"; };
-		14B2193C1FC22DB5003092F0 /* SettingsCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCurrencyCell.swift; sourceTree = "<group>"; };
 		14B219411FC2458C003092F0 /* Bundle+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Helpers.swift"; sourceTree = "<group>"; };
 		14B219441FC2DFC8003092F0 /* ChooseCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyCell.swift; sourceTree = "<group>"; };
 		14B3B6841EF491F0002A0623 /* UIButton+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Helpers.swift"; sourceTree = "<group>"; };
@@ -949,7 +939,6 @@
 			isa = PBXGroup;
 			children = (
 				1414E7182059A9F50080680E /* TokenCell.swift */,
-				1418E855205FEE010054F312 /* TokenHeaderView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1470,16 +1459,6 @@
 			path = Verificator;
 			sourceTree = "<group>";
 		};
-		14B2193B1FC22D96003092F0 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				14B2193C1FC22DB5003092F0 /* SettingsCurrencyCell.swift */,
-				1409C1361FE87DBC00803E78 /* SettingsBackupCell.swift */,
-				145F61691FE9D4E700BFDFA3 /* SettingsExitCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		14B219431FC2DFB5003092F0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1522,7 +1501,6 @@
 			isa = PBXGroup;
 			children = (
 				144102D12053FDEE00F4D192 /* Conicoin */,
-				14313CAE1FB0B045003AEB0C /* LightShadowView.swift */,
 				141749D01FD9B91A00AD5F07 /* Loading.swift */,
 				1481ADD21FDDD53600A5AC88 /* TokenBackgroundView.swift */,
 				14280E6E1FE1F6F900121F85 /* BigTokenIconImageView.swift */,
@@ -2290,7 +2268,6 @@
 		BE6EAE318769E57BFFEC2721 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				14B2193B1FC22D96003092F0 /* Cells */,
 				0150A047EA51ED1DDBA54282 /* SettingsViewInput.swift */,
 				7C0729BE8A71046B71CA4ED2 /* SettingsViewOutput.swift */,
 				15D6A828CBBB375AA0772577 /* SettingsViewController.swift */,
@@ -2823,7 +2800,6 @@
 				1433BDB91FD6C9780081D872 /* SyncCoordinatorDelegate.swift in Sources */,
 				145A91031FDF02AE00DED3AC /* TokensNetworkService.swift in Sources */,
 				14B3B6851EF491F0002A0623 /* UIButton+Helpers.swift in Sources */,
-				14313CAF1FB0B045003AEB0C /* LightShadowView.swift in Sources */,
 				14E3F5181FB1014700161EA2 /* QRService.swift in Sources */,
 				144791D21EF5DE7100029818 /* ThirdPartiesConfigurator.swift in Sources */,
 				14D47F011FB3D1460095C516 /* Currency.swift in Sources */,
@@ -2918,7 +2894,6 @@
 				14786EE7201E6D2F009ECC11 /* TransactionDisplayable.swift in Sources */,
 				1400FBB71F997CA600EBC84C /* RealmMappable.swift in Sources */,
 				146F32122064F2240023B52A /* LoaderView.swift in Sources */,
-				1409C1371FE87DBC00803E78 /* SettingsBackupCell.swift in Sources */,
 				0A529C94F8AEE5862B69145C /* TabBarViewInput.swift in Sources */,
 				145A91051FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift in Sources */,
 				DD1C3D52DAF19C4559391431 /* TabBarViewOutput.swift in Sources */,
@@ -2987,7 +2962,6 @@
 				40EF7FE7405B398075728411 /* TransactionsModuleOutput.swift in Sources */,
 				9D0EFA15664CF1706AF54B4E /* TransactionsModule.swift in Sources */,
 				A7DD10AC65AD5135CC97D31C /* SendViewInput.swift in Sources */,
-				145F616A1FE9D4E700BFDFA3 /* SettingsExitCell.swift in Sources */,
 				145A90FC1FDDE6C300DED3AC /* Token.swift in Sources */,
 				977DBCED56321E9DC4963E16 /* SendViewOutput.swift in Sources */,
 				1458426B1FB112A200FA733F /* RealmRate.swift in Sources */,
@@ -2995,7 +2969,6 @@
 				2C55D0ED3B3BCEB7B073ABD4 /* SendPresenter.swift in Sources */,
 				144102DC205409E300F4D192 /* DefaultTextFieldUtils.swift in Sources */,
 				14991D742056943A0046E6CD /* PinService.swift in Sources */,
-				14B2193D1FC22DB5003092F0 /* SettingsCurrencyCell.swift in Sources */,
 				1421A70F2062B07400B4DBC2 /* SendCheckoutServiceFactory.swift in Sources */,
 				14991DA1205733410046E6CD /* UIView+Helpers.swift in Sources */,
 				42534B9D2D18A9ADA1BA048F /* SendInteractorInput.swift in Sources */,
@@ -3067,7 +3040,6 @@
 				DE292A8CB9E5A207C140549A /* SettingsModule.swift in Sources */,
 				10D8A198B53906DCFFC2B123 /* ChooseCurrencyViewInput.swift in Sources */,
 				111B76EB2B2A85F3877EF1E0 /* ChooseCurrencyViewOutput.swift in Sources */,
-				1418E856205FEE010054F312 /* TokenHeaderView.swift in Sources */,
 				64D4104E1B9A9CB53B1C6892 /* ChooseCurrencyViewController.swift in Sources */,
 				8FEACE3A905D147DD4B66CB6 /* ChooseCurrencyPresenter.swift in Sources */,
 				149AA0601FD614E400F961FA /* TransactionServiceProtocol.swift in Sources */,
@@ -3277,6 +3249,8 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -3284,6 +3258,11 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Weverything",
+				);
 			};
 			name = Debug;
 		};
@@ -3326,6 +3305,8 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;

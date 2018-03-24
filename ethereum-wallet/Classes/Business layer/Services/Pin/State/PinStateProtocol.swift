@@ -27,9 +27,22 @@ enum PinState {
 
 protocol PinStateProtocol {
   
-    var title: String { get }
-    var isCancellableAction: Bool { get }
-    var isTouchIDAllowed: Bool { get }
-    
-    mutating func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol)
+  var title: String { get }
+  var isCancellableAction: Bool { get }
+  var isTouchIDAllowed: Bool { get }
+  var touchIdReason: String? { get }
+  
+  mutating func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol)
+}
+
+extension PinStateProtocol {
+  
+  var touchIdReason: String? {
+    return nil
+  }
+  
+  var isTouchIDAllowed: Bool {
+    return touchIdReason != nil
+  }
+  
 }

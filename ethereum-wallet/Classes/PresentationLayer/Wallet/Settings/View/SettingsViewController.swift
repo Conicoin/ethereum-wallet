@@ -72,6 +72,7 @@ class SettingsViewController: UIViewController {
   
   @IBAction func touchIdPressed(_ sender: UIButton) {
     let isOn = !touchIdSwitch.isOn
+    touchIdSwitch.setOn(isOn, animated: true)
     output.didTouchIdValueChanged(isOn)
   }
   
@@ -80,7 +81,7 @@ class SettingsViewController: UIViewController {
   }
   
   @IBAction func touchIdValueChanged(_ sender: UISwitch) {
-    output.didTouchIdValueChanged(!sender.isOn)
+    output.didTouchIdValueChanged(sender.isOn)
   }
   
   @IBAction func logoutPressed(_ sender: UIButton) {
@@ -100,9 +101,19 @@ extension SettingsViewController: SettingsViewInput {
     
   }
   
+  func didReceiveIsTouchIdEnabled(_ isTouchIdEnabled: Bool) {
+    touchIdSwitch.isOn = isTouchIdEnabled
+  }
+  
   func didReceiveCurrency(_ currency: FiatCurrency) {
     currencyImageView.image = currency.icon
     currencyIsoLabel.text = currency.iso
+  }
+  
+  func shareFileAtUrl(_ url: URL) {
+    let objectsToShare = [url]
+    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+    present(activityVC, animated: true, completion: nil)
   }
   
 }

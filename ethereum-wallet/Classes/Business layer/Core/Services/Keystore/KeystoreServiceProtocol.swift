@@ -18,6 +18,7 @@
 import Geth
 
 protocol KeystoreServiceProtocol {
+  var keystoreUrl: String { get }
   func getAccount(at index: Int) throws -> GethAccount
   func createAccount(passphrase: String) throws -> GethAccount
   func jsonKey(for account: GethAccount, passphrase: String) throws -> Data

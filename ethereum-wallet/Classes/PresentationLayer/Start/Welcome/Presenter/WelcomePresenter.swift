@@ -46,12 +46,12 @@ extension WelcomePresenter: WelcomeViewOutput {
   func newDidPressed() {
     switch state {
     case .restore(let key):
-      router.presentPinRestore(from: view.viewController, key: key) { [unowned self] pin, postProcess in
-        self.interactor.importKey(key, passcode: pin, completion: postProcess)
+      router.presentPinRestore(from: view.viewController, key: key) { [unowned self] pin, routing in
+        self.interactor.importKey(key, passcode: pin, completion: routing)
       }
     case .new:
-      router.presentPinNew(from: view.viewController) { [unowned self] pin, postProcess in
-        self.interactor.createWallet(passcode: pin, completion: postProcess)
+      router.presentPinNew(from: view.viewController) { [unowned self] pin, routing in
+        self.interactor.createWallet(passcode: pin, completion: routing)
       }
     }
   }

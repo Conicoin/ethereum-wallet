@@ -30,12 +30,16 @@ extension PinInteractor: PinInteractorInput {
     output.didReceivePinInfo(info)
   }
   
-  func didAddSign(_ sign: String) {
+  func addSign(_ sign: String) {
     pinService.addSign(sign)
   }
   
-  func didDeleteSign() {
+  func deleteSign() {
     pinService.removeSign()
+  }
+  
+  func authenticateWithBiometrics() {
+    pinService.authenticateWithBiometrics()
   }
 
 }

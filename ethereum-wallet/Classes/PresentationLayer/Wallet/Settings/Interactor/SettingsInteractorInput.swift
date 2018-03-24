@@ -21,8 +21,8 @@ import Alamofire
 
 protocol SettingsInteractorInput: class {
   func getWallet()
+  func getExportKeyUrl(passcode: String)
   func selectCurrency(_ currency: String)
-  func exportKey(with password: String)
   func deleteTempBackup(at url: URL)
   func clearAll(passphrase: String, completion: PinResult?)
   func changePin(oldPin: String, newPin: String, completion: PinResult?) 

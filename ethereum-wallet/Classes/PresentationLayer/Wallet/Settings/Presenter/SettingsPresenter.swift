@@ -37,6 +37,7 @@ extension SettingsPresenter: SettingsViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
+    view.didReceiveIsTouchIdEnabled(Defaults.isTouchIDAllowed)
     interactor.getWallet()
   }
   
@@ -47,22 +48,25 @@ extension SettingsPresenter: SettingsViewOutput {
   func didChangePasscodePressed() {
     let keychain = Keychain()
     let oldPin = keychain.passphrase!
-    router.presentPinOnChangePin(from: view.viewController) { [unowned self] pin, postProcess in
-      self.interactor.changePin(oldPin: oldPin, newPin: pin, completion: postProcess)
+    router.presentPinOnChangePin(from: view.viewController) { [unowned self] pin, routing in
+      self.interactor.changePin(oldPin: oldPin, newPin: pin, completion: routing)
     }
   }
   
   func didBackupPressed() {
-    
+    router.presentPinOnBackup(from: view.viewController) { [unowned self] pin, routing in
+      routing?(.success(true))
+      self.interactor.getExportKeyUrl(passcode: pin)
+    }
   }
   
   func didTouchIdValueChanged(_ isOn: Bool) {
-    
+    Defaults.isTouchIDAllowed = isOn
   }
   
   func didLogoutPressed() {
-    router.presentPinOnExit(from: view.viewController) { [unowned self] pin, postProcess in
-      self.interactor.clearAll(passphrase: pin, completion: postProcess)
+    router.presentPinOnExit(from: view.viewController) { [unowned self] pin, routing in
+      self.interactor.clearAll(passphrase: pin, completion: routing)
     }
   }
 
@@ -79,11 +83,12 @@ extension SettingsPresenter: SettingsInteractorOutput {
     view.didReceiveCurrency(currency)
   }
   
-  func didStoreKey(at url: URL) {
-  }
-  
   func didFailed(with error: Error) {
     error.showAllertIfNeeded(from: view.viewController)
+  }
+  
+  func didReceiveExportKeyUrl(_ url: URL) {
+    view.shareFileAtUrl(url)
   }
 
 }

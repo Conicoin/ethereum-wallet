@@ -43,5 +43,11 @@ extension SettingsRouter: SettingsRouterInput {
       vc.pop()
     }
   }
+  
+  func presentPinOnBackup(from: UIViewController, postProcess: PinPostProcess?) {
+    PinModule.create(.backup).present(from: from, postProcess: postProcess) { vc in
+      vc.pop()
+    }
+  }
     
 }

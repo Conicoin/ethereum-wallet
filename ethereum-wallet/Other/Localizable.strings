@@ -88,7 +88,7 @@
 "settings.exit.alert.title" = "Exit wallet";
 "settings.exit.alert.msg" = "All data will be erased. Please make sure you have made a backup, otherwise you will not be able to restore your wallet";
 "settings.change.alert.title" = "Change passcode";
-"settings.change.alert.msg" = "Please note that all previously made backups will require your old password";
+"settings.change.alert.msg" = "Please note that all previously made backups still require your old password";
 
 // MARK: ChooseCurrency
 "chooseCurrency.title" = "Reference currency";

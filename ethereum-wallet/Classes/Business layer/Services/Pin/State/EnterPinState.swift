@@ -23,14 +23,14 @@ struct EnterPinState: PinStateProtocol {
   
   let title: String
   let isCancellableAction: Bool
-  let isTouchIDAllowed: Bool
+  let touchIdReason: String?
   
   private var inccorectPinAttempts = 0
   private var isNotificationSent = false
   
-  init(allowCancellation: Bool, title: String, isTouchIDAllowed: Bool) {
+  init(allowCancellation: Bool, title: String, touchIdReason: String?) {
     self.title = title
-    self.isTouchIDAllowed = isTouchIDAllowed
+    self.touchIdReason = touchIdReason
     self.isCancellableAction = allowCancellation
   }
   

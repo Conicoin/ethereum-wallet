@@ -19,9 +19,13 @@ import Geth
 
 class KeystoreService: KeystoreServiceProtocol {
   
+  var keystoreUrl: String {
+    let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    return documents + "/keystore"
+  }
+  
   private lazy var keystore: GethKeyStore! = {
-    let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-    return GethNewKeyStore(documentDirectory + "/keystore", GethLightScryptN, GethLightScryptP)
+    return GethNewKeyStore(keystoreUrl, GethLightScryptN, GethLightScryptP)
   }()
   
   // MARK: Account managment

@@ -15,7 +15,6 @@ class PinViewController: UIViewController {
   @IBOutlet public weak var deleteSignButton: UIButton!
   @IBOutlet public weak var touchIDButton: UIButton!
   @IBOutlet public weak var placeholdersX: NSLayoutConstraint!
-  
 
   var output: PinViewOutput!
 
@@ -71,6 +70,11 @@ class PinViewController: UIViewController {
   @IBAction func deletePressed(_ sender: UIButton) {
     output.didDeleteSign()
   }
+  
+  @IBAction func touchIdPressed(_ sender: UIButton) {
+    output.didTouchIdPressed()
+  }
+  
 
 }
 
