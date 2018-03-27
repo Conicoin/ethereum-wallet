@@ -35,6 +35,16 @@ extension UITableView {
     }
     return cell
   }
+  
+  
+  func dequeue<T: UITableViewCell>(_ cellClass: T.Type) -> T {
+    guard let cell = self.dequeueReusableCell(
+      withIdentifier: cellClass.identifier()) as? T else {
+        fatalError("Error: cannot dequeue cell with identifier: \(cellClass.identifier())")
+    }
+    return cell
+  }
+  
   func register<T: UITableViewHeaderFooterView>(_ headerFooterClass: T.Type) {
     self.register(headerFooterClass,
                   forHeaderFooterViewReuseIdentifier: headerFooterClass.identifier())

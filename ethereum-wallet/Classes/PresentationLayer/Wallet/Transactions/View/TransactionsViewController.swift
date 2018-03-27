@@ -24,11 +24,17 @@ class TransactionsViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
 
   var output: TransactionsViewOutput!
+  
+  private let border = BorderView()
+  private var sections = [Date: [TxIndex]]()
+  private var sortedSections = [Date]()
+  private var localCurrency = Constants.Wallet.defaultCurrency
 
   // MARK: Life cycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupTable()
     setupPullToRefresh()
     output.viewIsReady()
   }
@@ -38,12 +44,15 @@ class TransactionsViewController: UIViewController {
     output.viewIsAppear()
   }
   
-  private func showAlert(for index: Int) {
+  private func setupTable() {
+    border.attach(to: tableView)
+  }
+  
+  private func showAlert(for tx: TxIndex) {
     let alert = UIAlertController(title: Localized.transactionsAlertTitle(), message: nil, preferredStyle: .alert)
 
     let ok = UIAlertAction(title: Localized.commonOk(), style: .default) { action in
-      let transaction = self.output.filteredTransactions[index]
-      let urlString = Defaults.chain.etherscanUrl + "/tx/\(transaction.txHash!)"
+      let urlString = Defaults.chain.etherscanUrl + "/tx/\(tx.txHash!)"
       guard let url = URL(string: urlString) else { return }
       let svc = SFSafariViewController(url: url)
       self.present(svc, animated: true, completion: nil)
@@ -75,7 +84,13 @@ extension TransactionsViewController: TransactionsViewInput {
 
   }
   
-  func didReceiveTransactions() {
+  func didReceiveWallet(_ wallet: Wallet) {
+    self.localCurrency = wallet.localCurrency
+  }
+  
+  func didReceiveSections(_ sections: [Date: [TxIndex]], sortedSections: [Date]) {
+    self.sections = sections
+    self.sortedSections = sortedSections
     tableView.reloadData()
   }
   
@@ -91,21 +106,39 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(TransactionCell.self, for: indexPath)
-    cell.configure(with: output.filteredTransactions[indexPath.row])
+    let section = sortedSections[indexPath.section]
+    cell.configure(with: sections[section]![indexPath.row])
     return cell
   }
   
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let header = tableView.dequeue(TransactionHeaderCell.self)
+    let sectionKey = sortedSections[section]
+    header.timeLabel.text = sectionKey.humanReadable()
+    return header
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return output.filteredTransactions.count
+    return sections[sortedSections[section]]!.count
+  }
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return sortedSections.count
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 55
+    return 76
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 52
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    showAlert(for: indexPath.row)
+    let sectionKey = sortedSections[indexPath.section]
+    let transactions = sections[sectionKey]!
+    showAlert(for: transactions[indexPath.row])
   }
   
 }

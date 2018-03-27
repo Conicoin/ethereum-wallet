@@ -18,29 +18,47 @@
 import UIKit
 
 class TransactionCell: UITableViewCell {
-  
-  @IBOutlet weak var tokenLabel: UILabel!
-  @IBOutlet weak var timeLabel: UILabel!
-  @IBOutlet weak var addressLabel: UILabel!
+  @IBOutlet weak var iconImageView: UIImageView!
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var amountLabel: UILabel!
-  @IBOutlet weak var errorImageView: UIImageView!
   
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
   }
   
-  func configure(with transaction: TransactionDisplayable) {
+  func configure(with transaction: TxIndex) {
     
-    errorImageView.isHidden = !transaction.isError
-    amountLabel.isHidden = transaction.isError
-    tokenLabel.isHidden = transaction.isError
+    let address = transaction.address!
+    let title = address[0..<4] + "..." + address[address.count - 4..<address.count]
     
-    timeLabel.text = transaction.time
-    addressLabel.text = transaction.address
-    amountLabel.text = transaction.value
-    amountLabel.textColor = transaction.valueColor
-    tokenLabel.isHidden = !transaction.isTokenTransfer
+    titleLabel.text = transaction.isIncoming ?
+      Localized.transactionsReceived(title) :
+      Localized.transactionsSent(title)
+    
+    amountLabel.text = transaction.amount
+    
+    let formatter = DateFormatter()
+    formatter.dateFormat = "hh:mm"
+    var description = formatter.string(from: transaction.time)
+    
+    if let status = transaction.status {
+      description += ",\(status)"
+    }
+    
+    descriptionLabel.text = description
+    iconImageView.image = UIImage(named: transaction.imageName)
+    
+//    errorImageView.isHidden = !transaction.isError
+//    amountLabel.isHidden = transaction.isError
+//    tokenLabel.isHidden = transaction.isError
+//
+//    timeLabel.text = transaction.time
+//    addressLabel.text = transaction.address
+//    amountLabel.text = transaction.value
+//    amountLabel.textColor = transaction.valueColor
+//    tokenLabel.isHidden = !transaction.isTokenTransfer
   }
   
 }

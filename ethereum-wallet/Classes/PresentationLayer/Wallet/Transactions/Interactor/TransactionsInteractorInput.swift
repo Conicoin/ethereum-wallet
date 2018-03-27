@@ -19,8 +19,7 @@ import Foundation
 
 
 protocol TransactionsInteractorInput: class {
-  func getTransactions()
-  func getTokenTransactions()
-  func updateTransactions()
-  func updateTokenTransactions()
+  func getTxIndex()
+  func getWallet()
+  func loadTransactions()
 }

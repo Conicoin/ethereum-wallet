@@ -27,17 +27,21 @@ class TransactionsModule {
     let viewController = R.storyboard.transactions.transactionsViewController()!
 
     interactor.output = presenter
-    interactor.transactionsDataStoreService = TransactionsDataStoreService()
-    interactor.transactionsNetworkService = TransactionsNetworkService()
-    interactor.walletDataStoreService = WalletDataStoreService()
-    interactor.tokenTransactionsNetworkService = TokenTransactionsNetworkService()
-    interactor.tokenTransactionsDataStoreService = TokenTransactionsDataStoreService()
 
     viewController.output = presenter
 
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    
+    // MARK: - Injection
+    
+    interactor.transactionsNetworkService = TransactionsNetworkService()
+    interactor.walletDataStoreService = WalletDataStoreService()
+    interactor.tokenTransactionsNetworkService = TokenTransactionsNetworkService()
+    interactor.tokenTransactionsDataStoreService = TokenTransactionsDataStoreService()
+    interactor.transactionsDataStoreService = TransactionsDataStoreService()
+    interactor.transactionIndexDataStoreService = TxIndexDataStoreService()
         
     return presenter
   }

@@ -21,5 +21,4 @@ protocol TransactionsViewOutput: class {
   func viewIsReady()
   func viewIsAppear()
   func didRefresh()
-  var filteredTransactions: [TransactionDisplayable] { get }
 }

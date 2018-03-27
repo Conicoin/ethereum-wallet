@@ -25,6 +25,7 @@ class TransactionsInteractor {
   var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
   var tokenTransactionsNetworkService: TokenTransactionsNetworkServiceProtocol!
   var tokenTransactionsDataStoreService: TokenTransactionsDataStoreServiceProtocol!
+  var transactionIndexDataStoreService: TxIndexDataStoreServiceProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
   
 }
@@ -34,23 +35,24 @@ class TransactionsInteractor {
 
 extension TransactionsInteractor: TransactionsInteractorInput {
   
-  func getTransactions() {
-    transactionsDataStoreService.observe { [unowned self] transactions in
-      self.output.didReceiveTransactions(transactions)
+  func getTxIndex() {
+    transactionIndexDataStoreService.observe { [unowned self] transactions in
+      self.output.didReceiveTxIndex(transactions)
     }
-    
-    updateTransactions()
   }
   
-  func getTokenTransactions() {
-    tokenTransactionsDataStoreService.observe { [unowned self] transactions in
-      self.output.didReceiveTokenTransactions(transactions)
+  func getWallet() {
+    walletDataStoreService.observe { [unowned self] wallet in
+      self.output.didReceiveWallet(wallet)
     }
-    
+  }
+  
+  func loadTransactions() {
+    updateTransactions()
     updateTokenTransactions()
   }
 
-  func updateTokenTransactions() {
+  private func updateTokenTransactions() {
     let wallet = walletDataStoreService.getWallet()
     tokenTransactionsNetworkService.getTokenTransactions(address: wallet.address) { [unowned self] result in
       switch result {
@@ -63,7 +65,7 @@ extension TransactionsInteractor: TransactionsInteractorInput {
     }
   }
   
-  func updateTransactions() {
+  private func updateTransactions() {
     let wallet = walletDataStoreService.getWallet()
     transactionsNetworkService.getTransactions(address: wallet.address) { [unowned self] result in
       switch result {
