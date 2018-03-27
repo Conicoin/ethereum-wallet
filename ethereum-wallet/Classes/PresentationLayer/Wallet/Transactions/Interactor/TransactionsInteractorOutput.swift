@@ -19,8 +19,8 @@ import Foundation
 
 
 protocol TransactionsInteractorOutput: class {
-  func didReceiveTransactions(_ transactions: [Transaction])
-  func didReceiveTokenTransactions(_ transactions: [TokenTransaction])
+  func didReceiveTxIndex(_ transactions: [TxIndex])
   func didFailedTransactionsReceiving(with error: Error)
   func didReceiveTransactions()
+  func didReceiveWallet(_ wallet: Wallet)
 }

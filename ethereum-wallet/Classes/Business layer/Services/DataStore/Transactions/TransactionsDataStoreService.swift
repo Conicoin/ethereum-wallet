@@ -49,5 +49,6 @@ class TransactionsDataStoreService: RealmStorable<Transaction>, TransactionsData
       updateHandler(objects.map { Transaction.mapFromRealmObject($0) } )
     }
   }
+  
 
 }

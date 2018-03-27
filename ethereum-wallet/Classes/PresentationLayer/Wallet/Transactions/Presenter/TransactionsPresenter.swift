@@ -25,25 +25,6 @@ class TransactionsPresenter {
   var interactor: TransactionsInteractorInput!
   var router: TransactionsRouterInput!
   
-  var filteredTransactions = [TransactionDisplayable]()
-  
-  private var transactions = [TransactionDisplayable]() {
-    didSet {
-      filterTransactions()
-    }
-  }
-  private var tokenTransactions = [TransactionDisplayable]() {
-    didSet {
-      filterTransactions()
-    }
-  }
-  
-  private func filterTransactions() {
-    let joined: [TransactionDisplayable] = Array([transactions, tokenTransactions].joined())
-    filteredTransactions = joined.sorted { $0.timestamp > $1.timestamp }
-    view.didReceiveTransactions()
-  }
-  
 }
 
 
@@ -53,18 +34,17 @@ extension TransactionsPresenter: TransactionsViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
-    interactor.getTransactions()
-    interactor.getTokenTransactions()
+    interactor.getWallet()
+    interactor.getTxIndex()
+    interactor.loadTransactions()
   }
   
   func viewIsAppear() {
-    interactor.updateTransactions()
-    interactor.updateTokenTransactions()
+    interactor.loadTransactions()
   }
   
   func didRefresh() {
-    interactor.updateTransactions()
-    interactor.updateTokenTransactions()
+    interactor.loadTransactions()
   }
 
 }
@@ -74,12 +54,23 @@ extension TransactionsPresenter: TransactionsViewOutput {
 
 extension TransactionsPresenter: TransactionsInteractorOutput {
   
-  func didReceiveTransactions(_ transactions: [Transaction]) {
-    self.transactions = transactions
+  func didReceiveWallet(_ wallet: Wallet) {
+    view.didReceiveWallet(wallet)
   }
   
-  func didReceiveTokenTransactions(_ transactions: [TokenTransaction]) {
-    self.tokenTransactions = transactions
+  func didReceiveTxIndex(_ transactions: [TxIndex]) {
+    var sections = [Date: [TxIndex]]()
+    for tx in transactions {
+      let time = Calendar.current.startOfDay(for: tx.time)
+      if sections.index(forKey: time) == nil {
+        sections[time] = [tx]
+      } else {
+        sections[time]?.append(tx)
+      }
+    }
+    
+    let sortedSections = sections.keys.sorted(by: { $0 > $1 })
+    view.didReceiveSections(sections, sortedSections: sortedSections)
   }
   
   func didReceiveTransactions() {

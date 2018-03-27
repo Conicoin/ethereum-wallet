@@ -126,6 +126,10 @@
 		145A91001FDF002000DED3AC /* API+Ethplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */; };
 		145A91031FDF02AE00DED3AC /* TokensNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A91021FDF02AE00DED3AC /* TokensNetworkService.swift */; };
 		145A91051FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A91041FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift */; };
+		145C8FF22068543800706DB6 /* TxIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C8FF12068543700706DB6 /* TxIndex.swift */; };
+		145C8FF520685E1F00706DB6 /* TxIndexDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C8FF420685E1F00706DB6 /* TxIndexDataStoreService.swift */; };
+		145C8FF720685E9800706DB6 /* TxIndexDataStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C8FF620685E9800706DB6 /* TxIndexDataStoreServiceProtocol.swift */; };
+		145C8FF92068FD3000706DB6 /* TransactionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C8FF82068FD3000706DB6 /* TransactionHeaderCell.swift */; };
 		146209271F9AA21900C01CE7 /* RealmStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146209261F9AA21900C01CE7 /* RealmStorable.swift */; };
 		14636D631F994BB7002BDFAC /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14636D611F994BB7002BDFAC /* Presentable.swift */; };
 		146D0D1E1FC0DDBC003C0C3E /* Decimal+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D0D1D1FC0DDBC003C0C3E /* Decimal+Helpers.swift */; };
@@ -499,6 +503,10 @@
 		145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Ethplorer.swift"; sourceTree = "<group>"; };
 		145A91021FDF02AE00DED3AC /* TokensNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensNetworkService.swift; sourceTree = "<group>"; };
 		145A91041FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensNetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		145C8FF12068543700706DB6 /* TxIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxIndex.swift; sourceTree = "<group>"; };
+		145C8FF420685E1F00706DB6 /* TxIndexDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxIndexDataStoreService.swift; sourceTree = "<group>"; };
+		145C8FF620685E9800706DB6 /* TxIndexDataStoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxIndexDataStoreServiceProtocol.swift; sourceTree = "<group>"; };
+		145C8FF82068FD3000706DB6 /* TransactionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHeaderCell.swift; sourceTree = "<group>"; };
 		146209261F9AA21900C01CE7 /* RealmStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorable.swift; sourceTree = "<group>"; };
 		14636D611F994BB7002BDFAC /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		146D0D1D1FC0DDBC003C0C3E /* Decimal+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Helpers.swift"; sourceTree = "<group>"; };
@@ -1247,6 +1255,15 @@
 			path = Tokens;
 			sourceTree = "<group>";
 		};
+		145C8FF320685DE500706DB6 /* TxIndex */ = {
+			isa = PBXGroup;
+			children = (
+				145C8FF420685E1F00706DB6 /* TxIndexDataStoreService.swift */,
+				145C8FF620685E9800706DB6 /* TxIndexDataStoreServiceProtocol.swift */,
+			);
+			path = TxIndex;
+			sourceTree = "<group>";
+		};
 		14636D5F1F994BA0002BDFAC /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -1470,6 +1487,7 @@
 		14B77EC11F9ACD6300FCD923 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
+				145C8FF320685DE500706DB6 /* TxIndex */,
 				14046D05201FBA6B007BD203 /* TokenTransactions */,
 				14D5188E1FE087CD00A4FB94 /* Token */,
 				1458426E1FB1D68400FA733F /* Rates */,
@@ -1493,6 +1511,7 @@
 			isa = PBXGroup;
 			children = (
 				14BB80571F9EABC50042BFB7 /* TransactionCell.swift */,
+				145C8FF82068FD3000706DB6 /* TransactionHeaderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1571,6 +1590,7 @@
 				1406465B1FAF46DB0013DFFF /* Coin.swift */,
 				145A90FB1FDDE6C200DED3AC /* Token.swift */,
 				1400FBB81F997DC100EBC84C /* Wallet.swift */,
+				145C8FF12068543700706DB6 /* TxIndex.swift */,
 				14F419251F9BF88E000C500A /* Transaction.swift */,
 				14046D03201FB9C4007BD203 /* TokenTransaction.swift */,
 				14786EEA201E7A1C009ECC11 /* TokenMeta.swift */,
@@ -2829,6 +2849,7 @@
 				14D027F71EF9701A00F125C3 /* RealmTransaction.swift in Sources */,
 				145A90FE1FDDEDDC00DED3AC /* TokenValue.swift in Sources */,
 				14C115312064674100DC4C25 /* WalletJsonImporter.swift in Sources */,
+				145C8FF22068543800706DB6 /* TxIndex.swift in Sources */,
 				14BF259C2012626800CAFCFD /* TransactionFactoryProtocol.swift in Sources */,
 				14B77EC41F9ACD9300FCD923 /* WalletDataStoreServiceProtocol.swift in Sources */,
 				14D027E01EF6D4CD00F125C3 /* RealmWallet.swift in Sources */,
@@ -2870,6 +2891,7 @@
 				99AA53CDE10710A6EFE5B0E5 /* WelcomeInteractorOutput.swift in Sources */,
 				14636D631F994BB7002BDFAC /* Presentable.swift in Sources */,
 				149AA05D1FD60EAF00F961FA /* KeystoreService.swift in Sources */,
+				145C8FF520685E1F00706DB6 /* TxIndexDataStoreService.swift in Sources */,
 				1414E702205894030080680E /* PopupStateProtocol.swift in Sources */,
 				146D0D1E1FC0DDBC003C0C3E /* Decimal+Helpers.swift in Sources */,
 				97C6DFDAC5C6F69DDBDFB874 /* WelcomeInteractor.swift in Sources */,
@@ -2975,6 +2997,7 @@
 				51506D804AA6C5804C3940CD /* SendInteractorOutput.swift in Sources */,
 				BC6115126651451990D4D46D /* SendInteractor.swift in Sources */,
 				8E4DD7577CC4D2F374295B4D /* SendRouterInput.swift in Sources */,
+				145C8FF720685E9800706DB6 /* TxIndexDataStoreServiceProtocol.swift in Sources */,
 				14046D07201FBA7B007BD203 /* TokenTransactionsDataStoreService.swift in Sources */,
 				9C99544075FF16B392AC685A /* SendRouter.swift in Sources */,
 				5F128A459101497C3BA454B3 /* SendModuleInput.swift in Sources */,
@@ -3026,6 +3049,7 @@
 				14280E6F1FE1F6F900121F85 /* BigTokenIconImageView.swift in Sources */,
 				3BBA8D91469D56637A0DD3C6 /* SettingsViewOutput.swift in Sources */,
 				B1D42F37EADCD9AC65B5251D /* SettingsViewController.swift in Sources */,
+				145C8FF92068FD3000706DB6 /* TransactionHeaderCell.swift in Sources */,
 				14991D9420570EA20046E6CD /* PinServiceFactory.swift in Sources */,
 				AEA8AAD3A3E88E8E2E1438B0 /* SettingsPresenter.swift in Sources */,
 				A477243D807CEB58F23FA86F /* SettingsInteractorInput.swift in Sources */,

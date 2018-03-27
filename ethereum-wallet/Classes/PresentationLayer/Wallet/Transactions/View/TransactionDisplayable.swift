@@ -18,6 +18,13 @@
 import UIKit
 
 protocol TransactionDisplayable {
+  var isIncoming: Bool! { get }
+  var isError: Bool! { get }
+  var isPending: Bool! { get }
+  var from: String! { get }
+  var to: String! { get }
+  var amount: Currency! { get }
+  
   var address: String { get }
   var timestamp: Date! { get }
   var value: String { get }
@@ -25,7 +32,6 @@ protocol TransactionDisplayable {
   var isTokenTransfer: Bool! { get }
   var time: String { get }
   var txHash: String! { get }
-  var isError: Bool! { get }
 }
 
 extension Transaction: TransactionDisplayable {

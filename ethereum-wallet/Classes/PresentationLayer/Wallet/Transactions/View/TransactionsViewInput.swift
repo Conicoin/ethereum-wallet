@@ -21,5 +21,6 @@ import UIKit
 protocol TransactionsViewInput: class, Presentable {
   func setupInitialState()
   func stopRefreshing()
-  func didReceiveTransactions()
+  func didReceiveWallet(_ wallet: Wallet)
+  func didReceiveSections(_ sections: [Date: [TxIndex]], sortedSections: [Date])
 }

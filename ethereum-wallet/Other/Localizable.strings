@@ -67,8 +67,11 @@
 "send.address.placeholder" = "Recepient address";
 
 // MARK: - Transactions
-"transactions.pending" = "Pending";
+"transactions.pending" = "pending";
+"transactions.error" = "transaction failed";
 "transactions.alert.title" = "Show transaction info on Etherscan?";
+"transactions.received" = "From %@";
+"transactions.sent" = "To %@";
 
 // MARK: Timestamp
 "time.today" = "Today";
