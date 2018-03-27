@@ -31,7 +31,6 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var logoutButton: UIButton!
   @IBOutlet weak var versionLabel: UILabel!
   
-  private let border = BorderView()
   var output: SettingsViewOutput!
   
   
@@ -40,7 +39,7 @@ class SettingsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = Localized.settingsTitle()
-    border.attach(to: scrollView)
+    scrollView.setupBorder()
     localize()
     output.viewIsReady()
   }

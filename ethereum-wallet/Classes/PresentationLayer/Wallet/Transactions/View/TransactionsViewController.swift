@@ -18,6 +18,7 @@
 import UIKit
 import RealmSwift
 import SafariServices
+import SpringIndicator
 
 class TransactionsViewController: UIViewController {
   
@@ -25,7 +26,7 @@ class TransactionsViewController: UIViewController {
 
   var output: TransactionsViewOutput!
   
-  private let border = BorderView()
+  private var refresh: RefreshIndicator!
   private var sections = [Date: [TxIndex]]()
   private var sortedSections = [Date]()
   private var localCurrency = Constants.Wallet.defaultCurrency
@@ -34,7 +35,6 @@ class TransactionsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupTable()
     setupPullToRefresh()
     output.viewIsReady()
   }
@@ -42,10 +42,6 @@ class TransactionsViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     output.viewIsAppear()
-  }
-  
-  private func setupTable() {
-    border.attach(to: tableView)
   }
   
   private func showAlert(for tx: TxIndex) {
@@ -64,12 +60,12 @@ class TransactionsViewController: UIViewController {
   }
   
   private func setupPullToRefresh() {
-    let refresh = UIRefreshControl()
-    refresh.addTarget(self, action: #selector(refresh(_:)), for: UIControlEvents.valueChanged)
-    tableView.refreshControl = refresh
+    refresh = tableView.setupRefresh(target: self, selector: #selector(refresh(_:)))
   }
     
-  @objc func refresh(_ sender: UIRefreshControl) {
+  @objc func refresh(_ sender: UIControl) {
+    let generator = UISelectionFeedbackGenerator()
+    generator.selectionChanged()
     output.didRefresh()
   }
 
@@ -95,7 +91,7 @@ extension TransactionsViewController: TransactionsViewInput {
   }
   
   func stopRefreshing() {
-    tableView.refreshControl?.endRefreshing()
+    refresh.endRefreshing()
   }
 
 }

@@ -20,6 +20,7 @@ import UIKit
 
 protocol BalanceViewInput: class, Presentable {
   func setupInitialState()
+  func endRefreshing()
   func didReceiveWallet(_ wallet: Wallet)
   func didReceiveCoin(_ coin: Coin)
   func didReceiveTokens(_ tokens: [Token])

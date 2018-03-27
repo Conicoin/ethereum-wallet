@@ -58,18 +58,7 @@ extension TransactionsPresenter: TransactionsInteractorOutput {
     view.didReceiveWallet(wallet)
   }
   
-  func didReceiveTxIndex(_ transactions: [TxIndex]) {
-    var sections = [Date: [TxIndex]]()
-    for tx in transactions {
-      let time = Calendar.current.startOfDay(for: tx.time)
-      if sections.index(forKey: time) == nil {
-        sections[time] = [tx]
-      } else {
-        sections[time]?.append(tx)
-      }
-    }
-    
-    let sortedSections = sections.keys.sorted(by: { $0 > $1 })
+  func didReceiveSections(_ sections: [Date : [TxIndex]], sortedSections: [Date]) {
     view.didReceiveSections(sections, sortedSections: sortedSections)
   }
   

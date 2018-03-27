@@ -12,6 +12,7 @@ target 'ethereum-wallet' do
   pod 'CryptoSwift'
   pod 'Kingfisher'
   pod 'secp256k1_ios'
+  pod 'SpringIndicator'
 end
 
 target 'ConicoinTests' do

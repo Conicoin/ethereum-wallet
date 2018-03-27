@@ -28,6 +28,25 @@ class TransactionsInteractor {
   var transactionIndexDataStoreService: TxIndexDataStoreServiceProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
   
+  private func groupTransactions(_ transactions: [TxIndex]) {
+    DispatchQueue.global().async {
+      var sections = [Date: [TxIndex]]()
+      for tx in transactions {
+        let time = Calendar.current.startOfDay(for: tx.time)
+        if sections.index(forKey: time) == nil {
+          sections[time] = [tx]
+        } else {
+          sections[time]?.append(tx)
+        }
+      }
+      
+      let sortedSections = sections.keys.sorted(by: { $0 > $1 })
+      DispatchQueue.main.async { [unowned self] in
+        self.output.didReceiveSections(sections, sortedSections: sortedSections)
+      }
+    }
+  }
+  
 }
 
 
@@ -37,7 +56,7 @@ extension TransactionsInteractor: TransactionsInteractorInput {
   
   func getTxIndex() {
     transactionIndexDataStoreService.observe { [unowned self] transactions in
-      self.output.didReceiveTxIndex(transactions)
+      self.groupTransactions(transactions)
     }
   }
   

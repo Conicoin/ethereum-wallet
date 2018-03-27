@@ -17,6 +17,7 @@ PODS:
   - RealmSwift (3.0.2):
     - Realm (= 3.0.2)
   - secp256k1_ios (0.0.7)
+  - SpringIndicator (3.0.0)
 
 DEPENDENCIES:
   - AlamofireObjectMapper
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - R.swift
   - RealmSwift
   - secp256k1_ios
+  - SpringIndicator
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
@@ -41,7 +43,8 @@ SPEC CHECKSUMS:
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
   RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
   secp256k1_ios: 12a9bddc3d7aa723efbb32b42413f041b11a7765
+  SpringIndicator: 08d815e8a154dee7b786d82b98c43cc9028a769f
 
-PODFILE CHECKSUM: fcb2b7e5eb915524d6064fc31c9ceb934befda84
+PODFILE CHECKSUM: 9125d233cb692a7d5b3cece155146bff384f45bc
 
 COCOAPODS: 1.3.1
