@@ -22,6 +22,7 @@ class ReceiveViewController: UIViewController {
   @IBOutlet weak var addressLabel: UILabel!
   @IBOutlet weak var qrImageView: UIImageView!
   @IBOutlet weak var copyAddressButton: UIButton!
+  @IBOutlet weak var addressTitleLabel: UILabel!
   
   var output: ReceiveViewOutput!
 
@@ -31,6 +32,14 @@ class ReceiveViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     output.viewIsReady()
+    localize()
+  }
+  
+  // MARK: Privates
+  
+  private func localize() {
+    addressTitleLabel.text = Localized.receiveAddressTitle()
+    copyAddressButton.setTitle(Localized.receiveCopyButton(), for: .normal)
   }
   
   // MARK: Actions

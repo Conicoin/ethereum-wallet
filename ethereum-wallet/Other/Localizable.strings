@@ -64,6 +64,8 @@
 
 // MARK: - Receive
 "receive.title" = "Receive %@";
+"receive.address.title" = "Your Ethereum Address";
+"receive.copy.button" = "Copy address";
 "receive.alert.copy" = "You address was copied to clipboard";
 
 // MARK: - Send

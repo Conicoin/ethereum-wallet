@@ -42,8 +42,9 @@ extension ReceivePresenter: ReceiveViewOutput {
   
   func copyAddressPressed(address: String) {
     UIPasteboard.general.string = address
-    view.popToRoot()
-    view.viewController.showAlert(title: Localized.receiveAlertCopy(), message: nil)
+    view.viewController.showAlert(title: Localized.receiveAlertCopy(), message: nil) { [unowned self] _ in
+      self.view.popToRoot()
+    }
   }
 
 }
