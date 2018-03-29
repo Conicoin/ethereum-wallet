@@ -54,7 +54,13 @@
 "coin.details.balance" = "Balance: %@";
 
 // MARK: - Token details
-"token.details.balance" = "Balance: %@";
+"token.details.name" = "%@ ∙ %@";
+"token.details.send" = "Send";
+"token.details.desc" = "Desription";
+"token.details.info" = "Information";
+"token.details.address" = "Address";
+"token.details.supply" = "Total supply";
+"token.details.holders" = "Holders";
 
 // MARK: - Receive
 "receive.title" = "Receive %@";

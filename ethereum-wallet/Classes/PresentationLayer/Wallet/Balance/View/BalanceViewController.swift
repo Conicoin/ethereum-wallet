@@ -63,6 +63,7 @@ class BalanceViewController: UIViewController {
     tableView.tableHeaderView?.frame = CGRect(origin: .zero, size: size)
     tableView.contentInsetAdjustmentBehavior = .never
     tableView.backgroundColor = Theme.Color.lightGray
+    tableView.setupBorder()
     refresh = tableView.setupRefresh(target: self, selector: #selector(refresh(_:)))
   }
   

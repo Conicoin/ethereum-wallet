@@ -21,4 +21,5 @@ import UIKit
 protocol TokenDetailsViewInput: class, Presentable {
   func setupInitialState()
   func didReceiveToken(_ token: Token)
+  func didReceiveFiatBalance(_ balance: String)
 }

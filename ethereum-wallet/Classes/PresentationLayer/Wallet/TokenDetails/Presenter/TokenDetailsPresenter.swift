@@ -36,6 +36,7 @@ extension TokenDetailsPresenter: TokenDetailsViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     view.didReceiveToken(token)
+    interactor.getWallet()
   }
   
   func didSendPressed() {
@@ -48,6 +49,14 @@ extension TokenDetailsPresenter: TokenDetailsViewOutput {
 // MARK: - TokenDetailsInteractorOutput
 
 extension TokenDetailsPresenter: TokenDetailsInteractorOutput {
+  
+  func didReceiveWallet(_ wallet: Wallet) {
+    guard let rate = token.rate(for: wallet.localCurrency) else {
+      return
+    }
+    let fiatBalance = FiatCurrencyFactory.amount(currency: token.balance, iso: wallet.localCurrency, rate: rate.value)
+    view.didReceiveFiatBalance(fiatBalance)
+  }
 
 }
 

@@ -35,7 +35,7 @@ class TransactionsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupPullToRefresh()
+    setupTableView()
     output.viewIsReady()
   }
   
@@ -59,7 +59,8 @@ class TransactionsViewController: UIViewController {
     present(alert, animated: true, completion: nil)
   }
   
-  private func setupPullToRefresh() {
+  private func setupTableView() {
+    tableView.setupBorder()
     refresh = tableView.setupRefresh(target: self, selector: #selector(refresh(_:)))
   }
     
