@@ -19,7 +19,7 @@ import Foundation
 
 
 protocol TransactionsInteractorOutput: class {
-  func didReceiveTxIndex(_ transactions: [TxIndex])
+  func didReceiveSections(_ sections: [Date: [TxIndex]], sortedSections: [Date])
   func didFailedTransactionsReceiving(with error: Error)
   func didReceiveTransactions()
   func didReceiveWallet(_ wallet: Wallet)

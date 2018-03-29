@@ -130,6 +130,8 @@
 		145C8FF520685E1F00706DB6 /* TxIndexDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C8FF420685E1F00706DB6 /* TxIndexDataStoreService.swift */; };
 		145C8FF720685E9800706DB6 /* TxIndexDataStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C8FF620685E9800706DB6 /* TxIndexDataStoreServiceProtocol.swift */; };
 		145C8FF92068FD3000706DB6 /* TransactionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C8FF82068FD3000706DB6 /* TransactionHeaderCell.swift */; };
+		145D1386206A6AA200AF85D2 /* UITableView+Conicoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D1385206A6AA200AF85D2 /* UITableView+Conicoin.swift */; };
+		145D1388206A6C5000AF85D2 /* UIScrollView+Conicoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D1387206A6C5000AF85D2 /* UIScrollView+Conicoin.swift */; };
 		146209271F9AA21900C01CE7 /* RealmStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146209261F9AA21900C01CE7 /* RealmStorable.swift */; };
 		14636D631F994BB7002BDFAC /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14636D611F994BB7002BDFAC /* Presentable.swift */; };
 		146D0D1E1FC0DDBC003C0C3E /* Decimal+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D0D1D1FC0DDBC003C0C3E /* Decimal+Helpers.swift */; };
@@ -138,7 +140,6 @@
 		146DB0831FA007F9000D3564 /* TransactionsNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0821FA007F9000D3564 /* TransactionsNetworkServiceProtocol.swift */; };
 		146DB0851FA0080A000D3564 /* WalletNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0841FA0080A000D3564 /* WalletNetworkServiceProtocol.swift */; };
 		146DB0871FA00819000D3564 /* WalletNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0861FA00819000D3564 /* WalletNetworkService.swift */; };
-		146F32122064F2240023B52A /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F32112064F2240023B52A /* LoaderView.swift */; };
 		146F32152064F48C0023B52A /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F32142064F48C0023B52A /* Loader.swift */; };
 		1475B74B201A67820020EA8A /* TransactionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475B74A201A67820020EA8A /* TransactionInput.swift */; };
 		14786ED7201E05E1009ECC11 /* HexDataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786ED6201E05E1009ECC11 /* HexDataTransform.swift */; };
@@ -507,6 +508,8 @@
 		145C8FF420685E1F00706DB6 /* TxIndexDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxIndexDataStoreService.swift; sourceTree = "<group>"; };
 		145C8FF620685E9800706DB6 /* TxIndexDataStoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxIndexDataStoreServiceProtocol.swift; sourceTree = "<group>"; };
 		145C8FF82068FD3000706DB6 /* TransactionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHeaderCell.swift; sourceTree = "<group>"; };
+		145D1385206A6AA200AF85D2 /* UITableView+Conicoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Conicoin.swift"; sourceTree = "<group>"; };
+		145D1387206A6C5000AF85D2 /* UIScrollView+Conicoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Conicoin.swift"; sourceTree = "<group>"; };
 		146209261F9AA21900C01CE7 /* RealmStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorable.swift; sourceTree = "<group>"; };
 		14636D611F994BB7002BDFAC /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		146D0D1D1FC0DDBC003C0C3E /* Decimal+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Helpers.swift"; sourceTree = "<group>"; };
@@ -515,7 +518,6 @@
 		146DB0821FA007F9000D3564 /* TransactionsNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		146DB0841FA0080A000D3564 /* WalletNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		146DB0861FA00819000D3564 /* WalletNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNetworkService.swift; sourceTree = "<group>"; };
-		146F32112064F2240023B52A /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		146F32142064F48C0023B52A /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		1475B74A201A67820020EA8A /* TransactionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInput.swift; sourceTree = "<group>"; };
 		14786ED6201E05E1009ECC11 /* HexDataTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexDataTransform.swift; sourceTree = "<group>"; };
@@ -1323,7 +1325,6 @@
 		146F32102064F2080023B52A /* Loader */ = {
 			isa = PBXGroup;
 			children = (
-				146F32112064F2240023B52A /* LoaderView.swift */,
 				146F32142064F48C0023B52A /* Loader.swift */,
 			);
 			path = Loader;
@@ -1656,6 +1657,8 @@
 			isa = PBXGroup;
 			children = (
 				14D7E746201A13A000DADBC3 /* UIViewController+NavBarShadow.swift */,
+				145D1385206A6AA200AF85D2 /* UITableView+Conicoin.swift */,
+				145D1387206A6C5000AF85D2 /* UIScrollView+Conicoin.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -2737,6 +2740,7 @@
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SpringIndicator/SpringIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -2750,6 +2754,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpringIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_ios.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2915,8 +2920,8 @@
 				1433BDC01FD7431C0081D872 /* GasService.swift in Sources */,
 				14786EE7201E6D2F009ECC11 /* TransactionDisplayable.swift in Sources */,
 				1400FBB71F997CA600EBC84C /* RealmMappable.swift in Sources */,
-				146F32122064F2240023B52A /* LoaderView.swift in Sources */,
 				0A529C94F8AEE5862B69145C /* TabBarViewInput.swift in Sources */,
+				145D1388206A6C5000AF85D2 /* UIScrollView+Conicoin.swift in Sources */,
 				145A91051FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift in Sources */,
 				DD1C3D52DAF19C4559391431 /* TabBarViewOutput.swift in Sources */,
 				E0850219B4525F5FEF7DAEB2 /* TabBarViewController.swift in Sources */,
@@ -3120,6 +3125,7 @@
 				D4CFFB3749BE9EFA28966BFD /* ImportInteractorInput.swift in Sources */,
 				9D2494CED34CF59D8EFA0808 /* ImportInteractorOutput.swift in Sources */,
 				9CAC6FD93C4F7C971918F454 /* ImportInteractor.swift in Sources */,
+				145D1386206A6AA200AF85D2 /* UITableView+Conicoin.swift in Sources */,
 				3B15B95D00AD02EB995F5622 /* ImportRouterInput.swift in Sources */,
 				FDC9A091AA6AA18BCB4E0F79 /* ImportRouter.swift in Sources */,
 				A468F8D3AE82D93F7339933C /* ImportModuleInput.swift in Sources */,

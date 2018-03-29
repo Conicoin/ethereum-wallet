@@ -66,7 +66,7 @@ extension Token: CoinDisplayable {
     return balance.value * rate.value
   }
   
-  private func rate(for currency: String) -> Rate? {
+  func rate(for currency: String) -> Rate? {
     return rates.filter({ $0.to == currency }).first
   }
   

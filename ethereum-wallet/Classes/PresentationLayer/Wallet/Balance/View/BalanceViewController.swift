@@ -16,7 +16,7 @@
 
 
 import UIKit
-
+import SpringIndicator
 
 class BalanceViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
@@ -31,6 +31,7 @@ class BalanceViewController: UIViewController {
     
   var output: BalanceViewOutput!
   
+  private var refresh: RefreshIndicator!
   private var tokens = [Token]()
   private var localCurrency = Constants.Wallet.defaultCurrency
   
@@ -62,6 +63,8 @@ class BalanceViewController: UIViewController {
     tableView.tableHeaderView?.frame = CGRect(origin: .zero, size: size)
     tableView.contentInsetAdjustmentBehavior = .never
     tableView.backgroundColor = Theme.Color.lightGray
+    tableView.setupBorder()
+    refresh = tableView.setupRefresh(target: self, selector: #selector(refresh(_:)))
   }
   
   private func localize() {
@@ -88,6 +91,12 @@ class BalanceViewController: UIViewController {
   
   @IBAction func receivePressed(_ sender: UIButton) {
     output.didReceivePressed()
+  }
+  
+  @objc func refresh(_ sender: UIControl) {
+    let generator = UISelectionFeedbackGenerator()
+    generator.selectionChanged()
+    output.didRefresh()
   }
 }
 
@@ -122,6 +131,10 @@ extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
 extension BalanceViewController: BalanceViewInput {
   
   func setupInitialState() {
+  }
+  
+  func endRefreshing() {
+    refresh.endRefreshing()
   }
   
   func didReceiveWallet(_ wallet: Wallet) {

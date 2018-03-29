@@ -19,15 +19,20 @@ import UIKit
 
 
 class TokenDetailsViewController: UIViewController {
-  @IBOutlet weak var iconImageView: UIImageView!
-  @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var symbolLabel: UILabel!
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var fiatBalanceLabel: UILabel!
   @IBOutlet weak var balanceLabel: UILabel!
   @IBOutlet weak var descriptionView: UIView!
   @IBOutlet weak var descriptionTextView: UITextView!
   @IBOutlet weak var addressLabel: UILabel!
   @IBOutlet weak var totalSuplyLabel: UILabel!
   @IBOutlet weak var holdersCountLabel: UILabel!
+  @IBOutlet weak var addressTitleLabel: UILabel!
+  @IBOutlet weak var holdersTitleLabel: UILabel!
+  @IBOutlet weak var supplyTitleLabel: UILabel!
+  @IBOutlet weak var descTitleLabel: UILabel!
+  @IBOutlet weak var infoTitleLabel: UILabel!
+  @IBOutlet weak var sendButtonLabel: UILabel!
 
   var output: TokenDetailsViewOutput!
   
@@ -35,7 +40,21 @@ class TokenDetailsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    localize()
+    scrollView.delegate = self
+    scrollView.setupBorder()
     output.viewIsReady()
+  }
+  
+  // MARK: Privates
+  
+  func localize() {
+    addressTitleLabel.text = Localized.tokenDetailsAddress()
+    holdersTitleLabel.text = Localized.tokenDetailsHolders()
+    supplyTitleLabel.text = Localized.tokenDetailsSupply()
+    descTitleLabel.text = Localized.tokenDetailsDesc()
+    infoTitleLabel.text = Localized.tokenDetailsInfo()
+    sendButtonLabel.text = Localized.tokenDetailsSend()
   }
   
   // MARK: Actions
@@ -56,13 +75,9 @@ extension TokenDetailsViewController: TokenDetailsViewInput {
   }
   
   func didReceiveToken(_ token: Token) {
-    balanceLabel.text = Localized.tokenDetailsBalance(token.balance.amountString)
-    nameLabel.text = token.balance.name
-    symbolLabel.text = token.balance.iso
-    if let iconUrl = token.iconUrl {
-      let placeholder = token.placeholder(with: iconImageView.bounds.size)
-      iconImageView.kf.setImage(with: iconUrl, placeholder: placeholder)
-    }
+    balanceLabel.text = token.balance.amountString
+    navigationItem.title = Localized.tokenDetailsName(token.balance.symbol, token.balance.name)
+  
     if let description = token.about {
       descriptionView.isHidden = false
       descriptionTextView.text = description
@@ -72,5 +87,20 @@ extension TokenDetailsViewController: TokenDetailsViewInput {
     totalSuplyLabel.text = "\(totalSuply.abbrevation()) \(token.balance.iso)"
     holdersCountLabel.text = "\(token.holdersCount!)"
   }
+  
+  func didReceiveFiatBalance(_ balance: String) {
+    fiatBalanceLabel.text = balance
+  }
 
+}
+
+
+// MARK: - UIScrollViewDelegate
+
+extension TokenDetailsViewController: UIScrollViewDelegate {
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    navigationItem.titleView?.alpha = scrollView.contentOffset.y
+  }
+  
 }

@@ -67,6 +67,12 @@ extension SettingsInteractor: SettingsInteractorInput {
       try! realm.write {
         realm.deleteAll()
       }
+      
+      // Cancel all requests
+      SessionManager.default.session.getAllTasks { tasks in
+        tasks.forEach { $0.cancel() }
+      }
+      
       completion?(.success(true))
     } catch {
       completion?(.failure(error))

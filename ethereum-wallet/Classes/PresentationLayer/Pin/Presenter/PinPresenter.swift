@@ -116,14 +116,14 @@ extension PinPresenter: PinServiceDelegate {
   
   func pinLock(_ lock: PinServiceProtocol, addedSignAtIndex index: Int) {
     view.didAddSignAtIndex(index)
-    let generator = UIImpactFeedbackGenerator(style: .light)
-    generator.impactOccurred()
+    let generator = UISelectionFeedbackGenerator()
+    generator.selectionChanged()
   }
   
   func pinLock(_ lock: PinServiceProtocol, removedSignAtIndex index: Int) {
     view.didRemoveSignAtIndex(index)
-    let generator = UIImpactFeedbackGenerator(style: .light)
-    generator.impactOccurred()
+    let generator = UISelectionFeedbackGenerator()
+    generator.selectionChanged()
   }
   
   

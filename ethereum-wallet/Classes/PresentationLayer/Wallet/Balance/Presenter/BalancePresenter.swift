@@ -59,6 +59,11 @@ extension BalancePresenter: BalanceViewOutput {
   func didSelectToken(_ token: Token) {
     router.presentDetails(for: token, from: view.viewController)
   }
+  
+  func didRefresh() {
+    interactor.getEthereumFromNetwork()
+    interactor.getTokensFromNetwork()
+  }
 
 }
 
@@ -78,6 +83,7 @@ extension BalancePresenter: BalanceInteractorOutput {
   }
   
   func didReceiveTokens(_ tokens: [Token]) {
+    view.endRefreshing()
     view.didReceiveTokens(tokens)
   }
   
@@ -86,6 +92,7 @@ extension BalancePresenter: BalanceInteractorOutput {
   }
   
   func didFailedTokensReceiving(with error: Error) {
+    view.endRefreshing()
   }
 
 }

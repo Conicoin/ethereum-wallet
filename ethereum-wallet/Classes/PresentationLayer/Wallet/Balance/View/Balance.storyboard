@@ -72,7 +72,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="receivePressed:" destination="l3T-C2-eCI" eventType="touchDragInside" id="OAT-he-KQI"/>
+                                                        <action selector="receivePressed:" destination="l3T-C2-eCI" eventType="touchUpInside" id="l5l-hM-68Y"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Send" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lym-aH-e96">

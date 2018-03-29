@@ -36,7 +36,6 @@ class SendViewController: UIViewController {
   @IBOutlet weak var keyboardConstraint: NSLayoutConstraint!
   @IBOutlet weak var sendButtonConstraint: NSLayoutConstraint!
   
-  private let border = BorderView()
   
   var output: SendViewOutput!
   
@@ -46,7 +45,7 @@ class SendViewController: UIViewController {
     super.viewDidLoad()
     localize()
     setupTextFields()
-    border.attach(to: scrollView)
+    scrollView.setupBorder()
     output.viewIsReady()
   }
   

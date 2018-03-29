@@ -21,6 +21,7 @@ import UIKit
 protocol BalanceViewOutput: class {
   func viewIsReady()
   func viewIsAppear()
+  func didRefresh()
   func didSelectToken(_ token: Token)
   func didSendPressed()
   func didReceivePressed()

@@ -23,7 +23,6 @@ class ChooseCurrencyViewController: UIViewController {
   
   var output: ChooseCurrencyViewOutput!
   
-  private var border = BorderView()
   
   var currencies: [FiatCurrency] = FiatCurrencyFactory.create()
   
@@ -33,7 +32,7 @@ class ChooseCurrencyViewController: UIViewController {
     super.viewDidLoad()
     navigationItem.title = Localized.chooseCurrencyTitle()
     tableView.contentInset.top = 16
-    border.attach(to: tableView)
+    tableView.setupBorder()
     output.viewIsReady()
   }
 
