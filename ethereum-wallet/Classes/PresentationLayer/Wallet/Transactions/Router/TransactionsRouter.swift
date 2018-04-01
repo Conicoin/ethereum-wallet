@@ -16,7 +16,7 @@
 
 
 import Foundation
-
+import UIKit
 
 class TransactionsRouter {
 
@@ -26,5 +26,9 @@ class TransactionsRouter {
 // MARK: - TransactionsRouterInput
 
 extension TransactionsRouter: TransactionsRouterInput {
-    
+  
+  func presentDetails(with txHash: String, from: UIViewController) {
+    TransactionDetailsModule.create().present(with: txHash, from: from)
+  }
+  
 }

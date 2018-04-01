@@ -19,5 +19,5 @@ import UIKit
 
 
 protocol TransactionsRouterInput: class {
-
+  func presentDetails(with txHash: String, from: UIViewController)
 }

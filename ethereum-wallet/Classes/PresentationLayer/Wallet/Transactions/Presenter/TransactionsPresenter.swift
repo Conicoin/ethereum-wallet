@@ -46,6 +46,13 @@ extension TransactionsPresenter: TransactionsViewOutput {
   func didRefresh() {
     interactor.loadTransactions()
   }
+  
+  func didTransactionPressed(_ txIndex: TxIndex) {
+    guard let tabBarController = view.viewController.tabBarController else {
+      return
+    }
+    router.presentDetails(with: txIndex.txHash, from: tabBarController)
+  }
 
 }
 

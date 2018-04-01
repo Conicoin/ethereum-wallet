@@ -13,6 +13,7 @@ target 'ethereum-wallet' do
   pod 'Kingfisher'
   pod 'secp256k1_ios'
   pod 'SpringIndicator'
+  pod 'PullToDismiss', '~> 2.1'
 end
 
 target 'ConicoinTests' do

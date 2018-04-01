@@ -8,6 +8,7 @@ PODS:
   - Kingfisher (4.6.1)
   - ObjectMapper (3.1.0)
   - PKHUD (5.0.0)
+  - PullToDismiss (2.1)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - Geth (~> 1.7.3)
   - Kingfisher
   - PKHUD
+  - PullToDismiss (~> 2.1)
   - R.swift
   - RealmSwift
   - secp256k1_ios
@@ -38,6 +40,7 @@ SPEC CHECKSUMS:
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
+  PullToDismiss: 5513d561c382d201d0e3fbbdab9a47196cf5d2e2
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
@@ -45,6 +48,6 @@ SPEC CHECKSUMS:
   secp256k1_ios: 12a9bddc3d7aa723efbb32b42413f041b11a7765
   SpringIndicator: 08d815e8a154dee7b786d82b98c43cc9028a769f
 
-PODFILE CHECKSUM: 9125d233cb692a7d5b3cece155146bff384f45bc
+PODFILE CHECKSUM: 154d4e7b737b5ee95eaabed843cff82d7919b039
 
 COCOAPODS: 1.3.1
