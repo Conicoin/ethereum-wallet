@@ -11,4 +11,6 @@ import UIKit
 
 protocol TransactionDetailsViewInput: class, Presentable {
   func setupInitialState()
+  func didReceiveTxIndex(_ txIndex: TxIndex)
+  func didReceiveTransaction(_ transaction: TransactionDisplayable)
 }

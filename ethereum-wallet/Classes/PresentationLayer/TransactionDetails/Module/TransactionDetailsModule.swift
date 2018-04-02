@@ -11,7 +11,7 @@ import UIKit
 
 class TransactionDetailsModule {
 
-  class func create() -> TransactionDetailsModuleInput {
+  class func create(isToken: Bool) -> TransactionDetailsModuleInput {
     let router = TransactionDetailsRouter()
     let presenter = TransactionDetailsPresenter()
     let interactor = TransactionDetailsInteractor()
@@ -26,6 +26,11 @@ class TransactionDetailsModule {
     presenter.interactor = interactor
 
     // MARK: Injection
+    if isToken {
+      interactor.txStorage = TokenTransactionsDataStoreService()
+    } else {
+      interactor.txStorage = TransactionsDataStoreService()
+    }
 
     return presenter
   }

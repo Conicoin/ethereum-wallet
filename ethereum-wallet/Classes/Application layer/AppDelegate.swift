@@ -26,9 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return [
       AppearanceConfigurator(),
       ApplicationConfigurator(),
-      ThirdPartiesConfigurator()]
+      ThirdPartiesConfigurator(),
+      MigrationConfigurator()]
   }()
-  
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     

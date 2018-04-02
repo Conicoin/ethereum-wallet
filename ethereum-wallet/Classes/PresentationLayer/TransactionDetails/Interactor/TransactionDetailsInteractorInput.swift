@@ -10,5 +10,5 @@ import Foundation
 
 
 protocol TransactionDetailsInteractorInput: class {
-
+  func getTransaction(txHash: String)
 }

@@ -24,46 +24,46 @@ protocol NetworkLoadable {
   typealias ResultJSONBlock = (Result<Any>) -> Void
   typealias ResultArrayBlock<T> = (Result<[T]>) -> Void
   
-  func loadObject<PlainType: ImmutableMappable>(request: URLRequestConvertible, keyPath: String?, completion: @escaping ResultObjectBlock<PlainType>)
-  func loadObjectJSON(request: URLRequestConvertible, completion: @escaping ResultJSONBlock)
-  func loadArrayJSON(request: URLRequestConvertible, completion: @escaping ResultJSONBlock)
-  func loadArray<PlainType: ImmutableMappable>(request: URLRequestConvertible, keyPath: String?, completion: @escaping ResultArrayBlock<PlainType>)
+  func loadObject<PlainType: ImmutableMappable>(request: URLRequestConvertible, keyPath: String?, queue: DispatchQueue, completion: @escaping ResultObjectBlock<PlainType>)
+  func loadObjectJSON(request: URLRequestConvertible, queue: DispatchQueue, completion: @escaping ResultJSONBlock)
+  func loadArrayJSON(request: URLRequestConvertible, queue: DispatchQueue, completion: @escaping ResultJSONBlock)
+  func loadArray<PlainType: ImmutableMappable>(request: URLRequestConvertible, keyPath: String?, queue: DispatchQueue, completion: @escaping ResultArrayBlock<PlainType>)
 }
 
 extension NetworkLoadable {
   
   // MARK: - Response Object
   
-  func loadObject<PlainType: ImmutableMappable>(request: URLRequestConvertible, keyPath: String? = nil, completion: @escaping ResultObjectBlock<PlainType>) {
+  func loadObject<PlainType: ImmutableMappable>(request: URLRequestConvertible, keyPath: String? = nil, queue: DispatchQueue, completion: @escaping ResultObjectBlock<PlainType>) {
     let operation = AnyOperation(request: request,
                                  responseSerializer: DataRequest.ObjectMapperImmutableSerializer(keyPath, context: nil),
                                  completion: completion)
-    operation.execute()
+    operation.execute(queue: queue)
   }
   
   // MARK: - Response JSON
   
-  func loadObjectJSON(request: URLRequestConvertible, completion: @escaping ResultJSONBlock) {
+  func loadObjectJSON(request: URLRequestConvertible, queue: DispatchQueue, completion: @escaping ResultJSONBlock) {
     let operation = AnyOperation(request: request,
                                  responseSerializer: DataRequest.jsonResponseSerializer(options: .allowFragments),
                                  completion: completion)
-    operation.execute()
+    operation.execute(queue: queue)
   }
   
-  func loadArrayJSON(request: URLRequestConvertible, completion: @escaping ResultJSONBlock) {
+  func loadArrayJSON(request: URLRequestConvertible, queue: DispatchQueue, completion: @escaping ResultJSONBlock) {
     let operation = AnyOperation(request: request,
                                  responseSerializer: DataRequest.jsonResponseSerializer(options: .allowFragments),
                                  completion: completion)
-    operation.execute()
+    operation.execute(queue: queue)
   }
   
   // MARK: - Response Array
   
-  func loadArray<PlainType: ImmutableMappable>(request: URLRequestConvertible, keyPath: String? = nil, completion: @escaping ResultArrayBlock<PlainType>) {
+  func loadArray<PlainType: ImmutableMappable>(request: URLRequestConvertible, keyPath: String? = nil, queue: DispatchQueue, completion: @escaping ResultArrayBlock<PlainType>) {
     let operation = AnyOperation(request: request,
                                  responseSerializer: DataRequest.ObjectMapperImmutableArraySerializer(keyPath, context: nil),
                                  completion: completion)
-    operation.execute()
+    operation.execute(queue: queue)
   }
 }
 
@@ -82,8 +82,8 @@ private struct AnyOperation<ResponseSerializer: DataResponseSerializerProtocol>:
   var responseSerializer: ResponseSerializer
   var completion: ((Result<ResponseSerializer.SerializedObject>) -> Void)?
   
-  func execute() {
-    Alamofire.request(request).response(queue: DispatchQueue.main, responseSerializer: responseSerializer) { response in
+  func execute(queue: DispatchQueue) {
+    Alamofire.request(request).response(queue: queue, responseSerializer: responseSerializer) { response in
       self.completion?(response.result)
     }
   }

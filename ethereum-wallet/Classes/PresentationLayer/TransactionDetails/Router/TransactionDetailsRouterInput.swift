@@ -10,5 +10,5 @@ import UIKit
 
 
 protocol TransactionDetailsRouterInput: class {
-
+  func presentEtherscan(with txHash: String, from: UIViewController)
 }

@@ -10,5 +10,6 @@ import UIKit
 
 
 protocol TransactionDetailsViewOutput: class {
-  func viewIsReady()  
+  func viewIsReady()
+  func didEtherscanPressed()
 }

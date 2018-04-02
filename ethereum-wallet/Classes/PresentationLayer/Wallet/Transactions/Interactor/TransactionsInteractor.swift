@@ -70,29 +70,37 @@ extension TransactionsInteractor: TransactionsInteractorInput {
     updateTransactions()
     updateTokenTransactions()
   }
-
+  
   private func updateTokenTransactions() {
     let wallet = walletDataStoreService.getWallet()
-    tokenTransactionsNetworkService.getTokenTransactions(address: wallet.address) { [unowned self] result in
+    tokenTransactionsNetworkService.getTokenTransactions(address: wallet.address, queue: .global()) { [unowned self] result in
       switch result {
       case .success(var transactions):
         self.tokenTransactionsDataStoreService.markAndSaveTransactions(&transactions, address: wallet.address)
-        self.output.didReceiveTransactions()
+        DispatchQueue.main.async {
+          self.output.didReceiveTransactions()
+        }
       case .failure(let error):
-        self.output.didFailedTransactionsReceiving(with: error)
+        DispatchQueue.main.async {
+          self.output.didFailedTransactionsReceiving(with: error)
+        }
       }
     }
   }
   
   private func updateTransactions() {
     let wallet = walletDataStoreService.getWallet()
-    transactionsNetworkService.getTransactions(address: wallet.address) { [unowned self] result in
+    transactionsNetworkService.getTransactions(address: wallet.address, queue: .global()) { [unowned self] result in
       switch result {
       case .success(var transactions):
         self.transactionsDataStoreService.markAndSaveTransactions(&transactions, address: wallet.address)
-        self.output.didReceiveTransactions()
+        DispatchQueue.main.async {
+          self.output.didReceiveTransactions()
+        }
       case .failure(let error):
-        self.output.didFailedTransactionsReceiving(with: error)
+        DispatchQueue.main.async {
+          self.output.didFailedTransactionsReceiving(with: error)
+        }
       }
     }
   }

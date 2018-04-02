@@ -27,8 +27,8 @@ class TransactionsRouter {
 
 extension TransactionsRouter: TransactionsRouterInput {
   
-  func presentDetails(with txHash: String, from: UIViewController) {
-    TransactionDetailsModule.create().present(with: txHash, from: from)
+  func presentDetails(with txIndex: TxIndex, from: UIViewController) {
+    TransactionDetailsModule.create(isToken: txIndex.isTokenTransfer).present(with: txIndex, from: from)
   }
   
 }

@@ -11,5 +11,5 @@ import UIKit
 
 protocol TransactionDetailsModuleInput: class {
   var output: TransactionDetailsModuleOutput? { get set }
-  func present(with txHash: String, from viewController: UIViewController)
+  func present(with txIndex: TxIndex, from viewController: UIViewController)
 }

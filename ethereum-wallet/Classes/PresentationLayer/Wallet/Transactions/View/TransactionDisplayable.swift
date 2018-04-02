@@ -18,56 +18,44 @@
 import UIKit
 
 protocol TransactionDisplayable {
+  var txHash: String! { get }
   var isIncoming: Bool! { get }
   var isError: Bool! { get }
   var isPending: Bool! { get }
   var from: String! { get }
   var to: String! { get }
-  var amount: Currency! { get }
-  
-  var address: String { get }
-  var timestamp: Date! { get }
-  var value: String { get }
-  var valueColor: UIColor { get }
   var isTokenTransfer: Bool! { get }
-  var time: String { get }
-  var txHash: String! { get }
+  var amount: Currency! { get }
+  var totalAmount: String? { get }
+  var fee: String? { get }
 }
 
 extension Transaction: TransactionDisplayable {
-  var address: String {
-    return isIncoming ? from : to
+  
+  var totalAmount: String? {
+    let used = Decimal(gasUsed)
+    let price = Decimal(gasPrice)
+    let total = Ether((used * price).fromWei() + amount.raw)
+    return total.amountString
   }
   
-  var time: String {
-    return isPending ? Localized.transactionsPending() : timestamp.dayDifference()
-  }
-  
-  var value: String {
-    return isIncoming ? "+ \(amount.amountString)" : "- \(amount.amountString)"
-  }
-  
-  var valueColor: UIColor {
-    return isIncoming ? Theme.Color.green : Theme.Color.red
+  var fee: String? {
+    let used = Decimal(gasUsed)
+    let price = Decimal(gasPrice)
+    let fee = Ether(weiValue: used * price)
+    return fee.amountString
   }
   
 }
 
 extension TokenTransaction: TransactionDisplayable {
-  var address: String {
-    return isIncoming ? from : to
+  
+  var totalAmount: String? {
+    return nil
   }
   
-  var time: String {
-    return isPending ? Localized.transactionsPending() : timestamp.dayDifference()
-  }
-
-  var value: String {
-    return isIncoming ? "+ \(amount.amountString)" : "- \(amount.amountString)"
-  }
-  
-  var valueColor: UIColor {
-    return isIncoming ? Theme.Color.green : Theme.Color.red
+  var fee: String? {
+    return nil
   }
   
 }

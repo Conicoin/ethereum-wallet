@@ -29,6 +29,8 @@ struct Transaction {
   var isPending: Bool!
   var isError: Bool!
   var isTokenTransfer: Bool!
+  var gasUsed: String!
+  var gasPrice: String!
   
   static func mapFromGethTransaction(_ object: GethTransaction, time: TimeInterval) -> Transaction {
     var transaction = Transaction()
@@ -40,6 +42,8 @@ struct Transaction {
     transaction.isPending = false
     transaction.isError = false
     transaction.isTokenTransfer = false
+    transaction.gasUsed = ""
+    transaction.gasPrice = ""
     return transaction
   }
   
@@ -60,6 +64,8 @@ extension Transaction: RealmMappable {
     transaction.isPending = object.isPending
     transaction.isError = object.isError
     transaction.isTokenTransfer = object.isTokenTransfer
+    transaction.gasUsed = object.gasUsed
+    transaction.gasPrice = object.gasPrice
     return transaction
   }
   
@@ -74,6 +80,8 @@ extension Transaction: RealmMappable {
     realmObject.isPending = isPending
     realmObject.isError = isError
     realmObject.isTokenTransfer = isTokenTransfer
+    realmObject.gasUsed = gasUsed
+    realmObject.gasPrice = gasPrice
     return realmObject
   }
   
@@ -87,6 +95,8 @@ extension Transaction: ImmutableMappable {
     txHash = try map.value("hash")
     to = try map.value("to")
     from = try map.value("from")
+    gasUsed = try map.value("gasUsed")
+    gasPrice = try map.value("gasPrice")
     let amountString: String = try map.value("value")
     amount = Ether(weiString: amountString)
     timestamp = try map.value("timeStamp", using: DateTransform())

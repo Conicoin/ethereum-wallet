@@ -19,5 +19,5 @@ import Foundation
 import Alamofire
 
 protocol WalletNetworkServiceProtocol {
-  func getBalance(address: String, result: @escaping (Result<String>) -> Void)
+  func getBalance(address: String, queue: DispatchQueue, result: @escaping (Result<String>) -> Void)
 }

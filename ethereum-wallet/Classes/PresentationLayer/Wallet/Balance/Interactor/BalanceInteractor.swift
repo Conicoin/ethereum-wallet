@@ -46,7 +46,7 @@ extension BalanceInteractor: BalanceInteractorInput {
       return
     }
     
-    ratesNetworkService.getRate(currencies: currencies) { [unowned self] result in
+    ratesNetworkService.getRate(currencies: currencies, queue: .global()) { [unowned self] result in
       switch result {
       case .success(let rates):
         // TODO: Refactor - move to rate service
@@ -63,7 +63,9 @@ extension BalanceInteractor: BalanceInteractorInput {
         self.tokensDataStoreService.save(tokens)
         
       case .failure(let error):
-        self.output.didFailedWalletReceiving(with: error)
+        DispatchQueue.main.async {
+          self.output.didFailedWalletReceiving(with: error)
+        }
       }
     }
   }
@@ -89,7 +91,7 @@ extension BalanceInteractor: BalanceInteractorInput {
   
   func getEthereumFromNetwork() {
     let wallet = walletDataStoreService.getWallet()
-    walletNetworkService.getBalance(address: wallet.address) { [unowned self] result in
+    walletNetworkService.getBalance(address: wallet.address, queue: .global()) { [unowned self] result in
       switch result {
       case .success(let balance):
         let ether = Ether(weiString: balance)
@@ -98,19 +100,23 @@ extension BalanceInteractor: BalanceInteractorInput {
         self.coinDataStoreService.save(coin)
         self.updateRates()
       case .failure(let error):
-        self.output.didFailedWalletReceiving(with: error)
+        DispatchQueue.main.async {
+          self.output.didFailedWalletReceiving(with: error)
+        }
       }
     }
   }
   
   func getTokensFromNetwork() {
     let wallet = walletDataStoreService.getWallet() 
-    tokensNetworkService.getTokens(address: wallet.address) { [unowned self] result in
+    tokensNetworkService.getTokens(address: wallet.address, queue: .global()) { [unowned self] result in
       switch result {
       case .success(let tokens):
         self.tokensDataStoreService.save(tokens)
       case .failure(let error):
-        self.output.didFailedTokensReceiving(with: error)
+        DispatchQueue.main.async {
+          self.output.didFailedTokensReceiving(with: error)
+        }
       }
     }
     

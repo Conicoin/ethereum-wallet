@@ -19,5 +19,5 @@
 import Alamofire
 
 protocol RatesNetworkServiceProtocol {
-  func getRate(currencies: [String], completion: @escaping (Result<[Rate]>) -> Void)
+  func getRate(currencies: [String], queue: DispatchQueue, completion: @escaping (Result<[Rate]>) -> Void)
 }

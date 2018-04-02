@@ -17,24 +17,25 @@
 
 import UIKit
 
-
-class CoinDetailsModule {
-    
-  class func create() -> CoinDetailsModuleInput {
-    let router = CoinDetailsRouter()
-    let presenter = CoinDetailsPresenter()
-    let interactor = CoinDetailsInteractor()
-    let viewController = R.storyboard.coinDetails.coinDetailsViewController()!
-
-    interactor.output = presenter
-
-    viewController.output = presenter
-
-    presenter.view = viewController
-    presenter.router = router
-    presenter.interactor = interactor
-        
-    return presenter
+class TransactionDetailsShadowView: UIView {
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    setup()
   }
-    
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    setup()
+  }
+  
+  func setup() {
+    layer.cornerRadius = 24
+    layer.shadowColor = UIColor.black.cgColor
+    layer.shadowOffset = CGSize(width: 0, height: 5)
+    layer.shadowOpacity = 0.15
+    layer.shadowRadius = 30
+    layer.masksToBounds =  false
+  }
+  
 }

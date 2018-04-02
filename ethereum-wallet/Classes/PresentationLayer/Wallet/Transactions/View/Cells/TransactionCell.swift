@@ -30,12 +30,7 @@ class TransactionCell: UITableViewCell {
   
   func configure(with transaction: TxIndex) {
     
-    let address = transaction.address!
-    let title = address[0..<4] + "..." + address[address.count - 4..<address.count]
-    
-    titleLabel.text = transaction.isIncoming ?
-      Localized.transactionsReceived(title) :
-      Localized.transactionsSent(title)
+    titleLabel.text = transaction.title
     
     amountLabel.text = transaction.amount
     
@@ -49,16 +44,6 @@ class TransactionCell: UITableViewCell {
     
     descriptionLabel.text = description
     iconImageView.image = UIImage(named: transaction.imageName)
-    
-//    errorImageView.isHidden = !transaction.isError
-//    amountLabel.isHidden = transaction.isError
-//    tokenLabel.isHidden = transaction.isError
-//
-//    timeLabel.text = transaction.time
-//    addressLabel.text = transaction.address
-//    amountLabel.text = transaction.value
-//    amountLabel.textColor = transaction.valueColor
-//    tokenLabel.isHidden = !transaction.isTokenTransfer
   }
   
 }

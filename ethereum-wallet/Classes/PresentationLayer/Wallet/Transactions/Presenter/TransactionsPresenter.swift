@@ -51,7 +51,7 @@ extension TransactionsPresenter: TransactionsViewOutput {
     guard let tabBarController = view.viewController.tabBarController else {
       return
     }
-    router.presentDetails(with: txIndex.txHash, from: tabBarController)
+    router.presentDetails(with: txIndex, from: tabBarController)
   }
 
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SafariServices
 
 class TransactionDetailsPresenter {
     
@@ -16,7 +16,8 @@ class TransactionDetailsPresenter {
   var interactor: TransactionDetailsInteractorInput!
   var router: TransactionDetailsRouterInput!
   
-  private var txHash: String!
+  private var txIndex: TxIndex!
+  private var transaction: TransactionDisplayable?
     
 }
 
@@ -27,14 +28,25 @@ extension TransactionDetailsPresenter: TransactionDetailsViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
+    view.didReceiveTxIndex(txIndex)
+    interactor.getTransaction(txHash: txIndex.txHash)
   }
 
+  func didEtherscanPressed() {
+    view.viewController.showAlert(title: Localized.txDetailsAlertTitle(), message: nil, cancelable: true) { [unowned self] _ in
+      self.router.presentEtherscan(with: self.txIndex.txHash, from: self.view.viewController)
+    }
+  }
 }
 
 
 // MARK: - TransactionDetailsInteractorOutput
 
 extension TransactionDetailsPresenter: TransactionDetailsInteractorOutput {
+  
+  func didReceiveTransaction(_ transaction: TransactionDisplayable) {
+    view.didReceiveTransaction(transaction)
+  }
 
 }
 
@@ -43,8 +55,8 @@ extension TransactionDetailsPresenter: TransactionDetailsInteractorOutput {
 
 extension TransactionDetailsPresenter: TransactionDetailsModuleInput {
     
-  func present(with txHash: String, from viewController: UIViewController) {
-    self.txHash = txHash
+  func present(with txIndex: TxIndex, from viewController: UIViewController) {
+    self.txIndex = txIndex
     view.viewController.modalPresentationStyle = .overCurrentContext
     view.presentModal(fromViewController: viewController)
   }

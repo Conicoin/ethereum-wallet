@@ -44,21 +44,6 @@ class TransactionsViewController: UIViewController {
     output.viewIsAppear()
   }
   
-//  private func showAlert(for tx: TxIndex) {
-//    let alert = UIAlertController(title: Localized.transactionsAlertTitle(), message: nil, preferredStyle: .alert)
-//
-//    let ok = UIAlertAction(title: Localized.commonOk(), style: .default) { action in
-//      let urlString = Defaults.chain.etherscanUrl + "/tx/\(tx.txHash!)"
-//      guard let url = URL(string: urlString) else { return }
-//      let svc = SFSafariViewController(url: url)
-//      self.present(svc, animated: true, completion: nil)
-//    }
-//    let cancel = UIAlertAction(title: Localized.commonCancel(), style: .default, handler: nil)
-//    alert.addAction(cancel)
-//    alert.addAction(ok)
-//    present(alert, animated: true, completion: nil)
-//  }
-  
   private func setupTableView() {
     tableView.setupBorder()
     refresh = tableView.setupRefresh(target: self, selector: #selector(refresh(_:)))
