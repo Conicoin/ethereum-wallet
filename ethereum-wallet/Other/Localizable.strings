@@ -50,9 +50,6 @@
 "balance.send" = "Send";
 "balance.eth.title" = "ETH ∙ Ethereum";
 
-// MARK: - Coin details
-"coin.details.balance" = "Balance: %@";
-
 // MARK: - Token details
 "token.details.name" = "%@ ∙ %@";
 "token.details.send" = "Send";
@@ -77,9 +74,19 @@
 // MARK: - Transactions
 "transactions.pending" = "pending";
 "transactions.error" = "transaction failed";
-"transactions.alert.title" = "Show transaction info on Etherscan?";
 "transactions.received" = "From %@";
 "transactions.sent" = "To %@";
+
+// MARK: - Transaction Details
+"tx.details.completed" = "Completed";
+"tx.details.txHash" = "TxHash";
+"tx.details.blockHeight" = "Block Height";
+"tx.details.from" = "From";
+"tx.details.to" = "To";
+"tx.details.spent" = "Spent";
+"tx.details.fee" = "Fee";
+"tx.details.alert.title" = "Show transaction info on Etherscan?";
+"tx.details.etherscan" = "View on Etherscan";
 
 // MARK: Timestamp
 "time.today" = "Today";

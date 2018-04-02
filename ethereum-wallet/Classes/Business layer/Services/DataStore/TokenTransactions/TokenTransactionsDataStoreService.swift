@@ -27,6 +27,10 @@ class TokenTransactionsDataStoreService: RealmStorable<TokenTransaction>, TokenT
     save(transactions)
   }
   
+  func getTransaction(txHash: String) -> TransactionDisplayable? {
+    return findOne("txHash = '\(txHash)'")
+  }
+  
   override func observe(updateHandler: @escaping ([TokenTransaction]) -> Void) {
     let realm = try! Realm()
     let objects = realm.objects(RealmTransaction.self).filter("isTokenTransfer == 1")

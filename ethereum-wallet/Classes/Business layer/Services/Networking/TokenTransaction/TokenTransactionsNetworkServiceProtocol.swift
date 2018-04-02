@@ -19,5 +19,5 @@ import Foundation
 import Alamofire
 
 protocol TokenTransactionsNetworkServiceProtocol {
-  func getTokenTransactions(address: String, result: @escaping (Result<[TokenTransaction]>) -> Void)
+  func getTokenTransactions(address: String, queue: DispatchQueue, result: @escaping (Result<[TokenTransaction]>) -> Void)
 }

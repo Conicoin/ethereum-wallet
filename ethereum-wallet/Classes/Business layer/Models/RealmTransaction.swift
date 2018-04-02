@@ -34,6 +34,8 @@ class RealmTransaction: Object {
   @objc dynamic var type = ""
   @objc dynamic var isError = false
   @objc dynamic var isTokenTransfer = false
+  @objc dynamic var gasUsed = ""
+  @objc dynamic var gasPrice = ""
   
   override static func primaryKey() -> String? {
     return "txHash"

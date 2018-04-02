@@ -26,6 +26,10 @@ class TransactionsDataStoreService: RealmStorable<Transaction>, TransactionsData
     return find()
   }
   
+  func getTransaction(txHash: String) -> TransactionDisplayable? {
+    return findOne("txHash = '\(txHash)'")
+  }
+  
   func markAndSaveTransactions(_ transactions: inout [Transaction], address: String) {
     for (i, transaction) in transactions.enumerated() {
       transactions[i].isIncoming = transaction.to == address

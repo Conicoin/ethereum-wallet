@@ -20,8 +20,8 @@ import Alamofire
 
 class TokenTransactionsNetworkService: NetworkLoadable, TokenTransactionsNetworkServiceProtocol  {
   
-  func getTokenTransactions(address: String, result: @escaping (Result<[TokenTransaction]>) -> Void) {
-    loadArray(request: API.Ethplorer.tokenTransactions(address: address), keyPath: "operations", completion: result)
+  func getTokenTransactions(address: String, queue: DispatchQueue, result: @escaping (Result<[TokenTransaction]>) -> Void) {
+    loadArray(request: API.Ethplorer.tokenTransactions(address: address), keyPath: "operations", queue: queue, completion: result)
   }
   
 }

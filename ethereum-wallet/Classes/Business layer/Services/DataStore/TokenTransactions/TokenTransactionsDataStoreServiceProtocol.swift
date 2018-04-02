@@ -17,7 +17,7 @@
 
 import Foundation
 
-protocol TokenTransactionsDataStoreServiceProtocol {
+protocol TokenTransactionsDataStoreServiceProtocol: TransactionDisplayableStorage {
   func markAndSaveTransactions(_ transactions: inout [TokenTransaction], address: String)
   func observe(updateHandler: @escaping ([TokenTransaction]) -> Void)
   func save(_ model: TokenTransaction)

@@ -9,7 +9,7 @@
 import UIKit
 
 struct TxIndex {
-  var address: String!
+  var title: String!
   var status: String?
   var time: Date!
   var isIncoming: Bool!
@@ -17,6 +17,7 @@ struct TxIndex {
   var txHash: String!
   var imageName: String!
   var rawAmount: Double!
+  var isTokenTransfer: Bool!
 }
 
 // MARK: - RealmMappable
@@ -53,11 +54,17 @@ extension TxIndex: RealmMappable {
       tx.imageName = isIncoming ? "TxReceived" : "TxSent"
     }
 
-    tx.address = isIncoming ? from : to
+    let address = isIncoming ? from : to
+    let shortAddress = address[0..<4] + "..." + address[address.count - 4..<address.count]
+    tx.title = isIncoming ?
+      Localized.transactionsReceived(shortAddress) :
+      Localized.transactionsSent(shortAddress)
+    
     tx.amount = isIncoming ? "+ \(amount.amountString)" : "- \(amount.amountString)"
     tx.isIncoming = isIncoming
     tx.time = object.timestamp
     tx.txHash = object.txHash
+    tx.isTokenTransfer = object.isTokenTransfer
     return tx
   }
   

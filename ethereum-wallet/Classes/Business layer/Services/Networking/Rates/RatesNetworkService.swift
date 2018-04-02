@@ -20,8 +20,8 @@ import Alamofire
 
 class RatesNetworkService: NetworkLoadable, RatesNetworkServiceProtocol {
   
-  func getRate(currencies: [String], completion: @escaping (Result<[Rate]>) -> Void) {
-    loadObjectJSON(request: API.Rate.rate(currencies: currencies)) { result in
+  func getRate(currencies: [String], queue: DispatchQueue, completion: @escaping (Result<[Rate]>) -> Void) {
+    loadObjectJSON(request: API.Rate.rate(currencies: currencies), queue: queue) { result in
       switch result {
       case .success(let json):
         guard let object = json as? [String: Any] else {

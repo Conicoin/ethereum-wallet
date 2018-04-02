@@ -20,8 +20,8 @@ import Alamofire
 
 class TokensNetworkService: NetworkLoadable, TokensNetworkServiceProtocol {
   
-  func getTokens(address: String, result: @escaping (Result<[Token]>) -> Void) {
-    loadArray(request: API.Ethplorer.tokens(address: address), keyPath: "tokens", completion: result)
+  func getTokens(address: String, queue: DispatchQueue, result: @escaping (Result<[Token]>) -> Void) {
+    loadArray(request: API.Ethplorer.tokens(address: address), keyPath: "tokens", queue: queue, completion: result)
   }
 
 }

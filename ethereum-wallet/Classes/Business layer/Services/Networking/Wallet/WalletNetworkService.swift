@@ -20,8 +20,8 @@ import Alamofire
 
 class WalletNetworkService: NetworkLoadable, WalletNetworkServiceProtocol {
 
-  func getBalance(address: String, result: @escaping (Result<String>) -> Void) {
-    loadObjectJSON(request: API.Etherscan.balance(address: address)) { resultHandler in
+  func getBalance(address: String, queue: DispatchQueue, result: @escaping (Result<String>) -> Void) {
+    loadObjectJSON(request: API.Etherscan.balance(address: address), queue: queue) { resultHandler in
       
       switch resultHandler {
       case .success(let object):
