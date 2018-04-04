@@ -36,7 +36,6 @@ extension TransactionsPresenter: TransactionsViewOutput {
     view.setupInitialState()
     interactor.getWallet()
     interactor.getTxIndex()
-    interactor.loadTransactions()
   }
   
   func viewIsAppear() {

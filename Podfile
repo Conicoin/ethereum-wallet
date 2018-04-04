@@ -10,7 +10,6 @@ target 'ethereum-wallet' do
   pod 'AlamofireObjectMapper'
   pod 'PKHUD'
   pod 'CryptoSwift'
-  pod 'Kingfisher'
   pod 'secp256k1_ios'
   pod 'SpringIndicator'
   pod 'PullToDismiss', '~> 2.1'

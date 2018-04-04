@@ -5,7 +5,6 @@ PODS:
     - ObjectMapper (~> 3.0)
   - CryptoSwift (0.8.0)
   - Geth (1.7.3)
-  - Kingfisher (4.6.1)
   - ObjectMapper (3.1.0)
   - PKHUD (5.0.0)
   - PullToDismiss (2.1)
@@ -24,7 +23,6 @@ DEPENDENCIES:
   - AlamofireObjectMapper
   - CryptoSwift
   - Geth (~> 1.7.3)
-  - Kingfisher
   - PKHUD
   - PullToDismiss (~> 2.1)
   - R.swift
@@ -37,7 +35,6 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   CryptoSwift: f81907430ebbe38b8404b4f6fb40f3c576a8755f
   Geth: 45a08eeef7a20e58dfc09a455563ffe210941a96
-  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   PullToDismiss: 5513d561c382d201d0e3fbbdab9a47196cf5d2e2
@@ -48,6 +45,6 @@ SPEC CHECKSUMS:
   secp256k1_ios: 12a9bddc3d7aa723efbb32b42413f041b11a7765
   SpringIndicator: 08d815e8a154dee7b786d82b98c43cc9028a769f
 
-PODFILE CHECKSUM: 154d4e7b737b5ee95eaabed843cff82d7919b039
+PODFILE CHECKSUM: cba6ba481e751d6c24241dafa58b8949e12d79ef
 
 COCOAPODS: 1.3.1

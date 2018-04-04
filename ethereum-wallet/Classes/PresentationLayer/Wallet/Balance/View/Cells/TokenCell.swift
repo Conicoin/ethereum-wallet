@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class TokenCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
@@ -20,12 +19,18 @@ class TokenCell: UITableViewCell {
     // Initialization code
   }
   
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    iconImageView.image = nil
+  }
+  
   func configure(with token: Token) {
     titleLabel.text = token.balance.name
     symbolLabel.text = token.balance.iso
     balanceLabel.text = token.balance.amountString
     
-    iconImageView.kf.setImage(with: token.iconUrl, placeholder: nil)
+    // Attention! Need to monitor icons location
+    iconImageView.image = UIImage(named: "images/\(token.address!)")
   }
   
 }

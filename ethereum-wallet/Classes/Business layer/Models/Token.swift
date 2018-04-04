@@ -28,6 +28,7 @@ struct Token {
   var address: String!
   var totalSupply: String!
   var holdersCount: Int!
+
   
   func getTokenMeta() -> TokenMeta {
     var tokenMeta = TokenMeta()
