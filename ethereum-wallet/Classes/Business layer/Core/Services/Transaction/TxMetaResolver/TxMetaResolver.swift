@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TxType {
+enum TxType: Equatable {
   case normal
   case erc20(to: String, value: String)
   case unknown

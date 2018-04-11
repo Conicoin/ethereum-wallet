@@ -27,7 +27,7 @@ class TransactionsViewController: UIViewController {
   var output: TransactionsViewOutput!
   
   private var refresh: RefreshIndicator!
-  private var sections = [Date: [TxIndex]]()
+  private var sections = [Date: [TransactionDisplayer]]()
   private var sortedSections = [Date]()
   private var localCurrency = Constants.Wallet.defaultCurrency
 
@@ -70,7 +70,7 @@ extension TransactionsViewController: TransactionsViewInput {
     self.localCurrency = wallet.localCurrency
   }
   
-  func didReceiveSections(_ sections: [Date: [TxIndex]], sortedSections: [Date]) {
+  func didReceiveSections(_ sections: [Date: [TransactionDisplayer]], sortedSections: [Date]) {
     self.sections = sections
     self.sortedSections = sortedSections
     tableView.reloadData()

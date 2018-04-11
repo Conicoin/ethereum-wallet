@@ -25,13 +25,6 @@ class TransactionDetailsModule {
     presenter.router = router
     presenter.interactor = interactor
 
-    // MARK: Injection
-    if isToken {
-      interactor.txStorage = TokenTransactionsDataStoreService()
-    } else {
-      interactor.txStorage = TransactionsDataStoreService()
-    }
-
     return presenter
   }
 

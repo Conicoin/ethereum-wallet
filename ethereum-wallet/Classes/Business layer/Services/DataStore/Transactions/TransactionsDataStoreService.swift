@@ -26,7 +26,7 @@ class TransactionsDataStoreService: RealmStorable<Transaction>, TransactionsData
     return find()
   }
   
-  func getTransaction(txHash: String) -> TransactionDisplayable? {
+  func getTransaction(txHash: String) -> Transaction? {
     return findOne("txHash = '\(txHash)'")
   }
   
@@ -34,25 +34,7 @@ class TransactionsDataStoreService: RealmStorable<Transaction>, TransactionsData
     for (i, transaction) in transactions.enumerated() {
       transactions[i].isIncoming = transaction.to == address
     }
-    // TODO: Ethplorer api workarounds (remove later)
-    let realm = try! Realm()
-    for transaction in transactions {
-      if let _ = realm.objects(RealmTransaction.self).filter("txHash == '\(transaction.txHash!)' && isTokenTransfer == 1").first {
-        continue
-      }
-      save(transaction)
-    }
-    
+    save(transactions)
   }
-  
-  override func observe(updateHandler: @escaping ([Transaction]) -> Void) {
-    let realm = try! Realm()
-    let objects = realm.objects(RealmTransaction.self).filter("isTokenTransfer == 0")
-    notificationToken?.invalidate()
-    notificationToken = objects.observe { changes in
-      updateHandler(objects.map { Transaction.mapFromRealmObject($0) } )
-    }
-  }
-  
 
 }

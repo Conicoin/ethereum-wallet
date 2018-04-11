@@ -23,20 +23,19 @@ class TransactionsInteractor {
   
   var transactionsNetworkService: TransactionsNetworkServiceProtocol!
   var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
-  var tokenTransactionsNetworkService: TokenTransactionsNetworkServiceProtocol!
-  var tokenTransactionsDataStoreService: TokenTransactionsDataStoreServiceProtocol!
-  var transactionIndexDataStoreService: TxIndexDataStoreServiceProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
   
-  private func groupTransactions(_ transactions: [TxIndex]) {
+  private func groupTransactions(_ transactions: [Transaction]) {
     DispatchQueue.global().async {
-      var sections = [Date: [TxIndex]]()
+      var sections = [Date: [TransactionDisplayer]]()
       for tx in transactions {
-        let time = Calendar.current.startOfDay(for: tx.time)
+        let time = Calendar.current.startOfDay(for: tx.timeStamp)
         if sections.index(forKey: time) == nil {
-          sections[time] = [tx]
+          let displayer = TransactionDisplayer(tx: tx)
+          sections[time] = [displayer]
         } else {
-          sections[time]?.append(tx)
+          let displayer = TransactionDisplayer(tx: tx)
+          sections[time]?.append(displayer)
         }
       }
       
@@ -54,8 +53,8 @@ class TransactionsInteractor {
 
 extension TransactionsInteractor: TransactionsInteractorInput {
   
-  func getTxIndex() {
-    transactionIndexDataStoreService.observe { [unowned self] transactions in
+  func getTransactions() {
+    transactionsDataStoreService.observe { [unowned self] transactions in
       self.groupTransactions(transactions)
     }
   }
@@ -67,28 +66,6 @@ extension TransactionsInteractor: TransactionsInteractorInput {
   }
   
   func loadTransactions() {
-    updateTransactions()
-    updateTokenTransactions()
-  }
-  
-  private func updateTokenTransactions() {
-    let wallet = walletDataStoreService.getWallet()
-    tokenTransactionsNetworkService.getTokenTransactions(address: wallet.address, queue: .global()) { [unowned self] result in
-      switch result {
-      case .success(var transactions):
-        self.tokenTransactionsDataStoreService.markAndSaveTransactions(&transactions, address: wallet.address)
-        DispatchQueue.main.async {
-          self.output.didReceiveTransactions()
-        }
-      case .failure(let error):
-        DispatchQueue.main.async {
-          self.output.didFailedTransactionsReceiving(with: error)
-        }
-      }
-    }
-  }
-  
-  private func updateTransactions() {
     let wallet = walletDataStoreService.getWallet()
     transactionsNetworkService.getTransactions(address: wallet.address, queue: .global()) { [unowned self] result in
       switch result {

@@ -28,22 +28,22 @@ class TransactionCell: UITableViewCell {
     // Initialization code
   }
   
-  func configure(with transaction: TxIndex) {
+  func configure(with displayer: TransactionDisplayer) {
     
-    titleLabel.text = transaction.title
+    titleLabel.text = displayer.title
     
-    amountLabel.text = transaction.amount
+    amountLabel.text = displayer.amountString
     
     let formatter = DateFormatter()
     formatter.dateFormat = "hh:mm"
-    var description = formatter.string(from: transaction.time)
+    var description = formatter.string(from: displayer.tx.timeStamp)
     
-    if let status = transaction.status {
+    if let status = displayer.status {
       description += ",\(status)"
     }
     
     descriptionLabel.text = description
-    iconImageView.image = UIImage(named: transaction.imageName)
+    iconImageView.image = UIImage(named: displayer.imageName)
   }
   
 }

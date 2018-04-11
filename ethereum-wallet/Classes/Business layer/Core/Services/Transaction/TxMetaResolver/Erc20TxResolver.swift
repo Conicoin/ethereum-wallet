@@ -20,7 +20,7 @@ class Erc20TxResolver: TxMetaResolver {
     let addressData = input[input.count-32-20..<input.count-32]
     let amountData = input[input.count-32..<input.count]
     let address = "0x" + addressData.toHexString()
-    let value = amountData.toHexString()
+    let value = Decimal(amountData.toHexString()).string
     return .erc20(to: address, value: value)
   }
   

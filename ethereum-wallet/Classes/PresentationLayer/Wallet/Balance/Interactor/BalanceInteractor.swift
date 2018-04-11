@@ -38,8 +38,8 @@ extension BalanceInteractor: BalanceInteractorInput {
   func updateRates() {
     var coins = coinDataStoreService.find()
     var tokens = tokensDataStoreService.find()
-    let coinsCurrenies = coins.map { $0.balance.symbol }
-    let tokensCurrencies = tokens.map { $0.balance.symbol }
+    let coinsCurrenies = coins.map { $0.balance.iso }
+    let tokensCurrencies = tokens.map { $0.balance.iso }
     let currencies = coinsCurrenies + tokensCurrencies
     
     guard currencies.count > 0 else {
@@ -51,13 +51,13 @@ extension BalanceInteractor: BalanceInteractorInput {
       case .success(let rates):
         // TODO: Refactor - move to rate service
         for (i, coin) in coins.enumerated() {
-          let rates = rates.filter { $0.from == coin.balance.symbol }
+          let rates = rates.filter { $0.from == coin.balance.iso }
           coins[i].rates = rates
         }
         self.coinDataStoreService.save(coins)
         
         for (i, token) in tokens.enumerated() {
-          let rates = rates.filter { $0.from == token.balance.symbol }
+          let rates = rates.filter { $0.from == token.balance.iso }
           tokens[i].rates = rates
         }
         self.tokensDataStoreService.save(tokens)

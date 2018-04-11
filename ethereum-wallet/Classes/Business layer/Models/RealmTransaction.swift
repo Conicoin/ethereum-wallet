@@ -33,8 +33,9 @@ class RealmTransaction: Object {
   @objc dynamic var gas = ""
   @objc dynamic var gasPrice = ""
   @objc dynamic var gasUsed = ""
-  @objc dynamic var error = ""
+  @objc dynamic var error: String?
   @objc dynamic var isPending = false
+  @objc dynamic var isIncoming = false
   @objc dynamic var tokenMeta: RealmTokenMeta?
   
   override static func primaryKey() -> String? {

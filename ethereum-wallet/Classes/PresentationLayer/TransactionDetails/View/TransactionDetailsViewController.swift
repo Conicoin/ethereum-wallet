@@ -85,27 +85,24 @@ extension TransactionDetailsViewController: TransactionDetailsViewInput {
 
   }
   
-  func didReceiveTxIndex(_ txIndex: TxIndex) {
-    statusImageView.image = UIImage(named: txIndex.imageName)
-    titleLabel.text = txIndex.title
-    timeLabel.text = txIndex.time.detailed()
-    amountLabel.text = txIndex.amount
+  func didReceiveTransaction(_ displayer: TransactionDisplayer) {
+    statusImageView.image = UIImage(named: displayer.imageName)
+    titleLabel.text = displayer.title
+    timeLabel.text = displayer.tx.timeStamp.detailed()
+    amountLabel.text = displayer.amountString
     
-    if let status = txIndex.status {
+    if let status = displayer.status {
       statusLabel.text = status
     }
-  }
-  
-  func didReceiveTransaction(_ transaction: TransactionDisplayable) {
-    txHashLabel.text = transaction.txHash
-    fromLabel.text = transaction.from
-    toLabel.text = transaction.to
-    spentLabel.text = transaction.amount.amountString
-    spentLabel.text = transaction.totalAmount
-    feeLabel.text = transaction.fee
-    feeView.isHidden = transaction.isTokenTransfer
-    spentView.isHidden = transaction.isTokenTransfer
-    blockHeightView.isHidden = transaction.isTokenTransfer
+    
+    txHashLabel.text = displayer.tx.txHash
+    fromLabel.text = displayer.tx.from
+    toLabel.text = displayer.tx.to
+    spentLabel.text = displayer.tx.amount.amountString
+    spentLabel.text = displayer.totalAmount
+    feeLabel.text = displayer.fee
+    spentView.isHidden = displayer.isTokenTransfer
+    blockHeightView.isHidden = displayer.isTokenTransfer
   }
 
 }

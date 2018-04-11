@@ -22,5 +22,5 @@ protocol TransactionsViewInput: class, Presentable {
   func setupInitialState()
   func stopRefreshing()
   func didReceiveWallet(_ wallet: Wallet)
-  func didReceiveSections(_ sections: [Date: [TxIndex]], sortedSections: [Date])
+  func didReceiveSections(_ sections: [Date: [TransactionDisplayer]], sortedSections: [Date])
 }

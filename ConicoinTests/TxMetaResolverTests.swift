@@ -10,7 +10,7 @@ import XCTest
 
 class TxMetaResolverTests: XCTestCase {
   
-  let normalInputString = "0x0"
+  let normalInputString = "0x"
   let erc20InputString = "0xa9059cbb000000000000000000000000c1eb62f54b426d6050eb26fdef2f5f49551762800000000000000000000000000000000000000000000000000000000000000002"
 
   
@@ -34,7 +34,7 @@ class TxMetaResolverTests: XCTestCase {
       
       let erc20Input = try Data(hexString: erc20InputString)
       let erc20Type = resolver.resolve(input: erc20Input)
-      XCTAssertEqual(erc20Type, .erc20, "Erc20 not resolved")
+      XCTAssertEqual(erc20Type, .erc20(to: "0xc1eb62f54b426d6050eb26fdef2f5f4955176280", value: "2"), "Erc20 not resolved")
     } catch {
       XCTFail(error.localizedDescription)
     }

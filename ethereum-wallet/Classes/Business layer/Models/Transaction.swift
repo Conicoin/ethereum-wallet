@@ -29,9 +29,10 @@ struct Transaction {
   var gas: Decimal!
   var gasPrice: Decimal!
   var gasUsed: Decimal!
-  var error: String!
+  var error: String?
   var amount: Currency!
   var tokenMeta: TokenMeta?
+  var isIncoming = false
   var isPending = false
 
   
@@ -68,11 +69,13 @@ extension Transaction: RealmMappable {
     tx.gasUsed = Decimal(object.gasUsed)
     tx.error = object.error
     tx.isPending = object.isPending
+    tx.isIncoming = object.isIncoming
     tx.from = object.from
     tx.to = object.to
     
     if let meta = object.tokenMeta {
-      tx.amount = TokenValue(weiString: object.value, name: meta.name, iso: meta.symbol, decimals: meta.decimals)
+      tx.tokenMeta = TokenMeta.mapFromRealmObject(meta)
+      tx.amount = TokenValue(wei: Decimal(object.value), name: meta.name, iso: meta.symbol, decimals: meta.decimals)
     } else {
       tx.amount = Ether(weiString: object.value)
     }
@@ -91,15 +94,11 @@ extension Transaction: RealmMappable {
     realmObject.gasUsed = gasUsed.string
     realmObject.error = error
     realmObject.isPending = isPending
-    realmObject.value = (amount.raw / 1e18).string
+    realmObject.isIncoming = isIncoming
+    realmObject.value = amount.raw.string
     realmObject.from = from
     realmObject.to = to
-    
-    if let meta = tokenMeta {
-      realmObject.tokenMeta = meta.mapToRealmObject()
-    }
-    
-    
+    realmObject.tokenMeta = tokenMeta?.mapToRealmObject()
     
     return realmObject
   }
@@ -116,24 +115,24 @@ extension Transaction: ImmutableMappable {
     timeStamp = try map.value("timeStamp", using: DateTransform())
     nonce = try map.value("nonce")
     from = try map.value("from")
-    error = try map.value("error")
-    gas = try map.value("gas")
-    gasPrice = try map.value("gasPrice")
-    gasUsed = try map.value("gasUsed")
+    error = try? map.value("error")
     
-    let input: Data = try map.value("input", using: HexDataTransform())
-    let txMetaChain = TxMetaChain()
-    let type = txMetaChain.resolve(input: input)
-    switch type {
-    case .erc20(let to, let value):
-      let meta: TokenMeta = try map.value("operations.0.contract")
+    let gasString: String = try map.value("gas")
+    let gasPriceString: String = try map.value("gasPrice")
+    let gasUsedString: String = try map.value("gasUsed")
+    self.gas = Decimal(gasString)
+    self.gasPrice = Decimal(gasPriceString)
+    self.gasUsed = Decimal(gasUsedString)
+    
+    if let meta: TokenMeta = try? map.value("operations.0.contract") {
       self.tokenMeta = meta
-      self.to = to
-      self.amount = TokenValue(weiString: value, name: meta.name, iso: meta.symbol, decimals: meta.decimals)
-    default:
+      self.to = try map.value("operations.0.to")
+      let value: String = try map.value("operations.0.value")
+      self.amount = TokenValue(wei: Decimal(value), name: meta.name, iso: meta.iso, decimals: meta.decimals)
+    } else {
       self.to = try map.value("to")
-      let value: String = try map.value("0")
-      self.amount = Ether.init(weiString: value)
+      let value: String = try map.value("value")
+      self.amount = Ether(weiString: value)
     }
   }
   

@@ -28,14 +28,7 @@ struct Token {
   var address: String!
   var totalSupply: String!
   var holdersCount: Int!
-
-  
-  func getTokenMeta() -> TokenMeta {
-    var tokenMeta = TokenMeta()
-    tokenMeta.iso = balance.symbol
-    tokenMeta.name = balance.name
-    return tokenMeta
-  }
+  var decimals: Int64!
   
 }
 
@@ -45,7 +38,7 @@ extension Token: RealmMappable {
   
   static func mapFromRealmObject(_ object: RealmToken) -> Token {
     var token = Token()
-    let tokenValue = TokenValue(object.balance, name: object.name, iso: object.iso)
+    let tokenValue = TokenValue(wei: Decimal(object.balance), name: object.name, iso: object.iso, decimals: object.decimals)
     token.balance = tokenValue
     token.rates = object.rates.map { Rate.mapFromRealmObject($0) }
     token.lastUpdateTime = object.lastUpdateTime
@@ -54,6 +47,7 @@ extension Token: RealmMappable {
     token.address = object.address
     token.totalSupply = object.totalSupply
     token.holdersCount = object.holdersCount
+    token.decimals = object.decimals
     return token
   }
   
@@ -69,6 +63,7 @@ extension Token: RealmMappable {
     realmObject.address = address
     realmObject.totalSupply = totalSupply
     realmObject.holdersCount = holdersCount
+    realmObject.decimals = decimals
     return realmObject
   }
   
@@ -83,12 +78,19 @@ extension Token: ImmutableMappable {
     let decimalCount = Decimal("\(count)")
     let name: String = try map.value("tokenInfo.name")
     let iso: String = try map.value("tokenInfo.symbol")
-    balance = TokenValue(weiValue: decimalCount, name: name, iso: iso)
     iconUrl = try? map.value("tokenInfo.image")
     about = try? map.value("tokenInfo.description")
     address = try map.value("tokenInfo.address")
     totalSupply = try map.value("tokenInfo.totalSupply")
     holdersCount = try map.value("tokenInfo.holdersCount")
+    
+    if let decimalsString: String = try? map.value("tokenInfo.decimals") {
+      decimals = Int64(decimalsString)
+    } else if let decimalsInt: Int64 = try? map.value("tokenInfo.decimals") {
+      decimals = decimalsInt
+    }
+    
+    balance = TokenValue(wei: decimalCount, name: name, iso: iso, decimals: decimals)
   }
   
 }
