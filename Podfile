@@ -5,7 +5,7 @@ inhibit_all_warnings!
 target 'ethereum-wallet' do
   # Pods for ethereum-wallet
   pod 'R.swift'
-  pod 'Geth', '~> 1.7.3'
+  pod 'Geth'
   pod 'RealmSwift'
   pod 'AlamofireObjectMapper'
   pod 'PKHUD'

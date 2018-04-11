@@ -56,8 +56,7 @@ extension TransactionFactory {
     let intAmount = GethNewBigInt(0)
     intAmount?.setString(info.amount.toHex(), base: 16)
     
-    let gethGasLimit = GethNewBigInt(0)
-    gethGasLimit?.setString(info.gasLimit.toHex(), base: 16)
+    let gethGasLimit = info.gasLimit.int64
     let gethGasPrice = GethNewBigInt(0)
     gethGasPrice?.setString(info.gasPrice.toHex(), base: 16)
     
@@ -76,7 +75,7 @@ extension TransactionFactory {
     let nonce = transactionTemplate.getNonce()
     let to = transactionTemplate.getTo()
     let fakeAmount = GethBigInt(0)
-    let gasLimit = GethBigInt(transactionTemplate.getGas())
+    let gasLimit = transactionTemplate.getGas()
     let gasPrice = transactionTemplate.getGasPrice()
     return GethNewTransaction(nonce, to, fakeAmount, gasLimit, gasPrice, data)
   }

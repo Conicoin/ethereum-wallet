@@ -29,7 +29,7 @@ extension Error {
   func showAllertIfNeeded(from viewController: UIViewController) {
     if let error = self as? CustomError, let description = error.description {
       
-      if description.showing {
+      guard description.showing else {
         return
       }
       
