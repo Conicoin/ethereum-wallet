@@ -23,7 +23,7 @@ class WalletPrivateImporter: WalletImporterProtocol {
     let data = try JSONEncoder().encode(keyObject)
     let account = try keystoreService.restoreAccount(with: data, passphrase: passcode)
     let keychain = Keychain()
-    keychain.jsonKey = key
+    keychain.jsonKey = data
     keychain.passphrase = passcode
     let address = account.getAddress().getHex()!
     walletDataStoreService.createWallet(address: address)
