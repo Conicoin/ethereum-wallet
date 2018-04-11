@@ -19,6 +19,7 @@ class NormalTxResolver: TxMetaResolver {
     return nextResolver(for: input)
   }
   
+  @discardableResult
   func chain(_ next: TxMetaResolver) -> TxMetaResolver {
     self.nextResolver = next
     return next

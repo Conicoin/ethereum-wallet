@@ -15,13 +15,8 @@ class MigrationConfigurator: ConfiguratorProtocol {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
       schemaVersion: 1,
       migrationBlock: { migration, oldSchemaVersion in
-       
-        if (oldSchemaVersion < 1) {
-          migration.enumerateObjects(ofType: RealmTransaction.className()) { oldObject, newObject in
-            newObject?["gasUsed"] = ""
-            newObject?["gasPrice"] = ""
-          }
-        }
+
+        migration.deleteData(forType: RealmTransaction.className())
         
     })
   }

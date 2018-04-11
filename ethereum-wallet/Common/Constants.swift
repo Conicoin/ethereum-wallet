@@ -34,7 +34,7 @@ struct Constants {
   }
   
   struct Send {
-    static let defaultGasLimit: Decimal = 21000
+    static let defaultGasLimit: Decimal = 55000
     static let defaultGasLimitToken: Decimal = 53000
     static let defaultGasPrice: Decimal = 2000000000
   }

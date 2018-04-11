@@ -24,6 +24,7 @@ class Erc20TxResolver: TxMetaResolver {
     return .erc20(to: address, value: value)
   }
   
+  @discardableResult
   func chain(_ next: TxMetaResolver) -> TxMetaResolver {
     self.nextResolver = next
     return next
