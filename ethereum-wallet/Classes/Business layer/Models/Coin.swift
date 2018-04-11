@@ -41,7 +41,7 @@ extension Coin: RealmMappable {
     let realmObject = RealmCoin()
     realmObject.balance = balance.raw.string
     realmObject.name = balance.name
-    realmObject.iso = balance.iso
+    realmObject.iso = balance.symbol
     realmObject.rates.append(objectsIn: rates.map { $0.mapToRealmObject() })
     realmObject.lastUpdateTime = lastUpdateTime
     return realmObject

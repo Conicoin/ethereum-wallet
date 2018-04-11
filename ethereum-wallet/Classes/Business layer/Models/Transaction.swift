@@ -21,30 +21,34 @@ import ObjectMapper
 
 struct Transaction {
   var txHash: String!
-  var to: String!
+  var blockNumber: Int64!
+  var timeStamp = Date()
+  var nonce: Int64!
   var from: String!
+  var to: String!
+  var gas: Decimal!
+  var gasPrice: Decimal!
+  var gasUsed: Decimal!
+  var error: String!
   var amount: Currency!
-  var timestamp: Date!
-  var isIncoming: Bool!
-  var isPending: Bool!
-  var isError: Bool!
-  var isTokenTransfer: Bool!
-  var gasUsed: String!
-  var gasPrice: String!
+  var tokenMeta: TokenMeta?
+  var isPending = false
+
   
   static func mapFromGethTransaction(_ object: GethTransaction, time: TimeInterval) -> Transaction {
-    var transaction = Transaction()
-    transaction.txHash = object.getHash().getHex()
-    transaction.to = object.getTo().getHex()
-    transaction.from = "" 
-    transaction.amount = Ether(weiString: object.getValue().string()!)
-    transaction.timestamp = Date(timeIntervalSince1970: time)
-    transaction.isPending = false
-    transaction.isError = false
-    transaction.isTokenTransfer = false
-    transaction.gasUsed = ""
-    transaction.gasPrice = ""
-    return transaction
+    var tx = Transaction()
+    tx.txHash = object.getHash().getHex()
+    tx.blockNumber = 0
+    tx.timeStamp = Date(timeIntervalSince1970: time)
+    tx.nonce = object.getNonce()
+    tx.from = ""
+    tx.to = object.getTo().getHex()
+    tx.gas = Decimal(object.getGas())
+    tx.gasPrice = Decimal(object.getGasPrice().string())
+    tx.gasUsed = Decimal(object.getCost().string())
+    tx.error = ""
+    tx.amount = Ether(weiString: object.getValue().string()!)
+    return tx
   }
   
 }
@@ -54,34 +58,49 @@ struct Transaction {
 extension Transaction: RealmMappable {
   
   static func mapFromRealmObject(_ object: RealmTransaction) -> Transaction {
-    var transaction = Transaction()
-    transaction.txHash = object.txHash
-    transaction.to = object.to
-    transaction.from = object.from
-    transaction.amount = Ether(object.amount)
-    transaction.timestamp = object.timestamp
-    transaction.isIncoming = object.isIncoming
-    transaction.isPending = object.isPending
-    transaction.isError = object.isError
-    transaction.isTokenTransfer = object.isTokenTransfer
-    transaction.gasUsed = object.gasUsed
-    transaction.gasPrice = object.gasPrice
-    return transaction
+    var tx = Transaction()
+    tx.txHash = object.txHash
+    tx.blockNumber = object.blockNumber
+    tx.timeStamp = object.timeStamp
+    tx.nonce = object.nonce
+    tx.gas = Decimal(object.gas)
+    tx.gasPrice = Decimal(object.gasPrice)
+    tx.gasUsed = Decimal(object.gasUsed)
+    tx.error = object.error
+    tx.isPending = object.isPending
+    tx.from = object.from
+    tx.to = object.to
+    
+    if let meta = object.tokenMeta {
+      tx.amount = TokenValue(weiString: object.value, name: meta.name, iso: meta.symbol, decimals: meta.decimals)
+    } else {
+      tx.amount = Ether(weiString: object.value)
+    }
+
+    return tx
   }
   
   func mapToRealmObject() -> RealmTransaction {
     let realmObject = RealmTransaction()
     realmObject.txHash = txHash
-    realmObject.to = to
-    realmObject.from = from
-    realmObject.amount = amount.raw.string
-    realmObject.timestamp = timestamp
-    realmObject.isIncoming = isIncoming
+    realmObject.blockNumber = blockNumber
+    realmObject.timeStamp = timeStamp
+    realmObject.nonce = nonce
+    realmObject.gas = gas.string
+    realmObject.gasPrice = gasPrice.string
+    realmObject.gasUsed = gasUsed.string
+    realmObject.error = error
     realmObject.isPending = isPending
-    realmObject.isError = isError
-    realmObject.isTokenTransfer = isTokenTransfer
-    realmObject.gasUsed = gasUsed
-    realmObject.gasPrice = gasPrice
+    realmObject.value = (amount.raw / 1e18).string
+    realmObject.from = from
+    realmObject.to = to
+    
+    if let meta = tokenMeta {
+      realmObject.tokenMeta = meta.mapToRealmObject()
+    }
+    
+    
+    
     return realmObject
   }
   
@@ -92,18 +111,30 @@ extension Transaction: RealmMappable {
 extension Transaction: ImmutableMappable {
   
   init(map: Map) throws {
-    txHash = try map.value("hash")
-    to = try map.value("to")
+    txHash = try map.value("id")
+    blockNumber = try map.value("blockNumber")
+    timeStamp = try map.value("timeStamp", using: DateTransform())
+    nonce = try map.value("nonce")
     from = try map.value("from")
-    gasUsed = try map.value("gasUsed")
+    error = try map.value("error")
+    gas = try map.value("gas")
     gasPrice = try map.value("gasPrice")
-    let amountString: String = try map.value("value")
-    amount = Ether(weiString: amountString)
-    timestamp = try map.value("timeStamp", using: DateTransform())
-    let isErrorString: String = try map.value("isError")
-    isError = Bool(isErrorString)
-    isPending = false
-    isTokenTransfer = false
+    gasUsed = try map.value("gasUsed")
+    
+    let input: Data = try map.value("input", using: HexDataTransform())
+    let txMetaChain = TxMetaChain()
+    let type = txMetaChain.resolve(input: input)
+    switch type {
+    case .erc20(let to, let value):
+      let meta: TokenMeta = try map.value("operations.0.contract")
+      self.tokenMeta = meta
+      self.to = to
+      self.amount = TokenValue(weiString: value, name: meta.name, iso: meta.symbol, decimals: meta.decimals)
+    default:
+      self.to = try map.value("to")
+      let value: String = try map.value("0")
+      self.amount = Ether.init(weiString: value)
+    }
   }
   
 }

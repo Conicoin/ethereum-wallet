@@ -26,7 +26,7 @@ class TokenCell: UITableViewCell {
   
   func configure(with token: Token) {
     titleLabel.text = token.balance.name
-    symbolLabel.text = token.balance.iso
+    symbolLabel.text = token.balance.symbol
     balanceLabel.text = token.balance.amountString
     
     // Attention! Need to monitor icons location

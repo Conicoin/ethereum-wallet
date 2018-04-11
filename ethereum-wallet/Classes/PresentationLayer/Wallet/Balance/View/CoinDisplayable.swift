@@ -49,7 +49,7 @@ extension Token: CoinDisplayable {
   
   func placeholder(with size: CGSize) -> UIImage {
     let font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-    return balance.iso.renderImage(font: font, size: size, color: color)
+    return balance.symbol.renderImage(font: font, size: size, color: color)
   }
   
   func amount(for currency: String) -> String? {

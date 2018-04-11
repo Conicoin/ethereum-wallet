@@ -32,7 +32,7 @@ struct Token {
   
   func getTokenMeta() -> TokenMeta {
     var tokenMeta = TokenMeta()
-    tokenMeta.iso = balance.iso
+    tokenMeta.iso = balance.symbol
     tokenMeta.name = balance.name
     return tokenMeta
   }
@@ -61,7 +61,7 @@ extension Token: RealmMappable {
     let realmObject = RealmToken()
     realmObject.balance = balance.raw.string
     realmObject.name = balance.name
-    realmObject.iso = balance.iso
+    realmObject.iso = balance.symbol
     realmObject.rates.append(objectsIn: rates.map { $0.mapToRealmObject() })
     realmObject.lastUpdateTime = lastUpdateTime
     realmObject.iconURL = iconUrl?.absoluteString

@@ -84,7 +84,7 @@ extension TokenDetailsViewController: TokenDetailsViewInput {
     }
     addressLabel.text = token.address
     let totalSuply = Decimal(token.totalSupply)
-    totalSuplyLabel.text = "\(totalSuply.abbrevation()) \(token.balance.iso)"
+    totalSuplyLabel.text = "\(totalSuply.abbrevation()) \(token.balance.symbol)"
     holdersCountLabel.text = "\(token.holdersCount!)"
   }
   

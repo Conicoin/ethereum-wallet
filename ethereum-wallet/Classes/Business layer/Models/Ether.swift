@@ -56,7 +56,7 @@ extension Ether: Currency {
     return "Ethereum"
   }
   
-  var iso: String {
+  var symbol: String {
     return "ETH"
   }
   
