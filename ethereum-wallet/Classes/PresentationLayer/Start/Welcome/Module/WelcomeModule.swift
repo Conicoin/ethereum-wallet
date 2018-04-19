@@ -40,11 +40,9 @@ class WelcomeModule {
     
     // MARK: Injection
     
-    let keystore = KeystoreService()
-    let walletDataStore = WalletDataStoreService()
-
-    interactor.walletCreator = WalletCreator(keystoreService: keystore, walletDataStoreService: walletDataStore)
-    interactor.walletImporter = WalletJsonImporter(keystoreService: keystore, walletDataStoreService: walletDataStore)
+    let walletManager = WalletManagerFactory().create()
+    interactor.walletCreator = WalletCreator(walletManager: walletManager)
+    interactor.walletImporter = WalletJsonImporter(walletManager: walletManager)
     
     presenter.state = state
     

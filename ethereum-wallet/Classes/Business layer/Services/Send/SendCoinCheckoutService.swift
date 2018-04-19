@@ -24,7 +24,7 @@ class SendCoinCheckoutService: SendCheckoutServiceProtocol {
     let ethAmount = Ether(amount + fee.fromWei())
     let ethAmountString = ethAmount.amountString
     
-    return (amount: ethAmountString, fiatAmount: fiatAmountString, fee: feeAmountString)
+    return (amount: fiatAmount.amountString, total: ethAmountString, fiatAmount: fiatAmountString, fee: feeAmountString)
   }
   
 }

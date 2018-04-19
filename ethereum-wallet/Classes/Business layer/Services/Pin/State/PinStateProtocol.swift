@@ -23,6 +23,7 @@ enum PinState {
   case change
   case restoreJson(key: Data)
   case restorePrivate(key: Data)
+  case send(amount: String, address: String)
 }
 
 protocol PinStateProtocol {

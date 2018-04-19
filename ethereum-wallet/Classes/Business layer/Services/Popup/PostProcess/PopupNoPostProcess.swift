@@ -1,0 +1,17 @@
+//
+//  PopupNoPostProcess.swift
+//  ethereum-wallet
+//
+//  Created by Artur Guseinov on 12/04/2018.
+//  Copyright © 2018 Artur Guseinov. All rights reserved.
+//
+
+import Alamofire
+
+class PopupNoPostProcess: PopupPostProcessProtocol {
+  
+  func onConfirm(_ completion: (Result<Bool>) -> Void) {
+    completion(.success(true))
+  }
+
+}

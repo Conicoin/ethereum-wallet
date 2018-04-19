@@ -48,6 +48,23 @@ class ReceiveViewController: UIViewController {
     guard let address = addressLabel.text else { return }
     output.copyAddressPressed(address: address)
   }
+  
+  @IBAction func sharePressed(_ sender: UIBarButtonItem) {
+    let text = addressLabel.text!
+    let image = qrImageView.image!
+    let activity = UIActivityViewController(activityItems: [image, text], applicationActivities: nil)
+    activity.excludedActivityTypes = [
+      .airDrop,
+      .copyToPasteboard,
+      .message,
+      .mail,
+      .postToFacebook,
+      .postToTwitter,
+      .postToFlickr,
+      .markupAsPDF,
+    ]
+    present(activity, animated: true, completion: nil)
+  }
 
 }
 

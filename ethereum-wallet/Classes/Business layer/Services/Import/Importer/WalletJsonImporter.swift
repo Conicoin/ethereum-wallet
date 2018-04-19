@@ -10,22 +10,14 @@ import Foundation
 
 class WalletJsonImporter: WalletImporterProtocol {
   
-  let keystoreService: KeystoreServiceProtocol
-  let walletDataStoreService: WalletDataStoreServiceProtocol
+  let walletManager: WalletManagerProtocol
   
-  init(keystoreService: KeystoreServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
-    self.keystoreService = keystoreService
-    self.walletDataStoreService = walletDataStoreService
+  init(walletManager: WalletManagerProtocol) {
+    self.walletManager = walletManager
   }
   
   func importKey(_ key: Data, passcode: String) throws {
-    let account = try keystoreService.restoreAccount(with: key, passphrase: passcode)
-    let keychain = Keychain()
-    keychain.jsonKey = key
-    keychain.passphrase = passcode
-    let address = account.getAddress().getHex()!
-    walletDataStoreService.createWallet(address: address)
-    Defaults.isWalletCreated = true
+    try walletManager.importWallet(jsonKey: key, passphrase: passcode)
   }
   
 }

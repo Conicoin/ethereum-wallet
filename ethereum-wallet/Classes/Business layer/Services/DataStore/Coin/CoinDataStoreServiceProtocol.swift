@@ -18,6 +18,7 @@
 import UIKit
 
 protocol CoinDataStoreServiceProtocol {
+  func createCoin()
   func find() -> [Coin]
   func find(withIso iso: String) -> Coin?
   func observe(updateHandler: @escaping ([Coin]) -> Void)

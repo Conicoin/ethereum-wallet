@@ -20,7 +20,9 @@ class PopupPostProcessFactory {
         switch state {
         case .touchId:
             return PopupTouchPostProcess()
-        }
+        case .txSent:
+            return PopupNoPostProcess()
+      }
     }
 
 }

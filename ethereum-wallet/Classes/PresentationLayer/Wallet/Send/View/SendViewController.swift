@@ -16,7 +16,6 @@
 
 
 import UIKit
-import PKHUD
 
 
 class SendViewController: UIViewController {
@@ -58,9 +57,8 @@ class SendViewController: UIViewController {
   // MARK: Privates
     
   private func localize() {
-    feeTitleLabel.text = Localized.sendFee()
-    totalTitleLabel.text = Localized.sendTotal()
     recepientTextField.placeholder = Localized.sendAddressPlaceholder()
+    sendButton.setTitle(Localized.sendTitleEmpty(), for: .normal)
   }
   
   private func setupTextFields() {
@@ -139,12 +137,16 @@ extension SendViewController: SendViewInput {
   
   func didDetectQRCode(_ code: String) {
     recepientTextField.textField.text = code
+    recepientTextField.changeToFloat(animated: true)
   }
   
-  func didReceiveCheckout(amount: String, fiatAmount: String, fee: String) {
-    totalLabel.text = amount
+  func didReceiveCheckout(amount: String, total: String, fiatAmount: String, fee: String) {
+    feeTitleLabel.text = Localized.sendFee()
+    totalTitleLabel.text = Localized.sendTotal()
+    totalLabel.text = total
     feeLabel.text = fee
     localAmountLabel.text = fiatAmount
+    sendButton.setTitle(Localized.sendTitle(amount), for: .normal)
   }
   
   func didReceiveCurrency(_ currency: String) {
@@ -154,18 +156,8 @@ extension SendViewController: SendViewInput {
   func inputDataIsValid(_ isValid: Bool) {
     sendButton.isEnabled = isValid
   }
-  
-  func showLoading() {
-    view.endEditing(true)
-    Loading.show()
-  }
-  
-  func loadingSuccess() {
-    Loading.success()
-  }
-  
+
   func loadingFilure() {
-    Loading.dismiss()
     amountTextField?.becomeFirstResponder()
   }
 

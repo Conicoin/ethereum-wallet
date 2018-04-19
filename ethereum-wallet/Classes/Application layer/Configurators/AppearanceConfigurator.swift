@@ -29,7 +29,7 @@ class AppearanceConfigurator: ConfiguratorProtocol {
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.Color.black]
     UINavigationBar.appearance().shadowImage = UIImage()
     UIBarButtonItem.appearance().tintColor = Theme.Color.black
-    UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -300, vertical:0), for: .default)
+    UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -2000, vertical: 0), for: .default)
   }
   
 }

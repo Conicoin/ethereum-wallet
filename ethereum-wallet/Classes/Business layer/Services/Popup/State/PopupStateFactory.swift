@@ -20,6 +20,8 @@ class PopupStateFactory {
     switch state {
     case .touchId:
       return PopupTouchState()
+    case .txSent(let amount, let address):
+      return PopupTxSentState(amount: amount, address: address)
     }
   }
 

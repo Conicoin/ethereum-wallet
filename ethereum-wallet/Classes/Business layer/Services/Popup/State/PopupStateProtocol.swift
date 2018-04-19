@@ -10,6 +10,7 @@ import UIKit
 
 enum PopupState {
   case touchId
+  case txSent(amount: String, address: String)
 }
 
 protocol PopupStateProtocol {

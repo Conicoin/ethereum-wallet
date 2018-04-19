@@ -10,20 +10,18 @@ import Foundation
 
 class WalletImporterFactory {
   
-  let keystoreService: KeystoreServiceProtocol
-  let walletDataStoreService: WalletDataStoreServiceProtocol
+  let walletManager: WalletManagerProtocol
   
-  init(keystoreService: KeystoreServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
-    self.keystoreService = keystoreService
-    self.walletDataStoreService = walletDataStoreService
+  init(walletManager: WalletManagerProtocol) {
+    self.walletManager = walletManager
   }
   
   func create(_ state: ImportState) -> WalletImporterProtocol {
     switch state {
     case .jsonKey:
-      return WalletJsonImporter(keystoreService: keystoreService, walletDataStoreService: walletDataStoreService)
+      return WalletJsonImporter(walletManager: walletManager)
     case .privateKey:
-      return WalletPrivateImporter(keystoreService: keystoreService, walletDataStoreService: walletDataStoreService)
+      return WalletPrivateImporter(walletManager: walletManager)
     }
   }
   

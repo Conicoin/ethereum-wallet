@@ -36,21 +36,21 @@ class KeyScrypt {
   
   private func scrypt(password: [UInt8], salt: [UInt8]) throws -> [UInt8] {
     // Allocate memory.
-    let B = UnsafeMutableRawPointer.allocate(bytes: 128 * params.r * params.p, alignedTo: 64)
-    let XY = UnsafeMutableRawPointer.allocate(bytes: 256 * params.r + 64, alignedTo: 64)
-    let V = UnsafeMutableRawPointer.allocate(bytes: 128 * params.r * params.n, alignedTo: 64)
+    let B = UnsafeMutableRawPointer.allocate(byteCount: 128 * params.r * params.p, alignment: 64)
+    let XY = UnsafeMutableRawPointer.allocate(byteCount: 256 * params.r + 64, alignment: 64)
+    let V = UnsafeMutableRawPointer.allocate(byteCount: 128 * params.r * params.n, alignment: 64)
     
     // Deallocate memory when done
     defer {
-      B.deallocate(bytes: 128 * params.r * params.p, alignedTo: 64)
-      XY.deallocate(bytes: 256 * params.r + 64, alignedTo: 64)
-      V.deallocate(bytes: 128 * params.r * params.n, alignedTo: 64)
+      B.deallocate()
+      XY.deallocate()
+      V.deallocate()
     }
     
     /* 1: (B_0 ... B_{p-1}) <-- PBKDF2(P, S, 1, p * MFLen) */
     let barray = try PKCS5.PBKDF2(password: password, salt: [UInt8](salt), iterations: 1, keyLength: params.p * 128 * params.r, variant: .sha256).calculate()
     barray.withUnsafeBytes { p in
-      B.copyBytes(from: p.baseAddress!, count: barray.count)
+      B.copyMemory(from: p.baseAddress!, byteCount: barray.count)
     }
     
     /* 2: for i = 0 to p - 1 do */
@@ -79,13 +79,13 @@ class KeyScrypt {
     /* 2: for i = 0 to N - 1 do */
     for i in stride(from: 0, to: params.n, by: 2) {
       /* 3: V_i <-- X */
-      UnsafeMutableRawPointer(v + i * (32 * params.r)).copyBytes(from: X, count: 128 * params.r)
+      UnsafeMutableRawPointer(v + i * (32 * params.r)).copyMemory(from: X, byteCount: 128 * params.r)
       
       /* 4: X <-- H(X) */
       blockMixSalsa8(X, Y, Z)
       
       /* 3: V_i <-- X */
-      UnsafeMutableRawPointer(v + (i + 1) * (32 * params.r)).copyBytes(from: Y, count: 128 * params.r)
+      UnsafeMutableRawPointer(v + (i + 1) * (32 * params.r)).copyMemory(from: Y, byteCount: 128 * params.r)
       
       /* 4: X <-- H(X) */
       blockMixSalsa8(Y, X, Z)
@@ -116,7 +116,7 @@ class KeyScrypt {
   
   private func blockMixSalsa8(_ bin: UnsafePointer<UInt32>, _ bout: UnsafeMutablePointer<UInt32>, _ x: UnsafeMutablePointer<UInt32>) {
     /* 1: X <-- B_{2r - 1} */
-    UnsafeMutableRawPointer(x).copyBytes(from: bin + (2 * params.r - 1) * 16, count: 64)
+    UnsafeMutableRawPointer(x).copyMemory(from: bin + (2 * params.r - 1) * 16, byteCount: 64)
     
     /* 2: for i = 0 to 2r - 1 do */
     for i in stride(from: 0, to: 2 * params.r, by: 2) {
@@ -126,7 +126,7 @@ class KeyScrypt {
       
       /* 4: Y_i <-- X */
       /* 6: B' <-- (Y_0, Y_2 ... Y_{2r-2}, Y_1, Y_3 ... Y_{2r-1}) */
-      UnsafeMutableRawPointer(bout + i * 8).copyBytes(from: x, count: 64)
+      UnsafeMutableRawPointer(bout + i * 8).copyMemory(from: x, byteCount: 64)
       
       /* 3: X <-- H(X \xor B_i) */
       blockXor(x, bin + i * 16 + 16, 64)
@@ -134,13 +134,13 @@ class KeyScrypt {
       
       /* 4: Y_i <-- X */
       /* 6: B' <-- (Y_0, Y_2 ... Y_{2r-2}, Y_1, Y_3 ... Y_{2r-1}) */
-      UnsafeMutableRawPointer(bout + i * 8 + params.r * 16).copyBytes(from: x, count: 64)
+      UnsafeMutableRawPointer(bout + i * 8 + params.r * 16).copyMemory(from: x, byteCount: 64)
     }
   }
   
   private func salsa20_8(_ block: UnsafeMutablePointer<UInt32>) {
     salsaBlock.withUnsafeMutableBytes { pointer in
-      pointer.baseAddress!.copyBytes(from: UnsafeRawPointer(block), count: 64)
+      pointer.baseAddress!.copyMemory(from: UnsafeRawPointer(block), byteCount: 64)
     }
     
     for _ in stride(from: 0, to: 8, by: 2) {
