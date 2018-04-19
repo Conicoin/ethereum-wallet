@@ -143,6 +143,7 @@
 		14786EE7201E6D2F009ECC11 /* TransactionDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EE6201E6D2F009ECC11 /* TransactionDisplayer.swift */; };
 		14786EEB201E7A1C009ECC11 /* TokenMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EEA201E7A1C009ECC11 /* TokenMeta.swift */; };
 		1481ADD31FDDD53600A5AC88 /* TokenBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481ADD21FDDD53600A5AC88 /* TokenBackgroundView.swift */; };
+		1485B4372089353500FB4C85 /* token-icons in Resources */ = {isa = PBXBuildFile; fileRef = 1485B4362089353500FB4C85 /* token-icons */; };
 		1489ED1D1F9C0EE800E0A5FC /* Data+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1489ED1C1F9C0EE800E0A5FC /* Data+Helpers.swift */; };
 		14958E4B1FB7A4D3005CFC6C /* Decimal+Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */; };
 		14991D742056943A0046E6CD /* PinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991D732056943A0046E6CD /* PinService.swift */; };
@@ -202,7 +203,6 @@
 		14C115352064689500DC4C25 /* WalletImporterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C115342064689500DC4C25 /* WalletImporterFactory.swift */; };
 		14C1153A20646A7000DC4C25 /* WalletCreatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C1153920646A7000DC4C25 /* WalletCreatorProtocol.swift */; };
 		14C1153C20646A9C00DC4C25 /* WalletCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C1153B20646A9C00DC4C25 /* WalletCreator.swift */; };
-		14CA17272074183B00F04FEA /* images in Resources */ = {isa = PBXBuildFile; fileRef = 14CA17262074183B00F04FEA /* images */; };
 		14CA5D0F2072DC0300A0CEAF /* MigrationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CA5D0E2072DC0300A0CEAF /* MigrationConfigurator.swift */; };
 		14D027E01EF6D4CD00F125C3 /* RealmWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027DF1EF6D4CD00F125C3 /* RealmWallet.swift */; };
 		14D027EB1EF87A1D00F125C3 /* NetworkLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027EA1EF87A1D00F125C3 /* NetworkLoadable.swift */; };
@@ -533,6 +533,7 @@
 		14786EE6201E6D2F009ECC11 /* TransactionDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDisplayer.swift; sourceTree = "<group>"; };
 		14786EEA201E7A1C009ECC11 /* TokenMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenMeta.swift; sourceTree = "<group>"; };
 		1481ADD21FDDD53600A5AC88 /* TokenBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenBackgroundView.swift; sourceTree = "<group>"; };
+		1485B4362089353500FB4C85 /* token-icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "token-icons"; sourceTree = SOURCE_ROOT; };
 		1489ED1C1F9C0EE800E0A5FC /* Data+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Helpers.swift"; sourceTree = "<group>"; };
 		14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Ethereum.swift"; sourceTree = "<group>"; };
 		14991D732056943A0046E6CD /* PinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
@@ -595,7 +596,6 @@
 		14C1153B20646A9C00DC4C25 /* WalletCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreator.swift; sourceTree = "<group>"; };
 		14C4D3CD1EDE1F3700FCA3AF /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		14C6721940B7C90252875C7E /* WelcomeRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeRouterInput.swift; sourceTree = "<group>"; };
-		14CA17262074183B00F04FEA /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = "token-icons/images"; sourceTree = SOURCE_ROOT; };
 		14CA5D0E2072DC0300A0CEAF /* MigrationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationConfigurator.swift; sourceTree = "<group>"; };
 		14D027DF1EF6D4CD00F125C3 /* RealmWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmWallet.swift; sourceTree = "<group>"; };
 		14D027EA1EF87A1D00F125C3 /* NetworkLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLoadable.swift; sourceTree = "<group>"; };
@@ -1207,7 +1207,7 @@
 		144E4F291EB26FA300AB62B6 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				14CA0FF920740CDA00F04FEA /* External */,
+				1485B4352089352100FB4C85 /* External */,
 				14ACA1F61EF2BD170059E430 /* Assets.xcassets */,
 				14C4D3CD1EDE1F3700FCA3AF /* Bridging-Header.h */,
 				14ACA1F71EF2BD170059E430 /* Info.plist */,
@@ -1359,6 +1359,14 @@
 				14786ED6201E05E1009ECC11 /* HexDataTransform.swift */,
 			);
 			path = Transforms;
+			sourceTree = "<group>";
+		};
+		1485B4352089352100FB4C85 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				1485B4362089353500FB4C85 /* token-icons */,
+			);
+			path = External;
 			sourceTree = "<group>";
 		};
 		148E67201F9AB6D20018F0BE /* Wallet */ = {
@@ -1593,14 +1601,6 @@
 				14B77EC11F9ACD6300FCD923 /* DataStore */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		14CA0FF920740CDA00F04FEA /* External */ = {
-			isa = PBXGroup;
-			children = (
-				14CA17262074183B00F04FEA /* images */,
-			);
-			path = External;
 			sourceTree = "<group>";
 		};
 		14D027DD1EF6D4A400F125C3 /* Plain */ = {
@@ -2669,6 +2669,7 @@
 				14046CF7201F770C007BD203 /* Receive.storyboard in Resources */,
 				14046CE7201F7584007BD203 /* TabBar.storyboard in Resources */,
 				143172BB20627DA700238D70 /* currencies.json in Resources */,
+				1485B4372089353500FB4C85 /* token-icons in Resources */,
 				14046CF3201F76D3007BD203 /* Scan.storyboard in Resources */,
 				14046CEB201F75F1007BD203 /* Settings.storyboard in Resources */,
 				14046CF9201F776F007BD203 /* Welcome.storyboard in Resources */,
@@ -2677,7 +2678,6 @@
 				14991D8C2056F8E40046E6CD /* Pin.storyboard in Resources */,
 				1414E6FF20586B3C0080680E /* Popup.storyboard in Resources */,
 				14ACA1F91EF2BD170059E430 /* Assets.xcassets in Resources */,
-				14CA17272074183B00F04FEA /* images in Resources */,
 				14046CED201F7644007BD203 /* TokenDetails.storyboard in Resources */,
 				145FFF952071364B00A3ADCE /* TransactionDetails.storyboard in Resources */,
 				14046CFB201F778E007BD203 /* Import.storyboard in Resources */,
