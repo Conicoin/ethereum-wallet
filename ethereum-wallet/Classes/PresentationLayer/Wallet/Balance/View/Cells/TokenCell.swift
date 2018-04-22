@@ -13,10 +13,16 @@ class TokenCell: UITableViewCell {
   @IBOutlet weak var symbolLabel: UILabel!
   @IBOutlet weak var iconImageView: UIImageView!
   @IBOutlet weak var balanceLabel: UILabel!
+  @IBOutlet weak var tokenBackgroundView: UIView!
   
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
+  }
+  
+  override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+    super.setHighlighted(highlighted, animated: animated)
+    tokenBackgroundView.backgroundColor = highlighted ? Theme.Color.lightGray : .white
   }
   
   override func prepareForReuse() {

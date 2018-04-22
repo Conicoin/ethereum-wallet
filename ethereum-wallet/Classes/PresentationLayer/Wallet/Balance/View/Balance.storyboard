@@ -154,7 +154,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TokenCell" rowHeight="192" id="G31-L5-1Cp" customClass="TokenCell" customModule="ethereum_wallet" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TokenCell" rowHeight="192" id="G31-L5-1Cp" customClass="TokenCell" customModule="ethereum_wallet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="480.5" width="375" height="192"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G31-L5-1Cp" id="2K1-iX-uX5">
@@ -246,6 +246,7 @@
                                             <outlet property="iconImageView" destination="aQg-Z0-ZgS" id="rSZ-86-6yK"/>
                                             <outlet property="symbolLabel" destination="y4p-vT-D4h" id="Yxr-gr-1w5"/>
                                             <outlet property="titleLabel" destination="HMJ-ps-VQb" id="mMd-Kh-RKe"/>
+                                            <outlet property="tokenBackgroundView" destination="UKW-ph-15M" id="o9r-J1-4Aj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
