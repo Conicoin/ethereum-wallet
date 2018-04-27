@@ -27,6 +27,32 @@ protocol CoinDisplayable {
   func placeholder(with size: CGSize) -> UIImage
 }
 
+extension CoinDisplayable {
+  
+  var description: String {
+    return Localized.balanceLabel(balance.iso.uppercased(), balance.name)
+  }
+  
+  func fiatLabelString(_ currency: String) -> String {
+    guard currency != balance.iso else {
+      return description
+    }
+    return amount(for: currency) ?? description
+  }
+  
+  fileprivate func rate(for currency: String) -> Rate? {
+    return rates.filter({ $0.to == currency }).first
+  }
+  
+  fileprivate func amount(for currency: String) -> String? {
+    guard let rate = rate(for: currency) else {
+      return nil
+    }
+    return FiatCurrencyFactory.amount(currency: balance, iso: currency, rate: rate.value)
+  }
+  
+}
+
 extension Coin: CoinDisplayable {
   
   var gasLimit: Decimal {
@@ -66,22 +92,11 @@ extension Token: CoinDisplayable {
     return balance.symbol.renderImage(font: font, size: size, color: color)
   }
   
-  func amount(for currency: String) -> String? {
-    guard let rate = rate(for: currency) else {
-      return nil
-    }
-    return FiatCurrencyFactory.amount(currency: balance, rate: rate.value)
-  }
-  
   func rawAmount(for currency: String) -> Double {
     guard let rate = rate(for: currency) else {
       return 0
     }
     return balance.value * rate.value
-  }
-  
-  func rate(for currency: String) -> Rate? {
-    return rates.filter({ $0.to == currency }).first
   }
   
   func amountString(with amount: Decimal) -> String {

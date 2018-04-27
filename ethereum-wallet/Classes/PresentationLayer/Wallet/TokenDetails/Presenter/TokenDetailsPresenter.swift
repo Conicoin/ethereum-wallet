@@ -26,6 +26,7 @@ class TokenDetailsPresenter {
   var router: TokenDetailsRouterInput!
   
   var token: Token!
+  var selectedCurrency = Constants.Wallet.defaultCurrency
 }
 
 
@@ -36,11 +37,21 @@ extension TokenDetailsPresenter: TokenDetailsViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     view.didReceiveToken(token)
-    interactor.getWallet()
   }
   
   func didSendPressed() {
     router.presentSend(for: token, from: view.viewController)
+  }
+  
+  func didBalanceViewPressed() {
+    var list = Constants.Wallet.supportedCurrencies
+    list.insert(token.balance.iso, at: 0)
+    
+    guard let index = list.index(of: selectedCurrency) else { return }
+    selectedCurrency = list[(index + 1) % list.count]
+    
+    let fiatBalance = token.fiatLabelString(selectedCurrency)
+    view.didReceiveFiatBalance(fiatBalance)
   }
 
 }
@@ -49,14 +60,6 @@ extension TokenDetailsPresenter: TokenDetailsViewOutput {
 // MARK: - TokenDetailsInteractorOutput
 
 extension TokenDetailsPresenter: TokenDetailsInteractorOutput {
-  
-  func didReceiveWallet(_ wallet: Wallet) {
-    guard let rate = token.rate(for: wallet.localCurrency) else {
-      return
-    }
-    let fiatBalance = FiatCurrencyFactory.amount(currency: token.balance, iso: wallet.localCurrency, rate: rate.value)
-    view.didReceiveFiatBalance(fiatBalance)
-  }
 
 }
 
@@ -67,6 +70,7 @@ extension TokenDetailsPresenter: TokenDetailsModuleInput {
   
   func present(with token: Token, from: UIViewController) {
     self.token = token
+    self.selectedCurrency = token.balance.iso
     view.present(fromViewController: from)
   }
 

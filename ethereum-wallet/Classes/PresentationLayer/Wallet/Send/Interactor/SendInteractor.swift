@@ -47,14 +47,13 @@ extension SendInteractor: SendInteractorInput {
     output.didReceiveWallet(wallet)
   }
   
-  func sendTransaction(amount: Decimal, to: String, gasLimit: Decimal, gasPrice: Decimal, pin: String, pinResult: PinResult?) {
+  func sendTransaction(amount: Decimal, to: String, contract: String?, gasLimit: Decimal, gasPrice: Decimal, pin: String, pinResult: PinResult?) {
     
-    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-      pinResult?(.success(true))
-    }
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//      pinResult?(.success(true))
+//    }
     
-    /* Commented for debug
-    let info = TransactionInfo(amount: amount, address: to, contractAddress: nil, gasLimit: gasLimit, gasPrice: gasPrice)
+    let info = TransactionInfo(amount: amount, address: to, contractAddress: contract, gasLimit: gasLimit, gasPrice: gasPrice)
     
     transactionService.sendTransaction(with: info, passphrase: pin) { [unowned self] result in
       switch result {
@@ -69,7 +68,6 @@ extension SendInteractor: SendInteractorInput {
         self.output.didFailedSending(with: error)
       }
     }
-     */
   }
   
   func getGasPrice() {

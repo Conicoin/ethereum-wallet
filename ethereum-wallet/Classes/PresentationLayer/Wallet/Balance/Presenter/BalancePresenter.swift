@@ -25,6 +25,8 @@ class BalancePresenter {
   var interactor: BalanceInteractorInput!
   var router: BalanceRouterInput!
   var coin: Coin?
+  
+  var selectedCurrency = Constants.Wallet.defaultCurrency
 }
 
 
@@ -35,9 +37,9 @@ extension BalancePresenter: BalanceViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     output?.balanceViewIsReady()
-    interactor.getWalletFromDataBase()
     interactor.getCoinsFromDataBase()
     interactor.getTokensFromDataBase()
+    interactor.getWalletFromDataBase()
   }
   
   func viewIsAppear() {
@@ -64,6 +66,15 @@ extension BalancePresenter: BalanceViewOutput {
     interactor.getEthereumFromNetwork()
     interactor.getTokensFromNetwork()
   }
+  
+  func didBalanceViewPressed() {
+    let list = Constants.Wallet.supportedCurrencies
+    guard let index = list.index(of: selectedCurrency) else { return }
+    selectedCurrency = list[(index + 1) % list.count]
+    
+    guard let coin = coin else { return }
+    view.didChangePreviewCurrency(selectedCurrency, coin: coin)
+  }
 
 }
 
@@ -73,7 +84,7 @@ extension BalancePresenter: BalanceViewOutput {
 extension BalancePresenter: BalanceInteractorOutput {
   
   func didReceiveWallet(_ wallet: Wallet) {
-    view.didReceiveWallet(wallet)
+    view.didReceiveCurrency(wallet.localCurrency)
   }
   
   func didReceiveCoins(_ coins: [Coin]) {

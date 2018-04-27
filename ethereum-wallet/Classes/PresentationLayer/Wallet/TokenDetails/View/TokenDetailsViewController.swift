@@ -63,6 +63,10 @@ class TokenDetailsViewController: UIViewController {
     output.didSendPressed()
   }
   
+  @IBAction func balanceViewPressed(_ sender: UITapGestureRecognizer) {
+    output.didBalanceViewPressed()
+  }
+  
 }
 
 
@@ -76,7 +80,7 @@ extension TokenDetailsViewController: TokenDetailsViewInput {
   
   func didReceiveToken(_ token: Token) {
     balanceLabel.text = token.balance.amountString
-    navigationItem.title = Localized.tokenDetailsName(token.balance.symbol, token.balance.name)
+    fiatBalanceLabel.text = token.description
   
     if let description = token.about {
       descriptionView.isHidden = false

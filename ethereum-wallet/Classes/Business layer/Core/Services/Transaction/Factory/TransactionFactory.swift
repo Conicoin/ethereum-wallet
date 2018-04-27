@@ -54,7 +54,8 @@ extension TransactionFactory {
     try client.getNonceAt(context, account: account.getAddress(), number: -1, nonce: &noncePointer)
     
     let intAmount = GethNewBigInt(0)
-    intAmount?.setString(info.amount.toHex(), base: 16)
+    let weiAmount = info.amount * 1e18
+    intAmount?.setString(weiAmount.toHex(), base: 16)
     
     let gethGasLimit = info.gasLimit.int64
     let gethGasPrice = GethNewBigInt(0)
@@ -67,7 +68,8 @@ extension TransactionFactory {
     let transactionTemplate = try buildTransaction(with: info)
     let transferSignature = Data(bytes: [0xa9, 0x05, 0x9c, 0xbb])
     let address = info.address.lowercased().replacingOccurrences(of: "0x", with: "")
-    let hexAmount = (info.amount * 1e18).toHex().withLeadingZero(64)
+    let weiAmount = info.amount * 1e18
+    let hexAmount = weiAmount.toHex().withLeadingZero(64)
     let hexData = transferSignature.toHexString() + "000000000000000000000000" + address + hexAmount
     guard let data = hexData.toHexData() else {
       throw TransactionFactoryError.badSignature

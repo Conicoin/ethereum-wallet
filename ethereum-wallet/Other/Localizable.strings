@@ -49,6 +49,7 @@
 "balance.receive" = "Receive";
 "balance.send" = "Send";
 "balance.eth.title" = "ETH ∙ Ethereum";
+"balance.label" = "%@ ∙ %@";
 
 // MARK: - Token details
 "token.details.name" = "%@ ∙ %@";

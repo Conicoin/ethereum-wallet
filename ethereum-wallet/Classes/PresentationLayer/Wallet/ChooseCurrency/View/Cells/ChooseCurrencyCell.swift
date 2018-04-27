@@ -22,6 +22,7 @@ class ChooseCurrencyCell: UITableViewCell {
   @IBOutlet weak var iconImageView: UIImageView!
   @IBOutlet weak var isoLabel: UILabel!
   @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var checkmarkImageView: UIImageView!
 
   
   override func awakeFromNib() {
@@ -31,7 +32,7 @@ class ChooseCurrencyCell: UITableViewCell {
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-    accessoryType = selected ? .checkmark : .none
+    checkmarkImageView.image = selected ? #imageLiteral(resourceName: "CheckMin") : nil
     isoLabel.textColor = selected ? Theme.Color.blue : Theme.Color.gray
     nameLabel.textColor = selected ? Theme.Color.blue : Theme.Color.gray
   }

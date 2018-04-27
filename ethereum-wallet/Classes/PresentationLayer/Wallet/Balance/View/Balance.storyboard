@@ -107,6 +107,7 @@
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="Yu8-lq-Jo0" firstAttribute="centerX" secondItem="l8e-Un-dZF" secondAttribute="centerX" id="00y-A8-YKD"/>
                                                 <constraint firstItem="lym-aH-e96" firstAttribute="top" secondItem="ZjA-3n-AWs" secondAttribute="bottom" constant="10" id="0Rd-gd-CvK"/>
@@ -125,6 +126,9 @@
                                                 <constraint firstItem="ZjA-3n-AWs" firstAttribute="top" secondItem="l8e-Un-dZF" secondAttribute="top" id="m8t-I9-fmV"/>
                                                 <constraint firstItem="lym-aH-e96" firstAttribute="centerX" secondItem="ZjA-3n-AWs" secondAttribute="centerX" id="u4A-L9-lGD"/>
                                             </constraints>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="dZO-2a-EIa" appends="YES" id="iiY-Qw-vuG"/>
+                                            </connections>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Tokens" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkI-wb-dOg">
                                             <rect key="frame" x="21" y="396" width="65.5" height="24"/>
@@ -285,6 +289,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUv-eD-qdp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dZO-2a-EIa">
+                    <connections>
+                        <action selector="balanceViewPressed:" destination="l3T-C2-eCI" id="ixk-Mb-6Sc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="365.60000000000002" y="-394.45277361319341"/>
         </scene>

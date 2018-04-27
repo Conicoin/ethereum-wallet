@@ -45,7 +45,7 @@ class FiatCurrencyFactory {
   }
   
   static func amount(currency: Currency, rate: Double) -> String {
-    return FiatCurrencyFactory.amount(amount: currency.value, currency: currency, iso: currency.symbol, rate: rate)
+    return FiatCurrencyFactory.amount(amount: currency.value, currency: currency, iso: currency.iso, rate: rate)
   }
   
   static func amount(currency: Currency, iso: String, rate: Double) -> String {
@@ -58,11 +58,11 @@ class FiatCurrencyFactory {
   }
   
   static func amount(amount: Double, currency: Currency) -> String {
-    return FiatCurrencyFactory.amount(amount: amount, currency: currency, iso: currency.symbol, rate: 1)
+    return FiatCurrencyFactory.amount(amount: amount, currency: currency, iso: currency.iso, rate: 1)
   }
   
   static func amount(currency: Currency) -> String {
-    return FiatCurrencyFactory.amount(amount: currency.value, currency: currency, iso: currency.symbol, rate: 1)
+    return FiatCurrencyFactory.amount(amount: currency.value, currency: currency, iso: currency.iso, rate: 1)
   }
   
   // MARK: Privates

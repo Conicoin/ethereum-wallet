@@ -22,6 +22,6 @@ protocol SendInteractorInput: class {
   func getWallet()
   func getGasLimit()
   func getGasPrice()
-  func sendTransaction(amount: Decimal, to: String, gasLimit: Decimal, gasPrice: Decimal, pin: String, pinResult: PinResult?)
+  func sendTransaction(amount: Decimal, to: String, contract: String?, gasLimit: Decimal, gasPrice: Decimal, pin: String, pinResult: PinResult?)
   func getCheckout(for coin: CoinDisplayable, amount: Decimal, iso: String, fee: Decimal)
 }

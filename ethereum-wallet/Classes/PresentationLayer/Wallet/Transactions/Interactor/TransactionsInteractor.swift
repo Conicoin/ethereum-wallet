@@ -39,6 +39,10 @@ class TransactionsInteractor {
         }
       }
       
+      for map in sections {
+        sections[map.key] = map.value.sorted(by: { $0.time > $1.time })
+      }
+      
       let sortedSections = sections.keys.sorted(by: { $0 > $1 })
       DispatchQueue.main.async { [unowned self] in
         self.output.didReceiveSections(sections, sortedSections: sortedSections)

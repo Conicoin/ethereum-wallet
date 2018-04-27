@@ -20,18 +20,11 @@ import Foundation
 
 class TokenDetailsInteractor {
   weak var output: TokenDetailsInteractorOutput!
-  
-  var walletDataStoreservice: WalletDataStoreServiceProtocol!
 }
 
 
 // MARK: - TokenDetailsInteractorInput
 
 extension TokenDetailsInteractor: TokenDetailsInteractorInput {
-  
-  func getWallet() {
-    let wallet = walletDataStoreservice.getWallet()
-    output.didReceiveWallet(wallet)
-  }
 
 }

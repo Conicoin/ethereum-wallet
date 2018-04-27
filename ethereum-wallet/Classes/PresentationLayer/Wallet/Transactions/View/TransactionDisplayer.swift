@@ -20,6 +20,7 @@ import UIKit
 struct TransactionDisplayer {
   
   let tx: Transaction
+  let isError: Bool
   let status: String?
   let imageName: String
   let title: String
@@ -27,6 +28,7 @@ struct TransactionDisplayer {
   let totalAmount: String
   let fee: String
   let isTokenTransfer: Bool
+  let time: Date
     
   init(tx: Transaction) {
     self.tx = tx
@@ -47,8 +49,10 @@ struct TransactionDisplayer {
     
     if let error = tx.error, !error.isEmpty {
       self.imageName = "TxError"
+      self.isError = true
     } else {
       self.imageName = tx.isIncoming ? "TxReceived" : "TxSent"
+      self.isError = false
     }
     
     let address: String! = tx.isIncoming ? tx.from : tx.to
@@ -60,6 +64,7 @@ struct TransactionDisplayer {
     
     self.amountString = tx.isIncoming ? "+ \(tx.amount.amountString)" : "- \(tx.amount.amountString)"
     self.isTokenTransfer = tx.tokenMeta != nil
+    self.time = tx.timeStamp
   }
   
 }

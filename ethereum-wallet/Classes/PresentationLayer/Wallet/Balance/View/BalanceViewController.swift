@@ -32,7 +32,6 @@ class BalanceViewController: UIViewController {
   
   private var refresh: UIRefreshControl!
   private var tokens = [Token]()
-  private var localCurrency = Constants.Wallet.defaultCurrency
   
   // MARK: Life cycle
 
@@ -74,13 +73,12 @@ class BalanceViewController: UIViewController {
     sendLabel.text = Localized.balanceSend()
   }
   
-  private func updateTokensDetails() {
+  private func updateTotalTokenAmount(_ currency: String) {
     var summ: Double = 0
     for token in tokens {
-      summ += token.rawAmount(for: localCurrency)
+      summ += token.rawAmount(for: currency)
     }
-    
-    tokenBalanceLabel.text = FiatCurrencyFactory.amount(amount: summ, iso: localCurrency)
+    tokenBalanceLabel.text = FiatCurrencyFactory.amount(amount: summ, iso: currency)
     tokenCountLabel.text = Localized.balanceTokenCount("\(tokens.count)")
   }
   
@@ -99,6 +97,11 @@ class BalanceViewController: UIViewController {
     generator.selectionChanged()
     output.didRefresh()
   }
+  
+  @IBAction func balanceViewPressed(_ sender: UITapGestureRecognizer) {
+    output.didBalanceViewPressed()
+  }
+  
 }
 
 // MARK: - TableView
@@ -139,16 +142,18 @@ extension BalanceViewController: BalanceViewInput {
     refresh.endRefreshing()
   }
   
-  func didReceiveWallet(_ wallet: Wallet) {
-    self.localCurrency = wallet.localCurrency
-    updateTokensDetails()
+  func didReceiveCurrency(_ currency: String) {
+    updateTotalTokenAmount(currency)
+  }
+  
+  func didChangePreviewCurrency(_ currency: String, coin: Coin) {
+    updateTotalTokenAmount(currency)
+    titleLabel.text = coin.fiatLabelString(currency)
   }
   
   func didReceiveTokens(_ tokens: [Token]) {
     self.tokens = tokens
     tableView.reloadData()
-    updateTokensDetails()
-    
   }
   
   func didReceiveCoin(_ coin: Coin) {
