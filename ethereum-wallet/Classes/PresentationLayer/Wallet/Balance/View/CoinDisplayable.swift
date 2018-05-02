@@ -23,6 +23,8 @@ protocol CoinDisplayable {
   var color: UIColor { get }
   var iconUrl: URL? { get }
   var gasLimit: Decimal { get }
+  var contract: String? { get }
+  var tokenMeta: TokenMeta? { get }
   func amountString(with amount: Decimal) -> String
   func placeholder(with size: CGSize) -> UIImage
 }
@@ -67,6 +69,14 @@ extension Coin: CoinDisplayable {
     return Theme.Color.ethereum
   }
   
+  var contract: String? {
+    return nil
+  }
+  
+  var tokenMeta: TokenMeta? {
+    return nil
+  }
+  
   func placeholder(with size: CGSize) -> UIImage {
     return R.image.ethereumIcon()!.withRenderingMode(.alwaysTemplate)
   }
@@ -85,6 +95,14 @@ extension Token: CoinDisplayable {
   
   var color: UIColor {
     return Theme.Color.token
+  }
+  
+  var contract: String? {
+    return self.address
+  }
+  
+  var tokenMeta: TokenMeta? {
+    return TokenMeta(address: address, name: balance.name, iso: balance.iso, decimals: decimals)
   }
   
   func placeholder(with size: CGSize) -> UIImage {

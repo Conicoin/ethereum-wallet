@@ -10,7 +10,7 @@ import UIKit
 
 extension Data {
   
-  func toHexString() -> String {
+  func hex() -> String {
     return map { String(format: "%02x", $0) }
       .joined(separator: "")
   }

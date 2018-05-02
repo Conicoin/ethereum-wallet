@@ -91,9 +91,7 @@ extension TabBarInteractor: SyncCoordinatorDelegate {
   }
   
   func syncDidReceiveTransactions(_ gethTransactions: [GethTransaction], timestamp: Int64) {
-    var transactions = gethTransactions.map { Transaction.mapFromGethTransaction($0, time: TimeInterval(timestamp)) }
-    let wallet = walletDataStoreService.getWallet()
-    transactionsDataStoreServise.markAndSaveTransactions(&transactions, address: wallet.address)
+    // TODO: Storing transaction for LES Sync
   }
   
   

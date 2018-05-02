@@ -75,7 +75,7 @@ extension KeyKDFParams: Codable {
         try container.encode(n, forKey: .n)
         try container.encode(r, forKey: .r)
         try container.encode(p, forKey: .p)
-        try container.encode(salt.toHexString(), forKey: .salt)
+        try container.encode(salt.hex(), forKey: .salt)
     }
     
 }

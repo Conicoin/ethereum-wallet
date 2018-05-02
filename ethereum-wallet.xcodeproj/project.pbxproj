@@ -137,7 +137,6 @@
 		146DB0851FA0080A000D3564 /* WalletNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0841FA0080A000D3564 /* WalletNetworkServiceProtocol.swift */; };
 		146DB0871FA00819000D3564 /* WalletNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0861FA00819000D3564 /* WalletNetworkService.swift */; };
 		146F32152064F48C0023B52A /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F32142064F48C0023B52A /* Loader.swift */; };
-		1475B74B201A67820020EA8A /* TransactionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475B74A201A67820020EA8A /* TransactionInput.swift */; };
 		14773B7620891A49006B35C0 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14773B7520891A49006B35C0 /* WalletManager.swift */; };
 		14786ED7201E05E1009ECC11 /* HexDataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786ED6201E05E1009ECC11 /* HexDataTransform.swift */; };
 		14786EE7201E6D2F009ECC11 /* TransactionDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EE6201E6D2F009ECC11 /* TransactionDisplayer.swift */; };
@@ -165,6 +164,7 @@
 		149AA0621FD614F900F961FA /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AA0611FD614F900F961FA /* TransactionService.swift */; };
 		149CD64820892282005E3DBD /* WalletManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149CD64720892282005E3DBD /* WalletManagerProtocol.swift */; };
 		149CD64A20892301005E3DBD /* WalletManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149CD64920892301005E3DBD /* WalletManagerFactory.swift */; };
+		14A799812098E7FF00CA9101 /* PendingTxBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A799802098E7FF00CA9101 /* PendingTxBuilder.swift */; };
 		14ACA1D71EF2BC840059E430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1D61EF2BC840059E430 /* AppDelegate.swift */; };
 		14ACA1E01EF2BCB70059E430 /* EthereumCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1DE1EF2BCB70059E430 /* EthereumCore.swift */; };
 		14ACA1E51EF2BCC80059E430 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1E21EF2BCC80059E430 /* Defaults.swift */; };
@@ -527,7 +527,6 @@
 		146DB0841FA0080A000D3564 /* WalletNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		146DB0861FA00819000D3564 /* WalletNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNetworkService.swift; sourceTree = "<group>"; };
 		146F32142064F48C0023B52A /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
-		1475B74A201A67820020EA8A /* TransactionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInput.swift; sourceTree = "<group>"; };
 		14773B7520891A49006B35C0 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		14786ED6201E05E1009ECC11 /* HexDataTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexDataTransform.swift; sourceTree = "<group>"; };
 		14786EE6201E6D2F009ECC11 /* TransactionDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDisplayer.swift; sourceTree = "<group>"; };
@@ -555,6 +554,7 @@
 		149AA0611FD614F900F961FA /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		149CD64720892282005E3DBD /* WalletManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManagerProtocol.swift; sourceTree = "<group>"; };
 		149CD64920892301005E3DBD /* WalletManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManagerFactory.swift; sourceTree = "<group>"; };
+		14A799802098E7FF00CA9101 /* PendingTxBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingTxBuilder.swift; sourceTree = "<group>"; };
 		14ACA1D61EF2BC840059E430 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14ACA1DE1EF2BCB70059E430 /* EthereumCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumCore.swift; sourceTree = "<group>"; };
 		14ACA1E21EF2BCC80059E430 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -1445,6 +1445,7 @@
 		149AA05E1FD614A600F961FA /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				14A7997F2098E7E600CA9101 /* PendingTxBuilder */,
 				14DFA311207DE834008F6F92 /* TxMetaResolver */,
 				14BF259A2012625600CAFCFD /* Factory */,
 				149AA05F1FD614E400F961FA /* TransactionServiceProtocol.swift */,
@@ -1464,6 +1465,14 @@
 				1433BDB51FD6C75D0081D872 /* SyncCoordinatorDelegate.swift */,
 			);
 			path = Sync;
+			sourceTree = "<group>";
+		};
+		14A7997F2098E7E600CA9101 /* PendingTxBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				14A799802098E7FF00CA9101 /* PendingTxBuilder.swift */,
+			);
+			path = PendingTxBuilder;
 			sourceTree = "<group>";
 		};
 		14B126AB205BDADC00B98AE1 /* Import */ = {
@@ -1614,7 +1623,6 @@
 				1400FBB81F997DC100EBC84C /* Wallet.swift */,
 				14F419251F9BF88E000C500A /* Transaction.swift */,
 				14786EEA201E7A1C009ECC11 /* TokenMeta.swift */,
-				1475B74A201A67820020EA8A /* TransactionInput.swift */,
 			);
 			name = Plain;
 			sourceTree = "<group>";
@@ -2938,6 +2946,7 @@
 				97C6DFDAC5C6F69DDBDFB874 /* WelcomeInteractor.swift in Sources */,
 				63C15D01BDCF21B7ED56B12A /* WelcomeRouterInput.swift in Sources */,
 				100B21873E18F9DFAA6FBC64 /* WelcomeRouter.swift in Sources */,
+				14A799812098E7FF00CA9101 /* PendingTxBuilder.swift in Sources */,
 				0F9807BD59C8B14D45D87E85 /* WelcomeModuleInput.swift in Sources */,
 				146DB0831FA007F9000D3564 /* TransactionsNetworkServiceProtocol.swift in Sources */,
 				0452F2CC567D5791911CA5C9 /* WelcomeModuleOutput.swift in Sources */,
@@ -3002,7 +3011,6 @@
 				63323B3CB7425083EDB6C14E /* BalanceModuleOutput.swift in Sources */,
 				0F2BAFD4E96319C70DE43D5F /* BalanceModule.swift in Sources */,
 				142730FD1FB8CF3400ED9968 /* QRCaptureServiceProtocol.swift in Sources */,
-				1475B74B201A67820020EA8A /* TransactionInput.swift in Sources */,
 				D63EE237539093A59D2ADF42 /* TransactionsViewInput.swift in Sources */,
 				14991D9920570F690046E6CD /* PinRepository.swift in Sources */,
 				A6EB2074CF07678E771B62CA /* TransactionsViewOutput.swift in Sources */,

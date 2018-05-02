@@ -34,23 +34,6 @@ struct Transaction {
   var tokenMeta: TokenMeta?
   var isIncoming = false
   var isPending = false
-
-  
-  static func mapFromGethTransaction(_ object: GethTransaction, time: TimeInterval) -> Transaction {
-    var tx = Transaction()
-    tx.txHash = object.getHash().getHex()
-    tx.blockNumber = 0
-    tx.timeStamp = Date(timeIntervalSince1970: time)
-    tx.nonce = object.getNonce()
-    tx.from = ""
-    tx.to = object.getTo().getHex()
-    tx.gas = Decimal(object.getGas())
-    tx.gasPrice = Decimal(object.getGasPrice().string())
-    tx.gasUsed = Decimal(object.getCost().string())
-    tx.error = ""
-    tx.amount = Ether(weiString: object.getValue().string()!)
-    return tx
-  }
   
 }
 

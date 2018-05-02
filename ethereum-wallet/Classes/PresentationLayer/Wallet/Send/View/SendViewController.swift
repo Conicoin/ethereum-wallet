@@ -45,6 +45,7 @@ class SendViewController: UIViewController {
     localize()
     setupTextFields()
     scrollView.setupBorder()
+    recepientTextField.textField.addTarget(self, action: #selector(addressChanged(_:)), for: .editingChanged)
     output.viewIsReady()
   }
   
@@ -62,7 +63,6 @@ class SendViewController: UIViewController {
   }
   
   private func setupTextFields() {
-    recepientTextField.textField.delegate = self
     recepientTextField.textField.setRightPadding(30)
 
   }
@@ -103,19 +103,8 @@ class SendViewController: UIViewController {
     output.didChangeAmount(sender.text!)
   }
   
-}
-
-// MARK: - UITextFieldDelegate
-
-extension SendViewController: UITextFieldDelegate {
-  
-  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    output.didChangeAddress(textField.text!)
-    return true
-  }
-  
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    return true
+  @objc func addressChanged(_ sender: UITextField) {
+    output.didChangeAddress(sender.text!)
   }
   
 }

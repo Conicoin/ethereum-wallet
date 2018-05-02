@@ -43,9 +43,9 @@ struct KeyCrypto: Codable {
     data.append(encryptedData)
     
     let mac = data.sha3(.keccak256)
-    self.init(ciphertext: encryptedData.toHexString(),
+    self.init(ciphertext: encryptedData.hex(),
               cipherparams: cipherparams,
               kdfparams: kdfparams,
-              mac: mac.toHexString())
+              mac: mac.hex())
   }
 }

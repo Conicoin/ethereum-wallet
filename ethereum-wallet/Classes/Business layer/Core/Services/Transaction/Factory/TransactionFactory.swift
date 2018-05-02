@@ -70,16 +70,15 @@ extension TransactionFactory {
     let address = info.address.lowercased().replacingOccurrences(of: "0x", with: "")
     let weiAmount = info.amount * 1e18
     let hexAmount = weiAmount.toHex().withLeadingZero(64)
-    let hexData = transferSignature.toHexString() + "000000000000000000000000" + address + hexAmount
+    let hexData = transferSignature.hex() + "000000000000000000000000" + address + hexAmount
     guard let data = hexData.toHexData() else {
       throw TransactionFactoryError.badSignature
     }
     let nonce = transactionTemplate.getNonce()
     let to = transactionTemplate.getTo()
-    let fakeAmount = GethBigInt(0)
     let gasLimit = transactionTemplate.getGas()
     let gasPrice = transactionTemplate.getGasPrice()
-    return GethNewTransaction(nonce, to, fakeAmount, gasLimit, gasPrice, data)
+    return GethNewTransaction(nonce, to, GethBigInt(0), gasLimit, gasPrice, data)
   }
   
 }

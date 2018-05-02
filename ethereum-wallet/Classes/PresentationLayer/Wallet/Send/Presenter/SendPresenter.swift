@@ -71,9 +71,7 @@ extension SendPresenter: SendViewOutput {
   func didSendPressed() {
     let amountString = coin.amountString(with: amount)
     router.presentPin(from: view.viewController, amount: amountString, address: address) { [unowned self] pin, routing in
-      let token = self.coin as? Token
-      let contract = token?.address
-      self.interactor.sendTransaction(amount: self.amount, to: self.address, contract: contract, gasLimit: self.gasLimit, gasPrice: self.gasPrice, pin: pin, pinResult: routing)
+      self.interactor.sendTransaction(coin: self.coin, amount: self.amount, to: self.address, gasLimit: self.gasLimit, gasPrice: self.gasPrice, pin: pin, pinResult: routing)
     }
   }
   

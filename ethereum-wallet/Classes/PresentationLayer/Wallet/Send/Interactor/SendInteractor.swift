@@ -47,18 +47,19 @@ extension SendInteractor: SendInteractorInput {
     output.didReceiveWallet(wallet)
   }
   
-  func sendTransaction(amount: Decimal, to: String, contract: String?, gasLimit: Decimal, gasPrice: Decimal, pin: String, pinResult: PinResult?) {
+  func sendTransaction(coin: CoinDisplayable, amount: Decimal, to: String, gasLimit: Decimal, gasPrice: Decimal, pin: String, pinResult: PinResult?) {
     
 //    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
 //      pinResult?(.success(true))
 //    }
     
-    let info = TransactionInfo(amount: amount, address: to, contractAddress: contract, gasLimit: gasLimit, gasPrice: gasPrice)
+    let info = TransactionInfo(amount: amount, address: to, contractAddress: coin.contract, gasLimit: gasLimit, gasPrice: gasPrice)
     
     transactionService.sendTransaction(with: info, passphrase: pin) { [unowned self] result in
       switch result {
       case .success(let sendedTransaction):
-        var transaction = Transaction.mapFromGethTransaction(sendedTransaction, time: Date().timeIntervalSince1970)
+        let builder = PendingTxBuilder()
+        var transaction = builder.build(sendedTransaction, time: Date(), txMeta: coin.tokenMeta)
         transaction.isPending = true
         transaction.isIncoming = false
         self.transactionsDataStoreService.save(transaction)

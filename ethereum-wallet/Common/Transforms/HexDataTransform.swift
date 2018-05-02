@@ -34,6 +34,6 @@ class HexDataTransform: TransformType {
     guard let data = value else{
       return nil
     }
-    return data.toHexString()
+    return data.hex()
   }
 }
