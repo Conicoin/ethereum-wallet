@@ -24,17 +24,17 @@ struct Ether {
   let value: Double
 
   init(_ value: Decimal) {
-    self.raw = value
+    self.raw = value * 1e18
     self.value = value.double
   }
   
   init(weiValue: Decimal) {
-    self.raw = weiValue / 1e18
+    self.raw = weiValue
     self.value = weiValue.double / 1e18
   }
   
   init(_ double: Double) {
-    self.raw = Decimal(double)
+    self.raw = Decimal(double) * 1e18
     self.value = double
   }
   

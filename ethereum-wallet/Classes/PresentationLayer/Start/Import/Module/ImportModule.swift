@@ -40,11 +40,10 @@ class ImportModule {
     
     // MARK: Injection
     
-    let keystore = KeystoreService()
-    let walletDataStore = WalletDataStoreService()
-    
+    let walletManager = WalletManagerFactory().create()
+    interactor.walletImporter = WalletImporterFactory(walletManager: walletManager).create(state)
+
     interactor.verificator = ImportVerificatorFactory().create(state)
-    interactor.walletImporter = WalletImporterFactory(keystoreService: keystore, walletDataStoreService: walletDataStore).create(state)
     presenter.state = ImportStateFactory(state: state).create()
         
     return presenter

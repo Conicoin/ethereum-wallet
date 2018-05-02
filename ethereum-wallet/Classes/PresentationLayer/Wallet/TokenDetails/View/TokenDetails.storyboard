@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,6 +68,7 @@
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="G0V-Ir-fNy" firstAttribute="top" secondItem="r4N-YV-NaQ" secondAttribute="bottom" constant="10" id="0oj-Hf-jvG"/>
                                                     <constraint firstItem="neZ-ot-F9J" firstAttribute="top" secondItem="bYu-Y5-8UZ" secondAttribute="top" constant="16" id="5HV-SI-m0t"/>
@@ -80,6 +81,9 @@
                                                     <constraint firstAttribute="trailing" secondItem="lDY-aK-JcQ" secondAttribute="trailing" constant="16" id="UhD-PL-yLo"/>
                                                     <constraint firstItem="neZ-ot-F9J" firstAttribute="centerX" secondItem="bYu-Y5-8UZ" secondAttribute="centerX" id="sus-bR-4XP"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="ncE-SC-Z7q" appends="YES" id="OAx-5Z-Mha"/>
+                                                </connections>
                                             </view>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAT-vO-gbJ">
                                                 <rect key="frame" x="0.0" y="313" width="375" height="104"/>
@@ -94,7 +98,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dh1-Cm-eVR">
-                                                        <rect key="frame" x="16" y="64" width="343" height="0.0"/>
+                                                        <rect key="frame" x="12" y="64" width="349" height="0.0"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                         <color key="textColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
@@ -106,8 +110,8 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="dh1-Cm-eVR" firstAttribute="top" secondItem="L5Z-wO-2wS" secondAttribute="bottom" constant="20" id="0op-9o-Zez"/>
-                                                    <constraint firstAttribute="trailing" secondItem="dh1-Cm-eVR" secondAttribute="trailing" constant="16" id="BHb-As-IDV"/>
-                                                    <constraint firstItem="dh1-Cm-eVR" firstAttribute="leading" secondItem="cAT-vO-gbJ" secondAttribute="leading" constant="16" id="FKM-ci-e4P"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dh1-Cm-eVR" secondAttribute="trailing" constant="14" id="BHb-As-IDV"/>
+                                                    <constraint firstItem="dh1-Cm-eVR" firstAttribute="leading" secondItem="cAT-vO-gbJ" secondAttribute="leading" constant="12" id="FKM-ci-e4P"/>
                                                     <constraint firstAttribute="bottom" secondItem="dh1-Cm-eVR" secondAttribute="bottom" constant="40" id="HJ7-SK-LLi"/>
                                                     <constraint firstItem="L5Z-wO-2wS" firstAttribute="top" secondItem="cAT-vO-gbJ" secondAttribute="top" constant="24" id="JxV-js-0GT"/>
                                                     <constraint firstItem="L5Z-wO-2wS" firstAttribute="leading" secondItem="cAT-vO-gbJ" secondAttribute="leading" constant="16" id="exx-9b-Z4r"/>
@@ -131,10 +135,10 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPL-cE-QVm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="64"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0xab95e915c123fded5bdfb6325e35ef5515f1ea69" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fcr-Qb-IcE">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0xab95e915c123fded5bdfb6325e35ef5515f1ea69" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fcr-Qb-IcE" customClass="CopyableLabel" customModule="ethereum_wallet" customModuleProvider="target">
                                                                         <rect key="frame" x="116" y="4" width="227" height="52"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                        <color key="textColor" red="0.1019607843" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="textColor" red="0.0" green="0.45882352939999999" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uj-LE-ZnW">
@@ -278,6 +282,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwK-gF-YyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ncE-SC-Z7q">
+                    <connections>
+                        <action selector="balanceViewPressed:" destination="rmK-XT-M4F" id="9da-OT-7hX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1640.8" y="-563.11844077961018"/>
         </scene>

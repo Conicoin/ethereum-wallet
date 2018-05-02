@@ -20,5 +20,6 @@ import UIKit
 
 
 protocol ScanViewOutput: class {
-  func viewIsReady()  
+  func viewIsReady()
+  func didCancelPressed()
 }

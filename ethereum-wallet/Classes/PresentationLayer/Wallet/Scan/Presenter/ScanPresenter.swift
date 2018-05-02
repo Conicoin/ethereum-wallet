@@ -30,6 +30,10 @@ class ScanPresenter {
     interactor.stopQRCapture()
   }
     
+  func dismiss() {
+    view.dissmissModal()
+  }
+    
 }
 
 
@@ -40,6 +44,10 @@ extension ScanPresenter: ScanViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     interactor.startQRCapture()
+  }
+  
+  func didCancelPressed() {
+    dismiss()
   }
 
 }
@@ -63,7 +71,7 @@ extension ScanPresenter: ScanInteractorOutput {
       return
     }
     output?.didDetectQRCode(code)
-    view.dissmiss()
+    dismiss()
   }
   
 }
@@ -75,7 +83,7 @@ extension ScanPresenter: ScanModuleInput {
   
   func present(from: UIViewController, output: ScanModuleOutput) {
     self.output = output
-    view.present(fromViewController: from)
+    view.presentModal(fromViewController: from)
   }
 
 }

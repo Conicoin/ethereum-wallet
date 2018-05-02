@@ -25,4 +25,5 @@ protocol BalanceViewOutput: class {
   func didSelectToken(_ token: Token)
   func didSendPressed()
   func didReceivePressed()
+  func didBalanceViewPressed()
 }

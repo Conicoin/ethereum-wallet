@@ -21,4 +21,5 @@ import UIKit
 protocol TokenDetailsViewOutput: class {
   func viewIsReady()
   func didSendPressed()
+  func didBalanceViewPressed()
 }

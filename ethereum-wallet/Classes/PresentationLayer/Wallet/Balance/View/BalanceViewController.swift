@@ -16,7 +16,6 @@
 
 
 import UIKit
-import SpringIndicator
 
 class BalanceViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
@@ -31,9 +30,8 @@ class BalanceViewController: UIViewController {
     
   var output: BalanceViewOutput!
   
-  private var refresh: RefreshIndicator!
+  private var refresh: UIRefreshControl!
   private var tokens = [Token]()
-  private var localCurrency = Constants.Wallet.defaultCurrency
   
   // MARK: Life cycle
 
@@ -64,7 +62,9 @@ class BalanceViewController: UIViewController {
     tableView.contentInsetAdjustmentBehavior = .never
     tableView.backgroundColor = Theme.Color.lightGray
     tableView.setupBorder()
-    refresh = tableView.setupRefresh(target: self, selector: #selector(refresh(_:)))
+    refresh = UIRefreshControl()
+    tableView.refreshControl = refresh
+    refresh.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
   }
   
   private func localize() {
@@ -73,13 +73,12 @@ class BalanceViewController: UIViewController {
     sendLabel.text = Localized.balanceSend()
   }
   
-  private func updateTokensDetails() {
+  private func updateTotalTokenAmount(_ currency: String) {
     var summ: Double = 0
     for token in tokens {
-      summ += token.rawAmount(for: localCurrency)
+      summ += token.rawAmount(for: currency)
     }
-    
-    tokenBalanceLabel.text = FiatCurrencyFactory.amount(amount: summ, iso: localCurrency)
+    tokenBalanceLabel.text = FiatCurrencyFactory.amount(amount: summ, iso: currency)
     tokenCountLabel.text = Localized.balanceTokenCount("\(tokens.count)")
   }
   
@@ -93,11 +92,16 @@ class BalanceViewController: UIViewController {
     output.didReceivePressed()
   }
   
-  @objc func refresh(_ sender: UIControl) {
+  @objc func refresh(_ sender: UIRefreshControl) {
     let generator = UISelectionFeedbackGenerator()
     generator.selectionChanged()
     output.didRefresh()
   }
+  
+  @IBAction func balanceViewPressed(_ sender: UITapGestureRecognizer) {
+    output.didBalanceViewPressed()
+  }
+  
 }
 
 // MARK: - TableView
@@ -120,6 +124,7 @@ extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
   }
     
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
     output.didSelectToken(tokens[indexPath.row])
   }
 
@@ -137,16 +142,18 @@ extension BalanceViewController: BalanceViewInput {
     refresh.endRefreshing()
   }
   
-  func didReceiveWallet(_ wallet: Wallet) {
-    self.localCurrency = wallet.localCurrency
-    updateTokensDetails()
+  func didReceiveCurrency(_ currency: String) {
+    updateTotalTokenAmount(currency)
+  }
+  
+  func didChangePreviewCurrency(_ currency: String, coin: Coin) {
+    updateTotalTokenAmount(currency)
+    titleLabel.text = coin.fiatLabelString(currency)
   }
   
   func didReceiveTokens(_ tokens: [Token]) {
     self.tokens = tokens
     tableView.reloadData()
-    updateTokensDetails()
-    
   }
   
   func didReceiveCoin(_ coin: Coin) {

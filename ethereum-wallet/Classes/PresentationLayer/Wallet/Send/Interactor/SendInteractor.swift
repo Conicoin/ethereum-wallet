@@ -36,7 +36,7 @@ extension SendInteractor: SendInteractorInput {
   func getCheckout(for coin: CoinDisplayable, amount: Decimal, iso: String, fee: Decimal) {
     do {
       let checkout = try checkoutService.checkout(for: coin, amount: amount, iso: iso, fee: fee)
-      output.didReceiveCheckout(amount: checkout.amount, fiatAmount: checkout.fiatAmount, fee: checkout.fee)
+      output.didReceiveCheckout(amount: checkout.amount, total: checkout.total, fiatAmount: checkout.fiatAmount, fee: checkout.fee)
     } catch let error {
       output.didFailed(with: error)
     }
@@ -47,26 +47,27 @@ extension SendInteractor: SendInteractorInput {
     output.didReceiveWallet(wallet)
   }
   
-  func sendTransaction(amount: Decimal, to: String, gasLimit: Decimal, gasPrice: Decimal) {
-    do {
-      let keychain = Keychain()
-      let passphrase = try keychain.getPassphrase()
-      let info = TransactionInfo(amount: amount, address: to, contractAddress: nil, gasLimit: gasLimit, gasPrice: gasPrice)
-      transactionService.sendTransaction(with: info, passphrase: passphrase) { [weak self] result in
-        guard let `self` = self else { return }
-        switch result {
-        case .success(let sendedTransaction):
-          var transaction = Transaction.mapFromGethTransaction(sendedTransaction, time: Date().timeIntervalSince1970)
-          transaction.isPending = true
-          transaction.isIncoming = false
-          self.transactionsDataStoreService.save(transaction)
-          self.output.didSendTransaction()
-        case .failure(let error):
-          self.output.didFailedSending(with: error)
-        }
+  func sendTransaction(coin: CoinDisplayable, amount: Decimal, to: String, gasLimit: Decimal, gasPrice: Decimal, pin: String, pinResult: PinResult?) {
+    
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//      pinResult?(.success(true))
+//    }
+    
+    let info = TransactionInfo(amount: amount, address: to, contractAddress: coin.contract, gasLimit: gasLimit, gasPrice: gasPrice)
+    
+    transactionService.sendTransaction(with: info, passphrase: pin) { [unowned self] result in
+      switch result {
+      case .success(let sendedTransaction):
+        let builder = PendingTxBuilder()
+        var transaction = builder.build(sendedTransaction, time: Date(), txMeta: coin.tokenMeta)
+        transaction.isPending = true
+        transaction.isIncoming = false
+        self.transactionsDataStoreService.save(transaction)
+        pinResult?(.success(true))
+      case .failure(let error):
+        pinResult?(.failure(error))
+        self.output.didFailedSending(with: error)
       }
-    } catch {
-      output.didFailedSending(with: error)
     }
   }
   
@@ -93,5 +94,5 @@ extension SendInteractor: SendInteractorInput {
       }
     }
   }
-
+  
 }

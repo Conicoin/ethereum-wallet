@@ -42,5 +42,9 @@ extension UIViewController {
   func pop() {
     navigationController?.popViewController(animated: true)
   }
+  
+  func popToRoot() {
+    navigationController?.popToRootViewController(animated: true)
+  }
 
 }

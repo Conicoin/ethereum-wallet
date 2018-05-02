@@ -23,26 +23,22 @@ struct TokenValue: Currency {
   let value: Double
   let name: String
   let iso: String
+  let decimals: Int64
   
-  init(_ value: Decimal, name: String, iso: String) {
+  init(wei value: Decimal, name: String, iso: String, decimals: Int64) {
     self.raw = value
+    self.value = value.double / pow(10, Double(decimals))
+    self.name = name
+    self.iso = iso
+    self.decimals = decimals
+  }
+  
+  init(_ value: Decimal, name: String, iso: String, decimals: Int64) {
+    self.raw = value * Decimal(pow(10, Double(decimals)))
     self.value = value.double
     self.name = name
     self.iso = iso
-  }
-  
-  init(weiValue: Decimal, name: String, iso: String) {
-    self.init(weiValue / 1e18, name: name, iso: iso)
-  }
-  
-  init(_ string: String, name: String, iso: String) {
-    let number = Decimal(string)
-    self.init(number, name: name, iso: iso)
-  }
-  
-  init(weiString: String, name: String, iso: String) {
-    let number = Decimal(weiString)
-    self.init(weiValue: number, name: name, iso: iso)
+    self.decimals = decimals
   }
   
   var symbol: String {

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,21 +87,32 @@
                                                     <color key="textColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dR3-qm-2vX">
+                                                    <rect key="frame" x="316" y="27.5" width="47" height="1"/>
+                                                    <color key="backgroundColor" red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="iia-dr-jfR"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="KjP-Ow-2p9" firstAttribute="leading" secondItem="SUg-je-ZL1" secondAttribute="trailing" constant="16" id="8vf-1Z-qEY"/>
                                                 <constraint firstItem="f3a-kf-gpc" firstAttribute="leading" secondItem="KjP-Ow-2p9" secondAttribute="leading" id="9rA-z7-UWJ"/>
+                                                <constraint firstItem="dR3-qm-2vX" firstAttribute="centerY" secondItem="gLe-nM-J37" secondAttribute="centerY" id="GQn-OH-OhX"/>
                                                 <constraint firstItem="SUg-je-ZL1" firstAttribute="leading" secondItem="l6N-KH-SdJ" secondAttribute="leading" constant="16" id="Mvh-Rx-Z1q"/>
+                                                <constraint firstItem="gLe-nM-J37" firstAttribute="trailing" secondItem="dR3-qm-2vX" secondAttribute="trailing" constant="-4" id="Uld-a2-Y6X"/>
                                                 <constraint firstItem="gLe-nM-J37" firstAttribute="top" secondItem="l6N-KH-SdJ" secondAttribute="top" constant="16" id="W6e-BL-yKu"/>
                                                 <constraint firstItem="KjP-Ow-2p9" firstAttribute="top" secondItem="l6N-KH-SdJ" secondAttribute="top" constant="16" id="Zcq-NE-59o"/>
                                                 <constraint firstAttribute="trailing" secondItem="gLe-nM-J37" secondAttribute="trailing" constant="16" id="dhL-0w-e3q"/>
                                                 <constraint firstItem="f3a-kf-gpc" firstAttribute="top" secondItem="KjP-Ow-2p9" secondAttribute="bottom" id="fGg-fH-RaF"/>
+                                                <constraint firstItem="gLe-nM-J37" firstAttribute="leading" secondItem="dR3-qm-2vX" secondAttribute="leading" constant="4" id="waS-P3-YzT"/>
                                                 <constraint firstItem="SUg-je-ZL1" firstAttribute="centerY" secondItem="l6N-KH-SdJ" secondAttribute="centerY" id="zso-1V-GmL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="amountLabel" destination="gLe-nM-J37" id="1Ry-Cd-p9B"/>
                                             <outlet property="descriptionLabel" destination="f3a-kf-gpc" id="hUe-3B-irU"/>
+                                            <outlet property="errorLineView" destination="dR3-qm-2vX" id="U64-U2-AWn"/>
                                             <outlet property="iconImageView" destination="SUg-je-ZL1" id="R2S-Z0-Scl"/>
                                             <outlet property="titleLabel" destination="KjP-Ow-2p9" id="p2o-Ef-dpC"/>
                                         </connections>

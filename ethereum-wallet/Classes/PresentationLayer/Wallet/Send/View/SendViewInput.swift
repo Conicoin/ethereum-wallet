@@ -24,8 +24,6 @@ protocol SendViewInput: class, Presentable {
   func inputDataIsValid(_ isValid: Bool)
   func didReceiveCoin(_ coin: CoinDisplayable)
   func didDetectQRCode(_ code: String)
-  func didReceiveCheckout(amount: String, fiatAmount: String, fee: String)
-  func showLoading()
-  func loadingSuccess()
+  func didReceiveCheckout(amount: String, total: String, fiatAmount: String, fee: String)
   func loadingFilure()
 }

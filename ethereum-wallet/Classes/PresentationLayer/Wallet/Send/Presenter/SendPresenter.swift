@@ -28,7 +28,7 @@ class SendPresenter {
   
   private var amount: Decimal = 0
   private var address: String!
-  private var gasLimit: Decimal = Constants.Send.defaultGasLimit
+  private var gasLimit: Decimal!
   private var gasPrice: Decimal = Constants.Send.defaultGasPrice
   
   private var selectedCurrency = Constants.Wallet.defaultCurrency
@@ -69,13 +69,10 @@ extension SendPresenter: SendViewOutput {
   }
   
   func didSendPressed() {
-    guard let rate = coin.rates.filter({ $0.to == selectedCurrency }).first else {
-      return
+    let amountString = coin.amountString(with: amount)
+    router.presentPin(from: view.viewController, amount: amountString, address: address) { [unowned self] pin, routing in
+      self.interactor.sendTransaction(coin: self.coin, amount: self.amount, to: self.address, gasLimit: self.gasLimit, gasPrice: self.gasPrice, pin: pin, pinResult: routing)
     }
-    let amountEther = amount.localToEther(rate: rate.value).toWei()
-    
-    view.showLoading()
-    interactor.sendTransaction(amount: amountEther, to: address, gasLimit: gasLimit, gasPrice: gasPrice)
   }
   
   func didChangeAmount(_ amount: String) {
@@ -122,13 +119,8 @@ extension SendPresenter: SendInteractorOutput {
     calculateTotalAmount()
   }
   
-  func didSendTransaction() {
-    view.loadingSuccess()
-    view.popToRoot()
-  }
-  
-  func didReceiveCheckout(amount: String, fiatAmount: String, fee: String) {
-    view.didReceiveCheckout(amount: amount, fiatAmount: fiatAmount, fee: fee)
+  func didReceiveCheckout(amount: String, total: String, fiatAmount: String, fee: String) {
+    view.didReceiveCheckout(amount: amount, total: total, fiatAmount: fiatAmount, fee: fee)
   }
   
   func didFailed(with error: Error) {
@@ -137,7 +129,6 @@ extension SendPresenter: SendInteractorOutput {
   
   func didFailedSending(with error: Error) {
     view.loadingFilure()
-    error.showAllertIfNeeded(from: view.viewController)
   }
 }
 
@@ -148,6 +139,7 @@ extension SendPresenter: SendModuleInput {
   
   func presentSend(with coin: CoinDisplayable, from viewController: UIViewController) {
     self.coin = coin
+    self.gasLimit = coin.gasLimit
     view.present(fromViewController: viewController)
   }
   

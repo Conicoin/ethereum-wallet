@@ -20,8 +20,8 @@ import UIKit
 import AVFoundation
 
 class ScanViewController: UIViewController {
-  @IBOutlet weak var focusImageView: UIImageView!
-
+  @IBOutlet weak var cancelButton: UIButton!
+  
   var output: ScanViewOutput!
 
   private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -31,8 +31,18 @@ class ScanViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     output.viewIsReady()
+    localize()
   }
+  
+  func localize() {
+    cancelButton.setTitle(Localized.commonCancel(), for: .normal)
+  }
+  
+  // MARK: Actions
 
+  @IBAction func cancelPressed(_ sender: UIButton) {
+    output.didCancelPressed()
+  }
 }
 
 
@@ -49,7 +59,7 @@ extension ScanViewController: ScanViewInput {
     videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
     videoPreviewLayer?.frame = view.layer.bounds
     view.layer.addSublayer(videoPreviewLayer!)
-    view.bringSubview(toFront: focusImageView)
+    view.bringSubview(toFront: cancelButton)
   }
 
 }

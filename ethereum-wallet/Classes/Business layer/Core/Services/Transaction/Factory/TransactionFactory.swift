@@ -54,10 +54,10 @@ extension TransactionFactory {
     try client.getNonceAt(context, account: account.getAddress(), number: -1, nonce: &noncePointer)
     
     let intAmount = GethNewBigInt(0)
-    intAmount?.setString(info.amount.toHex(), base: 16)
+    let weiAmount = info.amount * 1e18
+    intAmount?.setString(weiAmount.toHex(), base: 16)
     
-    let gethGasLimit = GethNewBigInt(0)
-    gethGasLimit?.setString(info.gasLimit.toHex(), base: 16)
+    let gethGasLimit = info.gasLimit.int64
     let gethGasPrice = GethNewBigInt(0)
     gethGasPrice?.setString(info.gasPrice.toHex(), base: 16)
     
@@ -68,17 +68,17 @@ extension TransactionFactory {
     let transactionTemplate = try buildTransaction(with: info)
     let transferSignature = Data(bytes: [0xa9, 0x05, 0x9c, 0xbb])
     let address = info.address.lowercased().replacingOccurrences(of: "0x", with: "")
-    let hexAmount = (info.amount * 1e18).toHex().withLeadingZero(64)
-    let hexData = transferSignature.toHexString() + "000000000000000000000000" + address + hexAmount
+    let weiAmount = info.amount * 1e18
+    let hexAmount = weiAmount.toHex().withLeadingZero(64)
+    let hexData = transferSignature.hex() + "000000000000000000000000" + address + hexAmount
     guard let data = hexData.toHexData() else {
       throw TransactionFactoryError.badSignature
     }
     let nonce = transactionTemplate.getNonce()
     let to = transactionTemplate.getTo()
-    let fakeAmount = GethBigInt(0)
-    let gasLimit = GethBigInt(transactionTemplate.getGas())
+    let gasLimit = transactionTemplate.getGas()
     let gasPrice = transactionTemplate.getGasPrice()
-    return GethNewTransaction(nonce, to, fakeAmount, gasLimit, gasPrice, data)
+    return GethNewTransaction(nonce, to, GethBigInt(0), gasLimit, gasPrice, data)
   }
   
 }

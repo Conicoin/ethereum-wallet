@@ -17,6 +17,12 @@
 import RealmSwift
 
 class CoinDataStoreService: RealmStorable<Coin>, CoinDataStoreServiceProtocol {
+    
+  func createCoin() {
+    var coin = Coin()
+    coin.balance = Ether(weiValue: 0)
+    save(coin)
+  }
   
   func find(withIso iso: String) -> Coin? {
     return findOne("iso = '\(iso)'")

@@ -49,6 +49,7 @@
 "balance.receive" = "Receive";
 "balance.send" = "Send";
 "balance.eth.title" = "ETH ∙ Ethereum";
+"balance.label" = "%@ ∙ %@";
 
 // MARK: - Token details
 "token.details.name" = "%@ ∙ %@";
@@ -66,6 +67,7 @@
 "receive.alert.copy" = "You address was copied to clipboard";
 
 // MARK: - Send
+"send.title.empty" = "Send";
 "send.title" = "Send %@";
 "send.fee" = "Fee";
 "send.total" = "Total";
@@ -122,12 +124,17 @@
 "pin.touchIDButton" = "Enter Passcode";
 "pin.exitTitle" = "Enter your passcode\nto exit wallet";
 "pin.backupTitle" = "Enter your passcode\nto backup wallet";
+"pin.confirmPayment" = "Confirm sending %@\nto %@";
 
 // MARK: Popup
+// - Touch Id
 "popup.notNow" = "Not now";
 "popup.touch.title" = "Unlock Conicoin with Touch ID";
 "popup.touch.description" = "Use your Touch ID for quick and easy entry.";
 "popup.touch.confirm" = "Use Touch ID";
+// - Transaction Sent
+"popup.txSent.title" = "You have sent %@ to";
+"popup.txSent.confirm" = "Done";
 
 // MARK: TouchId
 "touchId.error.title" = "Touch ID error";

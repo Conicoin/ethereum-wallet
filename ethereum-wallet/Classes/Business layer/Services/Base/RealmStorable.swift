@@ -38,19 +38,19 @@ class RealmStorable<PlainType: RealmMappable> {
   
   func find() -> [PlainType] {
     let realm = try! Realm()
-    return realm.objects(PlainType.RealmType.self).flatMap() { PlainType.mapFromRealmObject($0) }
+    return realm.objects(PlainType.RealmType.self).compactMap() { PlainType.mapFromRealmObject($0) }
   }
   
   func find(_ predicateString: String) -> [PlainType] {
     let realm = try! Realm()
     return realm.objects(PlainType.RealmType.self)
       .filter(predicateString)
-      .flatMap() { PlainType.mapFromRealmObject($0) }
+      .compactMap() { PlainType.mapFromRealmObject($0) }
   }
   
   func findOne(_ predicateString: String) -> PlainType? {
     let realm = try! Realm()
-    return realm.objects(PlainType.RealmType.self).filter(predicateString).flatMap() { PlainType.mapFromRealmObject($0) }.first
+    return realm.objects(PlainType.RealmType.self).filter(predicateString).compactMap() { PlainType.mapFromRealmObject($0) }.first
   }
   
   func save(_ model: PlainType) {

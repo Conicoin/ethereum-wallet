@@ -109,7 +109,7 @@ enum SendCheckoutError: CustomError {
   case noRate
   
   var description: ErrorInfo? {
-    return ("Currency rates haven't been downloaded for some reasons", nil, true)
+    return ("Currency rates haven't been downloaded for some reasons", nil, false)
   }
   
 }

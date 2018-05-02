@@ -18,7 +18,6 @@
 import UIKit
 import RealmSwift
 import SafariServices
-import SpringIndicator
 
 class TransactionsViewController: UIViewController {
   
@@ -26,8 +25,8 @@ class TransactionsViewController: UIViewController {
 
   var output: TransactionsViewOutput!
   
-  private var refresh: RefreshIndicator!
-  private var sections = [Date: [TxIndex]]()
+  private var refresh: UIRefreshControl!
+  private var sections = [Date: [TransactionDisplayer]]()
   private var sortedSections = [Date]()
   private var localCurrency = Constants.Wallet.defaultCurrency
 
@@ -46,12 +45,12 @@ class TransactionsViewController: UIViewController {
   
   private func setupTableView() {
     tableView.setupBorder()
-    refresh = tableView.setupRefresh(target: self, selector: #selector(refresh(_:)))
+    refresh = UIRefreshControl()
+    tableView.refreshControl = refresh
+    refresh.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
   }
     
-  @objc func refresh(_ sender: UIControl) {
-    let generator = UISelectionFeedbackGenerator()
-    generator.selectionChanged()
+  @objc func refresh(_ sender: UIRefreshControl) {
     output.didRefresh()
   }
 
@@ -70,7 +69,7 @@ extension TransactionsViewController: TransactionsViewInput {
     self.localCurrency = wallet.localCurrency
   }
   
-  func didReceiveSections(_ sections: [Date: [TxIndex]], sortedSections: [Date]) {
+  func didReceiveSections(_ sections: [Date: [TransactionDisplayer]], sortedSections: [Date]) {
     self.sections = sections
     self.sortedSections = sortedSections
     tableView.reloadData()

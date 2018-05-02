@@ -16,8 +16,7 @@ class TransactionDetailsPresenter {
   var interactor: TransactionDetailsInteractorInput!
   var router: TransactionDetailsRouterInput!
   
-  private var txIndex: TxIndex!
-  private var transaction: TransactionDisplayable?
+  private var displayer: TransactionDisplayer!
     
 }
 
@@ -28,13 +27,12 @@ extension TransactionDetailsPresenter: TransactionDetailsViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
-    view.didReceiveTxIndex(txIndex)
-    interactor.getTransaction(txHash: txIndex.txHash)
+    view.didReceiveTransaction(displayer)
   }
 
   func didEtherscanPressed() {
     view.viewController.showAlert(title: Localized.txDetailsAlertTitle(), message: nil, cancelable: true) { [unowned self] _ in
-      self.router.presentEtherscan(with: self.txIndex.txHash, from: self.view.viewController)
+      self.router.presentEtherscan(with: self.displayer.tx.txHash, from: self.view.viewController)
     }
   }
 }
@@ -43,10 +41,6 @@ extension TransactionDetailsPresenter: TransactionDetailsViewOutput {
 // MARK: - TransactionDetailsInteractorOutput
 
 extension TransactionDetailsPresenter: TransactionDetailsInteractorOutput {
-  
-  func didReceiveTransaction(_ transaction: TransactionDisplayable) {
-    view.didReceiveTransaction(transaction)
-  }
 
 }
 
@@ -55,8 +49,8 @@ extension TransactionDetailsPresenter: TransactionDetailsInteractorOutput {
 
 extension TransactionDetailsPresenter: TransactionDetailsModuleInput {
     
-  func present(with txIndex: TxIndex, from viewController: UIViewController) {
-    self.txIndex = txIndex
+  func present(with displayer: TransactionDisplayer, from viewController: UIViewController) {
+    self.displayer = displayer
     view.viewController.modalPresentationStyle = .overCurrentContext
     view.presentModal(fromViewController: viewController)
   }

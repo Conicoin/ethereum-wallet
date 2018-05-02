@@ -48,7 +48,11 @@ class QRService: QRServiceProtocol {
       throw QRServiceError.cantCreateQR
     }
     
-    return UIImage(ciImage: output)
+    let context = CIContext(options: nil)
+    guard let cgImage = context.createCGImage(output, from: output.extent) else {
+      throw QRServiceError.cantCreateQR
+    }
+    return UIImage(cgImage: cgImage)
   }
   
 }

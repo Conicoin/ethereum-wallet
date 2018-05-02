@@ -35,8 +35,7 @@ extension TransactionsPresenter: TransactionsViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     interactor.getWallet()
-    interactor.getTxIndex()
-    interactor.loadTransactions()
+    interactor.getTransactions()
   }
   
   func viewIsAppear() {
@@ -47,7 +46,7 @@ extension TransactionsPresenter: TransactionsViewOutput {
     interactor.loadTransactions()
   }
   
-  func didTransactionPressed(_ txIndex: TxIndex) {
+  func didTransactionPressed(_ txIndex: TransactionDisplayer) {
     guard let tabBarController = view.viewController.tabBarController else {
       return
     }
@@ -65,7 +64,7 @@ extension TransactionsPresenter: TransactionsInteractorOutput {
     view.didReceiveWallet(wallet)
   }
   
-  func didReceiveSections(_ sections: [Date : [TxIndex]], sortedSections: [Date]) {
+  func didReceiveSections(_ sections: [Date : [TransactionDisplayer]], sortedSections: [Date]) {
     view.didReceiveSections(sections, sortedSections: sortedSections)
   }
   

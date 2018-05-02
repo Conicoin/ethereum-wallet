@@ -35,6 +35,6 @@ extension KeyCipherParams: Codable {
   
   func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
-    try container.encode(iv.toHexString(), forKey: .iv)
+    try container.encode(iv.hex(), forKey: .iv)
   }
 }

@@ -7,25 +7,36 @@
 //
 
 import UIKit
-import Kingfisher
 
 class TokenCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var symbolLabel: UILabel!
   @IBOutlet weak var iconImageView: UIImageView!
   @IBOutlet weak var balanceLabel: UILabel!
+  @IBOutlet weak var tokenBackgroundView: UIView!
   
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
   }
   
+  override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+    super.setHighlighted(highlighted, animated: animated)
+    tokenBackgroundView.backgroundColor = highlighted ? Theme.Color.lightGray : .white
+  }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    iconImageView.image = nil
+  }
+  
   func configure(with token: Token) {
     titleLabel.text = token.balance.name
-    symbolLabel.text = token.balance.iso
+    symbolLabel.text = token.balance.symbol
     balanceLabel.text = token.balance.amountString
     
-    iconImageView.kf.setImage(with: token.iconUrl, placeholder: nil)
+    // Attention! Need to monitor icons location
+    iconImageView.image = UIImage(named: "images/\(token.address!)")
   }
   
 }

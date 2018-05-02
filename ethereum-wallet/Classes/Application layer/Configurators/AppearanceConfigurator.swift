@@ -20,16 +20,17 @@ import UIKit
 class AppearanceConfigurator: ConfiguratorProtocol {
   
   func configure() {
+    /* Uncomment to use custom icon
     let back = UIImage(named: "BackIcon")
-    
     UIBarButtonItem.appearance().setBackButtonBackgroundImage(back, for: .normal, barMetrics: .defaultPrompt)
+    */
     UINavigationBar.appearance().isTranslucent = true
     UINavigationBar.appearance().barTintColor = .clear
     UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.Color.black]
     UINavigationBar.appearance().shadowImage = UIImage()
     UIBarButtonItem.appearance().tintColor = Theme.Color.black
-    UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -300, vertical:0), for: .default)
+    UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -3000, vertical: 0), for: .default)
   }
   
 }

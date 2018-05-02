@@ -19,5 +19,5 @@ import UIKit
 
 
 protocol TransactionsRouterInput: class {
-  func presentDetails(with txIndex: TxIndex, from: UIViewController)
+  func presentDetails(with txIndex: TransactionDisplayer, from: UIViewController)
 }

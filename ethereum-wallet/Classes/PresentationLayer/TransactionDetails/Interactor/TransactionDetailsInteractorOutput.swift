@@ -10,5 +10,5 @@ import Foundation
 
 
 protocol TransactionDetailsInteractorOutput: class {
-  func didReceiveTransaction(_ transaction: TransactionDisplayable)
+
 }

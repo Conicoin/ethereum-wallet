@@ -22,28 +22,37 @@ class TransactionCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var amountLabel: UILabel!
+  @IBOutlet weak var errorLineView: UIView!
   
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
   }
   
-  func configure(with transaction: TxIndex) {
+  func configure(with displayer: TransactionDisplayer) {
     
-    titleLabel.text = transaction.title
+    titleLabel.text = displayer.title
     
-    amountLabel.text = transaction.amount
+    amountLabel.text = displayer.amountString
     
     let formatter = DateFormatter()
-    formatter.dateFormat = "hh:mm"
-    var description = formatter.string(from: transaction.time)
+    formatter.timeStyle = .short
+    formatter.dateStyle = .none
+    var description = formatter.string(from: displayer.tx.timeStamp)
     
-    if let status = transaction.status {
-      description += ",\(status)"
+    if let status = displayer.status {
+      description += ", \(status)"
+      amountLabel.textColor = Theme.Color.gray
     }
     
     descriptionLabel.text = description
-    iconImageView.image = UIImage(named: transaction.imageName)
+    iconImageView.image = UIImage(named: displayer.imageName)
+    errorLineView.isHidden = !displayer.isError
+  }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    amountLabel.textColor = Theme.Color.black
   }
   
 }

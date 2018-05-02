@@ -21,18 +21,14 @@ class ApplicationConfigurator: ConfiguratorProtocol {
   
   func configure() {
     if Defaults.isWalletCreated {
-      
       let isSecureMode = Defaults.mode.isSecureMode
       TabBarModule.create(isSecureMode: isSecureMode).present()
-      
     } else {
-      
       if let key = Keychain().jsonKey {
         WelcomeModule.create(.restore(key: key)).present()
       } else {
         WelcomeModule.create(.new).present()
       }
-      
     }
   }
   

@@ -32,9 +32,10 @@ class GasService: GasServiceProtocol {
     Ethereum.syncQueue.async {
       do {
         let msg = GethNewCallMsg()
-        let gasLimit = try self.client.estimateGas(self.context, msg: msg)
+        var gasLimit: Int64 = 0
+        try self.client.estimateGas(self.context, msg: msg, gas: &gasLimit)
         DispatchQueue.main.async {
-          result(.success(gasLimit.getInt64()))
+          result(.success(gasLimit))
         }
       } catch {
         DispatchQueue.main.async {

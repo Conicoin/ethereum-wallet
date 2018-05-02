@@ -17,7 +17,7 @@ struct Address {
     }
     
     init(data: Data) {
-        self.string = "0x" + data.toHexString()
+        self.string = "0x" + data.hex()
     }
 
 }

@@ -23,6 +23,6 @@ class SendTokenCheckoutService: SendCheckoutServiceProtocol {
     
     let ethAmountString = FiatCurrencyFactory.amount(amount: amount.double, currency: coin.balance)
     
-    return (amount: ethAmountString, fiatAmount: fiatAmountString, fee: feeAmountString)
+    return (amount: ethAmountString, total: ethAmountString, fiatAmount: fiatAmountString, fee: feeAmountString)
   }
 }

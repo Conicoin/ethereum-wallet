@@ -38,11 +38,8 @@ class TransactionsModule {
     
     interactor.transactionsNetworkService = TransactionsNetworkService()
     interactor.walletDataStoreService = WalletDataStoreService()
-    interactor.tokenTransactionsNetworkService = TokenTransactionsNetworkService()
-    interactor.tokenTransactionsDataStoreService = TokenTransactionsDataStoreService()
     interactor.transactionsDataStoreService = TransactionsDataStoreService()
-    interactor.transactionIndexDataStoreService = TxIndexDataStoreService()
-        
+    
     return presenter
   }
     
