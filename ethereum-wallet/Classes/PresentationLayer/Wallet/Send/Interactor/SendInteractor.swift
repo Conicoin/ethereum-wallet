@@ -43,17 +43,18 @@ extension SendInteractor: SendInteractorInput {
   }
   
   func getWallet() {
-    let wallet = walletDataStoreService.getWallet()
-    output.didReceiveWallet(wallet)
+    walletDataStoreService.getWallet(queue: .main) { wallet in
+      self.output.didReceiveWallet(wallet)
+    }
   }
   
-  func sendTransaction(coin: CoinDisplayable, amount: Decimal, to: String, gasLimit: Decimal, gasPrice: Decimal, pin: String, pinResult: PinResult?) {
+  func sendTransaction(coin: CoinDisplayable, amount: Decimal, to: String, settings: SendSettings, pin: String, pinResult: PinResult?) {
     
 //    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
 //      pinResult?(.success(true))
 //    }
     
-    let info = TransactionInfo(amount: amount, address: to, contractAddress: coin.contract, gasLimit: gasLimit, gasPrice: gasPrice)
+    let info = TransactionInfo(amount: amount, address: to, contractAddress: coin.contract, settings: settings)
     
     transactionService.sendTransaction(with: info, passphrase: pin) { [unowned self] result in
       switch result {

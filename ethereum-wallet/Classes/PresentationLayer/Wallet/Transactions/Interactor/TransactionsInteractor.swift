@@ -64,17 +64,16 @@ extension TransactionsInteractor: TransactionsInteractorInput {
   }
   
   func getWallet() {
-    walletDataStoreService.observe { [unowned self] wallet in
+    walletDataStoreService.getWallet(queue: .main) { wallet in
       self.output.didReceiveWallet(wallet)
     }
   }
   
-  func loadTransactions() {
-    let wallet = walletDataStoreService.getWallet()
-    transactionsNetworkService.getTransactions(address: wallet.address, queue: .global()) { [unowned self] result in
+  func loadTransactions(address: String) {
+    transactionsNetworkService.getTransactions(address: address, queue: .global()) { [unowned self] result in
       switch result {
       case .success(var transactions):
-        self.transactionsDataStoreService.markAndSaveTransactions(&transactions, address: wallet.address)
+        self.transactionsDataStoreService.markAndSaveTransactions(&transactions, address: address)
         DispatchQueue.main.async {
           self.output.didReceiveTransactions()
         }

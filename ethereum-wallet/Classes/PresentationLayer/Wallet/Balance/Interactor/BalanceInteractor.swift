@@ -89,9 +89,8 @@ extension BalanceInteractor: BalanceInteractorInput {
     }
   }
   
-  func getEthereumFromNetwork() {
-    let wallet = walletDataStoreService.getWallet()
-    walletNetworkService.getBalance(address: wallet.address, queue: .global()) { [unowned self] result in
+  func getEthereumFromNetwork(address: String) {
+    walletNetworkService.getBalance(address: address, queue: .global()) { [unowned self] result in
       switch result {
       case .success(let balance):
         let ether = Ether(weiString: balance)
@@ -107,9 +106,8 @@ extension BalanceInteractor: BalanceInteractorInput {
     }
   }
   
-  func getTokensFromNetwork() {
-    let wallet = walletDataStoreService.getWallet() 
-    tokensNetworkService.getTokens(address: wallet.address, queue: .global()) { [unowned self] result in
+  func getTokensFromNetwork(address: String) {
+    tokensNetworkService.getTokens(address: address, queue: .global()) { [unowned self] result in
       switch result {
       case .success(let tokens):
         self.tokensDataStoreService.save(tokens)

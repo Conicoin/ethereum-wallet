@@ -22,7 +22,7 @@ protocol BalanceInteractorInput: class {
   func getWalletFromDataBase()
   func getCoinsFromDataBase()
   func getTokensFromDataBase()
-  func getEthereumFromNetwork()
-  func getTokensFromNetwork()
+  func getEthereumFromNetwork(address: String)
+  func getTokensFromNetwork(address: String)
   func updateRates()
 }

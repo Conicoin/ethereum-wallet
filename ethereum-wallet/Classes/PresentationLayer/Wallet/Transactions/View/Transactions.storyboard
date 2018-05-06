@@ -134,7 +134,9 @@
                         <viewLayoutGuide key="safeArea" id="7hV-Td-7Q5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" image="TransactionsTab" id="0QL-6q-XeN"/>
-                    <navigationItem key="navigationItem" title="Transactions" largeTitleDisplayMode="never" id="hrf-i3-M1w"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="hrf-i3-M1w">
+                        <barButtonItem key="backBarButtonItem" title=" " id="0mA-1T-TZ6"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="hQQ-Ty-lEq" id="8zj-3p-SEe"/>

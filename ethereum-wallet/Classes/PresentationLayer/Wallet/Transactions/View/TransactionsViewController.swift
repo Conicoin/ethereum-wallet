@@ -28,12 +28,12 @@ class TransactionsViewController: UIViewController {
   private var refresh: UIRefreshControl!
   private var sections = [Date: [TransactionDisplayer]]()
   private var sortedSections = [Date]()
-  private var localCurrency = Constants.Wallet.defaultCurrency
 
   // MARK: Life cycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    localize()
     setupTableView()
     output.viewIsReady()
   }
@@ -41,6 +41,12 @@ class TransactionsViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     output.viewIsAppear()
+  }
+  
+  // MARK: Privates
+  
+  private func localize() {
+    navigationItem.title = Localized.transactionsTitle()
   }
   
   private func setupTableView() {
@@ -63,10 +69,6 @@ extension TransactionsViewController: TransactionsViewInput {
   
   func setupInitialState() {
 
-  }
-  
-  func didReceiveWallet(_ wallet: Wallet) {
-    self.localCurrency = wallet.localCurrency
   }
   
   func didReceiveSections(_ sections: [Date: [TransactionDisplayer]], sortedSections: [Date]) {

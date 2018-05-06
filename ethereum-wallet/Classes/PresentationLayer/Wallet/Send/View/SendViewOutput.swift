@@ -26,4 +26,5 @@ protocol SendViewOutput: class {
   func didChangeAmount(_ amount: String)
   func didChangeAddress(_ address: String)
   func didChangeGasLimit(_ gasLimit: String)
+  func didAdvancedPressed()
 }

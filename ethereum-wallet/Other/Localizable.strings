@@ -73,7 +73,18 @@
 "send.total" = "Total";
 "send.address.placeholder" = "Recepient address";
 
+// MARK: - Send Settings
+"send.adv.title" = "Advanced";
+"send.adv.gasPrice" = "Gas Price (Gwei)";
+"send.adv.gasPrice.info" = "The higher the gas price, the more expensive your transaction fee will be, but the quicker your transaction will be processed by the Ethereum network.";
+"send.adv.gasLimit" = "Gas Limit";
+"send.adv.gasLimit.info" = "The gas limit prevents smart contracts from consuming all your Ethereum. We will try to calculate the gas limit automatically for you, but some smart contracts may require a custom gas limit.";
+"send.adv.txData" = "Transaction data";
+"send.adv.networkFee" = "Total network fee";
+"send.adv.save" = "Save";
+
 // MARK: - Transactions
+"transactions.title" = "Transactions";
 "transactions.pending" = "pending";
 "transactions.error" = "transaction failed";
 "transactions.received" = "From %@";

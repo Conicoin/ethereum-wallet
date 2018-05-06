@@ -10,23 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="8gT-4q-KqF">
-            <objects>
-                <navigationController id="zny-k0-y3t" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e8n-Wz-ut5">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Jhb-iy-3Ha" kind="relationship" relationship="rootViewController" id="Fy9-wo-EeM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ygv-fR-g3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3247" y="-297"/>
-        </scene>
-        <!--Receive-->
+        <!--Receive View Controller-->
         <scene sceneID="1Ji-s9-BVL">
             <objects>
                 <viewController storyboardIdentifier="ReceiveViewController" hidesBottomBarWhenPushed="YES" id="Jhb-iy-3Ha" customClass="ReceiveViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPd-42-KYx">
-                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="375"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g5L-1q-9VE">
                                         <rect key="frame" x="56" y="56" width="263" height="263"/>
@@ -51,10 +35,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96y-QO-USa">
-                                <rect key="frame" x="0.0" y="439" width="375" height="228"/>
+                                <rect key="frame" x="0.0" y="395" width="375" height="272"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh0-z6-ba4" customClass="DefaultButton" customModule="ethereum_wallet" customModuleProvider="target">
-                                        <rect key="frame" x="32" y="156" width="311" height="48"/>
+                                        <rect key="frame" x="32" y="200" width="311" height="48"/>
                                         <color key="backgroundColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="qER-XK-6hR"/>
@@ -68,7 +52,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xam-rh-1v3" customClass="CopyableLabel" customModule="ethereum_wallet" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="63" width="343" height="50"/>
+                                        <rect key="frame" x="16" y="85" width="343" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="y1C-Q3-Mkr"/>
                                         </constraints>
@@ -77,21 +61,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8Y-XF-vyE">
-                                        <rect key="frame" x="188" y="0.0" width="0.0" height="43"/>
+                                        <rect key="frame" x="188" y="0.0" width="0.0" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" id="vzO-fK-GKL"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlX-A5-bgG">
-                                        <rect key="frame" x="187" y="113" width="0.0" height="43"/>
+                                        <rect key="frame" x="187" y="135" width="0.0" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" id="sFa-gP-8dr"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Ethereum Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQ6-Er-hiw">
-                                        <rect key="frame" x="121" y="43" width="133" height="16"/>
+                                        <rect key="frame" x="121" y="65" width="133" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="qJH-Ut-sxZ"/>
                                         </constraints>
@@ -132,7 +116,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4YV-xo-tcI"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Receive" largeTitleDisplayMode="never" id="cLy-dc-g0R">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="cLy-dc-g0R">
+                        <barButtonItem key="backBarButtonItem" title=" " id="p1k-MY-H2p"/>
                         <barButtonItem key="rightBarButtonItem" image="ShareIcon" id="rjb-gg-xfV">
                             <connections>
                                 <action selector="sharePressed:" destination="Jhb-iy-3Ha" id="Rp6-Ou-eFo"/>

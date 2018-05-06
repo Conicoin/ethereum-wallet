@@ -37,6 +37,10 @@ struct Constants {
     static let defaultGasLimit: Decimal = 21000
     static let defaultGasLimitToken: Decimal = 53000
     static let defaultGasPrice: Decimal = 2000000000
+    static let maxGasLimit: Decimal = 1000000
+    static let maxGasPrice: Decimal = 50000000000
+    static let minGasLimit: Decimal = 21000
+    static let minGasPrice: Decimal = 1000000000
   }
   
 }

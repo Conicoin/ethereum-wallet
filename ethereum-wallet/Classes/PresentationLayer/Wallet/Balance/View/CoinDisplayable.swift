@@ -25,11 +25,16 @@ protocol CoinDisplayable {
   var gasLimit: Decimal { get }
   var contract: String? { get }
   var tokenMeta: TokenMeta? { get }
+  var isToken: Bool { get }
   func amountString(with amount: Decimal) -> String
   func placeholder(with size: CGSize) -> UIImage
 }
 
 extension CoinDisplayable {
+  
+  var isToken: Bool {
+    return self is Token
+  }
   
   var description: String {
     return Localized.balanceLabel(balance.iso.uppercased(), balance.name)
@@ -40,6 +45,20 @@ extension CoinDisplayable {
       return description
     }
     return amount(for: currency) ?? description
+  }
+  
+  func rawAmount(for currency: String) -> Double {
+    guard let rate = rate(for: currency) else {
+      return 0
+    }
+    return balance.value * rate.value
+  }
+  
+  func fiatString(amount: Currency, iso: String) -> String? {
+    guard let rate = rate(for: iso) else {
+      return nil
+    }
+    return FiatCurrencyFactory.amount(currency: amount, iso: iso, rate: rate.value)
   }
   
   fileprivate func rate(for currency: String) -> Rate? {
@@ -108,13 +127,6 @@ extension Token: CoinDisplayable {
   func placeholder(with size: CGSize) -> UIImage {
     let font = UIFont.systemFont(ofSize: 14, weight: .semibold)
     return balance.symbol.renderImage(font: font, size: size, color: color)
-  }
-  
-  func rawAmount(for currency: String) -> Double {
-    guard let rate = rate(for: currency) else {
-      return 0
-    }
-    return balance.value * rate.value
   }
   
   func amountString(with amount: Decimal) -> String {

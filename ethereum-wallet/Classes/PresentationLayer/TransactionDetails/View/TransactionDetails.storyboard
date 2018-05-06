@@ -338,6 +338,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eHP-6v-GLJ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="FTu-Pe-Gqb">
+                        <barButtonItem key="backBarButtonItem" title=" " id="hHY-Eu-1lY"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="amountLabel" destination="G5J-8m-svE" id="TcT-W1-zDl"/>
                         <outlet property="blockHeightLabel" destination="bOU-zu-wXi" id="lCM-Ak-rhw"/>

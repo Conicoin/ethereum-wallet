@@ -24,7 +24,7 @@ class SendModule {
     let router = SendRouter()
     let presenter = SendPresenter()
     let interactor = SendInteractor()
-    let viewController = R.storyboard.send.sendViewController()!
+    let viewController: SendViewController = ScreenManager.instantiate(R.storyboard.send)
     
     interactor.output = presenter
     

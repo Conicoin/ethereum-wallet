@@ -39,9 +39,11 @@ extension SettingsInteractor: SettingsInteractorInput {
   }
   
   func selectCurrency(_ currency: String) {
-    var wallet = walletDataStoreService.getWallet()
-    wallet.localCurrency = currency
-    walletDataStoreService.save(wallet)
+    walletDataStoreService.getWallet(queue: .global()) { wallet in
+      var updated = wallet
+      updated.localCurrency = currency
+      self.walletDataStoreService.save(updated)
+    }
   }
   
   func deleteTempBackup(at url: URL) {

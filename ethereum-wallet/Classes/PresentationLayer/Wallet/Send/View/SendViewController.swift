@@ -33,7 +33,6 @@ class SendViewController: UIViewController {
   @IBOutlet weak var feeLabel: UILabel!
   @IBOutlet weak var totalLabel: UILabel!
   @IBOutlet weak var keyboardConstraint: NSLayoutConstraint!
-  @IBOutlet weak var sendButtonConstraint: NSLayoutConstraint!
   
   
   var output: SendViewOutput!
@@ -51,7 +50,6 @@ class SendViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    setupKeyboardNotifications()
     amountTextField.becomeFirstResponder()
   }
   
@@ -64,25 +62,6 @@ class SendViewController: UIViewController {
   
   private func setupTextFields() {
     recepientTextField.textField.setRightPadding(30)
-
-  }
-  
-  private func setupKeyboardNotifications() {
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
-  }
-  
-  @objc func keyboardWillShow(notification: Notification) {
-    let userInfo = notification.userInfo!
-    let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-    
-    keyboardConstraint.constant = keyboardFrame.size.height
-    sendButtonConstraint.constant = keyboardFrame.size.height + 16
-  }
-  
-  @objc func keyboardWillHide(notification: Notification){
-    keyboardConstraint.constant = 0
-    sendButtonConstraint.constant = 16
   }
   
   // MARK: Actions
@@ -101,6 +80,10 @@ class SendViewController: UIViewController {
   
   @IBAction func amountDidChange(_ sender: UITextField) {
     output.didChangeAmount(sender.text!)
+  }
+  
+  @IBAction func advancedPressed(_ sender: UIBarButtonItem) {
+    output.didAdvancedPressed()
   }
   
   @objc func addressChanged(_ sender: UITextField) {
@@ -135,11 +118,17 @@ extension SendViewController: SendViewInput {
     totalLabel.text = total
     feeLabel.text = fee
     localAmountLabel.text = fiatAmount
-    sendButton.setTitle(Localized.sendTitle(amount), for: .normal)
+    UIView.performWithoutAnimation {
+      self.sendButton.setTitle(Localized.sendTitle(amount), for: .normal)
+      self.sendButton.layoutIfNeeded()
+    }
   }
   
   func didReceiveCurrency(_ currency: String) {
-    currencyButton.setTitle(currency, for: .normal)
+    UIView.performWithoutAnimation {
+      self.currencyButton.setTitle(currency, for: .normal)
+      self.currencyButton.layoutIfNeeded()
+    }
   }
   
   func inputDataIsValid(_ isValid: Bool) {

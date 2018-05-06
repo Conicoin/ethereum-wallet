@@ -29,8 +29,9 @@ class ReceiveInteractor {
 extension ReceiveInteractor: ReceiveInteractorInput {
   
   func getWallet() {
-    let wallet = walletDataStoreService.getWallet()
-    output.didReceiveWallet(wallet)
+    walletDataStoreService.getWallet(queue: .main) { wallet in
+      self.output.didReceiveWallet(wallet)
+    }
   }
   
   func getQrImage(from string: String, size: CGSize) {

@@ -275,6 +275,9 @@
                     <tabBarItem key="tabBarItem" title="Balance" image="BalanceTab" id="50e-D0-gVa">
                         <color key="badgeColor" red="0.074509803921568626" green="0.47450980392156861" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="MJa-Ee-mq4">
+                        <barButtonItem key="backBarButtonItem" title=" " id="VBH-nD-xLO"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="balanceLabel" destination="80j-ju-lQI" id="pom-cc-guY"/>

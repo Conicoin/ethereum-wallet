@@ -23,15 +23,29 @@ enum ScreenType {
   case iPhone8
   case iPhone8Plus
   case iPhoneX
+  
+  var prefix: String {
+    switch self {
+    case .iPhone4:
+      return "4"
+    case .iPhoneSE:
+      return "SE"
+    case .iPhone8:
+      return ""
+    case .iPhone8Plus:
+      return "8P"
+    case .iPhoneX:
+      return "X"
+    }
+  }
 }
 
 extension UIDevice {
-  var iPhone: Bool {
+  static var iPhone: Bool {
     return UIDevice().userInterfaceIdiom == .phone
   }
   
-  var screenType: ScreenType? {
-    guard iPhone else { return nil }
+  static var screenType: ScreenType {
     switch UIScreen.main.nativeBounds.height {
     case 960:
       return .iPhone4
@@ -41,8 +55,10 @@ extension UIDevice {
       return .iPhone8
     case 2208:
       return .iPhone8Plus
-    default:
+    case 2436:
       return .iPhoneX
+    default:
+      return .iPhone8
     }
   }
 }

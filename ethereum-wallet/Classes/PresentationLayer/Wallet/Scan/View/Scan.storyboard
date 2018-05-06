@@ -39,6 +39,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Usj-mj-meG"/>
                     </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="b88-WP-eSr">
+                        <barButtonItem key="backBarButtonItem" title=" " id="2Gf-wK-i69"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="cancelButton" destination="Bn2-ZH-e4K" id="cnb-Ud-6dp"/>
                     </connections>

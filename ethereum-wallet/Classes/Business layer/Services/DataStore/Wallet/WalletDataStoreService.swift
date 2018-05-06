@@ -25,9 +25,13 @@ class WalletDataStoreService: RealmStorable<Wallet>, WalletDataStoreServiceProto
     let wallet = Wallet(address: address.lowercased(), localCurrency: Constants.Wallet.defaultCurrency, gasLimit: 21000)
     save(wallet)
   }
-
-  func getWallet() -> Wallet {
-    return find().first!
+  
+  func getWallet(queue: DispatchQueue, completion: @escaping (Wallet) -> Void) {
+    DispatchQueue.global().async { [unowned self] in
+      queue.async {
+        completion(self.find().first!)
+      }
+    }
   }
   
   func observe(updateHandler: @escaping (Wallet) -> Void) {

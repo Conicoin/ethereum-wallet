@@ -45,5 +45,9 @@ extension SendRouter: SendRouterInput {
       }
     }
   }
-    
+  
+  func presentSendSettings(from: UIViewController, settings: SendSettings, coin: CoinDisplayable, output: SendSettingsModuleOutput?) {
+    SendSettingsModule.create().present(from: from, settings: settings, coin: coin, output: output)
+  }
+  
 }

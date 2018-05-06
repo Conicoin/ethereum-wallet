@@ -19,7 +19,7 @@ import UIKit
 
 protocol WalletDataStoreServiceProtocol {
   func createWallet(address: String)
-  func getWallet() -> Wallet
+  func getWallet(queue: DispatchQueue, completion: @escaping (Wallet) -> Void)
   func observe(updateHandler: @escaping (Wallet) -> Void)
   func save(_ model: Wallet)
 }

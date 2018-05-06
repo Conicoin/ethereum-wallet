@@ -264,6 +264,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Kd-X8-Eki"/>
                     </view>
+                    <navigationItem key="navigationItem" id="dTF-Ws-9Pk">
+                        <barButtonItem key="backBarButtonItem" title=" " id="fMa-DQ-tJK"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="Fcr-Qb-IcE" id="62r-FU-zFE"/>
                         <outlet property="addressTitleLabel" destination="4uj-LE-ZnW" id="7an-6O-dne"/>

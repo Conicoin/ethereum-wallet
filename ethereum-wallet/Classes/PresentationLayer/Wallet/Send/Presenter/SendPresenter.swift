@@ -28,20 +28,22 @@ class SendPresenter {
   
   private var amount: Decimal = 0
   private var address: String!
-  private var gasLimit: Decimal!
-  private var gasPrice: Decimal = Constants.Send.defaultGasPrice
+  
+  private var settings = SendSettings(gasPrice: Constants.Send.defaultGasPrice,
+                                      gasLimit: Constants.Send.defaultGasLimit,
+                                      txData: nil)
   
   private var selectedCurrency = Constants.Wallet.defaultCurrency
   
   private func validate() {
     let isValid = amount != 0 &&
-      gasLimit != 0 &&
+      settings.gasLimit != 0 &&
       address != nil && address.isValidAddress()
     view.inputDataIsValid(isValid)
   }
   
   private func calculateTotalAmount() {
-    let fee = gasLimit * gasPrice
+    let fee = settings.gasLimit * settings.gasPrice
     interactor.getCheckout(for: coin, amount: amount, iso: selectedCurrency, fee: fee)
   }
 
@@ -71,7 +73,7 @@ extension SendPresenter: SendViewOutput {
   func didSendPressed() {
     let amountString = coin.amountString(with: amount)
     router.presentPin(from: view.viewController, amount: amountString, address: address) { [unowned self] pin, routing in
-      self.interactor.sendTransaction(coin: self.coin, amount: self.amount, to: self.address, gasLimit: self.gasLimit, gasPrice: self.gasPrice, pin: pin, pinResult: routing)
+      self.interactor.sendTransaction(coin: self.coin, amount: self.amount, to: self.address, settings: self.settings, pin: pin, pinResult: routing)
     }
   }
   
@@ -92,9 +94,13 @@ extension SendPresenter: SendViewOutput {
     if newValue == 0 {
       newValue = Constants.Send.defaultGasLimit
     }
-    self.gasLimit = newValue
+    settings.gasLimit = newValue
     validate()
     calculateTotalAmount()
+  }
+  
+  func didAdvancedPressed() {
+    router.presentSendSettings(from: view.viewController, settings: settings, coin: coin, output: self)
   }
   
 }
@@ -109,13 +115,12 @@ extension SendPresenter: SendInteractorOutput {
   }
   
   func didReceiveGasLimit(_ gasLimit: Decimal) {
-    self.gasLimit = gasLimit
+    settings.gasLimit = gasLimit
     calculateTotalAmount()
   }
   
   func didReceiveGasPrice(_ gasPrice: Decimal) {
-    let reduced = gasPrice / 2
-    self.gasPrice = reduced
+    settings.gasPrice = gasPrice
     calculateTotalAmount()
   }
   
@@ -139,7 +144,7 @@ extension SendPresenter: SendModuleInput {
   
   func presentSend(with coin: CoinDisplayable, from viewController: UIViewController) {
     self.coin = coin
-    self.gasLimit = coin.gasLimit
+    settings.gasLimit = coin.gasLimit
     view.present(fromViewController: viewController)
   }
   
@@ -171,6 +176,18 @@ extension SendPresenter: ChooseCurrencyModuleOutput {
   func didSelectCurrency(_ currency: FiatCurrency) {
     selectedCurrency = currency.iso
     view.didReceiveCurrency(currency.iso)
+    calculateTotalAmount()
+  }
+  
+}
+
+
+// MARK: - SendSettingsModuleOutput
+
+extension SendPresenter: SendSettingsModuleOutput {
+  
+  func didSelect(settings: SendSettings) {
+    self.settings = settings
     calculateTotalAmount()
   }
   

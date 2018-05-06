@@ -57,11 +57,12 @@ extension TransactionFactory {
     let weiAmount = info.amount * 1e18
     intAmount?.setString(weiAmount.toHex(), base: 16)
     
-    let gethGasLimit = info.gasLimit.int64
+    let gethGasLimit = info.settings.gasLimit.int64
     let gethGasPrice = GethNewBigInt(0)
-    gethGasPrice?.setString(info.gasPrice.toHex(), base: 16)
+    gethGasPrice?.setString(info.settings.gasPrice.toHex(), base: 16)
     
-    return GethNewTransaction(noncePointer, gethAddress, intAmount, gethGasLimit, gethGasPrice, nil)
+    let data = info.settings.txData
+    return GethNewTransaction(noncePointer, gethAddress, intAmount, gethGasLimit, gethGasPrice, data)
   }
   
   private func buildTokenTransaction(with info: TransactionInfo) throws -> GethTransaction {

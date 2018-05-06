@@ -36,6 +36,10 @@ extension Decimal {
     return NSDecimalNumber(decimal:self).doubleValue
   }
   
+  var float: Float {
+    return NSDecimalNumber(decimal:self).floatValue
+  }
+  
   var int64: Int64 {
     return NSDecimalNumber(decimal:self).int64Value
   }

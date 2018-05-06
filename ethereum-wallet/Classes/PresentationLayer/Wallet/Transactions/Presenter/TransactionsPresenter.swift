@@ -19,11 +19,17 @@ import UIKit
 import RealmSwift
 
 class TransactionsPresenter {
-    
+  
   weak var view: TransactionsViewInput!
   weak var output: TransactionsModuleOutput?
   var interactor: TransactionsInteractorInput!
   var router: TransactionsRouterInput!
+  
+  var wallet: Wallet?
+  
+  private func getTransactionsFromNetwork(address: String) {
+    interactor.loadTransactions(address: address)
+  }
   
 }
 
@@ -39,11 +45,13 @@ extension TransactionsPresenter: TransactionsViewOutput {
   }
   
   func viewIsAppear() {
-    interactor.loadTransactions()
+    guard let wallet = wallet else { return }
+    getTransactionsFromNetwork(address: wallet.address)
   }
   
   func didRefresh() {
-    interactor.loadTransactions()
+    guard let wallet = wallet else { return }
+    getTransactionsFromNetwork(address: wallet.address)
   }
   
   func didTransactionPressed(_ txIndex: TransactionDisplayer) {
@@ -61,7 +69,8 @@ extension TransactionsPresenter: TransactionsViewOutput {
 extension TransactionsPresenter: TransactionsInteractorOutput {
   
   func didReceiveWallet(_ wallet: Wallet) {
-    view.didReceiveWallet(wallet)
+    self.wallet = wallet
+    getTransactionsFromNetwork(address: wallet.address)
   }
   
   func didReceiveSections(_ sections: [Date : [TransactionDisplayer]], sortedSections: [Date]) {
