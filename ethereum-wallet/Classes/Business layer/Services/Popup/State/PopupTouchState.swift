@@ -9,8 +9,7 @@
 import UIKit
 
 class PopupTouchState: PopupStateProtocol {
-  
-  let imageName: String
+  let resource: PopupResource
   let title: String
   let description: String
   let confirmTitle: String
@@ -18,7 +17,7 @@ class PopupTouchState: PopupStateProtocol {
   let isSkipActive: Bool
   
   init() {
-    self.imageName = "PopupTouchID"
+    self.resource = .image(name: "PopupTouchID")
     self.title = Localized.popupTouchTitle()
     self.description = Localized.popupTouchDescription()
     self.confirmTitle = Localized.popupTouchConfirm()

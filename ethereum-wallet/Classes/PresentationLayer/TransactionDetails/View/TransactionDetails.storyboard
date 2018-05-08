@@ -105,7 +105,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0x8a720dbb773580eac6cbf6a31dc1beed69fc1b9fb0356b1960c6e3e19e6ac5b1" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQa-kx-GlO" customClass="CopyableLabel" customModule="ethereum_wallet" customModuleProvider="target">
                                                                 <rect key="frame" x="132" y="8" width="227" height="50.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <color key="textColor" red="0.074509803921568626" green="0.47450980392156861" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -134,7 +134,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4990953" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOU-zu-wXi" customClass="CopyableLabel" customModule="ethereum_wallet" customModuleProvider="target">
                                                                 <rect key="frame" x="132" y="10" width="227" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <color key="textColor" red="0.074509803921568626" green="0.47450980392156861" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -163,7 +163,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0xc1eb62f54b426d6050eb26fdef2f5f4955176280" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouy-bX-FcW" customClass="CopyableLabel" customModule="ethereum_wallet" customModuleProvider="target">
                                                                 <rect key="frame" x="132" y="10" width="227" height="46.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <color key="textColor" red="0.074509803921568626" green="0.47450980392156861" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -192,7 +192,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0x9b56e446ad40893bad8d15043133d50a108344c8" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdI-SC-87r" customClass="CopyableLabel" customModule="ethereum_wallet" customModuleProvider="target">
                                                                 <rect key="frame" x="132" y="10" width="227" height="46.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <color key="textColor" red="0.074509803921568626" green="0.47450980392156861" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>

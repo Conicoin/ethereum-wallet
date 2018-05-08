@@ -140,6 +140,7 @@
 		146F32152064F48C0023B52A /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F32142064F48C0023B52A /* Loader.swift */; };
 		147443D3209C6E7000BAC86B /* ScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147443D2209C6E7000BAC86B /* ScreenManager.swift */; };
 		147443D6209F85F900BAC86B /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 147443D5209F85F900BAC86B /* ObjC.m */; };
+		147443DD20A1033A00BAC86B /* LottiCheckmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 147443DC20A1033A00BAC86B /* LottiCheckmark.json */; };
 		1474CEBC209C3E5700139C3C /* SendSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474CEBB209C3E5700139C3C /* SendSettings.swift */; };
 		14773B7620891A49006B35C0 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14773B7520891A49006B35C0 /* WalletManager.swift */; };
 		14786ED7201E05E1009ECC11 /* HexDataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786ED6201E05E1009ECC11 /* HexDataTransform.swift */; };
@@ -547,6 +548,7 @@
 		147443D2209C6E7000BAC86B /* ScreenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenManager.swift; sourceTree = "<group>"; };
 		147443D4209F85F900BAC86B /* ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjC.h; sourceTree = "<group>"; };
 		147443D5209F85F900BAC86B /* ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
+		147443DC20A1033A00BAC86B /* LottiCheckmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottiCheckmark.json; sourceTree = "<group>"; };
 		1474CEBB209C3E5700139C3C /* SendSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSettings.swift; sourceTree = "<group>"; };
 		14773B7520891A49006B35C0 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		14786ED6201E05E1009ECC11 /* HexDataTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexDataTransform.swift; sourceTree = "<group>"; };
@@ -1240,6 +1242,7 @@
 		144E4F291EB26FA300AB62B6 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				147443DB20A1032C00BAC86B /* Animations */,
 				1485B4352089352100FB4C85 /* External */,
 				14ACA1F61EF2BD170059E430 /* Assets.xcassets */,
 				14C4D3CD1EDE1F3700FCA3AF /* Bridging-Header.h */,
@@ -1377,6 +1380,14 @@
 				146F32142064F48C0023B52A /* Loader.swift */,
 			);
 			path = Loader;
+			sourceTree = "<group>";
+		};
+		147443DB20A1032C00BAC86B /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				147443DC20A1033A00BAC86B /* LottiCheckmark.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		14773B74208919DA006B35C0 /* WalletManager */ = {
@@ -2678,7 +2689,6 @@
 				14004B86205D41AB00EA8199 /* Frameworks */,
 				14004B87205D41AB00EA8199 /* Resources */,
 				4D19993EA1BB624B92A03071 /* [CP] Embed Pods Frameworks */,
-				DFA390101999776B4B28B00C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2700,7 +2710,6 @@
 				144E4F0F1EB26F0600AB62B6 /* Frameworks */,
 				144E4F101EB26F0600AB62B6 /* Resources */,
 				705BCA782C9E6DB74B9100D4 /* [CP] Embed Pods Frameworks */,
-				37778AABAB0EA9FBEADDD4C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2781,6 +2790,7 @@
 				14046CF9201F776F007BD203 /* Welcome.storyboard in Resources */,
 				14046CF1201F76B2007BD203 /* ChooseCurrency.storyboard in Resources */,
 				140E1106209A39F800000ED7 /* SendSettings.storyboard in Resources */,
+				147443DD20A1033A00BAC86B /* LottiCheckmark.json in Resources */,
 				14B3B6871EF491FE002A0623 /* Localizable.strings in Resources */,
 				14991D8C2056F8E40046E6CD /* Pin.storyboard in Resources */,
 				1414E6FF20586B3C0080680E /* Popup.storyboard in Resources */,
@@ -2810,21 +2820,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
-		};
-		37778AABAB0EA9FBEADDD4C0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		4D19993EA1BB624B92A03071 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2881,6 +2876,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SpringIndicator/SpringIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -2895,6 +2891,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpringIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_ios.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2918,21 +2915,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DFA390101999776B4B28B00C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

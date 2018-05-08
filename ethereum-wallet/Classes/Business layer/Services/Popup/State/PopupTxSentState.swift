@@ -9,8 +9,7 @@
 import UIKit
 
 class PopupTxSentState: PopupStateProtocol {
-  
-  let imageName: String
+  let resource: PopupResource
   let title: String
   let description: String
   let confirmTitle: String
@@ -18,7 +17,7 @@ class PopupTxSentState: PopupStateProtocol {
   let isSkipActive: Bool
   
   init(amount: String, address: String) {
-    imageName = "PopupCheckmark"
+    resource = .animation(name: "LottiCheckmark")
     title = Localized.popupTxSentTitle(amount)
     description = address
     confirmTitle = Localized.popupTxSentConfirm()

@@ -13,6 +13,7 @@ target 'ethereum-wallet' do
   pod 'secp256k1_ios'
   pod 'SpringIndicator'
   pod 'PullToDismiss', '~> 2.1'
+  pod 'lottie-ios'
 end
 
 target 'ConicoinTests' do

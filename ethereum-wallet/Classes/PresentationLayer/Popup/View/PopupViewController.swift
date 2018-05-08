@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Lottie
 
 class PopupViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
@@ -15,6 +15,8 @@ class PopupViewController: UIViewController {
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var skipButton: UIButton!
   @IBOutlet weak var confirmButton: UIButton!
+  
+  private var animationView: LOTAnimationView?
 
   var output: PopupViewOutput!
 
@@ -25,6 +27,29 @@ class PopupViewController: UIViewController {
     super.viewDidLoad()
     navigationItem.hidesBackButton = true
     output.viewIsReady()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    animationView?.play()
+  }
+  
+  // MARK: Privates
+  
+  private func insertResource(_ resource: PopupResource) {
+    switch resource {
+    case .image(let name):
+      imageView.image = UIImage(named: name)
+    case .animation(let name):
+      animationView = {
+        let animationView = LOTAnimationView(name: name)
+        animationView.frame = imageView.frame
+        animationView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        animationView.contentMode = .scaleAspectFit
+        view.addSubview(animationView)
+        return animationView
+      }()
+    }
   }
   
   // MARK: Actions
@@ -51,10 +76,10 @@ extension PopupViewController: PopupViewInput {
   func didReceiveState(_ state: PopupStateProtocol) {
     titleLabel.text = state.title
     descriptionLabel.text = state.description
-    imageView.image = UIImage(named: state.imageName)
     skipButton.setTitle(state.skipTitle, for: .normal)
     confirmButton.setTitle(state.confirmTitle, for: .normal)
     skipButton.isHidden = !state.isSkipActive
+    insertResource(state.resource)
   }
 
 }

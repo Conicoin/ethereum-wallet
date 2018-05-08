@@ -5,6 +5,7 @@ PODS:
     - ObjectMapper (~> 3.0)
   - CryptoSwift (0.9.0)
   - Geth (1.8.3)
+  - lottie-ios (2.5.0)
   - ObjectMapper (3.1.0)
   - PKHUD (5.0.0)
   - PullToDismiss (2.1)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper
   - CryptoSwift
   - Geth
+  - lottie-ios
   - PKHUD
   - PullToDismiss (~> 2.1)
   - R.swift
@@ -30,11 +32,29 @@ DEPENDENCIES:
   - secp256k1_ios
   - SpringIndicator
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AlamofireObjectMapper
+    - CryptoSwift
+    - Geth
+    - lottie-ios
+    - ObjectMapper
+    - PKHUD
+    - PullToDismiss
+    - R.swift
+    - R.swift.Library
+    - Realm
+    - RealmSwift
+    - secp256k1_ios
+    - SpringIndicator
+
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
   Geth: e00dad6a7592facdf063214be13b28b7e73b0df2
+  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   PullToDismiss: 5513d561c382d201d0e3fbbdab9a47196cf5d2e2
@@ -45,6 +65,6 @@ SPEC CHECKSUMS:
   secp256k1_ios: 168c6c49ed9771db51875f5255c8f9847e4cf554
   SpringIndicator: 08d815e8a154dee7b786d82b98c43cc9028a769f
 
-PODFILE CHECKSUM: f27972f99c4d19430f0d3d04d559b46a37a32a9d
+PODFILE CHECKSUM: 8b87ea7ebcd3a401062bdf0ed64b8a823c21a1f4
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.0

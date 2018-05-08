@@ -24,6 +24,7 @@ class SendSettingsViewController: UIViewController {
   @IBOutlet weak var feeTitleLabel: UILabel!
   @IBOutlet weak var feeLabel: UILabel!
   @IBOutlet weak var txDataView: UIView!
+  @IBOutlet weak var saveButton: UIBarButtonItem!
   
   private var border = BorderView()
   var output: SendSettingsViewOutput!
@@ -54,6 +55,7 @@ class SendSettingsViewController: UIViewController {
     gasLimitInfoLabel.text = Localized.sendAdvGasLimitInfo()
     txDataLabel.text = Localized.sendAdvTxData()
     feeTitleLabel.text = Localized.sendAdvNetworkFee()
+    saveButton.isEnabled = false
   }
   
   private func customize() {
@@ -72,12 +74,14 @@ class SendSettingsViewController: UIViewController {
   // MARK: Action
   
   @IBAction func gasPriceChanged(_ slider: UISlider) {
+    saveButton.isEnabled = true
     let value = Int(slider.value)
     gasPriceLabel.text = "\(value)"
     output.gasPriceDidChanged(value * Int(1e9))
   }
   
   @IBAction func gasLimitChanged(_ slider: UISlider) {
+    saveButton.isEnabled = true
     let value = Int(slider.value)
     gasLimitLabel.text = "\(value)"
     output.gasLimitDidChanged(value)
@@ -148,6 +152,7 @@ extension SendSettingsViewController: UITextViewDelegate {
   func textViewDidChange(_ textView: UITextView) {
     let data = Data(hex: textView.text)
     if data.count > 0 {
+      saveButton.isEnabled = true
       output.txDataDidChanged(data)
     }
   }

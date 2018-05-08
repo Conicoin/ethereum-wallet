@@ -14,10 +14,15 @@ enum PopupState {
 }
 
 protocol PopupStateProtocol {
-  var imageName: String { get }
+  var resource: PopupResource { get }
   var title: String { get }
   var description: String { get }
   var confirmTitle: String { get }
   var skipTitle: String? { get }
   var isSkipActive: Bool { get }
+}
+
+enum PopupResource {
+  case image(name: String)
+  case animation(name: String)
 }

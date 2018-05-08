@@ -246,6 +246,7 @@
                         <outlet property="gasPriceLabel" destination="NbO-PF-2sG" id="yrM-Mp-uPt"/>
                         <outlet property="gasPriceSlider" destination="4Vh-h5-0l1" id="Ht7-Nc-PDM"/>
                         <outlet property="gasPriceTitleLabel" destination="qDc-De-1U6" id="b7t-yU-8aO"/>
+                        <outlet property="saveButton" destination="epL-qd-Pbw" id="RPx-Di-yvB"/>
                         <outlet property="scrollView" destination="kSd-dD-0pt" id="zhy-jA-6Er"/>
                         <outlet property="txDataLabel" destination="vhR-6R-hsC" id="7Pn-4Q-BWa"/>
                         <outlet property="txDataTextView" destination="Y0e-5L-hFs" id="Yhl-cg-jfK"/>
