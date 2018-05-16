@@ -45,7 +45,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4Vh-h5-0l1">
-                                                        <rect key="frame" x="14" y="40" width="347" height="29"/>
+                                                        <rect key="frame" x="23" y="40" width="329" height="29"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="eBz-fX-x5e"/>
                                                         </constraints>
@@ -62,19 +62,39 @@
                                                         <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4C-gP-vaj">
+                                                        <rect key="frame" x="349" y="54" width="10" height="2"/>
+                                                        <color key="backgroundColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="2" id="79w-aU-F79"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFF-4J-S8K">
+                                                        <rect key="frame" x="16" y="54" width="10" height="2"/>
+                                                        <color key="backgroundColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="2" id="5bg-Fk-7fP"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="qDc-De-1U6" firstAttribute="top" secondItem="hSc-Uy-c5V" secondAttribute="top" id="5pg-zG-qn2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="T4C-gP-vaj" secondAttribute="trailing" constant="16" id="A2y-tL-6gM"/>
+                                                    <constraint firstItem="YFF-4J-S8K" firstAttribute="centerY" secondItem="4Vh-h5-0l1" secondAttribute="centerY" constant="1" id="I2P-Wa-W46"/>
                                                     <constraint firstAttribute="bottom" secondItem="nKM-iD-kaG" secondAttribute="bottom" constant="33" id="Swa-Uz-3Em"/>
                                                     <constraint firstItem="nKM-iD-kaG" firstAttribute="leading" secondItem="hSc-Uy-c5V" secondAttribute="leading" constant="16" id="edm-jh-t5a"/>
+                                                    <constraint firstItem="YFF-4J-S8K" firstAttribute="leading" secondItem="hSc-Uy-c5V" secondAttribute="leading" constant="16" id="fSl-tq-gnI"/>
                                                     <constraint firstItem="4Vh-h5-0l1" firstAttribute="top" secondItem="qDc-De-1U6" secondAttribute="bottom" constant="16" id="hUe-6v-eDu"/>
+                                                    <constraint firstItem="T4C-gP-vaj" firstAttribute="leading" secondItem="4Vh-h5-0l1" secondAttribute="trailing" constant="-1" id="hmK-rv-cgL"/>
                                                     <constraint firstAttribute="trailing" secondItem="NbO-PF-2sG" secondAttribute="trailing" constant="16" id="id1-No-e3t"/>
                                                     <constraint firstItem="qDc-De-1U6" firstAttribute="leading" secondItem="hSc-Uy-c5V" secondAttribute="leading" constant="16" id="jLR-gL-IgJ"/>
+                                                    <constraint firstItem="4Vh-h5-0l1" firstAttribute="leading" secondItem="YFF-4J-S8K" secondAttribute="trailing" constant="-1" id="lHX-LU-bYw"/>
                                                     <constraint firstItem="NbO-PF-2sG" firstAttribute="top" secondItem="hSc-Uy-c5V" secondAttribute="top" id="oMj-nh-SLC"/>
-                                                    <constraint firstItem="4Vh-h5-0l1" firstAttribute="leading" secondItem="hSc-Uy-c5V" secondAttribute="leading" constant="16" id="pOE-ed-L54"/>
+                                                    <constraint firstItem="4Vh-h5-0l1" firstAttribute="leading" secondItem="hSc-Uy-c5V" secondAttribute="leading" constant="25" id="pOE-ed-L54"/>
+                                                    <constraint firstItem="T4C-gP-vaj" firstAttribute="centerY" secondItem="4Vh-h5-0l1" secondAttribute="centerY" constant="1" id="qby-w2-7IA"/>
                                                     <constraint firstAttribute="trailing" secondItem="nKM-iD-kaG" secondAttribute="trailing" constant="16" id="tCl-iq-oeo"/>
-                                                    <constraint firstAttribute="trailing" secondItem="4Vh-h5-0l1" secondAttribute="trailing" constant="16" id="tl2-4N-VaF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="4Vh-h5-0l1" secondAttribute="trailing" constant="25" id="tl2-4N-VaF"/>
                                                     <constraint firstItem="nKM-iD-kaG" firstAttribute="top" secondItem="4Vh-h5-0l1" secondAttribute="bottom" constant="16" id="yxY-qU-3zO"/>
                                                 </constraints>
                                             </view>
@@ -100,14 +120,30 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hr2-oa-zDD">
-                                                        <rect key="frame" x="14" y="40" width="347" height="29"/>
+                                                        <rect key="frame" x="23" y="40" width="329" height="29"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="e3o-xG-ID0"/>
                                                         </constraints>
+                                                        <color key="minimumTrackTintColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="maximumTrackTintColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="gasLimitChanged:" destination="Tqt-lv-0Aw" eventType="valueChanged" id="DPo-Gt-DRb"/>
                                                         </connections>
                                                     </slider>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpa-TA-YyQ">
+                                                        <rect key="frame" x="349" y="54" width="10" height="2"/>
+                                                        <color key="backgroundColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="2" id="Ric-26-j08"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anv-c1-w4g">
+                                                        <rect key="frame" x="16" y="54" width="10" height="2"/>
+                                                        <color key="backgroundColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="2" id="p8t-zC-aq1"/>
+                                                        </constraints>
+                                                    </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBS-H7-o6y">
                                                         <rect key="frame" x="16" y="84" width="343" height="67"/>
                                                         <string key="text">$The gas limit prevents smart contracts from consuming all your Ethereum. We will try to calculate the gas limit automatically for you, but some smart contracts may require a custom gas limit.</string>
@@ -118,14 +154,20 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="hr2-oa-zDD" firstAttribute="leading" secondItem="anv-c1-w4g" secondAttribute="trailing" constant="-1" id="2bz-19-AXd"/>
                                                     <constraint firstItem="LcS-Xn-wmP" firstAttribute="top" secondItem="ffe-c5-yVQ" secondAttribute="top" id="IR9-38-hQ9"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vpa-TA-YyQ" secondAttribute="trailing" constant="16" id="Ihd-6q-4kN"/>
                                                     <constraint firstItem="SBS-H7-o6y" firstAttribute="leading" secondItem="ffe-c5-yVQ" secondAttribute="leading" constant="16" id="O3c-PU-yfo"/>
                                                     <constraint firstItem="hr2-oa-zDD" firstAttribute="top" secondItem="Gkm-f0-QP0" secondAttribute="bottom" constant="16" id="Q94-X4-cCI"/>
+                                                    <constraint firstItem="anv-c1-w4g" firstAttribute="centerY" secondItem="hr2-oa-zDD" secondAttribute="centerY" constant="1" id="RV2-LF-sZk"/>
                                                     <constraint firstAttribute="trailing" secondItem="LcS-Xn-wmP" secondAttribute="trailing" constant="16" id="ZZW-u8-EsI"/>
-                                                    <constraint firstAttribute="trailing" secondItem="hr2-oa-zDD" secondAttribute="trailing" constant="16" id="abE-rM-ERx"/>
+                                                    <constraint firstItem="anv-c1-w4g" firstAttribute="leading" secondItem="ffe-c5-yVQ" secondAttribute="leading" constant="16" id="a1K-UT-LJP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hr2-oa-zDD" secondAttribute="trailing" constant="25" id="abE-rM-ERx"/>
                                                     <constraint firstAttribute="bottom" secondItem="SBS-H7-o6y" secondAttribute="bottom" constant="33" id="alk-X0-we7"/>
-                                                    <constraint firstItem="hr2-oa-zDD" firstAttribute="leading" secondItem="ffe-c5-yVQ" secondAttribute="leading" constant="16" id="bgs-Ed-ITC"/>
+                                                    <constraint firstItem="hr2-oa-zDD" firstAttribute="leading" secondItem="ffe-c5-yVQ" secondAttribute="leading" constant="25" id="bgs-Ed-ITC"/>
                                                     <constraint firstItem="Gkm-f0-QP0" firstAttribute="top" secondItem="ffe-c5-yVQ" secondAttribute="top" id="cg5-op-qXS"/>
+                                                    <constraint firstItem="vpa-TA-YyQ" firstAttribute="centerY" secondItem="hr2-oa-zDD" secondAttribute="centerY" constant="1" id="crc-fF-Od7"/>
+                                                    <constraint firstItem="vpa-TA-YyQ" firstAttribute="leading" secondItem="hr2-oa-zDD" secondAttribute="trailing" constant="-1" id="fx1-eQ-KHh"/>
                                                     <constraint firstItem="Gkm-f0-QP0" firstAttribute="leading" secondItem="ffe-c5-yVQ" secondAttribute="leading" constant="16" id="iW3-ar-J6e"/>
                                                     <constraint firstAttribute="trailing" secondItem="SBS-H7-o6y" secondAttribute="trailing" constant="16" id="y62-hs-DwI"/>
                                                     <constraint firstItem="SBS-H7-o6y" firstAttribute="top" secondItem="hr2-oa-zDD" secondAttribute="bottom" constant="16" id="znz-Sn-YZN"/>
