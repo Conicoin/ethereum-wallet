@@ -44,8 +44,8 @@ class TransactionsInteractor {
       }
       
       let sortedSections = sections.keys.sorted(by: { $0 > $1 })
-      DispatchQueue.main.async { [unowned self] in
-        self.output.didReceiveSections(sections, sortedSections: sortedSections)
+      DispatchQueue.main.async { [weak self] in
+        self?.output.didReceiveSections(sections, sortedSections: sortedSections)
       }
     }
   }

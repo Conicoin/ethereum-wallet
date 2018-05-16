@@ -53,6 +53,10 @@ class KeystoreService: KeystoreServiceProtocol {
   func restoreAccount(with jsonKey: Data, passphrase: String) throws -> GethAccount  {
     return try keystore.importKey(jsonKey, passphrase: passphrase, newPassphrase: passphrase)
   }
+    
+  func restoreAccount(withECDSA key: Data, passphrase: String) throws -> GethAccount {
+    return try keystore.importECDSAKey(key, passphrase: passphrase)
+  }
   
   func changePassphrase(_ old: String, new: String, key: Data) throws -> Data {
     let account = try getAccount(at: 0)

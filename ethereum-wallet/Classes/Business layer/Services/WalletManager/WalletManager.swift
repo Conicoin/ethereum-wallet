@@ -38,18 +38,16 @@ class WalletManager: WalletManagerProtocol {
     let keychain = Keychain()
     keychain.jsonKey = jsonKey
     keychain.passphrase = passphrase
-   
+    
     let address = account.getAddress().getHex()!
     commonWalletInitialization(address: address)
   }
   
   func importWallet(privateKey: Data, passphrase: String) throws {
-    let keyObject = try Key(privateKey: privateKey, password: passphrase)
-    let data = try JSONEncoder().encode(keyObject)
-    let account = try keystoreService.restoreAccount(with: data, passphrase: passphrase)
+    let account = try keystoreService.restoreAccount(withECDSA: privateKey, passphrase: passphrase)
     
     let keychain = Keychain()
-    keychain.jsonKey = data
+    keychain.jsonKey = privateKey
     keychain.passphrase = passphrase
     
     let address = account.getAddress().getHex()!
