@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RcW-Xo-VhX">
-                                        <rect key="frame" x="0.0" y="66" width="375" height="433"/>
+                                        <rect key="frame" x="0.0" y="66" width="375" height="498"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJz-Fv-pJm">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -186,15 +186,48 @@
                                                     <constraint firstAttribute="trailing" secondItem="4uN-pI-QRp" secondAttribute="trailing" id="w5x-4c-kx4"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1g-pM-NVm">
+                                                <rect key="frame" x="0.0" y="308" width="375" height="65"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="IXu-fC-nXI">
+                                                        <rect key="frame" x="16" y="20" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="2JP-hM-OQB"/>
+                                                            <constraint firstAttribute="width" constant="24" id="KDA-Ko-CN1"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGj-mp-hV8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <inset key="titleEdgeInsets" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="$Rate app">
+                                                            <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ratePressed:" destination="YQz-Hp-mg9" eventType="touchUpInside" id="oDA-7W-Z7e"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="65" id="0Sc-wC-Gg8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rGj-mp-hV8" secondAttribute="trailing" id="5p6-rN-EeA"/>
+                                                    <constraint firstAttribute="bottom" secondItem="rGj-mp-hV8" secondAttribute="bottom" id="BBi-hr-p7R"/>
+                                                    <constraint firstItem="rGj-mp-hV8" firstAttribute="leading" secondItem="L1g-pM-NVm" secondAttribute="leading" id="C5G-y6-wte"/>
+                                                    <constraint firstItem="IXu-fC-nXI" firstAttribute="centerY" secondItem="L1g-pM-NVm" secondAttribute="centerY" id="bFC-co-N0o"/>
+                                                    <constraint firstItem="IXu-fC-nXI" firstAttribute="leading" secondItem="L1g-pM-NVm" secondAttribute="leading" constant="16" id="e6X-or-Qky"/>
+                                                    <constraint firstItem="rGj-mp-hV8" firstAttribute="top" secondItem="L1g-pM-NVm" secondAttribute="top" id="oqj-Ow-McW"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPT-Mr-aEy">
-                                                <rect key="frame" x="0.0" y="308" width="375" height="24"/>
+                                                <rect key="frame" x="0.0" y="373" width="375" height="24"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="i6G-d8-ouE"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT9-jt-ejX">
-                                                <rect key="frame" x="0.0" y="332" width="375" height="65"/>
+                                                <rect key="frame" x="0.0" y="397" width="375" height="65"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aG4-Hp-Kcs">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -217,7 +250,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4B-SO-nWb">
-                                                <rect key="frame" x="0.0" y="397" width="375" height="36"/>
+                                                <rect key="frame" x="0.0" y="462" width="375" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Version 1.1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5w-Mq-cug">
                                                         <rect key="frame" x="143.5" y="9.5" width="88.5" height="17"/>
@@ -266,6 +299,7 @@
                         <outlet property="currencyImageView" destination="sRk-Dz-jwt" id="IqP-cD-emk"/>
                         <outlet property="currencyIsoLabel" destination="Lrn-XN-edN" id="9z1-Nk-jaf"/>
                         <outlet property="logoutButton" destination="aG4-Hp-Kcs" id="lhc-G9-7zW"/>
+                        <outlet property="rateButton" destination="rGj-mp-hV8" id="Zek-hH-lOk"/>
                         <outlet property="scrollView" destination="Yql-3K-yAb" id="A5f-y2-Hc3"/>
                         <outlet property="touchIdButton" destination="kaX-qn-FFd" id="d5Z-R7-AeC"/>
                         <outlet property="touchIdSwitch" destination="ywv-oE-AO8" id="gKw-Aj-tnt"/>
@@ -282,5 +316,6 @@
         <image name="SettingsChangePasscode" width="24" height="24"/>
         <image name="SettingsFingerprint" width="24" height="24"/>
         <image name="SettingsTab" width="20" height="20"/>
+        <image name="Star" width="20" height="20"/>
     </resources>
 </document>

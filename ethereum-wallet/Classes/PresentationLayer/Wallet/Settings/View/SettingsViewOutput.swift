@@ -26,4 +26,5 @@ protocol SettingsViewOutput: class {
   func didBackupPressed()
   func didTouchIdValueChanged(_ isOn: Bool)
   func didLogoutPressed()
+  func didRateAppPressed()
 }

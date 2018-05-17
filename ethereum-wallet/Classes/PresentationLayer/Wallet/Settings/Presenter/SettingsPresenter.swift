@@ -17,6 +17,7 @@
 
 
 import UIKit
+import StoreKit
 
 
 class SettingsPresenter {
@@ -62,6 +63,10 @@ extension SettingsPresenter: SettingsViewOutput {
   
   func didTouchIdValueChanged(_ isOn: Bool) {
     Defaults.isTouchIDAllowed = isOn
+  }
+  
+  func didRateAppPressed() {
+    SKStoreReviewController.requestReview()
   }
   
   func didLogoutPressed() {

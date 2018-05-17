@@ -27,6 +27,7 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var changePasscodeButton: UIButton!
   @IBOutlet weak var touchIdButton: UIButton!
   @IBOutlet weak var touchIdSwitch: UISwitch!
+  @IBOutlet weak var rateButton: UIButton!
   @IBOutlet weak var backupButton: UIButton!
   @IBOutlet weak var logoutButton: UIButton!
   @IBOutlet weak var versionLabel: UILabel!
@@ -50,6 +51,7 @@ class SettingsViewController: UIViewController {
     currencyButton.setTitle(Localized.settingsCurrency(), for: .normal)
     changePasscodeButton.setTitle(Localized.settingsChangePasscode(), for: .normal)
     touchIdButton.setTitle(Localized.settingsTouchId(), for: .normal)
+    rateButton.setTitle(Localized.settingsRate(), for: .normal)
     backupButton.setTitle(Localized.settingsBackup(), for: .normal)
     logoutButton.setTitle(Localized.settingsLogout(), for: .normal)
     versionLabel.text = Localized.settingsVersion(Bundle.main.version)
@@ -81,6 +83,10 @@ class SettingsViewController: UIViewController {
   
   @IBAction func touchIdValueChanged(_ sender: UISwitch) {
     output.didTouchIdValueChanged(sender.isOn)
+  }
+  
+  @IBAction func ratePressed(_ sender: UIButton) {
+    output.didRateAppPressed()
   }
   
   @IBAction func logoutPressed(_ sender: UIButton) {
