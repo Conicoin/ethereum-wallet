@@ -55,7 +55,7 @@ class SendSettingsViewController: UIViewController {
     gasLimitInfoLabel.text = Localized.sendAdvGasLimitInfo()
     txDataLabel.text = Localized.sendAdvTxData()
     feeTitleLabel.text = Localized.sendAdvNetworkFee()
-    saveButton.isEnabled = false
+    saveButton.title = Localized.sendAdvSave()
   }
   
   private func customize() {
@@ -124,6 +124,8 @@ extension SendSettingsViewController: SendSettingsViewInput {
     txDataView.isHidden = coin.isToken
     
     txDataTextView.text = settings.txData?.hex() ?? "0x"
+    
+    saveButton.isEnabled = false
   }
   
   func setFeeAmount(_ amount: String, fiatAmount: String?) {

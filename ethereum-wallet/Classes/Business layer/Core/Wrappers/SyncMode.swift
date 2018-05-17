@@ -25,7 +25,4 @@ enum SyncMode: Int {
     return Bool(rawValue)
   }
   
-  var helperText: String{
-    return [Localized.modeStandardHelper(), Localized.modeSecureHelper()][rawValue]
-  }
 }

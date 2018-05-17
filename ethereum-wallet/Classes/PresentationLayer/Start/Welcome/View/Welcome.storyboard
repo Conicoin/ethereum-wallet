@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Let's start create a new wallet or restore the existing one" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSA-f9-BlN">
-                                <rect key="frame" x="31.5" y="343.5" width="311" height="40"/>
+                                <rect key="frame" x="31.5" y="342" width="311" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="311" id="4QI-DN-4Nw"/>
                                     <constraint firstAttribute="height" constant="40" id="k9h-WG-moo"/>
@@ -48,11 +48,8 @@
                                     <action selector="importWalletPressed:" destination="URA-Q5-tt6" eventType="touchUpInside" id="Kmu-rB-lAl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Welcome to Conicoin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF8-5o-VTR">
-                                <rect key="frame" x="32" y="288.5" width="311" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="ToM-on-z6v"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$Welcome to Conicoin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF8-5o-VTR">
+                                <rect key="frame" x="16" y="288.5" width="343" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -77,6 +74,7 @@
                             <constraint firstItem="0Sd-ph-Aiz" firstAttribute="trailing" secondItem="vgo-zw-KKD" secondAttribute="trailing" constant="32" id="DWN-n9-8gB"/>
                             <constraint firstItem="vgo-zw-KKD" firstAttribute="top" secondItem="Zpa-US-tuP" secondAttribute="bottom" constant="8" id="GHC-mK-6ta"/>
                             <constraint firstItem="9XP-Gs-ZPL" firstAttribute="centerY" secondItem="g1t-XX-igj" secondAttribute="centerY" constant="-110" id="GrD-yo-L5A"/>
+                            <constraint firstItem="gF8-5o-VTR" firstAttribute="leading" secondItem="0Sd-ph-Aiz" secondAttribute="leading" constant="16" id="MfL-DE-Vls"/>
                             <constraint firstItem="Zpa-US-tuP" firstAttribute="leading" secondItem="0Sd-ph-Aiz" secondAttribute="leading" constant="32" id="Pag-K9-QKf"/>
                             <constraint firstItem="sSA-f9-BlN" firstAttribute="centerX" secondItem="g1t-XX-igj" secondAttribute="centerX" id="PhX-uq-Kq2"/>
                             <constraint firstItem="0Sd-ph-Aiz" firstAttribute="bottom" secondItem="vgo-zw-KKD" secondAttribute="bottom" constant="8" id="PiN-Qk-Zh2"/>
@@ -84,6 +82,7 @@
                             <constraint firstItem="gF8-5o-VTR" firstAttribute="top" secondItem="9XP-Gs-ZPL" secondAttribute="bottom" constant="25" id="Xoh-4R-DvD"/>
                             <constraint firstItem="0Sd-ph-Aiz" firstAttribute="trailing" secondItem="Zpa-US-tuP" secondAttribute="trailing" constant="32" id="eJ8-ih-b1A"/>
                             <constraint firstItem="sSA-f9-BlN" firstAttribute="top" secondItem="gF8-5o-VTR" secondAttribute="bottom" constant="15" id="jqA-rT-7zK"/>
+                            <constraint firstItem="0Sd-ph-Aiz" firstAttribute="trailing" secondItem="gF8-5o-VTR" secondAttribute="trailing" constant="16" id="ml4-a1-Mko"/>
                             <constraint firstItem="vgo-zw-KKD" firstAttribute="leading" secondItem="0Sd-ph-Aiz" secondAttribute="leading" constant="32" id="okH-ox-bSy"/>
                             <constraint firstItem="gF8-5o-VTR" firstAttribute="centerX" secondItem="g1t-XX-igj" secondAttribute="centerX" id="txc-bD-b4Q"/>
                         </constraints>

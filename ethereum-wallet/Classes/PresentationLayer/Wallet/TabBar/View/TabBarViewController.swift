@@ -48,5 +48,13 @@ extension TabBarViewController: TabBarViewInput {
   func setupInitialState() {
 
   }
+  
+  func setTitles() {
+    guard let viewControllers = viewControllers else { return }
+    let titles = [Localized.tabBalance(), Localized.tabTransactions(), Localized.tabSettings()]
+    for (i, vc) in viewControllers.enumerated() {
+      vc.tabBarItem.title = titles[i]
+    }
+  }
 
 }

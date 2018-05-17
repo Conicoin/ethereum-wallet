@@ -21,4 +21,5 @@ import UIKit
 protocol TabBarViewInput: class, Presentable {
   var viewControllers: [UIViewController]? { get set }
   func setupInitialState()
+  func setTitles()
 }

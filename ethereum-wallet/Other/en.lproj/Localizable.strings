@@ -18,6 +18,10 @@
 "common.ok" = "OK";
 "common.cancel" = "Cancel";
 
+// MARK: - Tabs
+"tab.balance" = "Balance";
+"tab.transactions" = "Transactions";
+"tab.settings" = "Settings";
 
 // MARK: - Welcome
 "welcome.new.title" = "Create new wallet";
@@ -25,7 +29,7 @@
 "welcome.import.title" = "Import wallet";
 "welcome.title" = "Welcome to Conicoin";
 "welcome.subtitle" = "Lets start by creating a new wallet or restoring the existing one";
-"welcome.gitgub.link" = "Source code available on Github";
+"welcome.github.link" = "Source code available on Github";
 "welcome.import.alert" = "Import";
 "welcome.import.private" = "Private key";
 "welcome.import.json" = "JSON key";
@@ -36,13 +40,6 @@
 "import.private.title" = "Enter private key";
 "import.icloud.title" = "Import from iCloud";
 "import.confirm.title" = "Confirm";
-
-// MARK: - Password
-"new.password.title" = "New Wallet";
-"restore.password.title" = "Restore account";
-"mode.title" = "Enable secure mode";
-"mode.secure.helper" = "Secure mode launch node directly on the device. First synchronization can takes from 15 to 20 minutes";
-"mode.standard.helper" = "The standard mode doesn't require synchronization. Recommended for most users";
 
 // MARK: - Balance
 "balance.token.count" = "%@ Tokens";

@@ -57,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4Y-lU-5bG">
-                                <rect key="frame" x="32" y="339.5" width="311" height="0.0"/>
+                                <rect key="frame" x="16" y="339.5" width="343" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -73,8 +73,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uWj-kV-WDx" firstAttribute="top" secondItem="p4Y-lU-5bG" secondAttribute="bottom" constant="15" id="30M-EZ-WBK"/>
-                            <constraint firstItem="p4Y-lU-5bG" firstAttribute="leading" secondItem="QHp-kp-7IR" secondAttribute="leading" constant="32" id="3HV-J3-iPC"/>
-                            <constraint firstItem="QHp-kp-7IR" firstAttribute="trailing" secondItem="p4Y-lU-5bG" secondAttribute="trailing" constant="32" id="3LL-nq-1Q4"/>
+                            <constraint firstItem="p4Y-lU-5bG" firstAttribute="leading" secondItem="QHp-kp-7IR" secondAttribute="leading" constant="16" id="3HV-J3-iPC"/>
+                            <constraint firstItem="QHp-kp-7IR" firstAttribute="trailing" secondItem="p4Y-lU-5bG" secondAttribute="trailing" constant="16" id="3LL-nq-1Q4"/>
                             <constraint firstItem="p4Y-lU-5bG" firstAttribute="top" secondItem="Zw9-w1-O5v" secondAttribute="bottom" constant="24" id="F1W-6O-gsc"/>
                             <constraint firstItem="uWj-kV-WDx" firstAttribute="centerX" secondItem="5a0-HZ-pdx" secondAttribute="centerX" id="IOr-HO-UL1"/>
                             <constraint firstItem="QHp-kp-7IR" firstAttribute="trailing" secondItem="sIw-aS-yLk" secondAttribute="trailing" constant="32" id="Ol5-sk-hWr"/>

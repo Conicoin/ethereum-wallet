@@ -1,0 +1,151 @@
+// ethereum-wallet https://github.com/flypaper0/ethereum-wallet
+// Copyright (C) 2018 Artur Guseinov
+//
+// This program is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation, either version 3 of the License, or (at your option)
+// any later version.
+//
+// This program is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
+//
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <http://www.gnu.org/licenses/>.
+
+// MARK: - Common
+"common.ok" = "ОК";
+"common.cancel" = "Отмена";
+
+// MARK: - Tabs
+"tab.balance" = "Баланс";
+"tab.transactions" = "Транзакции";
+"tab.settings" = "Настройки";
+
+
+// MARK: - Welcome
+"welcome.new.title" = "Создать новый кошелек";
+"welcome.restore.title" = "Восстановить с паролем";
+"welcome.import.title" = "Восстановить";
+"welcome.title" = "Conicoin";
+"welcome.subtitle" = "Начните с создания нового кошелька или восстановления существующего";
+"welcome.github.link" = "Исходный код доступен на Github";
+"welcome.import.alert" = "Восстановить с помощью";
+"welcome.import.private" = "Приватного ключа";
+"welcome.import.json" = "JSON ключа";
+
+// MARK: - Import
+"import.title" = "Восстановление";
+"import.json.title" = "Введите JSON ключ";
+"import.private.title" = "Введите приватный ключ";
+"import.icloud.title" = "Восстановить из iCloud";
+"import.confirm.title" = "Подтвердить";
+
+// MARK: - Balance
+"balance.token.count" = "%@ Токенов";
+"balance.receive" = "Получить";
+"balance.send" = "Отправить";
+"balance.eth.title" = "ETH ∙ Ethereum";
+"balance.label" = "%@ ∙ %@";
+
+// MARK: - Token details
+"token.details.name" = "%@ ∙ %@";
+"token.details.send" = "Отправить";
+"token.details.desc" = "Описание";
+"token.details.info" = "Информация";
+"token.details.address" = "Адрес";
+"token.details.supply" = "Общий запас";
+"token.details.holders" = "Держатели";
+
+// MARK: - Receive
+"receive.title" = "Получить %@";
+"receive.address.title" = "Ваш Ethereum адрес";
+"receive.copy.button" = "Скопировать адрес";
+"receive.alert.copy" = "Ваш адрес успешно скопирован";
+
+// MARK: - Send
+"send.title.empty" = "Отправить";
+"send.title" = "Отправить %@";
+"send.fee" = "Комиссия";
+"send.total" = "Всего";
+"send.address.placeholder" = "Адрес получателя";
+
+// MARK: - Send Settings
+"send.adv.title" = "Продвинутое";
+"send.adv.gasPrice" = "Gas Price (Gwei)";
+"send.adv.gasPrice.info" = "Увеличение Gas price повлечет за собой увеличение стоимости транзакции, но при этом транзакция отправится быстрее.";
+"send.adv.gasLimit" = "Gas Limit";
+"send.adv.gasLimit.info" = "Gas limit не дает смарт-контрактам потратить все ваши средства. Обычно мы рассчитываем Gas limit автоматически, но некоторые смарт-контракты требуют указания определенного значения.";
+"send.adv.txData" = "Transaction data";
+"send.adv.networkFee" = "Комиссия";
+"send.adv.save" = "Сохранить";
+
+// MARK: - Transactions
+"transactions.title" = "Транзакции";
+"transactions.pending" = "отправка";
+"transactions.error" = "ошибка";
+"transactions.received" = "От %@";
+"transactions.sent" = "На %@";
+
+// MARK: - Transaction Details
+"tx.details.completed" = "Отправлено";
+"tx.details.txHash" = "TxHash";
+"tx.details.blockHeight" = "Block Height";
+"tx.details.from" = "От";
+"tx.details.to" = "На";
+"tx.details.spent" = "Потрачено";
+"tx.details.fee" = "Комиссия";
+"tx.details.alert.title" = "Перейти на Etherscan?";
+"tx.details.etherscan" = "Посмотреть на Etherscan";
+
+// MARK: Timestamp
+"time.today" = "Сегодня";
+"time.yestarday" = "Вчера";
+"time.tomorrow" = "Завтра";
+"time.daysAgo" = "%@ дней назад";
+"time.inDays" = "Через %@ дней";
+
+// MARK: Settings
+"settings.title" = "Настройки";
+"settings.currency" = "Выбранная валюта";
+"settings.changePasscode" = "Изменить пароль";
+"settings.touchId" = "Использовать Touch ID";
+"settings.backup" = "Создать резервную копию";
+"settings.rate" = "Оцените нас";
+"settings.logout" = "Выйти из кошелька";
+"settings.version" = "Версия %@";
+"settings.exit.alert.title" = "Выход из кошелька";
+"settings.exit.alert.msg" = "Все данные будут стерты. Пожалуйста, убедитесь, что вы сделали резервную копию, в противном случае все ваши средства будут утеряны.";
+"settings.change.alert.title" = "Изменить пароль";
+"settings.change.alert.msg" = "Примите к сведению, что все сделанные ранее резервные копии, по-прежнему будут требовать старый пароль.";
+
+// MARK: ChooseCurrency
+"chooseCurrency.title" = "Выбранная валюта";
+
+// MARK: Passcode
+"pin.enterTitle" = "Введите пароль";
+"pin.restoreTitle" = "Введите пароль\nдля восстановления аккаунта";
+"pin.setTitle" = "Создайте пароль\nдля вашего  Conicoin аккаунта";
+"pin.confirmTitle" = "Повторите пароль";
+"pin.changeTitle" = "Введите старый пароль";
+"pin.mismatchTitle" = "Попробуйте еще раз";
+"pin.touchIDReason" = "Для продолжения необходима авторизация";
+"pin.touchIDButton" = "Введите пароль";
+"pin.exitTitle" = "Введите пароль\nдля выхода из кошелька";
+"pin.backupTitle" = "Введите пароль\nдля экспорта кошелька";
+"pin.confirmPayment" = "Подтвердите отправку %@\nна %@";
+
+// MARK: Popup
+// - Touch Id
+"popup.notNow" = "Не сейчас";
+"popup.touch.title" = "Разблокировать Conicoin с Touch ID";
+"popup.touch.description" = "Используйте Touch ID для простого и быстрого входа.";
+"popup.touch.confirm" = "Использовать Touch ID";
+// - Transaction Sent
+"popup.txSent.title" = "Вы успешно отправили %@ на";
+"popup.txSent.confirm" = "Готово";
+
+// MARK: TouchId
+"touchId.error.title" = "Ошибка Touch ID";
+

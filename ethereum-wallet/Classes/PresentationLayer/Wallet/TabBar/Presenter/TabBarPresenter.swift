@@ -40,6 +40,7 @@ class TabBarPresenter {
       transactionsModule.viewController.wrapToNavigationController(),
       settingsModule.viewController.wrapToNavigationController()
     ]
+    view.setTitles()
   }
   
 }
