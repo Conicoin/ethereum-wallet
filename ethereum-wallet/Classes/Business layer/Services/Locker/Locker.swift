@@ -28,7 +28,7 @@ class Locker: LockerProtocol {
   // MARK: Privates
   
   private func shouldLock() -> Bool {
-    if lastUnlockDate.addingTimeInterval(unlockPeriod) < Date() {
+    if lastUnlockDate.addingTimeInterval(unlockPeriod) < Date() && keychain.passphrase != nil {
       return true
     }
     return false

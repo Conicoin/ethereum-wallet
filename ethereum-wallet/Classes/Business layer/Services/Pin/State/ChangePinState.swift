@@ -21,10 +21,12 @@ struct ChangePinState: PinStateProtocol {
   
   let title: String
   let isCancellableAction: Bool
+  let isTermsShown: Bool
   
   init() {
     self.title = Localized.pinChangeTitle()
     self.isCancellableAction = true
+    self.isTermsShown = false
   }
   
   func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol) {

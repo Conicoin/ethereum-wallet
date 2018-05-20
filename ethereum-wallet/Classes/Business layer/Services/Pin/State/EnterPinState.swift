@@ -24,6 +24,7 @@ struct EnterPinState: PinStateProtocol {
   let title: String
   let isCancellableAction: Bool
   let touchIdReason: String?
+  let isTermsShown: Bool
   
   private var inccorectPinAttempts = 0
   private var isNotificationSent = false
@@ -32,6 +33,7 @@ struct EnterPinState: PinStateProtocol {
     self.title = title
     self.touchIdReason = touchIdReason
     self.isCancellableAction = allowCancellation
+    self.isTermsShown = false
   }
   
   mutating func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol) {

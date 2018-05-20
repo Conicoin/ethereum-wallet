@@ -33,6 +33,7 @@ protocol PinStateProtocol {
   var isCancellableAction: Bool { get }
   var isTouchIDAllowed: Bool { get }
   var touchIdReason: String? { get }
+  var isTermsShown: Bool { get }
   
   mutating func acceptPin(_ pin: [String], fromLock lock: PinServiceProtocol)
 }

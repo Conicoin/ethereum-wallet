@@ -211,7 +211,7 @@
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment>
-                                                <string key="content">$By entering your passcode, you agree to our
+                                                <string key="content">By entering your passcode, you agree to our
 </string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.54559999999999997" green="0.58279999999999998" blue="0.62" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

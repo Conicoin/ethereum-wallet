@@ -28,9 +28,9 @@ class PinStateFactory {
     case .change:
       return ChangePinState()
     case .restoreJson:
-      return CustomPinState(allowCancellation: true, touchIdReason: nil, title: Localized.pinRestoreTitle())
+      return CustomPinState(allowCancellation: true, touchIdReason: nil, title: Localized.pinRestoreTitle(), isTermsShown: true)
     case .restorePrivate:
-      return CustomPinState(allowCancellation: true, touchIdReason: nil, title: Localized.pinSetTitle())
+      return CustomPinState(allowCancellation: true, touchIdReason: nil, title: Localized.pinSetTitle(), isTermsShown: true)
     case .send(let amount, let address):
       let title = Localized.pinConfirmPayment(amount, address)
       return EnterPinState(allowCancellation: true, title: title, touchIdReason: title)
