@@ -134,6 +134,7 @@
 "pin.exitTitle" = "Enter your passcode\nto exit wallet";
 "pin.backupTitle" = "Enter your passcode\nto backup wallet";
 "pin.confirmPayment" = "Confirm sending %@\nto %@";
+"pin.lockTitle" = "Enter your passcode\nto unlock wallet";
 
 // MARK: Popup
 // - Touch Id

@@ -22,6 +22,7 @@ extension Keychain {
   enum KeychainKeys: String, EnumCollection {
     case jsonKey = "json_key_data"
     case passphrase = "passphrase"
+    case isLocked = "is_locked"
   }
   
   var isAccountBackuped: Bool {
@@ -41,9 +42,17 @@ extension Keychain {
     get {
       return getString(for: .passphrase)
     }
-    
     set {
       setString(newValue, for: .passphrase)
+    }
+  }
+    
+  var isLocked: Bool {
+    get {
+      return getBool(for: .isLocked)
+    }
+    set {
+      setBool(newValue, for: .isLocked)
     }
   }
   

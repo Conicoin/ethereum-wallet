@@ -66,7 +66,7 @@ class PinService: PinServiceProtocol {
   func authenticateWithBiometrics() {
     guard isTouchIDAllowed else { return }
     let context = LAContext()
-    let reason = Localized.pinTouchIDReason()
+    let reason = lockState.touchIdReason ?? Localized.pinTouchIDReason()
     context.localizedFallbackTitle = Localized.pinTouchIDButton()
     context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
       success, error in

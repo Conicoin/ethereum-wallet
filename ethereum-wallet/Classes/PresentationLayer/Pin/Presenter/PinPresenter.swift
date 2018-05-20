@@ -80,6 +80,12 @@ extension PinPresenter: PinModuleInput {
     view.present(fromViewController: viewController)
   }
   
+  func presentModal(from viewController: UIViewController, postProcess: PinPostProcess?, nextScene: PinNextScene?) {
+    self.nextScene = nextScene
+    self.postProcess = postProcess
+    view.presentModal(fromViewController: viewController)
+  }
+  
 }
 
 

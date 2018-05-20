@@ -34,6 +34,8 @@ class PinStateFactory {
     case .send(let amount, let address):
       let title = Localized.pinConfirmPayment(amount, address)
       return EnterPinState(allowCancellation: true, title: title, touchIdReason: title)
+    case .lock:
+      return EnterPinState(allowCancellation: false, title: Localized.pinLockTitle(), touchIdReason: nil)
     }
   }
   

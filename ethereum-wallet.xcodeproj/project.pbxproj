@@ -246,6 +246,9 @@
 		14F419221F9BF6D6000C500A /* TransactionsDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F419211F9BF6D6000C500A /* TransactionsDataStoreService.swift */; };
 		14F419241F9BF6E3000C500A /* TransactionsDataStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F419231F9BF6E3000C500A /* TransactionsDataStoreServiceProtocol.swift */; };
 		14F419261F9BF88E000C500A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F419251F9BF88E000C500A /* Transaction.swift */; };
+		14F4A5A920B1DEBF0087BB00 /* Locker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4A5A820B1DEBF0087BB00 /* Locker.swift */; };
+		14F4A5AB20B1DF870087BB00 /* LockerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4A5AA20B1DF870087BB00 /* LockerProtocol.swift */; };
+		14F4A5AD20B1DFBE0087BB00 /* LockerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4A5AC20B1DFBE0087BB00 /* LockerFactory.swift */; };
 		14F90FDA1FB4FA5100314288 /* Double+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F90FD91FB4FA5100314288 /* Double+Helpers.swift */; };
 		14FEBD731FBB1F210084F1AB /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FEBD721FBB1F210084F1AB /* Node.swift */; };
 		14FEBD751FBB2A940084F1AB /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FEBD741FBB2A940084F1AB /* Chain.swift */; };
@@ -652,6 +655,9 @@
 		14F419211F9BF6D6000C500A /* TransactionsDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDataStoreService.swift; sourceTree = "<group>"; };
 		14F419231F9BF6E3000C500A /* TransactionsDataStoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDataStoreServiceProtocol.swift; sourceTree = "<group>"; };
 		14F419251F9BF88E000C500A /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		14F4A5A820B1DEBF0087BB00 /* Locker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locker.swift; sourceTree = "<group>"; };
+		14F4A5AA20B1DF870087BB00 /* LockerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockerProtocol.swift; sourceTree = "<group>"; };
+		14F4A5AC20B1DFBE0087BB00 /* LockerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockerFactory.swift; sourceTree = "<group>"; };
 		14F90FD91FB4FA5100314288 /* Double+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Helpers.swift"; sourceTree = "<group>"; };
 		14FEBD721FBB1F210084F1AB /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		14FEBD741FBB2A940084F1AB /* Chain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
@@ -1646,6 +1652,7 @@
 		14C4D3CE1EDE209800FCA3AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				14F4A5A720B1DEA80087BB00 /* Locker */,
 				14773B74208919DA006B35C0 /* WalletManager */,
 				1421A7072062AF1100B4DBC2 /* Send */,
 				14B126AB205BDADC00B98AE1 /* Import */,
@@ -1774,6 +1781,16 @@
 				14F419211F9BF6D6000C500A /* TransactionsDataStoreService.swift */,
 			);
 			path = Transactions;
+			sourceTree = "<group>";
+		};
+		14F4A5A720B1DEA80087BB00 /* Locker */ = {
+			isa = PBXGroup;
+			children = (
+				14F4A5A820B1DEBF0087BB00 /* Locker.swift */,
+				14F4A5AA20B1DF870087BB00 /* LockerProtocol.swift */,
+				14F4A5AC20B1DFBE0087BB00 /* LockerFactory.swift */,
+			);
+			path = Locker;
 			sourceTree = "<group>";
 		};
 		14FEBD761FBB2CB90084F1AB /* Wrappers */ = {
@@ -3117,6 +3134,7 @@
 				14BE0A791FAFDCB00044E3A1 /* CoinDataStoreServiceProtocol.swift in Sources */,
 				144102E82056743000F4D192 /* PinStateProtocol.swift in Sources */,
 				E65833E73BA0D892D187575C /* TransactionsRouterInput.swift in Sources */,
+				14F4A5AB20B1DF870087BB00 /* LockerProtocol.swift in Sources */,
 				67DA84FDEC2C0B1CF45AF2D2 /* TransactionsRouter.swift in Sources */,
 				14D47EFF1FB3CEE90095C516 /* Ether.swift in Sources */,
 				F2C1D232990D685616AA3DB5 /* TransactionsModuleInput.swift in Sources */,
@@ -3168,6 +3186,7 @@
 				69889D672FD86D2ECB0810F2 /* ScanViewOutput.swift in Sources */,
 				9D7DEFF5252AE5F5BF580F2D /* ScanViewController.swift in Sources */,
 				14004B82205D3FB000EA8199 /* KeyKDFParams.swift in Sources */,
+				14F4A5AD20B1DFBE0087BB00 /* LockerFactory.swift in Sources */,
 				9EA6221FFFE559B083EBFF76 /* ScanPresenter.swift in Sources */,
 				1A8ADA878F37951F0CAAA113 /* ScanInteractorInput.swift in Sources */,
 				CD7EFAF754CE17A2F27280AD /* ScanInteractorOutput.swift in Sources */,
@@ -3267,6 +3286,7 @@
 				14E26DC620616F4600976CD1 /* UIColor+Helpers.swift in Sources */,
 				071A29648A9AD5B898A4584E /* PinInteractorOutput.swift in Sources */,
 				1421A70B2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift in Sources */,
+				14F4A5A920B1DEBF0087BB00 /* Locker.swift in Sources */,
 				DE7335F2C6457EE8CF068765 /* PinInteractor.swift in Sources */,
 				1B1384B75741447CF347A336 /* PinRouterInput.swift in Sources */,
 				149CD64820892282005E3DBD /* WalletManagerProtocol.swift in Sources */,
