@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
-  private var locker = LockerFactory().create()
+  private var locker: LockerProtocol = LockerFactory().create()
+  private var screenLocker: ScreenLockerProtocol = ScreenLocker()
   private var configurators: [ConfiguratorProtocol] = {
     return [
       AppearanceConfigurator(),
@@ -45,6 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func applicationDidBecomeActive(_ application: UIApplication) {
     locker.autolock()
+    screenLocker.unlock()
+  }
+  
+  func applicationWillResignActive(_ application: UIApplication) {
+    screenLocker.lock()
   }
   
 }
