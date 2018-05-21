@@ -19,9 +19,7 @@ import Foundation
 import RealmSwift
 
 class TransactionsDataStoreService: RealmStorable<Transaction>, TransactionsDataStoreServiceProtocol {
-  
-  typealias PlainType = Transaction
-  
+    
   func getTransactions() -> [Transaction] {
     return find()
   }
@@ -30,11 +28,12 @@ class TransactionsDataStoreService: RealmStorable<Transaction>, TransactionsData
     return findOne("txHash = '\(txHash)'")
   }
   
-  func markAndSaveTransactions(_ transactions: inout [Transaction], address: String) {
-    for (i, transaction) in transactions.enumerated() {
-      transactions[i].isIncoming = transaction.to == address
+  func markAndSaveTransactions(_ transactions: [Transaction], address: String) {
+    var txs = transactions
+    for (i, tx) in txs.enumerated() {
+      txs[i].isIncoming = tx.to == address
     }
-    save(transactions)
+    save(txs)
   }
 
 }

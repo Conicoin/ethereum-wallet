@@ -72,8 +72,8 @@ extension TransactionsInteractor: TransactionsInteractorInput {
   func loadTransactions(address: String) {
     transactionsNetworkService.getTransactions(address: address, queue: .global()) { [unowned self] result in
       switch result {
-      case .success(var transactions):
-        self.transactionsDataStoreService.markAndSaveTransactions(&transactions, address: address)
+      case .success(let transactions):
+        self.transactionsDataStoreService.markAndSaveTransactions(transactions, address: address)
         DispatchQueue.main.async {
           self.output.didReceiveTransactions()
         }
