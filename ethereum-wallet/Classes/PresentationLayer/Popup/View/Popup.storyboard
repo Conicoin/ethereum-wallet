@@ -28,7 +28,7 @@
         <!--Popup View Controller-->
         <scene sceneID="6LR-sn-R5z">
             <objects>
-                <viewController storyboardIdentifier="PopupViewController" id="UG6-yC-OX7" customClass="PopupViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UG6-yC-OX7" customClass="PopupViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5a0-HZ-pdx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

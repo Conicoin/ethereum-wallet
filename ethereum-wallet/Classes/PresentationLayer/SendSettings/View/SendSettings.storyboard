@@ -12,7 +12,7 @@
         <!--Send Settings View Controller-->
         <scene sceneID="NZm-7T-ChJ">
             <objects>
-                <viewController storyboardIdentifier="SendSettingsViewController" id="Tqt-lv-0Aw" customClass="SendSettingsViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SendSettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tqt-lv-0Aw" customClass="SendSettingsViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="51p-Sn-6G6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

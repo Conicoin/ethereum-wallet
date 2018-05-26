@@ -12,7 +12,7 @@
         <!--Transaction Details View Controller-->
         <scene sceneID="uQu-dM-MIK">
             <objects>
-                <viewController storyboardIdentifier="TransactionDetailsViewController" id="P16-ZK-y0D" customClass="TransactionDetailsViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TransactionDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P16-ZK-y0D" customClass="TransactionDetailsViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o6Z-Qb-BDx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

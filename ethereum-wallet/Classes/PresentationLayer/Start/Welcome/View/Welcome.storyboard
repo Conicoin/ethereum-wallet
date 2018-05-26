@@ -12,7 +12,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="nIk-eq-3Gb">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" id="URA-Q5-tt6" customClass="WelcomeViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="URA-Q5-tt6" customClass="WelcomeViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g1t-XX-igj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

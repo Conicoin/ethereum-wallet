@@ -13,7 +13,7 @@
         <!--Receive View Controller-->
         <scene sceneID="1Ji-s9-BVL">
             <objects>
-                <viewController storyboardIdentifier="ReceiveViewController" hidesBottomBarWhenPushed="YES" id="Jhb-iy-3Ha" customClass="ReceiveViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReceiveViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jhb-iy-3Ha" customClass="ReceiveViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eEk-Af-HO4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

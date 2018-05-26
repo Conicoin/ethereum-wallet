@@ -13,7 +13,7 @@
         <!--Choose Currency View Controller-->
         <scene sceneID="sFt-YF-mxk">
             <objects>
-                <viewController storyboardIdentifier="ChooseCurrencyViewController" id="GH7-Tg-vHk" customClass="ChooseCurrencyViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChooseCurrencyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GH7-Tg-vHk" customClass="ChooseCurrencyViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WDD-Lt-5Z4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

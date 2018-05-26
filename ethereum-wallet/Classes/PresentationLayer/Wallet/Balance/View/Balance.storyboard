@@ -13,7 +13,7 @@
         <!--Balance-->
         <scene sceneID="7xN-ua-GoD">
             <objects>
-                <viewController storyboardIdentifier="BalanceViewController" id="l3T-C2-eCI" customClass="BalanceViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BalanceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l3T-C2-eCI" customClass="BalanceViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="klD-o4-C2O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
