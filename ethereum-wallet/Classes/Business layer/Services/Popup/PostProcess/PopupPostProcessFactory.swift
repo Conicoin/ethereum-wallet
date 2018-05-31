@@ -9,20 +9,22 @@
 import UIKit
 
 class PopupPostProcessFactory {
-    
-    let state: PopupState
-    
-    init(state: PopupState) {
-        self.state = state
+  
+  let state: PopupState
+  
+  init(state: PopupState) {
+    self.state = state
+  }
+  
+  func create() -> PopupPostProcessProtocol {
+    switch state {
+    case .touchId:
+      return PopupTouchPostProcess()
+    case .txSent:
+      return PopupNoPostProcess()
+    case .push:
+      return PopupPushPostProcess()
     }
-    
-    func create() -> PopupPostProcessProtocol {
-        switch state {
-        case .touchId:
-            return PopupTouchPostProcess()
-        case .txSent:
-            return PopupNoPostProcess()
-      }
-    }
-
+  }
+  
 }

@@ -17,6 +17,7 @@
 // MARK: - Common
 "common.ok" = "ОК";
 "common.cancel" = "Отмена";
+"common.notNow" = "Пропустить";
 
 // MARK: - Tabs
 "tab.balance" = "Баланс";
@@ -139,13 +140,16 @@
 
 // MARK: Popup
 // - Touch Id
-"popup.notNow" = "Не сейчас";
 "popup.touch.title" = "Разблокировать Conicoin с Touch ID";
 "popup.touch.description" = "Используйте Touch ID для простого и быстрого входа.";
 "popup.touch.confirm" = "Использовать Touch ID";
 // - Transaction Sent
 "popup.txSent.title" = "Вы успешно отправили %@ на";
 "popup.txSent.confirm" = "Готово";
+// - Push
+"popup.push.title" = "Push уведомления";
+"popup.push.description" = "И будте в курсе всех входящих на ваш адрес транзакций";
+"popup.push.confirm" = "Включить push уведомления";
 
 // MARK: TouchId
 "touchId.error.title" = "Ошибка Touch ID";

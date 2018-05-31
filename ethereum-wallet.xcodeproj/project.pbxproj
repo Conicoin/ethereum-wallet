@@ -72,6 +72,8 @@
 		1421A70B2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421A70A2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift */; };
 		1421A70D2062AFED00B4DBC2 /* SendCheckoutServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421A70C2062AFED00B4DBC2 /* SendCheckoutServiceProtocol.swift */; };
 		1421A70F2062B07400B4DBC2 /* SendCheckoutServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421A70E2062B07400B4DBC2 /* SendCheckoutServiceFactory.swift */; };
+		142729D820C0788D009003CA /* PopupPushState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142729D720C0788D009003CA /* PopupPushState.swift */; };
+		142729DA20C088F8009003CA /* PopupPushPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142729D920C088F8009003CA /* PopupPushPostProcess.swift */; };
 		142730FA1FB8CF0F00ED9968 /* QRCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */; };
 		142730FD1FB8CF3400ED9968 /* QRCaptureServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142730FC1FB8CF3400ED9968 /* QRCaptureServiceProtocol.swift */; };
 		14280E6F1FE1F6F900121F85 /* TransactionDetailsShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14280E6E1FE1F6F900121F85 /* TransactionDetailsShadowView.swift */; };
@@ -487,6 +489,8 @@
 		1421A70A2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTokenCheckoutService.swift; sourceTree = "<group>"; };
 		1421A70C2062AFED00B4DBC2 /* SendCheckoutServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCheckoutServiceProtocol.swift; sourceTree = "<group>"; };
 		1421A70E2062B07400B4DBC2 /* SendCheckoutServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCheckoutServiceFactory.swift; sourceTree = "<group>"; };
+		142729D720C0788D009003CA /* PopupPushState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPushState.swift; sourceTree = "<group>"; };
+		142729D920C088F8009003CA /* PopupPushPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPushPostProcess.swift; sourceTree = "<group>"; };
 		142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCaptureService.swift; sourceTree = "<group>"; };
 		142730FC1FB8CF3400ED9968 /* QRCaptureServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCaptureServiceProtocol.swift; sourceTree = "<group>"; };
 		14280E6E1FE1F6F900121F85 /* TransactionDetailsShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsShadowView.swift; sourceTree = "<group>"; };
@@ -987,6 +991,7 @@
 				1414E70720589B4A0080680E /* PopupStateFactory.swift */,
 				1414E701205894030080680E /* PopupStateProtocol.swift */,
 				1414E703205894D90080680E /* PopupTouchState.swift */,
+				142729D720C0788D009003CA /* PopupPushState.swift */,
 				14DFA32B207F68FB008F6F92 /* PopupTxSentState.swift */,
 			);
 			path = State;
@@ -999,6 +1004,7 @@
 				1414E70A20589FC90080680E /* PopupPostProcessProtocol.swift */,
 				1414E70C2058A0350080680E /* PopupTouchPostProcess.swift */,
 				14DFA329207F6898008F6F92 /* PopupNoPostProcess.swift */,
+				142729D920C088F8009003CA /* PopupPushPostProcess.swift */,
 			);
 			path = PostProcess;
 			sourceTree = "<group>";
@@ -3032,6 +3038,7 @@
 				14D027EE1EF9661100F125C3 /* API.swift in Sources */,
 				145842691FB1123E00FA733F /* Rate.swift in Sources */,
 				1414E70D2058A0350080680E /* PopupTouchPostProcess.swift in Sources */,
+				142729DA20C088F8009003CA /* PopupPushPostProcess.swift in Sources */,
 				14285E841FB2831200DD3CB5 /* API+Rate.swift in Sources */,
 				14E5CAB11FB925C300CE5419 /* String+Ethereum.swift in Sources */,
 				14F419241F9BF6E3000C500A /* TransactionsDataStoreServiceProtocol.swift in Sources */,
@@ -3129,6 +3136,7 @@
 				63323B3CB7425083EDB6C14E /* BalanceModuleOutput.swift in Sources */,
 				0F2BAFD4E96319C70DE43D5F /* BalanceModule.swift in Sources */,
 				142730FD1FB8CF3400ED9968 /* QRCaptureServiceProtocol.swift in Sources */,
+				142729D820C0788D009003CA /* PopupPushState.swift in Sources */,
 				D63EE237539093A59D2ADF42 /* TransactionsViewInput.swift in Sources */,
 				14991D9920570F690046E6CD /* PinRepository.swift in Sources */,
 				A6EB2074CF07678E771B62CA /* TransactionsViewOutput.swift in Sources */,
