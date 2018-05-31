@@ -27,7 +27,7 @@
 		112978CDFD59F40AE79F0012 /* TransactionDetailsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F6C70950F299B1447B75AA /* TransactionDetailsInteractorOutput.swift */; };
 		11518E1F20C09A7300510FE3 /* API+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11518E1E20C09A7300510FE3 /* API+Push.swift */; };
 		11518E2220C09FBE00510FE3 /* PushNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11518E2120C09FBE00510FE3 /* PushNetworkServiceProtocol.swift */; };
-		11518E2420C09FC800510FE3 /* PushNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11518E2320C09FC800510FE3 /* PushNetworkingService.swift */; };
+		11518E2420C09FC800510FE3 /* PushNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11518E2320C09FC800510FE3 /* PushNetworkService.swift */; };
 		12125148446CF3FFA8E17304 /* Pods_ethereum_wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37125BB503FBB951EE8DC207 /* Pods_ethereum_wallet.framework */; };
 		1325EBBB1D1EF108C6EEAE1C /* PinRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680D0BC4BFA0E97BBCEE7C8 /* PinRouter.swift */; };
 		14004B7E205D39CF00EA8199 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14004B7D205D39CF00EA8199 /* Key.swift */; };
@@ -449,7 +449,7 @@
 		11518E1D20C099D600510FE3 /* ethereum-wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ethereum-wallet.entitlements"; sourceTree = "<group>"; };
 		11518E1E20C09A7300510FE3 /* API+Push.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "API+Push.swift"; sourceTree = "<group>"; tabWidth = 2; };
 		11518E2120C09FBE00510FE3 /* PushNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNetworkServiceProtocol.swift; sourceTree = "<group>"; };
-		11518E2320C09FC800510FE3 /* PushNetworkingService.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = PushNetworkingService.swift; sourceTree = "<group>"; tabWidth = 2; };
+		11518E2320C09FC800510FE3 /* PushNetworkService.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = PushNetworkService.swift; sourceTree = "<group>"; tabWidth = 2; };
 		12DBAE3694B7946B56C1AE8B /* ReceiveModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceiveModuleInput.swift; sourceTree = "<group>"; };
 		14004B7D205D39CF00EA8199 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		14004B7F205D3E4600EA8199 /* KeyCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCrypto.swift; sourceTree = "<group>"; };
@@ -487,7 +487,7 @@
 		1414E70720589B4A0080680E /* PopupStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupStateFactory.swift; sourceTree = "<group>"; };
 		1414E70A20589FC90080680E /* PopupPostProcessProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPostProcessProtocol.swift; sourceTree = "<group>"; };
 		1414E70C2058A0350080680E /* PopupTouchPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTouchPostProcess.swift; sourceTree = "<group>"; };
-		1414E71220594CD10080680E /* PopupPostProcessFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPostProcessFactory.swift; sourceTree = "<group>"; };
+		1414E71220594CD10080680E /* PopupPostProcessFactory.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = PopupPostProcessFactory.swift; sourceTree = "<group>"; tabWidth = 2; };
 		1414E7152059584F0080680E /* NSError+LAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+LAError.swift"; sourceTree = "<group>"; };
 		1414E7182059A9F50080680E /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
 		141749D01FD9B91A00AD5F07 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
@@ -929,7 +929,7 @@
 			isa = PBXGroup;
 			children = (
 				11518E2120C09FBE00510FE3 /* PushNetworkServiceProtocol.swift */,
-				11518E2320C09FC800510FE3 /* PushNetworkingService.swift */,
+				11518E2320C09FC800510FE3 /* PushNetworkService.swift */,
 			);
 			path = Push;
 			sourceTree = "<group>";
@@ -3187,7 +3187,7 @@
 				F2C1D232990D685616AA3DB5 /* TransactionsModuleInput.swift in Sources */,
 				40EF7FE7405B398075728411 /* TransactionsModuleOutput.swift in Sources */,
 				9D0EFA15664CF1706AF54B4E /* TransactionsModule.swift in Sources */,
-				11518E2420C09FC800510FE3 /* PushNetworkingService.swift in Sources */,
+				11518E2420C09FC800510FE3 /* PushNetworkService.swift in Sources */,
 				A7DD10AC65AD5135CC97D31C /* SendViewInput.swift in Sources */,
 				145A90FC1FDDE6C300DED3AC /* Token.swift in Sources */,
 				977DBCED56321E9DC4963E16 /* SendViewOutput.swift in Sources */,

@@ -14,7 +14,9 @@ class PopupPushPostProcess: PopupPostProcessProtocol {
   static let shared = PopupPushPostProcess()
   
   var completion: PopupPostProcessCallback?
-  let pushService = PushNetworkService() // TODO: should it be here?
+  
+  var pushService: PushNetworkServiceProtocol?
+  var walletDataStoreService: WalletDataStoreServiceProtocol?
   
   func onConfirm(_ completion: @escaping (Result<Bool>) -> Void) {
     self.completion = nil
@@ -41,9 +43,10 @@ class PopupPushPostProcess: PopupPostProcessProtocol {
   }
   
   func didRegister(token: String) {
-    // TODO: get address from here?
-    pushService.register(token: token, address: "no address :(", queue: .global()) { result in
-      self.completion?(.success(true))
+    walletDataStoreService?.getWallet(queue: .global()) { wallet in
+      self.pushService!.register(token: token, address: wallet.address, queue: .global()) { result in
+        self.completion?(.success(true))
+      }
     }
   }
   

@@ -24,7 +24,10 @@ class PopupModule {
     
     // MARK: Injection
     presenter.popupState = PopupStateFactory(state: popupState).create()
-    interactor.postProcess = PopupPostProcessFactory(state: popupState).create()
+    
+    let pushService = PushNetworkService()
+    let walletDataStoreService = WalletDataStoreService()
+    interactor.postProcess = PopupPostProcessFactory(state: popupState, pushService: pushService, walletDataStoreService: walletDataStoreService).create()
         
     return presenter
   }
