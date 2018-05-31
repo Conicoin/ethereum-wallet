@@ -25,6 +25,9 @@
 		10D8A198B53906DCFFC2B123 /* ChooseCurrencyViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E3A7D16CC08D31B3828D50 /* ChooseCurrencyViewInput.swift */; };
 		111B76EB2B2A85F3877EF1E0 /* ChooseCurrencyViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4486BEC9A7262F34EE02B5E /* ChooseCurrencyViewOutput.swift */; };
 		112978CDFD59F40AE79F0012 /* TransactionDetailsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F6C70950F299B1447B75AA /* TransactionDetailsInteractorOutput.swift */; };
+		11518E1F20C09A7300510FE3 /* API+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11518E1E20C09A7300510FE3 /* API+Push.swift */; };
+		11518E2220C09FBE00510FE3 /* PushNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11518E2120C09FBE00510FE3 /* PushNetworkServiceProtocol.swift */; };
+		11518E2420C09FC800510FE3 /* PushNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11518E2320C09FC800510FE3 /* PushNetworkingService.swift */; };
 		12125148446CF3FFA8E17304 /* Pods_ethereum_wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37125BB503FBB951EE8DC207 /* Pods_ethereum_wallet.framework */; };
 		1325EBBB1D1EF108C6EEAE1C /* PinRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680D0BC4BFA0E97BBCEE7C8 /* PinRouter.swift */; };
 		14004B7E205D39CF00EA8199 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14004B7D205D39CF00EA8199 /* Key.swift */; };
@@ -443,6 +446,10 @@
 		09DB419A418C3F6701CACAFB /* SendInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendInteractorOutput.swift; sourceTree = "<group>"; };
 		0B6331DCDD63B2B63627CC9C /* PopupModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupModuleOutput.swift; sourceTree = "<group>"; };
 		0E1188829331B84C9CDFBDFA /* TabBarRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarRouterInput.swift; sourceTree = "<group>"; };
+		11518E1D20C099D600510FE3 /* ethereum-wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ethereum-wallet.entitlements"; sourceTree = "<group>"; };
+		11518E1E20C09A7300510FE3 /* API+Push.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "API+Push.swift"; sourceTree = "<group>"; tabWidth = 2; };
+		11518E2120C09FBE00510FE3 /* PushNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		11518E2320C09FC800510FE3 /* PushNetworkingService.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = PushNetworkingService.swift; sourceTree = "<group>"; tabWidth = 2; };
 		12DBAE3694B7946B56C1AE8B /* ReceiveModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceiveModuleInput.swift; sourceTree = "<group>"; };
 		14004B7D205D39CF00EA8199 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		14004B7F205D3E4600EA8199 /* KeyCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCrypto.swift; sourceTree = "<group>"; };
@@ -490,7 +497,7 @@
 		1421A70C2062AFED00B4DBC2 /* SendCheckoutServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCheckoutServiceProtocol.swift; sourceTree = "<group>"; };
 		1421A70E2062B07400B4DBC2 /* SendCheckoutServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCheckoutServiceFactory.swift; sourceTree = "<group>"; };
 		142729D720C0788D009003CA /* PopupPushState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPushState.swift; sourceTree = "<group>"; };
-		142729D920C088F8009003CA /* PopupPushPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPushPostProcess.swift; sourceTree = "<group>"; };
+		142729D920C088F8009003CA /* PopupPushPostProcess.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = PopupPushPostProcess.swift; sourceTree = "<group>"; tabWidth = 2; };
 		142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCaptureService.swift; sourceTree = "<group>"; };
 		142730FC1FB8CF3400ED9968 /* QRCaptureServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCaptureServiceProtocol.swift; sourceTree = "<group>"; };
 		14280E6E1FE1F6F900121F85 /* TransactionDetailsShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsShadowView.swift; sourceTree = "<group>"; };
@@ -589,7 +596,7 @@
 		149CD64720892282005E3DBD /* WalletManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManagerProtocol.swift; sourceTree = "<group>"; };
 		149CD64920892301005E3DBD /* WalletManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManagerFactory.swift; sourceTree = "<group>"; };
 		14A799802098E7FF00CA9101 /* PendingTxBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingTxBuilder.swift; sourceTree = "<group>"; };
-		14ACA1D61EF2BC840059E430 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		14ACA1D61EF2BC840059E430 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 2; };
 		14ACA1DE1EF2BCB70059E430 /* EthereumCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumCore.swift; sourceTree = "<group>"; };
 		14ACA1E21EF2BCC80059E430 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		14ACA1E31EF2BCC80059E430 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -918,6 +925,15 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
+		11518E2020C09FA000510FE3 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				11518E2120C09FBE00510FE3 /* PushNetworkServiceProtocol.swift */,
+				11518E2320C09FC800510FE3 /* PushNetworkingService.swift */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
 		12BE9B68072E9203042EFBFB /* Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -1240,6 +1256,7 @@
 		144E4F141EB26F0600AB62B6 /* ethereum-wallet */ = {
 			isa = PBXGroup;
 			children = (
+				11518E1D20C099D600510FE3 /* ethereum-wallet.entitlements */,
 				144E4F381EB2772B00AB62B6 /* Common */,
 				144E4F291EB26FA300AB62B6 /* Other */,
 				A2251194F61DB599D5E01A72 /* Classes */,
@@ -1369,6 +1386,7 @@
 				145842651FB111A400FA733F /* Rates */,
 				146DB07F1FA007C3000D3564 /* Transactions */,
 				146DB07E1FA007BC000D3564 /* Wallet */,
+				11518E2020C09FA000510FE3 /* Push */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1723,6 +1741,7 @@
 				14285E831FB2831200DD3CB5 /* API+Rate.swift */,
 				145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */,
 				14DFA325207E20CF008F6F92 /* API+Transactions.swift */,
+				11518E1E20C09A7300510FE3 /* API+Push.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -2783,6 +2802,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -3077,6 +3099,7 @@
 				A2949D797F273018C98217B3 /* WelcomeModule.swift in Sources */,
 				146DB0811FA007E7000D3564 /* TransactionsNetworkService.swift in Sources */,
 				1414E704205894D90080680E /* PopupTouchState.swift in Sources */,
+				11518E1F20C09A7300510FE3 /* API+Push.swift in Sources */,
 				1433BDC41FD750550081D872 /* StandardSyncCoordinator.swift in Sources */,
 				14B126AE205BDAFD00B98AE1 /* ImportStateProtocol.swift in Sources */,
 				14F4A5B320B1E9DF0087BB00 /* ScreenLocker.swift in Sources */,
@@ -3164,6 +3187,7 @@
 				F2C1D232990D685616AA3DB5 /* TransactionsModuleInput.swift in Sources */,
 				40EF7FE7405B398075728411 /* TransactionsModuleOutput.swift in Sources */,
 				9D0EFA15664CF1706AF54B4E /* TransactionsModule.swift in Sources */,
+				11518E2420C09FC800510FE3 /* PushNetworkingService.swift in Sources */,
 				A7DD10AC65AD5135CC97D31C /* SendViewInput.swift in Sources */,
 				145A90FC1FDDE6C300DED3AC /* Token.swift in Sources */,
 				977DBCED56321E9DC4963E16 /* SendViewOutput.swift in Sources */,
@@ -3294,6 +3318,7 @@
 				9D2494CED34CF59D8EFA0808 /* ImportInteractorOutput.swift in Sources */,
 				9CAC6FD93C4F7C971918F454 /* ImportInteractor.swift in Sources */,
 				145D1386206A6AA200AF85D2 /* UITableView+Conicoin.swift in Sources */,
+				11518E2220C09FBE00510FE3 /* PushNetworkServiceProtocol.swift in Sources */,
 				3B15B95D00AD02EB995F5622 /* ImportRouterInput.swift in Sources */,
 				FDC9A091AA6AA18BCB4E0F79 /* ImportRouter.swift in Sources */,
 				A468F8D3AE82D93F7339933C /* ImportModuleInput.swift in Sources */,
@@ -3561,6 +3586,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
 				DEVELOPMENT_TEAM = V9XXJGN69B;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3589,6 +3615,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
 				DEVELOPMENT_TEAM = V9XXJGN69B;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

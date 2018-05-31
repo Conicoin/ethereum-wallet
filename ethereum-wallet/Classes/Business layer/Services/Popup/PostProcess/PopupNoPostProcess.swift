@@ -10,7 +10,7 @@ import Alamofire
 
 class PopupNoPostProcess: PopupPostProcessProtocol {
   
-  func onConfirm(_ completion: (Result<Bool>) -> Void) {
+  func onConfirm(_ completion: @escaping (Result<Bool>) -> Void) {
     completion(.success(true))
   }
 

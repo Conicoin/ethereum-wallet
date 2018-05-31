@@ -23,7 +23,7 @@ class PopupPostProcessFactory {
     case .txSent:
       return PopupNoPostProcess()
     case .push:
-      return PopupPushPostProcess()
+      return PopupPushPostProcess.shared
     }
   }
   

@@ -10,5 +10,7 @@ import Foundation
 import Alamofire
 
 protocol PopupPostProcessProtocol {
-  func onConfirm(_ completion: (Result<Bool>) -> Void)
+  typealias PopupPostProcessCallback = (Result<Bool>) -> Void
+    
+  func onConfirm(_ completion: @escaping PopupPostProcessCallback)
 }

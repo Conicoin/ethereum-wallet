@@ -52,6 +52,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillResignActive(_ application: UIApplication) {
     screenLocker.lock()
   }
+    
+  func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    let tokenParts = deviceToken.map { data -> String in
+      return String(format: "%02.2hhx", data)
+    }
+    
+    let token = tokenParts.joined()
+    PopupPushPostProcess.shared.didRegister(token: token)
+  }
+  
+  func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    PopupPushPostProcess.shared.didFailToRegister(with: error)
+  }
   
 }
 

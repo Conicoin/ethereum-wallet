@@ -21,7 +21,7 @@ final class Defaults: NSObject {
   
   class var chain: Chain {
     get {
-      let raw: String =  get(forKey: .chain, fallback: Chain.mainnet.rawValue)
+      let raw: String =  get(forKey: .chain, fallback: Chain.rinkeby.rawValue)
       return Chain(rawValue: raw)!
     }
     

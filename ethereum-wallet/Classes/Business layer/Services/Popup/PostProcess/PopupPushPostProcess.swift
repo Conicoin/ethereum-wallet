@@ -7,11 +7,48 @@
 //
 
 import Alamofire
+import UserNotifications
 
 class PopupPushPostProcess: PopupPostProcessProtocol {
   
-  func onConfirm(_ completion: (Result<Bool>) -> Void) {
-    completion(.success(true))
+  static let shared = PopupPushPostProcess()
+  
+  var completion: PopupPostProcessCallback?
+  let pushService = PushNetworkService() // TODO: should it be here?
+  
+  func onConfirm(_ completion: @escaping (Result<Bool>) -> Void) {
+    self.completion = nil
+    
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+      guard granted else {
+        completion(.failure(error!))
+        return
+      }
+      
+      UNUserNotificationCenter.current().getNotificationSettings { settings in
+        guard settings.authorizationStatus == .authorized else {
+          completion(.failure(error!))
+          return
+        }
+        
+        self.completion = completion
+        
+        DispatchQueue.main.async {
+          UIApplication.shared.registerForRemoteNotifications()
+        }
+      }
+    }
+  }
+  
+  func didRegister(token: String) {
+    // TODO: get address from here?
+    pushService.register(token: token, address: "no address :(", queue: .global()) { result in
+      self.completion?(.success(true))
+    }
+  }
+  
+  func didFailToRegister(with error: Error) {
+    completion?(.failure(error))
   }
   
 }
