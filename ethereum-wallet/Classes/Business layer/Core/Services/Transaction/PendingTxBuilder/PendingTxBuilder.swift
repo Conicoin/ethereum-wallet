@@ -11,13 +11,13 @@ import Geth
 
 class PendingTxBuilder {
   
-  func build(_ gethTx: GethTransaction, time: Date, txMeta: TokenMeta?) -> Transaction {
+  func build(_ gethTx: GethTransaction, from: String, time: Date, txMeta: TokenMeta?) -> Transaction {
     var tx = Transaction()
     tx.txHash = gethTx.getHash().getHex()
     tx.blockNumber = 0
     tx.timeStamp = time
     tx.nonce = gethTx.getNonce()
-    tx.from = ""
+    tx.from = from
     tx.to = gethTx.getTo().getHex()
     tx.gas = Decimal(gethTx.getGas())
     tx.gasPrice = Decimal(gethTx.getGasPrice().getString(10))

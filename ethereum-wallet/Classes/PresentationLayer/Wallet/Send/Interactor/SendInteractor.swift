@@ -59,12 +59,18 @@ extension SendInteractor: SendInteractorInput {
     transactionService.sendTransaction(with: info, passphrase: pin) { [unowned self] result in
       switch result {
       case .success(let sendedTransaction):
-        let builder = PendingTxBuilder()
-        var transaction = builder.build(sendedTransaction, time: Date(), txMeta: coin.tokenMeta)
-        transaction.isPending = true
-        transaction.isIncoming = false
-        self.transactionsDataStoreService.save(transaction)
-        pinResult?(.success(true))
+        
+        self.walletDataStoreService.getWallet(queue: .global()) { wallet in
+          let builder = PendingTxBuilder()
+          var transaction = builder.build(sendedTransaction, from: wallet.address, time: Date(), txMeta: coin.tokenMeta)
+          transaction.isPending = true
+          transaction.isIncoming = false
+          self.transactionsDataStoreService.save(transaction)
+          DispatchQueue.main.async {
+            pinResult?(.success(true))
+          }
+        }
+        
       case .failure(let error):
         pinResult?(.failure(error))
         self.output.didFailedSending(with: error)
