@@ -24,17 +24,12 @@ extension API.Push: APIMethodProtocol {
   }
   
   var path: String {
-    let backendURL = "http://18.217.141.154:8000"
-    var method = ""
-    
     switch self {
     case .register:
-      method = "/push/register"
+      return Defaults.chain.backend + "/push/register"
     case .unregister:
-      method = "/push/unregister"
+      return Defaults.chain.backend + "/push/unregister"
     }
-    
-    return "\(backendURL)\(method)"
   }
   
   var params: Params? {

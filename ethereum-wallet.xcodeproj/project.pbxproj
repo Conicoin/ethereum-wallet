@@ -256,6 +256,11 @@
 		14F4A5AD20B1DFBE0087BB00 /* LockerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4A5AC20B1DFBE0087BB00 /* LockerFactory.swift */; };
 		14F4A5B320B1E9DF0087BB00 /* ScreenLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4A5B220B1E9DF0087BB00 /* ScreenLocker.swift */; };
 		14F4A5B520B1EBC80087BB00 /* ScreenLockerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4A5B420B1EBC80087BB00 /* ScreenLockerProtocol.swift */; };
+		14F7DE3C20C1C2F80085F186 /* PushService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7DE3B20C1C2F80085F186 /* PushService.swift */; };
+		14F7DE3E20C1C3B80085F186 /* PushServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7DE3D20C1C3B80085F186 /* PushServiceProtocol.swift */; };
+		14F7DE4020C1C5C20085F186 /* PushConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7DE3F20C1C5C20085F186 /* PushConfigurator.swift */; };
+		14F7DE4320C1CD680085F186 /* LiveServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7DE4220C1CD680085F186 /* LiveServices.swift */; };
+		14F7DE4520C1CDAA0085F186 /* PushConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7DE4420C1CDAA0085F186 /* PushConfiguratorProtocol.swift */; };
 		14F90FDA1FB4FA5100314288 /* Double+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F90FD91FB4FA5100314288 /* Double+Helpers.swift */; };
 		14FEBD731FBB1F210084F1AB /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FEBD721FBB1F210084F1AB /* Node.swift */; };
 		14FEBD751FBB2A940084F1AB /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FEBD741FBB2A940084F1AB /* Chain.swift */; };
@@ -673,6 +678,11 @@
 		14F4A5AC20B1DFBE0087BB00 /* LockerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockerFactory.swift; sourceTree = "<group>"; };
 		14F4A5B220B1E9DF0087BB00 /* ScreenLocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLocker.swift; sourceTree = "<group>"; };
 		14F4A5B420B1EBC80087BB00 /* ScreenLockerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLockerProtocol.swift; sourceTree = "<group>"; };
+		14F7DE3B20C1C2F80085F186 /* PushService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushService.swift; sourceTree = "<group>"; };
+		14F7DE3D20C1C3B80085F186 /* PushServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushServiceProtocol.swift; sourceTree = "<group>"; };
+		14F7DE3F20C1C5C20085F186 /* PushConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushConfigurator.swift; sourceTree = "<group>"; };
+		14F7DE4220C1CD680085F186 /* LiveServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveServices.swift; sourceTree = "<group>"; };
+		14F7DE4420C1CDAA0085F186 /* PushConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushConfiguratorProtocol.swift; sourceTree = "<group>"; };
 		14F90FD91FB4FA5100314288 /* Double+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Helpers.swift"; sourceTree = "<group>"; };
 		14FEBD721FBB1F210084F1AB /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		14FEBD741FBB2A940084F1AB /* Chain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
@@ -1680,6 +1690,8 @@
 		14C4D3CE1EDE209800FCA3AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				14F7DE4120C1CD520085F186 /* LiveServices */,
+				14F7DE3A20C1C2C70085F186 /* Push */,
 				14F4A5B120B1E9B80087BB00 /* ScreenLocker */,
 				14F4A5A720B1DEA80087BB00 /* Locker */,
 				14773B74208919DA006B35C0 /* WalletManager */,
@@ -1830,6 +1842,25 @@
 				14F4A5B420B1EBC80087BB00 /* ScreenLockerProtocol.swift */,
 			);
 			path = ScreenLocker;
+			sourceTree = "<group>";
+		};
+		14F7DE3A20C1C2C70085F186 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				14F7DE3D20C1C3B80085F186 /* PushServiceProtocol.swift */,
+				14F7DE3B20C1C2F80085F186 /* PushService.swift */,
+				14F7DE3F20C1C5C20085F186 /* PushConfigurator.swift */,
+				14F7DE4420C1CDAA0085F186 /* PushConfiguratorProtocol.swift */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
+		14F7DE4120C1CD520085F186 /* LiveServices */ = {
+			isa = PBXGroup;
+			children = (
+				14F7DE4220C1CD680085F186 /* LiveServices.swift */,
+			);
+			path = LiveServices;
 			sourceTree = "<group>";
 		};
 		14FEBD761FBB2CB90084F1AB /* Wrappers */ = {
@@ -3100,6 +3131,7 @@
 				146DB0811FA007E7000D3564 /* TransactionsNetworkService.swift in Sources */,
 				1414E704205894D90080680E /* PopupTouchState.swift in Sources */,
 				11518E1F20C09A7300510FE3 /* API+Push.swift in Sources */,
+				14F7DE3E20C1C3B80085F186 /* PushServiceProtocol.swift in Sources */,
 				1433BDC41FD750550081D872 /* StandardSyncCoordinator.swift in Sources */,
 				14B126AE205BDAFD00B98AE1 /* ImportStateProtocol.swift in Sources */,
 				14F4A5B320B1E9DF0087BB00 /* ScreenLocker.swift in Sources */,
@@ -3179,6 +3211,7 @@
 				14004B84205D404B00EA8199 /* KeyCipherParams.swift in Sources */,
 				14786ED7201E05E1009ECC11 /* HexDataTransform.swift in Sources */,
 				14BE0A791FAFDCB00044E3A1 /* CoinDataStoreServiceProtocol.swift in Sources */,
+				14F7DE4020C1C5C20085F186 /* PushConfigurator.swift in Sources */,
 				144102E82056743000F4D192 /* PinStateProtocol.swift in Sources */,
 				E65833E73BA0D892D187575C /* TransactionsRouterInput.swift in Sources */,
 				14F4A5AB20B1DF870087BB00 /* LockerProtocol.swift in Sources */,
@@ -3221,6 +3254,7 @@
 				A85C249674FC58464027178A /* ReceiveInteractor.swift in Sources */,
 				2EBD9E3202AC8101D58D7C85 /* ReceiveRouterInput.swift in Sources */,
 				1414E7162059584F0080680E /* NSError+LAError.swift in Sources */,
+				14F7DE4320C1CD680085F186 /* LiveServices.swift in Sources */,
 				390495A9595407CFB451A82F /* ReceiveRouter.swift in Sources */,
 				14991D7B205699840046E6CD /* ChangePinState.swift in Sources */,
 				F9250D5B1071EF6CC9B3AC6C /* ReceiveModuleInput.swift in Sources */,
@@ -3287,6 +3321,7 @@
 				7E2F0AB3A7935A35ECFA8392 /* ChooseCurrencyModuleOutput.swift in Sources */,
 				1414E7192059A9F50080680E /* TokenCell.swift in Sources */,
 				E0FDE68F274BCCEE3F683D9C /* ChooseCurrencyModule.swift in Sources */,
+				14F7DE4520C1CDAA0085F186 /* PushConfiguratorProtocol.swift in Sources */,
 				14D518901FE087E600A4FB94 /* TokenDataStoreService.swift in Sources */,
 				1414E71320594CD10080680E /* PopupPostProcessFactory.swift in Sources */,
 				0BF2BD416F2B8B3855FCE4C8 /* TokenDetailsViewInput.swift in Sources */,
@@ -3357,6 +3392,7 @@
 				B03288F2D4DE2CF494B5D54C /* PopupModuleInput.swift in Sources */,
 				5818681DB542FBEA64231B53 /* PopupModuleOutput.swift in Sources */,
 				FD7D750E0A051F3A963485D1 /* PopupModule.swift in Sources */,
+				14F7DE3C20C1C2F80085F186 /* PushService.swift in Sources */,
 				968A3273E2F6EF2833F5248E /* TransactionDetailsViewInput.swift in Sources */,
 				2EF85E9690FD5543BEA96789 /* TransactionDetailsViewOutput.swift in Sources */,
 				C99862EB82913F9F657EF0BA /* TransactionDetailsViewController.swift in Sources */,

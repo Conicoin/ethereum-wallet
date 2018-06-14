@@ -32,6 +32,9 @@ extension PinPresenter: PinViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     interactor.getPinInfo()
+  }
+  
+  func viewWillAppear() {
     interactor.authenticateWithBiometrics()
   }
   

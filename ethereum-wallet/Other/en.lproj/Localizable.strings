@@ -111,6 +111,7 @@
 "settings.currency" = "Reference currency";
 "settings.changePasscode" = "Change passcode";
 "settings.touchId" = "Use Touch ID";
+"settings.push" = "App notifications";
 "settings.backup" = "Backup wallet";
 "settings.rate" = "Rate App";
 "settings.logout" = "Exit wallet";

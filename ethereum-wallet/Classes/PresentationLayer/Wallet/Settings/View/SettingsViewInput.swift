@@ -24,4 +24,5 @@ protocol SettingsViewInput: class, Presentable {
   func shareFileAtUrl(_ url: URL)
   func didReceiveIsTouchIdEnabled(_ isTouchIdEnabled: Bool)
   func didReceiveCurrency(_ currency: FiatCurrency)
+  func didFailedRegisterForRemoteNotification()
 }

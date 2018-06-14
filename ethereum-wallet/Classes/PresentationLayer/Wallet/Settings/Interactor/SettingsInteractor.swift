@@ -25,6 +25,8 @@ class SettingsInteractor {
   
   var keystore: KeystoreServiceProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
+  var pushService: PushServiceProtocol!
+  var pushConfigurator: PushConfiguratorProtocol!
 }
 
 
@@ -52,6 +54,23 @@ extension SettingsInteractor: SettingsInteractorInput {
     } catch let error {
       output.didFailed(with: error)
     }
+  }
+  
+  func registerForRemoteNotifications() {
+    pushService.registerForRemoteNotifications { [unowned self] result in
+      switch result {
+      case .success:
+        print("Registered for remote notifications")
+      case .failure(let error):
+        print("Failed to register for remote notifications with error: \(error.localizedDescription)")
+        self.output.didFailedRegisterForRemoteNotification()
+      }
+    }
+  }
+  
+  func unregisterFromRemoteNotifications() {
+    pushConfigurator.unregister()
+    pushService.unregister()
   }
   
   func clearAll(passphrase: String, completion: PinResult?) {

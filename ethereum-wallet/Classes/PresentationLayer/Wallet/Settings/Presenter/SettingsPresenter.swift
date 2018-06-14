@@ -65,6 +65,14 @@ extension SettingsPresenter: SettingsViewOutput {
     Defaults.isTouchIDAllowed = isOn
   }
   
+  func didPushValueChanged(_ isOn: Bool) {
+    if isOn {
+      interactor.registerForRemoteNotifications()
+    } else {
+      interactor.unregisterFromRemoteNotifications()
+    }
+  }
+  
   func didRateAppPressed() {
     SKStoreReviewController.requestReview()
   }
@@ -94,6 +102,10 @@ extension SettingsPresenter: SettingsInteractorOutput {
   
   func didReceiveExportKeyUrl(_ url: URL) {
     view.shareFileAtUrl(url)
+  }
+  
+  func didFailedRegisterForRemoteNotification() {
+    view.didFailedRegisterForRemoteNotification()
   }
 
 }

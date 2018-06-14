@@ -10,27 +10,20 @@ import UIKit
 
 class PopupPostProcessFactory {
   
-  let state: PopupState
-  let pushService: PushNetworkServiceProtocol
-  let walletDataStoreService: WalletDataStoreServiceProtocol
+  let pushService: PushServiceProtocol
   
-  init(state: PopupState, pushService: PushNetworkServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
-    self.state = state
+  init(pushService: PushServiceProtocol) {
     self.pushService = pushService
-    self.walletDataStoreService = walletDataStoreService
   }
   
-  func create() -> PopupPostProcessProtocol {
+  func create(_ state: PopupState) -> PopupPostProcessProtocol {
     switch state {
     case .touchId:
       return PopupTouchPostProcess()
     case .txSent:
       return PopupNoPostProcess()
     case .push:
-      let pushProcess = PopupPushPostProcess.shared
-      pushProcess.pushService = pushService
-      pushProcess.walletDataStoreService = walletDataStoreService
-      return pushProcess
+      return PopupPushPostProcess(pushService: pushService)
     }
   }
   

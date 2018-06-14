@@ -21,7 +21,8 @@ extension API.Transactions: APIMethodProtocol {
   var path: String {
     switch self {
     case .transactions:
-      return "https://api.trustwalletapp.com/transactions"
+      let chain = Defaults.chain
+      return chain.backend + "/transactions"
     }
   }
   

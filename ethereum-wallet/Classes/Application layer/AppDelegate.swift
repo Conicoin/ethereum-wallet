@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
-  private var locker: LockerProtocol = LockerFactory().create()
-  private var screenLocker: ScreenLockerProtocol = ScreenLocker()
+  private let liveServices = LiveServices()
+  
   private var configurators: [ConfiguratorProtocol] = {
     return [
       AppearanceConfigurator(),
@@ -45,25 +45,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func applicationDidBecomeActive(_ application: UIApplication) {
-    locker.autolock()
-    screenLocker.unlock()
+    liveServices.screenLocker.unlock()
+    liveServices.locker.autolock()
   }
   
   func applicationWillResignActive(_ application: UIApplication) {
-    screenLocker.lock()
+    liveServices.screenLocker.lock()
   }
     
   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-    let tokenParts = deviceToken.map { data -> String in
-      return String(format: "%02.2hhx", data)
-    }
-    
-    let token = tokenParts.joined()
-    PopupPushPostProcess.shared.didRegister(token: token)
+    liveServices.pushConfigurator.configureRemoteNotifications(token: deviceToken)
   }
   
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-    PopupPushPostProcess.shared.didFailToRegister(with: error)
+    // TODO: Handle error
+    print("Error register for remote notification: \(error.localizedDescription)")
   }
   
 }

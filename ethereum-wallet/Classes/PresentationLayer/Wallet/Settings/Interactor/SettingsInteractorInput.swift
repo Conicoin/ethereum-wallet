@@ -25,5 +25,7 @@ protocol SettingsInteractorInput: class {
   func selectCurrency(_ currency: String)
   func deleteTempBackup(at url: URL)
   func clearAll(passphrase: String, completion: PinResult?)
-  func changePin(oldPin: String, newPin: String, completion: PinResult?) 
+  func changePin(oldPin: String, newPin: String, completion: PinResult?)
+  func unregisterFromRemoteNotifications()
+  func registerForRemoteNotifications()
 }

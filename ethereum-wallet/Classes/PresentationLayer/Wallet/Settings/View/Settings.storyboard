@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RcW-Xo-VhX">
-                                        <rect key="frame" x="0.0" y="66" width="375" height="498"/>
+                                        <rect key="frame" x="0.0" y="66" width="375" height="563"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJz-Fv-pJm">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -74,7 +74,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BmH-lr-Gvc">
                                                 <rect key="frame" x="0.0" y="89" width="375" height="65"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsChangePasscode" translatesAutoresizingMaskIntoConstraints="NO" id="Ybc-j7-pXl">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsChangePasscode" translatesAutoresizingMaskIntoConstraints="NO" id="Ybc-j7-pXl">
                                                         <rect key="frame" x="16" y="20" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="J30-lx-K6d"/>
@@ -107,7 +107,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yo6-9A-xol">
                                                 <rect key="frame" x="0.0" y="154" width="375" height="65"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsFingerprint" translatesAutoresizingMaskIntoConstraints="NO" id="nXs-0Y-wue">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsFingerprint" translatesAutoresizingMaskIntoConstraints="NO" id="nXs-0Y-wue">
                                                         <rect key="frame" x="16" y="20" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="CkA-00-JOo"/>
@@ -146,17 +146,59 @@
                                                     <constraint firstItem="nXs-0Y-wue" firstAttribute="centerY" secondItem="yo6-9A-xol" secondAttribute="centerY" id="zzC-UR-sLp"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qf-Up-enu">
+                                                <rect key="frame" x="0.0" y="219" width="375" height="65"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsPush" translatesAutoresizingMaskIntoConstraints="NO" id="TB8-dX-FGC">
+                                                        <rect key="frame" x="16" y="20" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="65w-DN-91k"/>
+                                                            <constraint firstAttribute="width" constant="24" id="cHz-lb-7Qa"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIK-4Q-omB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <inset key="titleEdgeInsets" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="$Enable push notification">
+                                                            <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="pushPressed:" destination="YQz-Hp-mg9" eventType="touchUpInside" id="eac-fA-45B"/>
+                                                        </connections>
+                                                    </button>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ez5-5a-wUx">
+                                                        <rect key="frame" x="310" y="17" width="51" height="31"/>
+                                                        <color key="onTintColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="pushValueChanged:" destination="YQz-Hp-mg9" eventType="valueChanged" id="8qL-xr-71R"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="AIK-4Q-omB" secondAttribute="trailing" id="4P6-sd-9Y3"/>
+                                                    <constraint firstItem="TB8-dX-FGC" firstAttribute="centerY" secondItem="1qf-Up-enu" secondAttribute="centerY" id="BOD-yC-nYK"/>
+                                                    <constraint firstItem="AIK-4Q-omB" firstAttribute="leading" secondItem="1qf-Up-enu" secondAttribute="leading" id="EAh-an-SYP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ez5-5a-wUx" secondAttribute="trailing" constant="16" id="OeK-gN-qno"/>
+                                                    <constraint firstItem="AIK-4Q-omB" firstAttribute="top" secondItem="1qf-Up-enu" secondAttribute="top" id="dUy-ll-YeH"/>
+                                                    <constraint firstAttribute="height" constant="65" id="mQx-8Q-MaJ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="AIK-4Q-omB" secondAttribute="bottom" id="plK-pk-nUh"/>
+                                                    <constraint firstItem="TB8-dX-FGC" firstAttribute="leading" secondItem="1qf-Up-enu" secondAttribute="leading" constant="16" id="qPn-fv-mpM"/>
+                                                    <constraint firstItem="Ez5-5a-wUx" firstAttribute="centerY" secondItem="1qf-Up-enu" secondAttribute="centerY" id="qVM-9C-vr6"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYe-xV-tTE">
-                                                <rect key="frame" x="0.0" y="219" width="375" height="24"/>
+                                                <rect key="frame" x="0.0" y="284" width="375" height="24"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="NBz-eJ-oyw"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jUq-9j-0FZ">
-                                                <rect key="frame" x="0.0" y="243" width="375" height="65"/>
+                                                <rect key="frame" x="0.0" y="308" width="375" height="65"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsBackup" translatesAutoresizingMaskIntoConstraints="NO" id="Zwb-dY-X0Y">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsBackup" translatesAutoresizingMaskIntoConstraints="NO" id="Zwb-dY-X0Y">
                                                         <rect key="frame" x="16" y="20" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="aET-me-Lqy"/>
@@ -187,9 +229,9 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1g-pM-NVm">
-                                                <rect key="frame" x="0.0" y="308" width="375" height="65"/>
+                                                <rect key="frame" x="0.0" y="373" width="375" height="65"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="IXu-fC-nXI">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="IXu-fC-nXI">
                                                         <rect key="frame" x="16" y="20" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="2JP-hM-OQB"/>
@@ -220,14 +262,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPT-Mr-aEy">
-                                                <rect key="frame" x="0.0" y="373" width="375" height="24"/>
+                                                <rect key="frame" x="0.0" y="438" width="375" height="24"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="i6G-d8-ouE"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT9-jt-ejX">
-                                                <rect key="frame" x="0.0" y="397" width="375" height="65"/>
+                                                <rect key="frame" x="0.0" y="462" width="375" height="65"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aG4-Hp-Kcs">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -250,7 +292,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4B-SO-nWb">
-                                                <rect key="frame" x="0.0" y="462" width="375" height="36"/>
+                                                <rect key="frame" x="0.0" y="527" width="375" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Version 1.1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5w-Mq-cug">
                                                         <rect key="frame" x="143.5" y="9.5" width="88.5" height="17"/>
@@ -299,7 +341,9 @@
                         <outlet property="currencyImageView" destination="sRk-Dz-jwt" id="IqP-cD-emk"/>
                         <outlet property="currencyIsoLabel" destination="Lrn-XN-edN" id="9z1-Nk-jaf"/>
                         <outlet property="logoutButton" destination="aG4-Hp-Kcs" id="lhc-G9-7zW"/>
-                        <outlet property="rateButton" destination="rGj-mp-hV8" id="Zek-hH-lOk"/>
+                        <outlet property="pushButton" destination="AIK-4Q-omB" id="AEg-z3-zfR"/>
+                        <outlet property="pushSwitch" destination="Ez5-5a-wUx" id="lhK-GM-Wc9"/>
+                        <outlet property="rateButton" destination="rGj-mp-hV8" id="7ad-as-gA4"/>
                         <outlet property="scrollView" destination="Yql-3K-yAb" id="A5f-y2-Hc3"/>
                         <outlet property="touchIdButton" destination="kaX-qn-FFd" id="d5Z-R7-AeC"/>
                         <outlet property="touchIdSwitch" destination="ywv-oE-AO8" id="gKw-Aj-tnt"/>
@@ -315,6 +359,7 @@
         <image name="SettingsBackup" width="24" height="24"/>
         <image name="SettingsChangePasscode" width="24" height="24"/>
         <image name="SettingsFingerprint" width="24" height="24"/>
+        <image name="SettingsPush" width="18" height="22"/>
         <image name="SettingsTab" width="20" height="20"/>
         <image name="Star" width="20" height="20"/>
     </resources>

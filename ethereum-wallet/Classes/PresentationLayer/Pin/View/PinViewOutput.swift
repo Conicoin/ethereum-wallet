@@ -11,6 +11,7 @@ import UIKit
 
 protocol PinViewOutput: class {
   func viewIsReady()
+  func viewWillAppear()
   func didAddSign(_ sign: String)
   func didDeleteSign()
   func didTouchIdPressed()
