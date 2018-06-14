@@ -38,7 +38,7 @@ class Locker: LockerProtocol {
     keychain.isLocked = true
     
     let rootViewController = AppDelegate.currentWindow.rootViewController!
-    
+
     PinModule.create(.lock).presentModal(from: rootViewController, postProcess: { _, postProcess in
       postProcess?(.success(true))
     }) { vc in

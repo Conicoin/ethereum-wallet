@@ -6,9 +6,10 @@
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 enum PopupState {
+  case push
   case touchId
   case txSent(amount: String, address: String)
 }

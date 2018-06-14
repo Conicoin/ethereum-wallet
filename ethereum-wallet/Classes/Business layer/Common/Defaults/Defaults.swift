@@ -21,12 +21,11 @@ final class Defaults: NSObject {
   
   class var chain: Chain {
     get {
-      let raw: String =  get(forKey: .chain, fallback: Chain.mainnet.rawValue)
-      return Chain(rawValue: raw)!
-    }
-    
-    set {
-      set(value: newValue.rawValue, forKey: .chain)
+#if DEBUG
+      return Chain.rinkeby
+#else
+      return Chain.mainnet
+#endif
     }
   }
   

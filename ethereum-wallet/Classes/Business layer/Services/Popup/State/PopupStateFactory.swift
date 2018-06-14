@@ -6,7 +6,7 @@
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class PopupStateFactory {
   
@@ -22,6 +22,8 @@ class PopupStateFactory {
       return PopupTouchState()
     case .txSent(let amount, let address):
       return PopupTxSentState(amount: amount, address: address)
+    case .push:
+      return PopupPushState()
     }
   }
 

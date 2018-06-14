@@ -27,6 +27,8 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var changePasscodeButton: UIButton!
   @IBOutlet weak var touchIdButton: UIButton!
   @IBOutlet weak var touchIdSwitch: UISwitch!
+  @IBOutlet weak var pushButton: UIButton!
+  @IBOutlet weak var pushSwitch: UISwitch!
   @IBOutlet weak var rateButton: UIButton!
   @IBOutlet weak var backupButton: UIButton!
   @IBOutlet weak var logoutButton: UIButton!
@@ -51,6 +53,7 @@ class SettingsViewController: UIViewController {
     currencyButton.setTitle(Localized.settingsCurrency(), for: .normal)
     changePasscodeButton.setTitle(Localized.settingsChangePasscode(), for: .normal)
     touchIdButton.setTitle(Localized.settingsTouchId(), for: .normal)
+    pushButton.setTitle(Localized.settingsPush(), for: .normal)
     rateButton.setTitle(Localized.settingsRate(), for: .normal)
     backupButton.setTitle(Localized.settingsBackup(), for: .normal)
     logoutButton.setTitle(Localized.settingsLogout(), for: .normal)
@@ -77,12 +80,22 @@ class SettingsViewController: UIViewController {
     output.didTouchIdValueChanged(isOn)
   }
   
+  @IBAction func pushPressed(_ sender: UIButton) {
+    let isOn = !pushSwitch.isOn
+    pushSwitch.setOn(isOn, animated: true)
+    output.didPushValueChanged(isOn)
+  }
+  
   @IBAction func backupPressed(_ sender: UIButton) {
     output.didBackupPressed()
   }
   
   @IBAction func touchIdValueChanged(_ sender: UISwitch) {
     output.didTouchIdValueChanged(sender.isOn)
+  }
+  
+  @IBAction func pushValueChanged(_ sender: UISwitch) {
+    output.didPushValueChanged(sender.isOn)
   }
   
   @IBAction func ratePressed(_ sender: UIButton) {
@@ -119,6 +132,10 @@ extension SettingsViewController: SettingsViewInput {
     let objectsToShare = [url]
     let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
     present(activityVC, animated: true, completion: nil)
+  }
+  
+  func didFailedRegisterForRemoteNotification() {
+    pushSwitch.setOn(false, animated: true)
   }
   
 }

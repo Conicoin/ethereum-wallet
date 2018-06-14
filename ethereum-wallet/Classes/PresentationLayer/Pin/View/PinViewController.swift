@@ -27,6 +27,11 @@ class PinViewController: UIViewController {
     output.viewIsReady()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    output.viewWillAppear()
+  }
+  
   // MARK: Privates
   
   private func animatePlaceholders(_ placeholders: [PinSignPlaceholderView], toState state: PinSignPlaceholderView.State) {

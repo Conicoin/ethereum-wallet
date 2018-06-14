@@ -12,7 +12,7 @@ import Alamofire
 
 class PopupTouchPostProcess: PopupPostProcessProtocol {
   
-  func onConfirm(_ completion: (Result<Bool>) -> Void) {
+  func onConfirm(_ completion: @escaping (Result<Bool>) -> Void) {
     let context = LAContext()
     var error: NSError?
     let isSuccess = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)

@@ -36,6 +36,7 @@ class BalanceInteractor {
 extension BalanceInteractor: BalanceInteractorInput {
   
   func updateRates() {
+    // To background thread
     var coins = coinDataStoreService.find()
     var tokens = tokensDataStoreService.find()
     let coinsCurrenies = coins.map { $0.balance.iso }

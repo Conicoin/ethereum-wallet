@@ -38,8 +38,10 @@ extension ImportRouter: ImportRouterInput {
     }
     
     PinModule.create(pinState).present(from: viewController, postProcess: postProcess) { vc in
-      PopupModule.create(.touchId).present(from: vc) { _ in
-        TabBarModule.create(isSecureMode: false).present()
+      PopupModule.create(.touchId).present(from: vc) { vc in
+        PopupModule.create(.push).present(from: vc) { _ in
+          TabBarModule.create(isSecureMode: false).present()
+        }
       }
     }
   }

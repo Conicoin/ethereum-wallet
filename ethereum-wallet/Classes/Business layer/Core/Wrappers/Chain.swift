@@ -122,6 +122,17 @@ enum Chain: String {
     }
   }
   
+  var backend: String {
+    switch self {
+    case .mainnet:
+      return "http://18.222.83.172:8000"
+    case .ropsten:
+      fatalError("Not supported yet")
+    case .rinkeby:
+      return "http://18.216.110.94:8000"
+    }
+  }
+  
   var isMainnet: Bool {
     return self == .mainnet
   }
