@@ -58,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-    // TODO: Handle error
     print("Error register for remote notification: \(error.localizedDescription)")
   }
   

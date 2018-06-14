@@ -22,17 +22,13 @@ class RealmToken: Object {
   @objc dynamic var balance: String = "0"
   @objc dynamic var name: String = ""
   @objc dynamic var iso: String = ""
-  @objc dynamic var iconURL: String? = nil
-  @objc dynamic var about: String? = nil
   @objc dynamic var address: String = ""
-  @objc dynamic var totalSupply: String = ""
-  @objc dynamic var holdersCount: Int = 0
   @objc dynamic var decimals: Int64 = 0
   @objc dynamic var lastUpdateTime: Date = .distantPast
   var rates = List<RealmRate>()
   
   override static func primaryKey() -> String? {
-    return "name"
+    return "address"
   }
 
 }

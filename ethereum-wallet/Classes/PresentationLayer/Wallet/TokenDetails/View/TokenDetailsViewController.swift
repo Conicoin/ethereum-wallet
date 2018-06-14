@@ -82,14 +82,7 @@ extension TokenDetailsViewController: TokenDetailsViewInput {
     balanceLabel.text = token.balance.amountString
     fiatBalanceLabel.text = token.description
   
-    if let description = token.about {
-      descriptionView.isHidden = false
-      descriptionTextView.text = description
-    }
     addressLabel.text = token.address
-    let totalSuply = Decimal(token.totalSupply)
-    totalSuplyLabel.text = "\(totalSuply.abbrevation()) \(token.balance.symbol)"
-    holdersCountLabel.text = "\(token.holdersCount!)"
   }
   
   func didReceiveFiatBalance(_ balance: String) {

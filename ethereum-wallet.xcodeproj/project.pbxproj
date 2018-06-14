@@ -148,6 +148,7 @@
 		147443D6209F85F900BAC86B /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 147443D5209F85F900BAC86B /* ObjC.m */; };
 		147443DD20A1033A00BAC86B /* LottiCheckmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 147443DC20A1033A00BAC86B /* LottiCheckmark.json */; };
 		1474CEBC209C3E5700139C3C /* SendSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474CEBB209C3E5700139C3C /* SendSettings.swift */; };
+		1475CB1720D2D0D6001A1FE9 /* API+Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475CB1620D2D0D6001A1FE9 /* API+Tokens.swift */; };
 		14773B7620891A49006B35C0 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14773B7520891A49006B35C0 /* WalletManager.swift */; };
 		14786ED7201E05E1009ECC11 /* HexDataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786ED6201E05E1009ECC11 /* HexDataTransform.swift */; };
 		14786EE7201E6D2F009ECC11 /* TransactionDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EE6201E6D2F009ECC11 /* TransactionDisplayer.swift */; };
@@ -573,6 +574,7 @@
 		147443D5209F85F900BAC86B /* ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
 		147443DC20A1033A00BAC86B /* LottiCheckmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottiCheckmark.json; sourceTree = "<group>"; };
 		1474CEBB209C3E5700139C3C /* SendSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSettings.swift; sourceTree = "<group>"; };
+		1475CB1620D2D0D6001A1FE9 /* API+Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Tokens.swift"; sourceTree = "<group>"; };
 		14773B7520891A49006B35C0 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		14786ED6201E05E1009ECC11 /* HexDataTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexDataTransform.swift; sourceTree = "<group>"; };
 		14786EE6201E6D2F009ECC11 /* TransactionDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDisplayer.swift; sourceTree = "<group>"; };
@@ -1754,6 +1756,7 @@
 				145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */,
 				14DFA325207E20CF008F6F92 /* API+Transactions.swift */,
 				11518E1E20C09A7300510FE3 /* API+Push.swift */,
+				1475CB1620D2D0D6001A1FE9 /* API+Tokens.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -3129,6 +3132,7 @@
 				14E26DCA20618FF300976CD1 /* UITextField+Helpers.swift in Sources */,
 				A2949D797F273018C98217B3 /* WelcomeModule.swift in Sources */,
 				146DB0811FA007E7000D3564 /* TransactionsNetworkService.swift in Sources */,
+				1475CB1720D2D0D6001A1FE9 /* API+Tokens.swift in Sources */,
 				1414E704205894D90080680E /* PopupTouchState.swift in Sources */,
 				11518E1F20C09A7300510FE3 /* API+Push.swift in Sources */,
 				14F7DE3E20C1C3B80085F186 /* PushServiceProtocol.swift in Sources */,

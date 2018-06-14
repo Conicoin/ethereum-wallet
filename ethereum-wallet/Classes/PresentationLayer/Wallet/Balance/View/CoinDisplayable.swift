@@ -21,7 +21,6 @@ protocol CoinDisplayable {
   var balance: Currency! { get }
   var rates: [Rate] { get }
   var color: UIColor { get }
-  var iconUrl: URL? { get }
   var gasLimit: Decimal { get }
   var contract: String? { get }
   var tokenMeta: TokenMeta? { get }
@@ -78,10 +77,6 @@ extension Coin: CoinDisplayable {
   
   var gasLimit: Decimal {
     return Constants.Send.defaultGasLimit
-  }
-  
-  var iconUrl: URL? {
-    return nil
   }
   
   var color: UIColor {
