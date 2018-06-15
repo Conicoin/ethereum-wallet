@@ -53,6 +53,10 @@ extension TokenDetailsPresenter: TokenDetailsViewOutput {
     let fiatBalance = token.fiatLabelString(selectedCurrency)
     view.didReceiveFiatBalance(fiatBalance)
   }
+  
+  func didTransactionPressed(_ transaction: TransactionDisplayer) {
+    router.presentDetails(with: transaction, from: view.viewController)
+  }
 
 }
 

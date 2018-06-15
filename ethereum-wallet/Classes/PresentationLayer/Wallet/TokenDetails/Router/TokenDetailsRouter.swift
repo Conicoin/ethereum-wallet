@@ -30,5 +30,9 @@ extension TokenDetailsRouter: TokenDetailsRouterInput {
   func presentSend(for token: Token, from: UIViewController) {
     SendModule.create(.token).presentSend(with: token, from: from)
   }
+  
+  func presentDetails(with transaction: TransactionDisplayer, from: UIViewController) {
+    TransactionDetailsModule.create(isToken: transaction.isTokenTransfer).present(with: transaction, from: from)
+  }
     
 }

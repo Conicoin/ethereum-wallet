@@ -25,7 +25,7 @@ class TransactionsViewController: UIViewController {
 
   var output: TransactionsViewOutput!
   
-  private var refresh: UIRefreshControl!
+  private var refresh = UIRefreshControl()
   private var sections = [Date: [TransactionDisplayer]]()
   private var sortedSections = [Date]()
 
@@ -51,8 +51,8 @@ class TransactionsViewController: UIViewController {
   
   private func setupTableView() {
     tableView.setupBorder()
-    refresh = UIRefreshControl()
     tableView.refreshControl = refresh
+    tableView.register(TransactionCell.self)
     refresh.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
   }
     
