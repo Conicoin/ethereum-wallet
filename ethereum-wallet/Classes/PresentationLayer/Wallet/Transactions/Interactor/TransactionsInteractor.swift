@@ -27,25 +27,16 @@ class TransactionsInteractor {
   
   private func groupTransactions(_ transactions: [Transaction]) {
     DispatchQueue.global().async {
-      var sections = [Date: [TransactionDisplayer]]()
+      let container = TransactionsDisplayerContainer()
+
       for tx in transactions {
         let time = Calendar.current.startOfDay(for: tx.timeStamp)
-        if sections.index(forKey: time) == nil {
-          let displayer = TransactionDisplayer(tx: tx)
-          sections[time] = [displayer]
-        } else {
-          let displayer = TransactionDisplayer(tx: tx)
-          sections[time]?.append(displayer)
-        }
+        let displayer = TransactionDisplayer(tx: tx)
+        container.append(displayer, for: time)
       }
       
-      for map in sections {
-        sections[map.key] = map.value.sorted(by: { $0.time > $1.time })
-      }
-      
-      let sortedSections = sections.keys.sorted(by: { $0 > $1 })
       DispatchQueue.main.async { [weak self] in
-        self?.output.didReceiveSections(sections, sortedSections: sortedSections)
+        self?.output.didReceiveSections(container)
       }
     }
   }

@@ -80,8 +80,8 @@ extension TransactionsPresenter: TransactionsInteractorOutput {
     getTransactionsFromNetworkIfAvailable()
   }
   
-  func didReceiveSections(_ sections: [Date : [TransactionDisplayer]], sortedSections: [Date]) {
-    view.didReceiveSections(sections, sortedSections: sortedSections)
+  func didReceiveSections(_ sections: TransactionsDisplayerContainer) {
+    view.didReceiveSections(sections)
   }
   
   func didReceiveTransactions() {

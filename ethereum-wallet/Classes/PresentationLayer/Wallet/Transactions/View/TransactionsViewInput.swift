@@ -21,5 +21,5 @@ import UIKit
 protocol TransactionsViewInput: class, Presentable {
   func setupInitialState()
   func stopRefreshing()
-  func didReceiveSections(_ sections: [Date: [TransactionDisplayer]], sortedSections: [Date])
+  func didReceiveSections(_ sections: TransactionsDisplayerContainer)
 }
