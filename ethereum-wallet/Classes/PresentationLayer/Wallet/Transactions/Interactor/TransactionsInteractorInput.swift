@@ -21,5 +21,5 @@ import Foundation
 protocol TransactionsInteractorInput: class {
   func getTransactions()
   func getWallet()
-  func loadTransactions(address: String)
+  func loadTransactions(address: String, page: Int, limit: Int)
 }

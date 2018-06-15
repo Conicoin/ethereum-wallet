@@ -26,6 +26,7 @@ class TransactionsViewController: UIViewController {
   var output: TransactionsViewOutput!
   
   private var refresh: UIRefreshControl!
+  private var bottomLoader: UIActivityIndicatorView!
   private var sections = [Date: [TransactionDisplayer]]()
   private var sortedSections = [Date]()
 
@@ -53,6 +54,9 @@ class TransactionsViewController: UIViewController {
     tableView.setupBorder()
     refresh = UIRefreshControl()
     tableView.refreshControl = refresh
+    bottomLoader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    bottomLoader.hidesWhenStopped = true
+    tableView.tableFooterView = bottomLoader
     refresh.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
   }
     
@@ -60,6 +64,10 @@ class TransactionsViewController: UIViewController {
     output.didRefresh()
   }
 
+  func loadNextPage() {
+    bottomLoader.startAnimating()
+    output.loadNextPage()
+  }
 }
 
 
@@ -79,6 +87,7 @@ extension TransactionsViewController: TransactionsViewInput {
   
   func stopRefreshing() {
     refresh.endRefreshing()
+    bottomLoader.stopAnimating()
   }
 
 }
@@ -91,6 +100,12 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
     let cell = tableView.dequeue(TransactionCell.self, for: indexPath)
     let section = sortedSections[indexPath.section]
     cell.configure(with: sections[section]![indexPath.row])
+    
+    let isLast = indexPath.section == sortedSections.count-1 && indexPath.row == sections[section]!.count-1
+    if isLast {
+      loadNextPage()
+    }
+    
     return cell
   }
   
@@ -125,3 +140,4 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
   }
   
 }
+

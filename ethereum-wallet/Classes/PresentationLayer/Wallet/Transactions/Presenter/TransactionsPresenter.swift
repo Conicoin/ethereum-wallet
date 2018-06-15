@@ -27,8 +27,12 @@ class TransactionsPresenter {
   
   var wallet: Wallet?
   
-  private func getTransactionsFromNetwork(address: String) {
-    interactor.loadTransactions(address: address)
+  let defaultPageLimit = 10
+  var currentPage = 0
+  
+  private func getTransactionsFromNetworkIfAvailable() {
+    guard let wallet = wallet else { return }
+    interactor.loadTransactions(address: wallet.address, page: currentPage, limit: defaultPageLimit)
   }
   
 }
@@ -45,13 +49,11 @@ extension TransactionsPresenter: TransactionsViewOutput {
   }
   
   func viewIsAppear() {
-    guard let wallet = wallet else { return }
-    getTransactionsFromNetwork(address: wallet.address)
+    getTransactionsFromNetworkIfAvailable()
   }
   
   func didRefresh() {
-    guard let wallet = wallet else { return }
-    getTransactionsFromNetwork(address: wallet.address)
+    getTransactionsFromNetworkIfAvailable()
   }
   
   func didTransactionPressed(_ txIndex: TransactionDisplayer) {
@@ -59,6 +61,11 @@ extension TransactionsPresenter: TransactionsViewOutput {
       return
     }
     router.presentDetails(with: txIndex, from: tabBarController)
+  }
+    
+  func loadNextPage() {
+    currentPage += 1
+    getTransactionsFromNetworkIfAvailable()
   }
 
 }
@@ -70,7 +77,7 @@ extension TransactionsPresenter: TransactionsInteractorOutput {
   
   func didReceiveWallet(_ wallet: Wallet) {
     self.wallet = wallet
-    getTransactionsFromNetwork(address: wallet.address)
+    getTransactionsFromNetworkIfAvailable()
   }
   
   func didReceiveSections(_ sections: [Date : [TransactionDisplayer]], sortedSections: [Date]) {

@@ -33,7 +33,7 @@ DEPENDENCIES:
   - SpringIndicator
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireObjectMapper
     - CryptoSwift
@@ -67,4 +67,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 8b87ea7ebcd3a401062bdf0ed64b8a823c21a1f4
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

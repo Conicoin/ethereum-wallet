@@ -69,8 +69,8 @@ extension TransactionsInteractor: TransactionsInteractorInput {
     }
   }
   
-  func loadTransactions(address: String) {
-    transactionsNetworkService.getTransactions(address: address, queue: .global()) { [unowned self] result in
+  func loadTransactions(address: String, page: Int, limit: Int) {
+    transactionsNetworkService.getTransactions(address: address, page: page, limit: limit, queue: .global()) { [unowned self] result in
       switch result {
       case .success(let transactions):
         self.transactionsDataStoreService.markAndSaveTransactions(transactions, address: address)
