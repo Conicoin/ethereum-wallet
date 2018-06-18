@@ -22,4 +22,5 @@ protocol TransactionsViewOutput: class {
   func viewIsAppear()
   func didRefresh()
   func didTransactionPressed(_ txIndex: TransactionDisplayer)
+  func loadNextPage()
 }

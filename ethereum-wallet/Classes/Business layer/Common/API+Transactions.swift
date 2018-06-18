@@ -11,7 +11,7 @@ import Alamofire
 extension API {
   
   enum Transactions {
-    case transactions(address: String)
+    case transactions(address: String, page: Int, limit: Int)
   }
   
 }
@@ -35,10 +35,11 @@ extension API.Transactions: APIMethodProtocol {
   
   var params: APIMethodProtocol.Params? {
     switch self {
-    case .transactions(let address):
+    case .transactions(let address, let page, let limit):
       return [
         "address": address,
-        "limit": 50
+        "limit": limit,
+        "page": page
       ]
     }
   }

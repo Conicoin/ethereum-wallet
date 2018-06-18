@@ -26,10 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   private var configurators: [ConfiguratorProtocol] = {
     return [
+      MigrationConfigurator(),
       AppearanceConfigurator(),
       ApplicationConfigurator(),
-      ThirdPartiesConfigurator(),
-      MigrationConfigurator()]
+      ThirdPartiesConfigurator()]
   }()
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

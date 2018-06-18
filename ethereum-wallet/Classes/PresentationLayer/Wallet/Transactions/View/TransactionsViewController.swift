@@ -26,8 +26,8 @@ class TransactionsViewController: UIViewController {
   var output: TransactionsViewOutput!
   
   private var refresh = UIRefreshControl()
-  private var sections = [Date: [TransactionDisplayer]]()
-  private var sortedSections = [Date]()
+  private var bottomLoader: UIActivityIndicatorView!
+  private var data = TransactionsDisplayerContainer()
 
   // MARK: Life cycle
 
@@ -53,6 +53,9 @@ class TransactionsViewController: UIViewController {
     tableView.setupBorder()
     tableView.refreshControl = refresh
     tableView.registerNib(TransactionCell.self)
+    bottomLoader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    bottomLoader.hidesWhenStopped = true
+    tableView.tableFooterView = bottomLoader
     refresh.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
   }
     
@@ -60,6 +63,10 @@ class TransactionsViewController: UIViewController {
     output.didRefresh()
   }
 
+  func loadNextPage() {
+    bottomLoader.startAnimating()
+    output.loadNextPage()
+  }
 }
 
 
@@ -71,14 +78,14 @@ extension TransactionsViewController: TransactionsViewInput {
 
   }
   
-  func didReceiveSections(_ sections: [Date: [TransactionDisplayer]], sortedSections: [Date]) {
-    self.sections = sections
-    self.sortedSections = sortedSections
+  func didReceiveSections(_ sections: TransactionsDisplayerContainer) {
+    self.data = sections
     tableView.reloadData()
   }
   
   func stopRefreshing() {
     refresh.endRefreshing()
+    bottomLoader.stopAnimating()
   }
 
 }
@@ -89,24 +96,30 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(TransactionCell.self, for: indexPath)
-    let section = sortedSections[indexPath.section]
-    cell.configure(with: sections[section]![indexPath.row])
+    let section = data.sections[indexPath.section]
+    cell.configure(with: section.transactions[indexPath.row])
+    
+    let isLast = indexPath.section == data.sections.count-1 && indexPath.row == section.transactions.count-1
+    if isLast {
+      loadNextPage()
+    }
+    
     return cell
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let header = tableView.dequeue(TransactionHeaderCell.self)
-    let sectionKey = sortedSections[section]
+    let sectionKey = data.sections[section].date
     header.timeLabel.text = sectionKey.humanReadable()
     return header
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return sections[sortedSections[section]]!.count
+    return data.sections[section].transactions.count
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return sortedSections.count
+    return data.sections.count
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -119,9 +132,9 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    let sectionKey = sortedSections[indexPath.section]
-    let transactions = sections[sectionKey]!
-    output.didTransactionPressed(transactions[indexPath.row])
+    let transaction = data.sections[indexPath.section].transactions[indexPath.row]
+    output.didTransactionPressed(transaction)
   }
   
 }
+
