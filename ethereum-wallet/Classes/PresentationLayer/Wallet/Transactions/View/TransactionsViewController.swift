@@ -52,7 +52,7 @@ class TransactionsViewController: UIViewController {
   private func setupTableView() {
     tableView.setupBorder()
     tableView.refreshControl = refresh
-    tableView.register(TransactionCell.self)
+    tableView.registerNib(TransactionCell.self)
     refresh.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
   }
     

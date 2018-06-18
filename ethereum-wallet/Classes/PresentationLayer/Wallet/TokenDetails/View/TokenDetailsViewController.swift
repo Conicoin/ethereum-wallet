@@ -31,7 +31,6 @@ class TokenDetailsViewController: UIViewController {
   @IBOutlet weak var holdersTitleLabel: UILabel!
   @IBOutlet weak var supplyTitleLabel: UILabel!
   @IBOutlet weak var descTitleLabel: UILabel!
-  @IBOutlet weak var infoTitleLabel: UILabel!
   @IBOutlet weak var sendButtonLabel: UILabel!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var tableHeight: NSLayoutConstraint!
@@ -47,7 +46,7 @@ class TokenDetailsViewController: UIViewController {
     localize()
     scrollView.delegate = self
     scrollView.setupBorder()
-    tableView.register(TransactionCell.self)
+    tableView.registerNib(TransactionCell.self)
     output.viewIsReady()
   }
   
@@ -58,7 +57,6 @@ class TokenDetailsViewController: UIViewController {
     holdersTitleLabel.text = Localized.tokenDetailsHolders()
     supplyTitleLabel.text = Localized.tokenDetailsSupply()
     descTitleLabel.text = Localized.tokenDetailsDesc()
-    infoTitleLabel.text = Localized.tokenDetailsInfo()
     sendButtonLabel.text = Localized.tokenDetailsSend()
   }
   

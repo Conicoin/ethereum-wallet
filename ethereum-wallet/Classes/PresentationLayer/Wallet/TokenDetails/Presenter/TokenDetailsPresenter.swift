@@ -37,6 +37,7 @@ extension TokenDetailsPresenter: TokenDetailsViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     view.didReceiveToken(token)
+    interactor.getTransactions(for: token)
   }
   
   func didSendPressed() {
@@ -64,6 +65,10 @@ extension TokenDetailsPresenter: TokenDetailsViewOutput {
 // MARK: - TokenDetailsInteractorOutput
 
 extension TokenDetailsPresenter: TokenDetailsInteractorOutput {
+  
+  func didReceiveTransactions(_ transactions: [TransactionDisplayer]) {
+    view.didReceiveTransactions(transactions)
+  }
 
 }
 

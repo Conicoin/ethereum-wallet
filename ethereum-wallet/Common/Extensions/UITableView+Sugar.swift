@@ -22,7 +22,8 @@ extension UITableView {
     self.register(cellClass, forCellReuseIdentifier: cellClass.identifier())
   }
   
-  func register<T: UITableViewCell>(_ nib: UINib, forClass cellClass: T.Type) {
+  func registerNib<T: UITableViewCell>(_ cellClass: T.Type) {
+    let nib = UINib(nibName: cellClass.identifier(), bundle: nil)
     self.register(nib, forCellReuseIdentifier: cellClass.identifier())
   }
   

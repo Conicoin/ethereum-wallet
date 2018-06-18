@@ -54,7 +54,7 @@ extension SendInteractor: SendInteractorInput {
 //      pinResult?(.success(true))
 //    }
     
-    let info = TransactionInfo(amount: amount, address: to, contractAddress: coin.contract, settings: settings)
+    let info = TransactionInfo(amount: amount, address: to, contractAddress: coin.contract, decimals: coin.decimals, settings: settings)
     
     transactionService.sendTransaction(with: info, passphrase: pin) { [unowned self] result in
       switch result {
