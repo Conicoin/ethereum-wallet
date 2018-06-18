@@ -31,10 +31,13 @@ class TokenDetailsViewController: UIViewController {
   @IBOutlet weak var holdersTitleLabel: UILabel!
   @IBOutlet weak var supplyTitleLabel: UILabel!
   @IBOutlet weak var descTitleLabel: UILabel!
-  @IBOutlet weak var infoTitleLabel: UILabel!
   @IBOutlet weak var sendButtonLabel: UILabel!
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var tableHeight: NSLayoutConstraint!
 
   var output: TokenDetailsViewOutput!
+  var transactions = [TransactionDisplayer]()
+  let cellHeight: CGFloat = 76
   
   // MARK: Life cycle
 
@@ -43,6 +46,7 @@ class TokenDetailsViewController: UIViewController {
     localize()
     scrollView.delegate = self
     scrollView.setupBorder()
+    tableView.registerNib(TransactionCell.self)
     output.viewIsReady()
   }
   
@@ -53,7 +57,6 @@ class TokenDetailsViewController: UIViewController {
     holdersTitleLabel.text = Localized.tokenDetailsHolders()
     supplyTitleLabel.text = Localized.tokenDetailsSupply()
     descTitleLabel.text = Localized.tokenDetailsDesc()
-    infoTitleLabel.text = Localized.tokenDetailsInfo()
     sendButtonLabel.text = Localized.tokenDetailsSend()
   }
   
@@ -82,18 +85,18 @@ extension TokenDetailsViewController: TokenDetailsViewInput {
     balanceLabel.text = token.balance.amountString
     fiatBalanceLabel.text = token.description
   
-    if let description = token.about {
-      descriptionView.isHidden = false
-      descriptionTextView.text = description
-    }
     addressLabel.text = token.address
-    let totalSuply = Decimal(token.totalSupply)
-    totalSuplyLabel.text = "\(totalSuply.abbrevation()) \(token.balance.symbol)"
-    holdersCountLabel.text = "\(token.holdersCount!)"
   }
   
   func didReceiveFiatBalance(_ balance: String) {
     fiatBalanceLabel.text = balance
+  }
+  
+  func didReceiveTransactions(_ transactions: [TransactionDisplayer]) {
+    self.transactions = transactions
+    tableView.reloadData()
+    tableHeight.constant = cellHeight * CGFloat(transactions.count)
+    view.layoutIfNeeded()
   }
 
 }
@@ -105,6 +108,31 @@ extension TokenDetailsViewController: UIScrollViewDelegate {
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     navigationItem.titleView?.alpha = scrollView.contentOffset.y
+  }
+  
+}
+
+// MARK: - Table View
+
+extension TokenDetailsViewController: UITableViewDataSource, UITableViewDelegate {
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeue(TransactionCell.self, for: indexPath)
+    cell.configure(with: transactions[indexPath.row])
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return transactions.count
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return cellHeight
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    output.didTransactionPressed(transactions[indexPath.row])
   }
   
 }

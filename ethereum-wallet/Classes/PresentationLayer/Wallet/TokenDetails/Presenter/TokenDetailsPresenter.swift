@@ -37,6 +37,7 @@ extension TokenDetailsPresenter: TokenDetailsViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     view.didReceiveToken(token)
+    interactor.getTransactions(for: token)
   }
   
   func didSendPressed() {
@@ -53,6 +54,10 @@ extension TokenDetailsPresenter: TokenDetailsViewOutput {
     let fiatBalance = token.fiatLabelString(selectedCurrency)
     view.didReceiveFiatBalance(fiatBalance)
   }
+  
+  func didTransactionPressed(_ transaction: TransactionDisplayer) {
+    router.presentDetails(with: transaction, from: view.viewController)
+  }
 
 }
 
@@ -60,6 +65,10 @@ extension TokenDetailsPresenter: TokenDetailsViewOutput {
 // MARK: - TokenDetailsInteractorOutput
 
 extension TokenDetailsPresenter: TokenDetailsInteractorOutput {
+  
+  func didReceiveTransactions(_ transactions: [TransactionDisplayer]) {
+    view.didReceiveTransactions(transactions)
+  }
 
 }
 

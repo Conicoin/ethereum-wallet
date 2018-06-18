@@ -36,6 +36,15 @@ class RealmStorable<PlainType: RealmMappable> {
     }
   }
   
+  func observe(predicate: String, updateHandler: @escaping ([PlainType]) -> Void) {
+    let realm = try! Realm()
+    let objects = realm.objects(PlainType.RealmType.self).filter(predicate)
+    notificationToken?.invalidate()
+    notificationToken = objects.observe { changes in
+      updateHandler(objects.map { PlainType.mapFromRealmObject($0) } )
+    }
+  }
+  
   func find() -> [PlainType] {
     let realm = try! Realm()
     return realm.objects(PlainType.RealmType.self).compactMap() { PlainType.mapFromRealmObject($0) }

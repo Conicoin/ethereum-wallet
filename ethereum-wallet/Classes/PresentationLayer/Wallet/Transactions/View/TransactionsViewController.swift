@@ -25,7 +25,7 @@ class TransactionsViewController: UIViewController {
 
   var output: TransactionsViewOutput!
   
-  private var refresh: UIRefreshControl!
+  private var refresh = UIRefreshControl()
   private var bottomLoader: UIActivityIndicatorView!
   private var data = TransactionsDisplayerContainer()
 
@@ -51,8 +51,8 @@ class TransactionsViewController: UIViewController {
   
   private func setupTableView() {
     tableView.setupBorder()
-    refresh = UIRefreshControl()
     tableView.refreshControl = refresh
+    tableView.registerNib(TransactionCell.self)
     bottomLoader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     bottomLoader.hidesWhenStopped = true
     tableView.tableFooterView = bottomLoader

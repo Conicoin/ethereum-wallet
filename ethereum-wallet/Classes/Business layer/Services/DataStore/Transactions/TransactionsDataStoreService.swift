@@ -28,6 +28,10 @@ class TransactionsDataStoreService: RealmStorable<Transaction>, TransactionsData
     return findOne("txHash = '\(txHash)'")
   }
   
+  func observe(token: Token, updateHandler: @escaping ([Transaction]) -> Void) {
+    super.observe(predicate: "tokenMeta.address = '\(token.address!)'", updateHandler: updateHandler)
+  }
+  
   func markAndSaveTransactions(_ transactions: [Transaction], address: String) {
     var txs = transactions
     for (i, tx) in txs.enumerated() {

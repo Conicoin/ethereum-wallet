@@ -22,4 +22,5 @@ protocol TokenDetailsViewOutput: class {
   func viewIsReady()
   func didSendPressed()
   func didBalanceViewPressed()
+  func didTransactionPressed(_ transaction: TransactionDisplayer)
 }
