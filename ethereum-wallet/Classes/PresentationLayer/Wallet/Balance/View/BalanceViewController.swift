@@ -73,15 +73,6 @@ class BalanceViewController: UIViewController {
     sendLabel.text = Localized.balanceSend()
   }
   
-  private func updateTotalTokenAmount(_ currency: String) {
-    var summ: Double = 0
-    for token in tokens {
-      summ += token.rawAmount(for: currency)
-    }
-    tokenBalanceLabel.text = FiatCurrencyFactory.amount(amount: summ, iso: currency)
-    tokenCountLabel.text = Localized.balanceTokenCount("\(tokens.count)")
-  }
-  
   // MARK: - Actions
   
   @IBAction func sendPressed(_ sender: UIButton) {
@@ -142,21 +133,25 @@ extension BalanceViewController: BalanceViewInput {
     refresh.endRefreshing()
   }
   
-  func didReceiveCurrency(_ currency: String) {
-    updateTotalTokenAmount(currency)
+  func setTotalTokenAmount(_ currency: String) {
+    var summ: Double = 0
+    for token in tokens {
+      summ += token.rawAmount(for: currency)
+    }
+    tokenBalanceLabel.text = FiatCurrencyFactory.amount(amount: summ, iso: currency)
+    tokenCountLabel.text = Localized.balanceTokenCount("\(tokens.count)")
   }
   
-  func didChangePreviewCurrency(_ currency: String, coin: Coin) {
-    updateTotalTokenAmount(currency)
+  func setPreviewTitle(_ currency: String, coin: Coin) {
     titleLabel.text = coin.fiatLabelString(currency)
   }
   
-  func didReceiveTokens(_ tokens: [Token]) {
+  func setTokens(_ tokens: [Token]) {
     self.tokens = tokens
     tableView.reloadData()
   }
   
-  func didReceiveCoin(_ coin: Coin) {
+  func setCoin(_ coin: Coin) {
     balanceLabel.text = coin.balance.amountString
   }
 

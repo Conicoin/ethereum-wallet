@@ -79,7 +79,8 @@ extension BalancePresenter: BalanceViewOutput {
     selectedCurrency = list[(index + 1) % list.count]
     
     guard let coin = coin else { return }
-    view.didChangePreviewCurrency(selectedCurrency, coin: coin)
+    view.setTotalTokenAmount(selectedCurrency)
+    view.setPreviewTitle(selectedCurrency, coin: coin)
   }
 
 }
@@ -92,18 +93,19 @@ extension BalancePresenter: BalanceInteractorOutput {
   func didReceiveWallet(_ wallet: Wallet) {
     self.wallet = wallet
     getBalancesFromNetwork(address: wallet.address)
-    view.didReceiveCurrency(wallet.localCurrency)
+    view.setTotalTokenAmount(wallet.localCurrency)
   }
   
   func didReceiveCoins(_ coins: [Coin]) {
     guard let coin = coins.first else { return }
     self.coin = coin
-    view.didReceiveCoin(coin)
+    view.setCoin(coin)
   }
   
   func didReceiveTokens(_ tokens: [Token]) {
     view.endRefreshing()
-    view.didReceiveTokens(tokens)
+    view.setTokens(tokens)
+    view.setTotalTokenAmount(selectedCurrency)
   }
   
   func didFailedWalletReceiving(with error: Error) {
