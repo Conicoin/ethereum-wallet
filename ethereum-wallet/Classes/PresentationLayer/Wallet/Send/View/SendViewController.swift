@@ -100,19 +100,19 @@ extension SendViewController: SendViewInput {
     inputDataIsValid(false)
   }
   
-  func didReceiveCoin(_ coin: CoinDisplayable) {
+  func setCoin(_ coin: CoinDisplayable) {
     let title = Localized.sendTitle(coin.balance.name)
     navigationItem.title = title
     balanceLabel.text = coin.balance.amountString
     currencyLabel.text = coin.balance.symbol
   }
   
-  func didDetectQRCode(_ code: String) {
-    recepientTextField.textField.text = code
+  func setAddressFromQR(_ address: String) {
+    recepientTextField.textField.text = address
     recepientTextField.changeToFloat(animated: true)
   }
   
-  func didReceiveCheckout(amount: String, total: String, fiatAmount: String, fee: String) {
+  func setCheckout(amount: String, total: String, fiatAmount: String, fee: String) {
     feeTitleLabel.text = Localized.sendFee()
     totalTitleLabel.text = Localized.sendTotal()
     totalLabel.text = total
@@ -124,7 +124,7 @@ extension SendViewController: SendViewInput {
     }
   }
   
-  func didReceiveCurrency(_ currency: String) {
+  func setCurrency(_ currency: String) {
     UIView.performWithoutAnimation {
       self.currencyButton.setTitle(currency, for: .normal)
       self.currencyButton.layoutIfNeeded()

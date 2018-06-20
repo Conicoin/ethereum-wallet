@@ -87,7 +87,7 @@ extension ImportViewController: ImportViewInput {
 
   }
   
-  func didReceiveState(_ state: ImportStateProtocol) {
+  func setState(_ state: ImportStateProtocol) {
     inputTextView.placeholder = state.placeholder
     icloudButton.isHidden = !state.iCloudImportEnabled
   }

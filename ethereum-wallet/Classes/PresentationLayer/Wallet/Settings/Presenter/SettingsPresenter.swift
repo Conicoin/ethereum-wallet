@@ -38,7 +38,7 @@ extension SettingsPresenter: SettingsViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
-    view.didReceiveIsTouchIdEnabled(Defaults.isTouchIDAllowed)
+    view.setIsTouchIdEnabled(Defaults.isTouchIDAllowed)
     interactor.getWallet()
   }
   
@@ -93,7 +93,7 @@ extension SettingsPresenter: SettingsInteractorOutput {
   func didReceiveWallet(_ wallet: Wallet) {
     selectedCurrency = wallet.localCurrency
     let currency = FiatCurrencyFactory.create(iso: wallet.localCurrency)
-    view.didReceiveCurrency(currency)
+    view.setCurrency(currency)
   }
   
   func didFailed(with error: Error) {
@@ -105,7 +105,7 @@ extension SettingsPresenter: SettingsInteractorOutput {
   }
   
   func didFailedRegisterForRemoteNotification() {
-    view.didFailedRegisterForRemoteNotification()
+    view.setPushSwitch(false)
   }
 
 }
@@ -127,7 +127,7 @@ extension SettingsPresenter: SettingsModuleInput {
 extension SettingsPresenter: ChooseCurrencyModuleOutput {
   
   func didSelectCurrency(_ currency: FiatCurrency) {
-    view.didReceiveCurrency(currency)
+    view.setCurrency(currency)
     interactor.selectCurrency(currency.iso)
   }
   

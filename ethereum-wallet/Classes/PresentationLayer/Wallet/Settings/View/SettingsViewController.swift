@@ -119,11 +119,11 @@ extension SettingsViewController: SettingsViewInput {
     
   }
   
-  func didReceiveIsTouchIdEnabled(_ isTouchIdEnabled: Bool) {
+  func setIsTouchIdEnabled(_ isTouchIdEnabled: Bool) {
     touchIdSwitch.isOn = isTouchIdEnabled
   }
   
-  func didReceiveCurrency(_ currency: FiatCurrency) {
+  func setCurrency(_ currency: FiatCurrency) {
     currencyImageView.image = currency.icon
     currencyIsoLabel.text = currency.iso
   }
@@ -134,8 +134,8 @@ extension SettingsViewController: SettingsViewInput {
     present(activityVC, animated: true, completion: nil)
   }
   
-  func didFailedRegisterForRemoteNotification() {
-    pushSwitch.setOn(false, animated: true)
+  func setPushSwitch(_ iOn: Bool) {
+    pushSwitch.setOn(iOn, animated: true)
   }
   
 }

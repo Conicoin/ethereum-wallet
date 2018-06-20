@@ -28,7 +28,7 @@ extension PopupPresenter: PopupViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
-    view.didReceiveState(popupState)
+    view.setState(popupState)
   }
   
   func didConfirmPressed() {

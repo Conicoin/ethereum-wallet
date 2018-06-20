@@ -20,10 +20,10 @@ import UIKit
 
 protocol SendViewInput: class, Presentable {
   func setupInitialState()
-  func didReceiveCurrency(_ currency: String)
+  func setCurrency(_ currency: String)
   func inputDataIsValid(_ isValid: Bool)
-  func didReceiveCoin(_ coin: CoinDisplayable)
-  func didDetectQRCode(_ code: String)
-  func didReceiveCheckout(amount: String, total: String, fiatAmount: String, fee: String)
+  func setCoin(_ coin: CoinDisplayable)
+  func setAddressFromQR(_ address: String)
+  func setCheckout(amount: String, total: String, fiatAmount: String, fee: String)
   func loadingFilure()
 }

@@ -73,7 +73,7 @@ extension PopupViewController: PopupViewInput {
 
   }
   
-  func didReceiveState(_ state: PopupStateProtocol) {
+  func setState(_ state: PopupStateProtocol) {
     titleLabel.text = state.title
     descriptionLabel.text = state.description
     skipButton.setTitle(state.skipTitle, for: .normal)

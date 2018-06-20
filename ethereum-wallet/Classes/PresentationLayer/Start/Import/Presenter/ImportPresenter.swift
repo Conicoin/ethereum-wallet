@@ -35,7 +35,7 @@ extension ImportPresenter: ImportViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
-    view.didReceiveState(state)
+    view.setState(state)
   }
   
   func didConfirmKey(_ key: String) {

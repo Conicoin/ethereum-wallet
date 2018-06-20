@@ -56,7 +56,7 @@ extension SendPresenter: SendViewOutput {
   
   func viewIsReady() {
     view.setupInitialState()
-    view.didReceiveCoin(coin)
+    view.setCoin(coin)
     interactor.getWallet()
     interactor.getGasPrice()
     calculateTotalAmount()
@@ -111,7 +111,7 @@ extension SendPresenter: SendViewOutput {
 extension SendPresenter: SendInteractorOutput {
   func didReceiveWallet(_ wallet: Wallet) {
     self.selectedCurrency = wallet.localCurrency
-    view.didReceiveCurrency(wallet.localCurrency)
+    view.setCurrency(wallet.localCurrency)
   }
   
   func didReceiveGasLimit(_ gasLimit: Decimal) {
@@ -125,7 +125,7 @@ extension SendPresenter: SendInteractorOutput {
   }
   
   func didReceiveCheckout(amount: String, total: String, fiatAmount: String, fee: String) {
-    view.didReceiveCheckout(amount: amount, total: total, fiatAmount: fiatAmount, fee: fee)
+    view.setCheckout(amount: amount, total: total, fiatAmount: fiatAmount, fee: fee)
   }
   
   func didFailed(with error: Error) {
@@ -158,7 +158,7 @@ extension SendPresenter: ScanModuleOutput {
   func didDetectQRCode(_ code: String) {
     let rawAddress = code.retriveAddress()
     self.address = rawAddress
-    view.didDetectQRCode(rawAddress)
+    view.setAddressFromQR(rawAddress)
     validate()
   }
   
@@ -175,7 +175,7 @@ extension SendPresenter: ChooseCurrencyModuleOutput {
   
   func didSelectCurrency(_ currency: FiatCurrency) {
     selectedCurrency = currency.iso
-    view.didReceiveCurrency(currency.iso)
+    view.setCurrency(currency.iso)
     calculateTotalAmount()
   }
   

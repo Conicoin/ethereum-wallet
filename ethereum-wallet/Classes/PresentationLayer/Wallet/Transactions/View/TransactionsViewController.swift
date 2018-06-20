@@ -78,7 +78,7 @@ extension TransactionsViewController: TransactionsViewInput {
 
   }
   
-  func didReceiveSections(_ sections: TransactionsDisplayerContainer) {
+  func setSections(_ sections: TransactionsDisplayerContainer) {
     self.data = sections
     tableView.reloadData()
   }

@@ -14,7 +14,7 @@ class MigrationConfigurator: ConfiguratorProtocol {
   func configure() {
     
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 5,
+      schemaVersion: 6,
       migrationBlock: { migration, oldSchemaVersion in
 
         migration.deleteData(forType: RealmToken.className())

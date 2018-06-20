@@ -81,7 +81,7 @@ extension TransactionsPresenter: TransactionsInteractorOutput {
   }
   
   func didReceiveSections(_ sections: TransactionsDisplayerContainer) {
-    view.didReceiveSections(sections)
+    view.setSections(sections)
   }
   
   func didReceiveTransactions() {

@@ -22,7 +22,7 @@ import UIKit
 protocol SettingsViewInput: class, Presentable {
   func setupInitialState()
   func shareFileAtUrl(_ url: URL)
-  func didReceiveIsTouchIdEnabled(_ isTouchIdEnabled: Bool)
-  func didReceiveCurrency(_ currency: FiatCurrency)
-  func didFailedRegisterForRemoteNotification()
+  func setIsTouchIdEnabled(_ isTouchIdEnabled: Bool)
+  func setCurrency(_ currency: FiatCurrency)
+  func setPushSwitch(_ iOn: Bool)
 }
