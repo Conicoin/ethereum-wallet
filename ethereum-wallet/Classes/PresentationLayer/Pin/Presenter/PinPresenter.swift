@@ -35,7 +35,9 @@ extension PinPresenter: PinViewOutput {
   }
   
   func viewWillAppear() {
-    interactor.authenticateWithBiometrics()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [unowned self] in
+      self.interactor.authenticateWithBiometrics()
+    }
   }
   
   func didAddSign(_ sign: String) {

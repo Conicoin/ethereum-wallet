@@ -27,7 +27,7 @@ class TransactionsPresenter {
   
   var wallet: Wallet?
   
-  let defaultPageLimit = 10
+  let defaultPageLimit = 20
   var currentPage = 0
   
   private func getTransactionsFromNetworkIfAvailable() {

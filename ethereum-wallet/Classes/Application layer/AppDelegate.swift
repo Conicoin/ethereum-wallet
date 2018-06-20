@@ -40,16 +40,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     for configurator in configurators {
       configurator.configure()
     }
+    
+    liveServices.locker.autolock()
             
     return true
   }
-  
-  func applicationDidBecomeActive(_ application: UIApplication) {
+
+  func applicationWillEnterForeground(_ application: UIApplication) {
     liveServices.screenLocker.unlock()
     liveServices.locker.autolock()
   }
-  
-  func applicationWillResignActive(_ application: UIApplication) {
+
+  func applicationDidEnterBackground(_ application: UIApplication) {
     liveServices.screenLocker.lock()
   }
     
@@ -58,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-    // TODO: Handle error
     print("Error register for remote notification: \(error.localizedDescription)")
   }
   

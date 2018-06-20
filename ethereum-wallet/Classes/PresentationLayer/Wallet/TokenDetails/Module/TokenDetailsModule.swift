@@ -33,6 +33,9 @@ class TokenDetailsModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    
+    // Injection
+    interactor.transactionsDataStoreService = TransactionsDataStoreService()
         
     return presenter
   }

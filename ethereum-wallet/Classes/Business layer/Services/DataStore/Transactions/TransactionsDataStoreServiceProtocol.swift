@@ -21,5 +21,6 @@ import Alamofire
 protocol TransactionsDataStoreServiceProtocol {
   func markAndSaveTransactions(_ transactions: [Transaction], address: String)
   func observe(updateHandler: @escaping ([Transaction]) -> Void)
+  func observe(token: Token, updateHandler: @escaping ([Transaction]) -> Void)
   func save(_ transaction: Transaction)
 }

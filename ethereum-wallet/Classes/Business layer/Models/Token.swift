@@ -23,11 +23,7 @@ struct Token {
   var balance: Currency!
   var rates = [Rate]()
   var lastUpdateTime = Date()
-  var iconUrl: URL?
-  var about: String?
   var address: String!
-  var totalSupply: String!
-  var holdersCount: Int!
   var decimals: Int64!
   
 }
@@ -42,11 +38,7 @@ extension Token: RealmMappable {
     token.balance = tokenValue
     token.rates = object.rates.map { Rate.mapFromRealmObject($0) }
     token.lastUpdateTime = object.lastUpdateTime
-    token.iconUrl = URL(string: object.iconURL ?? "")
-    token.about = object.about
     token.address = object.address
-    token.totalSupply = object.totalSupply
-    token.holdersCount = object.holdersCount
     token.decimals = object.decimals
     return token
   }
@@ -58,11 +50,7 @@ extension Token: RealmMappable {
     realmObject.iso = balance.symbol
     realmObject.rates.append(objectsIn: rates.map { $0.mapToRealmObject() })
     realmObject.lastUpdateTime = lastUpdateTime
-    realmObject.iconURL = iconUrl?.absoluteString
-    realmObject.about = about
     realmObject.address = address
-    realmObject.totalSupply = totalSupply
-    realmObject.holdersCount = holdersCount
     realmObject.decimals = decimals
     return realmObject
   }
@@ -74,23 +62,14 @@ extension Token: RealmMappable {
 extension Token: ImmutableMappable {
   
   init(map: Map) throws {
-    let count: Any = try map.value("balance")
-    let decimalCount = Decimal("\(count)")
-    let name: String = try map.value("tokenInfo.name")
-    let iso: String = try map.value("tokenInfo.symbol")
-    iconUrl = try? map.value("tokenInfo.image")
-    about = try? map.value("tokenInfo.description")
-    address = try map.value("tokenInfo.address")
-    totalSupply = try map.value("tokenInfo.totalSupply")
-    holdersCount = try map.value("tokenInfo.holdersCount")
+    address = try map.value("contract.contract")
+    decimals = try map.value("contract.decimals")
     
-    if let decimalsString: String = try? map.value("tokenInfo.decimals") {
-      decimals = Int64(decimalsString)
-    } else if let decimalsInt: Int64 = try? map.value("tokenInfo.decimals") {
-      decimals = decimalsInt
-    }
-    
-    balance = TokenValue(wei: decimalCount, name: name, iso: iso, decimals: decimals)
+    let balanceString: String = try map.value("balance")
+    let balanceDecimal = Decimal(balanceString)
+    let name: String = try map.value("contract.name")
+    let iso: String = try map.value("contract.symbol")
+    balance = TokenValue(wei: balanceDecimal, name: name, iso: iso, decimals: decimals)
   }
   
 }

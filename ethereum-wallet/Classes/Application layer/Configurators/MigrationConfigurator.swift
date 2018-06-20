@@ -12,11 +12,12 @@ import RealmSwift
 class MigrationConfigurator: ConfiguratorProtocol {
 
   func configure() {
+    
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
       schemaVersion: 5,
       migrationBlock: { migration, oldSchemaVersion in
 
-        migration.deleteData(forType: RealmTransaction.className())
+        migration.deleteData(forType: RealmToken.className())
         
     })
   }

@@ -19,5 +19,5 @@ import Foundation
 
 
 protocol TokenDetailsInteractorInput: class {
-
+  func getTransactions(for token: Token)
 }

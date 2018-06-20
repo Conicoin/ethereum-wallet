@@ -21,11 +21,11 @@ protocol CoinDisplayable {
   var balance: Currency! { get }
   var rates: [Rate] { get }
   var color: UIColor { get }
-  var iconUrl: URL? { get }
   var gasLimit: Decimal { get }
   var contract: String? { get }
   var tokenMeta: TokenMeta? { get }
   var isToken: Bool { get }
+  var decimals: Int64! { get }
   func amountString(with amount: Decimal) -> String
   func placeholder(with size: CGSize) -> UIImage
 }
@@ -80,10 +80,6 @@ extension Coin: CoinDisplayable {
     return Constants.Send.defaultGasLimit
   }
   
-  var iconUrl: URL? {
-    return nil
-  }
-  
   var color: UIColor {
     return Theme.Color.ethereum
   }
@@ -94,6 +90,10 @@ extension Coin: CoinDisplayable {
   
   var tokenMeta: TokenMeta? {
     return nil
+  }
+  
+  var decimals: Int64! {
+    return 18
   }
   
   func placeholder(with size: CGSize) -> UIImage {

@@ -69,7 +69,7 @@ extension TransactionFactory {
     let transactionTemplate = try buildTransaction(with: info)
     let transferSignature = Data(bytes: [0xa9, 0x05, 0x9c, 0xbb])
     let address = info.address.lowercased().replacingOccurrences(of: "0x", with: "")
-    let weiAmount = info.amount * 1e18
+    let weiAmount = info.amount * pow(10, Int(info.decimals))
     let hexAmount = weiAmount.toHex().withLeadingZero(64)
     let hexData = transferSignature.hex() + "000000000000000000000000" + address + hexAmount
     guard let data = hexData.toHexData() else {
