@@ -16,21 +16,20 @@
 
 
 import UIKit
-import RealmSwift
 import SafariServices
 
 class TransactionsViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-
+  
   var output: TransactionsViewOutput!
   
   private var refresh = UIRefreshControl()
   private var bottomLoader: UIActivityIndicatorView!
   private var data = TransactionsDisplayerContainer()
-
+  
   // MARK: Life cycle
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     localize()
@@ -58,11 +57,11 @@ class TransactionsViewController: UIViewController {
     tableView.tableFooterView = bottomLoader
     refresh.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
   }
-    
+  
   @objc func refresh(_ sender: UIRefreshControl) {
     output.didRefresh()
   }
-
+  
   func loadNextPage() {
     bottomLoader.startAnimating()
     output.loadNextPage()
@@ -75,9 +74,9 @@ class TransactionsViewController: UIViewController {
 extension TransactionsViewController: TransactionsViewInput {
   
   func setupInitialState() {
-
+    
   }
-
+  
   func setSections(_ sections: TransactionsDisplayerContainer) {
     let wasEmpty = data.isEmpty
     data = sections
@@ -85,10 +84,11 @@ extension TransactionsViewController: TransactionsViewInput {
     if wasEmpty {
       tableView.reloadData()
     } else if data.hasChanges {
-      tableView.performBatchUpdates({
-        tableView.insertSections(sections.addedSections, with: .fade)
-        tableView.insertRows(at: sections.addedIndices, with: .fade)
-      }, completion: nil)
+      tableView.beginUpdates()
+      tableView.reloadRows(at: sections.updatedIndexes, with: .fade)
+      tableView.insertSections(sections.addedSections, with: .fade)
+      tableView.insertRows(at: sections.addedIndexes, with: .fade)
+      tableView.endUpdates()
     }
   }
   
@@ -96,7 +96,7 @@ extension TransactionsViewController: TransactionsViewInput {
     refresh.endRefreshing()
     bottomLoader.stopAnimating()
   }
-
+  
 }
 
 // MARK: - Table View
