@@ -13,15 +13,15 @@ class TransactionsDisplayerContainer {
     var sections = [TransactionDisplayerSection]()
     
     var addedSections = IndexSet()
-    var addedIndexes = [IndexPath]()
-    var updatedIndexes = [IndexPath]()
+    var addedIndices = [IndexPath]()
+    var updatedIndices = [IndexPath]()
     
     var isEmpty: Bool {
         return sections.count == 0
     }
     
     var hasChanges: Bool {
-        return !addedIndexes.isEmpty || !addedSections.isEmpty || !updatedIndexes.isEmpty
+        return !addedIndices.isEmpty || !addedSections.isEmpty || !updatedIndices.isEmpty
     }
     
     func append(_ displayer: TransactionDisplayer, for time: Date) {
@@ -69,10 +69,10 @@ extension TransactionsDisplayerContainer {
                 let indexPath = IndexPath(row: j, section: i)
                 if let existed = other.transaction(for: tx.tx.txHash) {
                     if existed != tx {
-                        updatedIndexes.append(indexPath)
+                        updatedIndices.append(indexPath)
                     }
                 } else {
-                    addedIndexes.append(indexPath)
+                    addedIndices.append(indexPath)
                 }
             }
         }

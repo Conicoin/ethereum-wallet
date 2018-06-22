@@ -84,11 +84,11 @@ extension TransactionsViewController: TransactionsViewInput {
     if wasEmpty {
       tableView.reloadData()
     } else if data.hasChanges {
-      tableView.beginUpdates()
-      tableView.reloadRows(at: sections.updatedIndexes, with: .fade)
-      tableView.insertSections(sections.addedSections, with: .fade)
-      tableView.insertRows(at: sections.addedIndexes, with: .fade)
-      tableView.endUpdates()
+      tableView.performBatchUpdates({
+        tableView.reloadRows(at: sections.updatedIndices, with: .none)
+        tableView.insertSections(sections.addedSections, with: .fade)
+        tableView.insertRows(at: sections.addedIndices, with: .fade)
+      }, completion: nil)
     }
   }
   
