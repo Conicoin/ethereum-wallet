@@ -27,6 +27,8 @@ class TransactionsPresenter {
   
   var wallet: Wallet?
   
+  var transactionsContainer: TransactionsDisplayerContainer?
+  
   let defaultPageLimit = 20
   var currentPage = 0
   
@@ -81,6 +83,8 @@ extension TransactionsPresenter: TransactionsInteractorOutput {
   }
   
   func didReceiveSections(_ sections: TransactionsDisplayerContainer) {
+    sections.fillDiff(with: transactionsContainer)
+    transactionsContainer = sections
     view.setSections(sections)
   }
   

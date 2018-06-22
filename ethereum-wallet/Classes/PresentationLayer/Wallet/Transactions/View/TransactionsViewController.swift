@@ -77,10 +77,19 @@ extension TransactionsViewController: TransactionsViewInput {
   func setupInitialState() {
 
   }
-  
+
   func setSections(_ sections: TransactionsDisplayerContainer) {
-    self.data = sections
-    tableView.reloadData()
+    let wasEmpty = data.isEmpty
+    data = sections
+    
+    if wasEmpty {
+      tableView.reloadData()
+    } else if data.hasChanges {
+      tableView.performBatchUpdates({
+        tableView.insertSections(sections.addedSections, with: .fade)
+        tableView.insertRows(at: sections.addedIndices, with: .fade)
+      }, completion: nil)
+    }
   }
   
   func stopRefreshing() {
@@ -111,7 +120,9 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
     let header = tableView.dequeue(TransactionHeaderCell.self)
     let sectionKey = data.sections[section].date
     header.timeLabel.text = sectionKey.humanReadable()
-    return header
+    // returning contentView is a workaround: section headers disappear when using -performBatchUpdates
+    // https://stackoverflow.com/questions/30149551/tableview-section-headers-disappear-swift
+    return header.contentView
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

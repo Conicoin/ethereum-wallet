@@ -20,4 +20,8 @@ class TransactionDisplayerSection {
         transactions.append(transaction)
         transactions.sort { $0.time > $1.time }
     }
+    
+    func transaction(for hash: String) -> TransactionDisplayer? {
+        return transactions.first(where: { $0.tx.txHash == hash })
+    }
 }

@@ -12,6 +12,17 @@ class TransactionsDisplayerContainer {
 
     var sections = [TransactionDisplayerSection]()
     
+    var addedSections = IndexSet()
+    var addedIndices = [IndexPath]()
+    
+    var isEmpty: Bool {
+        return sections.count == 0
+    }
+    
+    var hasChanges: Bool {
+        return addedIndices.count > 0 || addedSections.count > 0
+    }
+    
     func append(_ displayer: TransactionDisplayer, for time: Date) {
         let section = self.section(for: time)
         section.append(displayer)
@@ -25,5 +36,41 @@ class TransactionsDisplayerContainer {
             sections.sort { $0.date > $1.date }
         }
         return section!
+    }
+}
+
+
+// MARK: - Diff
+
+extension TransactionsDisplayerContainer {
+    
+    func transaction(for hash: String) -> TransactionDisplayer? {
+        for section in sections {
+            if let tx = section.transaction(for: hash) {
+                return tx
+            }
+        }
+        return nil
+    }
+    
+    func fillDiff(with other: TransactionsDisplayerContainer?) {
+        guard let other = other else {
+            addedSections.insert(integersIn: 0 ..< sections.count)
+            return
+        }
+        
+        if sections.count > other.sections.count {
+            addedSections.insert(integersIn: 0 ..< sections.count - other.sections.count)
+        }
+        
+        for i in 0 ..< sections.count {
+            let section = sections[i]
+            for j in 0 ..< section.transactions.count {
+                let tx = section.transactions[j]
+                if other.transaction(for: tx.tx.txHash) == nil {
+                    addedIndices.append(IndexPath(row: j, section: i))
+                }
+            }
+        }
     }
 }
