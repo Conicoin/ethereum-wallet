@@ -151,6 +151,15 @@ extension BalanceViewController: BalanceViewInput {
     tableView.reloadData()
   }
   
+  func setTokens(_ tokens: [Token], deleteons: [Int], insertions: [Int], modifications: [Int]) {
+    self.tokens = tokens
+    tableView.performBatchUpdates({
+      tableView.deleteRows(at: deleteons.map { IndexPath(row: $0, section: 0) }, with: .none)
+      tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .none)
+      tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0) }, with: .none)
+    }, completion: nil)
+  }
+  
   func setCoin(_ coin: Coin) {
     balanceLabel.text = coin.balance.amountString
   }

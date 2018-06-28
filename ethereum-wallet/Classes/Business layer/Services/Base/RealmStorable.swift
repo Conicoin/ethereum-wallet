@@ -17,6 +17,10 @@
 
 import RealmSwift
 
+enum Changes<PlainType: RealmMappable> {
+  case initial(objects: [PlainType])
+  case update(objects: [PlainType], deleteons: [Int], insertions: [Int], modifications: [Int])
+}
 
 class RealmStorable<PlainType: RealmMappable> {
   
@@ -42,6 +46,24 @@ class RealmStorable<PlainType: RealmMappable> {
     notificationToken?.invalidate()
     notificationToken = objects.observe { changes in
       updateHandler(objects.map { PlainType.mapFromRealmObject($0) } )
+    }
+  }
+  
+  func observeChanges(updateHandler: @escaping (Changes<PlainType>) -> Void) {
+    let realm = try! Realm()
+    let objects = realm.objects(PlainType.RealmType.self)
+    notificationToken?.invalidate()
+    notificationToken = objects.observe { changes in
+      switch changes {
+      case let .initial(objects):
+        let plainObjects: [PlainType] = objects.map { PlainType.mapFromRealmObject($0) }
+        updateHandler(Changes.initial(objects: plainObjects))
+      case let .update(objects, deletions, insertions, modifications):
+        let plainObjects: [PlainType] = objects.map { PlainType.mapFromRealmObject($0) }
+        updateHandler(Changes.update(objects: plainObjects, deleteons: deletions, insertions: insertions, modifications: modifications))
+      case .error(let error):
+        print(error.localizedDescription)
+      }
     }
   }
   

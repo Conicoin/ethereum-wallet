@@ -22,7 +22,6 @@ class TokenDataStoreService: RealmStorable<Token>, TokenDataStoreServiceProtocol
   override func save(_ models: [Token]) {
     let realm = try! Realm()
     try! realm.write {
-      realm.delete(realm.objects(RealmToken.self))
       let models = models.map { token -> RealmToken in
         let realmObject = token.mapToRealmObject()
         if let oldToken = realm.objects(RealmToken.self).filter("name = '\(token.balance.name)'").first {

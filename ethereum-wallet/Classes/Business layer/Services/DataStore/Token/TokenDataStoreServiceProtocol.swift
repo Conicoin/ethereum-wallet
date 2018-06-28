@@ -20,5 +20,5 @@ import Foundation
 protocol TokenDataStoreServiceProtocol {
   func find() -> [Token]
   func save(_ models: [Token])
-  func observe(updateHandler: @escaping ([Token]) -> Void)
+  func observeChanges(updateHandler: @escaping (Changes<Token>) -> Void)
 }
