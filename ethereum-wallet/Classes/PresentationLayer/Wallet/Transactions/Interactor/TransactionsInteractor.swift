@@ -24,23 +24,6 @@ class TransactionsInteractor {
   var transactionsNetworkService: TransactionsNetworkServiceProtocol!
   var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
-  
-  private func groupTransactions(_ transactions: [Transaction]) {
-    DispatchQueue.global().async {
-      let container = TransactionsDisplayerContainer()
-
-      for tx in transactions {
-        let time = Calendar.current.startOfDay(for: tx.timeStamp)
-        let displayer = TransactionDisplayer(tx: tx)
-        container.append(displayer, for: time)
-      }
-      
-      DispatchQueue.main.async { [weak self] in
-        self?.output.didReceiveSections(container)
-      }
-    }
-  }
-  
 }
 
 
@@ -50,7 +33,7 @@ extension TransactionsInteractor: TransactionsInteractorInput {
   
   func getTransactions() {
     transactionsDataStoreService.observe { [unowned self] transactions in
-      self.groupTransactions(transactions)
+      self.output.didReceiveTransactions(transactions.map { TransactionDisplayer(tx: $0) })
     }
   }
   

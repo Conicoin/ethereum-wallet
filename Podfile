@@ -14,6 +14,7 @@ target 'ethereum-wallet' do
   pod 'SpringIndicator'
   pod 'PullToDismiss', '~> 2.1'
   pod 'lottie-ios'
+  pod 'Dwifft'
 end
 
 target 'ConicoinTests' do

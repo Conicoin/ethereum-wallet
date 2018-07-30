@@ -73,3 +73,14 @@ extension Token: ImmutableMappable {
   }
   
 }
+
+// MARK: - Equatable
+
+extension Token: Equatable {
+  
+  static func == (lhs: Token, rhs: Token) -> Bool {
+    return lhs.address == rhs.address
+    && lhs.balance.amountString == rhs.balance.amountString
+  }
+  
+}

@@ -25,8 +25,6 @@
 		10D8A198B53906DCFFC2B123 /* ChooseCurrencyViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E3A7D16CC08D31B3828D50 /* ChooseCurrencyViewInput.swift */; };
 		111B76EB2B2A85F3877EF1E0 /* ChooseCurrencyViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4486BEC9A7262F34EE02B5E /* ChooseCurrencyViewOutput.swift */; };
 		112978CDFD59F40AE79F0012 /* TransactionDetailsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F6C70950F299B1447B75AA /* TransactionDetailsInteractorOutput.swift */; };
-		1140BA8820D3F87900F4B752 /* TransactionDisplayerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140BA8720D3F87900F4B752 /* TransactionDisplayerSection.swift */; };
-		1140BA8A20D3FCE600F4B752 /* TransactionsDisplayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140BA8920D3FCE600F4B752 /* TransactionsDisplayerContainer.swift */; };
 		11518E1F20C09A7300510FE3 /* API+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11518E1E20C09A7300510FE3 /* API+Push.swift */; };
 		11518E2220C09FBE00510FE3 /* PushNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11518E2120C09FBE00510FE3 /* PushNetworkServiceProtocol.swift */; };
 		11518E2420C09FC800510FE3 /* PushNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11518E2320C09FC800510FE3 /* PushNetworkService.swift */; };
@@ -458,8 +456,6 @@
 		09DB419A418C3F6701CACAFB /* SendInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendInteractorOutput.swift; sourceTree = "<group>"; };
 		0B6331DCDD63B2B63627CC9C /* PopupModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupModuleOutput.swift; sourceTree = "<group>"; };
 		0E1188829331B84C9CDFBDFA /* TabBarRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarRouterInput.swift; sourceTree = "<group>"; };
-		1140BA8720D3F87900F4B752 /* TransactionDisplayerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDisplayerSection.swift; sourceTree = "<group>"; };
-		1140BA8920D3FCE600F4B752 /* TransactionsDisplayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDisplayerContainer.swift; sourceTree = "<group>"; };
 		11518E1D20C099D600510FE3 /* ethereum-wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ethereum-wallet.entitlements"; sourceTree = "<group>"; };
 		11518E1E20C09A7300510FE3 /* API+Push.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "API+Push.swift"; sourceTree = "<group>"; tabWidth = 2; };
 		11518E2120C09FBE00510FE3 /* PushNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNetworkServiceProtocol.swift; sourceTree = "<group>"; };
@@ -905,8 +901,6 @@
 				D1D378ABBD9DE2A5D4C0DCA9 /* TransactionsViewController.swift */,
 				14046CE8201F75C1007BD203 /* Transactions.storyboard */,
 				14786EE6201E6D2F009ECC11 /* TransactionDisplayer.swift */,
-				1140BA8720D3F87900F4B752 /* TransactionDisplayerSection.swift */,
-				1140BA8920D3FCE600F4B752 /* TransactionsDisplayerContainer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2991,6 +2985,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Dwifft/Dwifft.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/PullToDismiss/PullToDismiss.framework",
@@ -3006,6 +3001,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dwifft.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToDismiss.framework",
@@ -3236,7 +3232,6 @@
 				14FEBD731FBB1F210084F1AB /* Node.swift in Sources */,
 				437D18BC71E49AE3BBB15EB5 /* TransactionsInteractorOutput.swift in Sources */,
 				149CD64A20892301005E3DBD /* WalletManagerFactory.swift in Sources */,
-				1140BA8A20D3FCE600F4B752 /* TransactionsDisplayerContainer.swift in Sources */,
 				D46109B070B77F3B2FE90E34 /* TransactionsInteractor.swift in Sources */,
 				144102DE20541A0700F4D192 /* UIImage+Helpers.swift in Sources */,
 				14313CB81FB0C492003AEB0C /* String+Helpers.swift in Sources */,
@@ -3419,7 +3414,6 @@
 				26D5FCE98A67870F9E716431 /* PopupViewController.swift in Sources */,
 				144E47CF210F880100B709C5 /* InputBuilder.swift in Sources */,
 				F5A3A418C2CB8089F676ED1F /* PopupPresenter.swift in Sources */,
-				1140BA8820D3F87900F4B752 /* TransactionDisplayerSection.swift in Sources */,
 				089248F161C25C9CF0669AA9 /* PopupInteractorInput.swift in Sources */,
 				6AF09B5C5F2FE854037571B1 /* PopupInteractorOutput.swift in Sources */,
 				B4856CDBF14299BDA24F6F41 /* PopupInteractor.swift in Sources */,

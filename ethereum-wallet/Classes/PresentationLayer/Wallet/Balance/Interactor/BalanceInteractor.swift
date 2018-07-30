@@ -85,13 +85,8 @@ extension BalanceInteractor: BalanceInteractorInput {
   }
     
   func getTokensFromDataBase() {
-    tokensDataStoreService.observeChanges { changes in
-      switch changes {
-      case let .initial(tokens):
+    tokensDataStoreService.observe { [unowned self] tokens in
         self.output.didReceiveTokens(tokens)
-      case let .update(tokens, deleteons, insertions, modifications):
-        self.output.didUpdateTokens(tokens, deleteons: deleteons, insertions: insertions, modifications: modifications)
-      }
     }
   }
   

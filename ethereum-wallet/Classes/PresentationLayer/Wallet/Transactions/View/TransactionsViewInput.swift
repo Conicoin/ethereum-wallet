@@ -21,5 +21,5 @@ import UIKit
 protocol TransactionsViewInput: class, Presentable {
   func setupInitialState()
   func stopRefreshing()
-  func setSections(_ sections: TransactionsDisplayerContainer)
+  func setTransactions(_ transactions: [TransactionDisplayer])
 }

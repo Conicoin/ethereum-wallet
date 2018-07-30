@@ -25,5 +25,4 @@ protocol BalanceViewInput: class, Presentable {
   func setPreviewTitle(_ currency: String, coin: Coin)
   func setCoin(_ coin: Coin)
   func setTokens(_ tokens: [Token])
-  func setTokens(_ tokens: [Token], deleteons: [Int], insertions: [Int], modifications: [Int])
 }

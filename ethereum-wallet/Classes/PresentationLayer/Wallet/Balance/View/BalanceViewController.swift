@@ -16,6 +16,7 @@
 
 
 import UIKit
+import Dwifft
 
 class BalanceViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
@@ -30,13 +31,14 @@ class BalanceViewController: UIViewController {
     
   var output: BalanceViewOutput!
   
+  private var diffCalculator: SingleSectionTableViewDiffCalculator<Token>!
   private var refresh: UIRefreshControl!
-  private var tokens = [Token]()
   
   // MARK: Life cycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupDiffCalculator()
     setupTableView()
     localize()
     output.viewIsReady()
@@ -65,6 +67,12 @@ class BalanceViewController: UIViewController {
     refresh = UIRefreshControl()
     tableView.refreshControl = refresh
     refresh.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+  }
+  
+  private func setupDiffCalculator() {
+    diffCalculator = SingleSectionTableViewDiffCalculator(tableView: tableView)
+    diffCalculator.deletionAnimation = .fade
+    diffCalculator.insertionAnimation = .fade
   }
   
   private func localize() {
@@ -101,13 +109,13 @@ extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(TokenCell.self, for: indexPath)
-    cell.configure(with: tokens[indexPath.row])
+    cell.configure(with: diffCalculator.rows[indexPath.row])
     cell.layer.zPosition = 1
     return cell
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return tokens.count
+    return diffCalculator.rows.count
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -116,7 +124,7 @@ extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
     
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    output.didSelectToken(tokens[indexPath.row])
+    output.didSelectToken(diffCalculator.rows[indexPath.row])
   }
 
 }
@@ -135,11 +143,11 @@ extension BalanceViewController: BalanceViewInput {
   
   func setTotalTokenAmount(_ currency: String) {
     var summ: Double = 0
-    for token in tokens {
+    for token in diffCalculator.rows {
       summ += token.rawAmount(for: currency)
     }
     tokenBalanceLabel.text = FiatCurrencyFactory.amount(amount: summ, iso: currency)
-    tokenCountLabel.text = Localized.balanceTokenCount("\(tokens.count)")
+    tokenCountLabel.text = Localized.balanceTokenCount("\(diffCalculator.rows.count)")
   }
   
   func setPreviewTitle(_ currency: String, coin: Coin) {
@@ -147,17 +155,7 @@ extension BalanceViewController: BalanceViewInput {
   }
   
   func setTokens(_ tokens: [Token]) {
-    self.tokens = tokens
-    tableView.reloadData()
-  }
-  
-  func setTokens(_ tokens: [Token], deleteons: [Int], insertions: [Int], modifications: [Int]) {
-    self.tokens = tokens
-    tableView.performBatchUpdates({
-      tableView.deleteRows(at: deleteons.map { IndexPath(row: $0, section: 0) }, with: .none)
-      tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .none)
-      tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0) }, with: .none)
-    }, completion: nil)
+    diffCalculator.rows = tokens
   }
   
   func setCoin(_ coin: Coin) {

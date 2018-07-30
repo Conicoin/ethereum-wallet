@@ -17,22 +17,25 @@
 
 import UIKit
 import SafariServices
+import Dwifft
 
 class TransactionsViewController: UIViewController {
-  
   @IBOutlet weak var tableView: UITableView!
   
   var output: TransactionsViewOutput!
   
+  var diffCalculator: TableViewDiffCalculator<Date, TransactionDisplayer>!
+  private var transactions = [TransactionDisplayer]()
+  
   private var refresh = UIRefreshControl()
   private var bottomLoader: UIActivityIndicatorView!
-  private var data = TransactionsDisplayerContainer()
   
   // MARK: Life cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     localize()
+    setupDiffCalculator()
     setupTableView()
     output.viewIsReady()
   }
@@ -58,6 +61,12 @@ class TransactionsViewController: UIViewController {
     refresh.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
   }
   
+  private func setupDiffCalculator() {
+    diffCalculator = TableViewDiffCalculator(tableView: tableView)
+    diffCalculator.deletionAnimation = .fade
+    diffCalculator.insertionAnimation = .fade
+  }
+  
   @objc func refresh(_ sender: UIRefreshControl) {
     output.didRefresh()
   }
@@ -73,23 +82,17 @@ class TransactionsViewController: UIViewController {
 
 extension TransactionsViewController: TransactionsViewInput {
   
-  func setupInitialState() {
-    
+  func setTransactions(_ transactions: [TransactionDisplayer]) {
+    self.transactions = transactions
+    diffCalculator.sectionedValues = {
+      return SectionedValues<Date, TransactionDisplayer>(values: transactions, valueToSection: { tx in
+        return Calendar.current.startOfDay(for: tx.time)
+      }, sortSections: { $0 > $1 }, sortValues: { $0.time > $1.time })
+    }()
   }
   
-  func setSections(_ sections: TransactionsDisplayerContainer) {
-    let wasEmpty = data.isEmpty
-    data = sections
+  func setupInitialState() {
     
-    if wasEmpty {
-      tableView.reloadData()
-    } else if data.hasChanges {
-      tableView.performBatchUpdates({
-        tableView.reloadRows(at: sections.updatedIndices, with: .none)
-        tableView.insertSections(sections.addedSections, with: .fade)
-        tableView.insertRows(at: sections.addedIndices, with: .fade)
-      }, completion: nil)
-    }
   }
   
   func stopRefreshing() {
@@ -105,10 +108,12 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(TransactionCell.self, for: indexPath)
-    let section = data.sections[indexPath.section]
-    cell.configure(with: section.transactions[indexPath.row])
-    
-    let isLast = indexPath.section == data.sections.count-1 && indexPath.row == section.transactions.count-1
+    let transaction = diffCalculator.value(atIndexPath: indexPath)
+    cell.configure(with: transaction)
+  
+    let sectionsCount = diffCalculator.numberOfSections()
+    let transactionsCount = diffCalculator.numberOfObjects(inSection: indexPath.section)
+    let isLast = indexPath.section == sectionsCount-1 && indexPath.row == transactionsCount-1
     if isLast {
       loadNextPage()
     }
@@ -118,7 +123,7 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let header = tableView.dequeue(TransactionHeaderCell.self)
-    let sectionKey = data.sections[section].date
+    let sectionKey = diffCalculator.value(forSection: section)
     header.timeLabel.text = sectionKey.humanReadable()
     // returning contentView is a workaround: section headers disappear when using -performBatchUpdates
     // https://stackoverflow.com/questions/30149551/tableview-section-headers-disappear-swift
@@ -126,11 +131,11 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return data.sections[section].transactions.count
+    return diffCalculator.numberOfObjects(inSection: section)
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return data.sections.count
+    return diffCalculator.numberOfSections()
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -143,7 +148,7 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    let transaction = data.sections[indexPath.section].transactions[indexPath.row]
+    let transaction = diffCalculator.value(atIndexPath: indexPath)
     output.didTransactionPressed(transaction)
   }
   

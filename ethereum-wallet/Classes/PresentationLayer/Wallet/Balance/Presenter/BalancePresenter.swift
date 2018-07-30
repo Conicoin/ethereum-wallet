@@ -108,14 +108,6 @@ extension BalancePresenter: BalanceInteractorOutput {
     view.setTotalTokenAmount(selectedCurrency)
   }
   
-  func didUpdateTokens(_ tokens: [Token], deleteons: [Int], insertions: [Int], modifications: [Int]) {
-    view.endRefreshing()
-    view.setTokens(tokens)
-//  Сauses strange blinking (research needed)
-//  view.setTokens(tokens, deleteons: deleteons, insertions: insertions, modifications: modifications)
-    view.setTotalTokenAmount(selectedCurrency)
-  }
-  
   func didFailedWalletReceiving(with error: Error) {
     error.showAllertIfNeeded(from: view.viewController)
   }
