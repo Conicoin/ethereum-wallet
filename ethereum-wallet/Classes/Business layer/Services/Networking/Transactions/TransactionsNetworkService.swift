@@ -16,7 +16,6 @@
 
 
 import Foundation
-import Alamofire
 
 class TransactionsNetworkService: NetworkLoadable, TransactionsNetworkServiceProtocol  {
   

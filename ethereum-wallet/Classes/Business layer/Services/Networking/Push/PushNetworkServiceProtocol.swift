@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol PushNetworkServiceProtocol {
   func register(token: String, address: String, queue: DispatchQueue, result: @escaping (Result<Bool>) -> Void)

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import Alamofire
+import Foundation
 
 protocol ImportVerificatorProtocol {
     func verifyKey(_ key: String, completion: (Result<Data>) -> Void)

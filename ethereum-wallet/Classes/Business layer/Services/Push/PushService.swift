@@ -6,8 +6,7 @@
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import Foundation
-import Alamofire
+import UIKit
 import UserNotifications
 
 class PushService: PushServiceProtocol {

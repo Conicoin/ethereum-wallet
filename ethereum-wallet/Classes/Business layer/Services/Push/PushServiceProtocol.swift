@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol PushServiceProtocol {
   func registerForRemoteNotifications(_ completion: @escaping (Result<Bool>) -> Void)

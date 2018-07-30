@@ -6,7 +6,6 @@
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import Alamofire
 import UserNotifications
 
 class PopupPushPostProcess: PopupPostProcessProtocol {

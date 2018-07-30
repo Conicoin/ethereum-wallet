@@ -8,7 +8,6 @@
 
 import Foundation
 import LocalAuthentication
-import Alamofire
 
 class PopupTouchPostProcess: PopupPostProcessProtocol {
   

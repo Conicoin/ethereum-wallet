@@ -16,7 +16,6 @@
 
 
 import Foundation
-import Alamofire
 
 protocol TokensNetworkServiceProtocol {
   func getTokens(address: String, queue: DispatchQueue, result: @escaping (Result<[Token]>) -> Void)

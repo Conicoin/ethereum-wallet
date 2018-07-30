@@ -17,7 +17,6 @@
 
 
 import Foundation
-import Alamofire
 
 protocol SettingsInteractorInput: class {
   func getWallet()

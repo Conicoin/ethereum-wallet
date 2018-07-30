@@ -16,7 +16,6 @@
 
 
 import Foundation
-import Alamofire
 
 protocol TransactionsNetworkServiceProtocol {
   func getTransactions(address: String, page: Int, limit: Int, queue: DispatchQueue, result: @escaping (Result<[Transaction]>) -> Void)

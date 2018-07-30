@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol PopupPostProcessProtocol {
   typealias PopupPostProcessCallback = (Result<Bool>) -> Void

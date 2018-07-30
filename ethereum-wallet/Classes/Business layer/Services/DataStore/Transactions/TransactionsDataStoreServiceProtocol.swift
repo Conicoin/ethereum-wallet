@@ -16,7 +16,6 @@
 
 
 import Foundation
-import Alamofire
 
 protocol TransactionsDataStoreServiceProtocol {
   func markAndSaveTransactions(_ transactions: [Transaction], address: String)

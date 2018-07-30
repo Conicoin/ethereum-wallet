@@ -16,7 +16,6 @@
 
 
 import Geth
-import Alamofire
 
 class GasService: GasServiceProtocol {
   

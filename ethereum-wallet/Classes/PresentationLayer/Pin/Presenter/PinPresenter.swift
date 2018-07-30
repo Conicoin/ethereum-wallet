@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 typealias PinPostProcess = ((String, PinResult?) -> Void)
 typealias PinNextScene = ((UIViewController) -> Void)

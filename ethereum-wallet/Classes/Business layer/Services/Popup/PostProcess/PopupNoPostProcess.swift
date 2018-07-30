@@ -6,7 +6,7 @@
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import Alamofire
+import Foundation
 
 class PopupNoPostProcess: PopupPostProcessProtocol {
   

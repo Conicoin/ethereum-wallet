@@ -16,7 +16,7 @@
 
 
 
-import Alamofire
+import Foundation
 
 class RatesNetworkService: NetworkLoadable, RatesNetworkServiceProtocol {
   
