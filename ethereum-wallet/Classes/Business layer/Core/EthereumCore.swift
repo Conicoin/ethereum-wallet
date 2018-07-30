@@ -19,6 +19,8 @@ import UIKit
 import Geth
 
 protocol EthereumCoreProtocol {
+  var context: GethContext { get }
+  var client: GethEthereumClient! { get } 
   func start(chain: Chain, delegate: SyncCoordinatorDelegate) throws
 }
 

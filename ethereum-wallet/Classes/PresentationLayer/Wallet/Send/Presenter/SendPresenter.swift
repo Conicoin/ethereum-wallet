@@ -23,30 +23,53 @@ class SendPresenter {
   weak var output: SendModuleOutput?
   var interactor: SendInteractorInput!
   var router: SendRouterInput!
-    
-  var coin: CoinDisplayable!
   
-  private var amount: Decimal = 0
-  private var address: String!
-  
-  private var settings = SendSettings(gasPrice: Constants.Send.defaultGasPrice,
-                                      gasLimit: Constants.Send.defaultGasLimit,
-                                      txData: nil)
+  private var coin: CoinDisplayable!
+  private var wallet: Wallet!
+  private var settings: SendSettings = {
+    return SendSettings(gasPrice: Constants.Send.defaultGasPrice,
+                        gasLimit: Constants.Send.defaultGasLimit,
+                        txData: nil)
+  }()
+  private var amount: Decimal = 0 {
+    didSet {
+      validate()
+    }
+  }
+  private var address: String!{
+    didSet {
+      validate()
+    }
+  }
   
   private var selectedCurrency = Constants.Wallet.defaultCurrency
   
   private func validate() {
-    let isValid = amount != 0 &&
-      settings.gasLimit != 0 &&
-      address != nil && address.isValidAddress()
+    let isValid = amount != 0
+      && settings.gasLimit != 0
+      && address != nil
+      && address.isValidAddress()
+    
     view.inputDataIsValid(isValid)
+    
+    guard isValid else { return }
+    interactor.getGasLimit(from: wallet.address,
+                           to: address,
+                           gasPrice: settings.gasPrice,
+                           amount: amount)
   }
   
   private func calculateTotalAmount() {
     let fee = settings.gasLimit * settings.gasPrice
     interactor.getCheckout(for: coin, amount: amount, iso: selectedCurrency, fee: fee)
   }
-
+  
+  private func updateLocalAmount() {
+    let fiatAmount = Ether(self.amount)
+    let fiatAmountString = coin.fiatString(amount: fiatAmount, iso: selectedCurrency)
+    view.setLocalAmount(fiatAmountString)
+  }
+  
 }
 
 
@@ -57,9 +80,9 @@ extension SendPresenter: SendViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     view.setCoin(coin)
+    updateLocalAmount()
     interactor.getWallet()
     interactor.getGasPrice()
-    calculateTotalAmount()
   }
   
   func didCurrencyPressed() {
@@ -80,23 +103,11 @@ extension SendPresenter: SendViewOutput {
   func didChangeAmount(_ amount: String) {
     let formated = amount.replacingOccurrences(of: ",", with: ".")
     self.amount = Decimal(formated)
-    validate()
-    calculateTotalAmount()
+    self.updateLocalAmount()
   }
   
   func didChangeAddress(_ address: String) {
     self.address = address
-    validate()
-  }
-  
-  func didChangeGasLimit(_ gasLimit: String) {
-    var newValue = Decimal(gasLimit)
-    if newValue == 0 {
-      newValue = Constants.Send.defaultGasLimit
-    }
-    settings.gasLimit = newValue
-    validate()
-    calculateTotalAmount()
   }
   
   func didAdvancedPressed() {
@@ -110,6 +121,7 @@ extension SendPresenter: SendViewOutput {
 
 extension SendPresenter: SendInteractorOutput {
   func didReceiveWallet(_ wallet: Wallet) {
+    self.wallet = wallet
     self.selectedCurrency = wallet.localCurrency
     view.setCurrency(wallet.localCurrency)
   }
@@ -121,11 +133,10 @@ extension SendPresenter: SendInteractorOutput {
   
   func didReceiveGasPrice(_ gasPrice: Decimal) {
     settings.gasPrice = gasPrice
-    calculateTotalAmount()
   }
   
   func didReceiveCheckout(amount: String, total: String, fiatAmount: String, fee: String) {
-    view.setCheckout(amount: amount, total: total, fiatAmount: fiatAmount, fee: fee)
+    view.setCheckout(amount: amount, total: total, fee: fee)
   }
   
   func didFailed(with error: Error) {
@@ -177,6 +188,7 @@ extension SendPresenter: ChooseCurrencyModuleOutput {
     selectedCurrency = currency.iso
     view.setCurrency(currency.iso)
     calculateTotalAmount()
+    updateLocalAmount()
   }
   
 }

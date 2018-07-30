@@ -12,5 +12,5 @@ class RealmTokenMeta: Object {
   @objc dynamic var address = ""
   @objc dynamic var name = ""
   @objc dynamic var symbol = ""
-  @objc dynamic var decimals: Int64 = 0
+  @objc dynamic var decimals: Int = 0
 }

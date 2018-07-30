@@ -120,6 +120,9 @@
 		144791D01EF5DE4000029818 /* ApplicationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791CF1EF5DE4000029818 /* ApplicationConfigurator.swift */; };
 		144791D21EF5DE7100029818 /* ThirdPartiesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144791D11EF5DE7100029818 /* ThirdPartiesConfigurator.swift */; };
 		144AB0F020AE1A460031185D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 144AB0F220AE1A460031185D /* Localizable.strings */; };
+		144E47CF210F880100B709C5 /* InputBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E47CE210F880100B709C5 /* InputBuilder.swift */; };
+		144E47D1210F891D00B709C5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E47D0210F891D00B709C5 /* Result.swift */; };
+		144E47D3210F8B5100B709C5 /* GasServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E47D2210F8B5100B709C5 /* GasServiceFactory.swift */; };
 		1458212A1F995446005047B6 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145821291F995446005047B6 /* R.generated.swift */; };
 		145842671FB111E800FA733F /* RatesNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145842661FB111E800FA733F /* RatesNetworkServiceProtocol.swift */; };
 		145842691FB1123E00FA733F /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145842681FB1123E00FA733F /* Rate.swift */; };
@@ -547,6 +550,9 @@
 		144791D11EF5DE7100029818 /* ThirdPartiesConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdPartiesConfigurator.swift; sourceTree = "<group>"; };
 		144AB0F120AE1A460031185D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		144AB0F320AE1A640031185D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		144E47CE210F880100B709C5 /* InputBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBuilder.swift; sourceTree = "<group>"; };
+		144E47D0210F891D00B709C5 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		144E47D2210F8B5100B709C5 /* GasServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasServiceFactory.swift; sourceTree = "<group>"; };
 		144E4F121EB26F0600AB62B6 /* ethereum-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ethereum-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		145821291F995446005047B6 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		145842661FB111E800FA733F /* RatesNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesNetworkServiceProtocol.swift; sourceTree = "<group>"; };
@@ -1090,6 +1096,7 @@
 				144791C51EF5A93F00029818 /* Defaults */,
 				144791C41EF5A93100029818 /* Keychain */,
 				14ACA1E31EF2BCC80059E430 /* Errors.swift */,
+				144E47D0210F891D00B709C5 /* Result.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1147,6 +1154,7 @@
 			children = (
 				1433BDBD1FD743120081D872 /* GasServiceProtocol.swift */,
 				1433BDBF1FD7431C0081D872 /* GasService.swift */,
+				144E47D2210F8B5100B709C5 /* GasServiceFactory.swift */,
 			);
 			path = Gas;
 			sourceTree = "<group>";
@@ -1249,6 +1257,14 @@
 				14CA5D0E2072DC0300A0CEAF /* MigrationConfigurator.swift */,
 			);
 			path = Configurators;
+			sourceTree = "<group>";
+		};
+		144E47CD210F87D100B709C5 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				144E47CE210F880100B709C5 /* InputBuilder.swift */,
+			);
+			path = New;
 			sourceTree = "<group>";
 		};
 		144E4F091EB26F0600AB62B6 = {
@@ -1547,6 +1563,7 @@
 		149AA05E1FD614A600F961FA /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				144E47CD210F87D100B709C5 /* New */,
 				14A7997F2098E7E600CA9101 /* PendingTxBuilder */,
 				14DFA311207DE834008F6F92 /* TxMetaResolver */,
 				14BF259A2012625600CAFCFD /* Factory */,
@@ -3343,6 +3360,7 @@
 				D51AC86AE75F00189D49E912 /* TokenDetailsViewOutput.swift in Sources */,
 				14773B7620891A49006B35C0 /* WalletManager.swift in Sources */,
 				A6A1313DF360EB259B2506E2 /* TokenDetailsViewController.swift in Sources */,
+				144E47D1210F891D00B709C5 /* Result.swift in Sources */,
 				C1A5C331F43B9E29F4E901E3 /* TokenDetailsPresenter.swift in Sources */,
 				E1B95FC025FBB0CA4B3F0AA4 /* TokenDetailsInteractorInput.swift in Sources */,
 				14991D9120570D9B0046E6CD /* PinConfiguration.swift in Sources */,
@@ -3361,6 +3379,7 @@
 				14C115352064689500DC4C25 /* WalletImporterFactory.swift in Sources */,
 				F19BD5AA3D3FA25CC0FACA7B /* ImportViewInput.swift in Sources */,
 				14B126B0205BDB8000B98AE1 /* ImportPrivateKeyState.swift in Sources */,
+				144E47D3210F8B5100B709C5 /* GasServiceFactory.swift in Sources */,
 				93B9D841C6D8EDE22A25C654 /* ImportViewOutput.swift in Sources */,
 				9EB1F2876A82C48550F6EF0B /* ImportViewController.swift in Sources */,
 				1D9908DB5825ECD9F9FD8619 /* ImportPresenter.swift in Sources */,
@@ -3398,6 +3417,7 @@
 				4C6B69FDBC9A19F62CF7673B /* PopupViewInput.swift in Sources */,
 				D7B4BD5E1D148408999CAC5D /* PopupViewOutput.swift in Sources */,
 				26D5FCE98A67870F9E716431 /* PopupViewController.swift in Sources */,
+				144E47CF210F880100B709C5 /* InputBuilder.swift in Sources */,
 				F5A3A418C2CB8089F676ED1F /* PopupPresenter.swift in Sources */,
 				1140BA8820D3F87900F4B752 /* TransactionDisplayerSection.swift in Sources */,
 				089248F161C25C9CF0669AA9 /* PopupInteractorInput.swift in Sources */,

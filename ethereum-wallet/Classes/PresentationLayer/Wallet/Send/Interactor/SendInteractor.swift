@@ -83,19 +83,19 @@ extension SendInteractor: SendInteractorInput {
       guard let `self` = self else { return }
       switch result {
       case .success(let gasPrice):
-        self.output.didReceiveGasPrice(Decimal(gasPrice))
+        self.output.didReceiveGasPrice(gasPrice)
       case .failure(let error):
         self.output.didFailed(with: error)
       }
     }
   }
   
-  func getGasLimit() {
-    gasService.getSuggestedGasLimit() { [weak self] result in
+  func getGasLimit(from: String, to: String, gasPrice: Decimal, amount: Decimal) {
+    gasService.getSuggestedGasLimit(from: from, to: to, gasPrice: gasPrice, amount: amount) { [weak self] result in
       guard let `self` = self else { return }
       switch result {
       case .success(let gasLimit):
-        self.output.didReceiveGasLimit(Decimal(gasLimit))
+        self.output.didReceiveGasLimit(gasLimit)
       case .failure(let error):
         self.output.didFailed(with: error)
       }

@@ -125,11 +125,13 @@ enum Chain: String {
   var backend: String {
     switch self {
     case .mainnet:
-      return "http://18.222.83.172:8000"
+//      return "http://18.222.83.172:8000"
+      return "https://api.trustwalletapp.com"
     case .ropsten:
       fatalError("Not supported yet")
     case .rinkeby:
-      return "http://18.216.110.94:8000"
+//      return "http://18.216.110.94:8000"
+      return "https://rinkeby.trustwalletapp.com"
     }
   }
   

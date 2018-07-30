@@ -21,7 +21,7 @@ struct TokenMeta {
   var address: String!
   var name: String!
   var iso: String!
-  var decimals: Int64!
+  var decimals: Int!
 }
 
 // MARK: - RealmMappable

@@ -23,9 +23,9 @@ struct TokenValue: Currency {
   let value: Double
   let name: String
   let iso: String
-  let decimals: Int64
+  let decimals: Int
   
-  init(wei value: Decimal, name: String, iso: String, decimals: Int64) {
+  init(wei value: Decimal, name: String, iso: String, decimals: Int) {
     self.raw = value
     self.value = value.double / pow(10, Double(decimals))
     self.name = name
@@ -33,7 +33,7 @@ struct TokenValue: Currency {
     self.decimals = decimals
   }
   
-  init(_ value: Decimal, name: String, iso: String, decimals: Int64) {
+  init(_ value: Decimal, name: String, iso: String, decimals: Int) {
     self.raw = value * Decimal(pow(10, Double(decimals)))
     self.value = value.double
     self.name = name

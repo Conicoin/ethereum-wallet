@@ -112,12 +112,15 @@ extension SendViewController: SendViewInput {
     recepientTextField.changeToFloat(animated: true)
   }
   
-  func setCheckout(amount: String, total: String, fiatAmount: String, fee: String) {
+  func setLocalAmount(_ localAmount: String?) {
+    localAmountLabel.text = localAmount
+  }
+  
+  func setCheckout(amount: String, total: String, fee: String) {
     feeTitleLabel.text = Localized.sendFee()
     totalTitleLabel.text = Localized.sendTotal()
     totalLabel.text = total
     feeLabel.text = fee
-    localAmountLabel.text = fiatAmount
     UIView.performWithoutAnimation {
       self.sendButton.setTitle(Localized.sendTitle(amount), for: .normal)
       self.sendButton.layoutIfNeeded()

@@ -24,7 +24,7 @@ struct Token {
   var rates = [Rate]()
   var lastUpdateTime = Date()
   var address: String!
-  var decimals: Int64!
+  var decimals: Int!
   
 }
 

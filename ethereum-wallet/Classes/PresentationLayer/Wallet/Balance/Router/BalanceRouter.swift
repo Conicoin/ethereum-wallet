@@ -28,7 +28,7 @@ class BalanceRouter {
 extension BalanceRouter: BalanceRouterInput {
 
   func presentSend(for coin: Coin, from: UIViewController) {
-    SendModule.create(.default).presentSend(with: coin, from: from)
+    SendModule.create(.default(coin)).presentSend(with: coin, from: from)
   }
   
   func presentReceive(for coin: Coin, from: UIViewController) {

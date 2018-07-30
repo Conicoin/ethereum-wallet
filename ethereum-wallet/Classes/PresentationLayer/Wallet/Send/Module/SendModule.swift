@@ -39,8 +39,7 @@ class SendModule {
     let core = Ethereum.core
     let keystore = KeystoreService()
     
-    let gasService = GasService(core: core)
-    interactor.gasService = gasService
+    interactor.gasService = GasServiceFactory(core: core).create(type)
     interactor.walletDataStoreService = WalletDataStoreService()
     interactor.transactionsDataStoreService = TransactionsDataStoreService()
     interactor.transactionService = TransactionService(core: core, keystore: keystore, transferType: type)

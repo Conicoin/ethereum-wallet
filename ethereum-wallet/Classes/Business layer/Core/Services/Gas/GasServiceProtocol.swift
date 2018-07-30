@@ -14,10 +14,7 @@
 // You should have received a copy of the GNU General Public License along with
 // this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
-
-import Geth
-import Alamofire
+import Foundation
 
 protocol GasServiceProtocol {
   
@@ -26,13 +23,12 @@ protocol GasServiceProtocol {
   /// the true gas limit requirement as other transactions may be added or removed by miners,
   /// but it should provide a basis for setting a reasonable default.
   ///
-  /// - Returns: Int64 GasLimit
-  func getSuggestedGasLimit(result: @escaping (Result<Int64>) -> Void)
-  
+  /// - Returns: Decimal GasLimit
+  func getSuggestedGasLimit(from: String, to: String, gasPrice: Decimal, amount: Decimal, result: @escaping (Result<Decimal>) -> Void)
+
   /// SuggestGasPrice retrieves the currently suggested gas price to allow a timely
   /// execution of a transaction.
   ///
   /// - Returns: Int64 GasPrice
-  func getSuggestedGasPrice(result: @escaping (Result<Int64>) -> Void)
-
+  func getSuggestedGasPrice(result: @escaping (Result<Decimal>) -> Void)
 }

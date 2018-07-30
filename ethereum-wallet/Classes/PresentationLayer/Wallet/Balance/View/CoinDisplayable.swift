@@ -25,7 +25,7 @@ protocol CoinDisplayable {
   var contract: String? { get }
   var tokenMeta: TokenMeta? { get }
   var isToken: Bool { get }
-  var decimals: Int64! { get }
+  var decimals: Int! { get }
   func amountString(with amount: Decimal) -> String
   func placeholder(with size: CGSize) -> UIImage
 }
@@ -92,7 +92,7 @@ extension Coin: CoinDisplayable {
     return nil
   }
   
-  var decimals: Int64! {
+  var decimals: Int! {
     return 18
   }
   

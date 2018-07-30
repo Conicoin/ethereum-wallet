@@ -84,7 +84,12 @@ private struct AnyOperation<ResponseSerializer: DataResponseSerializerProtocol>:
   
   func execute(queue: DispatchQueue) {
     Alamofire.request(request).response(queue: queue, responseSerializer: responseSerializer) { response in
-      self.completion?(response.result)
+      switch response.result {
+      case .success(let value):
+        self.completion?(Result.success(value))
+      case .failure(let error):
+        self.completion?(Result.failure(error))
+      }
     }
   }
 }

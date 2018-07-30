@@ -18,6 +18,6 @@
 import Foundation
 
 enum TransferType {
-  case `default`
-  case token
+  case `default`(Coin)
+  case token(Token)
 }

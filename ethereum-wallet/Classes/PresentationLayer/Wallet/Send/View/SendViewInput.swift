@@ -24,6 +24,7 @@ protocol SendViewInput: class, Presentable {
   func inputDataIsValid(_ isValid: Bool)
   func setCoin(_ coin: CoinDisplayable)
   func setAddressFromQR(_ address: String)
-  func setCheckout(amount: String, total: String, fiatAmount: String, fee: String)
+  func setLocalAmount(_ localAmount: String?)
+  func setCheckout(amount: String, total: String, fee: String)
   func loadingFilure()
 }

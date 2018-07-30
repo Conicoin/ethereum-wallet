@@ -22,20 +22,36 @@ class GasService: GasServiceProtocol {
   
   private let client: GethEthereumClient
   private let context: GethContext
+  private let inputBuilder: EthTxInputBuilderProtocol
   
-  init(core: Ethereum) {
+  init(core: EthereumCoreProtocol, inputBuilder: EthTxInputBuilderProtocol) {
     self.client = core.client
     self.context = core.context
+    self.inputBuilder = inputBuilder
   }
   
-  func getSuggestedGasLimit(result: @escaping (Result<Int64>) -> Void) {
-    Ethereum.syncQueue.async {
+  func getSuggestedGasLimit(from: String, to: String, gasPrice: Decimal, amount: Decimal, result: @escaping (Result<Decimal>) -> Void) {
+    Ethereum.syncQueue.async { [unowned self] in
       do {
-        let msg = GethNewCallMsg()
+        let msg = GethNewCallMsg()!
+        let toAddress = GethAddress(fromHex: to)
+        msg.setTo(toAddress)
+       
+        let fromAddress = GethAddress(fromHex: from)
+        msg.setFrom(fromAddress)
+        
+        let bigInt = GethNewBigInt(0)!
+        let weiAmount = amount * 1e18
+        bigInt.setString(weiAmount.toHex(), base: 16)
+        msg.setValue(bigInt)
+        
+        let data = try self.inputBuilder.createInput(amount: amount, receiverAddress: to)
+        msg.setData(data)
+        
         var gasLimit: Int64 = 0
         try self.client.estimateGas(self.context, msg: msg, gas: &gasLimit)
         DispatchQueue.main.async {
-          result(.success(gasLimit))
+          result(.success(Decimal(gasLimit)))
         }
       } catch {
         DispatchQueue.main.async {
@@ -45,12 +61,12 @@ class GasService: GasServiceProtocol {
     }
   }
   
-  func getSuggestedGasPrice(result: @escaping (Result<Int64>) -> Void) {
+  func getSuggestedGasPrice(result: @escaping (Result<Decimal>) -> Void) {
     Ethereum.syncQueue.async {
       do {
         let gasPrice = try self.client.suggestGasPrice(self.context)
         DispatchQueue.main.async {
-          result(.success(gasPrice.getInt64()))
+          result(.success(Decimal(gasPrice.getString(10))))
         }
       } catch {
         DispatchQueue.main.async {
