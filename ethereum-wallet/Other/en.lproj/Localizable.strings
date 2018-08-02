@@ -34,11 +34,13 @@
 "welcome.import.alert" = "Import";
 "welcome.import.private" = "Private key";
 "welcome.import.json" = "JSON key";
+"welcome.import.mnemonic" = "Mnemonic phrase";
 
 // MARK: - Import
 "import.title" = "Import wallet";
 "import.json.title" = "Enter JSON Key";
 "import.private.title" = "Enter private key";
+"import.mnemonic.title" = "Enter mnemonic phrase";
 "import.icloud.title" = "Import from iCloud";
 "import.confirm.title" = "Confirm";
 

@@ -32,9 +32,11 @@ extension ImportRouter: ImportRouterInput {
     var pinState: PinState!
     switch importType {
     case .jsonKey:
-      pinState = .restoreJson(key: key)
+      pinState = .restoreJson
     case .privateKey:
-      pinState = .restorePrivate(key: key)
+      pinState = .restorePrivate
+    case .mnemonic:
+      pinState = .restoreMnemonic
     }
     
     PinModule.create(pinState).present(from: viewController, postProcess: postProcess) { vc in

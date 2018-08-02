@@ -23,4 +23,5 @@ protocol WelcomeViewOutput: class {
   func newDidPressed()
   func didImportPrivateKeyPressed()
   func didImportJsonKeyPressed()
+  func didImportMnemonicPressed()
 }

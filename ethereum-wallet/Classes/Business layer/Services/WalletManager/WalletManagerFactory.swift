@@ -13,7 +13,8 @@ class WalletManagerFactory {
   func create() -> WalletManagerProtocol {
     let walletManager = WalletManager(walletDataStoreService: WalletDataStoreService(),
                                       coinDataStoreService: CoinDataStoreService(),
-                                      keystoreService: KeystoreService())
+                                      keystoreService: KeystoreService(),
+                                      mnemonicService: MnemonicService())
     return walletManager
   }
 

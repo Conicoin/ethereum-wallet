@@ -13,11 +13,13 @@ class WalletManager: WalletManagerProtocol {
   let walletDataStoreService: WalletDataStoreServiceProtocol
   let coinDataStoreService: CoinDataStoreServiceProtocol
   let keystoreService: KeystoreServiceProtocol
+  let mnemonicService: MnemonicServiceProtocol
   
-  init(walletDataStoreService: WalletDataStoreServiceProtocol, coinDataStoreService: CoinDataStoreServiceProtocol, keystoreService: KeystoreServiceProtocol) {
+  init(walletDataStoreService: WalletDataStoreServiceProtocol, coinDataStoreService: CoinDataStoreServiceProtocol, keystoreService: KeystoreServiceProtocol, mnemonicService: MnemonicServiceProtocol) {
     self.walletDataStoreService = walletDataStoreService
     self.coinDataStoreService = coinDataStoreService
     self.keystoreService = keystoreService
+    self.mnemonicService = mnemonicService
   }
   
   func createWallet(passphrase: String) throws {
@@ -48,6 +50,26 @@ class WalletManager: WalletManagerProtocol {
     
     let keychain = Keychain()
     keychain.jsonKey = privateKey
+    keychain.passphrase = passphrase
+    
+    let address = account.getAddress().getHex()!
+    commonWalletInitialization(address: address)
+  }
+  
+  func importWallet(mnemonic: [String], passphrase: String) throws {
+    let seed = try mnemonicService.createSeed(mnemonic: mnemonic, withPassphrase: "")
+    let chain = Chain.mainnet
+    let masterPrivateKey = HDPrivateKey(seed: seed, network: chain)
+    let privateKey = try masterPrivateKey
+      .derived(at: 44, hardens: true)
+      .derived(at: chain.bip44CoinType, hardens: true)
+      .derived(at: 0, hardens: true)
+      .derived(at: 0)
+      .derived(at: 0).privateKey()
+    
+    let account = try keystoreService.restoreAccount(withECDSA: privateKey.raw, passphrase: passphrase)
+    
+    let keychain = Keychain()
     keychain.passphrase = passphrase
     
     let address = account.getAddress().getHex()!

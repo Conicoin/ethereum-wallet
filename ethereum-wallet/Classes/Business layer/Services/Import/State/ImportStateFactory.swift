@@ -6,7 +6,7 @@
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class ImportStateFactory {
     
@@ -22,6 +22,8 @@ class ImportStateFactory {
             return ImportJsonKeyState()
         case .privateKey:
             return ImportPrivateKeyState()
+        case .mnemonic:
+          return ImportMnemonicState()
         }
     }
 

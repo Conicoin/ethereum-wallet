@@ -35,11 +35,13 @@
 "welcome.import.alert" = "Восстановить с помощью";
 "welcome.import.private" = "Приватного ключа";
 "welcome.import.json" = "JSON ключа";
+"welcome.import.mnemonic" = "Фразы восстановления";
 
 // MARK: - Import
 "import.title" = "Восстановление";
 "import.json.title" = "Введите JSON ключ";
 "import.private.title" = "Введите приватный ключ";
+"import.mnemonic.title" = "Введите фразу восстановления";
 "import.icloud.title" = "Восстановить из iCloud";
 "import.confirm.title" = "Подтвердить";
 

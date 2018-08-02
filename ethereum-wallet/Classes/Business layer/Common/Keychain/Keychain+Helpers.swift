@@ -23,10 +23,38 @@ extension Keychain {
     case jsonKey = "json_key_data"
     case passphrase = "passphrase"
     case isLocked = "is_locked"
+    case currenctAccount = "currenct_account"
+    case accounts = "accounts"
   }
   
   var isAccountBackuped: Bool {
     return exist(.jsonKey)
+  }
+  
+  var currentAccount: Int? {
+    get {
+      return getInt(key: .currenctAccount)
+    }
+    set {
+      setInt(newValue, for: .currenctAccount)
+    }
+  }
+  
+  var accounts: [Account] {
+    get {
+      guard
+        let data = getData(key: .accounts),
+        let accounts = try? JSONDecoder().decode([Account].self, from: data) else {
+          return []
+      }
+      return accounts
+    }
+    set {
+      guard let data = try? JSONEncoder().encode(newValue) else {
+        fatalError("Cannot encode new account value")
+      }
+      setData(data, for: .accounts)
+    }
   }
   
   var jsonKey: Data? {
@@ -37,7 +65,7 @@ extension Keychain {
       setData(newValue, for: .jsonKey)
     }
   }
-    
+  
   var passphrase: String? {
     get {
       return getString(for: .passphrase)
@@ -46,7 +74,7 @@ extension Keychain {
       setString(newValue, for: .passphrase)
     }
   }
-    
+  
   var isLocked: Bool {
     get {
       return getBool(for: .isLocked)

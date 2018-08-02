@@ -38,7 +38,7 @@ extension WelcomeRouter: WelcomeRouterInput {
   }
   
   func presentPinRestore(from viewController: UIViewController, key: Data, postProcess: PinPostProcess?) {
-    PinModule.create(.restoreJson(key: key)).present(from: viewController, postProcess: postProcess) { vc in
+    PinModule.create(.restoreJson).present(from: viewController, postProcess: postProcess) { vc in
       PopupModule.create(.touchId).present(from: vc) { vc in
         PopupModule.create(.push).present(from: vc) { _ in
           TabBarModule.create(isSecureMode: false).present()
@@ -54,5 +54,10 @@ extension WelcomeRouter: WelcomeRouterInput {
   func presentImportPrivate(from viewController: UIViewController) {
     ImportModule.create(with: .privateKey).present(from: viewController)
   }
+  
+  func presentImportMnemonic(from viewController: UIViewController) {
+    ImportModule.create(with: .mnemonic).present(from: viewController)
+  }
+
     
 }

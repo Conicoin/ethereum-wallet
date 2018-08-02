@@ -22,6 +22,8 @@ class WalletImporterFactory {
       return WalletJsonImporter(walletManager: walletManager)
     case .privateKey:
       return WalletPrivateImporter(walletManager: walletManager)
+    case .mnemonic:
+      return WalletMnemonicImporter(walletManager: walletManager)
     }
   }
   

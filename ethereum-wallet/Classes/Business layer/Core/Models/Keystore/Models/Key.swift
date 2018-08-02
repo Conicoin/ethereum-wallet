@@ -25,7 +25,7 @@ struct Key: Codable {
     self.id = UUID().uuidString.lowercased()
     self.crypto = try KeyCrypto(data: privateKey, password: password)
     
-    let pubKey = Secp256k1.shared.pubicKey(from: privateKey)
+    let pubKey = Secp256k1.generatePublicKey(withPrivateKey: privateKey, compression: false)
     let sha3 = pubKey[1...].sha3(.keccak256)
     self.address = Address(data: sha3[12..<32]).string
   }

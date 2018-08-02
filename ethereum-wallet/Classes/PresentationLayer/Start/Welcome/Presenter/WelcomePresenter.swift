@@ -63,7 +63,11 @@ extension WelcomePresenter: WelcomeViewOutput {
   func didImportPrivateKeyPressed() {
     router.presentImportPrivate(from: view.viewController)
   }
-
+  
+  func didImportMnemonicPressed() {
+    router.presentImportMnemonic(from: view.viewController)
+  }
+  
 }
 
 

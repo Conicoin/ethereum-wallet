@@ -17,3 +17,5 @@
 
 
 #import "ObjC.h"
+
+#import "Internal.h"

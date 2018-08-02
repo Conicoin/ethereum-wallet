@@ -66,9 +66,13 @@ class WelcomeViewController: UIViewController {
     let privateKey = UIAlertAction(title: Localized.welcomeImportPrivate(), style: .default) { [unowned self] _ in
       self.output.didImportPrivateKeyPressed()
     }
+    let mnemonic = UIAlertAction(title: Localized.welcomeImportMnemonic(), style: .default) { [unowned self] _ in
+      self.output.didImportMnemonicPressed()
+    }
     let cancel = UIAlertAction(title: Localized.commonCancel(), style: .cancel, handler: nil)
     sheet.addAction(jsonKey)
     sheet.addAction(privateKey)
+    sheet.addAction(mnemonic)
     sheet.addAction(cancel)
 
     present(sheet, animated: true, completion: nil)
