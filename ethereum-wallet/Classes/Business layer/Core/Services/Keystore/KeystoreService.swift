@@ -58,12 +58,11 @@ class KeystoreService: KeystoreServiceProtocol {
     return try keystore.importECDSAKey(key, passphrase: passphrase)
   }
   
-  func changePassphrase(_ old: String, new: String, key: Data) throws -> Data {
+  func changePassphrase(_ old: String, new: String) throws {
     let account = try getAccount(at: 0)
-    let newAccount = try keystore.importKey(key, passphrase: old, newPassphrase: new)
+    let oldKey = try jsonKey(for: account, passphrase: old)
+    _ = try keystore.importKey(oldKey, passphrase: old, newPassphrase: new)
     try keystore.delete(account, passphrase: old)
-    let newKey = try keystore.exportKey(newAccount, passphrase: new, newPassphrase: new)
-    return newKey
   }
   
   func deleteAccount(_ account: GethAccount, passphrase: String) throws {

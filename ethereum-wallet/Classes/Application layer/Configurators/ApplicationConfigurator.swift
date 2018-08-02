@@ -19,13 +19,23 @@ import Foundation
 
 class ApplicationConfigurator: ConfiguratorProtocol {
   
+  let accountService: AccountServiceProtocol
+  let walletDataStoreService: WalletDataStoreServiceProtocol
+  
+  init(accountService: AccountServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
+    self.accountService = accountService
+    self.walletDataStoreService = walletDataStoreService
+  }
+  
   func configure() {
-    if Defaults.isWalletCreated {
+    let keychain = Keychain()
+    let wallet = walletDataStoreService.find()
+    if wallet.count > 0 && keychain.isAuthorized {
       let isSecureMode = Defaults.mode.isSecureMode
       TabBarModule.create(isSecureMode: isSecureMode).present()
     } else {
-      if let key = Keychain().jsonKey {
-        WelcomeModule.create(.restore(key: key)).present()
+      if let account = accountService.currentAccount {
+        WelcomeModule.create(.restore(account: account)).present()
       } else {
         WelcomeModule.create(.new).present()
       }

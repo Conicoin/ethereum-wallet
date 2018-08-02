@@ -102,10 +102,7 @@ extension SettingsInteractor: SettingsInteractorInput {
     
   func changePin(oldPin: String, newPin: String, completion: PinResult?) {
     do {
-      let keychain = Keychain()
-      let key = try keychain.getJsonKey()
-      let newKey = try keystore.changePassphrase(oldPin, new: newPin, key: key)
-      keychain.jsonKey = newKey
+      try keystore.changePassphrase(oldPin, new: newPin)
       completion?(.success(true))
     } catch {
       completion?(.failure(error))

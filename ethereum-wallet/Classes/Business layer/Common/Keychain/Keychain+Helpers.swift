@@ -31,9 +31,9 @@ extension Keychain {
     return exist(.jsonKey)
   }
   
-  var currentAccount: Int? {
+  var currentAccount: Int {
     get {
-      return getInt(key: .currenctAccount)
+      return getInt(key: .currenctAccount) ?? 0
     }
     set {
       setInt(newValue, for: .currenctAccount)
@@ -57,14 +57,14 @@ extension Keychain {
     }
   }
   
-  var jsonKey: Data? {
-    get {
-      return getData(key: .jsonKey)
-    }
-    set {
-      setData(newValue, for: .jsonKey)
-    }
-  }
+//  var jsonKey: Data? {
+//    get {
+//      return getData(key: .jsonKey)
+//    }
+//    set {
+//      setData(newValue, for: .jsonKey)
+//    }
+//  }
   
   var passphrase: String? {
     get {
@@ -86,12 +86,12 @@ extension Keychain {
   
   // MARK: - Getters
   
-  func getJsonKey() throws -> Data {
-    guard let jsonKey = jsonKey else {
-      throw KeychainError.noJsonKey
-    }
-    return jsonKey
-  }
+//  func getJsonKey() throws -> Data {
+//    guard let jsonKey = jsonKey else {
+//      throw KeychainError.noJsonKey
+//    }
+//    return jsonKey
+//  }
   
   func getPassphrase() throws -> String {
     guard let passphrase = passphrase else {
@@ -101,7 +101,7 @@ extension Keychain {
   }
   
   var isAuthorized: Bool {
-    return passphrase != nil && jsonKey != nil
+    return passphrase != nil && !accounts.isEmpty
   }
   
   // MARK: - Utils

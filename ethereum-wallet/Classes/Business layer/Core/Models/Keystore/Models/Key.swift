@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CryptoSwift
 
 struct Key: Codable {
   var version: Int = 3
@@ -28,6 +29,46 @@ struct Key: Codable {
     let pubKey = Secp256k1.generatePublicKey(withPrivateKey: privateKey, compression: false)
     let sha3 = pubKey[1...].sha3(.keccak256)
     self.address = Address(data: sha3[12..<32]).string
+  }
+  
+  func decrypt(password: String) throws -> Data {
+    let derivedKey: Data
+    switch crypto.kdf {
+    case "scrypt":
+      let scrypt = KeyScrypt(params: crypto.kdfparams)
+      derivedKey = try scrypt.calculate(password: password)
+    default:
+      throw KeyError.unsupportedKDF
+    }
+    
+    let cryptoCiphertext = try Data(hexString: crypto.ciphertext)
+    let cryptoMac = try Data(hexString: crypto.mac)
+    let mac = Key.computeMAC(prefix: derivedKey[derivedKey.count - 16 ..< derivedKey.count], key: cryptoCiphertext)
+    if mac != cryptoMac {
+      throw KeyError.invalidPassword
+    }
+    
+    let decryptionKey = derivedKey[0...15]
+    let decryptedPK: [UInt8]
+    switch crypto.cipher {
+    case "aes-128-ctr":
+      let aesCipher = try AES(key: decryptionKey.bytes, blockMode: .CTR(iv: crypto.cipherparams.iv.bytes), padding: .noPadding)
+      decryptedPK = try aesCipher.decrypt(cryptoCiphertext.bytes)
+    case "aes-128-cbc":
+      let aesCipher = try AES(key: decryptionKey.bytes, blockMode: .CBC(iv: crypto.cipherparams.iv.bytes), padding: .noPadding)
+      decryptedPK = try aesCipher.decrypt(cryptoCiphertext.bytes)
+    default:
+      throw KeyError.unsupportedCipher
+    }
+    
+    return Data(bytes: decryptedPK)
+  }
+  
+  static func computeMAC(prefix: Data, key: Data) -> Data {
+    var data = Data(capacity: prefix.count + key.count)
+    data.append(prefix)
+    data.append(key)
+    return data.sha3(.keccak256)
   }
 }
 
@@ -61,5 +102,8 @@ extension Key {
 
 enum KeyError: Error {
   case privateIsNotUtf8
+  case unsupportedKDF
+  case invalidPassword
+  case unsupportedCipher
 }
 

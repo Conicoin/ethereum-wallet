@@ -21,5 +21,6 @@ protocol WalletDataStoreServiceProtocol {
   func createWallet(address: String)
   func getWallet(queue: DispatchQueue, completion: @escaping (Wallet) -> Void)
   func observe(updateHandler: @escaping (Wallet) -> Void)
+  func find() -> [Wallet]
   func save(_ model: Wallet)
 }

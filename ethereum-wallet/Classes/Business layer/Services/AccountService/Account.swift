@@ -15,6 +15,7 @@ enum AccountType: Int, Codable {
 
 struct Account: Codable {
   let type: AccountType
+  let address: String
   let key: String
 }
 

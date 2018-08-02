@@ -95,6 +95,9 @@
 		143384CA211344C800FD7BE0 /* Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 143384C8211344C800FD7BE0 /* Internal.m */; };
 		14338517211344FA00FD7BE0 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14338516211344FA00FD7BE0 /* libcrypto.a */; };
 		1433851921134BE800FD7BE0 /* ImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433851821134BE800FD7BE0 /* ImportTests.swift */; };
+		1433852B2113826700FD7BE0 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433852A2113826700FD7BE0 /* Resolver.swift */; };
+		1433852E2113832100FD7BE0 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433852D2113832100FD7BE0 /* AccountService.swift */; };
+		14338530211389FB00FD7BE0 /* ApplicationConfiguratorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433852F211389FB00FD7BE0 /* ApplicationConfiguratorFactory.swift */; };
 		1433BDB71FD6C9780081D872 /* LesSyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDB11FD6C6910081D872 /* LesSyncCoordinator.swift */; };
 		1433BDB81FD6C9780081D872 /* SyncCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDB31FD6C6C20081D872 /* SyncCoordinatorProtocol.swift */; };
 		1433BDB91FD6C9780081D872 /* SyncCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDB51FD6C75D0081D872 /* SyncCoordinatorDelegate.swift */; };
@@ -612,6 +615,9 @@
 		14338516211344FA00FD7BE0 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		1433851821134BE800FD7BE0 /* ImportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTests.swift; sourceTree = "<group>"; };
 		143385252113643500FD7BE0 /* ConicoinTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ConicoinTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		1433852A2113826700FD7BE0 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
+		1433852D2113832100FD7BE0 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		1433852F211389FB00FD7BE0 /* ApplicationConfiguratorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConfiguratorFactory.swift; sourceTree = "<group>"; };
 		1433BDB11FD6C6910081D872 /* LesSyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesSyncCoordinator.swift; sourceTree = "<group>"; };
 		1433BDB31FD6C6C20081D872 /* SyncCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		1433BDB51FD6C75D0081D872 /* SyncCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCoordinatorDelegate.swift; sourceTree = "<group>"; };
@@ -1359,6 +1365,14 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		1433852C2113828900FD7BE0 /* Resolvers */ = {
+			isa = PBXGroup;
+			children = (
+				1433852A2113826700FD7BE0 /* Resolver.swift */,
+			);
+			path = Resolvers;
+			sourceTree = "<group>";
+		};
 		1433BDBB1FD73F650081D872 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -1477,6 +1491,7 @@
 				144791CB1EF5DDD200029818 /* ConfiguratorProtocol.swift */,
 				144791D11EF5DE7100029818 /* ThirdPartiesConfigurator.swift */,
 				14CA5D0E2072DC0300A0CEAF /* MigrationConfigurator.swift */,
+				1433852F211389FB00FD7BE0 /* ApplicationConfiguratorFactory.swift */,
 			);
 			path = Configurators;
 			sourceTree = "<group>";
@@ -1632,6 +1647,7 @@
 			isa = PBXGroup;
 			children = (
 				146CCBED21131BAE000C9DBF /* Account.swift */,
+				1433852D2113832100FD7BE0 /* AccountService.swift */,
 			);
 			path = AccountService;
 			sourceTree = "<group>";
@@ -1964,6 +1980,7 @@
 		14C4D3CE1EDE209800FCA3AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1433852C2113828900FD7BE0 /* Resolvers */,
 				146CCBEC21131B96000C9DBF /* AccountService */,
 				14F7DE4120C1CD520085F186 /* LiveServices */,
 				14F7DE3A20C1C2C70085F186 /* Push */,
@@ -3321,6 +3338,7 @@
 				1436EE27205D5F1B00196AAF /* KeyScrypt.swift in Sources */,
 				1474CEBC209C3E5700139C3C /* SendSettings.swift in Sources */,
 				1433BDC21FD746430081D872 /* NewHeadHandler.swift in Sources */,
+				1433852B2113826700FD7BE0 /* Resolver.swift in Sources */,
 				1433BDB71FD6C9780081D872 /* LesSyncCoordinator.swift in Sources */,
 				1433BDB81FD6C9780081D872 /* SyncCoordinatorProtocol.swift in Sources */,
 				1433BDB91FD6C9780081D872 /* SyncCoordinatorDelegate.swift in Sources */,
@@ -3501,6 +3519,7 @@
 				14F7DE4020C1C5C20085F186 /* PushConfigurator.swift in Sources */,
 				144102E82056743000F4D192 /* PinStateProtocol.swift in Sources */,
 				E65833E73BA0D892D187575C /* TransactionsRouterInput.swift in Sources */,
+				1433852E2113832100FD7BE0 /* AccountService.swift in Sources */,
 				14F4A5AB20B1DF870087BB00 /* LockerProtocol.swift in Sources */,
 				67DA84FDEC2C0B1CF45AF2D2 /* TransactionsRouter.swift in Sources */,
 				14D47EFF1FB3CEE90095C516 /* Ether.swift in Sources */,
@@ -3668,6 +3687,7 @@
 				1B1384B75741447CF347A336 /* PinRouterInput.swift in Sources */,
 				149CD64820892282005E3DBD /* WalletManagerProtocol.swift in Sources */,
 				1325EBBB1D1EF108C6EEAE1C /* PinRouter.swift in Sources */,
+				14338530211389FB00FD7BE0 /* ApplicationConfiguratorFactory.swift in Sources */,
 				1414E70B20589FC90080680E /* PopupPostProcessProtocol.swift in Sources */,
 				397F8234AEE1499FAEC85495 /* PinModuleInput.swift in Sources */,
 				279D451DE8FC8AF874C39256 /* PinModuleOutput.swift in Sources */,

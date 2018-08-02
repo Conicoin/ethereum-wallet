@@ -19,7 +19,7 @@ import UIKit
 
 enum WelcomeState {
   case new
-  case restore(key: Data)
+  case restore(account: Account)
 }
 
 class WelcomeModule {
@@ -41,8 +41,7 @@ class WelcomeModule {
     // MARK: Injection
     
     let walletManager = WalletManagerFactory().create()
-    interactor.walletCreator = WalletCreator(walletManager: walletManager)
-    interactor.walletImporter = WalletJsonImporter(walletManager: walletManager)
+    interactor.walletManager = walletManager
     
     presenter.state = state
     

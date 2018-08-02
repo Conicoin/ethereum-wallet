@@ -28,12 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return [
       MigrationConfigurator(),
       AppearanceConfigurator(),
-      ApplicationConfigurator(),
+      ApplicationConfiguratorFactory().create(),
       ThirdPartiesConfigurator()]
   }()
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
+        
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.makeKeyAndVisible()
     
