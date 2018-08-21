@@ -25,7 +25,8 @@
 "tab.settings" = "Настройки";
 
 // MARK: - Mnemonic
-"mnemonic.writing.title" = "Кошелёк создан!";
+"mnemonic.writing.backup.title" = "Резервная копия";
+"mnemonic.writing.create.title" = "Кошелёк создан!";
 "mnemonic.writing.subtitle" = "Фраза восстановления - это ключ к вашим средствам.\nПожалуйста, сохраните её в безопасном месте";
 "mnemonic.writing.button.title" = "Проверить";
 

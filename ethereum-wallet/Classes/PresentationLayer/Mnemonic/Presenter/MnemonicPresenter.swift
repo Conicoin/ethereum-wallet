@@ -8,6 +8,19 @@
 
 import UIKit
 
+enum MnemonicState {
+  case create
+  case backup
+  
+  var title: String {
+    switch self {
+    case .create:
+      return Localized.mnemonicWritingCreateTitle()
+    case .backup:
+      return Localized.mnemonicWritingBackupTitle()
+    }
+  }
+}
 
 class MnemonicPresenter {
   
@@ -17,6 +30,7 @@ class MnemonicPresenter {
   var router: MnemonicRouterInput!
   
   var mnemonic: [String]!
+  var mnemonicState: MnemonicState!
   var completion: ((UIViewController) -> Void)?
   
   var currentPhrase: [String] = []
@@ -49,7 +63,7 @@ class MnemonicPresenter {
     switch status {
       
     case .writtingDown:
-      state.title = Localized.mnemonicWritingTitle()
+      state.title = mnemonicState.title
       state.subtitle = Localized.mnemonicWritingSubtitle()
       state.mnemonicViewTitleColor = Theme.Color.black
       state.mnemonicViewBackgroundColor = .clear
@@ -158,13 +172,15 @@ extension MnemonicPresenter: MnemonicInteractorOutput {
 
 extension MnemonicPresenter: MnemonicModuleInput {
   
-  func present(from viewController: UIViewController, completion: ((UIViewController) -> Void)?) {
+  func present(from viewController: UIViewController, state: MnemonicState, completion: ((UIViewController) -> Void)?) {
     self.completion = completion
+    self.mnemonicState = state
     view.present(fromViewController: viewController)
   }
   
-  func presentModal(from viewController: UIViewController, completion: ((UIViewController) -> Void)?) {
+  func presentModal(from viewController: UIViewController, state: MnemonicState, completion: ((UIViewController) -> Void)?) {
     self.completion = completion
+    self.mnemonicState = state
     view.presentModal(fromViewController: viewController)
   }
 }

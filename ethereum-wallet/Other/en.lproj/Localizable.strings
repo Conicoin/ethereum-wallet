@@ -25,7 +25,8 @@
 "tab.settings" = "Settings";
 
 // MARK: - Mnemonic
-"mnemonic.writing.title" = "Wallet created!";
+"mnemonic.writing.backup.title" = "Backup wallet";
+"mnemonic.writing.create.title" = "Wallet created!";
 "mnemonic.writing.subtitle" = "The recovery phrase is the key to your funds. Please keep it in a safe place";
 "mnemonic.writing.button.title" = "Check";
 

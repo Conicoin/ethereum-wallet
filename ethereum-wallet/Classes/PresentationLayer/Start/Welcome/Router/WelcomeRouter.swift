@@ -29,7 +29,7 @@ class WelcomeRouter {
   }
   
   private func presentMnemonic(from viewController: UIViewController, completion: ((UIViewController) -> Void)?) {
-    MnemonicModule.create().present(from: viewController, completion: completion)
+    MnemonicModule.create().present(from: viewController, state: .create, completion: completion)
   }
 
 }

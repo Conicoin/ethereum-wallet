@@ -50,7 +50,7 @@ class BackupService: BackupServiceProtocol {
   
   private func backup() {
     let rootViewContoller = AppDelegate.currentWindow.rootViewController!
-    MnemonicModule.create().presentModal(from: rootViewContoller) { vc in
+    MnemonicModule.create().presentModal(from: rootViewContoller, state: .backup) { vc in
       vc.dismiss(animated: true, completion: nil)
     }
   }
