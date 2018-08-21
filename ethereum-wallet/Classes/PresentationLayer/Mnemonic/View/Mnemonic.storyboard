@@ -21,7 +21,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Wallet created!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hF8-Qr-QSb">
                                 <rect key="frame" x="75.5" y="150" width="225" height="38.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" red="0.12" green="0.12" blue="0.12" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -63,20 +63,6 @@
                                     <constraint firstAttribute="height" constant="160" id="IIX-4A-s8C"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faI-DR-kBP" customClass="ResponsiveButton" customModule="ethereum_wallet" customModuleProvider="target">
-                                <rect key="frame" x="148.5" y="393.5" width="78" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="EfN-HE-tRx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                <state key="normal" title="Clear">
-                                    <color key="titleColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="clearPressed" destination="ca8-nS-CL4" eventType="touchUpInside" id="fr2-gq-VVM"/>
-                                </connections>
-                            </button>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PV8-Ih-csN" customClass="MnemonicView" customModule="ethereum_wallet" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="483" width="375" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -97,10 +83,21 @@
                                     <action selector="skipPressed:" destination="ca8-nS-CL4" eventType="touchUpInside" id="b1w-Uu-qln"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faI-DR-kBP" customClass="ResponsiveButton" customModule="ethereum_wallet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="440" width="375" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearPressed" destination="ca8-nS-CL4" eventType="touchUpInside" id="fr2-gq-VVM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dTf-RS-jyB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="U7P-DA-YXb" secondAttribute="bottom" priority="750" constant="100" id="1rY-bE-dVo"/>
+                            <constraint firstItem="faI-DR-kBP" firstAttribute="top" secondItem="U7P-DA-YXb" secondAttribute="bottom" id="6D1-ap-qb9"/>
                             <constraint firstItem="5dS-im-XDq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lWN-pO-gNW" secondAttribute="trailing" constant="20" id="8wf-Ai-pV3"/>
                             <constraint firstItem="U7P-DA-YXb" firstAttribute="leading" secondItem="5dS-im-XDq" secondAttribute="leading" constant="12" id="9Vn-8h-Ga1"/>
                             <constraint firstItem="5dS-im-XDq" firstAttribute="trailing" secondItem="dTf-RS-jyB" secondAttribute="trailing" constant="32" id="Ae0-jX-y00"/>
@@ -108,11 +105,12 @@
                             <constraint firstItem="CuO-Gt-dfG" firstAttribute="top" secondItem="OSm-Dg-3bx" secondAttribute="topMargin" id="F0U-lR-R4R"/>
                             <constraint firstItem="hF8-Qr-QSb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5dS-im-XDq" secondAttribute="leading" constant="20" id="Gee-zU-b10"/>
                             <constraint firstItem="5dS-im-XDq" firstAttribute="bottom" secondItem="PV8-Ih-csN" secondAttribute="bottom" constant="24" id="K82-T3-cr1"/>
-                            <constraint firstItem="faI-DR-kBP" firstAttribute="top" secondItem="U7P-DA-YXb" secondAttribute="bottom" id="Sw5-eX-qo1"/>
-                            <constraint firstItem="faI-DR-kBP" firstAttribute="centerX" secondItem="OSm-Dg-3bx" secondAttribute="centerX" id="cHn-g4-l35"/>
+                            <constraint firstItem="faI-DR-kBP" firstAttribute="leading" secondItem="5dS-im-XDq" secondAttribute="leading" id="Z93-Jq-uKu"/>
                             <constraint firstItem="U7P-DA-YXb" firstAttribute="centerY" secondItem="OSm-Dg-3bx" secondAttribute="centerY" constant="-20" id="fbP-dG-7b8"/>
                             <constraint firstItem="OPu-pY-Dz2" firstAttribute="bottom" secondItem="lWN-pO-gNW" secondAttribute="centerY" constant="5" id="fdB-UC-uz4"/>
+                            <constraint firstItem="faI-DR-kBP" firstAttribute="trailing" secondItem="5dS-im-XDq" secondAttribute="trailing" id="hGU-X1-pIp"/>
                             <constraint firstItem="PV8-Ih-csN" firstAttribute="leading" secondItem="5dS-im-XDq" secondAttribute="leading" id="i3a-30-4bQ"/>
+                            <constraint firstItem="PV8-Ih-csN" firstAttribute="top" secondItem="faI-DR-kBP" secondAttribute="bottom" id="iHD-Ob-Zbo"/>
                             <constraint firstItem="hF8-Qr-QSb" firstAttribute="centerX" secondItem="OSm-Dg-3bx" secondAttribute="centerX" id="iSS-n0-mt9"/>
                             <constraint firstItem="lWN-pO-gNW" firstAttribute="top" secondItem="hF8-Qr-QSb" secondAttribute="bottom" constant="12" id="jdY-Nr-ntS"/>
                             <constraint firstItem="dTf-RS-jyB" firstAttribute="leading" secondItem="5dS-im-XDq" secondAttribute="leading" constant="32" id="mue-Qz-Bna"/>
@@ -141,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Smw-Ve-usF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="469.60000000000002" y="-147.07646176911544"/>
+            <point key="canvasLocation" x="469.5" y="-147.5"/>
         </scene>
     </scenes>
     <resources>
