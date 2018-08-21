@@ -14,7 +14,9 @@ class ApplicationConfiguratorFactory {
     let keychain = Keychain()
     let accountService = AccountService(keychain: keychain)
     let walletDataStoreService = WalletDataStoreService()
-    let applicationConfigurator = ApplicationConfigurator(accountService: accountService, walletDataStoreService: walletDataStoreService)
+    let applicationConfigurator = ApplicationConfigurator(keychain: keychain,
+                                                          accountService: accountService,
+                                                          walletDataStoreService: walletDataStoreService)
     return applicationConfigurator
   }
 

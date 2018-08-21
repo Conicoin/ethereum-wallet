@@ -10,16 +10,22 @@ import Foundation
 
 class WalletManager: WalletManagerProtocol {
   
+  let keychain: Keychain
   let walletDataStoreService: WalletDataStoreServiceProtocol
   let coinDataStoreService: CoinDataStoreServiceProtocol
   let keystoreService: KeystoreServiceProtocol
   let mnemonicService: MnemonicServiceProtocol
   
-  init(walletDataStoreService: WalletDataStoreServiceProtocol, coinDataStoreService: CoinDataStoreServiceProtocol, keystoreService: KeystoreServiceProtocol, mnemonicService: MnemonicServiceProtocol) {
+  init(keyhcain: Keychain,
+       walletDataStoreService: WalletDataStoreServiceProtocol,
+       coinDataStoreService: CoinDataStoreServiceProtocol,
+       keystoreService: KeystoreServiceProtocol,
+       mnemonicService: MnemonicServiceProtocol) {
     self.walletDataStoreService = walletDataStoreService
     self.coinDataStoreService = coinDataStoreService
     self.keystoreService = keystoreService
     self.mnemonicService = mnemonicService
+    self.keychain = keyhcain
   }
   
   func createWallet(passphrase: String) throws {
@@ -35,7 +41,6 @@ class WalletManager: WalletManagerProtocol {
     
     let address = gethAccount.getAddress().getHex()!
     let account = Account(type: .privateKey, address: address, key: privateKey.hex())
-    let keychain = Keychain()
     keychain.accounts = [account]
     keychain.passphrase = passphrase
     
@@ -47,7 +52,6 @@ class WalletManager: WalletManagerProtocol {
     
     let address = gethAccount.getAddress().getHex()!
     let account = Account(type: .privateKey, address: address, key: privateKey.hex())
-    let keychain = Keychain()
     keychain.accounts = [account]
     keychain.passphrase = passphrase
     
@@ -70,7 +74,6 @@ class WalletManager: WalletManagerProtocol {
     let address = gethAccount.getAddress().getHex()!
     let account = Account(type: .mnemonic, address: address, key: mnemonic.joined(separator: " "))
     
-    let keychain = Keychain()
     keychain.accounts = [account]
     keychain.passphrase = passphrase
     

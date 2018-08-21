@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillEnterForeground(_ application: UIApplication) {
     liveServices.screenLocker.unlock()
     liveServices.locker.autolock()
+    liveServices.backupper.autobackup()
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {

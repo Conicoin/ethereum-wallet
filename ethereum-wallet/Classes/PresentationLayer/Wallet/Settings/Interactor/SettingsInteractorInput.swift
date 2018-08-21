@@ -19,6 +19,7 @@
 import Foundation
 
 protocol SettingsInteractorInput: class {
+  var passphrase: String { get }
   func getWallet()
   func getExportKeyUrl(passcode: String)
   func selectCurrency(_ currency: String)

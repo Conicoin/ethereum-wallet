@@ -42,6 +42,7 @@ class WelcomeModule {
     
     let walletManager = WalletManagerFactory().create()
     interactor.walletManager = walletManager
+    interactor.keychain = Keychain()
     
     presenter.state = state
     

@@ -191,6 +191,8 @@
 		14786EE7201E6D2F009ECC11 /* TransactionDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EE6201E6D2F009ECC11 /* TransactionDisplayer.swift */; };
 		14786EEB201E7A1C009ECC11 /* TokenMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786EEA201E7A1C009ECC11 /* TokenMeta.swift */; };
 		1481ADD31FDDD53600A5AC88 /* TokenBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481ADD21FDDD53600A5AC88 /* TokenBackgroundView.swift */; };
+		1484E5D0212C5AAF008F71BD /* BackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1484E5CF212C5AAF008F71BD /* BackupService.swift */; };
+		1484E5D2212C614B008F71BD /* BackupServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1484E5D1212C614B008F71BD /* BackupServiceProtocol.swift */; };
 		1485B4372089353500FB4C85 /* token-icons in Resources */ = {isa = PBXBuildFile; fileRef = 1485B4362089353500FB4C85 /* token-icons */; };
 		1489ED1D1F9C0EE800E0A5FC /* Data+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1489ED1C1F9C0EE800E0A5FC /* Data+Helpers.swift */; };
 		14958E4B1FB7A4D3005CFC6C /* Decimal+Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */; };
@@ -722,6 +724,8 @@
 		14786EE6201E6D2F009ECC11 /* TransactionDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDisplayer.swift; sourceTree = "<group>"; };
 		14786EEA201E7A1C009ECC11 /* TokenMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenMeta.swift; sourceTree = "<group>"; };
 		1481ADD21FDDD53600A5AC88 /* TokenBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenBackgroundView.swift; sourceTree = "<group>"; };
+		1484E5CF212C5AAF008F71BD /* BackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupService.swift; sourceTree = "<group>"; };
+		1484E5D1212C614B008F71BD /* BackupServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupServiceProtocol.swift; sourceTree = "<group>"; };
 		1485B4362089353500FB4C85 /* token-icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "token-icons"; sourceTree = SOURCE_ROOT; };
 		1489ED1C1F9C0EE800E0A5FC /* Data+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Helpers.swift"; sourceTree = "<group>"; };
 		14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Ethereum.swift"; sourceTree = "<group>"; };
@@ -1730,13 +1734,13 @@
 			path = Start;
 			sourceTree = "<group>";
 		};
-		146CCBEC21131B96000C9DBF /* AccountService */ = {
+		146CCBEC21131B96000C9DBF /* Account */ = {
 			isa = PBXGroup;
 			children = (
 				146CCBED21131BAE000C9DBF /* Account.swift */,
 				1433852D2113832100FD7BE0 /* AccountService.swift */,
 			);
-			path = AccountService;
+			path = Account;
 			sourceTree = "<group>";
 		};
 		146CCBF3211325D6000C9DBF /* MnemonicService */ = {
@@ -1822,6 +1826,15 @@
 				14786ED6201E05E1009ECC11 /* HexDataTransform.swift */,
 			);
 			path = Transforms;
+			sourceTree = "<group>";
+		};
+		1484E5CE212C5A86008F71BD /* Backup */ = {
+			isa = PBXGroup;
+			children = (
+				1484E5D1212C614B008F71BD /* BackupServiceProtocol.swift */,
+				1484E5CF212C5AAF008F71BD /* BackupService.swift */,
+			);
+			path = Backup;
 			sourceTree = "<group>";
 		};
 		1485B4352089352100FB4C85 /* External */ = {
@@ -2044,8 +2057,9 @@
 		14C4D3CE1EDE209800FCA3AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1484E5CE212C5A86008F71BD /* Backup */,
 				1433852C2113828900FD7BE0 /* Resolvers */,
-				146CCBEC21131B96000C9DBF /* AccountService */,
+				146CCBEC21131B96000C9DBF /* Account */,
 				14F7DE4120C1CD520085F186 /* LiveServices */,
 				14F7DE3A20C1C2C70085F186 /* Push */,
 				14F4A5B120B1E9B80087BB00 /* ScreenLocker */,
@@ -3558,6 +3572,7 @@
 				CD31E119F20960A64CAC1037 /* BalanceInteractorInput.swift in Sources */,
 				9B90C7A4AB8DB3F5BB924967 /* BalanceInteractorOutput.swift in Sources */,
 				14DFA315207DEAC6008F6F92 /* NormalTxResolver.swift in Sources */,
+				1484E5D2212C614B008F71BD /* BackupServiceProtocol.swift in Sources */,
 				60FFB8EADF46EEDFD856D972 /* BalanceInteractor.swift in Sources */,
 				14004B7E205D39CF00EA8199 /* Key.swift in Sources */,
 				1481ADD31FDDD53600A5AC88 /* TokenBackgroundView.swift in Sources */,
@@ -3742,6 +3757,7 @@
 				145D1386206A6AA200AF85D2 /* UITableView+Conicoin.swift in Sources */,
 				11518E2220C09FBE00510FE3 /* PushNetworkServiceProtocol.swift in Sources */,
 				1409BF562114A8C400DBCADC /* MnemonicRouter.swift in Sources */,
+				1484E5D0212C5AAF008F71BD /* BackupService.swift in Sources */,
 				3B15B95D00AD02EB995F5622 /* ImportRouterInput.swift in Sources */,
 				FDC9A091AA6AA18BCB4E0F79 /* ImportRouter.swift in Sources */,
 				A468F8D3AE82D93F7339933C /* ImportModuleInput.swift in Sources */,

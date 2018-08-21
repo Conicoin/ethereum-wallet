@@ -11,7 +11,8 @@ import UIKit
 class WalletManagerFactory {
   
   func create() -> WalletManagerProtocol {
-    let walletManager = WalletManager(walletDataStoreService: WalletDataStoreService(),
+    let walletManager = WalletManager(keyhcain: Keychain(),
+                                      walletDataStoreService: WalletDataStoreService(),
                                       coinDataStoreService: CoinDataStoreService(),
                                       keystoreService: KeystoreService(),
                                       mnemonicService: MnemonicService())

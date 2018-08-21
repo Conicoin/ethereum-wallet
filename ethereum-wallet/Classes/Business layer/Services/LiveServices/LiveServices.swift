@@ -15,6 +15,12 @@ class LiveServices {
     return LockerFactory().create()
   }()
   
+  lazy var backupper: BackupServiceProtocol = {
+    let keychain = Keychain()
+    let accountService = AccountService(keychain: keychain)
+    return BackupService(keychain: keychain, accountService: accountService)
+  }()
+  
   lazy var screenLocker: ScreenLockerProtocol = {
     return ScreenLocker()
   }()

@@ -19,16 +19,17 @@ import Foundation
 
 class ApplicationConfigurator: ConfiguratorProtocol {
   
+  let keychain: Keychain
   let accountService: AccountServiceProtocol
   let walletDataStoreService: WalletDataStoreServiceProtocol
   
-  init(accountService: AccountServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
+  init(keychain: Keychain, accountService: AccountServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
+    self.keychain = keychain
     self.accountService = accountService
     self.walletDataStoreService = walletDataStoreService
   }
   
   func configure() {
-    let keychain = Keychain()
     let wallet = walletDataStoreService.find()
     if wallet.count > 0 && keychain.isAuthorized {
       let isSecureMode = Defaults.mode.isSecureMode

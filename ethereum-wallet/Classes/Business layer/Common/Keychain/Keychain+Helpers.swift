@@ -25,6 +25,7 @@ extension Keychain {
     case isLocked = "is_locked"
     case currenctAccount = "currenct_account"
     case accounts = "accounts"
+    case hdWalletBackuped = "hd_wallet_backuped"
   }
   
   var isAccountBackuped: Bool {
@@ -72,6 +73,15 @@ extension Keychain {
     }
     set {
       setBool(newValue, for: .isLocked)
+    }
+  }
+  
+  var isHdWalletBackuped: Bool {
+    get {
+      return getBool(for: .hdWalletBackuped)
+    }
+    set {
+      setBool(newValue, for: .hdWalletBackuped)
     }
   }
   

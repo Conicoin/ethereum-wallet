@@ -13,7 +13,7 @@ class MnemonicViewController: UIViewController {
   
   var output: MnemonicViewOutput!
   
-  @IBOutlet weak var skipButton: UIBarButtonItem!
+  @IBOutlet var skipButton: UIButton!
   @IBOutlet var mnemonicTitleLabel: UILabel!
   @IBOutlet var mnemonicSubtitleLabel: UILabel!
   @IBOutlet var mnemonicHintButton: UIButton!
@@ -33,14 +33,33 @@ class MnemonicViewController: UIViewController {
     okButton.setTitle(state.okButtonTitle, for: .normal)
     clearButton.isHidden = state.clearButtonHidden
     mnemonicHintButton.isHidden = state.hintButtonHidden
+    skipButton.isHidden = state.skipButtonIsHidden
   }
   
   // MARK: Life cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationItem.hidesBackButton = true
+    localize()
     output.viewIsReady()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    navigationController?.setNavigationBarHidden(true, animated: animated)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    navigationController?.setNavigationBarHidden(false, animated: animated)
+  }
+  
+  // MARK: - Privates
+  
+  private func localize() {
+    skipButton.setTitle(Localized.commonNotNow(), for: .normal)
   }
   
   // MARK: Actions
@@ -53,7 +72,7 @@ class MnemonicViewController: UIViewController {
     
   }
   
-  @IBAction func skipPressed(_ sender: UIBarButtonItem) {
+  @IBAction func skipPressed(_ sender: UIButton) {
     output.skipPressed()
   }
   

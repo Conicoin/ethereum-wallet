@@ -12,6 +12,7 @@ import Foundation
 class MnemonicInteractor {
   weak var output: MnemonicInteractorOutput!
   var accountService: AccountServiceProtocol!
+  var keychain: Keychain!
 }
 
 
@@ -24,5 +25,9 @@ extension MnemonicInteractor: MnemonicInteractorInput {
       fatalError("Mnemonic not found")
     }
     output.didReceiveMnemonic(account.key.components(separatedBy: " "))
+  }
+  
+  func setWalletBackuped() {
+    keychain.isHdWalletBackuped = true
   }
 }

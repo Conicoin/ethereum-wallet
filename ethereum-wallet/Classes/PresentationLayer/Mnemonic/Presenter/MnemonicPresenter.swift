@@ -68,6 +68,7 @@ class MnemonicPresenter {
       state.subtitle = Localized.mnemonicCorrectSubtitle()
       state.mnemonicViewBackgroundColor = Theme.Color.green
       state.okButtonTitle = Localized.mnemonicCorrectButtonTitle()
+      state.skipButtonIsHidden = true
       
     case .incorrect:
       state.title = Localized.mnemonicIncorrectTitle()
@@ -108,6 +109,7 @@ extension MnemonicPresenter: MnemonicViewOutput {
       break
       
     case .correct:
+      interactor.setWalletBackuped()
       completion?(view.viewController)
       
     case .incorrect:
@@ -159,5 +161,10 @@ extension MnemonicPresenter: MnemonicModuleInput {
   func present(from viewController: UIViewController, completion: ((UIViewController) -> Void)?) {
     self.completion = completion
     view.present(fromViewController: viewController)
+  }
+  
+  func presentModal(from viewController: UIViewController, completion: ((UIViewController) -> Void)?) {
+    self.completion = completion
+    view.presentModal(fromViewController: viewController)
   }
 }

@@ -11,4 +11,5 @@ import Foundation
 
 protocol MnemonicInteractorInput: class {
   func getMnemonic()
+  func setWalletBackuped()
 }

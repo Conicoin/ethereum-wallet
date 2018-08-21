@@ -25,6 +25,7 @@ class MnemonicModule {
     // Injection
     let keychain = Keychain()
     interactor.accountService = AccountService(keychain: keychain)
+    interactor.keychain = keychain
     
     return presenter
   }

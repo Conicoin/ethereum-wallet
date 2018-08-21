@@ -12,7 +12,8 @@ class PinServiceFactory {
   
   static func create(with pinState: PinState, delegate: PinServiceDelegate) -> PinServiceProtocol {
     let state = PinStateFactory(state: pinState).create()
-    let repository = PinRepository()
+    let keychain = Keychain()
+    let repository = PinRepository(keychain: keychain)
     let configuration = PinConfiguration(repository: repository)
     let pinService = PinService(state: state, configuration: configuration)
     pinService.delegate = delegate

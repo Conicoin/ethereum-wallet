@@ -12,4 +12,5 @@ import UIKit
 protocol MnemonicModuleInput: class {
   var output: MnemonicModuleOutput? { get set }
   func present(from viewController: UIViewController, completion: ((UIViewController) -> Void)?)
+  func presentModal(from viewController: UIViewController, completion: ((UIViewController) -> Void)?)
 }

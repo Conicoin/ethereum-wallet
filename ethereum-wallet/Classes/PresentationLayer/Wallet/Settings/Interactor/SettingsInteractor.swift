@@ -27,12 +27,20 @@ class SettingsInteractor {
   var walletDataStoreService: WalletDataStoreServiceProtocol!
   var pushService: PushServiceProtocol!
   var pushConfigurator: PushConfiguratorProtocol!
+  var keychain: Keychain!
 }
 
 
 // MARK: - SettingsInteractorInput
 
 extension SettingsInteractor: SettingsInteractorInput {
+  
+  var passphrase: String {
+    guard let oldPin = keychain.passphrase else {
+      fatalError("Pin must exist!")
+    }
+    return oldPin
+  }
   
   func getWallet() {
     walletDataStoreService.observe { [unowned self] wallet in
@@ -79,7 +87,6 @@ extension SettingsInteractor: SettingsInteractorInput {
       try keystore.deleteAllAccounts(passphrase: passphrase)
       
       // Clear keychain
-      let keychain = Keychain()
       keychain.deleteAll()
       // Clear defaults
       Defaults.deleteAll()

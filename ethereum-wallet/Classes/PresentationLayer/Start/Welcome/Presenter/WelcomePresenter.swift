@@ -26,11 +26,6 @@ class WelcomePresenter {
   var router: WelcomeRouterInput!
   
   var state = WelcomeState.new
-  
-  var isRestoring: Bool {
-    let keychain = Keychain()
-    return keychain.isAccountBackuped
-  }
     
 }
 
@@ -40,7 +35,7 @@ class WelcomePresenter {
 extension WelcomePresenter: WelcomeViewOutput {
 
   func viewIsReady() {
-    view.setupInitialState(restoring: isRestoring)
+    view.setupInitialState(restoring: interactor.isRestoring)
   }
 
   func newDidPressed() {

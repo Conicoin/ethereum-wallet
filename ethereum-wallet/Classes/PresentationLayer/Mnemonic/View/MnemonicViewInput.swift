@@ -21,6 +21,7 @@ struct MnemonicViewState {
   var mnemonicViewTitleColor: UIColor = .white
   var mnemonicViewBackgroundColor: UIColor!
   var okButtonTitle: String!
+  var skipButtonIsHidden: Bool = false
   var clearButtonHidden: Bool = true
   var hintButtonHidden: Bool = true
 }
