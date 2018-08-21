@@ -64,21 +64,21 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faI-DR-kBP" customClass="ResponsiveButton" customModule="ethereum_wallet" customModuleProvider="target">
-                                <rect key="frame" x="148" y="393.5" width="79" height="60"/>
+                                <rect key="frame" x="148.5" y="393.5" width="78" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="EfN-HE-tRx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                <state key="normal" title="CLEAR">
-                                    <color key="titleColor" red="0.58999999999999997" green="0.58999999999999997" blue="0.58999999999999997" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="clearPressed" destination="ca8-nS-CL4" eventType="touchUpInside" id="fr2-gq-VVM"/>
                                 </connections>
                             </button>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PV8-Ih-csN" customClass="MnemonicView" customModule="ethereum_wallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="473" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="483" width="375" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="aFh-5C-w4E"/>
@@ -107,7 +107,7 @@
                             <constraint firstItem="U7P-DA-YXb" firstAttribute="top" secondItem="lWN-pO-gNW" secondAttribute="bottom" constant="16" id="EXq-Gz-7vF"/>
                             <constraint firstItem="CuO-Gt-dfG" firstAttribute="top" secondItem="OSm-Dg-3bx" secondAttribute="topMargin" id="F0U-lR-R4R"/>
                             <constraint firstItem="hF8-Qr-QSb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5dS-im-XDq" secondAttribute="leading" constant="20" id="Gee-zU-b10"/>
-                            <constraint firstItem="5dS-im-XDq" firstAttribute="bottom" secondItem="PV8-Ih-csN" secondAttribute="bottom" constant="34" id="K82-T3-cr1"/>
+                            <constraint firstItem="5dS-im-XDq" firstAttribute="bottom" secondItem="PV8-Ih-csN" secondAttribute="bottom" constant="24" id="K82-T3-cr1"/>
                             <constraint firstItem="faI-DR-kBP" firstAttribute="top" secondItem="U7P-DA-YXb" secondAttribute="bottom" id="Sw5-eX-qo1"/>
                             <constraint firstItem="faI-DR-kBP" firstAttribute="centerX" secondItem="OSm-Dg-3bx" secondAttribute="centerX" id="cHn-g4-l35"/>
                             <constraint firstItem="U7P-DA-YXb" firstAttribute="centerY" secondItem="OSm-Dg-3bx" secondAttribute="centerY" constant="-20" id="fbP-dG-7b8"/>

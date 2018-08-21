@@ -18,11 +18,11 @@
 import UIKit
 
 class TransactionCell: UITableViewCell {
-  @IBOutlet weak var iconImageView: UIImageView!
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var descriptionLabel: UILabel!
-  @IBOutlet weak var amountLabel: UILabel!
-  @IBOutlet weak var errorLineView: UIView!
+  @IBOutlet var iconImageView: UIImageView!
+  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var descriptionLabel: UILabel!
+  @IBOutlet var amountLabel: UILabel!
+  @IBOutlet var errorLineView: UIView!
   
   override func awakeFromNib() {
     super.awakeFromNib()

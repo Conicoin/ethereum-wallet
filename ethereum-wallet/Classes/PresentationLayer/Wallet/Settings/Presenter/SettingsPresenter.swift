@@ -54,9 +54,15 @@ extension SettingsPresenter: SettingsViewOutput {
   }
   
   func didBackupPressed() {
-    router.presentPinOnBackup(from: view.viewController) { [unowned self] pin, routing in
-      routing?(.success(true))
-      self.interactor.getExportKeyUrl(passcode: pin)
+      router.presentPinOnBackup(from: view.viewController) { [unowned self] pin, routing in
+        routing?(.success(true))
+        
+        switch self.interactor.accountType {
+        case .mnemonic:
+          self.router.presentMnemonicBackup(from: self.view.viewController)
+        case .privateKey:
+          self.interactor.getExportKeyUrl(passcode: pin)
+        }
     }
   }
   

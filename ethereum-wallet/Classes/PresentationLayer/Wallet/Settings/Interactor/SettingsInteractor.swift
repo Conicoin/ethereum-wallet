@@ -28,6 +28,7 @@ class SettingsInteractor {
   var pushService: PushServiceProtocol!
   var pushConfigurator: PushConfiguratorProtocol!
   var keychain: Keychain!
+  var accountService: AccountServiceProtocol!
 }
 
 
@@ -40,6 +41,13 @@ extension SettingsInteractor: SettingsInteractorInput {
       fatalError("Pin must exist!")
     }
     return oldPin
+  }
+  
+  var accountType: AccountType {
+    guard let accountType = accountService.currentAccount?.type else {
+      fatalError("Account must exist!")
+    }
+    return accountType
   }
   
   func getWallet() {

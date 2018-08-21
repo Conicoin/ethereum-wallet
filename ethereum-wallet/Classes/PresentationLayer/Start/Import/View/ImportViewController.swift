@@ -19,11 +19,11 @@ import UIKit
 
 
 class ImportViewController: UIViewController {
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var inputTextView: DefaultTextField!
-  @IBOutlet weak var icloudButton: UIButton!
-  @IBOutlet weak var confirmButton: UIButton!
-  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var inputTextView: DefaultTextField!
+  @IBOutlet var icloudButton: UIButton!
+  @IBOutlet var confirmButton: UIButton!
+  @IBOutlet var bottomConstraint: NSLayoutConstraint!
   
   var output: ImportViewOutput!
 

@@ -180,6 +180,7 @@
 		146DB0851FA0080A000D3564 /* WalletNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0841FA0080A000D3564 /* WalletNetworkServiceProtocol.swift */; };
 		146DB0871FA00819000D3564 /* WalletNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0861FA00819000D3564 /* WalletNetworkService.swift */; };
 		146F32152064F48C0023B52A /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F32142064F48C0023B52A /* Loader.swift */; };
+		14732DFE212CB32000087D11 /* BottomMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14732DFD212CB32000087D11 /* BottomMnemonicView.swift */; };
 		147443D3209C6E7000BAC86B /* ScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147443D2209C6E7000BAC86B /* ScreenManager.swift */; };
 		147443D6209F85F900BAC86B /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 147443D5209F85F900BAC86B /* ObjC.m */; };
 		147443DD20A1033A00BAC86B /* LottiCheckmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 147443DC20A1033A00BAC86B /* LottiCheckmark.json */; };
@@ -712,6 +713,7 @@
 		146DB0841FA0080A000D3564 /* WalletNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		146DB0861FA00819000D3564 /* WalletNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNetworkService.swift; sourceTree = "<group>"; };
 		146F32142064F48C0023B52A /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		14732DFD212CB32000087D11 /* BottomMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMnemonicView.swift; sourceTree = "<group>"; };
 		147443D2209C6E7000BAC86B /* ScreenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenManager.swift; sourceTree = "<group>"; };
 		147443D4209F85F900BAC86B /* ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjC.h; sourceTree = "<group>"; };
 		147443D5209F85F900BAC86B /* ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
@@ -1184,6 +1186,7 @@
 				1409BF3C2114A8C400DBCADC /* WalletPrivateDisplayable.swift */,
 				1409BF3D2114A8C400DBCADC /* MnemonicViewController.swift */,
 				1409BF3E2114A8C400DBCADC /* MnemonicView.swift */,
+				14732DFD212CB32000087D11 /* BottomMnemonicView.swift */,
 				1409BF3F2114A8C400DBCADC /* MnemonicViewInput.swift */,
 				1409BF402114A8C400DBCADC /* MnemonicViewOutput.swift */,
 			);
@@ -3514,6 +3517,7 @@
 				146DB0831FA007F9000D3564 /* TransactionsNetworkServiceProtocol.swift in Sources */,
 				0452F2CC567D5791911CA5C9 /* WelcomeModuleOutput.swift in Sources */,
 				14E26DCA20618FF300976CD1 /* UITextField+Helpers.swift in Sources */,
+				14732DFE212CB32000087D11 /* BottomMnemonicView.swift in Sources */,
 				A2949D797F273018C98217B3 /* WelcomeModule.swift in Sources */,
 				146DB0811FA007E7000D3564 /* TransactionsNetworkService.swift in Sources */,
 				1475CB1720D2D0D6001A1FE9 /* API+Tokens.swift in Sources */,

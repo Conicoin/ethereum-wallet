@@ -34,6 +34,7 @@ class MnemonicViewController: UIViewController {
     clearButton.isHidden = state.clearButtonHidden
     mnemonicHintButton.isHidden = state.hintButtonHidden
     skipButton.isHidden = state.skipButtonIsHidden
+    okButton.isHidden = state.okButtonIsHidden
   }
   
   // MARK: Life cycle
@@ -59,6 +60,7 @@ class MnemonicViewController: UIViewController {
   // MARK: - Privates
   
   private func localize() {
+    clearButton.setTitle(Localized.mnemonicCommonCancel(), for: .normal)
     skipButton.setTitle(Localized.commonNotNow(), for: .normal)
   }
   
@@ -103,13 +105,22 @@ extension MnemonicViewController: MnemonicViewInput {
     mnemonicView.add(word: word)
   }
   
-  func clear() {
+  func clearWords() {
     mnemonicView.clear()
     bottomMnemonicView.reset()
   }
   
+  func removeLastWord() {
+    mnemonicView.clearLast()
+    bottomMnemonicView.resetLast()
+  }
+  
+  func setClearButtonTitle(_ title: String) {
+    clearButton.setTitle(title, for: .normal)
+  }
+  
   func setBottomMnemonicView(hidden: Bool, animated: Bool) {
-    bottomMnemonicConstraint.constant = hidden ? -bottomMnemonicView.frame.height : 0
+    bottomMnemonicConstraint.constant = hidden ? -bottomMnemonicView.frame.height : 24
     if animated {
       UIView.animate(withDuration: 0.2) {
         self.bottomMnemonicView.alpha = hidden ? 0 : 1

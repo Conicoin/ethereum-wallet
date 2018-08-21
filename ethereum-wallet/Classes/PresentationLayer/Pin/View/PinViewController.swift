@@ -10,12 +10,12 @@ import UIKit
 
 
 class PinViewController: UIViewController {
-  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet var titleLabel: UILabel!
   @IBOutlet var placeholders: [PinSignPlaceholderView]!
-  @IBOutlet weak var deleteSignButton: UIButton!
-  @IBOutlet weak var touchIDButton: UIButton!
-  @IBOutlet weak var placeholdersX: NSLayoutConstraint!
-  @IBOutlet weak var termsTextView: UITextView!
+  @IBOutlet var deleteSignButton: UIButton!
+  @IBOutlet var touchIDButton: UIButton!
+  @IBOutlet var placeholdersX: NSLayoutConstraint!
+  @IBOutlet var termsTextView: UITextView!
 
   var output: PinViewOutput!
 

@@ -19,15 +19,15 @@ import UIKit
 import Dwifft
 
 class BalanceViewController: UIViewController {
-  @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var balanceLabel: UILabel!
-  @IBOutlet weak var receiveButton: UIButton!
-  @IBOutlet weak var receiveLabel: UILabel!
-  @IBOutlet weak var sendButton: UIButton!
-  @IBOutlet weak var sendLabel: UILabel!
-  @IBOutlet weak var tokenCountLabel: UILabel!
-  @IBOutlet weak var tokenBalanceLabel: UILabel!
+  @IBOutlet var tableView: UITableView!
+  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var balanceLabel: UILabel!
+  @IBOutlet var receiveButton: UIButton!
+  @IBOutlet var receiveLabel: UILabel!
+  @IBOutlet var sendButton: UIButton!
+  @IBOutlet var sendLabel: UILabel!
+  @IBOutlet var tokenCountLabel: UILabel!
+  @IBOutlet var tokenBalanceLabel: UILabel!
     
   var output: BalanceViewOutput!
   

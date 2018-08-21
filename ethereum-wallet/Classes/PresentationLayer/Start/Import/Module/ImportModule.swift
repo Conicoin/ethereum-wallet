@@ -41,6 +41,7 @@ class ImportModule {
     
     // MARK: Injection
     
+    interactor.keychain = Keychain()
     interactor.walletManager = WalletManagerFactory().create()
 
     let mnemonicService = MnemonicService()

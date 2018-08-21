@@ -22,10 +22,10 @@ class WelcomeViewController: UIViewController {
 
   var output: WelcomeViewOutput!
     
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var subtitleLabel: UILabel!
-  @IBOutlet weak var newWalletButton: UIButton!
-  @IBOutlet weak var importWalletButton: UIButton!
+  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var subtitleLabel: UILabel!
+  @IBOutlet var newWalletButton: UIButton!
+  @IBOutlet var importWalletButton: UIButton!
 
 
   override var preferredStatusBarStyle: UIStatusBarStyle {

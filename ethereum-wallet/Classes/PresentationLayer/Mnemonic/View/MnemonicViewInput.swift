@@ -21,6 +21,7 @@ struct MnemonicViewState {
   var mnemonicViewTitleColor: UIColor = .white
   var mnemonicViewBackgroundColor: UIColor!
   var okButtonTitle: String!
+  var okButtonIsHidden: Bool!
   var skipButtonIsHidden: Bool = false
   var clearButtonHidden: Bool = true
   var hintButtonHidden: Bool = true
@@ -34,6 +35,8 @@ protocol MnemonicViewInput: class, Presentable {
   
   func show(phrase: [String], shuffled: [String])
   func add(word: String)
-  func clear()
+  func clearWords()
+  func removeLastWord()
   func setBottomMnemonicView(hidden: Bool, animated: Bool)
+  func setClearButtonTitle(_ title: String)
 }

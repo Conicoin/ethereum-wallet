@@ -21,6 +21,7 @@ import Foundation
 class ImportInteractor {
   weak var output: ImportInteractorOutput!
   
+  var keychain: Keychain!
   var verificator: ImportVerificatorProtocol!
   var walletManager: WalletManagerProtocol!
 }
@@ -52,6 +53,7 @@ extension ImportInteractor: ImportInteractorInput {
           try self.walletManager.importWallet(privateKey: privateKey, passphrase: passcode)
         case .mnemonic(let mnemonic):
           try self.walletManager.importWallet(mnemonic: mnemonic, passphrase: passcode)
+          self.keychain.isHdWalletBackuped = true
         }
         
         DispatchQueue.main.async {

@@ -33,7 +33,11 @@ class MnemonicPresenter {
   var mnemonicState: MnemonicState!
   var completion: ((UIViewController) -> Void)?
   
-  var currentPhrase: [String] = []
+  var currentPhrase: [String] = [] {
+    didSet {
+      updateClearButton()
+    }
+  }
   
   var status = MnemonicVerificationStatus.writtingDown {
     didSet {
@@ -53,8 +57,22 @@ class MnemonicPresenter {
     currentPhrase.append(word)
   }
   
-  func clear() {
+  func clearWords() {
     currentPhrase = []
+  }
+  
+  func removeLast() {
+    if !currentPhrase.isEmpty {
+      currentPhrase.removeLast()
+    }
+  }
+  
+  func updateClearButton() {
+    if currentPhrase.isEmpty {
+      view.setClearButtonTitle(Localized.mnemonicCommonCancel())
+    } else {
+      view.setClearButtonTitle(Localized.mnemonicCommonDelete())
+    }
   }
   
   func stateForCurrentStatus() -> MnemonicViewState {
@@ -69,6 +87,7 @@ class MnemonicPresenter {
       state.mnemonicViewBackgroundColor = .clear
       state.okButtonTitle = Localized.mnemonicWritingButtonTitle()
       state.hintButtonHidden = false
+      state.okButtonIsHidden = false
       
     case .verifying:
       state.title = ""
@@ -76,6 +95,7 @@ class MnemonicPresenter {
       state.mnemonicViewBackgroundColor = Theme.Color.blue
       state.okButtonTitle = ""
       state.clearButtonHidden = false
+      state.okButtonIsHidden = true
       
     case .correct:
       state.title = Localized.mnemonicCorrectTitle()
@@ -83,12 +103,14 @@ class MnemonicPresenter {
       state.mnemonicViewBackgroundColor = Theme.Color.green
       state.okButtonTitle = Localized.mnemonicCorrectButtonTitle()
       state.skipButtonIsHidden = true
+      state.okButtonIsHidden = false
       
     case .incorrect:
       state.title = Localized.mnemonicIncorrectTitle()
       state.subtitle = Localized.mnemonicIncorrectSubtitle()
       state.mnemonicViewBackgroundColor = Theme.Color.red
       state.okButtonTitle = Localized.mnemonicIncorrectButtonTitle()
+      state.okButtonIsHidden = false
     }
     
     return state
@@ -115,7 +137,7 @@ extension MnemonicPresenter: MnemonicViewOutput {
       
     case .writtingDown:
       view.setBottomMnemonicView(hidden: false, animated: true)
-      view.clear()
+      view.clearWords()
       
       status = .verifying
       
@@ -137,8 +159,14 @@ extension MnemonicPresenter: MnemonicViewOutput {
   }
   
   func clearPressed() {
-    clear()
-    view.clear()
+    if currentPhrase.isEmpty {
+      view.setBottomMnemonicView(hidden: true, animated: false)
+      view.show(phrase: mnemonic, shuffled: mnemonic.shuffled())
+      status = .writtingDown
+    } else {
+      removeLast()
+      view.removeLastWord()
+    }
   }
   
   func wordPressed(_ word: String) {
@@ -150,7 +178,7 @@ extension MnemonicPresenter: MnemonicViewOutput {
       view.setBottomMnemonicView(hidden: true, animated: true)
       status = correct ? .correct : .incorrect
       
-      clear()
+      clearWords()
     }
   }
 }

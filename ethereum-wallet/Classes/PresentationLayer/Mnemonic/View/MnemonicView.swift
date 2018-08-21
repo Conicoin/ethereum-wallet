@@ -8,6 +8,30 @@
 
 import UIKit
 
+// MARK: Private Multi-Device UI constants
+
+fileprivate extension ScreenType {
+  
+  var scalableFont: UIFont {
+    switch self {
+    case .iPhone4, .iPhoneSE:
+      return Theme.Font.regular14
+    default:
+      return Theme.Font.regular16
+    }
+  }
+  
+  var scalableInset: CGFloat {
+    switch self {
+    case .iPhone4, .iPhoneSE:
+      return 5
+    default:
+      return 10
+    }
+  }
+  
+}
+
 protocol MnemonicViewDelegate: class {
   func mnemonicView(_ view: MnemonicView, wordPressed word: String)
 }
@@ -16,15 +40,9 @@ class MnemonicView: UIView {
   
   weak var delegate: MnemonicViewDelegate?
   
-  var wordsPerLine: Int {
-    switch UIDevice.screenType {
-    case .iPhone4, .iPhoneSE:
-      return 3
-    default:
-      return 4
-    }
-  }
+  var wordsPerLine = 4
   
+  var selectedIndices: [Int] = []
   var wordButtons: [UIButton] = []
   var buttonTitleColor = Theme.Color.black
   var buttonBackgroundColor = UIColor.clear
@@ -70,13 +88,29 @@ class MnemonicView: UIView {
   func add(word: String) {
     let button = createButton(with: word)
     let line = wordButtons.count / wordsPerLine
-    let stackView = self.stackView(for: line)
     
+    let stackView = self.stackViewAndAdd(for: line)
     stackView.addArrangedSubview(button)
     
     wordButtons.append(button)
     
     layoutIfNeeded()
+  }
+  
+  func clearLast() {
+    guard let stackView = lineStackView.arrangedSubviews.last as? UIStackView else {
+      return
+    }
+    
+    if let view = stackView.arrangedSubviews.last, !wordButtons.isEmpty {
+      view.removeFromSuperview()
+      wordButtons.removeLast()
+      layoutIfNeeded()
+      
+      if stackView.arrangedSubviews.count == 0 {
+        lineStackView.arrangedSubviews.last?.removeFromSuperview()
+      }
+    }
   }
   
   func clear() {
@@ -98,9 +132,20 @@ class MnemonicView: UIView {
       let stackView = stackView as! UIStackView
       for button in stackView.arrangedSubviews as! [UIButton] {
         button.isEnabled = true
-        button.setTitleColor(buttonTitleColor, for: .normal)
       }
     }
+    selectedIndices = []
+  }
+  
+  func resetLast() {
+    guard let index = selectedIndices.last, wordButtons.count > index else {
+      return
+    }
+    
+    let button = wordButtons[index]
+    button.isEnabled = true
+    
+    selectedIndices.removeLast()
   }
   
   func set(titleColor: UIColor, backgroundColor: UIColor) {
@@ -123,7 +168,7 @@ class MnemonicView: UIView {
     lineStackView.addArrangedSubview(stackView)
   }
   
-  private func stackView(for line: Int) -> UIStackView {
+  private func stackViewAndAdd(for line: Int) -> UIStackView {
     if lineStackView.arrangedSubviews.count <= line {
       addStackView(for: line)
     }
@@ -143,11 +188,13 @@ class MnemonicView: UIView {
     let button = ResponsiveButton(frame: .zero)
     button.setTitle(text, for: .normal)
     button.setTitleColor(buttonTitleColor, for: .normal)
-    button.titleLabel?.font = Theme.Font.regular16
+    button.setTitleColor(buttonBackgroundColor, for: .disabled)
+    button.titleLabel?.font = UIDevice.screenType.scalableFont
     button.titleLabel?.adjustsFontSizeToFitWidth = true
-    button.titleLabel?.minimumScaleFactor = 0.2
+    button.titleLabel?.minimumScaleFactor = 0.5
     button.backgroundColor = buttonBackgroundColor
-    button.contentEdgeInsets = UIEdgeInsetsMake(6, 10, 4, 10)
+    let inset = UIDevice.screenType.scalableInset
+    button.contentEdgeInsets = UIEdgeInsetsMake(6, inset, 4, inset)
     button.layer.cornerRadius = 12
     button.addTarget(self, action: #selector(wordPressed(sender:)), for: .touchUpInside)
     
@@ -156,8 +203,8 @@ class MnemonicView: UIView {
   
   @objc func wordPressed(sender: UIButton) {
     sender.isEnabled = false
-    sender.setTitleColor(buttonBackgroundColor, for: .normal)
     
+    selectedIndices.append(wordButtons.index(of: sender)!)
     delegate?.mnemonicView(self, wordPressed: sender.titleLabel!.text!)
   }
   

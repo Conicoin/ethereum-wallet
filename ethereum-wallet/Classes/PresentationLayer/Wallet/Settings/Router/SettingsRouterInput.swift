@@ -24,4 +24,5 @@ protocol SettingsRouterInput: class {
   func presentPinOnExit(from: UIViewController, postProcess: PinPostProcess?)
   func presentPinOnChangePin(from: UIViewController, postProcess: PinPostProcess?)
   func presentPinOnBackup(from: UIViewController, postProcess: PinPostProcess?)
+  func presentMnemonicBackup(from: UIViewController)
 }

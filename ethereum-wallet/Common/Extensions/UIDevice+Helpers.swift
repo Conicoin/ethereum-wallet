@@ -38,15 +38,7 @@ enum ScreenType {
       return "X"
     }
   }
-    
-  var scalableFont: UIFont {
-    switch self {
-    case .iPhone4, .iPhoneSE:
-      return Theme.Font.regular14
-    default:
-      return Theme.Font.regular16
-    }
-  }
+  
 }
 
 extension UIDevice {

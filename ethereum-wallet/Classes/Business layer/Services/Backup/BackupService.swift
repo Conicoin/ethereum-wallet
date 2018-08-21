@@ -14,7 +14,7 @@ class BackupService: BackupServiceProtocol {
   let accountService: AccountServiceProtocol
   
   private let unlockPeriod: TimeInterval = 1200
-  private var lastUnlockDate: Date = Date.distantPast
+  private var lastUnlockDate: Date = Date()
   
   init(keychain: Keychain, accountService: AccountServiceProtocol) {
     self.keychain = keychain

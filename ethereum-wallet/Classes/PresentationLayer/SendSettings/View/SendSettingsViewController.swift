@@ -10,21 +10,21 @@ import UIKit
 
 
 class SendSettingsViewController: UIViewController {
-  @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var gasPriceTitleLabel: UILabel!
-  @IBOutlet weak var gasPriceLabel: UILabel!
-  @IBOutlet weak var gasPriceInfoLabel: UILabel!
-  @IBOutlet weak var gasPriceSlider: UISlider!
-  @IBOutlet weak var gasLimitTitleLabel: UILabel!
-  @IBOutlet weak var gasLimitLabel: UILabel!
-  @IBOutlet weak var gasLimitInfoLabel: UILabel!
-  @IBOutlet weak var gasLimitSlider: UISlider!
-  @IBOutlet weak var txDataLabel: UILabel!
-  @IBOutlet weak var txDataTextView: UITextView!
-  @IBOutlet weak var feeTitleLabel: UILabel!
-  @IBOutlet weak var feeLabel: UILabel!
-  @IBOutlet weak var txDataView: UIView!
-  @IBOutlet weak var saveButton: UIBarButtonItem!
+  @IBOutlet var scrollView: UIScrollView!
+  @IBOutlet var gasPriceTitleLabel: UILabel!
+  @IBOutlet var gasPriceLabel: UILabel!
+  @IBOutlet var gasPriceInfoLabel: UILabel!
+  @IBOutlet var gasPriceSlider: UISlider!
+  @IBOutlet var gasLimitTitleLabel: UILabel!
+  @IBOutlet var gasLimitLabel: UILabel!
+  @IBOutlet var gasLimitInfoLabel: UILabel!
+  @IBOutlet var gasLimitSlider: UISlider!
+  @IBOutlet var txDataLabel: UILabel!
+  @IBOutlet var txDataTextView: UITextView!
+  @IBOutlet var feeTitleLabel: UILabel!
+  @IBOutlet var feeLabel: UILabel!
+  @IBOutlet var txDataView: UIView!
+  @IBOutlet var saveButton: UIBarButtonItem!
   
   private var border = BorderView()
   var output: SendSettingsViewOutput!

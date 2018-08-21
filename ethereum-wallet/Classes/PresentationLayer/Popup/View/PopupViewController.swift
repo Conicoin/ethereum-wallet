@@ -10,11 +10,11 @@ import UIKit
 import Lottie
 
 class PopupViewController: UIViewController {
-  @IBOutlet weak var imageView: UIImageView!
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var descriptionLabel: UILabel!
-  @IBOutlet weak var skipButton: UIButton!
-  @IBOutlet weak var confirmButton: UIButton!
+  @IBOutlet var imageView: UIImageView!
+  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var descriptionLabel: UILabel!
+  @IBOutlet var skipButton: UIButton!
+  @IBOutlet var confirmButton: UIButton!
   
   private var animationView: LOTAnimationView?
 

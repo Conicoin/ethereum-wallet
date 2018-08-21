@@ -28,6 +28,12 @@ class SettingsRouter {
 
 extension SettingsRouter: SettingsRouterInput {
   
+  func presentMnemonicBackup(from: UIViewController) {
+    MnemonicModule.create().presentModal(from: from, state: .backup) { vc in
+      vc.dismiss(animated: true, completion: nil)
+    }
+  }
+  
   func presentChooseCurrency(from: UIViewController, selectedIso: String, output: ChooseCurrencyModuleOutput) {
     ChooseCurrencyModule.create().present(from: from, selectedIso: selectedIso, output: output)
   }

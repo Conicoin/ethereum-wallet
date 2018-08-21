@@ -20,7 +20,7 @@ import UIKit
 import AVFoundation
 
 class ScanViewController: UIViewController {
-  @IBOutlet weak var cancelButton: UIButton!
+  @IBOutlet var cancelButton: UIButton!
   
   var output: ScanViewOutput!
 

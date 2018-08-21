@@ -134,6 +134,7 @@ enum TouchIdError: CustomError {
 enum ImportError: CustomError {
   case invalidLength
   case invalidFormat
+  case invalidMnemonic
   
   var description: ErrorInfo? {
     switch self {
@@ -141,6 +142,8 @@ enum ImportError: CustomError {
       return ("Import error", "Invalid key length", true)
     case .invalidFormat:
       return ("Import error", "Invalid format", true)
+    case .invalidMnemonic:
+      return ("Import error", "Invalid mnemonic", true)
     }
   }
 }

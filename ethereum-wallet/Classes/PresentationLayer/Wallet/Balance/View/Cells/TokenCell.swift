@@ -9,11 +9,11 @@
 import UIKit
 
 class TokenCell: UITableViewCell {
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var symbolLabel: UILabel!
-  @IBOutlet weak var iconImageView: UIImageView!
-  @IBOutlet weak var balanceLabel: UILabel!
-  @IBOutlet weak var tokenBackgroundView: UIView!
+  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var symbolLabel: UILabel!
+  @IBOutlet var iconImageView: UIImageView!
+  @IBOutlet var balanceLabel: UILabel!
+  @IBOutlet var tokenBackgroundView: UIView!
   
   override func awakeFromNib() {
     super.awakeFromNib()

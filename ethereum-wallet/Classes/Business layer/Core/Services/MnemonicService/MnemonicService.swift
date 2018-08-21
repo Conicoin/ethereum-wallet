@@ -51,7 +51,7 @@ class MnemonicService: MnemonicServiceProtocol {
   func createSeed(mnemonic: [String], withPassphrase passphrase: String) throws -> Data {
     let words = WordList.english.words + WordList.japanese.words
     guard !mnemonic.map({ words.contains($0) }).contains(false) else {
-      throw Errors.invalidMnemonic
+      throw ImportError.invalidMnemonic
     }
     let password = mnemonic.joined(separator: " ").toData()
     let salt = ("mnemonic" + passphrase).toData()
@@ -59,7 +59,4 @@ class MnemonicService: MnemonicServiceProtocol {
     return Data(seed)
   }
   
-  enum Errors: Error {
-    case invalidMnemonic
-  }
 }

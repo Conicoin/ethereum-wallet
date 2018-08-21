@@ -20,7 +20,7 @@ import SafariServices
 import Dwifft
 
 class TransactionsViewController: UIViewController {
-  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet var tableView: UITableView!
   
   var output: TransactionsViewOutput!
   

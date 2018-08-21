@@ -19,7 +19,7 @@ import UIKit
 
 
 class ChooseCurrencyViewController: UIViewController {
-  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet var tableView: UITableView!
   
   var output: ChooseCurrencyViewOutput!
   

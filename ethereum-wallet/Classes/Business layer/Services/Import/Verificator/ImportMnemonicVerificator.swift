@@ -18,7 +18,7 @@ class ImportMnemonicVerificator: ImportVerificatorProtocol {
   
   func verifyKey(_ key: String, completion: (Result<WalletKey>) -> Void) {
     do {
-      let mnemonic = key.components(separatedBy: " ")
+      let mnemonic = key.components(separatedBy: " ").filter { $0 != "" }
       _ = try mnemonicService.createSeed(mnemonic: mnemonic, withPassphrase: "")
       completion(.success(.mnemonic(mnemonic)))
     } catch {
