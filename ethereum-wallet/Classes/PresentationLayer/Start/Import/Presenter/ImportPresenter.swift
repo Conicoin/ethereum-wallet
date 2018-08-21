@@ -53,8 +53,8 @@ extension ImportPresenter: ImportViewOutput {
 
 extension ImportPresenter: ImportInteractorOutput {
   
-  func didConfirmValidKey(_ key: Data) {
-    router.presentPin(from: view.viewController, key: key, importType: state.importType) { [unowned self] pin, routing in
+  func didConfirmValidKey(_ key: WalletKey) {
+    router.presentPin(from: view.viewController, key: key) { [unowned self] pin, routing in
       self.interactor.importKey(key, passcode: pin, completion: routing)
     }
   }

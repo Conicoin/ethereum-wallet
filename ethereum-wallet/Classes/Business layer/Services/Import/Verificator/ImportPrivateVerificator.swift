@@ -10,7 +10,7 @@ import Foundation
 
 class ImportPrivateVerificator: ImportVerificatorProtocol {
   
-  func verifyKey(_ key: String, completion: (Result<Data>) -> Void) {
+  func verifyKey(_ key: String, completion: (Result<WalletKey>) -> Void) {
     guard key.count == 64 else {
       completion(.failure(ImportError.invalidLength))
       return
@@ -21,7 +21,7 @@ class ImportPrivateVerificator: ImportVerificatorProtocol {
       return
     }
     
-    completion(.success(data))
+    completion(.success(.privateKey(data)))
   }
   
 }

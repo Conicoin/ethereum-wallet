@@ -22,7 +22,7 @@ class ImportInteractor {
   weak var output: ImportInteractorOutput!
   
   var verificator: ImportVerificatorProtocol!
-  var walletImporter: WalletImporterProtocol!
+  var walletManager: WalletManagerProtocol!
 }
 
 
@@ -41,10 +41,19 @@ extension ImportInteractor: ImportInteractorInput {
     }
   }
   
-  func importKey(_ key: Data, passcode: String, completion: PinResult?) {
+  func importKey(_ key: WalletKey, passcode: String, completion: PinResult?) {
     DispatchQueue.global().async { [unowned self] in
       do {
-        try self.walletImporter.importKey(key, passcode: passcode)
+       
+        switch key {
+        case .jsonKey(let jsonKey):
+          try self.walletManager.importWallet(jsonKey: jsonKey, passphrase: passcode)
+        case .privateKey(let privateKey):
+          try self.walletManager.importWallet(privateKey: privateKey, passphrase: passcode)
+        case .mnemonic(let mnemonic):
+          try self.walletManager.importWallet(mnemonic: mnemonic, passphrase: passcode)
+        }
+        
         DispatchQueue.main.async {
           completion?(.success(true))
         }

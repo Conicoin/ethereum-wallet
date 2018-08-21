@@ -24,6 +24,21 @@
 "tab.transactions" = "Transactions";
 "tab.settings" = "Settings";
 
+// MARK: - Mnemonic
+"mnemonic.writing.title" = "Wallet created!";
+"mnemonic.writing.subtitle" = "The recovery phrase is the key to your funds. Please keep it in a safe place";
+"mnemonic.writing.button.title" = "Check";
+
+"mnemonic.verifying.subtitle" = "Checking the recovery phrase";
+
+"mnemonic.correct.title" = "That's it!";
+"mnemonic.correct.subtitle" = "Keep your recovery phrase in a safe place.\nYou will need it to restore access to your funds";
+"mnemonic.correct.button.title" = "Continue";
+
+"mnemonic.incorrect.title" = "Wrong!";
+"mnemonic.incorrect.subtitle" = "Having lost the recovery phrase, you will no longer be able to access your funds.\nPlease try again";
+"mnemonic.incorrect.button.title" = "Try again";
+
 // MARK: - Welcome
 "welcome.new.title" = "Create new wallet";
 "welcome.restore.title" = "Restore with passphrase";

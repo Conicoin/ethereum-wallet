@@ -10,14 +10,14 @@ import Foundation
 
 class ImportJsonVerificator: ImportVerificatorProtocol {
   
-  func verifyKey(_ jsonKey: String, completion: (Result<Data>) -> Void) {
+  func verifyKey(_ jsonKey: String, completion: (Result<WalletKey>) -> Void) {
     do {
       guard let data = jsonKey.data(using: .utf8) else {
         throw KeychainError.keyIsInvalid
       }
 
-      let _ = try JSONDecoder().decode(Key.self, from: data)
-      completion(.success(data))
+      _ = try JSONDecoder().decode(Key.self, from: data)
+      completion(.success(.jsonKey(data)))
     } catch {
       completion(.failure(error))
     }

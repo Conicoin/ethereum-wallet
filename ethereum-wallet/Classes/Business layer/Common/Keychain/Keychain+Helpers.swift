@@ -57,15 +57,6 @@ extension Keychain {
     }
   }
   
-//  var jsonKey: Data? {
-//    get {
-//      return getData(key: .jsonKey)
-//    }
-//    set {
-//      setData(newValue, for: .jsonKey)
-//    }
-//  }
-  
   var passphrase: String? {
     get {
       return getString(for: .passphrase)
@@ -85,13 +76,7 @@ extension Keychain {
   }
   
   // MARK: - Getters
-  
-//  func getJsonKey() throws -> Data {
-//    guard let jsonKey = jsonKey else {
-//      throw KeychainError.noJsonKey
-//    }
-//    return jsonKey
-//  }
+
   
   func getPassphrase() throws -> String {
     guard let passphrase = passphrase else {

@@ -2,7 +2,7 @@
 //  PushNetworkingService.swift
 //  ethereum-wallet
 //
-//  Created by Nikita Medvedev on 01/06/2018.
+//  Created by Artur Guseinov 01/06/2018.
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 

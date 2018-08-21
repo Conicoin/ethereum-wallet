@@ -19,6 +19,18 @@ import Foundation
 import UIKit
 
 class WelcomeRouter {
+  
+  private func presentMainAfterAlerts(from viewController: UIViewController) {
+    PopupModule.create(.touchId).present(from: viewController) { vc in
+      PopupModule.create(.push).present(from: vc) { _ in
+        TabBarModule.create(isSecureMode: false).present()
+      }
+    }
+  }
+  
+  private func presentMnemonic(from viewController: UIViewController, completion: ((UIViewController) -> Void)?) {
+    MnemonicModule.create().present(from: viewController, completion: completion)
+  }
 
 }
 
@@ -28,22 +40,18 @@ class WelcomeRouter {
 extension WelcomeRouter: WelcomeRouterInput {
   
   func presentPinNew(from viewController: UIViewController, postProcessor: PinPostProcess?) {
-    PinModule.create(.set).present(from: viewController, postProcess: postProcessor) { vc in
-      PopupModule.create(.touchId).present(from: vc) { vc in
-        PopupModule.create(.push).present(from: vc) { _ in
-          TabBarModule.create(isSecureMode: false).present()
-        }
+    let module =  PinModule.create(.set)
+    module.present(from: viewController, postProcess: postProcessor) { [unowned self] vc in
+      self.presentMnemonic(from: vc) { vc in
+        self.presentMainAfterAlerts(from: vc)
       }
     }
   }
   
   func presentPinRestore(from viewController: UIViewController, postProcess: PinPostProcess?) {
-    PinModule.create(.restoreJson).present(from: viewController, postProcess: postProcess) { vc in
-      PopupModule.create(.touchId).present(from: vc) { vc in
-        PopupModule.create(.push).present(from: vc) { _ in
-          TabBarModule.create(isSecureMode: false).present()
-        }
-      }
+    let module = PinModule.create(.restoreJson)
+    module.present(from: viewController, postProcess: postProcess) { vc in
+      self.presentMainAfterAlerts(from: vc)
     }
   }
   

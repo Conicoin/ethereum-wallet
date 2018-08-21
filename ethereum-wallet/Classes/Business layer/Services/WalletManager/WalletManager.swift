@@ -23,20 +23,8 @@ class WalletManager: WalletManagerProtocol {
   }
   
   func createWallet(passphrase: String) throws {
-    let gethAccount = try keystoreService.createAccount(passphrase: passphrase)
-    let jsonKey = try keystoreService.jsonKey(for: gethAccount, passphrase: passphrase)
-    
-    let keyObject = try JSONDecoder().decode(Key.self, from: jsonKey)
-    let privateKey = try keyObject.decrypt(password: passphrase)
-    
-    let address = gethAccount.getAddress().getHex()!
-        
-    let account = Account(type: .privateKey, address: address, key: privateKey.hex())
-    let keychain = Keychain()
-    keychain.accounts = [account]
-    keychain.passphrase = passphrase
-    
-    commonWalletInitialization(address: address)
+    let mnemonic = mnemonicService.create(strength: .normal, language: .english)
+    try importWallet(mnemonic: mnemonic, passphrase: passphrase)
   }
   
   func importWallet(jsonKey: Data, passphrase: String) throws {

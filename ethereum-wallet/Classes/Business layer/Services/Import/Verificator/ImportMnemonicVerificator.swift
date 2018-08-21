@@ -16,11 +16,11 @@ class ImportMnemonicVerificator: ImportVerificatorProtocol {
     self.mnemonicService = mnemonicService
   }
   
-  func verifyKey(_ key: String, completion: (Result<Data>) -> Void) {
+  func verifyKey(_ key: String, completion: (Result<WalletKey>) -> Void) {
     do {
       let mnemonic = key.components(separatedBy: " ")
       _ = try mnemonicService.createSeed(mnemonic: mnemonic, withPassphrase: "")
-      completion(.success(key.toData()))
+      completion(.success(.mnemonic(mnemonic)))
     } catch {
       completion(.failure(error))
     }

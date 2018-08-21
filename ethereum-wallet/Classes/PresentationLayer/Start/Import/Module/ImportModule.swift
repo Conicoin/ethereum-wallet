@@ -41,8 +41,7 @@ class ImportModule {
     
     // MARK: Injection
     
-    let walletManager = WalletManagerFactory().create()
-    interactor.walletImporter = WalletImporterFactory(walletManager: walletManager).create(state)
+    interactor.walletManager = WalletManagerFactory().create()
 
     let mnemonicService = MnemonicService()
     interactor.verificator = ImportVerificatorFactory(mnemonicService: mnemonicService).create(state)

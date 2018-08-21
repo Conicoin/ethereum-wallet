@@ -57,6 +57,24 @@
 		14046CFB201F778E007BD203 /* Import.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14046CFA201F778E007BD203 /* Import.storyboard */; };
 		1406465A1FAF457A0013DFFF /* RealmCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140646591FAF457A0013DFFF /* RealmCoin.swift */; };
 		1406465C1FAF46DB0013DFFF /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406465B1FAF46DB0013DFFF /* Coin.swift */; };
+		1409BF482114A8C400DBCADC /* MnemonicModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF342114A8C400DBCADC /* MnemonicModule.swift */; };
+		1409BF492114A8C400DBCADC /* MnemonicModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF352114A8C400DBCADC /* MnemonicModuleOutput.swift */; };
+		1409BF4A2114A8C400DBCADC /* MnemonicModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF362114A8C400DBCADC /* MnemonicModuleInput.swift */; };
+		1409BF4B2114A8C400DBCADC /* MnemonicPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF382114A8C400DBCADC /* MnemonicPresenter.swift */; };
+		1409BF4C2114A8C400DBCADC /* WalletCreationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF392114A8C400DBCADC /* WalletCreationInfo.swift */; };
+		1409BF4D2114A8C400DBCADC /* Mnemonic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1409BF3B2114A8C400DBCADC /* Mnemonic.storyboard */; };
+		1409BF4E2114A8C400DBCADC /* WalletPrivateDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF3C2114A8C400DBCADC /* WalletPrivateDisplayable.swift */; };
+		1409BF4F2114A8C400DBCADC /* MnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF3D2114A8C400DBCADC /* MnemonicViewController.swift */; };
+		1409BF502114A8C400DBCADC /* MnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF3E2114A8C400DBCADC /* MnemonicView.swift */; };
+		1409BF512114A8C400DBCADC /* MnemonicViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF3F2114A8C400DBCADC /* MnemonicViewInput.swift */; };
+		1409BF522114A8C400DBCADC /* MnemonicViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF402114A8C400DBCADC /* MnemonicViewOutput.swift */; };
+		1409BF532114A8C400DBCADC /* MnemonicInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF422114A8C400DBCADC /* MnemonicInteractorInput.swift */; };
+		1409BF542114A8C400DBCADC /* MnemonicInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF432114A8C400DBCADC /* MnemonicInteractor.swift */; };
+		1409BF552114A8C400DBCADC /* MnemonicInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF442114A8C400DBCADC /* MnemonicInteractorOutput.swift */; };
+		1409BF562114A8C400DBCADC /* MnemonicRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF462114A8C400DBCADC /* MnemonicRouter.swift */; };
+		1409BF572114A8C400DBCADC /* MnemonicRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF472114A8C400DBCADC /* MnemonicRouterInput.swift */; };
+		1409BF592114B6BE00DBCADC /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF582114B6BE00DBCADC /* Collection+Extension.swift */; };
+		1409BF5B2114B7D000DBCADC /* ResponsiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF5A2114B7D000DBCADC /* ResponsiveButton.swift */; };
 		1409C1311FE876A200803E78 /* UITableView+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C1301FE876A200803E78 /* UITableView+Sugar.swift */; };
 		1409C1351FE877FD00803E78 /* UICollectionView+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C1341FE877FD00803E78 /* UICollectionView+Sugar.swift */; };
 		140E1106209A39F800000ED7 /* SendSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 140E1105209A39F800000ED7 /* SendSettings.storyboard */; };
@@ -149,7 +167,6 @@
 		146209271F9AA21900C01CE7 /* RealmStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146209261F9AA21900C01CE7 /* RealmStorable.swift */; };
 		14636D631F994BB7002BDFAC /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14636D611F994BB7002BDFAC /* Presentable.swift */; };
 		146CCBEE21131BAE000C9DBF /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CCBED21131BAE000C9DBF /* Account.swift */; };
-		146CCBF0211324AA000C9DBF /* WalletMnemonicImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CCBEF211324AA000C9DBF /* WalletMnemonicImporter.swift */; };
 		146CCBF221132543000C9DBF /* ImportMnemonicVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CCBF121132543000C9DBF /* ImportMnemonicVerificator.swift */; };
 		146CCBF5211325E6000C9DBF /* MnemonicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CCBF4211325E6000C9DBF /* MnemonicService.swift */; };
 		146CCBF72113262F000C9DBF /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CCBF62113262F000C9DBF /* WordList.swift */; };
@@ -228,12 +245,6 @@
 		14BF25992012624900CAFCFD /* TransactionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF25982012624900CAFCFD /* TransactionFactory.swift */; };
 		14BF259C2012626800CAFCFD /* TransactionFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF259B2012626800CAFCFD /* TransactionFactoryProtocol.swift */; };
 		14BF259E2012653200CAFCFD /* TransactionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF259D2012653200CAFCFD /* TransactionInfo.swift */; };
-		14C1152F2064671700DC4C25 /* WalletImporterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C1152E2064671700DC4C25 /* WalletImporterProtocol.swift */; };
-		14C115312064674100DC4C25 /* WalletJsonImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C115302064674100DC4C25 /* WalletJsonImporter.swift */; };
-		14C115332064681A00DC4C25 /* WalletPrivateImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C115322064681A00DC4C25 /* WalletPrivateImporter.swift */; };
-		14C115352064689500DC4C25 /* WalletImporterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C115342064689500DC4C25 /* WalletImporterFactory.swift */; };
-		14C1153A20646A7000DC4C25 /* WalletCreatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C1153920646A7000DC4C25 /* WalletCreatorProtocol.swift */; };
-		14C1153C20646A9C00DC4C25 /* WalletCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C1153B20646A9C00DC4C25 /* WalletCreator.swift */; };
 		14CA5D0F2072DC0300A0CEAF /* MigrationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CA5D0E2072DC0300A0CEAF /* MigrationConfigurator.swift */; };
 		14D027E01EF6D4CD00F125C3 /* RealmWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027DF1EF6D4CD00F125C3 /* RealmWallet.swift */; };
 		14D027EB1EF87A1D00F125C3 /* NetworkLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D027EA1EF87A1D00F125C3 /* NetworkLoadable.swift */; };
@@ -504,6 +515,24 @@
 		14046CFA201F778E007BD203 /* Import.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Import.storyboard; sourceTree = "<group>"; };
 		140646591FAF457A0013DFFF /* RealmCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCoin.swift; sourceTree = "<group>"; };
 		1406465B1FAF46DB0013DFFF /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		1409BF342114A8C400DBCADC /* MnemonicModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicModule.swift; sourceTree = "<group>"; };
+		1409BF352114A8C400DBCADC /* MnemonicModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicModuleOutput.swift; sourceTree = "<group>"; };
+		1409BF362114A8C400DBCADC /* MnemonicModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicModuleInput.swift; sourceTree = "<group>"; };
+		1409BF382114A8C400DBCADC /* MnemonicPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicPresenter.swift; sourceTree = "<group>"; };
+		1409BF392114A8C400DBCADC /* WalletCreationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletCreationInfo.swift; sourceTree = "<group>"; };
+		1409BF3B2114A8C400DBCADC /* Mnemonic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mnemonic.storyboard; sourceTree = "<group>"; };
+		1409BF3C2114A8C400DBCADC /* WalletPrivateDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletPrivateDisplayable.swift; sourceTree = "<group>"; };
+		1409BF3D2114A8C400DBCADC /* MnemonicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicViewController.swift; sourceTree = "<group>"; };
+		1409BF3E2114A8C400DBCADC /* MnemonicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicView.swift; sourceTree = "<group>"; };
+		1409BF3F2114A8C400DBCADC /* MnemonicViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicViewInput.swift; sourceTree = "<group>"; };
+		1409BF402114A8C400DBCADC /* MnemonicViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicViewOutput.swift; sourceTree = "<group>"; };
+		1409BF422114A8C400DBCADC /* MnemonicInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicInteractorInput.swift; sourceTree = "<group>"; };
+		1409BF432114A8C400DBCADC /* MnemonicInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicInteractor.swift; sourceTree = "<group>"; };
+		1409BF442114A8C400DBCADC /* MnemonicInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicInteractorOutput.swift; sourceTree = "<group>"; };
+		1409BF462114A8C400DBCADC /* MnemonicRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicRouter.swift; sourceTree = "<group>"; };
+		1409BF472114A8C400DBCADC /* MnemonicRouterInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicRouterInput.swift; sourceTree = "<group>"; };
+		1409BF582114B6BE00DBCADC /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		1409BF5A2114B7D000DBCADC /* ResponsiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsiveButton.swift; sourceTree = "<group>"; };
 		1409C1301FE876A200803E78 /* UITableView+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Sugar.swift"; sourceTree = "<group>"; };
 		1409C1341FE877FD00803E78 /* UICollectionView+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Sugar.swift"; sourceTree = "<group>"; };
 		140E1105209A39F800000ED7 /* SendSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendSettings.storyboard; sourceTree = "<group>"; };
@@ -668,7 +697,6 @@
 		146209261F9AA21900C01CE7 /* RealmStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorable.swift; sourceTree = "<group>"; };
 		14636D611F994BB7002BDFAC /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		146CCBED21131BAE000C9DBF /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		146CCBEF211324AA000C9DBF /* WalletMnemonicImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletMnemonicImporter.swift; sourceTree = "<group>"; };
 		146CCBF121132543000C9DBF /* ImportMnemonicVerificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportMnemonicVerificator.swift; sourceTree = "<group>"; };
 		146CCBF4211325E6000C9DBF /* MnemonicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicService.swift; sourceTree = "<group>"; };
 		146CCBF62113262F000C9DBF /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
@@ -749,12 +777,6 @@
 		14BF25982012624900CAFCFD /* TransactionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFactory.swift; sourceTree = "<group>"; };
 		14BF259B2012626800CAFCFD /* TransactionFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFactoryProtocol.swift; sourceTree = "<group>"; };
 		14BF259D2012653200CAFCFD /* TransactionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInfo.swift; sourceTree = "<group>"; };
-		14C1152E2064671700DC4C25 /* WalletImporterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImporterProtocol.swift; sourceTree = "<group>"; };
-		14C115302064674100DC4C25 /* WalletJsonImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletJsonImporter.swift; sourceTree = "<group>"; };
-		14C115322064681A00DC4C25 /* WalletPrivateImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPrivateImporter.swift; sourceTree = "<group>"; };
-		14C115342064689500DC4C25 /* WalletImporterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImporterFactory.swift; sourceTree = "<group>"; };
-		14C1153920646A7000DC4C25 /* WalletCreatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreatorProtocol.swift; sourceTree = "<group>"; };
-		14C1153B20646A9C00DC4C25 /* WalletCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreator.swift; sourceTree = "<group>"; };
 		14C4D3CD1EDE1F3700FCA3AF /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		14C6721940B7C90252875C7E /* WelcomeRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeRouterInput.swift; sourceTree = "<group>"; };
 		14CA5D0E2072DC0300A0CEAF /* MigrationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationConfigurator.swift; sourceTree = "<group>"; };
@@ -1120,6 +1142,69 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		1409BF322114A8C400DBCADC /* Mnemonic */ = {
+			isa = PBXGroup;
+			children = (
+				1409BF332114A8C400DBCADC /* Module */,
+				1409BF372114A8C400DBCADC /* Presenter */,
+				1409BF3A2114A8C400DBCADC /* View */,
+				1409BF412114A8C400DBCADC /* Interactor */,
+				1409BF452114A8C400DBCADC /* Router */,
+			);
+			path = Mnemonic;
+			sourceTree = "<group>";
+		};
+		1409BF332114A8C400DBCADC /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				1409BF342114A8C400DBCADC /* MnemonicModule.swift */,
+				1409BF352114A8C400DBCADC /* MnemonicModuleOutput.swift */,
+				1409BF362114A8C400DBCADC /* MnemonicModuleInput.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		1409BF372114A8C400DBCADC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1409BF382114A8C400DBCADC /* MnemonicPresenter.swift */,
+				1409BF392114A8C400DBCADC /* WalletCreationInfo.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1409BF3A2114A8C400DBCADC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1409BF3B2114A8C400DBCADC /* Mnemonic.storyboard */,
+				1409BF3C2114A8C400DBCADC /* WalletPrivateDisplayable.swift */,
+				1409BF3D2114A8C400DBCADC /* MnemonicViewController.swift */,
+				1409BF3E2114A8C400DBCADC /* MnemonicView.swift */,
+				1409BF3F2114A8C400DBCADC /* MnemonicViewInput.swift */,
+				1409BF402114A8C400DBCADC /* MnemonicViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1409BF412114A8C400DBCADC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				1409BF422114A8C400DBCADC /* MnemonicInteractorInput.swift */,
+				1409BF432114A8C400DBCADC /* MnemonicInteractor.swift */,
+				1409BF442114A8C400DBCADC /* MnemonicInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		1409BF452114A8C400DBCADC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				1409BF462114A8C400DBCADC /* MnemonicRouter.swift */,
+				1409BF472114A8C400DBCADC /* MnemonicRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		1414E6FD20586AF00080680E /* Popup */ = {
 			isa = PBXGroup;
 			children = (
@@ -1220,6 +1305,7 @@
 				146D0D1F1FC1FA5D003C0C3E /* Date+Helpers.swift */,
 				14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */,
 				14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */,
+				1409BF582114B6BE00DBCADC /* Collection+Extension.swift */,
 				1433BDC91FD76E010081D872 /* Bool+Helpers.swift */,
 				1409C1301FE876A200803E78 /* UITableView+Sugar.swift */,
 				1409C1341FE877FD00803E78 /* UICollectionView+Sugar.swift */,
@@ -1440,6 +1526,7 @@
 			isa = PBXGroup;
 			children = (
 				144102D22053FE0A00F4D192 /* DefaultButton.swift */,
+				1409BF5A2114B7D000DBCADC /* ResponsiveButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -1856,8 +1943,6 @@
 		14B126AB205BDADC00B98AE1 /* Import */ = {
 			isa = PBXGroup;
 			children = (
-				14C1153820646A5300DC4C25 /* Creator */,
-				14C1152D2064670700DC4C25 /* Importer */,
 				14B126B5205BDCA100B98AE1 /* Verificator */,
 				14B126AC205BDAE600B98AE1 /* State */,
 			);
@@ -1954,27 +2039,6 @@
 				14BF259B2012626800CAFCFD /* TransactionFactoryProtocol.swift */,
 			);
 			path = Factory;
-			sourceTree = "<group>";
-		};
-		14C1152D2064670700DC4C25 /* Importer */ = {
-			isa = PBXGroup;
-			children = (
-				14C1152E2064671700DC4C25 /* WalletImporterProtocol.swift */,
-				14C115302064674100DC4C25 /* WalletJsonImporter.swift */,
-				146CCBEF211324AA000C9DBF /* WalletMnemonicImporter.swift */,
-				14C115322064681A00DC4C25 /* WalletPrivateImporter.swift */,
-				14C115342064689500DC4C25 /* WalletImporterFactory.swift */,
-			);
-			path = Importer;
-			sourceTree = "<group>";
-		};
-		14C1153820646A5300DC4C25 /* Creator */ = {
-			isa = PBXGroup;
-			children = (
-				14C1153920646A7000DC4C25 /* WalletCreatorProtocol.swift */,
-				14C1153B20646A9C00DC4C25 /* WalletCreator.swift */,
-			);
-			path = Creator;
 			sourceTree = "<group>";
 		};
 		14C4D3CE1EDE209800FCA3AF /* Services */ = {
@@ -2575,6 +2639,7 @@
 		8815D5D7C051348FBFB6EF59 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				1409BF322114A8C400DBCADC /* Mnemonic */,
 				148E67201F9AB6D20018F0BE /* Wallet */,
 				14636D681F994D5F002BDFAC /* Start */,
 				FC338772EAB78DA83F7B2F7D /* Pin */,
@@ -3176,6 +3241,7 @@
 				14046CF1201F76B2007BD203 /* ChooseCurrency.storyboard in Resources */,
 				140E1106209A39F800000ED7 /* SendSettings.storyboard in Resources */,
 				147443DD20A1033A00BAC86B /* LottiCheckmark.json in Resources */,
+				1409BF4D2114A8C400DBCADC /* Mnemonic.storyboard in Resources */,
 				144AB0F020AE1A460031185D /* Localizable.strings in Resources */,
 				14991D8C2056F8E40046E6CD /* Pin.storyboard in Resources */,
 				1414E6FF20586B3C0080680E /* Popup.storyboard in Resources */,
@@ -3340,6 +3406,7 @@
 				1433BDC21FD746430081D872 /* NewHeadHandler.swift in Sources */,
 				1433852B2113826700FD7BE0 /* Resolver.swift in Sources */,
 				1433BDB71FD6C9780081D872 /* LesSyncCoordinator.swift in Sources */,
+				1409BF492114A8C400DBCADC /* MnemonicModuleOutput.swift in Sources */,
 				1433BDB81FD6C9780081D872 /* SyncCoordinatorProtocol.swift in Sources */,
 				1433BDB91FD6C9780081D872 /* SyncCoordinatorDelegate.swift in Sources */,
 				145A91031FDF02AE00DED3AC /* TokensNetworkService.swift in Sources */,
@@ -3359,6 +3426,7 @@
 				144791D01EF5DE4000029818 /* ApplicationConfigurator.swift in Sources */,
 				14293C2A1F9FCEB4009E49F1 /* UIViewController+Helpers.swift in Sources */,
 				1409C1351FE877FD00803E78 /* UICollectionView+Sugar.swift in Sources */,
+				1409BF512114A8C400DBCADC /* MnemonicViewInput.swift in Sources */,
 				145A90FA1FDDE58B00DED3AC /* RealmToken.swift in Sources */,
 				14F419221F9BF6D6000C500A /* TransactionsDataStoreService.swift in Sources */,
 				1458212A1F995446005047B6 /* R.generated.swift in Sources */,
@@ -3370,13 +3438,14 @@
 				14B126B4205BDC4E00B98AE1 /* ImportStateFactory.swift in Sources */,
 				1458426D1FB1D55200FA733F /* RatesNetworkService.swift in Sources */,
 				146CCBFD21132CB8000C9DBF /* ImportMnemonicState.swift in Sources */,
+				1409BF4F2114A8C400DBCADC /* MnemonicViewController.swift in Sources */,
 				143384C021133FB200FD7BE0 /* PrivateKey.swift in Sources */,
 				1421A7092062AF2300B4DBC2 /* SendCoinCheckoutService.swift in Sources */,
 				14D027F71EF9701A00F125C3 /* RealmTransaction.swift in Sources */,
 				145A90FE1FDDEDDC00DED3AC /* TokenValue.swift in Sources */,
-				14C115312064674100DC4C25 /* WalletJsonImporter.swift in Sources */,
 				14BF259C2012626800CAFCFD /* TransactionFactoryProtocol.swift in Sources */,
 				14B77EC41F9ACD9300FCD923 /* WalletDataStoreServiceProtocol.swift in Sources */,
+				1409BF502114A8C400DBCADC /* MnemonicView.swift in Sources */,
 				14D027E01EF6D4CD00F125C3 /* RealmWallet.swift in Sources */,
 				14991D7E205699840046E6CD /* ConfirmPinState.swift in Sources */,
 				1433BDBE1FD743120081D872 /* GasServiceProtocol.swift in Sources */,
@@ -3391,6 +3460,7 @@
 				14ACA1F41EF2BD050059E430 /* Constants.swift in Sources */,
 				14D027EB1EF87A1D00F125C3 /* NetworkLoadable.swift in Sources */,
 				14D027EE1EF9661100F125C3 /* API.swift in Sources */,
+				1409BF542114A8C400DBCADC /* MnemonicInteractor.swift in Sources */,
 				145842691FB1123E00FA733F /* Rate.swift in Sources */,
 				1414E70D2058A0350080680E /* PopupTouchPostProcess.swift in Sources */,
 				142729DA20C088F8009003CA /* PopupPushPostProcess.swift in Sources */,
@@ -3404,6 +3474,7 @@
 				14D027F01EF96ACC00F125C3 /* API+Etherscan.swift in Sources */,
 				14ACA1E61EF2BCC80059E430 /* Errors.swift in Sources */,
 				14313CB21FB0B4B5003AEB0C /* UIDevice+Helpers.swift in Sources */,
+				1409BF532114A8C400DBCADC /* MnemonicInteractorInput.swift in Sources */,
 				1400FBB91F997DC100EBC84C /* Wallet.swift in Sources */,
 				14ACA1F51EF2BD050059E430 /* Helpers.swift in Sources */,
 				14ACA1F11EF2BCF30059E430 /* Timer+Helpers.swift in Sources */,
@@ -3454,6 +3525,7 @@
 				DD1C3D52DAF19C4559391431 /* TabBarViewOutput.swift in Sources */,
 				E0850219B4525F5FEF7DAEB2 /* TabBarViewController.swift in Sources */,
 				29C073848D352631119886FD /* TabBarPresenter.swift in Sources */,
+				1409BF552114A8C400DBCADC /* MnemonicInteractorOutput.swift in Sources */,
 				147443D3209C6E7000BAC86B /* ScreenManager.swift in Sources */,
 				14958E4B1FB7A4D3005CFC6C /* Decimal+Ethereum.swift in Sources */,
 				14DFA32C207F68FB008F6F92 /* PopupTxSentState.swift in Sources */,
@@ -3498,16 +3570,14 @@
 				142729D820C0788D009003CA /* PopupPushState.swift in Sources */,
 				D63EE237539093A59D2ADF42 /* TransactionsViewInput.swift in Sources */,
 				14991D9920570F690046E6CD /* PinRepository.swift in Sources */,
-				146CCBF0211324AA000C9DBF /* WalletMnemonicImporter.swift in Sources */,
 				A6EB2074CF07678E771B62CA /* TransactionsViewOutput.swift in Sources */,
 				6613C9796674488D78CEFDFA /* TransactionsViewController.swift in Sources */,
-				14C1152F2064671700DC4C25 /* WalletImporterProtocol.swift in Sources */,
 				144102E52056743000F4D192 /* PinServiceProtocol.swift in Sources */,
 				144102E62056743000F4D192 /* PinConfigurationProtocol.swift in Sources */,
 				9FE6B6A40A81AC72E5122D00 /* TransactionsPresenter.swift in Sources */,
 				FDD3F07044EEF6E854645185 /* TransactionsInteractorInput.swift in Sources */,
-				14C1153A20646A7000DC4C25 /* WalletCreatorProtocol.swift in Sources */,
 				14FEBD731FBB1F210084F1AB /* Node.swift in Sources */,
+				1409BF4E2114A8C400DBCADC /* WalletPrivateDisplayable.swift in Sources */,
 				437D18BC71E49AE3BBB15EB5 /* TransactionsInteractorOutput.swift in Sources */,
 				149CD64A20892301005E3DBD /* WalletManagerFactory.swift in Sources */,
 				D46109B070B77F3B2FE90E34 /* TransactionsInteractor.swift in Sources */,
@@ -3528,6 +3598,7 @@
 				9D0EFA15664CF1706AF54B4E /* TransactionsModule.swift in Sources */,
 				11518E2420C09FC800510FE3 /* PushNetworkService.swift in Sources */,
 				A7DD10AC65AD5135CC97D31C /* SendViewInput.swift in Sources */,
+				1409BF482114A8C400DBCADC /* MnemonicModule.swift in Sources */,
 				145A90FC1FDDE6C300DED3AC /* Token.swift in Sources */,
 				977DBCED56321E9DC4963E16 /* SendViewOutput.swift in Sources */,
 				1458426B1FB112A200FA733F /* RealmRate.swift in Sources */,
@@ -3549,7 +3620,7 @@
 				D025DFCF24E4D87631410C3E /* SendModule.swift in Sources */,
 				149AA05B1FD60E9400F961FA /* KeystoreServiceProtocol.swift in Sources */,
 				1406465C1FAF46DB0013DFFF /* Coin.swift in Sources */,
-				14C1153C20646A9C00DC4C25 /* WalletCreator.swift in Sources */,
+				1409BF572114A8C400DBCADC /* MnemonicRouterInput.swift in Sources */,
 				5C142202D92AFEB49A810B5E /* ReceiveViewInput.swift in Sources */,
 				9979B5D0B82EB41F30F74A8A /* ReceiveViewOutput.swift in Sources */,
 				14B126B9205BDD2500B98AE1 /* ImportPrivateVerificator.swift in Sources */,
@@ -3557,6 +3628,7 @@
 				A5EB7F5A8F282AFA74B46773 /* ReceiveViewController.swift in Sources */,
 				16B56704FE92CC4FCE8DE351 /* ReceivePresenter.swift in Sources */,
 				B7A016AF6086E391029095CC /* ReceiveInteractorInput.swift in Sources */,
+				1409BF592114B6BE00DBCADC /* Collection+Extension.swift in Sources */,
 				C75338CCF20BCFEFAF84E542 /* ReceiveInteractorOutput.swift in Sources */,
 				A85C249674FC58464027178A /* ReceiveInteractor.swift in Sources */,
 				2EBD9E3202AC8101D58D7C85 /* ReceiveRouterInput.swift in Sources */,
@@ -3571,6 +3643,7 @@
 				3BBF9E5C3B744B3E44EB1B93 /* ReceiveModuleOutput.swift in Sources */,
 				2A46EDFCD4AB58E13B2495ED /* ReceiveModule.swift in Sources */,
 				14B126B7205BDCD300B98AE1 /* ImportVerificatorProtocol.swift in Sources */,
+				1409BF4B2114A8C400DBCADC /* MnemonicPresenter.swift in Sources */,
 				730C62F82E21085B2E925EFA /* ScanViewInput.swift in Sources */,
 				146F32152064F48C0023B52A /* Loader.swift in Sources */,
 				14DFA324207DFF67008F6F92 /* RealmTokenMeta.swift in Sources */,
@@ -3582,6 +3655,7 @@
 				143384C6211343C300FD7BE0 /* Base58.swift in Sources */,
 				1A8ADA878F37951F0CAAA113 /* ScanInteractorInput.swift in Sources */,
 				CD7EFAF754CE17A2F27280AD /* ScanInteractorOutput.swift in Sources */,
+				1409BF522114A8C400DBCADC /* MnemonicViewOutput.swift in Sources */,
 				69E9D8117DC330353E9AAE47 /* ScanInteractor.swift in Sources */,
 				ECD48860ECEB56EEA82E30E4 /* ScanRouterInput.swift in Sources */,
 				149AA0621FD614F900F961FA /* TransactionService.swift in Sources */,
@@ -3605,6 +3679,7 @@
 				14D518941FE08A7E00A4FB94 /* CoinDisplayable.swift in Sources */,
 				425CFC4A10B3C738D451BC3E /* SettingsInteractorOutput.swift in Sources */,
 				E45A2F702226F73527DA21E9 /* SettingsInteractor.swift in Sources */,
+				1409BF4A2114A8C400DBCADC /* MnemonicModuleInput.swift in Sources */,
 				64D76C6CBFB1C5A5165AAF58 /* SettingsRouterInput.swift in Sources */,
 				02D37BD9270EA4A9DF0A267B /* SettingsRouter.swift in Sources */,
 				DC5CA0086B8C2421E008E439 /* SettingsModuleInput.swift in Sources */,
@@ -3642,19 +3717,19 @@
 				E1B95FC025FBB0CA4B3F0AA4 /* TokenDetailsInteractorInput.swift in Sources */,
 				14991D9120570D9B0046E6CD /* PinConfiguration.swift in Sources */,
 				49207D2EE0BB08A745296831 /* TokenDetailsInteractorOutput.swift in Sources */,
-				14C115332064681A00DC4C25 /* WalletPrivateImporter.swift in Sources */,
 				FC19ABE5FFEF2B39A891118F /* TokenDetailsInteractor.swift in Sources */,
+				1409BF5B2114B7D000DBCADC /* ResponsiveButton.swift in Sources */,
 				64BF51EC0F892161E5D29690 /* TokenDetailsRouterInput.swift in Sources */,
 				4BB78C17A9CBBC490D8F40E4 /* TokenDetailsRouter.swift in Sources */,
 				143172BE2062829C00238D70 /* FiatCurrencyFactory.swift in Sources */,
 				143384C42113418600FD7BE0 /* HDPublicKey.swift in Sources */,
 				EFE52FD393A96B96AD99DF85 /* TokenDetailsModuleInput.swift in Sources */,
 				737CA34C9BBE98D896697F39 /* TokenDetailsModuleOutput.swift in Sources */,
+				1409BF4C2114A8C400DBCADC /* WalletCreationInfo.swift in Sources */,
 				AD78CBB127C68F8C4A5BEC93 /* TokenDetailsModule.swift in Sources */,
 				14B126BB205BDD4D00B98AE1 /* ImportJsonVerificator.swift in Sources */,
 				14991D7F205699840046E6CD /* NewPinState.swift in Sources */,
 				144102E72056743000F4D192 /* PinRepositoryProtocol.swift in Sources */,
-				14C115352064689500DC4C25 /* WalletImporterFactory.swift in Sources */,
 				F19BD5AA3D3FA25CC0FACA7B /* ImportViewInput.swift in Sources */,
 				14B126B0205BDB8000B98AE1 /* ImportPrivateKeyState.swift in Sources */,
 				144E47D3210F8B5100B709C5 /* GasServiceFactory.swift in Sources */,
@@ -3666,6 +3741,7 @@
 				9CAC6FD93C4F7C971918F454 /* ImportInteractor.swift in Sources */,
 				145D1386206A6AA200AF85D2 /* UITableView+Conicoin.swift in Sources */,
 				11518E2220C09FBE00510FE3 /* PushNetworkServiceProtocol.swift in Sources */,
+				1409BF562114A8C400DBCADC /* MnemonicRouter.swift in Sources */,
 				3B15B95D00AD02EB995F5622 /* ImportRouterInput.swift in Sources */,
 				FDC9A091AA6AA18BCB4E0F79 /* ImportRouter.swift in Sources */,
 				A468F8D3AE82D93F7339933C /* ImportModuleInput.swift in Sources */,

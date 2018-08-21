@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum WalletKey {
+  case privateKey(Data)
+  case jsonKey(Data)
+  case mnemonic([String])
+}
+
 protocol ImportVerificatorProtocol {
-    func verifyKey(_ key: String, completion: (Result<Data>) -> Void)
+    func verifyKey(_ key: String, completion: (Result<WalletKey>) -> Void)
 }
