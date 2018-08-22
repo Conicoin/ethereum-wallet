@@ -55,8 +55,8 @@ class SendPresenter {
     guard isValid else { return }
     interactor.getGasLimit(from: wallet.address,
                            to: address,
-                           gasPrice: settings.gasPrice,
-                           amount: amount)
+                           amount: amount,
+                           settings: settings)
   }
   
   private func calculateTotalAmount() {

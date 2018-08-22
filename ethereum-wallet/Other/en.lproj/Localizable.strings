@@ -70,6 +70,7 @@
 "balance.send" = "Send";
 "balance.eth.title" = "ETH ∙ Ethereum";
 "balance.label" = "%@ ∙ %@";
+"balance.empty.title" = "You have no ERC20 tokens. Once they appear, they will be displayed here.";
 
 // MARK: - Token details
 "token.details.name" = "%@ ∙ %@";
@@ -109,6 +110,7 @@
 "transactions.error" = "transaction failed";
 "transactions.received" = "From %@";
 "transactions.sent" = "To %@";
+"transactions.empty.title" = "You have no transactions yet";
 
 // MARK: - Transaction Details
 "tx.details.completed" = "Completed";

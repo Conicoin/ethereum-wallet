@@ -19,9 +19,12 @@ class GasServiceFactory {
   func create(_ type: TransferType) -> GasServiceProtocol {
     switch type {
     case .default:
-      return GasService(core: core, inputBuilder: EthDefaultTxInputBuilder())
+      let callMsgBuilder = DefaultCallMsgBuilder()
+      return GasService(core: core, callMsgBuilder: callMsgBuilder)
     case .token(let token):
-      return GasService(core: core, inputBuilder: EthTokenTxInputBuilder(decimals: token.decimals))
+      let inputBuilder = EthTokenTxInputBuilder(decimals: token.decimals)
+      let callMsgBuilder = TokenCallMsgBuilder(inputBuilder: inputBuilder, contractAddress: token.address)
+      return GasService(core: core, callMsgBuilder: callMsgBuilder)
     }
   }
 

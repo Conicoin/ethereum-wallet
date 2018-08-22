@@ -20,5 +20,5 @@ import UIKit
 
 protocol WelcomeModuleInput: class {
   var output: WelcomeModuleOutput? { get set }
-  func present()
+  func present(state: WelcomeState)
 }

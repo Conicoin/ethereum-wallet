@@ -15,6 +15,7 @@ target 'ethereum-wallet' do
   pod 'PullToDismiss', '~> 2.1'
   pod 'lottie-ios'
   pod 'Dwifft'
+  pod 'EmptyDataSet-Swift', '~> 4.0.5'
 end
 
 target 'ConicoinTests' do

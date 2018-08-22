@@ -40,7 +40,7 @@ extension SettingsRouter: SettingsRouterInput {
   
   func presentPinOnExit(from: UIViewController, postProcess: PinPostProcess?) {
     PinModule.create(.exit).present(from: from, postProcess: postProcess) { vc in
-      WelcomeModule.create(.new).present()
+      WelcomeModule.create().present(state: .new)
     }
   }
   

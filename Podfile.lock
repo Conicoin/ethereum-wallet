@@ -5,6 +5,7 @@ PODS:
     - ObjectMapper (~> 3.0)
   - CryptoSwift (0.9.0)
   - Dwifft (0.8)
+  - EmptyDataSet-Swift (4.0.5)
   - Geth (1.8.3)
   - lottie-ios (2.5.0)
   - ObjectMapper (3.1.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper
   - CryptoSwift
   - Dwifft
+  - EmptyDataSet-Swift (~> 4.0.5)
   - Geth
   - lottie-ios
   - PKHUD
@@ -40,6 +42,7 @@ SPEC REPOS:
     - AlamofireObjectMapper
     - CryptoSwift
     - Dwifft
+    - EmptyDataSet-Swift
     - Geth
     - lottie-ios
     - ObjectMapper
@@ -57,6 +60,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
   Dwifft: 463e61d07322fdf83b32ee6975ca1b20708db746
+  EmptyDataSet-Swift: a25810f50c3adfaa3840aa33ae8b5ba12ac29279
   Geth: e00dad6a7592facdf063214be13b28b7e73b0df2
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
@@ -69,6 +73,6 @@ SPEC CHECKSUMS:
   secp256k1_ios: 168c6c49ed9771db51875f5255c8f9847e4cf554
   SpringIndicator: 08d815e8a154dee7b786d82b98c43cc9028a769f
 
-PODFILE CHECKSUM: 15ae2244184d64a077d1ef3e0c0a35b918cb0029
+PODFILE CHECKSUM: eb705572e404bb8c3f49d4c8e911cb2a9b49d51e
 
 COCOAPODS: 1.5.3

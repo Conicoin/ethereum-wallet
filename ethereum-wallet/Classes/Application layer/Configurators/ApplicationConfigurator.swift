@@ -36,9 +36,9 @@ class ApplicationConfigurator: ConfiguratorProtocol {
       TabBarModule.create(isSecureMode: isSecureMode).present()
     } else {
       if let account = accountService.currentAccount {
-        WelcomeModule.create(.restore(account: account)).present()
+        WelcomeModule.create().present(state: .restore(account: account))
       } else {
-        WelcomeModule.create(.new).present()
+        WelcomeModule.create().present(state: .new)
       }
     }
   }

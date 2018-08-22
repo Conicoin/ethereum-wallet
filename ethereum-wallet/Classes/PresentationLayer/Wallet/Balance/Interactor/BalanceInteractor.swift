@@ -79,7 +79,6 @@ extension BalanceInteractor: BalanceInteractorInput {
   
   func getCoinsFromDataBase() {
     coinDataStoreService.observe { [weak self] coins in
-      guard coins.count > 0 else { return } 
       self?.output.didReceiveCoins(coins)
     }
   }

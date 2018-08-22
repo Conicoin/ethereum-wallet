@@ -64,6 +64,7 @@ class BalanceViewController: UIViewController {
     tableView.contentInsetAdjustmentBehavior = .never
     tableView.backgroundColor = Theme.Color.lightGray
     tableView.setupBorder()
+    tableView.setEmptyView(with: Localized.balanceEmptyTitle())
     refresh = UIRefreshControl()
     tableView.refreshControl = refresh
     refresh.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
@@ -128,7 +129,6 @@ extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
 }
-
 
 // MARK: - BalanceViewInput
 

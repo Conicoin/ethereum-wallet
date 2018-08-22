@@ -70,6 +70,7 @@
 "balance.send" = "Отправить";
 "balance.eth.title" = "ETH ∙ Ethereum";
 "balance.label" = "%@ ∙ %@";
+"balance.empty.title" = "У вас нет ERC20 токенов. Так только они появятся, будут отображены здесь.";
 
 // MARK: - Token details
 "token.details.name" = "%@ ∙ %@";
@@ -109,6 +110,7 @@
 "transactions.error" = "ошибка";
 "transactions.received" = "От %@";
 "transactions.sent" = "На %@";
+"transactions.empty.title" = "У вас ещё нет транзакций";
 
 // MARK: - Transaction Details
 "tx.details.completed" = "Отправлено";

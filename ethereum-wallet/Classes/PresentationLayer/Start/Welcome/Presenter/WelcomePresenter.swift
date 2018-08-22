@@ -35,7 +35,7 @@ class WelcomePresenter {
 extension WelcomePresenter: WelcomeViewOutput {
 
   func viewIsReady() {
-    view.setupInitialState(restoring: interactor.isRestoring)
+    view.setupInitialState(restoring: state.isRestoring)
   }
 
   func newDidPressed() {
@@ -84,7 +84,8 @@ extension WelcomePresenter: WelcomeInteractorOutput {
 
 extension WelcomePresenter: WelcomeModuleInput {
   
-  func present() {
+  func present(state: WelcomeState) {
+    self.state = state
     let navigationController = UINavigationController(rootViewController: view.viewController)
     AppDelegate.currentWindow.rootViewController = navigationController
   }

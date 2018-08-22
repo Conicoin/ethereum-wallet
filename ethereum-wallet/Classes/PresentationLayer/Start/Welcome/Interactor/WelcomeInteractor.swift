@@ -22,17 +22,12 @@ class WelcomeInteractor {
   weak var output: WelcomeInteractorOutput!
   
   var walletManager: WalletManagerProtocol!
-  var keychain: Keychain!
 }
 
 
 // MARK: - WelcomeInteractorInput
 
 extension WelcomeInteractor: WelcomeInteractorInput {
-  
-  var isRestoring: Bool {
-    return keychain.isAccountBackuped
-  }
   
   func createWallet(passcode: String, completion: PinResult?) {
     do {

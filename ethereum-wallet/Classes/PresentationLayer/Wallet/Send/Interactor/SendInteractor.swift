@@ -90,8 +90,8 @@ extension SendInteractor: SendInteractorInput {
     }
   }
   
-  func getGasLimit(from: String, to: String, gasPrice: Decimal, amount: Decimal) {
-    gasService.getSuggestedGasLimit(from: from, to: to, gasPrice: gasPrice, amount: amount) { [weak self] result in
+  func getGasLimit(from: String, to: String, amount: Decimal, settings: SendSettings) {
+    gasService.getSuggestedGasLimit(from: from, to: to, amount: amount, settings: settings) { [weak self] result in
       guard let `self` = self else { return }
       switch result {
       case .success(let gasLimit):

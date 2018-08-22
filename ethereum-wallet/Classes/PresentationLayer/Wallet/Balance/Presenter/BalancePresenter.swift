@@ -97,6 +97,7 @@ extension BalancePresenter: BalanceInteractorOutput {
   }
   
   func didReceiveCoins(_ coins: [Coin]) {
+    view.endRefreshing()
     guard let coin = coins.first else { return }
     self.coin = coin
     view.setCoin(coin)
@@ -110,6 +111,7 @@ extension BalancePresenter: BalanceInteractorOutput {
   
   func didFailedWalletReceiving(with error: Error) {
     error.showAllertIfNeeded(from: view.viewController)
+    view.endRefreshing()
   }
   
   func didFailedTokensReceiving(with error: Error) {

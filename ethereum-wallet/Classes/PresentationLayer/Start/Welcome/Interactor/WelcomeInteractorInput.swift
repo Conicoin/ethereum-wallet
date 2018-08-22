@@ -19,7 +19,6 @@ import Foundation
 
 
 protocol WelcomeInteractorInput: class {
-  var isRestoring: Bool { get }
   func createWallet(passcode: String, completion: PinResult?)
   func importPrivateKey(_ key: String, passcode: String, completion: PinResult?)
   func importMnemonic(_ mnemonic: String, passcode: String, completion: PinResult?)

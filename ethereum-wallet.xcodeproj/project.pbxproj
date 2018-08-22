@@ -77,6 +77,8 @@
 		1409C1311FE876A200803E78 /* UITableView+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C1301FE876A200803E78 /* UITableView+Sugar.swift */; };
 		1409C1351FE877FD00803E78 /* UICollectionView+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C1341FE877FD00803E78 /* UICollectionView+Sugar.swift */; };
 		140E1106209A39F800000ED7 /* SendSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 140E1105209A39F800000ED7 /* SendSettings.storyboard */; };
+		140EE99B212DA6E7002BCEC2 /* UITableView+EmptyDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EE99A212DA6E7002BCEC2 /* UITableView+EmptyDataSet.swift */; };
+		140EE99D212DB879002BCEC2 /* GasCallMsgBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EE99C212DB879002BCEC2 /* GasCallMsgBuilder.swift */; };
 		1414E6FF20586B3C0080680E /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1414E6FE20586B3C0080680E /* Popup.storyboard */; };
 		1414E702205894030080680E /* PopupStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E701205894030080680E /* PopupStateProtocol.swift */; };
 		1414E704205894D90080680E /* PopupTouchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E703205894D90080680E /* PopupTouchState.swift */; };
@@ -539,6 +541,8 @@
 		1409C1301FE876A200803E78 /* UITableView+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Sugar.swift"; sourceTree = "<group>"; };
 		1409C1341FE877FD00803E78 /* UICollectionView+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Sugar.swift"; sourceTree = "<group>"; };
 		140E1105209A39F800000ED7 /* SendSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendSettings.storyboard; sourceTree = "<group>"; };
+		140EE99A212DA6E7002BCEC2 /* UITableView+EmptyDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+EmptyDataSet.swift"; sourceTree = "<group>"; };
+		140EE99C212DB879002BCEC2 /* GasCallMsgBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasCallMsgBuilder.swift; sourceTree = "<group>"; };
 		1414E6FE20586B3C0080680E /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 		1414E701205894030080680E /* PopupStateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupStateProtocol.swift; sourceTree = "<group>"; };
 		1414E703205894D90080680E /* PopupTouchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTouchState.swift; sourceTree = "<group>"; };
@@ -1315,6 +1319,7 @@
 				1409BF582114B6BE00DBCADC /* Collection+Extension.swift */,
 				1433BDC91FD76E010081D872 /* Bool+Helpers.swift */,
 				1409C1301FE876A200803E78 /* UITableView+Sugar.swift */,
+				140EE99A212DA6E7002BCEC2 /* UITableView+EmptyDataSet.swift */,
 				1409C1341FE877FD00803E78 /* UICollectionView+Sugar.swift */,
 				144102DD20541A0700F4D192 /* UIImage+Helpers.swift */,
 				14E26DC520616F4600976CD1 /* UIColor+Helpers.swift */,
@@ -1484,6 +1489,7 @@
 				1433BDBD1FD743120081D872 /* GasServiceProtocol.swift */,
 				1433BDBF1FD7431C0081D872 /* GasService.swift */,
 				144E47D2210F8B5100B709C5 /* GasServiceFactory.swift */,
+				140EE99C212DB879002BCEC2 /* GasCallMsgBuilder.swift */,
 			);
 			path = Gas;
 			sourceTree = "<group>";
@@ -3357,6 +3363,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Dwifft/Dwifft.framework",
+				"${BUILT_PRODUCTS_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/PullToDismiss/PullToDismiss.framework",
@@ -3373,6 +3380,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dwifft.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyDataSet_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToDismiss.framework",
@@ -3443,6 +3451,7 @@
 				144791D01EF5DE4000029818 /* ApplicationConfigurator.swift in Sources */,
 				14293C2A1F9FCEB4009E49F1 /* UIViewController+Helpers.swift in Sources */,
 				1409C1351FE877FD00803E78 /* UICollectionView+Sugar.swift in Sources */,
+				140EE99B212DA6E7002BCEC2 /* UITableView+EmptyDataSet.swift in Sources */,
 				1409BF512114A8C400DBCADC /* MnemonicViewInput.swift in Sources */,
 				145A90FA1FDDE58B00DED3AC /* RealmToken.swift in Sources */,
 				14F419221F9BF6D6000C500A /* TransactionsDataStoreService.swift in Sources */,
@@ -3688,6 +3697,7 @@
 				142730FA1FB8CF0F00ED9968 /* QRCaptureService.swift in Sources */,
 				F2AA578388902CE8ADA90170 /* SettingsViewInput.swift in Sources */,
 				1436EE41205D931900196AAF /* Address.swift in Sources */,
+				140EE99D212DB879002BCEC2 /* GasCallMsgBuilder.swift in Sources */,
 				14280E6F1FE1F6F900121F85 /* TransactionDetailsShadowView.swift in Sources */,
 				3BBA8D91469D56637A0DD3C6 /* SettingsViewOutput.swift in Sources */,
 				B1D42F37EADCD9AC65B5251D /* SettingsViewController.swift in Sources */,
