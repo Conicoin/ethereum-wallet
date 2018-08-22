@@ -19,7 +19,11 @@ extension UITableView {
         ])
       
       let offset = self.tableHeaderView?.bounds.height ?? 0
-      view.titleLabelString(attributed).verticalOffset(offset/2).isScrollAllowed(true)
+      view
+        .titleLabelString(attributed)
+        .verticalOffset(offset/2)
+        .isScrollAllowed(true)
+        .dataSetBackgroundColor(.white)
     }
   }
   
