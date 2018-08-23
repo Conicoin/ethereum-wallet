@@ -232,7 +232,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1g-pM-NVm">
                                                 <rect key="frame" x="0.0" y="373" width="375" height="65"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="IXu-fC-nXI">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsRate" translatesAutoresizingMaskIntoConstraints="NO" id="IXu-fC-nXI">
                                                         <rect key="frame" x="16" y="20" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="2JP-hM-OQB"/>
@@ -361,8 +361,8 @@
         <image name="SettingsChangePasscode" width="24" height="24"/>
         <image name="SettingsFingerprint" width="24" height="24"/>
         <image name="SettingsPush" width="18" height="22"/>
+        <image name="SettingsRate" width="20" height="20"/>
         <image name="SettingsTab" width="20" height="20"/>
-        <image name="Star" width="20" height="20"/>
         <namedColor name="coni_black">
             <color red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
