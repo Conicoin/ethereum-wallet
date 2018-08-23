@@ -9,7 +9,6 @@ PODS:
   - Geth (1.8.3)
   - lottie-ios (2.5.0)
   - ObjectMapper (3.1.0)
-  - PKHUD (5.0.0)
   - PullToDismiss (2.1)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
@@ -29,7 +28,6 @@ DEPENDENCIES:
   - EmptyDataSet-Swift (~> 4.0.5)
   - Geth
   - lottie-ios
-  - PKHUD
   - PullToDismiss (~> 2.1)
   - R.swift
   - RealmSwift
@@ -46,7 +44,6 @@ SPEC REPOS:
     - Geth
     - lottie-ios
     - ObjectMapper
-    - PKHUD
     - PullToDismiss
     - R.swift
     - R.swift.Library
@@ -64,7 +61,6 @@ SPEC CHECKSUMS:
   Geth: e00dad6a7592facdf063214be13b28b7e73b0df2
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
-  PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   PullToDismiss: 5513d561c382d201d0e3fbbdab9a47196cf5d2e2
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
@@ -73,6 +69,6 @@ SPEC CHECKSUMS:
   secp256k1_ios: 168c6c49ed9771db51875f5255c8f9847e4cf554
   SpringIndicator: 08d815e8a154dee7b786d82b98c43cc9028a769f
 
-PODFILE CHECKSUM: eb705572e404bb8c3f49d4c8e911cb2a9b49d51e
+PODFILE CHECKSUM: ec4f88100d48bc902aaa324d9e625332575531d0
 
 COCOAPODS: 1.5.3

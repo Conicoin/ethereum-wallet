@@ -16,8 +16,8 @@ class ResponsiveButton: UIButton {
     static var scale: CGFloat = 0.95
   }
   
-  @IBInspectable var shouldTransform: Bool = true
-  @IBInspectable var shouldChangeAlpha: Bool = true
+  var shouldTransform: Bool = true
+  var shouldChangeAlpha: Bool = true
   
   override var isHighlighted: Bool {
     didSet {

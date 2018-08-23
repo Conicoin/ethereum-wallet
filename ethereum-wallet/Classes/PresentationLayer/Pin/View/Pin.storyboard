@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +29,7 @@
                                             <constraint firstAttribute="width" constant="311" id="wNo-UM-n3Y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <color key="textColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" name="coni_black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="rxq-bG-Kbl">
@@ -71,7 +72,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="95"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="1">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="E8h-3Z-tNG"/>
@@ -81,7 +82,7 @@
                                                 <rect key="frame" x="114.5" y="0.0" width="114" height="95"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="2">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="yZc-QQ-pLo"/>
@@ -91,7 +92,7 @@
                                                 <rect key="frame" x="228.5" y="0.0" width="114.5" height="95"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="3">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="pBA-a3-vFy"/>
@@ -106,7 +107,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="95"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="4">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="WuU-pf-2V3"/>
@@ -116,7 +117,7 @@
                                                 <rect key="frame" x="114.5" y="0.0" width="114" height="95"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="5">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="Zzv-09-z4p"/>
@@ -126,7 +127,7 @@
                                                 <rect key="frame" x="228.5" y="0.0" width="114.5" height="95"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="6">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="YOK-Ct-T85"/>
@@ -141,7 +142,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="95"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="7">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="di7-hx-0pR"/>
@@ -151,7 +152,7 @@
                                                 <rect key="frame" x="114.5" y="0.0" width="114" height="95"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="8">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="lEF-0V-ZkK"/>
@@ -161,7 +162,7 @@
                                                 <rect key="frame" x="228.5" y="0.0" width="114.5" height="95"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="9">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="j3z-fI-O9Y"/>
@@ -175,7 +176,7 @@
                                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfp-f5-KCF">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="95"/>
                                                 <state key="normal" image="PinTouchId">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="touchIdPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="hiB-nS-KSL"/>
@@ -185,7 +186,7 @@
                                                 <rect key="frame" x="114.5" y="0.0" width="114" height="95"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="0">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="Bi8-oF-dpt"/>
@@ -195,7 +196,7 @@
                                                 <rect key="frame" x="228.5" y="0.0" width="114.5" height="95"/>
                                                 <color key="tintColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" image="PinDelete">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="deletePressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="i3w-uY-KeV"/>
@@ -214,7 +215,7 @@
                                                 <string key="content">By entering your passcode, you agree to our
 </string>
                                                 <attributes>
-                                                    <color key="NSColor" red="0.54559999999999997" green="0.58279999999999998" blue="0.62" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="12" name="SFProText-Regular"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" maximumLineHeight="16" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
@@ -224,7 +225,7 @@
                                             </fragment>
                                             <fragment content="Terms &amp; Conditions">
                                                 <attributes>
-                                                    <color key="NSColor" red="0.54559999999999997" green="0.58279999999999998" blue="0.62" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="12" name="SFProText-Regular"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" maximumLineHeight="16" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
@@ -299,5 +300,8 @@
     <resources>
         <image name="PinDelete" width="20" height="19"/>
         <image name="PinTouchId" width="26" height="26"/>
+        <namedColor name="coni_black">
+            <color red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

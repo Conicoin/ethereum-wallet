@@ -88,7 +88,6 @@
 		1414E71320594CD10080680E /* PopupPostProcessFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E71220594CD10080680E /* PopupPostProcessFactory.swift */; };
 		1414E7162059584F0080680E /* NSError+LAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E7152059584F0080680E /* NSError+LAError.swift */; };
 		1414E7192059A9F50080680E /* TokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E7182059A9F50080680E /* TokenCell.swift */; };
-		141749D11FD9B91A00AD5F07 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141749D01FD9B91A00AD5F07 /* Loading.swift */; };
 		141CCF2A1FF424E900CA4176 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141CCF291FF424E900CA4176 /* EnumCollection.swift */; };
 		1421A7092062AF2300B4DBC2 /* SendCoinCheckoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421A7082062AF2300B4DBC2 /* SendCoinCheckoutService.swift */; };
 		1421A70B2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421A70A2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift */; };
@@ -161,7 +160,6 @@
 		145A91031FDF02AE00DED3AC /* TokensNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A91021FDF02AE00DED3AC /* TokensNetworkService.swift */; };
 		145A91051FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A91041FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift */; };
 		145C8FF92068FD3000706DB6 /* TransactionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C8FF82068FD3000706DB6 /* TransactionHeaderCell.swift */; };
-		145D1386206A6AA200AF85D2 /* UITableView+Conicoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D1385206A6AA200AF85D2 /* UITableView+Conicoin.swift */; };
 		145D1388206A6C5000AF85D2 /* UIScrollView+Conicoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D1387206A6C5000AF85D2 /* UIScrollView+Conicoin.swift */; };
 		145FFF952071364B00A3ADCE /* TransactionDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145FFF942071364B00A3ADCE /* TransactionDetails.storyboard */; };
 		145FFF98207190E600A3ADCE /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FFF97207190E600A3ADCE /* CopyableLabel.swift */; };
@@ -174,6 +172,7 @@
 		146CCBF92113264E000C9DBF /* English.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CCBF82113264E000C9DBF /* English.swift */; };
 		146CCBFB21132673000C9DBF /* Japanese.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CCBFA21132673000C9DBF /* Japanese.swift */; };
 		146CCBFD21132CB8000C9DBF /* ImportMnemonicState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CCBFC21132CB8000C9DBF /* ImportMnemonicState.swift */; };
+		146CE4E0212ED3F40009E5A7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 146CE4DF212ED3F40009E5A7 /* Colors.xcassets */; };
 		146D0D1E1FC0DDBC003C0C3E /* Decimal+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D0D1D1FC0DDBC003C0C3E /* Decimal+Helpers.swift */; };
 		146D0D201FC1FA5D003C0C3E /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D0D1F1FC1FA5D003C0C3E /* Date+Helpers.swift */; };
 		146DB0811FA007E7000D3564 /* TransactionsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0801FA007E7000D3564 /* TransactionsNetworkService.swift */; };
@@ -552,7 +551,6 @@
 		1414E71220594CD10080680E /* PopupPostProcessFactory.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = PopupPostProcessFactory.swift; sourceTree = "<group>"; tabWidth = 2; };
 		1414E7152059584F0080680E /* NSError+LAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+LAError.swift"; sourceTree = "<group>"; };
 		1414E7182059A9F50080680E /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
-		141749D01FD9B91A00AD5F07 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		141CCF291FF424E900CA4176 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		1421A7082062AF2300B4DBC2 /* SendCoinCheckoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinCheckoutService.swift; sourceTree = "<group>"; };
 		1421A70A2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTokenCheckoutService.swift; sourceTree = "<group>"; };
@@ -697,7 +695,6 @@
 		145A91021FDF02AE00DED3AC /* TokensNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensNetworkService.swift; sourceTree = "<group>"; };
 		145A91041FDF02BB00DED3AC /* TokensNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		145C8FF82068FD3000706DB6 /* TransactionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHeaderCell.swift; sourceTree = "<group>"; };
-		145D1385206A6AA200AF85D2 /* UITableView+Conicoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Conicoin.swift"; sourceTree = "<group>"; };
 		145D1387206A6C5000AF85D2 /* UIScrollView+Conicoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Conicoin.swift"; sourceTree = "<group>"; };
 		145FFF942071364B00A3ADCE /* TransactionDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TransactionDetails.storyboard; sourceTree = "<group>"; };
 		145FFF97207190E600A3ADCE /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
@@ -710,6 +707,7 @@
 		146CCBF82113264E000C9DBF /* English.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = English.swift; sourceTree = "<group>"; };
 		146CCBFA21132673000C9DBF /* Japanese.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Japanese.swift; sourceTree = "<group>"; };
 		146CCBFC21132CB8000C9DBF /* ImportMnemonicState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportMnemonicState.swift; sourceTree = "<group>"; };
+		146CE4DF212ED3F40009E5A7 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		146D0D1D1FC0DDBC003C0C3E /* Decimal+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Helpers.swift"; sourceTree = "<group>"; };
 		146D0D1F1FC1FA5D003C0C3E /* Date+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
 		146DB0801FA007E7000D3564 /* TransactionsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsNetworkService.swift; sourceTree = "<group>"; };
@@ -1652,6 +1650,7 @@
 				147443DB20A1032C00BAC86B /* Animations */,
 				1485B4352089352100FB4C85 /* External */,
 				14ACA1F61EF2BD170059E430 /* Assets.xcassets */,
+				146CE4DF212ED3F40009E5A7 /* Colors.xcassets */,
 				14C4D3CD1EDE1F3700FCA3AF /* Bridging-Header.h */,
 				14ACA1F71EF2BD170059E430 /* Info.plist */,
 				14ACA1FC1EF2BD630059E430 /* LaunchScreen.storyboard */,
@@ -2038,7 +2037,6 @@
 			isa = PBXGroup;
 			children = (
 				144102D12053FDEE00F4D192 /* Conicoin */,
-				141749D01FD9B91A00AD5F07 /* Loading.swift */,
 				1481ADD21FDDD53600A5AC88 /* TokenBackgroundView.swift */,
 				14280E6E1FE1F6F900121F85 /* TransactionDetailsShadowView.swift */,
 			);
@@ -2161,7 +2159,6 @@
 			isa = PBXGroup;
 			children = (
 				14D7E746201A13A000DADBC3 /* UIViewController+NavBarShadow.swift */,
-				145D1385206A6AA200AF85D2 /* UITableView+Conicoin.swift */,
 				145D1387206A6C5000AF85D2 /* UIScrollView+Conicoin.swift */,
 			);
 			path = UI;
@@ -3274,6 +3271,7 @@
 				14046CFB201F778E007BD203 /* Import.storyboard in Resources */,
 				1475CB1B20D2E0BD001A1FE9 /* TransactionCell.xib in Resources */,
 				14ACA1FE1EF2BD630059E430 /* LaunchScreen.storyboard in Resources */,
+				146CE4E0212ED3F40009E5A7 /* Colors.xcassets in Resources */,
 				14046CE5201F751F007BD203 /* Balance.storyboard in Resources */,
 				14046CE9201F75C1007BD203 /* Transactions.storyboard in Resources */,
 			);
@@ -3365,7 +3363,6 @@
 				"${BUILT_PRODUCTS_DIR}/Dwifft/Dwifft.framework",
 				"${BUILT_PRODUCTS_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/PullToDismiss/PullToDismiss.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -3382,7 +3379,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dwifft.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyDataSet_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToDismiss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -3441,7 +3437,6 @@
 				144791D21EF5DE7100029818 /* ThirdPartiesConfigurator.swift in Sources */,
 				14D47F011FB3D1460095C516 /* Currency.swift in Sources */,
 				146D0D201FC1FA5D003C0C3E /* Date+Helpers.swift in Sources */,
-				141749D11FD9B91A00AD5F07 /* Loading.swift in Sources */,
 				14ACA1E01EF2BCB70059E430 /* EthereumCore.swift in Sources */,
 				1433BDCA1FD76E010081D872 /* Bool+Helpers.swift in Sources */,
 				146CCBF72113262F000C9DBF /* WordList.swift in Sources */,
@@ -3768,7 +3763,6 @@
 				D4CFFB3749BE9EFA28966BFD /* ImportInteractorInput.swift in Sources */,
 				9D2494CED34CF59D8EFA0808 /* ImportInteractorOutput.swift in Sources */,
 				9CAC6FD93C4F7C971918F454 /* ImportInteractor.swift in Sources */,
-				145D1386206A6AA200AF85D2 /* UITableView+Conicoin.swift in Sources */,
 				11518E2220C09FBE00510FE3 /* PushNetworkServiceProtocol.swift in Sources */,
 				1409BF562114A8C400DBCADC /* MnemonicRouter.swift in Sources */,
 				1484E5D0212C5AAF008F71BD /* BackupService.swift in Sources */,
@@ -4063,7 +4057,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ethereum-wallet",
 					"$(PROJECT_DIR)/ethereum-wallet/Other/External/Crypto/openssl/lib",
-					"$(PROJECT_DIR)/ethereum-wallet/Other/External/Crypto/secp256k1/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ag.ethereum-wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4095,7 +4088,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ethereum-wallet",
 					"$(PROJECT_DIR)/ethereum-wallet/Other/External/Crypto/openssl/lib",
-					"$(PROJECT_DIR)/ethereum-wallet/Other/External/Crypto/secp256k1/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ag.ethereum-wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
