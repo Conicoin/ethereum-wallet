@@ -54,6 +54,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                         <connections>
                                                             <action selector="amountDidChange:" destination="1xf-AK-WDB" eventType="editingChanged" id="OHw-Pb-cyA"/>
+                                                            <outlet property="delegate" destination="1xf-AK-WDB" id="ksx-rj-gkV"/>
                                                         </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJ7-CW-122">
@@ -300,6 +301,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                         <connections>
                                                             <action selector="amountDidChange:" destination="sZA-W1-fnA" eventType="editingChanged" id="FuH-ST-l6q"/>
+                                                            <outlet property="delegate" destination="sZA-W1-fnA" id="i1T-mI-OO0"/>
                                                         </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Bv-wC-4F2">
@@ -546,7 +548,8 @@
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                         <connections>
-                                                            <action selector="amountDidChange:" destination="Lhk-AT-7Ug" eventType="editingChanged" id="z9J-WS-wcb"/>
+                                                            <action selector="amountDidChange:" destination="Lhk-AT-7Ug" eventType="editingChanged" id="5P2-fm-72d"/>
+                                                            <outlet property="delegate" destination="Lhk-AT-7Ug" id="BEV-4u-7v4"/>
                                                         </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="899-7Q-nlg">

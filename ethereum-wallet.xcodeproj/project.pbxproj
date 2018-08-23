@@ -261,6 +261,7 @@
 		14D518941FE08A7E00A4FB94 /* CoinDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D518931FE08A7E00A4FB94 /* CoinDisplayable.swift */; };
 		14D7E7362017F10E00DADBC3 /* TransferType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7E7352017F10E00DADBC3 /* TransferType.swift */; };
 		14D7E747201A13A000DADBC3 /* UIViewController+NavBarShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7E746201A13A000DADBC3 /* UIViewController+NavBarShadow.swift */; };
+		14DC7896212EF6A80032490B /* AmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DC7895212EF6A80032490B /* AmountFormatter.swift */; };
 		14DFA313207DE854008F6F92 /* TxMetaResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFA312207DE854008F6F92 /* TxMetaResolver.swift */; };
 		14DFA315207DEAC6008F6F92 /* NormalTxResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFA314207DEAC6008F6F92 /* NormalTxResolver.swift */; };
 		14DFA317207DEFCE008F6F92 /* Erc20TxResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFA316207DEFCE008F6F92 /* Erc20TxResolver.swift */; };
@@ -800,6 +801,7 @@
 		14D518931FE08A7E00A4FB94 /* CoinDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDisplayable.swift; sourceTree = "<group>"; };
 		14D7E7352017F10E00DADBC3 /* TransferType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferType.swift; sourceTree = "<group>"; };
 		14D7E746201A13A000DADBC3 /* UIViewController+NavBarShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavBarShadow.swift"; sourceTree = "<group>"; };
+		14DC7895212EF6A80032490B /* AmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountFormatter.swift; sourceTree = "<group>"; };
 		14DFA312207DE854008F6F92 /* TxMetaResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxMetaResolver.swift; sourceTree = "<group>"; };
 		14DFA314207DEAC6008F6F92 /* NormalTxResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTxResolver.swift; sourceTree = "<group>"; };
 		14DFA316207DEFCE008F6F92 /* Erc20TxResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Erc20TxResolver.swift; sourceTree = "<group>"; };
@@ -2916,6 +2918,7 @@
 				3517836A45FEE47323B6557F /* SendViewOutput.swift */,
 				241B4276BED5A4833F0D7E20 /* SendViewController.swift */,
 				14046CF4201F76F0007BD203 /* Send.storyboard */,
+				14DC7895212EF6A80032490B /* AmountFormatter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3830,6 +3833,7 @@
 				E8C81D794BA0DA5631728ECF /* SendSettingsRouterInput.swift in Sources */,
 				EA6131A33D8227F8F67AF542 /* SendSettingsRouter.swift in Sources */,
 				46266720B985554CE21943DC /* SendSettingsModuleInput.swift in Sources */,
+				14DC7896212EF6A80032490B /* AmountFormatter.swift in Sources */,
 				79944F642E82C370396B0353 /* SendSettingsModuleOutput.swift in Sources */,
 				D8C6F293318E0BAB324E9153 /* SendSettingsModule.swift in Sources */,
 			);

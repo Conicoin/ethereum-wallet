@@ -36,6 +36,7 @@ class SendViewController: UIViewController {
   
   
   var output: SendViewOutput!
+  var amountFormatter: AmountFormatterProtocol!
   
   // MARK: Life cycle
   
@@ -61,6 +62,7 @@ class SendViewController: UIViewController {
   }
   
   private func setupTextFields() {
+    amountTextField.keyboardType = amountFormatter.allowFraction ? .decimalPad : .numberPad
     recepientTextField.textField.setRightPadding(30)
   }
   
@@ -142,4 +144,16 @@ extension SendViewController: SendViewInput {
     amountTextField?.becomeFirstResponder()
   }
 
+}
+
+// MARK: - UITextFieldDelegate
+
+extension SendViewController: UITextFieldDelegate {
+  
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    let currentText = textField.text ?? ""
+    let replacementText = (currentText as NSString).replacingCharacters(in: range, with: string)
+    return amountFormatter.isValidDecimal(input: replacementText)
+  }
+  
 }
