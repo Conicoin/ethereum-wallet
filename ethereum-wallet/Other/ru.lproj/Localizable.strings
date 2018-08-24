@@ -31,10 +31,11 @@
 // - Writing state
 "mnemonic.writing.backup.title" = "Резервная копия";
 "mnemonic.writing.create.title" = "Кошелёк создан!";
-"mnemonic.writing.subtitle" = "Фраза восстановления - это ключ к вашим средствам.\nПожалуйста, сохраните её в безопасном месте";
+"mnemonic.writing.subtitle" = "Фраза восстановления - это ключ к вашим средствам. Запишите эти 12 слов и храните их в безопасном месте.";
 "mnemonic.writing.button.title" = "Проверить";
 // - Verifying state
-"mnemonic.verifying.subtitle" = "Проверка фразы восстановления";
+"mnemonic.verifying.title" = "Проверка фразы восстановления";
+"mnemonic.verifying.subtitle" = "Введите фразу востановления в правильной последовательности. Это поможет убедиться в том, что вы правильно её записали";
 // - Correct state
 "mnemonic.correct.title" = "Правильно!";
 "mnemonic.correct.subtitle" = "Храните вашу фразу восстановления в безопасном месте.\nОна понадобится вам для восстановления доступа к средствам";

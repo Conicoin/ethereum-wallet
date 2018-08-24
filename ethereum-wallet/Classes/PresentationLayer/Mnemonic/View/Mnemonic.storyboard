@@ -20,20 +20,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Wallet created!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hF8-Qr-QSb">
-                                <rect key="frame" x="121" y="164.5" width="134.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <color key="textColor" name="coni_black"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Please, carefully write down secret phrase" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWN-pO-gNW">
-                                <rect key="frame" x="52" y="200.5" width="272.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" name="coni_black"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPu-pY-Dz2" customClass="ResponsiveButton" customModule="ethereum_wallet" customModuleProvider="target">
-                                <rect key="frame" x="324.5" y="189.5" width="25" height="25"/>
+                                <rect key="frame" x="323.5" y="108.5" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="L5j-uo-t8c"/>
                                     <constraint firstAttribute="width" constant="25" id="vdm-MM-Iik"/>
@@ -86,7 +74,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faI-DR-kBP" customClass="ResponsiveButton" customModule="ethereum_wallet" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="393.5" width="375" height="89.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 <state key="normal" title="Clear">
                                     <color key="titleColor" name="coni_blue"/>
@@ -95,6 +83,18 @@
                                     <action selector="clearPressed" destination="ca8-nS-CL4" eventType="touchUpInside" id="fr2-gq-VVM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Wallet created!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hF8-Qr-QSb">
+                                <rect key="frame" x="120" y="80" width="134.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" name="coni_black"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Please, carefully write down secret phrase" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWN-pO-gNW">
+                                <rect key="frame" x="51" y="120" width="272.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="coni_gray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -102,7 +102,6 @@
                             <constraint firstItem="5dS-im-XDq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lWN-pO-gNW" secondAttribute="trailing" constant="20" id="8wf-Ai-pV3"/>
                             <constraint firstItem="U7P-DA-YXb" firstAttribute="leading" secondItem="5dS-im-XDq" secondAttribute="leading" constant="12" id="9Vn-8h-Ga1"/>
                             <constraint firstItem="5dS-im-XDq" firstAttribute="trailing" secondItem="dTf-RS-jyB" secondAttribute="trailing" constant="32" id="Ae0-jX-y00"/>
-                            <constraint firstItem="U7P-DA-YXb" firstAttribute="top" secondItem="lWN-pO-gNW" secondAttribute="bottom" constant="16" id="EXq-Gz-7vF"/>
                             <constraint firstItem="CuO-Gt-dfG" firstAttribute="top" secondItem="OSm-Dg-3bx" secondAttribute="topMargin" id="F0U-lR-R4R"/>
                             <constraint firstItem="hF8-Qr-QSb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5dS-im-XDq" secondAttribute="leading" constant="20" id="Gee-zU-b10"/>
                             <constraint firstItem="5dS-im-XDq" firstAttribute="bottom" secondItem="PV8-Ih-csN" secondAttribute="bottom" constant="24" id="K82-T3-cr1"/>
@@ -113,10 +112,11 @@
                             <constraint firstItem="PV8-Ih-csN" firstAttribute="leading" secondItem="5dS-im-XDq" secondAttribute="leading" id="i3a-30-4bQ"/>
                             <constraint firstItem="PV8-Ih-csN" firstAttribute="top" secondItem="faI-DR-kBP" secondAttribute="bottom" id="iHD-Ob-Zbo"/>
                             <constraint firstItem="hF8-Qr-QSb" firstAttribute="centerX" secondItem="OSm-Dg-3bx" secondAttribute="centerX" id="iSS-n0-mt9"/>
-                            <constraint firstItem="lWN-pO-gNW" firstAttribute="top" secondItem="hF8-Qr-QSb" secondAttribute="bottom" constant="12" id="jdY-Nr-ntS"/>
+                            <constraint firstItem="lWN-pO-gNW" firstAttribute="top" secondItem="hF8-Qr-QSb" secondAttribute="bottom" constant="16" id="jdY-Nr-ntS"/>
                             <constraint firstItem="dTf-RS-jyB" firstAttribute="leading" secondItem="5dS-im-XDq" secondAttribute="leading" constant="32" id="mue-Qz-Bna"/>
                             <constraint firstItem="lWN-pO-gNW" firstAttribute="centerX" secondItem="OSm-Dg-3bx" secondAttribute="centerX" id="njE-BV-V5y"/>
                             <constraint firstItem="5dS-im-XDq" firstAttribute="trailing" secondItem="CuO-Gt-dfG" secondAttribute="trailing" constant="16" id="qJF-tV-s3k"/>
+                            <constraint firstItem="hF8-Qr-QSb" firstAttribute="top" secondItem="CuO-Gt-dfG" secondAttribute="bottom" constant="16" id="tEI-JI-lxa"/>
                             <constraint firstItem="5dS-im-XDq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hF8-Qr-QSb" secondAttribute="trailing" constant="20" id="vCF-Zl-dwd"/>
                             <constraint firstItem="lWN-pO-gNW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5dS-im-XDq" secondAttribute="leading" constant="20" id="vgN-yT-cND"/>
                             <constraint firstItem="PV8-Ih-csN" firstAttribute="trailing" secondItem="5dS-im-XDq" secondAttribute="trailing" id="wrG-8E-3WA"/>
@@ -150,6 +150,9 @@
         </namedColor>
         <namedColor name="coni_blue">
             <color red="0.075000002980232239" green="0.47499999403953552" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_gray">
+            <color red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="coni_lightGray">
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

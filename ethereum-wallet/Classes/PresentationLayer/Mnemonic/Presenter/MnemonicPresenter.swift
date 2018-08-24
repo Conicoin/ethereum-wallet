@@ -90,7 +90,7 @@ class MnemonicPresenter {
       state.okButtonIsHidden = false
       
     case .verifying:
-      state.title = ""
+      state.title = Localized.mnemonicVerifyingTitle()
       state.subtitle = Localized.mnemonicVerifyingSubtitle()
       state.mnemonicViewBackgroundColor = Theme.Color.blue
       state.okButtonTitle = ""
