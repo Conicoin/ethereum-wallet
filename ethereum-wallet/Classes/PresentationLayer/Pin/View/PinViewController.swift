@@ -10,12 +10,12 @@ import UIKit
 
 
 class PinViewController: UIViewController {
-  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet var titleLabel: UILabel!
   @IBOutlet var placeholders: [PinSignPlaceholderView]!
-  @IBOutlet weak var deleteSignButton: UIButton!
-  @IBOutlet weak var touchIDButton: UIButton!
-  @IBOutlet weak var placeholdersX: NSLayoutConstraint!
-  @IBOutlet weak var termsTextView: UITextView!
+  @IBOutlet var deleteSignButton: UIButton!
+  @IBOutlet var touchIDButton: UIButton!
+  @IBOutlet var placeholdersX: NSLayoutConstraint!
+  @IBOutlet var termsTextView: UITextView!
 
   var output: PinViewOutput!
 
@@ -24,6 +24,7 @@ class PinViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupTermsTextView()
     output.viewIsReady()
   }
   
@@ -33,6 +34,11 @@ class PinViewController: UIViewController {
   }
   
   // MARK: Privates
+  
+  private func setupTermsTextView() {
+    let gesture = UITapGestureRecognizer(target: self, action: #selector(termsDidPressed(_:)))
+    termsTextView.addGestureRecognizer(gesture)
+  }
   
   private func animatePlaceholders(_ placeholders: [PinSignPlaceholderView], toState state: PinSignPlaceholderView.State) {
     for placeholder in placeholders {
@@ -68,6 +74,10 @@ class PinViewController: UIViewController {
   }
   
   // MARK: Actions
+  
+  @objc func termsDidPressed(_ sender: UITapGestureRecognizer) {
+    output.didPrivacyPressed()
+  }
   
   @IBAction func numberPressed(_ sender: UIButton) {
     output.didAddSign(String(sender.tag))

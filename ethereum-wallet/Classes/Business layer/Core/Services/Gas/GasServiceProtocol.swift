@@ -24,7 +24,7 @@ protocol GasServiceProtocol {
   /// but it should provide a basis for setting a reasonable default.
   ///
   /// - Returns: Decimal GasLimit
-  func getSuggestedGasLimit(from: String, to: String, gasPrice: Decimal, amount: Decimal, result: @escaping (Result<Decimal>) -> Void)
+  func getSuggestedGasLimit(from: String, to: String, amount: Decimal, settings: SendSettings, result: @escaping (Result<Decimal>) -> Void)
 
   /// SuggestGasPrice retrieves the currently suggested gas price to allow a timely
   /// execution of a transaction.

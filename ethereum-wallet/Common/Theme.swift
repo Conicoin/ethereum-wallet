@@ -20,14 +20,27 @@ import UIKit
 struct Theme {
   
   struct Color {
-    static let black = UIColor(red: 25/255, green: 28/255, blue: 31/255, alpha: 1)
-    static let blue = UIColor(red: 19/255, green: 121/255, blue: 222/255, alpha: 1)
-    static let gray = UIColor(red: 139/255, green: 149/255, blue: 158/255, alpha: 1)
-    static let green = UIColor(red: 89/255, green: 172/255, blue: 15/255, alpha: 1)
-    static let red = UIColor(red: 255/255, green: 72/255, blue: 31/255, alpha: 1)
-    static let ethereum = UIColor(red: 19/255, green: 121/255, blue: 222/255, alpha: 1)
-    static let token = UIColor(red: 167/255, green: 167/255, blue: 167/255, alpha: 1)
-    static let lightGray = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
+    
+    /* @IBInspectable don't work with colors assets */
+    #if TARGET_INTERFACE_BUILDER
+    
+    static let black = UIColor.black
+    static let blue = UIColor.blue
+    static let gray = UIColor.gray
+    static let green = UIColor.green
+    static let red = UIColor.red
+    static let lightGray = UIColor.lightGray
+    
+    #else
+    
+    static let black = UIColor(named: "coni_black")!
+    static let blue = UIColor(named: "coni_blue")!
+    static let gray = UIColor(named: "coni_gray")!
+    static let green = UIColor(named: "coni_green")!
+    static let red = UIColor(named: "coni_red")!
+    static let lightGray = UIColor(named: "coni_lightGray")!
+    
+    #endif
   }
     
     struct Font {

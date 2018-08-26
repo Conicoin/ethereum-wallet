@@ -135,6 +135,42 @@ enum Chain: String {
     }
   }
   
+  var privateKeyPrefix: UInt32 {
+    let mainnetPrefix: UInt32 = 0x0488ade4
+    let testnetPrefix: UInt32 = 0x04358394
+    
+    switch self {
+    case .mainnet:
+      return mainnetPrefix
+    case .ropsten, .rinkeby:
+      return testnetPrefix
+    }
+  }
+  
+  var publicKeyPrefix: UInt32 {
+    let mainnetPrefix: UInt32 = 0x0488b21e
+    let testnetPrefix: UInt32 = 0x043587cf
+    
+    switch self {
+    case .mainnet:
+      return mainnetPrefix
+    case .ropsten, .rinkeby:
+      return testnetPrefix
+    }
+  }
+  
+  var bip44CoinType: UInt32 {
+    let mainnetCoinType = UInt32(60)
+    let testnetCoinType = UInt32(1)
+    
+    switch self {
+    case .mainnet:
+      return mainnetCoinType
+    case .ropsten, .rinkeby:
+      return testnetCoinType
+    }
+  }
+  
   var isMainnet: Bool {
     return self == .mainnet
   }

@@ -20,19 +20,19 @@ import UIKit
 
 
 class SettingsViewController: UIViewController {
-  @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var currencyImageView: UIImageView!
-  @IBOutlet weak var currencyIsoLabel: UILabel!
-  @IBOutlet weak var currencyButton: UIButton!
-  @IBOutlet weak var changePasscodeButton: UIButton!
-  @IBOutlet weak var touchIdButton: UIButton!
-  @IBOutlet weak var touchIdSwitch: UISwitch!
-  @IBOutlet weak var pushButton: UIButton!
-  @IBOutlet weak var pushSwitch: UISwitch!
-  @IBOutlet weak var rateButton: UIButton!
-  @IBOutlet weak var backupButton: UIButton!
-  @IBOutlet weak var logoutButton: UIButton!
-  @IBOutlet weak var versionLabel: UILabel!
+  @IBOutlet var scrollView: UIScrollView!
+  @IBOutlet var currencyImageView: UIImageView!
+  @IBOutlet var currencyIsoLabel: UILabel!
+  @IBOutlet var currencyButton: UIButton!
+  @IBOutlet var changePasscodeButton: UIButton!
+  @IBOutlet var touchIdButton: UIButton!
+  @IBOutlet var touchIdSwitch: UISwitch!
+  @IBOutlet var pushButton: UIButton!
+  @IBOutlet var pushSwitch: UISwitch!
+  @IBOutlet var rateButton: UIButton!
+  @IBOutlet var backupButton: UIButton!
+  @IBOutlet var logoutButton: UIButton!
+  @IBOutlet var versionLabel: UILabel!
   
   var output: SettingsViewOutput!
   

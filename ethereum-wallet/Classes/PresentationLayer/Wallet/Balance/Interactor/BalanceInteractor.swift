@@ -47,7 +47,7 @@ extension BalanceInteractor: BalanceInteractorInput {
       return
     }
     
-    ratesNetworkService.getRate(currencies: currencies, queue: .global()) { [unowned self] result in
+    ratesNetworkService.getRate(currencies: currencies, queue: .global()) { [weak self] result in
       switch result {
       case .success(let rates):
         // TODO: Refactor - move to rate service
@@ -55,66 +55,65 @@ extension BalanceInteractor: BalanceInteractorInput {
           let rates = rates.filter { $0.from == coin.balance.iso }
           coins[i].rates = rates
         }
-        self.coinDataStoreService.save(coins)
+        self?.coinDataStoreService.save(coins)
         
         for (i, token) in tokens.enumerated() {
           let rates = rates.filter { $0.from == token.balance.iso }
           tokens[i].rates = rates
         }
-        self.tokensDataStoreService.save(tokens)
+        self?.tokensDataStoreService.save(tokens)
         
       case .failure(let error):
         DispatchQueue.main.async {
-          self.output.didFailedWalletReceiving(with: error)
+          self?.output.didFailedWalletReceiving(with: error)
         }
       }
     }
   }
   
   func getWalletFromDataBase() {
-    walletDataStoreService.observe { [unowned self] wallet in
-      self.output.didReceiveWallet(wallet)
+    walletDataStoreService.observe { [weak self] wallet in
+      self?.output.didReceiveWallet(wallet)
     }
   }
   
   func getCoinsFromDataBase() {
-    coinDataStoreService.observe { [unowned self] coins in
-      guard coins.count > 0 else { return } 
-      self.output.didReceiveCoins(coins)
+    coinDataStoreService.observe { [weak self] coins in
+      self?.output.didReceiveCoins(coins)
     }
   }
     
   func getTokensFromDataBase() {
-    tokensDataStoreService.observe { [unowned self] tokens in
-        self.output.didReceiveTokens(tokens)
+    tokensDataStoreService.observe { [weak self] tokens in
+        self?.output.didReceiveTokens(tokens)
     }
   }
   
   func getEthereumFromNetwork(address: String) {
-    walletNetworkService.getBalance(address: address, queue: .global()) { [unowned self] result in
+    walletNetworkService.getBalance(address: address, queue: .global()) { [weak self] result in
       switch result {
       case .success(let balance):
         let ether = Ether(weiString: balance)
         var coin = Coin()
         coin.balance = ether
-        self.coinDataStoreService.save(coin)
-        self.updateRates()
+        self?.coinDataStoreService.save(coin)
+        self?.updateRates()
       case .failure(let error):
         DispatchQueue.main.async {
-          self.output.didFailedWalletReceiving(with: error)
+          self?.output.didFailedWalletReceiving(with: error)
         }
       }
     }
   }
   
   func getTokensFromNetwork(address: String) {
-    tokensNetworkService.getTokens(address: address, queue: .global()) { [unowned self] result in
+    tokensNetworkService.getTokens(address: address, queue: .global()) { [weak self] result in
       switch result {
       case .success(let tokens):
-        self.tokensDataStoreService.save(tokens)
+        self?.tokensDataStoreService.save(tokens)
       case .failure(let error):
         DispatchQueue.main.async {
-          self.output.didFailedTokensReceiving(with: error)
+          self?.output.didFailedTokensReceiving(with: error)
         }
       }
     }

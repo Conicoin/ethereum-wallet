@@ -47,17 +47,22 @@ extension SettingsPresenter: SettingsViewOutput {
   }
   
   func didChangePasscodePressed() {
-    let keychain = Keychain()
-    let oldPin = keychain.passphrase!
+    let oldPin = interactor.passphrase
     router.presentPinOnChangePin(from: view.viewController) { [unowned self] pin, routing in
       self.interactor.changePin(oldPin: oldPin, newPin: pin, completion: routing)
     }
   }
   
   func didBackupPressed() {
-    router.presentPinOnBackup(from: view.viewController) { [unowned self] pin, routing in
-      routing?(.success(true))
-      self.interactor.getExportKeyUrl(passcode: pin)
+      router.presentPinOnBackup(from: view.viewController) { [unowned self] pin, routing in
+        routing?(.success(true))
+        
+        switch self.interactor.accountType {
+        case .mnemonic:
+          self.router.presentMnemonicBackup(from: self.view.viewController)
+        case .privateKey:
+          self.interactor.getExportKeyUrl(passcode: pin)
+        }
     }
   }
   

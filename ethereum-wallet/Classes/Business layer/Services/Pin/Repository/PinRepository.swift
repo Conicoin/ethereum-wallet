@@ -10,13 +10,17 @@ import UIKit
 
 class PinRepository: PinRepositoryProtocol {
   
+  let keychain: Keychain
+  
+  init(keychain: Keychain) {
+    self.keychain = keychain
+  }
+  
   var hasPin: Bool {
-    let keychain = Keychain()
     return keychain.passphrase != nil
   }
   
   var pin: [String]? {
-    let keychain = Keychain()
     guard let passphrase = keychain.passphrase else {
       return nil
     }
@@ -25,12 +29,10 @@ class PinRepository: PinRepositoryProtocol {
   
   func savePin(_ pin: [String]) {
     let pin = pin.joined()
-    let keychain = Keychain()
     keychain.passphrase = pin
   }
   
   func deletePin() {
-    let keychain = Keychain()
     keychain.passphrase = nil
   }
 

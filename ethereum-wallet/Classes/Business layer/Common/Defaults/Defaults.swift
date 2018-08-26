@@ -40,17 +40,6 @@ final class Defaults: NSObject {
     }
   }
   
-  class var isWalletCreated: Bool {
-    get {
-      return getBool(forKey: .isWalletCreated)
-    }
-    
-    set {
-      set(value: newValue, forKey: .isWalletCreated)
-    }
-  }
-  
-  
   class var isTouchIDAllowed: Bool {
     get {
       return getBool(forKey: .isTouchIDAllowed)
@@ -73,7 +62,6 @@ private extension Defaults {
   enum Keys: String, EnumCollection {
     case chain = "chainKey"
     case mode = "syncMode"
-    case isWalletCreated = "isWalletCreated"
     case isTouchIDAllowed = "isTouchIDAllowed"
   }
   

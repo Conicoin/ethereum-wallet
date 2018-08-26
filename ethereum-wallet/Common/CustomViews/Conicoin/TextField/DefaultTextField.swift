@@ -39,7 +39,7 @@ class DefaultTextField: UIView {
   
   var idlePlaceHolderColor: UIColor = Theme.Color.gray
   var floatPlaceHolderColor: UIColor = Theme.Color.gray
-  var textColor: UIColor = Theme.Color.gray
+  var textColor: UIColor = Theme.Color.black
   var idlePlaceHolderFont: UIFont = Theme.Font.regular16
   var floatPlaceHolderFont: UIFont = Theme.Font.regular12
   var inputFont: UIFont = Theme.Font.regular16

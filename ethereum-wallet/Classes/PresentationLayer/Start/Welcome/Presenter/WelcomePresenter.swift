@@ -26,11 +26,6 @@ class WelcomePresenter {
   var router: WelcomeRouterInput!
   
   var state = WelcomeState.new
-  
-  var isRestoring: Bool {
-    let keychain = Keychain()
-    return keychain.isAccountBackuped
-  }
     
 }
 
@@ -40,15 +35,22 @@ class WelcomePresenter {
 extension WelcomePresenter: WelcomeViewOutput {
 
   func viewIsReady() {
-    view.setupInitialState(restoring: isRestoring)
+    view.setupInitialState(restoring: state.isRestoring)
   }
 
   func newDidPressed() {
     switch state {
-    case .restore(let key):
-      router.presentPinRestore(from: view.viewController, key: key) { [unowned self] pin, routing in
-        self.interactor.importKey(key, passcode: pin, completion: routing)
+    case .restore(let account):
+      
+      router.presentPinRestore(from: view.viewController) { [unowned self] pin, routing in
+        switch account.type {
+        case .privateKey:
+          self.interactor.importPrivateKey(account.key, passcode: pin, completion: routing)
+        case .mnemonic:
+          self.interactor.importMnemonic(account.key, passcode: pin, completion: routing)
+        }
       }
+    
     case .new:
       router.presentPinNew(from: view.viewController) { [unowned self] pin, routing in
         self.interactor.createWallet(passcode: pin, completion: routing)
@@ -63,7 +65,11 @@ extension WelcomePresenter: WelcomeViewOutput {
   func didImportPrivateKeyPressed() {
     router.presentImportPrivate(from: view.viewController)
   }
-
+  
+  func didImportMnemonicPressed() {
+    router.presentImportMnemonic(from: view.viewController)
+  }
+  
 }
 
 
@@ -78,7 +84,8 @@ extension WelcomePresenter: WelcomeInteractorOutput {
 
 extension WelcomePresenter: WelcomeModuleInput {
   
-  func present() {
+  func present(state: WelcomeState) {
+    self.state = state
     let navigationController = UINavigationController(rootViewController: view.viewController)
     AppDelegate.currentWindow.rootViewController = navigationController
   }

@@ -20,6 +20,14 @@ import UIKit
 
 class ImportRouter {
   
+  private func presentMainAfterAlerts(from viewController: UIViewController) {
+    PopupModule.create(.touchId).present(from: viewController) { vc in
+      PopupModule.create(.push).present(from: vc) { _ in
+        TabBarModule.create(isSecureMode: false).present()
+      }
+    }
+  }
+  
 }
 
 
@@ -27,22 +35,26 @@ class ImportRouter {
 
 extension ImportRouter: ImportRouterInput {
   
-  func presentPin(from viewController: UIViewController, key: Data, importType: ImportState, postProcess: PinPostProcess?) {
-    
-    var pinState: PinState!
-    switch importType {
+  func presentPin(from viewController: UIViewController, key: WalletKey, postProcess: PinPostProcess?) {
+    switch key {
     case .jsonKey:
-      pinState = .restoreJson(key: key)
-    case .privateKey:
-      pinState = .restorePrivate(key: key)
-    }
-    
-    PinModule.create(pinState).present(from: viewController, postProcess: postProcess) { vc in
-      PopupModule.create(.touchId).present(from: vc) { vc in
-        PopupModule.create(.push).present(from: vc) { _ in
-          TabBarModule.create(isSecureMode: false).present()
-        }
+      let module = PinModule.create(.restoreJson)
+      module.present(from: viewController, postProcess: postProcess) { [unowned self] vc in
+        self.presentMainAfterAlerts(from: vc)
       }
+      
+    case .privateKey:
+      let module = PinModule.create(.restorePrivate)
+      module.present(from: viewController, postProcess: postProcess) { [unowned self] vc in
+        self.presentMainAfterAlerts(from: vc)
+      }
+      
+    case .mnemonic:
+      let module = PinModule.create(.restoreJson)
+      module.present(from: viewController, postProcess: postProcess) { [unowned self] vc in
+        self.presentMainAfterAlerts(from: vc)
+      }
+      
     }
   }
     

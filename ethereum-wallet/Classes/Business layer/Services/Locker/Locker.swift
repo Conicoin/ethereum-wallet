@@ -10,9 +10,8 @@ import Foundation
 
 class Locker: LockerProtocol {
   
-  private let unlockPeriod: TimeInterval = 60
   private let keychain: Keychain
-  
+  private let unlockPeriod: TimeInterval = 60
   private var lastUnlockDate: Date = Date.distantPast
   
   init(keychain: Keychain) {

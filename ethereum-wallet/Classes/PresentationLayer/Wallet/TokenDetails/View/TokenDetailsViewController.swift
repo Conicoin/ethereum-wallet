@@ -19,21 +19,21 @@ import UIKit
 
 
 class TokenDetailsViewController: UIViewController {
-  @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var fiatBalanceLabel: UILabel!
-  @IBOutlet weak var balanceLabel: UILabel!
-  @IBOutlet weak var descriptionView: UIView!
-  @IBOutlet weak var descriptionTextView: UITextView!
-  @IBOutlet weak var addressLabel: UILabel!
-  @IBOutlet weak var totalSuplyLabel: UILabel!
-  @IBOutlet weak var holdersCountLabel: UILabel!
-  @IBOutlet weak var addressTitleLabel: UILabel!
-  @IBOutlet weak var holdersTitleLabel: UILabel!
-  @IBOutlet weak var supplyTitleLabel: UILabel!
-  @IBOutlet weak var descTitleLabel: UILabel!
-  @IBOutlet weak var sendButtonLabel: UILabel!
-  @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var tableHeight: NSLayoutConstraint!
+  @IBOutlet var scrollView: UIScrollView!
+  @IBOutlet var fiatBalanceLabel: UILabel!
+  @IBOutlet var balanceLabel: UILabel!
+  @IBOutlet var descriptionView: UIView!
+  @IBOutlet var descriptionTextView: UITextView!
+  @IBOutlet var addressLabel: UILabel!
+  @IBOutlet var totalSuplyLabel: UILabel!
+  @IBOutlet var holdersCountLabel: UILabel!
+  @IBOutlet var addressTitleLabel: UILabel!
+  @IBOutlet var holdersTitleLabel: UILabel!
+  @IBOutlet var supplyTitleLabel: UILabel!
+  @IBOutlet var descTitleLabel: UILabel!
+  @IBOutlet var sendButtonLabel: UILabel!
+  @IBOutlet var tableView: UITableView!
+  @IBOutlet var tableHeight: NSLayoutConstraint!
 
   var output: TokenDetailsViewOutput!
   var transactions = [TransactionDisplayer]()

@@ -19,10 +19,10 @@ import UIKit
 
 class ChooseCurrencyCell: UITableViewCell {
   
-  @IBOutlet weak var iconImageView: UIImageView!
-  @IBOutlet weak var isoLabel: UILabel!
-  @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var checkmarkImageView: UIImageView!
+  @IBOutlet var iconImageView: UIImageView!
+  @IBOutlet var isoLabel: UILabel!
+  @IBOutlet var nameLabel: UILabel!
+  @IBOutlet var checkmarkImageView: UIImageView!
 
   
   override func awakeFromNib() {

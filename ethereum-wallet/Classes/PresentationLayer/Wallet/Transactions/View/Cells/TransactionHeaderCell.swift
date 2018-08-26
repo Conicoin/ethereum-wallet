@@ -10,8 +10,8 @@ import UIKit
 
 class TransactionHeaderCell: UITableViewCell {
   
-  @IBOutlet weak var timeLabel: UILabel!
-  @IBOutlet weak var dayAmountLabel: UILabel!
+  @IBOutlet var timeLabel: UILabel!
+  @IBOutlet var dayAmountLabel: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()

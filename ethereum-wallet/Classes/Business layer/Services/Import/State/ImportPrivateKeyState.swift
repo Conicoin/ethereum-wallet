@@ -6,7 +6,7 @@
 //  Copyright © 2018 Artur Guseinov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class ImportPrivateKeyState: ImportStateProtocol {
   

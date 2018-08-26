@@ -44,6 +44,8 @@ class SendModule {
     interactor.transactionsDataStoreService = TransactionsDataStoreService()
     interactor.transactionService = TransactionService(core: core, keystore: keystore, transferType: type)
     interactor.checkoutService = SendCheckoutServiceFactory().create(type)
+    
+    viewController.amountFormatter = AmountFormatter(decimals: type.decimals)
         
     return presenter
   }

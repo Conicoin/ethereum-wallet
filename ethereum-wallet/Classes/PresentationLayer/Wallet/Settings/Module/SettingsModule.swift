@@ -38,7 +38,10 @@ class SettingsModule {
     presenter.interactor = interactor
     
     // Injection
+    let keychain = Keychain()
+    interactor.keychain = keychain
     interactor.pushService = PushService()
+    interactor.accountService = AccountService(keychain: keychain)
     interactor.pushConfigurator = PushConfigurator(pushNetworkService: PushNetworkService(),
                                                    walletDataStoreService: WalletDataStoreService())
     

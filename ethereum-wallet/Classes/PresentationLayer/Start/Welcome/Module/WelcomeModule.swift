@@ -19,12 +19,21 @@ import UIKit
 
 enum WelcomeState {
   case new
-  case restore(key: Data)
+  case restore(account: Account)
+  
+  var isRestoring: Bool {
+    switch self {
+    case .new:
+      return false
+    case .restore:
+      return true
+    }
+  }
 }
 
 class WelcomeModule {
     
-  class func create(_ state: WelcomeState) -> WelcomeModuleInput {
+  class func create() -> WelcomeModuleInput {
     let router = WelcomeRouter()
     let presenter = WelcomePresenter()
     let interactor = WelcomeInteractor()
@@ -41,11 +50,8 @@ class WelcomeModule {
     // MARK: Injection
     
     let walletManager = WalletManagerFactory().create()
-    interactor.walletCreator = WalletCreator(walletManager: walletManager)
-    interactor.walletImporter = WalletJsonImporter(walletManager: walletManager)
-    
-    presenter.state = state
-    
+    interactor.walletManager = walletManager
+        
     return presenter
   }
     

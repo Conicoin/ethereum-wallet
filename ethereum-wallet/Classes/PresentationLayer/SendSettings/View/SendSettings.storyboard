@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +33,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="ApE-Av-3O3"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbO-PF-2sG">
@@ -41,7 +42,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="kvg-iG-eIM"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.10196078431372549" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4Vh-h5-0l1">
@@ -49,8 +50,8 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="eBz-fX-x5e"/>
                                                         </constraints>
-                                                        <color key="minimumTrackTintColor" red="0.074509803921568626" green="0.47450980392156861" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="maximumTrackTintColor" red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="minimumTrackTintColor" name="coni_blue"/>
+                                                        <color key="maximumTrackTintColor" name="coni_gray"/>
                                                         <connections>
                                                             <action selector="gasPriceChanged:" destination="Tqt-lv-0Aw" eventType="valueChanged" id="KWW-hc-fkP"/>
                                                         </connections>
@@ -59,19 +60,19 @@
                                                         <rect key="frame" x="16" y="84" width="343" height="67"/>
                                                         <string key="text">$The gas limit prevents smart contracts from consuming all your Ethereum. We will try to calculate the gas limit automatically for you, but some smart contracts may require a custom gas limit.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4C-gP-vaj">
                                                         <rect key="frame" x="349" y="54" width="10" height="2"/>
-                                                        <color key="backgroundColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" name="coni_gray"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="79w-aU-F79"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFF-4J-S8K">
                                                         <rect key="frame" x="16" y="54" width="10" height="2"/>
-                                                        <color key="backgroundColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" name="coni_blue"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="5bg-Fk-7fP"/>
                                                         </constraints>
@@ -107,7 +108,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="ScJ-Qv-EOw"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$84000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcS-Xn-wmP">
@@ -116,7 +117,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="vma-ON-Dea"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.1019607843" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hr2-oa-zDD">
@@ -124,22 +125,22 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="e3o-xG-ID0"/>
                                                         </constraints>
-                                                        <color key="minimumTrackTintColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="maximumTrackTintColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="minimumTrackTintColor" name="coni_blue"/>
+                                                        <color key="maximumTrackTintColor" name="coni_gray"/>
                                                         <connections>
                                                             <action selector="gasLimitChanged:" destination="Tqt-lv-0Aw" eventType="valueChanged" id="DPo-Gt-DRb"/>
                                                         </connections>
                                                     </slider>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpa-TA-YyQ">
                                                         <rect key="frame" x="349" y="54" width="10" height="2"/>
-                                                        <color key="backgroundColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" name="coni_gray"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="Ric-26-j08"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anv-c1-w4g">
                                                         <rect key="frame" x="16" y="54" width="10" height="2"/>
-                                                        <color key="backgroundColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" name="coni_blue"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="p8t-zC-aq1"/>
                                                         </constraints>
@@ -148,7 +149,7 @@
                                                         <rect key="frame" x="16" y="84" width="343" height="67"/>
                                                         <string key="text">$The gas limit prevents smart contracts from consuming all your Ethereum. We will try to calculate the gas limit automatically for you, but some smart contracts may require a custom gas limit.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -183,13 +184,13 @@
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="hW8-YO-dq9"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="0x" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Y0e-5L-hFs">
                                                         <rect key="frame" x="11" y="27" width="353" height="35.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="textColor" red="0.10196078431372549" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_black"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textView>
@@ -224,7 +225,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="EIi-3M-uUv"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.000021 ETH (0,08 GBP)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAy-DF-jgF">
@@ -233,7 +234,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="hx0-1S-V2C"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.10196078431372549" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -271,7 +272,7 @@
                     <navigationItem key="navigationItem" id="wgP-bD-4Pm">
                         <barButtonItem key="backBarButtonItem" title=" " id="Iqj-UM-Hf0"/>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="epL-qd-Pbw">
-                            <color key="tintColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" name="coni_blue"/>
                             <connections>
                                 <action selector="saveDidPressed:" destination="Tqt-lv-0Aw" id="npJ-Yc-jAb"/>
                             </connections>
@@ -300,4 +301,15 @@
             <point key="canvasLocation" x="4" y="-67.016491754122939"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="coni_black">
+            <color red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_blue">
+            <color red="0.075000002980232239" green="0.47499999403953552" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_gray">
+            <color red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -7,14 +7,14 @@ target 'ethereum-wallet' do
   pod 'R.swift'
   pod 'Geth'
   pod 'RealmSwift'
+  pod 'SpringIndicator'
   pod 'AlamofireObjectMapper'
-  pod 'PKHUD'
   pod 'CryptoSwift'
   pod 'secp256k1_ios'
-  pod 'SpringIndicator'
   pod 'PullToDismiss', '~> 2.1'
   pod 'lottie-ios'
   pod 'Dwifft'
+  pod 'EmptyDataSet-Swift', '~> 4.0.5'
 end
 
 target 'ConicoinTests' do
@@ -22,6 +22,10 @@ target 'ConicoinTests' do
   pod 'secp256k1_ios'
 end
 
-
-
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings.delete('CODE_SIGNING_ALLOWED')
+    config.build_settings.delete('CODE_SIGNING_REQUIRED')
+  end
+end
 

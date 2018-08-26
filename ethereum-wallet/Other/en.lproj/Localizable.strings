@@ -24,6 +24,27 @@
 "tab.transactions" = "Transactions";
 "tab.settings" = "Settings";
 
+// MARK: - Mnemonic
+// - Common
+"mnemonic.common.delete" = "Delete";
+"mnemonic.common.cancel" = "Cancel";
+// - Writing state
+"mnemonic.writing.backup.title" = "Backup wallet";
+"mnemonic.writing.create.title" = "Wallet created!";
+"mnemonic.writing.subtitle" = "The recovery phrase is the key to your funds. Just write down 12 words and keep them in safe place.";
+"mnemonic.writing.button.title" = "Check";
+// - Verifying state
+"mnemonic.verifying.title" = "Checking the recovery phrase";
+"mnemonic.verifying.subtitle" = "Enter the recovery phrase the correct sequence. This will help to make sure that you write down it correctly.";
+// - Сorrect state
+"mnemonic.correct.title" = "That's it!";
+"mnemonic.correct.subtitle" = "Keep your recovery phrase in a safe place.\nYou will need it to restore access to your funds";
+"mnemonic.correct.button.title" = "Continue";
+// - Incorrect state
+"mnemonic.incorrect.title" = "Wrong!";
+"mnemonic.incorrect.subtitle" = "Having lost the recovery phrase, you will no longer be able to access your funds.\nPlease try again";
+"mnemonic.incorrect.button.title" = "Try again";
+
 // MARK: - Welcome
 "welcome.new.title" = "Create new wallet";
 "welcome.restore.title" = "Restore with passphrase";
@@ -34,11 +55,13 @@
 "welcome.import.alert" = "Import";
 "welcome.import.private" = "Private key";
 "welcome.import.json" = "JSON key";
+"welcome.import.mnemonic" = "Mnemonic phrase";
 
 // MARK: - Import
 "import.title" = "Import wallet";
 "import.json.title" = "Enter JSON Key";
 "import.private.title" = "Enter private key";
+"import.mnemonic.title" = "Enter mnemonic phrase";
 "import.icloud.title" = "Import from iCloud";
 "import.confirm.title" = "Confirm";
 
@@ -48,6 +71,7 @@
 "balance.send" = "Send";
 "balance.eth.title" = "ETH ∙ Ethereum";
 "balance.label" = "%@ ∙ %@";
+"balance.empty.title" = "You have no ERC20 tokens. Once they appear, they will be displayed here.";
 
 // MARK: - Token details
 "token.details.name" = "%@ ∙ %@";
@@ -87,6 +111,7 @@
 "transactions.error" = "transaction failed";
 "transactions.received" = "From %@";
 "transactions.sent" = "To %@";
+"transactions.empty.title" = "You have no transactions yet";
 
 // MARK: - Transaction Details
 "tx.details.completed" = "Completed";

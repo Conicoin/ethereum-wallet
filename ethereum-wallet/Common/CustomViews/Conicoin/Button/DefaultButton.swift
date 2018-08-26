@@ -14,7 +14,7 @@ enum FloatingButtonStyle: Int {
 }
 
 @IBDesignable
-class DefaultButton: UIButton {
+class DefaultButton: ResponsiveButton {
   
   @IBInspectable var butonStyleRaw: Int = 0 {
     didSet {
@@ -46,17 +46,14 @@ class DefaultButton: UIButton {
   
   private func updateAppearance() {
     if !isEnabled {
-      transform = .identity
       layer.shadowOpacity = 0.08
       layer.shadowRadius = 4
       layer.shadowOffset = CGSize(width: 0, height: 8)
     } else if isHighlighted {
-      transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
       layer.shadowOpacity = 0.4
       layer.shadowRadius = 8
       layer.shadowOffset = CGSize(width: 0, height: 4)
     } else {
-      transform = .identity
       layer.shadowOpacity = 0.2
       layer.shadowRadius = 16
       layer.shadowOffset = CGSize(width: 0, height: 8)

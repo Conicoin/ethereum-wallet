@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +29,7 @@
                                             <constraint firstAttribute="width" constant="311" id="wNo-UM-n3Y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <color key="textColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" name="coni_black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="rxq-bG-Kbl">
@@ -65,33 +66,33 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="joL-vP-mze">
-                                        <rect key="frame" x="16" y="215" width="343" height="95"/>
+                                        <rect key="frame" x="16" y="215" width="343" height="96"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3w-bg-7NB">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="95"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="96"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="1">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="E8h-3Z-tNG"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcI-NI-kGM">
-                                                <rect key="frame" x="114.5" y="0.0" width="114" height="95"/>
+                                                <rect key="frame" x="114.5" y="0.0" width="114" height="96"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="2">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="yZc-QQ-pLo"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7g-0S-SL6">
-                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="95"/>
+                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="96"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="3">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="pBA-a3-vFy"/>
@@ -100,33 +101,33 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jQM-lA-1xj">
-                                        <rect key="frame" x="16" y="310" width="343" height="95"/>
+                                        <rect key="frame" x="16" y="311" width="343" height="95.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1n-7j-Geu">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="95"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="95.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="4">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="WuU-pf-2V3"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caJ-1O-QQJ">
-                                                <rect key="frame" x="114.5" y="0.0" width="114" height="95"/>
+                                                <rect key="frame" x="114.5" y="0.0" width="114" height="95.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="5">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="Zzv-09-z4p"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0v3-dB-wIa">
-                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="95"/>
+                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="95.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="6">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="YOK-Ct-T85"/>
@@ -135,33 +136,33 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UC1-Bq-nff">
-                                        <rect key="frame" x="16" y="405" width="343" height="95"/>
+                                        <rect key="frame" x="16" y="406.5" width="343" height="96"/>
                                         <subviews>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rx-XZ-qaH">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="95"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="96"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="7">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="di7-hx-0pR"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkf-kq-GbP">
-                                                <rect key="frame" x="114.5" y="0.0" width="114" height="95"/>
+                                                <rect key="frame" x="114.5" y="0.0" width="114" height="96"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="8">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="lEF-0V-ZkK"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJn-0i-xF3">
-                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="95"/>
+                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="96"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="9">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="j3z-fI-O9Y"/>
@@ -170,32 +171,32 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZZe-xP-eP4">
-                                        <rect key="frame" x="16" y="500" width="343" height="95"/>
+                                        <rect key="frame" x="16" y="502.5" width="343" height="95.5"/>
                                         <subviews>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfp-f5-KCF">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="95"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="95.5"/>
                                                 <state key="normal" image="PinTouchId">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="touchIdPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="hiB-nS-KSL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnG-fw-FOt">
-                                                <rect key="frame" x="114.5" y="0.0" width="114" height="95"/>
+                                                <rect key="frame" x="114.5" y="0.0" width="114" height="95.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <state key="normal" title="0">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="numberPressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="Bi8-oF-dpt"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUK-bq-wWe">
-                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="95"/>
+                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="95.5"/>
                                                 <color key="tintColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" image="PinDelete">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" name="coni_black"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="deletePressed:" destination="OWu-Mv-DQZ" eventType="touchUpInside" id="i3w-uY-KeV"/>
@@ -203,18 +204,18 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbj-hP-Cvi">
-                                        <rect key="frame" x="16" y="611" width="343" height="44"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbj-hP-Cvi">
+                                        <rect key="frame" x="16" y="610" width="343" height="49"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="HDl-0c-gm3"/>
+                                            <constraint firstAttribute="height" constant="49" id="HDl-0c-gm3"/>
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment>
                                                 <string key="content">By entering your passcode, you agree to our
 </string>
                                                 <attributes>
-                                                    <color key="NSColor" red="0.54559999999999997" green="0.58279999999999998" blue="0.62" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="12" name="SFProText-Regular"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" maximumLineHeight="16" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
@@ -224,7 +225,7 @@
                                             </fragment>
                                             <fragment content="Terms &amp; Conditions">
                                                 <attributes>
-                                                    <color key="NSColor" red="0.54559999999999997" green="0.58279999999999998" blue="0.62" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="12" name="SFProText-Regular"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" maximumLineHeight="16" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
@@ -247,7 +248,7 @@
                                     <constraint firstItem="joL-vP-mze" firstAttribute="leading" secondItem="BtA-Ia-jUG" secondAttribute="leading" constant="16" id="DbA-Wb-U3T"/>
                                     <constraint firstItem="joL-vP-mze" firstAttribute="top" secondItem="rxq-bG-Kbl" secondAttribute="bottom" constant="55" id="E82-7f-e7h"/>
                                     <constraint firstItem="rxq-bG-Kbl" firstAttribute="centerX" secondItem="BtA-Ia-jUG" secondAttribute="centerX" id="LWD-jq-GIC"/>
-                                    <constraint firstItem="kbj-hP-Cvi" firstAttribute="top" secondItem="ZZe-xP-eP4" secondAttribute="bottom" constant="16" id="OK4-2y-IDS"/>
+                                    <constraint firstItem="kbj-hP-Cvi" firstAttribute="top" secondItem="ZZe-xP-eP4" secondAttribute="bottom" constant="12" id="OK4-2y-IDS"/>
                                     <constraint firstItem="jQM-lA-1xj" firstAttribute="trailing" secondItem="joL-vP-mze" secondAttribute="trailing" id="POc-tW-yRo"/>
                                     <constraint firstItem="ZZe-xP-eP4" firstAttribute="top" secondItem="UC1-Bq-nff" secondAttribute="bottom" id="Pcj-MH-4v2"/>
                                     <constraint firstItem="jQM-lA-1xj" firstAttribute="height" secondItem="joL-vP-mze" secondAttribute="height" id="TNh-fM-9dx"/>
@@ -262,7 +263,7 @@
                                     <constraint firstItem="T3i-7a-Oj0" firstAttribute="top" secondItem="BtA-Ia-jUG" secondAttribute="topMargin" constant="8" id="la3-xZ-dYb"/>
                                     <constraint firstItem="kbj-hP-Cvi" firstAttribute="leading" secondItem="BtA-Ia-jUG" secondAttribute="leading" constant="16" id="lzw-uj-LJS"/>
                                     <constraint firstItem="UC1-Bq-nff" firstAttribute="top" secondItem="jQM-lA-1xj" secondAttribute="bottom" id="wkl-SP-hPV"/>
-                                    <constraint firstAttribute="bottom" secondItem="kbj-hP-Cvi" secondAttribute="bottom" constant="12" id="xOs-2O-PjL"/>
+                                    <constraint firstAttribute="bottom" secondItem="kbj-hP-Cvi" secondAttribute="bottom" constant="8" id="xOs-2O-PjL"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -281,6 +282,7 @@
                     <connections>
                         <outlet property="deleteSignButton" destination="TUK-bq-wWe" id="10y-tf-dCV"/>
                         <outlet property="placeholdersX" destination="LWD-jq-GIC" id="Jje-pV-Ynu"/>
+                        <outlet property="termsTextView" destination="kbj-hP-Cvi" id="eAC-zb-iaz"/>
                         <outlet property="titleLabel" destination="T3i-7a-Oj0" id="nfM-pd-X8R"/>
                         <outlet property="touchIDButton" destination="gfp-f5-KCF" id="Otm-we-2fx"/>
                         <outletCollection property="placeholders" destination="hjs-Ir-eL1" collectionClass="NSMutableArray" id="1XA-B3-hlK"/>
@@ -299,5 +301,8 @@
     <resources>
         <image name="PinDelete" width="20" height="19"/>
         <image name="PinTouchId" width="26" height="26"/>
+        <namedColor name="coni_black">
+            <color red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

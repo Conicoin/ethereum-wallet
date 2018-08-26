@@ -24,9 +24,29 @@
 "tab.transactions" = "Транзакции";
 "tab.settings" = "Настройки";
 
+// MARK: - Mnemonic
+// - Common
+"mnemonic.common.delete" = "Удалить";
+"mnemonic.common.cancel" = "Отмена";
+// - Writing state
+"mnemonic.writing.backup.title" = "Резервная копия";
+"mnemonic.writing.create.title" = "Кошелёк создан!";
+"mnemonic.writing.subtitle" = "Фраза восстановления - это ключ к вашим средствам. Запишите эти 12 слов и храните их в безопасном месте.";
+"mnemonic.writing.button.title" = "Проверить";
+// - Verifying state
+"mnemonic.verifying.title" = "Проверка фразы восстановления";
+"mnemonic.verifying.subtitle" = "Введите фразу востановления в правильной последовательности. Это поможет убедиться в том, что вы правильно её записали";
+// - Correct state
+"mnemonic.correct.title" = "Правильно!";
+"mnemonic.correct.subtitle" = "Храните вашу фразу восстановления в безопасном месте.\nОна понадобится вам для восстановления доступа к средствам";
+"mnemonic.correct.button.title" = "Продолжить";
+// - Incorrect state
+"mnemonic.incorrect.title" = "Не правильно!";
+"mnemonic.incorrect.subtitle" = "Потеряв фразу востановления вы больше не сможете получить доступ к вашим средствам.\nПожалуйста, попробуйте заново";
+"mnemonic.incorrect.button.title" = "Начать заново";
 
 // MARK: - Welcome
-"welcome.new.title" = "Создать новый кошелек";
+"welcome.new.title" = "Создать новый кошелёк";
 "welcome.restore.title" = "Восстановить с паролем";
 "welcome.import.title" = "Восстановить";
 "welcome.title" = "Conicoin";
@@ -35,11 +55,13 @@
 "welcome.import.alert" = "Восстановить с помощью";
 "welcome.import.private" = "Приватного ключа";
 "welcome.import.json" = "JSON ключа";
+"welcome.import.mnemonic" = "Фразы восстановления";
 
 // MARK: - Import
 "import.title" = "Восстановление";
 "import.json.title" = "Введите JSON ключ";
 "import.private.title" = "Введите приватный ключ";
+"import.mnemonic.title" = "Введите фразу восстановления";
 "import.icloud.title" = "Восстановить из iCloud";
 "import.confirm.title" = "Подтвердить";
 
@@ -49,6 +71,7 @@
 "balance.send" = "Отправить";
 "balance.eth.title" = "ETH ∙ Ethereum";
 "balance.label" = "%@ ∙ %@";
+"balance.empty.title" = "У вас нет ERC20 токенов. Так только они появятся, будут отображены здесь.";
 
 // MARK: - Token details
 "token.details.name" = "%@ ∙ %@";
@@ -88,6 +111,7 @@
 "transactions.error" = "ошибка";
 "transactions.received" = "От %@";
 "transactions.sent" = "На %@";
+"transactions.empty.title" = "У вас ещё нет транзакций";
 
 // MARK: - Transaction Details
 "tx.details.completed" = "Отправлено";
@@ -149,7 +173,7 @@
 "popup.txSent.confirm" = "Готово";
 // - Push
 "popup.push.title" = "Push уведомления";
-"popup.push.description" = "И будте в курсе всех входящих на ваш адрес транзакций";
+"popup.push.description" = "И будьте в курсе всех входящих на ваш адрес транзакций";
 "popup.push.confirm" = "Включить push уведомления";
 
 // MARK: TouchId

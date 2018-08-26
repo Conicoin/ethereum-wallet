@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import SafariServices
 
 
 class PinRouter {
@@ -17,5 +19,12 @@ class PinRouter {
 // MARK: - PinRouterInput
 
 extension PinRouter: PinRouterInput {
+    
+    func presentPrivacyPolicy(from: UIViewController) {
+        let urlString = Constants.Conicoin.privacyUrl
+        guard let url = URL(string: urlString) else { return }
+        let svc = SFSafariViewController(url: url)
+        from.present(svc, animated: true, completion: nil)
+    }
     
 }

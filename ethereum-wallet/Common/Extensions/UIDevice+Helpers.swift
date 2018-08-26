@@ -38,6 +38,7 @@ enum ScreenType {
       return "X"
     }
   }
+  
 }
 
 extension UIDevice {

@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +34,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="qyH-rz-pMK"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rue-ky-NGK">
@@ -42,17 +43,18 @@
                                                             <constraint firstAttribute="height" constant="56" id="WLw-7g-iZZ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
-                                                        <color key="textColor" red="0.10196078431372549" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcn-bo-Ofo">
                                                         <rect key="frame" x="66" y="45" width="293" height="56"/>
                                                         <color key="tintColor" red="0.10196078431372549" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="textColor" red="0.10196078431372549" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_black"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                         <connections>
                                                             <action selector="amountDidChange:" destination="1xf-AK-WDB" eventType="editingChanged" id="OHw-Pb-cyA"/>
+                                                            <outlet property="delegate" destination="1xf-AK-WDB" id="ksx-rj-gkV"/>
                                                         </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJ7-CW-122">
@@ -61,6 +63,9 @@
                                                             <constraint firstAttribute="width" constant="44" id="KSc-Qm-Ne5"/>
                                                             <constraint firstAttribute="height" constant="44" id="V9N-Qa-Kvj"/>
                                                         </constraints>
+                                                        <state key="normal">
+                                                            <color key="titleColor" name="coni_blue"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="currencyPressed:" destination="1xf-AK-WDB" eventType="touchUpInside" id="9d1-q5-pah"/>
                                                         </connections>
@@ -71,11 +76,11 @@
                                                             <constraint firstAttribute="height" constant="24" id="BQ8-Jk-xNB"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="coni_lightGray"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="sOg-OT-vfY" secondAttribute="trailing" constant="16" id="CNi-uN-b5d"/>
                                                     <constraint firstItem="sOg-OT-vfY" firstAttribute="centerY" secondItem="wJ7-CW-122" secondAttribute="centerY" id="Hed-in-W2k"/>
@@ -122,12 +127,13 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVk-JB-Lum">
                                                                 <rect key="frame" x="0.0" y="18" width="0.0" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <color key="textColor" red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" name="coni_gray"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1N-gv-QNz">
                                                                 <rect key="frame" x="343" y="18" width="0.0" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" name="coni_black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -146,12 +152,13 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6G-gB-bv1">
                                                                 <rect key="frame" x="0.0" y="18" width="0.0" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" name="coni_gray"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6V-0w-Oqs">
                                                                 <rect key="frame" x="343" y="18" width="0.0" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" name="coni_black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -274,7 +281,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="Nyh-Vs-YUX"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jjw-sD-f0q">
@@ -283,17 +290,18 @@
                                                             <constraint firstAttribute="height" constant="56" id="ffa-1s-GVE"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
-                                                        <color key="textColor" red="0.1019607843" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V3G-i7-dGA">
                                                         <rect key="frame" x="66" y="60" width="293" height="56"/>
                                                         <color key="tintColor" red="0.1019607843" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="textColor" red="0.1019607843" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_black"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                         <connections>
                                                             <action selector="amountDidChange:" destination="sZA-W1-fnA" eventType="editingChanged" id="FuH-ST-l6q"/>
+                                                            <outlet property="delegate" destination="sZA-W1-fnA" id="i1T-mI-OO0"/>
                                                         </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Bv-wC-4F2">
@@ -302,6 +310,9 @@
                                                             <constraint firstAttribute="height" constant="44" id="9oq-Xj-ObY"/>
                                                             <constraint firstAttribute="width" constant="44" id="m4y-0I-iaP"/>
                                                         </constraints>
+                                                        <state key="normal">
+                                                            <color key="titleColor" name="coni_blue"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="currencyPressed:" destination="sZA-W1-fnA" eventType="touchUpInside" id="VEW-KT-fZl"/>
                                                         </connections>
@@ -312,11 +323,11 @@
                                                             <constraint firstAttribute="height" constant="24" id="DJa-iM-E9y"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="coni_lightGray"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="V3G-i7-dGA" secondAttribute="trailing" constant="16" id="60L-13-xBb"/>
                                                     <constraint firstItem="V3G-i7-dGA" firstAttribute="top" secondItem="Jjw-sD-f0q" secondAttribute="top" id="9np-LX-oA4"/>
@@ -363,12 +374,13 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0t-Nb-wqD">
                                                                 <rect key="frame" x="0.0" y="18" width="0.0" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" name="coni_gray"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkV-Jg-W7V">
                                                                 <rect key="frame" x="343" y="18" width="0.0" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" name="coni_black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -387,12 +399,13 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2m-nw-dRX">
                                                                 <rect key="frame" x="0.0" y="18" width="0.0" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <color key="textColor" red="0.5450980392" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" name="coni_gray"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIs-Wy-Mxd">
                                                                 <rect key="frame" x="343" y="18" width="0.0" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" name="coni_black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -493,9 +506,270 @@
             </objects>
             <point key="canvasLocation" x="4052" y="-225.78710644677662"/>
         </scene>
+        <!--Send View Controller-->
+        <scene sceneID="NzC-uE-CTa">
+            <objects>
+                <viewController storyboardIdentifier="SendViewControllerSE" extendedLayoutIncludesOpaqueBars="YES" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lhk-AT-7Ug" customClass="SendViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Lz-uc-ONr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuS-VF-lVo">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHx-md-I9l">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lG9-0O-BPa">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$140.59 Ξ " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeG-Wa-Wp5">
+                                                        <rect key="frame" x="121.5" y="0.0" width="78.5" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="cYs-YI-FLM"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" name="coni_gray"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmd-dN-0HW">
+                                                        <rect key="frame" x="16" y="45" width="34" height="56"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="ChJ-xo-5IP"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
+                                                        <color key="textColor" name="coni_black"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYU-ZZ-aca">
+                                                        <rect key="frame" x="66" y="45" width="238" height="56"/>
+                                                        <color key="tintColor" red="0.1019607843" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_black"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <action selector="amountDidChange:" destination="Lhk-AT-7Ug" eventType="editingChanged" id="5P2-fm-72d"/>
+                                                            <outlet property="delegate" destination="Lhk-AT-7Ug" id="BEV-4u-7v4"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="899-7Q-nlg">
+                                                        <rect key="frame" x="16" y="109" width="44" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="9QU-65-U87"/>
+                                                            <constraint firstAttribute="width" constant="44" id="Mch-k6-jcq"/>
+                                                        </constraints>
+                                                        <state key="normal">
+                                                            <color key="titleColor" name="coni_blue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="currencyPressed:" destination="Lhk-AT-7Ug" eventType="touchUpInside" id="4ju-OV-WI5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESf-VM-jxa">
+                                                        <rect key="frame" x="304" y="119" width="0.0" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="2rn-Ph-Enr"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" name="coni_gray"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="coni_lightGray"/>
+                                                <constraints>
+                                                    <constraint firstItem="oeG-Wa-Wp5" firstAttribute="centerX" secondItem="lG9-0O-BPa" secondAttribute="centerX" id="4Ih-Mf-NFJ"/>
+                                                    <constraint firstItem="Zmd-dN-0HW" firstAttribute="leading" secondItem="899-7Q-nlg" secondAttribute="leading" id="7CW-Bw-9tv"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ESf-VM-jxa" secondAttribute="trailing" constant="16" id="BQw-cH-Vdz"/>
+                                                    <constraint firstItem="oeG-Wa-Wp5" firstAttribute="top" secondItem="lG9-0O-BPa" secondAttribute="top" id="DNM-iH-yQn"/>
+                                                    <constraint firstItem="899-7Q-nlg" firstAttribute="leading" secondItem="lG9-0O-BPa" secondAttribute="leading" constant="16" id="FbP-kH-tUm"/>
+                                                    <constraint firstItem="899-7Q-nlg" firstAttribute="top" secondItem="Zmd-dN-0HW" secondAttribute="bottom" constant="8" id="Idc-S0-NIi"/>
+                                                    <constraint firstItem="rYU-ZZ-aca" firstAttribute="bottom" secondItem="Zmd-dN-0HW" secondAttribute="bottom" id="KJT-wO-qhY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rYU-ZZ-aca" secondAttribute="trailing" constant="16" id="Rsw-9k-STl"/>
+                                                    <constraint firstItem="Zmd-dN-0HW" firstAttribute="top" secondItem="oeG-Wa-Wp5" secondAttribute="bottom" constant="21" id="iIn-k8-2zN"/>
+                                                    <constraint firstItem="ESf-VM-jxa" firstAttribute="centerY" secondItem="899-7Q-nlg" secondAttribute="centerY" id="tt7-PC-912"/>
+                                                    <constraint firstAttribute="height" constant="161" id="tzF-x5-9lt"/>
+                                                    <constraint firstItem="rYU-ZZ-aca" firstAttribute="top" secondItem="Zmd-dN-0HW" secondAttribute="top" id="yM6-dq-vaF"/>
+                                                    <constraint firstItem="rYU-ZZ-aca" firstAttribute="leading" secondItem="Zmd-dN-0HW" secondAttribute="trailing" constant="16" id="zkb-oH-Txa"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42C-Jd-mE1" customClass="DefaultTextField" customModule="ethereum_wallet" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="169" width="288" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="yjW-SQ-Lkm"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolderStringKey" value="$Enter JSON Key"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="$Recepient address"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhd-tB-jz7">
+                                                <rect key="frame" x="254" y="169" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="qhd-tB-jz7" secondAttribute="height" multiplier="1:1" id="2qq-5B-moC"/>
+                                                </constraints>
+                                                <state key="normal" image="scanQR"/>
+                                                <connections>
+                                                    <action selector="scanQRPressed:" destination="Lhk-AT-7Ug" eventType="touchUpInside" id="czC-eU-In0"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T0A-zv-bDh">
+                                                <rect key="frame" x="16" y="223" width="288" height="72"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOL-nJ-i1h">
+                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="36"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmc-0B-fUH">
+                                                                <rect key="frame" x="0.0" y="18" width="0.0" height="0.0"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" name="coni_gray"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdZ-69-L29">
+                                                                <rect key="frame" x="288" y="18" width="0.0" height="0.0"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" name="coni_black"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Nmc-0B-fUH" firstAttribute="leading" secondItem="rOL-nJ-i1h" secondAttribute="leading" id="3xe-rf-ghn"/>
+                                                            <constraint firstAttribute="trailing" secondItem="cdZ-69-L29" secondAttribute="trailing" id="8Gw-sp-7OL"/>
+                                                            <constraint firstItem="Nmc-0B-fUH" firstAttribute="centerY" secondItem="rOL-nJ-i1h" secondAttribute="centerY" id="FCw-cv-c39"/>
+                                                            <constraint firstAttribute="height" constant="36" id="ZzC-h6-xYl"/>
+                                                            <constraint firstItem="cdZ-69-L29" firstAttribute="centerY" secondItem="rOL-nJ-i1h" secondAttribute="centerY" id="iOo-CY-wyk"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N43-5v-ENX">
+                                                        <rect key="frame" x="0.0" y="36" width="288" height="36"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Jv-Pn-KQc">
+                                                                <rect key="frame" x="0.0" y="18" width="0.0" height="0.0"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" name="coni_gray"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzF-ET-R7o">
+                                                                <rect key="frame" x="288" y="18" width="0.0" height="0.0"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" name="coni_black"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="1gr-Sf-3ED"/>
+                                                            <constraint firstItem="3Jv-Pn-KQc" firstAttribute="leading" secondItem="N43-5v-ENX" secondAttribute="leading" id="365-wG-opy"/>
+                                                            <constraint firstItem="pzF-ET-R7o" firstAttribute="centerY" secondItem="N43-5v-ENX" secondAttribute="centerY" id="6Lv-Rt-eHm"/>
+                                                            <constraint firstItem="3Jv-Pn-KQc" firstAttribute="centerY" secondItem="N43-5v-ENX" secondAttribute="centerY" id="77T-4n-zJC"/>
+                                                            <constraint firstAttribute="trailing" secondItem="pzF-ET-R7o" secondAttribute="trailing" id="vgc-JC-Yl8"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="42C-Jd-mE1" firstAttribute="top" secondItem="lG9-0O-BPa" secondAttribute="bottom" constant="8" id="8Jy-wU-ZaC"/>
+                                            <constraint firstItem="qhd-tB-jz7" firstAttribute="trailing" secondItem="42C-Jd-mE1" secondAttribute="trailing" id="A9m-xl-ttB"/>
+                                            <constraint firstItem="42C-Jd-mE1" firstAttribute="leading" secondItem="QHx-md-I9l" secondAttribute="leading" constant="16" id="C0z-ko-vcn"/>
+                                            <constraint firstItem="lG9-0O-BPa" firstAttribute="top" secondItem="QHx-md-I9l" secondAttribute="top" id="EfE-ml-usN"/>
+                                            <constraint firstItem="lG9-0O-BPa" firstAttribute="leading" secondItem="QHx-md-I9l" secondAttribute="leading" id="GfS-vZ-QJe"/>
+                                            <constraint firstAttribute="trailing" secondItem="lG9-0O-BPa" secondAttribute="trailing" id="JmW-rN-uVA"/>
+                                            <constraint firstItem="qhd-tB-jz7" firstAttribute="top" secondItem="42C-Jd-mE1" secondAttribute="top" id="Jo4-lv-K2r"/>
+                                            <constraint firstItem="T0A-zv-bDh" firstAttribute="top" secondItem="42C-Jd-mE1" secondAttribute="bottom" constant="4" id="L1I-7w-xTL"/>
+                                            <constraint firstItem="T0A-zv-bDh" firstAttribute="leading" secondItem="QHx-md-I9l" secondAttribute="leading" constant="16" id="cnX-sF-EOL"/>
+                                            <constraint firstAttribute="trailing" secondItem="T0A-zv-bDh" secondAttribute="trailing" constant="16" id="hxc-Qu-tEA"/>
+                                            <constraint firstAttribute="bottom" secondItem="T0A-zv-bDh" secondAttribute="bottom" constant="75" id="iNQ-yP-ijw"/>
+                                            <constraint firstItem="qhd-tB-jz7" firstAttribute="bottom" secondItem="42C-Jd-mE1" secondAttribute="bottom" id="lvz-Y8-LJw"/>
+                                            <constraint firstAttribute="trailing" secondItem="42C-Jd-mE1" secondAttribute="trailing" constant="16" id="tyQ-Jj-Tva"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="QHx-md-I9l" firstAttribute="top" secondItem="GuS-VF-lVo" secondAttribute="top" id="4Go-v7-Sg1"/>
+                                    <constraint firstAttribute="trailing" secondItem="QHx-md-I9l" secondAttribute="trailing" id="4MC-ga-7nr"/>
+                                    <constraint firstItem="QHx-md-I9l" firstAttribute="width" secondItem="GuS-VF-lVo" secondAttribute="width" id="Miv-lZ-NBD"/>
+                                    <constraint firstItem="QHx-md-I9l" firstAttribute="leading" secondItem="GuS-VF-lVo" secondAttribute="leading" id="b47-tY-HDn"/>
+                                    <constraint firstAttribute="bottom" secondItem="QHx-md-I9l" secondAttribute="bottom" constant="216" id="kbo-kZ-qb1"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBv-qq-8qd" customClass="DefaultButton" customModule="ethereum_wallet" customModuleProvider="target">
+                                <rect key="frame" x="32" y="288" width="256" height="48"/>
+                                <color key="backgroundColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="RcF-yw-8I4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="$Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendPressed:" destination="Lhk-AT-7Ug" eventType="touchUpInside" id="0Sf-PK-RZK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="v5r-9p-T3a" firstAttribute="trailing" secondItem="GuS-VF-lVo" secondAttribute="trailing" id="3T9-QT-EAc"/>
+                            <constraint firstItem="GuS-VF-lVo" firstAttribute="leading" secondItem="v5r-9p-T3a" secondAttribute="leading" id="3iM-Wh-gS3"/>
+                            <constraint firstItem="GuS-VF-lVo" firstAttribute="top" secondItem="v5r-9p-T3a" secondAttribute="top" id="WCZ-X8-naR"/>
+                            <constraint firstItem="v5r-9p-T3a" firstAttribute="trailing" secondItem="BBv-qq-8qd" secondAttribute="trailing" constant="32" id="a4M-Cr-dQj"/>
+                            <constraint firstItem="v5r-9p-T3a" firstAttribute="bottom" secondItem="GuS-VF-lVo" secondAttribute="bottom" id="gtE-Ln-vQ0"/>
+                            <constraint firstItem="BBv-qq-8qd" firstAttribute="leading" secondItem="v5r-9p-T3a" secondAttribute="leading" constant="32" id="qRU-O2-2P3"/>
+                            <constraint firstItem="v5r-9p-T3a" firstAttribute="bottom" secondItem="BBv-qq-8qd" secondAttribute="bottom" constant="232" id="zSM-D0-1WR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v5r-9p-T3a"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="5jK-tF-sYu">
+                        <barButtonItem key="backBarButtonItem" title=" " id="AHQ-gm-X9U"/>
+                        <barButtonItem key="rightBarButtonItem" image="SettingsTab" id="FhY-7L-L0u">
+                            <color key="tintColor" red="0.1019607843" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="advancedPressed:" destination="Lhk-AT-7Ug" id="akB-Bd-h8K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="rYU-ZZ-aca" id="hBS-tk-k0R"/>
+                        <outlet property="balanceLabel" destination="oeG-Wa-Wp5" id="1a2-7d-sHU"/>
+                        <outlet property="currencyButton" destination="899-7Q-nlg" id="kX2-Bo-ac2"/>
+                        <outlet property="currencyLabel" destination="Zmd-dN-0HW" id="hk7-Zo-7F5"/>
+                        <outlet property="feeLabel" destination="cdZ-69-L29" id="klZ-RC-mu0"/>
+                        <outlet property="feeTitleLabel" destination="Nmc-0B-fUH" id="IFe-9e-lQK"/>
+                        <outlet property="keyboardConstraint" destination="kbo-kZ-qb1" id="ZGh-7f-Ey0"/>
+                        <outlet property="localAmountLabel" destination="ESf-VM-jxa" id="aYd-co-PHz"/>
+                        <outlet property="recepientTextField" destination="42C-Jd-mE1" id="0xx-yb-fnZ"/>
+                        <outlet property="scanQrButton" destination="qhd-tB-jz7" id="Tjs-JF-iJy"/>
+                        <outlet property="scrollView" destination="GuS-VF-lVo" id="N5w-l5-GzQ"/>
+                        <outlet property="sendButton" destination="BBv-qq-8qd" id="5hN-jj-ovi"/>
+                        <outlet property="totalLabel" destination="pzF-ET-R7o" id="znH-dH-Jvb"/>
+                        <outlet property="totalTitleLabel" destination="3Jv-Pn-KQc" id="ihO-GA-jf1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S0o-Zc-uxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2166.4000000000001" y="-334.63268365817095"/>
+        </scene>
     </scenes>
     <resources>
         <image name="SettingsTab" width="20" height="20"/>
         <image name="scanQR" width="24" height="24"/>
+        <namedColor name="coni_black">
+            <color red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_blue">
+            <color red="0.075000002980232239" green="0.47499999403953552" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_gray">
+            <color red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_lightGray">
+            <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

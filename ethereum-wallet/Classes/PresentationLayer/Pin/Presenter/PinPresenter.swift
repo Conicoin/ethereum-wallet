@@ -50,6 +50,10 @@ extension PinPresenter: PinViewOutput {
   func didTouchIdPressed() {
     interactor.authenticateWithBiometrics()
   }
+  
+  func didPrivacyPressed() {
+    router.presentPrivacyPolicy(from: view.viewController)
+  }
 
 }
 

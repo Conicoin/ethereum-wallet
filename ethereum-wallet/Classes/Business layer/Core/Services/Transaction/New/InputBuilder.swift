@@ -7,11 +7,11 @@
 //
 import Foundation
 
-protocol EthTxInputBuilderProtocol {
+protocol EthTxInputBuilder {
   func createInput(amount: Decimal, receiverAddress: String) throws -> Data
 }
 
-class EthDefaultTxInputBuilder: EthTxInputBuilderProtocol {
+class EthDefaultTxInputBuilder: EthTxInputBuilder {
   
   func createInput(amount: Decimal, receiverAddress: String) throws -> Data {
     return Data(hex: "0x")
@@ -19,7 +19,7 @@ class EthDefaultTxInputBuilder: EthTxInputBuilderProtocol {
   
 }
 
-class EthTokenTxInputBuilder: EthTxInputBuilderProtocol {
+class EthTokenTxInputBuilder: EthTxInputBuilder {
   
   let decimals: Int
   

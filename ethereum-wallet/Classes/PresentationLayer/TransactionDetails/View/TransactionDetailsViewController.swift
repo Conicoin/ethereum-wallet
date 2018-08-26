@@ -11,28 +11,28 @@ import PullToDismiss
 
 
 class TransactionDetailsViewController: UIViewController {
-  @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var timeLabel: UILabel!
-  @IBOutlet weak var statusLabel: UILabel!
-  @IBOutlet weak var statusImageView: UIImageView!
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var amountLabel: UILabel!
-  @IBOutlet weak var txHashTitleLabel: UILabel!
-  @IBOutlet weak var txHashLabel: UILabel!
-  @IBOutlet weak var blockHeightTitleLabel: UILabel!
-  @IBOutlet weak var blockHeightLabel: UILabel!
-  @IBOutlet weak var fromTitleLabel: UILabel!
-  @IBOutlet weak var fromLabel: UILabel!
-  @IBOutlet weak var toTitleLabel: UILabel!
-  @IBOutlet weak var toLabel: UILabel!
-  @IBOutlet weak var spentTitleLabel: UILabel!
-  @IBOutlet weak var spentLabel: UILabel!
-  @IBOutlet weak var feeTitleLabel: UILabel!
-  @IBOutlet weak var feeLabel: UILabel!
-  @IBOutlet weak var etherscanButton: UIButton!
-  @IBOutlet weak var feeView: UIView!
-  @IBOutlet weak var spentView: UIView!
-  @IBOutlet weak var blockHeightView: UIView!
+  @IBOutlet var scrollView: UIScrollView!
+  @IBOutlet var timeLabel: UILabel!
+  @IBOutlet var statusLabel: UILabel!
+  @IBOutlet var statusImageView: UIImageView!
+  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var amountLabel: UILabel!
+  @IBOutlet var txHashTitleLabel: UILabel!
+  @IBOutlet var txHashLabel: UILabel!
+  @IBOutlet var blockHeightTitleLabel: UILabel!
+  @IBOutlet var blockHeightLabel: UILabel!
+  @IBOutlet var fromTitleLabel: UILabel!
+  @IBOutlet var fromLabel: UILabel!
+  @IBOutlet var toTitleLabel: UILabel!
+  @IBOutlet var toLabel: UILabel!
+  @IBOutlet var spentTitleLabel: UILabel!
+  @IBOutlet var spentLabel: UILabel!
+  @IBOutlet var feeTitleLabel: UILabel!
+  @IBOutlet var feeLabel: UILabel!
+  @IBOutlet var etherscanButton: UIButton!
+  @IBOutlet var feeView: UIView!
+  @IBOutlet var spentView: UIView!
+  @IBOutlet var blockHeightView: UIView!
   
   
   var output: TransactionDetailsViewOutput!

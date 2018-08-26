@@ -20,6 +20,7 @@ import UIKit
 enum ImportState {
   case jsonKey
   case privateKey
+  case mnemonic
 }
 
 class ImportModule {
@@ -40,10 +41,11 @@ class ImportModule {
     
     // MARK: Injection
     
-    let walletManager = WalletManagerFactory().create()
-    interactor.walletImporter = WalletImporterFactory(walletManager: walletManager).create(state)
+    interactor.keychain = Keychain()
+    interactor.walletManager = WalletManagerFactory().create()
 
-    interactor.verificator = ImportVerificatorFactory().create(state)
+    let mnemonicService = MnemonicService()
+    interactor.verificator = ImportVerificatorFactory(mnemonicService: mnemonicService).create(state)
     presenter.state = ImportStateFactory(state: state).create()
         
     return presenter

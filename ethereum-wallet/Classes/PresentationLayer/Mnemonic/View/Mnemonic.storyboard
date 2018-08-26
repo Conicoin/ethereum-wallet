@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Mnemonic View Controller-->
+        <scene sceneID="fgi-60-mJ8">
+            <objects>
+                <viewController storyboardIdentifier="MnemonicViewController" id="ca8-nS-CL4" customClass="MnemonicViewController" customModule="ethereum_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OSm-Dg-3bx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPu-pY-Dz2" customClass="ResponsiveButton" customModule="ethereum_wallet" customModuleProvider="target">
+                                <rect key="frame" x="323.5" y="108.5" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="L5j-uo-t8c"/>
+                                    <constraint firstAttribute="width" constant="25" id="vdm-MM-Iik"/>
+                                </constraints>
+                                <state key="normal" image="hint"/>
+                                <connections>
+                                    <action selector="mnemonicHintPressed" destination="ca8-nS-CL4" eventType="touchUpInside" id="kRi-cf-1DM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTf-RS-jyB" customClass="DefaultButton" customModule="ethereum_wallet" customModuleProvider="target">
+                                <rect key="frame" x="32" y="595" width="311" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="A7p-Hq-Nbb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="Written down"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldTransform" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="okPressed" destination="ca8-nS-CL4" eventType="touchUpInside" id="dDb-cs-0fB"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7P-DA-YXb" customClass="MnemonicView" customModule="ethereum_wallet" customModuleProvider="target">
+                                <rect key="frame" x="12" y="233.5" width="351" height="160"/>
+                                <color key="backgroundColor" name="coni_lightGray"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="IIX-4A-s8C"/>
+                                </constraints>
+                            </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PV8-Ih-csN" customClass="MnemonicView" customModule="ethereum_wallet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="483" width="375" height="160"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="aFh-5C-w4E"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-Gt-dfG">
+                                <rect key="frame" x="325" y="20" width="34" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3Dc-kF-Kzl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" name="coni_black"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipPressed:" destination="ca8-nS-CL4" eventType="touchUpInside" id="b1w-Uu-qln"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faI-DR-kBP" customClass="ResponsiveButton" customModule="ethereum_wallet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="393.5" width="375" height="89.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" name="coni_blue"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearPressed" destination="ca8-nS-CL4" eventType="touchUpInside" id="fr2-gq-VVM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Wallet created!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hF8-Qr-QSb">
+                                <rect key="frame" x="120" y="80" width="134.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" name="coni_black"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Please, carefully write down secret phrase" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWN-pO-gNW">
+                                <rect key="frame" x="51" y="120" width="272.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="coni_gray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="faI-DR-kBP" firstAttribute="top" secondItem="U7P-DA-YXb" secondAttribute="bottom" id="6D1-ap-qb9"/>
+                            <constraint firstItem="5dS-im-XDq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lWN-pO-gNW" secondAttribute="trailing" constant="20" id="8wf-Ai-pV3"/>
+                            <constraint firstItem="U7P-DA-YXb" firstAttribute="leading" secondItem="5dS-im-XDq" secondAttribute="leading" constant="12" id="9Vn-8h-Ga1"/>
+                            <constraint firstItem="5dS-im-XDq" firstAttribute="trailing" secondItem="dTf-RS-jyB" secondAttribute="trailing" constant="32" id="Ae0-jX-y00"/>
+                            <constraint firstItem="CuO-Gt-dfG" firstAttribute="top" secondItem="OSm-Dg-3bx" secondAttribute="topMargin" id="F0U-lR-R4R"/>
+                            <constraint firstItem="hF8-Qr-QSb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5dS-im-XDq" secondAttribute="leading" constant="20" id="Gee-zU-b10"/>
+                            <constraint firstItem="5dS-im-XDq" firstAttribute="bottom" secondItem="PV8-Ih-csN" secondAttribute="bottom" constant="24" id="K82-T3-cr1"/>
+                            <constraint firstItem="faI-DR-kBP" firstAttribute="leading" secondItem="5dS-im-XDq" secondAttribute="leading" id="Z93-Jq-uKu"/>
+                            <constraint firstItem="U7P-DA-YXb" firstAttribute="centerY" secondItem="OSm-Dg-3bx" secondAttribute="centerY" constant="-20" id="fbP-dG-7b8"/>
+                            <constraint firstItem="OPu-pY-Dz2" firstAttribute="bottom" secondItem="lWN-pO-gNW" secondAttribute="centerY" constant="5" id="fdB-UC-uz4"/>
+                            <constraint firstItem="faI-DR-kBP" firstAttribute="trailing" secondItem="5dS-im-XDq" secondAttribute="trailing" id="hGU-X1-pIp"/>
+                            <constraint firstItem="PV8-Ih-csN" firstAttribute="leading" secondItem="5dS-im-XDq" secondAttribute="leading" id="i3a-30-4bQ"/>
+                            <constraint firstItem="PV8-Ih-csN" firstAttribute="top" secondItem="faI-DR-kBP" secondAttribute="bottom" id="iHD-Ob-Zbo"/>
+                            <constraint firstItem="hF8-Qr-QSb" firstAttribute="centerX" secondItem="OSm-Dg-3bx" secondAttribute="centerX" id="iSS-n0-mt9"/>
+                            <constraint firstItem="lWN-pO-gNW" firstAttribute="top" secondItem="hF8-Qr-QSb" secondAttribute="bottom" constant="16" id="jdY-Nr-ntS"/>
+                            <constraint firstItem="dTf-RS-jyB" firstAttribute="leading" secondItem="5dS-im-XDq" secondAttribute="leading" constant="32" id="mue-Qz-Bna"/>
+                            <constraint firstItem="lWN-pO-gNW" firstAttribute="centerX" secondItem="OSm-Dg-3bx" secondAttribute="centerX" id="njE-BV-V5y"/>
+                            <constraint firstItem="5dS-im-XDq" firstAttribute="trailing" secondItem="CuO-Gt-dfG" secondAttribute="trailing" constant="16" id="qJF-tV-s3k"/>
+                            <constraint firstItem="hF8-Qr-QSb" firstAttribute="top" secondItem="CuO-Gt-dfG" secondAttribute="bottom" constant="16" id="tEI-JI-lxa"/>
+                            <constraint firstItem="5dS-im-XDq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hF8-Qr-QSb" secondAttribute="trailing" constant="20" id="vCF-Zl-dwd"/>
+                            <constraint firstItem="lWN-pO-gNW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5dS-im-XDq" secondAttribute="leading" constant="20" id="vgN-yT-cND"/>
+                            <constraint firstItem="PV8-Ih-csN" firstAttribute="trailing" secondItem="5dS-im-XDq" secondAttribute="trailing" id="wrG-8E-3WA"/>
+                            <constraint firstItem="5dS-im-XDq" firstAttribute="trailing" secondItem="U7P-DA-YXb" secondAttribute="trailing" constant="12" id="xlw-ny-aQp"/>
+                            <constraint firstItem="OPu-pY-Dz2" firstAttribute="leading" secondItem="lWN-pO-gNW" secondAttribute="trailing" id="xw7-t3-Lj7"/>
+                            <constraint firstItem="5dS-im-XDq" firstAttribute="bottom" secondItem="dTf-RS-jyB" secondAttribute="bottom" constant="24" id="yWX-8I-mVp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5dS-im-XDq"/>
+                    </view>
+                    <connections>
+                        <outlet property="bottomMnemonicConstraint" destination="K82-T3-cr1" id="JzD-Pd-o1E"/>
+                        <outlet property="bottomMnemonicView" destination="PV8-Ih-csN" id="k3e-lb-jGO"/>
+                        <outlet property="clearButton" destination="faI-DR-kBP" id="MqA-Sz-MRo"/>
+                        <outlet property="mnemonicHintButton" destination="OPu-pY-Dz2" id="gn5-QV-sCy"/>
+                        <outlet property="mnemonicSubtitleLabel" destination="lWN-pO-gNW" id="bVk-Qr-TDn"/>
+                        <outlet property="mnemonicTitleLabel" destination="hF8-Qr-QSb" id="j0t-WV-AvY"/>
+                        <outlet property="mnemonicView" destination="U7P-DA-YXb" id="8TQ-3T-PsY"/>
+                        <outlet property="okButton" destination="dTf-RS-jyB" id="RUH-33-eOa"/>
+                        <outlet property="skipButton" destination="CuO-Gt-dfG" id="ixG-vP-oby"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Smw-Ve-usF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="469.5" y="-147.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="hint" width="16" height="16"/>
+        <namedColor name="coni_black">
+            <color red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_blue">
+            <color red="0.075000002980232239" green="0.47499999403953552" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_gray">
+            <color red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_lightGray">
+            <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

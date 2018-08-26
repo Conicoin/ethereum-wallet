@@ -19,10 +19,10 @@ import UIKit
 
 
 class ReceiveViewController: UIViewController {
-  @IBOutlet weak var addressLabel: UILabel!
-  @IBOutlet weak var qrImageView: UIImageView!
-  @IBOutlet weak var copyAddressButton: UIButton!
-  @IBOutlet weak var addressTitleLabel: UILabel!
+  @IBOutlet var addressLabel: UILabel!
+  @IBOutlet var qrImageView: UIImageView!
+  @IBOutlet var copyAddressButton: UIButton!
+  @IBOutlet var addressTitleLabel: UILabel!
   
   var output: ReceiveViewOutput!
 

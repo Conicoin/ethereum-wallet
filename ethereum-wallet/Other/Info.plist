@@ -49,5 +49,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+  <key>NSPhotoLibraryAddUsageDescription</key>
+  <string>Conicoin requires access to the photo library to save QR codes.</string>
 </dict>
 </plist>

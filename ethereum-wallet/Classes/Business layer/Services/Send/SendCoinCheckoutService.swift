@@ -11,15 +11,13 @@ import Foundation
 class SendCoinCheckoutService: SendCheckoutServiceProtocol {
   
   func checkout(for coin: CoinDisplayable, amount: Decimal, iso: String, fee: Decimal) throws -> Checkout {
-    guard let rate = coin.rates.first(where: {$0.to == iso}) else {
-      throw SendCheckoutError.noRate
-    }
+    let rate = coin.rates.first(where: {$0.to == iso})
     
     let feeAmount = Ether(weiValue: fee)
     let feeAmountString = feeAmount.amountString
     
     let fiatAmount = Ether(amount)
-    let fiatAmountString = FiatCurrencyFactory.amount(currency: fiatAmount, iso: iso, rate: rate.value)
+    let fiatAmountString = FiatCurrencyFactory.amount(currency: fiatAmount, iso: iso, rate: rate?.value ?? 0)
     
     let ethAmount = Ether(amount + fee.fromWei())
     let ethAmountString = ethAmount.amountString

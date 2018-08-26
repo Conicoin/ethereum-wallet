@@ -71,6 +71,10 @@ extension String {
     
     return data
   }
+  
+  func toData() -> Data {
+    return decomposedStringWithCompatibilityMapping.data(using: .utf8)!
+  }
 
   func withLeadingZero(_ count: Int) -> String {
     var string = self

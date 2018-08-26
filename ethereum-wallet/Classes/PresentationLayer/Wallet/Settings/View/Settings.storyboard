@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,7 +37,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$GBP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lrn-XN-edN">
                                                         <rect key="frame" x="317" y="23" width="42" height="19.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hp-9C-kNr">
@@ -44,7 +45,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <inset key="titleEdgeInsets" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="$Reference currency">
-                                                            <color key="titleColor" red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" name="coni_black"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="currencyPressed:" destination="YQz-Hp-mg9" eventType="touchUpInside" id="xJD-Qs-ywl"/>
@@ -86,7 +87,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <inset key="titleEdgeInsets" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="$Change passcode">
-                                                            <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" name="coni_black"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="changePasscodePressed:" destination="YQz-Hp-mg9" eventType="touchUpInside" id="XfD-tr-UZS"/>
@@ -119,7 +120,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <inset key="titleEdgeInsets" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="$Use Touch ID">
-                                                            <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" name="coni_black"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="touchIdPressed:" destination="YQz-Hp-mg9" eventType="touchUpInside" id="pc8-hM-lpB"/>
@@ -127,7 +128,7 @@
                                                     </button>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ywv-oE-AO8">
                                                         <rect key="frame" x="310" y="17" width="51" height="31"/>
-                                                        <color key="onTintColor" red="0.074509803921568626" green="0.47450980392156861" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="onTintColor" name="coni_blue"/>
                                                         <connections>
                                                             <action selector="touchIdValueChanged:" destination="YQz-Hp-mg9" eventType="valueChanged" id="3xs-zw-Udl"/>
                                                         </connections>
@@ -161,7 +162,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <inset key="titleEdgeInsets" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="$Enable push notification">
-                                                            <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" name="coni_black"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="pushPressed:" destination="YQz-Hp-mg9" eventType="touchUpInside" id="eac-fA-45B"/>
@@ -169,7 +170,7 @@
                                                     </button>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ez5-5a-wUx">
                                                         <rect key="frame" x="310" y="17" width="51" height="31"/>
-                                                        <color key="onTintColor" red="0.074509803920000006" green="0.47450980390000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="onTintColor" name="coni_blue"/>
                                                         <connections>
                                                             <action selector="pushValueChanged:" destination="YQz-Hp-mg9" eventType="valueChanged" id="8qL-xr-71R"/>
                                                         </connections>
@@ -210,7 +211,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <inset key="titleEdgeInsets" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="$Backup wallet">
-                                                            <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" name="coni_black"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="backupPressed:" destination="YQz-Hp-mg9" eventType="touchUpInside" id="rQW-up-pTP"/>
@@ -231,7 +232,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1g-pM-NVm">
                                                 <rect key="frame" x="0.0" y="373" width="375" height="65"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="IXu-fC-nXI">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsRate" translatesAutoresizingMaskIntoConstraints="NO" id="IXu-fC-nXI">
                                                         <rect key="frame" x="16" y="20" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="2JP-hM-OQB"/>
@@ -243,7 +244,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <inset key="titleEdgeInsets" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="$Rate app">
-                                                            <color key="titleColor" red="0.098039215690000001" green="0.10980392160000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" name="coni_black"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ratePressed:" destination="YQz-Hp-mg9" eventType="touchUpInside" id="oDA-7W-Z7e"/>
@@ -275,7 +276,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <state key="normal" title="$Log out">
-                                                            <color key="titleColor" red="0.074509803921568626" green="0.47450980392156861" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" name="coni_blue"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="logoutPressed:" destination="YQz-Hp-mg9" eventType="touchUpInside" id="y7r-0d-Yxm"/>
@@ -297,7 +298,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Version 1.1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5w-Mq-cug">
                                                         <rect key="frame" x="143.5" y="9.5" width="88.5" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="coni_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -360,7 +361,19 @@
         <image name="SettingsChangePasscode" width="24" height="24"/>
         <image name="SettingsFingerprint" width="24" height="24"/>
         <image name="SettingsPush" width="18" height="22"/>
+        <image name="SettingsRate" width="20" height="20"/>
         <image name="SettingsTab" width="20" height="20"/>
-        <image name="Star" width="20" height="20"/>
+        <namedColor name="coni_black">
+            <color red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_blue">
+            <color red="0.075000002980232239" green="0.47499999403953552" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_blue">
+            <color red="0.075000002980232239" green="0.47499999403953552" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="coni_gray">
+            <color red="0.54509803921568623" green="0.58431372549019611" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -22,10 +22,10 @@ class WelcomeViewController: UIViewController {
 
   var output: WelcomeViewOutput!
     
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var subtitleLabel: UILabel!
-  @IBOutlet weak var newWalletButton: UIButton!
-  @IBOutlet weak var importWalletButton: UIButton!
+  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var subtitleLabel: UILabel!
+  @IBOutlet var newWalletButton: UIButton!
+  @IBOutlet var importWalletButton: UIButton!
 
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -66,9 +66,13 @@ class WelcomeViewController: UIViewController {
     let privateKey = UIAlertAction(title: Localized.welcomeImportPrivate(), style: .default) { [unowned self] _ in
       self.output.didImportPrivateKeyPressed()
     }
+    let mnemonic = UIAlertAction(title: Localized.welcomeImportMnemonic(), style: .default) { [unowned self] _ in
+      self.output.didImportMnemonicPressed()
+    }
     let cancel = UIAlertAction(title: Localized.commonCancel(), style: .cancel, handler: nil)
     sheet.addAction(jsonKey)
     sheet.addAction(privateKey)
+    sheet.addAction(mnemonic)
     sheet.addAction(cancel)
 
     present(sheet, animated: true, completion: nil)

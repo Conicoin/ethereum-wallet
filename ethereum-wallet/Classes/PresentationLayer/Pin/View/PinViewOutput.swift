@@ -15,4 +15,5 @@ protocol PinViewOutput: class {
   func didAddSign(_ sign: String)
   func didDeleteSign()
   func didTouchIdPressed()
+  func didPrivacyPressed()
 }

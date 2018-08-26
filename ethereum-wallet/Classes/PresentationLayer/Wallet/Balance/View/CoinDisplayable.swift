@@ -76,12 +76,12 @@ extension CoinDisplayable {
 
 extension Coin: CoinDisplayable {
   
-  var gasLimit: Decimal {
-    return Constants.Send.defaultGasLimit
+  var color: UIColor {
+    return .white
   }
   
-  var color: UIColor {
-    return Theme.Color.ethereum
+  var gasLimit: Decimal {
+    return Constants.Send.defaultGasLimit
   }
   
   var contract: String? {
@@ -113,7 +113,7 @@ extension Token: CoinDisplayable {
   }
   
   var color: UIColor {
-    return Theme.Color.token
+    return Theme.Color.gray
   }
   
   var contract: String? {

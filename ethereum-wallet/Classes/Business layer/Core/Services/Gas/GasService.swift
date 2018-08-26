@@ -21,31 +21,19 @@ class GasService: GasServiceProtocol {
   
   private let client: GethEthereumClient
   private let context: GethContext
-  private let inputBuilder: EthTxInputBuilderProtocol
+  private let callMsgBuilder: GasCallMsgBuilder
   
-  init(core: EthereumCoreProtocol, inputBuilder: EthTxInputBuilderProtocol) {
+  init(core: EthereumCoreProtocol, callMsgBuilder: GasCallMsgBuilder) {
     self.client = core.client
     self.context = core.context
-    self.inputBuilder = inputBuilder
+    self.callMsgBuilder = callMsgBuilder
   }
   
-  func getSuggestedGasLimit(from: String, to: String, gasPrice: Decimal, amount: Decimal, result: @escaping (Result<Decimal>) -> Void) {
+  func getSuggestedGasLimit(from: String, to: String, amount: Decimal, settings: SendSettings, result: @escaping (Result<Decimal>) -> Void) {
+    
     Ethereum.syncQueue.async { [unowned self] in
       do {
-        let msg = GethNewCallMsg()!
-        let toAddress = GethAddress(fromHex: to)
-        msg.setTo(toAddress)
-       
-        let fromAddress = GethAddress(fromHex: from)
-        msg.setFrom(fromAddress)
-        
-        let bigInt = GethNewBigInt(0)!
-        let weiAmount = amount * 1e18
-        bigInt.setString(weiAmount.toHex(), base: 16)
-        msg.setValue(bigInt)
-        
-        let data = try self.inputBuilder.createInput(amount: amount, receiverAddress: to)
-        msg.setData(data)
+        let msg = try self.callMsgBuilder.build(from: from, to: to, amount: amount, settings: settings)
         
         var gasLimit: Int64 = 0
         try self.client.estimateGas(self.context, msg: msg, gas: &gasLimit)

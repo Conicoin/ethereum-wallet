@@ -19,23 +19,24 @@ import UIKit
 
 
 class SendViewController: UIViewController {
-  @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var sendButton: UIButton!
-  @IBOutlet weak var balanceLabel: UILabel!
-  @IBOutlet weak var currencyLabel: UILabel!
-  @IBOutlet weak var amountTextField: UITextField!
-  @IBOutlet weak var currencyButton: UIButton!
-  @IBOutlet weak var localAmountLabel: UILabel!
-  @IBOutlet weak var recepientTextField: DefaultTextField!
-  @IBOutlet weak var scanQrButton: UIButton!
-  @IBOutlet weak var feeTitleLabel: UILabel!
-  @IBOutlet weak var totalTitleLabel: UILabel!
-  @IBOutlet weak var feeLabel: UILabel!
-  @IBOutlet weak var totalLabel: UILabel!
-  @IBOutlet weak var keyboardConstraint: NSLayoutConstraint!
+  @IBOutlet var scrollView: UIScrollView!
+  @IBOutlet var sendButton: UIButton!
+  @IBOutlet var balanceLabel: UILabel!
+  @IBOutlet var currencyLabel: UILabel!
+  @IBOutlet var amountTextField: UITextField!
+  @IBOutlet var currencyButton: UIButton!
+  @IBOutlet var localAmountLabel: UILabel!
+  @IBOutlet var recepientTextField: DefaultTextField!
+  @IBOutlet var scanQrButton: UIButton!
+  @IBOutlet var feeTitleLabel: UILabel!
+  @IBOutlet var totalTitleLabel: UILabel!
+  @IBOutlet var feeLabel: UILabel!
+  @IBOutlet var totalLabel: UILabel!
+  @IBOutlet var keyboardConstraint: NSLayoutConstraint!
   
   
   var output: SendViewOutput!
+  var amountFormatter: AmountFormatterProtocol!
   
   // MARK: Life cycle
   
@@ -61,6 +62,7 @@ class SendViewController: UIViewController {
   }
   
   private func setupTextFields() {
+    amountTextField.keyboardType = amountFormatter.allowFraction ? .decimalPad : .numberPad
     recepientTextField.textField.setRightPadding(30)
   }
   
@@ -142,4 +144,16 @@ extension SendViewController: SendViewInput {
     amountTextField?.becomeFirstResponder()
   }
 
+}
+
+// MARK: - UITextFieldDelegate
+
+extension SendViewController: UITextFieldDelegate {
+  
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    let currentText = textField.text ?? ""
+    let replacementText = (currentText as NSString).replacingCharacters(in: range, with: string)
+    return amountFormatter.isValidDecimal(input: replacementText)
+  }
+  
 }

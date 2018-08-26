@@ -23,21 +23,41 @@ extension Keychain {
     case jsonKey = "json_key_data"
     case passphrase = "passphrase"
     case isLocked = "is_locked"
+    case currenctAccount = "currenct_account"
+    case accounts = "accounts"
+    case hdWalletBackuped = "hd_wallet_backuped"
   }
   
   var isAccountBackuped: Bool {
     return exist(.jsonKey)
   }
   
-  var jsonKey: Data? {
+  var currentAccount: Int {
     get {
-      return getData(key: .jsonKey)
+      return getInt(key: .currenctAccount) ?? 0
     }
     set {
-      setData(newValue, for: .jsonKey)
+      setInt(newValue, for: .currenctAccount)
     }
   }
-    
+  
+  var accounts: [Account] {
+    get {
+      guard
+        let data = getData(key: .accounts),
+        let accounts = try? JSONDecoder().decode([Account].self, from: data) else {
+          return []
+      }
+      return accounts
+    }
+    set {
+      guard let data = try? JSONEncoder().encode(newValue) else {
+        fatalError("Cannot encode new account value")
+      }
+      setData(data, for: .accounts)
+    }
+  }
+  
   var passphrase: String? {
     get {
       return getString(for: .passphrase)
@@ -46,7 +66,7 @@ extension Keychain {
       setString(newValue, for: .passphrase)
     }
   }
-    
+  
   var isLocked: Bool {
     get {
       return getBool(for: .isLocked)
@@ -56,14 +76,17 @@ extension Keychain {
     }
   }
   
-  // MARK: - Getters
-  
-  func getJsonKey() throws -> Data {
-    guard let jsonKey = jsonKey else {
-      throw KeychainError.noJsonKey
+  var isHdWalletBackuped: Bool {
+    get {
+      return getBool(for: .hdWalletBackuped)
     }
-    return jsonKey
+    set {
+      setBool(newValue, for: .hdWalletBackuped)
+    }
   }
+  
+  // MARK: - Getters
+
   
   func getPassphrase() throws -> String {
     guard let passphrase = passphrase else {
@@ -73,7 +96,7 @@ extension Keychain {
   }
   
   var isAuthorized: Bool {
-    return passphrase != nil && jsonKey != nil
+    return passphrase != nil && !accounts.isEmpty
   }
   
   // MARK: - Utils

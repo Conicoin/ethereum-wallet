@@ -21,8 +21,9 @@ enum PinState {
   case backup
   case set
   case change
-  case restoreJson(key: Data)
-  case restorePrivate(key: Data)
+  case restoreJson
+  case restorePrivate
+  case restoreMnemonic
   case send(amount: String, address: String)
   case lock
 }
