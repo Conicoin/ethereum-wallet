@@ -10,5 +10,5 @@ import UIKit
 
 
 protocol PinRouterInput: class {
-
+  func presentPrivacyPolicy(from: UIViewController)
 }
