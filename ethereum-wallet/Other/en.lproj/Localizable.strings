@@ -15,6 +15,9 @@
 // - Common
 "mnemonic.common.delete" = "Delete";
 "mnemonic.common.cancel" = "Cancel";
+// - Screenshot
+"mnemonic.screenshot.title" = "Don't take a screenshot!";
+"mnemonic.screenshot.message" = "We strongly recommend not storing the recovery phrase using screenshot. It is not safe.";
 // - Writing state
 "mnemonic.writing.backup.title" = "Backup wallet";
 "mnemonic.writing.create.title" = "Wallet created!";

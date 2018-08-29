@@ -37,6 +37,7 @@ class MnemonicViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     localize()
+    setupNotifications()
     output.viewIsReady()
   }
   
@@ -57,6 +58,21 @@ class MnemonicViewController: UIViewController {
   private func localize() {
     clearButton.setTitle(Localized.mnemonicCommonCancel(), for: .normal)
     skipButton.setTitle(Localized.commonNotNow(), for: .normal)
+  }
+  
+  private func setupNotifications() {
+    NotificationCenter.default.addObserver(forName: .UIApplicationUserDidTakeScreenshot, object: nil, queue: OperationQueue.main) { [unowned self] notification in
+      self.showScreenshotsAreInsecure()
+    }
+  }
+  
+  private func showScreenshotsAreInsecure() {
+    let alert = UIAlertController(title: Localized.mnemonicScreenshotTitle(),
+                                  message: Localized.mnemonicScreenshotMessage(),
+                                  preferredStyle: .alert)
+    let action = UIAlertAction(title: Localized.commonOk(), style: .default, handler: nil)
+    alert.addAction(action)
+    present(alert, animated: true, completion: nil)
   }
   
   // MARK: Actions

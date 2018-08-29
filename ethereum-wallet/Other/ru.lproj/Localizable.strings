@@ -15,6 +15,9 @@
 // - Common
 "mnemonic.common.delete" = "Удалить";
 "mnemonic.common.cancel" = "Отмена";
+// - Screenshot
+"mnemonic.screenshot.title" = "Не делайте снимок экрана!";
+"mnemonic.screenshot.message" = "Мы настоятельно рекомендуем не сохранять фразу восстановления с помощью скриншота. Это небезопасно.";
 // - Writing state
 "mnemonic.writing.backup.title" = "Резервная копия";
 "mnemonic.writing.create.title" = "Кошелёк создан!";
