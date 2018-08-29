@@ -1,10 +1,5 @@
-//
-//  NewPinState.swift
-//  PinLock
-//
-//  Created by Yanko Dimitrov on 8/28/15.
-//  Copyright © 2015 Yanko Dimitrov. All rights reserved.
-//
+// Copyright © 2018 Conicoin LLC. All rights reserved.
+// Created by Artur Guseinov
 
 import Foundation
 

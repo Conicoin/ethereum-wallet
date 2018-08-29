@@ -1,10 +1,8 @@
-//
-//  BorderView.swift
-//  ethereum-wallet
-//
-//  Created by Artur Guseinov on 20/03/2018.
-//  Copyright © 2018 Artur Guseinov. All rights reserved.
-//
+/*
+
+ Copyright DApps Platform Inc. All rights reserved.
+ 
+ */
 
 import UIKit
 

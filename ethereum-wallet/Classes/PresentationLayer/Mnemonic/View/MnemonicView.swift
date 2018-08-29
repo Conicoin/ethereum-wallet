@@ -1,10 +1,5 @@
-//
-//  MnemonicView.swift
-//  ethereum-wallet
-//
-//  Created by Artur Guseinov 18/05/2018.
-//  Copyright © 2018 Universa. All rights reserved.
-//
+// Copyright © 2018 Conicoin LLC. All rights reserved.
+// Created by Artur Guseinov
 
 import UIKit
 
