@@ -3,11 +3,12 @@
 
 
 import Foundation
+import FirebaseCore
 
 class ThirdPartiesConfigurator: ConfiguratorProtocol {
 
     func configure() {
-        
+      FirebaseApp.configure()
     }
     
 }
