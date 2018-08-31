@@ -1637,13 +1637,13 @@
 			path = "ethereum-wallet";
 			sourceTree = "<group>";
 		};
-		144E4F271EB26F6F00AB62B6 /* Application layer */ = {
+		144E4F271EB26F6F00AB62B6 /* ApplicationLayer */ = {
 			isa = PBXGroup;
 			children = (
 				144791CA1EF5DDB700029818 /* Configurators */,
 				14ACA1D61EF2BC840059E430 /* AppDelegate.swift */,
 			);
-			path = "Application layer";
+			path = ApplicationLayer;
 			sourceTree = "<group>";
 		};
 		144E4F291EB26FA300AB62B6 /* Other */ = {
@@ -1662,7 +1662,7 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
-		144E4F341EB276C700AB62B6 /* Business layer */ = {
+		144E4F341EB276C700AB62B6 /* BusinessLayer */ = {
 			isa = PBXGroup;
 			children = (
 				14D027E91EF87A0800F125C3 /* Networking */,
@@ -1671,7 +1671,7 @@
 				1438CCDD1EF1AD1000C6AA3F /* Core */,
 				1438CCE01EF1BD8B00C6AA3F /* Models */,
 			);
-			path = "Business layer";
+			path = BusinessLayer;
 			sourceTree = "<group>";
 		};
 		144E4F381EB2772B00AB62B6 /* Common */ = {
@@ -2801,8 +2801,8 @@
 		A2251194F61DB599D5E01A72 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				144E4F271EB26F6F00AB62B6 /* Application layer */,
-				144E4F341EB276C700AB62B6 /* Business layer */,
+				144E4F271EB26F6F00AB62B6 /* ApplicationLayer */,
+				144E4F341EB276C700AB62B6 /* BusinessLayer */,
 				8815D5D7C051348FBFB6EF59 /* PresentationLayer */,
 			);
 			path = Classes;
@@ -4045,7 +4045,7 @@
 			baseConfigurationReference = B834834667914EC3CD72ADFB /* Pods-ethereum-wallet.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Debug";
 				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
 				DEVELOPMENT_TEAM = BY9338Q38W;
 				ENABLE_BITCODE = NO;

@@ -27,7 +27,10 @@ extension API.Token: APIMethodProtocol {
     var params: Params? {
         switch self {
         case .tokens(let address):
-            return ["address": address]
+          return [
+            "address": address,
+            "showBalance": true
+          ]
         }
     }
     
