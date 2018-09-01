@@ -8,7 +8,7 @@ final class Defaults: NSObject {
   
   class var chain: Chain {
     get {
-#if DEBUG
+#if TESTNET
       return Chain.rinkeby
 #else
       return Chain.mainnet

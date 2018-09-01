@@ -840,6 +840,7 @@
 		15D6A828CBBB375AA0772577 /* SettingsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		191C6EF77015406A6D98FAB4 /* TransactionsInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionsInteractorInput.swift; sourceTree = "<group>"; };
 		19A624B7DF9FFCA9A37DD38A /* ReceiveViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceiveViewInput.swift; sourceTree = "<group>"; };
+		19BF69F5088DCA6CEDA48783 /* Pods-ConicoinTests.debug-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.debug-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.debug-testnet.xcconfig"; sourceTree = "<group>"; };
 		19D4E2B230F1BEF510021861 /* SendSettingsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendSettingsRouter.swift; sourceTree = "<group>"; };
 		19DC5D16B90BBE43FAAB80B5 /* Pods-ConicoinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B3CD3B80C8D97EC588048AE /* TokenDetailsInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenDetailsInteractorInput.swift; sourceTree = "<group>"; };
@@ -853,6 +854,7 @@
 		2817AD5218AD0DB8D88254FD /* TransactionsRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionsRouterInput.swift; sourceTree = "<group>"; };
 		2A16C41784EB983A2AE1EB53 /* TransactionDetailsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionDetailsViewController.swift; sourceTree = "<group>"; };
 		2A1B05BBF34036502A08CF04 /* SendModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendModuleOutput.swift; sourceTree = "<group>"; };
+		2B0E99DC3F7F6C1E30F72034 /* Pods-ethereum-wallet.release-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.release-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.release-mainnet.xcconfig"; sourceTree = "<group>"; };
 		2C90E0C95DE2D2220FE520BD /* SendSettingsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendSettingsInteractor.swift; sourceTree = "<group>"; };
 		2CEC681B61FDE740E4E91C64 /* ReceiveInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceiveInteractorOutput.swift; sourceTree = "<group>"; };
 		2D72F5ABCD8DFB41D0688DFD /* BalanceInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BalanceInteractor.swift; sourceTree = "<group>"; };
@@ -872,6 +874,7 @@
 		3D3ACF0BD6769176BB96ACF6 /* ImportPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImportPresenter.swift; sourceTree = "<group>"; };
 		3E18C42830BB0F8436D54E5D /* TabBarViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarViewInput.swift; sourceTree = "<group>"; };
 		3F59F832CE11710531461201 /* TransactionsViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = TransactionsViewOutput.swift; sourceTree = "<group>"; tabWidth = 2; };
+		42236BEEABE19005A8FBE825 /* Pods-ethereum-wallet.release-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.release-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.release-testnet.xcconfig"; sourceTree = "<group>"; };
 		425AA56082049CE1373546AC /* PopupModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupModule.swift; sourceTree = "<group>"; };
 		42FA221A135752B823D04202 /* ScanViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		43F6C70950F299B1447B75AA /* TransactionDetailsInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionDetailsInteractorOutput.swift; sourceTree = "<group>"; };
@@ -882,6 +885,7 @@
 		4C4FBD9F0314F52227735854 /* WelcomeModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeModuleOutput.swift; sourceTree = "<group>"; };
 		4E3426DB656103BBB2C62F6B /* PopupInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupInteractorOutput.swift; sourceTree = "<group>"; };
 		4F57E63DA91AC3E740BF56EA /* ScanModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanModuleInput.swift; sourceTree = "<group>"; };
+		52899099C4759451204CC95B /* Pods-ethereum-wallet.debug-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.debug-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.debug-testnet.xcconfig"; sourceTree = "<group>"; };
 		538BCAD67BCD32560D98C164 /* TransactionDetailsInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionDetailsInteractorInput.swift; sourceTree = "<group>"; };
 		54463C19B415435B550F67E7 /* TabBarPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		546B27889626E648F111EC24 /* ScanInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanInteractorInput.swift; sourceTree = "<group>"; };
@@ -900,6 +904,7 @@
 		677A0ECFE705A9AFC8A12E4C /* PinInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinInteractorOutput.swift; sourceTree = "<group>"; };
 		67BD8CAD9C02AE0DE1C3E117 /* BalanceViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BalanceViewInput.swift; sourceTree = "<group>"; };
 		6859D742E7112858FAA3115D /* TransactionDetailsModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionDetailsModuleInput.swift; sourceTree = "<group>"; };
+		6E48510DBD6EDCC7940438E9 /* Pods-ConicoinTests.debug-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.debug-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.debug-mainnet.xcconfig"; sourceTree = "<group>"; };
 		6EA5F06632B359BF9D5A21DF /* SettingsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		6FE838B31590E2C4FCE4A0C2 /* ReceivePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceivePresenter.swift; sourceTree = "<group>"; };
 		70FAE3F1DF0A10E415B5D796 /* SettingsInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsInteractorOutput.swift; sourceTree = "<group>"; };
@@ -913,6 +918,7 @@
 		77052E03680C618182BE6617 /* ChooseCurrencyModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyModule.swift; sourceTree = "<group>"; };
 		774E5CAF2E21BBC59117ADF9 /* SendPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendPresenter.swift; sourceTree = "<group>"; };
 		794AD7FD6FA6F063085095D1 /* PopupViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupViewInput.swift; sourceTree = "<group>"; };
+		7B74C3B21EC22BB4EB4C5D09 /* Pods-ConicoinTests.release-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.release-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.release-mainnet.xcconfig"; sourceTree = "<group>"; };
 		7C0729BE8A71046B71CA4ED2 /* SettingsViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewOutput.swift; sourceTree = "<group>"; };
 		7C725EBC64867089872BB663 /* ChooseCurrencyPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyPresenter.swift; sourceTree = "<group>"; };
 		7F3895946093FC198882B60F /* TransactionsViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionsViewInput.swift; sourceTree = "<group>"; };
@@ -936,6 +942,7 @@
 		9C01E571FD79C1E5EDCAE3BA /* WelcomeInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeInteractorInput.swift; sourceTree = "<group>"; };
 		9DD6F87780F64579175D8908 /* PinPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinPresenter.swift; sourceTree = "<group>"; };
 		9EDA2C9F519F002EC7267300 /* TransactionDetailsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionDetailsInteractor.swift; sourceTree = "<group>"; };
+		A07778E326E53969F1231E2E /* Pods-ethereum-wallet.debug-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.debug-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.debug-mainnet.xcconfig"; sourceTree = "<group>"; };
 		A0FFCC868F7946A71432BA56 /* PinModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinModuleInput.swift; sourceTree = "<group>"; };
 		A1BF524F725DA883ADC52831 /* TokenDetailsInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenDetailsInteractorOutput.swift; sourceTree = "<group>"; };
 		A2454C178684434DB69F1710 /* BalanceViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
@@ -962,6 +969,7 @@
 		C3A40D5913DCE9080D876034 /* PopupRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupRouterInput.swift; sourceTree = "<group>"; };
 		C757FFEB953C5FFFA39F32FF /* SendViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendViewInput.swift; sourceTree = "<group>"; };
 		C790DDDB03481D64B7A0A3D1 /* WelcomeViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeViewInput.swift; sourceTree = "<group>"; };
+		C8A194B3420E01E69766F466 /* Pods-ConicoinTests.release-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.release-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.release-testnet.xcconfig"; sourceTree = "<group>"; };
 		CB85AC8A6014A24225C4FAFA /* TabBarInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
 		CE5D9A11950E3B27A1FB3D56 /* TransactionsModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionsModuleOutput.swift; sourceTree = "<group>"; };
 		D1A1338A7761CAB7E83DB2D9 /* ChooseCurrencyModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyModuleOutput.swift; sourceTree = "<group>"; };
@@ -2612,6 +2620,14 @@
 				DE6F9707DDBE82DF4B4E531E /* Pods-ConicoinTests.release.xcconfig */,
 				B834834667914EC3CD72ADFB /* Pods-ethereum-wallet.debug.xcconfig */,
 				B4354994BC376C3BEB2AAD92 /* Pods-ethereum-wallet.release.xcconfig */,
+				19BF69F5088DCA6CEDA48783 /* Pods-ConicoinTests.debug-testnet.xcconfig */,
+				6E48510DBD6EDCC7940438E9 /* Pods-ConicoinTests.debug-mainnet.xcconfig */,
+				C8A194B3420E01E69766F466 /* Pods-ConicoinTests.release-testnet.xcconfig */,
+				7B74C3B21EC22BB4EB4C5D09 /* Pods-ConicoinTests.release-mainnet.xcconfig */,
+				52899099C4759451204CC95B /* Pods-ethereum-wallet.debug-testnet.xcconfig */,
+				A07778E326E53969F1231E2E /* Pods-ethereum-wallet.debug-mainnet.xcconfig */,
+				42236BEEABE19005A8FBE825 /* Pods-ethereum-wallet.release-testnet.xcconfig */,
+				2B0E99DC3F7F6C1E30F72034 /* Pods-ethereum-wallet.release-mainnet.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -3875,9 +3891,108 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		14004B91205D41AB00EA8199 /* Debug */ = {
+		14929DBB213B51A900C5B83C /* Debug-Testnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19DC5D16B90BBE43FAAB80B5 /* Pods-ConicoinTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TESTNET=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DTESTNET -DDEBUG";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Weverything",
+				);
+			};
+			name = "Debug-Testnet";
+		};
+		14929DBC213B51A900C5B83C /* Debug-Testnet */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52899099C4759451204CC95B /* Pods-ethereum-wallet.debug-testnet.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APP_DISPLAY_NAME = "Conicoin Testnet";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Testnet";
+				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
+				DEVELOPMENT_TEAM = BY9338Q38W;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ethereum-wallet",
+				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"";
+				INFOPLIST_FILE = "ethereum-wallet/Other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ethereum-wallet",
+					"$(PROJECT_DIR)/ethereum-wallet/Other/External/Crypto/openssl/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.conicoin.conicoinwallet.testnet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
+				SWIFT_OBJC_BRIDGING_HEADER = "./ethereum-wallet/Other/Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = "Debug-Testnet";
+		};
+		14929DBD213B51A900C5B83C /* Debug-Testnet */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19BF69F5088DCA6CEDA48783 /* Pods-ConicoinTests.debug-testnet.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -3899,34 +4014,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ethereum-wallet.app/ethereum-wallet";
 			};
-			name = Debug;
+			name = "Debug-Testnet";
 		};
-		14004B92205D41AB00EA8199 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE6F9707DDBE82DF4B4E531E /* Pods-ConicoinTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9XXJGN69B;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ConicoinTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AG.ConicoinTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ConicoinTests/ConicoinTests-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ethereum-wallet.app/ethereum-wallet";
-			};
-			name = Release;
-		};
-		144E4F221EB26F0600AB62B6 /* Debug */ = {
+		14929DBE213B51BC00C5B83C /* Debug-Mainnet */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -3980,6 +4070,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3989,9 +4080,181 @@
 					"-Weverything",
 				);
 			};
-			name = Debug;
+			name = "Debug-Mainnet";
 		};
-		144E4F231EB26F0600AB62B6 /* Release */ = {
+		14929DBF213B51BC00C5B83C /* Debug-Mainnet */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A07778E326E53969F1231E2E /* Pods-ethereum-wallet.debug-mainnet.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APP_DISPLAY_NAME = Conicoin;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
+				DEVELOPMENT_TEAM = BY9338Q38W;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ethereum-wallet",
+				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"";
+				INFOPLIST_FILE = "ethereum-wallet/Other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ethereum-wallet",
+					"$(PROJECT_DIR)/ethereum-wallet/Other/External/Crypto/openssl/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.conicoin.conicoinwallet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
+				SWIFT_OBJC_BRIDGING_HEADER = "./ethereum-wallet/Other/Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = "Debug-Mainnet";
+		};
+		14929DC0213B51BC00C5B83C /* Debug-Mainnet */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E48510DBD6EDCC7940438E9 /* Pods-ConicoinTests.debug-mainnet.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9XXJGN69B;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ConicoinTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AG.ConicoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ConicoinTests/ConicoinTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ethereum-wallet.app/ethereum-wallet";
+			};
+			name = "Debug-Mainnet";
+		};
+		14929DC1213B51CF00C5B83C /* Release-Testnet */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "TESTNET=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_SWIFT_FLAGS = "-DTESTNET";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release-Testnet";
+		};
+		14929DC2213B51CF00C5B83C /* Release-Testnet */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42236BEEABE19005A8FBE825 /* Pods-ethereum-wallet.release-testnet.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APP_DISPLAY_NAME = "Conicoin Testnet";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Testnet";
+				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = BY9338Q38W;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ethereum-wallet",
+				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"";
+				INFOPLIST_FILE = "ethereum-wallet/Other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ethereum-wallet",
+					"$(PROJECT_DIR)/ethereum-wallet/Other/External/Crypto/openssl/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.conicoin.conicoinwallet.testnet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
+				SWIFT_OBJC_BRIDGING_HEADER = "./ethereum-wallet/Other/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = "Release-Testnet";
+		};
+		14929DC3213B51CF00C5B83C /* Release-Testnet */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8A194B3420E01E69766F466 /* Pods-ConicoinTests.release-testnet.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9XXJGN69B;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ConicoinTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AG.ConicoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ConicoinTests/ConicoinTests-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ethereum-wallet.app/ethereum-wallet";
+			};
+			name = "Release-Testnet";
+		};
+		14929DC4213B51E300C5B83C /* Release-Mainnet */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -4038,48 +4301,19 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = "Release-Mainnet";
 		};
-		144E4F251EB26F0600AB62B6 /* Debug */ = {
+		14929DC5213B51E300C5B83C /* Release-Mainnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B834834667914EC3CD72ADFB /* Pods-ethereum-wallet.debug.xcconfig */;
+			baseConfigurationReference = 2B0E99DC3F7F6C1E30F72034 /* Pods-ethereum-wallet.release-mainnet.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Debug";
-				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
-				DEVELOPMENT_TEAM = BY9338Q38W;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ethereum-wallet",
-				);
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"";
-				INFOPLIST_FILE = "ethereum-wallet/Other/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ethereum-wallet",
-					"$(PROJECT_DIR)/ethereum-wallet/Other/External/Crypto/openssl/lib",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.conicoin.conicoinwallet;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
-				SWIFT_OBJC_BRIDGING_HEADER = "./ethereum-wallet/Other/Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		144E4F261EB26F0600AB62B6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4354994BC376C3BEB2AAD92 /* Pods-ethereum-wallet.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APP_DISPLAY_NAME = Conicoin;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -4106,7 +4340,32 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
-			name = Release;
+			name = "Release-Mainnet";
+		};
+		14929DC6213B51E300C5B83C /* Release-Mainnet */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B74C3B21EC22BB4EB4C5D09 /* Pods-ConicoinTests.release-mainnet.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9XXJGN69B;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ConicoinTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AG.ConicoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ConicoinTests/ConicoinTests-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ethereum-wallet.app/ethereum-wallet";
+			};
+			name = "Release-Mainnet";
 		};
 /* End XCBuildConfiguration section */
 
@@ -4114,29 +4373,35 @@
 		14004B90205D41AB00EA8199 /* Build configuration list for PBXNativeTarget "ConicoinTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				14004B91205D41AB00EA8199 /* Debug */,
-				14004B92205D41AB00EA8199 /* Release */,
+				14929DBD213B51A900C5B83C /* Debug-Testnet */,
+				14929DC0213B51BC00C5B83C /* Debug-Mainnet */,
+				14929DC3213B51CF00C5B83C /* Release-Testnet */,
+				14929DC6213B51E300C5B83C /* Release-Mainnet */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Debug-Testnet";
 		};
 		144E4F0D1EB26F0600AB62B6 /* Build configuration list for PBXProject "ethereum-wallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				144E4F221EB26F0600AB62B6 /* Debug */,
-				144E4F231EB26F0600AB62B6 /* Release */,
+				14929DBB213B51A900C5B83C /* Debug-Testnet */,
+				14929DBE213B51BC00C5B83C /* Debug-Mainnet */,
+				14929DC1213B51CF00C5B83C /* Release-Testnet */,
+				14929DC4213B51E300C5B83C /* Release-Mainnet */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Debug-Testnet";
 		};
 		144E4F241EB26F0600AB62B6 /* Build configuration list for PBXNativeTarget "ethereum-wallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				144E4F251EB26F0600AB62B6 /* Debug */,
-				144E4F261EB26F0600AB62B6 /* Release */,
+				14929DBC213B51A900C5B83C /* Debug-Testnet */,
+				14929DBF213B51BC00C5B83C /* Debug-Mainnet */,
+				14929DC2213B51CF00C5B83C /* Release-Testnet */,
+				14929DC5213B51E300C5B83C /* Release-Mainnet */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Debug-Testnet";
 		};
 /* End XCConfigurationList section */
 	};
