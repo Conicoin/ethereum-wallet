@@ -196,6 +196,7 @@
 		1484E5D2212C614B008F71BD /* BackupServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1484E5D1212C614B008F71BD /* BackupServiceProtocol.swift */; };
 		1485B4372089353500FB4C85 /* token-icons in Resources */ = {isa = PBXBuildFile; fileRef = 1485B4362089353500FB4C85 /* token-icons */; };
 		1489ED1D1F9C0EE800E0A5FC /* Data+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1489ED1C1F9C0EE800E0A5FC /* Data+Helpers.swift */; };
+		14929DB7213B42AD00C5B83C /* TokenBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14929DB6213B42AD00C5B83C /* TokenBalance.swift */; };
 		14958E4B1FB7A4D3005CFC6C /* Decimal+Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */; };
 		14991D742056943A0046E6CD /* PinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991D732056943A0046E6CD /* PinService.swift */; };
 		14991D7B205699840046E6CD /* ChangePinState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14991D76205699830046E6CD /* ChangePinState.swift */; };
@@ -733,6 +734,7 @@
 		1484E5D1212C614B008F71BD /* BackupServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupServiceProtocol.swift; sourceTree = "<group>"; };
 		1485B4362089353500FB4C85 /* token-icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "token-icons"; sourceTree = SOURCE_ROOT; };
 		1489ED1C1F9C0EE800E0A5FC /* Data+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Helpers.swift"; sourceTree = "<group>"; };
+		14929DB6213B42AD00C5B83C /* TokenBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenBalance.swift; sourceTree = "<group>"; };
 		14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Ethereum.swift"; sourceTree = "<group>"; };
 		14991D732056943A0046E6CD /* PinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
 		14991D76205699830046E6CD /* ChangePinState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePinState.swift; sourceTree = "<group>"; };
@@ -2097,6 +2099,7 @@
 				1400FBB81F997DC100EBC84C /* Wallet.swift */,
 				14F419251F9BF88E000C500A /* Transaction.swift */,
 				14786EEA201E7A1C009ECC11 /* TokenMeta.swift */,
+				14929DB6213B42AD00C5B83C /* TokenBalance.swift */,
 			);
 			name = Plain;
 			sourceTree = "<group>";
@@ -3753,6 +3756,7 @@
 				EFE52FD393A96B96AD99DF85 /* TokenDetailsModuleInput.swift in Sources */,
 				737CA34C9BBE98D896697F39 /* TokenDetailsModuleOutput.swift in Sources */,
 				1409BF4C2114A8C400DBCADC /* WalletCreationInfo.swift in Sources */,
+				14929DB7213B42AD00C5B83C /* TokenBalance.swift in Sources */,
 				AD78CBB127C68F8C4A5BEC93 /* TokenDetailsModule.swift in Sources */,
 				14B126BB205BDD4D00B98AE1 /* ImportJsonVerificator.swift in Sources */,
 				14991D7F205699840046E6CD /* NewPinState.swift in Sources */,
@@ -4098,6 +4102,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_OBJC_BRIDGING_HEADER = "./ethereum-wallet/Other/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

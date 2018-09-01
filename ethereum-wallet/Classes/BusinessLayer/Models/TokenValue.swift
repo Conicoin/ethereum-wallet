@@ -6,15 +6,17 @@ import UIKit
 
 struct TokenValue: Currency {
   
-  let raw: Decimal
-  let value: Double
+  var raw: Decimal
   let name: String
   let iso: String
   let decimals: Int
   
+  var value: Double {
+    return raw.double / pow(10, Double(decimals))
+  }
+  
   init(wei value: Decimal, name: String, iso: String, decimals: Int) {
     self.raw = value
-    self.value = value.double / pow(10, Double(decimals))
     self.name = name
     self.iso = iso
     self.decimals = decimals
@@ -22,7 +24,6 @@ struct TokenValue: Currency {
   
   init(_ value: Decimal, name: String, iso: String, decimals: Int) {
     self.raw = value * Decimal(pow(10, Double(decimals)))
-    self.value = value.double
     self.name = name
     self.iso = iso
     self.decimals = decimals

@@ -7,22 +7,21 @@ import UIKit
 
 struct Ether {
   
-  let raw: Decimal
-  let value: Double
+  var raw: Decimal
+  var value: Double {
+    return raw.double / 1e18
+  }
 
   init(_ value: Decimal) {
     self.raw = value * 1e18
-    self.value = value.double
   }
   
   init(weiValue: Decimal) {
     self.raw = weiValue
-    self.value = weiValue.double / 1e18
   }
   
   init(_ double: Double) {
     self.raw = Decimal(double) * 1e18
-    self.value = double
   }
   
   init(_ string: String) {
