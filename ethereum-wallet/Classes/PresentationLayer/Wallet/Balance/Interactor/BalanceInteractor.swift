@@ -26,13 +26,13 @@ class BalanceInteractor {
       tokensNetworkService.getBalanceForToken(contractAddress: token.address,
                                               address: address,
                                               queue: .global()) { [weak self] result in
-        switch result {
-        case .success(let balanceObj):
-          updatedTokens[i].balance.raw = balanceObj.balance
-        case .failure(let error):
-          print(error.localizedDescription)
-        }
-        self?.group.leave()
+                                                switch result {
+                                                case .success(let balanceObj):
+                                                  updatedTokens[i].balance.raw = balanceObj.balance
+                                                case .failure(let error):
+                                                  print(error.localizedDescription)
+                                                }
+                                                self?.group.leave()
       }
     }
     
@@ -94,10 +94,11 @@ extension BalanceInteractor: BalanceInteractorInput {
       self?.output.didReceiveCoins(coins)
     }
   }
-    
+  
   func getTokensFromDataBase() {
     tokensDataStoreService.observe { [weak self] tokens in
-        self?.output.didReceiveTokens(tokens)
+      let notEmpty = tokens.filter { $0.balance.raw != 0 }
+      self?.output.didReceiveTokens(notEmpty)
     }
   }
   
