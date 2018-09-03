@@ -15,6 +15,31 @@ class BalanceInteractor {
   var ratesDataStoreService: RatesDataStoreServiceProtocol!
   var tokensNetworkService: TokensNetworkServiceProtocol!
   var tokensDataStoreService: TokenDataStoreServiceProtocol!
+  
+  let group = DispatchGroup()
+  
+  private func updateTokensBalance(_ tokens: [Token], address: String) {
+    var updatedTokens = tokens
+    for (i, token) in tokens.enumerated() {
+      group.enter()
+      
+      tokensNetworkService.getBalanceForToken(contractAddress: token.address,
+                                              address: address,
+                                              queue: .global()) { [weak self] result in
+                                                switch result {
+                                                case .success(let balanceObj):
+                                                  updatedTokens[i].balance.raw = balanceObj.balance
+                                                case .failure(let error):
+                                                  print(error.localizedDescription)
+                                                }
+                                                self?.group.leave()
+      }
+    }
+    
+    group.notify(queue: .global()) { [weak self] in
+      self?.tokensDataStoreService.save(updatedTokens)
+    }
+  }
 }
 
 
@@ -69,10 +94,11 @@ extension BalanceInteractor: BalanceInteractorInput {
       self?.output.didReceiveCoins(coins)
     }
   }
-    
+  
   func getTokensFromDataBase() {
     tokensDataStoreService.observe { [weak self] tokens in
-        self?.output.didReceiveTokens(tokens)
+      let notEmpty = tokens.filter { $0.balance.raw != 0 }
+      self?.output.didReceiveTokens(notEmpty)
     }
   }
   
@@ -97,7 +123,7 @@ extension BalanceInteractor: BalanceInteractorInput {
     tokensNetworkService.getTokens(address: address, queue: .global()) { [weak self] result in
       switch result {
       case .success(let tokens):
-        self?.tokensDataStoreService.save(tokens)
+        self?.updateTokensBalance(tokens, address: address)
       case .failure(let error):
         DispatchQueue.main.async {
           self?.output.didFailedTokensReceiving(with: error)

@@ -131,6 +131,7 @@ extension SendPresenter: SendInteractorOutput {
   }
   
   func didFailedSending(with error: Error) {
+    error.showAllertIfNeeded(from: view.viewController)
     view.loadingFilure()
   }
 }

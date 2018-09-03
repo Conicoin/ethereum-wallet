@@ -6,7 +6,7 @@
 import UIKit
 
 protocol Currency {
-  var raw: Decimal { get }
+  var raw: Decimal { get set }
   var value: Double { get }
   var name: String { get }
   var iso: String { get }

@@ -21,9 +21,9 @@ extension API.Push: APIMethodProtocol {
   var path: String {
     switch self {
     case .register:
-      return Defaults.chain.backend + "/push/register"
+      return Defaults.chain.pushBackend + "/push/register"
     case .unregister:
-      return Defaults.chain.backend + "/push/unregister"
+      return Defaults.chain.pushBackend + "/push/unregister"
     }
   }
   

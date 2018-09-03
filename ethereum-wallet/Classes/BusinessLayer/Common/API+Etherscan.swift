@@ -9,6 +9,7 @@ extension API {
   enum Etherscan {
     case transactions(address: String)
     case balance(address: String)
+    case tokenBalance(address: String, contractAddress: String)
   }
   
 }
@@ -44,6 +45,15 @@ extension API.Etherscan: APIMethodProtocol {
         "tag": "latest",
         "apiKey": Constants.Etherscan.apiKey
       ]
+    case .tokenBalance(let address, let contractAddress):
+        return [
+          "module": "account",
+          "action": "tokenbalance",
+          "contractaddress": contractAddress,
+          "address": address,
+          "tag": "latest",
+          "apikey": Constants.Etherscan.apiKey
+        ]
     }
   }
   
