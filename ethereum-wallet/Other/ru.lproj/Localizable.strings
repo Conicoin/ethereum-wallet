@@ -25,14 +25,14 @@
 "mnemonic.writing.button.title" = "Проверить";
 // - Verifying state
 "mnemonic.verifying.title" = "Проверка фразы восстановления";
-"mnemonic.verifying.subtitle" = "Введите фразу востановления в правильной последовательности. Это поможет убедиться в том, что вы правильно её записали";
+"mnemonic.verifying.subtitle" = "Введите фразу восстановления в правильной последовательности. Это поможет убедиться в том, что вы правильно её записали";
 // - Correct state
 "mnemonic.correct.title" = "Правильно!";
 "mnemonic.correct.subtitle" = "Храните вашу фразу восстановления в безопасном месте.\nОна понадобится вам для восстановления доступа к средствам";
 "mnemonic.correct.button.title" = "Продолжить";
 // - Incorrect state
 "mnemonic.incorrect.title" = "Не правильно!";
-"mnemonic.incorrect.subtitle" = "Потеряв фразу востановления вы больше не сможете получить доступ к вашим средствам.\nПожалуйста, попробуйте заново";
+"mnemonic.incorrect.subtitle" = "Потеряв фразу восстановления вы больше не сможете получить доступ к вашим средствам.\nПожалуйста, попробуйте заново";
 "mnemonic.incorrect.button.title" = "Начать заново";
 
 // MARK: - Welcome

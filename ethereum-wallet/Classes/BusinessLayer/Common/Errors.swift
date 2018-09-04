@@ -48,9 +48,15 @@ enum KeystoreError: CustomError {
 
 enum NetworkError: CustomError {
   case parseError
+  case localized
   
   var description: CustomError.ErrorInfo? {
-    return nil
+    switch self {
+    case .localized:
+      return (title: "Network error", message: "Something went wront. Please try again or contact with developers", showing: true)
+    case .parseError:
+      return nil
+    }
   }
 }
 
