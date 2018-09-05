@@ -48,6 +48,7 @@ R.generated.swift
 Templates/
 Rambafile
 Pods/
+builds/
 
 # Carthage
 #
