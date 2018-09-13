@@ -122,6 +122,21 @@ enum TouchIdError: CustomError {
   
 }
 
+// MARK: - TouchId errors
+
+enum PushError: CustomError {
+    
+    case disabled
+    
+    var description: ErrorInfo? {
+        switch self {
+        case .disabled:
+            return (Localized.popupPushErrorDisabledTitle(), Localized.popupPushErrorDisabledMessage(), true)
+        }
+    }
+    
+}
+
 // MARK: - Import errors
 
 enum ImportError: CustomError {

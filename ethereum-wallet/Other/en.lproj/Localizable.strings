@@ -165,6 +165,8 @@
 "popup.push.title" = "Push notifications";
 "popup.push.description" = "Be aware of all transactions to your address";
 "popup.push.confirm" = "Enable push notifications";
+"popup.push.error.disabled.title" = "Push notifications disabled";
+"popup.push.error.disabled.message" = "Please enable Push Notifications for the Conicoin Wallet in the device settings";
 
 // MARK: TouchId
 "touchId.error.title" = "Touch ID error";

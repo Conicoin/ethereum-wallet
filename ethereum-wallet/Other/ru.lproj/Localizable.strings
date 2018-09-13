@@ -165,6 +165,8 @@
 "popup.push.title" = "Push уведомления";
 "popup.push.description" = "И будьте в курсе всех входящих на ваш адрес транзакций";
 "popup.push.confirm" = "Включить push уведомления";
+"popup.push.error.disabled.title" = "Push уведомления отключены";
+"popup.push.error.disabled.message" = "Пожалуйста включите Push уведомления для Conicoin Wallet в настройках устройства";
 
 // MARK: TouchId
 "touchId.error.title" = "Ошибка Touch ID";
