@@ -8,7 +8,13 @@ import FirebaseCore
 class ThirdPartiesConfigurator: ConfiguratorProtocol {
 
     func configure() {
-      FirebaseApp.configure()
+#if TESTNET
+        let filePath = Bundle.main.path(forResource: "GoogleService-Info-Testnet", ofType: "plist")!
+#else
+        let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")!
+#endif
+        let options = FirebaseOptions(contentsOfFile: filePath)
+        FirebaseApp.configure(options: options!)
     }
     
 }
