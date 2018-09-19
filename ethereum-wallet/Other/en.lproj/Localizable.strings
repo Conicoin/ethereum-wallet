@@ -40,6 +40,7 @@
 "welcome.restore.title" = "Restore with passphrase";
 "welcome.import.title" = "Import wallet";
 "welcome.title" = "Welcome to Conicoin";
+"welcome.title.testnet" = "Welcome to Conicoin\nRinkeby Testnet";
 "welcome.subtitle" = "Lets start by creating a new wallet or restoring the existing one";
 "welcome.github.link" = "Source code available on Github";
 "welcome.import.alert" = "Import";
