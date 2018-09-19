@@ -6,6 +6,7 @@ import Foundation
 protocol PinServiceProtocol {
   
   var isTouchIDAllowed: Bool { get }
+  var biometricImage: String { get }
   
   var delegate: PinServiceDelegate? { get set }
   var configuration: PinConfigurationProtocol { get }

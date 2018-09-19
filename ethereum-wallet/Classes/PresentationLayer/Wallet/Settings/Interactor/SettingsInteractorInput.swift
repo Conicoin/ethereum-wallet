@@ -6,6 +6,7 @@
 import Foundation
 
 protocol SettingsInteractorInput: class {
+  var biometry: BiometryType { get }
   var passphrase: String { get }
   var accountType: AccountType { get }
   func getWallet()

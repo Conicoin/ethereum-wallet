@@ -128,7 +128,7 @@
 "settings.title" = "Настройки";
 "settings.currency" = "Выбранная валюта";
 "settings.changePasscode" = "Изменить пароль";
-"settings.touchId" = "Использовать Touch ID";
+"settings.biometic" = "Использовать %@";
 "settings.push" = "Push уведомления";
 "settings.backup" = "Создать резервную копию";
 "settings.rate" = "Оцените нас";

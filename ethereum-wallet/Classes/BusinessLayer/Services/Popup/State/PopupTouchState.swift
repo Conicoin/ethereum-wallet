@@ -7,9 +7,9 @@ fileprivate extension BiometryType {
   var imageName: String {
     switch self {
     case .faceId:
-      return "PopupFaceID"
+      return R.image.popupFaceID.name
     default:
-      return "PopuoTouchID"
+      return R.image.popupTouchID.name
     }
   }
 }

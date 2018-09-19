@@ -347,6 +347,7 @@
                         <outlet property="rateButton" destination="rGj-mp-hV8" id="7ad-as-gA4"/>
                         <outlet property="scrollView" destination="Yql-3K-yAb" id="A5f-y2-Hc3"/>
                         <outlet property="touchIdButton" destination="kaX-qn-FFd" id="d5Z-R7-AeC"/>
+                        <outlet property="touchIdImageView" destination="nXs-0Y-wue" id="0GB-P9-ISG"/>
                         <outlet property="touchIdSwitch" destination="ywv-oE-AO8" id="gKw-Aj-tnt"/>
                         <outlet property="versionLabel" destination="y5w-Mq-cug" id="c4A-fj-3Fi"/>
                     </connections>

@@ -12,6 +12,7 @@ class SettingsViewController: UIViewController {
   @IBOutlet var currencyIsoLabel: UILabel!
   @IBOutlet var currencyButton: UIButton!
   @IBOutlet var changePasscodeButton: UIButton!
+  @IBOutlet var touchIdImageView: UIImageView!
   @IBOutlet var touchIdButton: UIButton!
   @IBOutlet var touchIdSwitch: UISwitch!
   @IBOutlet var pushButton: UIButton!
@@ -39,7 +40,6 @@ class SettingsViewController: UIViewController {
   private func localize() {
     currencyButton.setTitle(Localized.settingsCurrency(), for: .normal)
     changePasscodeButton.setTitle(Localized.settingsChangePasscode(), for: .normal)
-    touchIdButton.setTitle(Localized.settingsTouchId(), for: .normal)
     pushButton.setTitle(Localized.settingsPush(), for: .normal)
     rateButton.setTitle(Localized.settingsRate(), for: .normal)
     backupButton.setTitle(Localized.settingsBackup(), for: .normal)
@@ -108,6 +108,11 @@ extension SettingsViewController: SettingsViewInput {
   
   func setIsTouchIdEnabled(_ isTouchIdEnabled: Bool) {
     touchIdSwitch.isOn = isTouchIdEnabled
+  }
+  
+  func setTouchId(title: String, image: String) {
+    touchIdButton.setTitle(title, for: .normal)
+    touchIdImageView.image = UIImage(named: image)
   }
   
   func setCurrency(_ currency: FiatCurrency) {

@@ -26,6 +26,15 @@ class PinService: PinServiceProtocol {
     return isTouchIDEnabled() && configuration.isTouchIDAllowed && lockState.isTouchIDAllowed
   }
   
+  var biometricImage: String {
+    switch biometryService.biometry {
+    case .faceId:
+      return R.image.pinFaceId.name
+    default:
+      return R.image.pinTouchId.name
+    }
+  }
+  
   func addSign(_ sign: String) {
     pin.append(sign)
     delegate?.pinLock(self, addedSignAtIndex: pin.count - 1)
