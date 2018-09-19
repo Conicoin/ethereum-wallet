@@ -3,6 +3,17 @@
 
 import Foundation
 
+fileprivate extension BiometryType {
+  var imageName: String {
+    switch self {
+    case .faceId:
+      return "PopupFaceID"
+    default:
+      return "PopuoTouchID"
+    }
+  }
+}
+
 class PopupTouchState: PopupStateProtocol {
   let resource: PopupResource
   let title: String
@@ -11,11 +22,12 @@ class PopupTouchState: PopupStateProtocol {
   let skipTitle: String?
   let isSkipActive: Bool
   
-  init() {
-    self.resource = .image(name: "PopupTouchID")
-    self.title = Localized.popupTouchTitle()
-    self.description = Localized.popupTouchDescription()
-    self.confirmTitle = Localized.popupTouchConfirm()
+  init(biometryService: BiometryServiceProtocol) {
+    let biometry = biometryService.biometry
+    self.resource = .image(name: biometry.imageName)
+    self.title = Localized.popupTouchTitle(biometry.label)
+    self.description = Localized.popupTouchDescription(biometry.label)
+    self.confirmTitle = Localized.popupTouchConfirm(biometry.label)
     self.skipTitle = Localized.commonNotNow()
     self.isSkipActive = true
   }

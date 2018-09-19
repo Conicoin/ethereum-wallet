@@ -126,6 +126,7 @@
 		1433BDC41FD750550081D872 /* StandardSyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC31FD750550081D872 /* StandardSyncCoordinator.swift */; };
 		1433BDC81FD76B9B0081D872 /* SyncMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC71FD76B9B0081D872 /* SyncMode.swift */; };
 		1433BDCA1FD76E010081D872 /* Bool+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433BDC91FD76E010081D872 /* Bool+Helpers.swift */; };
+		14350EF821529FB2005A6422 /* BiometryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14350EF721529FB2005A6422 /* BiometryService.swift */; };
 		1436EE27205D5F1B00196AAF /* KeyScrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14004BA2205D537000EA8199 /* KeyScrypt.swift */; };
 		1436EE28205D621700196AAF /* KeyScrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14004BA2205D537000EA8199 /* KeyScrypt.swift */; };
 		1436EE41205D931900196AAF /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE40205D931900196AAF /* Address.swift */; };
@@ -667,6 +668,7 @@
 		1433BDC31FD750550081D872 /* StandardSyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSyncCoordinator.swift; sourceTree = "<group>"; };
 		1433BDC71FD76B9B0081D872 /* SyncMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncMode.swift; sourceTree = "<group>"; };
 		1433BDC91FD76E010081D872 /* Bool+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Helpers.swift"; sourceTree = "<group>"; };
+		14350EF721529FB2005A6422 /* BiometryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryService.swift; sourceTree = "<group>"; };
 		1436EE40205D931900196AAF /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		1436EE43205EFB5800196AAF /* CustomPinState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinState.swift; sourceTree = "<group>"; };
 		144102D22053FE0A00F4D192 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
@@ -1504,6 +1506,14 @@
 			path = Gas;
 			sourceTree = "<group>";
 		};
+		14350EF621529F88005A6422 /* Biometrics */ = {
+			isa = PBXGroup;
+			children = (
+				14350EF721529FB2005A6422 /* BiometryService.swift */,
+			);
+			path = Biometrics;
+			sourceTree = "<group>";
+		};
 		1436EE3F205D931100196AAF /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -2078,6 +2088,7 @@
 		14C4D3CE1EDE209800FCA3AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				14350EF621529F88005A6422 /* Biometrics */,
 				1484E5CE212C5A86008F71BD /* Backup */,
 				1433852C2113828900FD7BE0 /* Resolvers */,
 				146CCBEC21131B96000C9DBF /* Account */,
@@ -3721,6 +3732,7 @@
 				140EE99D212DB879002BCEC2 /* GasCallMsgBuilder.swift in Sources */,
 				14280E6F1FE1F6F900121F85 /* TransactionDetailsShadowView.swift in Sources */,
 				3BBA8D91469D56637A0DD3C6 /* SettingsViewOutput.swift in Sources */,
+				14350EF821529FB2005A6422 /* BiometryService.swift in Sources */,
 				B1D42F37EADCD9AC65B5251D /* SettingsViewController.swift in Sources */,
 				145C8FF92068FD3000706DB6 /* TransactionHeaderCell.swift in Sources */,
 				14991D9420570EA20046E6CD /* PinServiceFactory.swift in Sources */,

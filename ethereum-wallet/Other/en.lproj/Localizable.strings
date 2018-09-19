@@ -5,6 +5,8 @@
 "common.ok" = "OK";
 "common.cancel" = "Cancel";
 "common.notNow" = "Not now";
+"common.touchId" = "Touch ID";
+"common.faceId" = "Face ID";
 
 // MARK: - Tabs
 "tab.balance" = "Balance";
@@ -156,9 +158,9 @@
 
 // MARK: Popup
 // - Touch Id
-"popup.touch.title" = "Unlock Conicoin with Touch ID";
-"popup.touch.description" = "Use your Touch ID for quick and easy entry.";
-"popup.touch.confirm" = "Use Touch ID";
+"popup.touch.title" = "Unlock Conicoin with %@";
+"popup.touch.description" = "Use your %@ for quick and easy entry.";
+"popup.touch.confirm" = "Use %@";
 // - Transaction Sent
 "popup.txSent.title" = "You have sent %@ to";
 "popup.txSent.confirm" = "Done";
@@ -170,5 +172,5 @@
 "popup.push.error.disabled.message" = "Please enable Push Notifications for the Conicoin Wallet in the device settings";
 
 // MARK: TouchId
-"touchId.error.title" = "Touch ID error";
+"touchId.error.title" = "%@ error";
 

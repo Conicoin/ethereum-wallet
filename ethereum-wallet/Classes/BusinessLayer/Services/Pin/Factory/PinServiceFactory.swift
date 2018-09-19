@@ -10,7 +10,8 @@ class PinServiceFactory {
     let keychain = Keychain()
     let repository = PinRepository(keychain: keychain)
     let configuration = PinConfiguration(repository: repository)
-    let pinService = PinService(state: state, configuration: configuration)
+    let biometryService = BiometryService()
+    let pinService = PinService(state: state, configuration: configuration, biometryService: biometryService)
     pinService.delegate = delegate
     return pinService
   }
