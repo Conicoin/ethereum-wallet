@@ -10,7 +10,7 @@ extension UIButton {
         if show {
             isEnabled = false
             alpha = 0
-            let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            let indicator = UIActivityIndicatorView(style: .gray)
             indicator.center = center
             indicator.tag = indicatorTag
             addSubview(indicator)

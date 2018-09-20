@@ -33,9 +33,9 @@ extension String {
       let paragraphStyle = NSMutableParagraphStyle()
       paragraphStyle.alignment = .center
       let attrs = [
-        NSAttributedStringKey.font: font,
-        NSAttributedStringKey.paragraphStyle: paragraphStyle,
-        NSAttributedStringKey.foregroundColor: color
+        NSAttributedString.Key.font: font,
+        NSAttributedString.Key.paragraphStyle: paragraphStyle,
+        NSAttributedString.Key.foregroundColor: color
       ]
       let textSize = (self as NSString).size(withAttributes: attrs)
       let origin = CGPoint(x: 0, y: size.height/2 - textSize.height/2)

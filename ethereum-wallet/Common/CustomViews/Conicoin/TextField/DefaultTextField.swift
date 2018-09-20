@@ -121,7 +121,7 @@ class DefaultTextField: UIView {
     state = .float
     CATransaction.begin()
     CATransaction.setAnimationDuration(animationDuration)
-    CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
+    CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut))
     placeHolderLabel.foregroundColor = floatPlaceHolderColor.cgColor
     placeHolderLabel.fontSize = floatPlaceHolderFont.lineHeight
     layout()
@@ -137,7 +137,7 @@ class DefaultTextField: UIView {
     state = .idle
     CATransaction.begin()
     CATransaction.setAnimationDuration(animationDuration)
-    CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
+    CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut))
     placeHolderLabel.foregroundColor = idlePlaceHolderColor.cgColor
     placeHolderLabel.fontSize = idlePlaceHolderFont.lineHeight
     layout()

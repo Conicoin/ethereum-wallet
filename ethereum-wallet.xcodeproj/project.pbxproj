@@ -111,7 +111,7 @@
 		143384C221133FEF00FD7BE0 /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143384C121133FEF00FD7BE0 /* PublicKey.swift */; };
 		143384C42113418600FD7BE0 /* HDPublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143384C32113418600FD7BE0 /* HDPublicKey.swift */; };
 		143384C6211343C300FD7BE0 /* Base58.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143384C5211343C300FD7BE0 /* Base58.swift */; };
-		143384CA211344C800FD7BE0 /* Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 143384C8211344C800FD7BE0 /* Internal.m */; };
+		143384CA211344C800FD7BE0 /* Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 143384C8211344C800FD7BE0 /* Internal.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		14338517211344FA00FD7BE0 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14338516211344FA00FD7BE0 /* libcrypto.a */; };
 		1433851921134BE800FD7BE0 /* ImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433851821134BE800FD7BE0 /* ImportTests.swift */; };
 		1433852B2113826700FD7BE0 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433852A2113826700FD7BE0 /* Resolver.swift */; };
@@ -3236,7 +3236,7 @@
 					144E4F111EB26F0600AB62B6 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = BY9338Q38W;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -3930,7 +3930,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = NO;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -4001,8 +4001,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_OBJC_BRIDGING_HEADER = "./ethereum-wallet/Other/Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = "Debug-Testnet";
 		};
@@ -4055,7 +4054,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = NO;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -4125,8 +4124,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_OBJC_BRIDGING_HEADER = "./ethereum-wallet/Other/Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = "Debug-Mainnet";
 		};
@@ -4179,7 +4177,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = NO;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -4240,8 +4238,7 @@
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_OBJC_BRIDGING_HEADER = "./ethereum-wallet/Other/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = "Release-Testnet";
 		};
@@ -4293,7 +4290,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = NO;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -4353,8 +4350,7 @@
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_OBJC_BRIDGING_HEADER = "./ethereum-wallet/Other/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = "Release-Mainnet";
 		};

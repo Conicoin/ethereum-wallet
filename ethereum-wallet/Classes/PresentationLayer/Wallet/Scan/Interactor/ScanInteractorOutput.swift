@@ -6,6 +6,8 @@
 import AVFoundation
 
 
-protocol ScanInteractorOutput: class, QRCaptureServiceDelegate {
-
+protocol ScanInteractorOutput: QRCaptureServiceDelegate {
+  func qrCaptureDidStart(session: AVCaptureSession)
+  func qrCaptureDidFailed(with error: Error)
+  func qrCaptureDidDetect(object: AVMetadataMachineReadableCodeObject)
 }

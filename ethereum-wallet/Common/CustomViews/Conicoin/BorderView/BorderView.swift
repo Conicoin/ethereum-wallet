@@ -66,7 +66,7 @@ class BorderView: UIView {
       return
     }
     
-    scrollView.bringSubview(toFront: self)
+    scrollView.bringSubviewToFront(self)
     updateFrame()
   }
   
