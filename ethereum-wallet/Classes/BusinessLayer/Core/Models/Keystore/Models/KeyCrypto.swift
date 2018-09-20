@@ -27,7 +27,7 @@ struct KeyCrypto: Codable {
     let key = try scrypt.calculate(password: password)
     
     let encriptionKey = key[0...15]
-    let aesCipher = try AES(key: encriptionKey.bytes, blockMode: .CTR(iv: cipherparams.iv.bytes), padding: .noPadding)
+    let aesCipher = try AES(key: encriptionKey.bytes, blockMode: CTR(iv: cipherparams.iv.bytes), padding: .noPadding)
     
     let encryptedKey = try aesCipher.encrypt(data.bytes)
     let prefix = key[(key.count - 16) ..< key.count]
