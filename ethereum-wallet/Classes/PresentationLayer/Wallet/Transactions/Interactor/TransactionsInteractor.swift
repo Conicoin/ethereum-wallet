@@ -39,8 +39,9 @@ extension TransactionsInteractor: TransactionsInteractorInput {
           self.output.didReceiveTransactions()
         }
       case .failure(let error):
+        print(error.localizedDescription)
         DispatchQueue.main.async {
-          self.output.didFailedTransactionsReceiving(with: error)
+          self.output.didFailedTransactionsReceiving(with: NetworkError.localized)
         }
       }
     }

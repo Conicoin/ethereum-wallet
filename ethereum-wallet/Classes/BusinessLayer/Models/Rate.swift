@@ -24,7 +24,7 @@ struct Rate: RealmMappable {
     realmObject.value = value
     realmObject.from = from
     realmObject.to = to
-    realmObject.fromTo = "\(from)-\(to)"
+    realmObject.fromTo = "\(from!)-\(to!)"
     return realmObject
   }
   

@@ -28,7 +28,7 @@ extension Wallet: RealmMappable {
     let realmObject = RealmWallet()
     realmObject.address = address
     realmObject.localCurrency = localCurrency
-    realmObject.gasLimit = "\(gasLimit)"
+    realmObject.gasLimit = gasLimit.string
     return realmObject
   }
   

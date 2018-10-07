@@ -58,13 +58,13 @@ extension NSError {
       }
     } else {
       switch code {
-      case LAError.touchIDLockout.rawValue:
+      case LAError.biometryLockout.rawValue:
         return "Too many failed attempts."
         
-      case LAError.touchIDNotAvailable.rawValue:
+      case LAError.biometryNotAvailable.rawValue:
         return "TouchID is not available on the device"
         
-      case LAError.touchIDNotEnrolled.rawValue:
+      case LAError.biometryNotEnrolled.rawValue:
         return "TouchID is not enrolled on the device"
         
       default:

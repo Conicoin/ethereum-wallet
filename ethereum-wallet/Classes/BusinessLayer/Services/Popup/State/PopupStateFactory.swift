@@ -14,7 +14,7 @@ class PopupStateFactory {
   func create() -> PopupStateProtocol {
     switch state {
     case .touchId:
-      return PopupTouchState()
+      return PopupTouchState(biometryService: BiometryService())
     case .txSent(let amount, let address):
       return PopupTxSentState(amount: amount, address: address)
     case .push:

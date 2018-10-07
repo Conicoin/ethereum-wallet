@@ -48,9 +48,15 @@ enum KeystoreError: CustomError {
 
 enum NetworkError: CustomError {
   case parseError
+  case localized
   
   var description: CustomError.ErrorInfo? {
-    return nil
+    switch self {
+    case .localized:
+      return (title: "Network error", message: "Something went wront. Please try again or contact with developers", showing: true)
+    case .parseError:
+      return nil
+    }
   }
 }
 
@@ -105,15 +111,30 @@ enum SendCheckoutError: CustomError {
 
 enum TouchIdError: CustomError {
   
-  case error(error: NSError?)
+  case error(error: NSError?, biometry: BiometryType)
   
   var description: ErrorInfo? {
     switch self {
-    case .error(let error):
-      return (Localized.touchIdErrorTitle(), error?.touchIdMessage(), true)
+    case .error(let error, let biometry):
+      return (Localized.touchIdErrorTitle(biometry.label), error?.touchIdMessage(), true)
     }
   }
   
+}
+
+// MARK: - TouchId errors
+
+enum PushError: CustomError {
+    
+    case disabled
+    
+    var description: ErrorInfo? {
+        switch self {
+        case .disabled:
+            return (Localized.popupPushErrorDisabledTitle(), Localized.popupPushErrorDisabledMessage(), true)
+        }
+    }
+    
 }
 
 // MARK: - Import errors

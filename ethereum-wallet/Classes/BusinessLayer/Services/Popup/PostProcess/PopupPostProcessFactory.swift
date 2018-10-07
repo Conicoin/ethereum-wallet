@@ -6,15 +6,17 @@ import UIKit
 class PopupPostProcessFactory {
   
   let pushService: PushServiceProtocol
+  let biometryService: BiometryServiceProtocol
   
-  init(pushService: PushServiceProtocol) {
+  init(pushService: PushServiceProtocol, biometryService: BiometryServiceProtocol) {
     self.pushService = pushService
+    self.biometryService = biometryService
   }
   
   func create(_ state: PopupState) -> PopupPostProcessProtocol {
     switch state {
     case .touchId:
-      return PopupTouchPostProcess()
+      return PopupTouchPostProcess(biometryService: biometryService)
     case .txSent:
       return PopupNoPostProcess()
     case .push:

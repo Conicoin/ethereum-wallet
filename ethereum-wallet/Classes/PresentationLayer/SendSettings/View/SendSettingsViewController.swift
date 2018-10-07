@@ -62,8 +62,8 @@ class SendSettingsViewController: UIViewController {
   }
   
   private func setupKeyboardNotifications() {
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
   }
   
   // MARK: Action
@@ -88,7 +88,7 @@ class SendSettingsViewController: UIViewController {
   
   @objc func keyboardWillShow(notification: Notification) {
     let userInfo = notification.userInfo!
-    let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+    let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
     let height = keyboardFrame.size.height
     scrollView.contentInset.bottom = keyboardFrame.size.height
     scrollView.contentOffset.y = max(height, scrollView.contentOffset.y)

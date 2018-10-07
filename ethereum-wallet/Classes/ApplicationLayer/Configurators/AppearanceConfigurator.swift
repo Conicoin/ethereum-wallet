@@ -14,7 +14,7 @@ class AppearanceConfigurator: ConfiguratorProtocol {
     UINavigationBar.appearance().isTranslucent = true
     UINavigationBar.appearance().barTintColor = .clear
     UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.Color.black]
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.Color.black]
     UINavigationBar.appearance().shadowImage = UIImage()
     UIBarButtonItem.appearance().tintColor = Theme.Color.black
   }

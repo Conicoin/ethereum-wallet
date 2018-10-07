@@ -29,6 +29,7 @@ class SettingsModule {
     interactor.keychain = keychain
     interactor.pushService = PushService()
     interactor.accountService = AccountService(keychain: keychain)
+    interactor.biometryService = BiometryService()
     interactor.pushConfigurator = PushConfigurator(pushNetworkService: PushNetworkService(),
                                                    walletDataStoreService: WalletDataStoreService())
     

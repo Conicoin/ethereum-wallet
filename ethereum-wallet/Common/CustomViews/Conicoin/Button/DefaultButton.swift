@@ -82,7 +82,7 @@ class DefaultButton: ResponsiveButton {
   }
   
   override var intrinsicContentSize: CGSize {
-    return CGSize(width: UIViewNoIntrinsicMetric, height: 48)
+    return CGSize(width: UIView.noIntrinsicMetric, height: 48)
   }
   
   override var isHighlighted: Bool {

@@ -40,7 +40,11 @@ class WelcomeViewController: UIViewController {
   // MARK: Privates
   
   private func localize() {
+    #if TESTNET
+    titleLabel.text = Localized.welcomeTitleTestnet()
+    #else
     titleLabel.text = Localized.welcomeTitle()
+    #endif
     subtitleLabel.text = Localized.welcomeSubtitle()
     importWalletButton.setTitle(Localized.welcomeImportTitle(), for: .normal)
   }

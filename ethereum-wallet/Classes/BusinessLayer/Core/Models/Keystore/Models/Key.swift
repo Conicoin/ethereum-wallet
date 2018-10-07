@@ -47,10 +47,10 @@ struct Key: Codable {
     let decryptedPK: [UInt8]
     switch crypto.cipher {
     case "aes-128-ctr":
-      let aesCipher = try AES(key: decryptionKey.bytes, blockMode: .CTR(iv: crypto.cipherparams.iv.bytes), padding: .noPadding)
+      let aesCipher = try AES(key: decryptionKey.bytes, blockMode: CTR(iv: crypto.cipherparams.iv.bytes), padding: .noPadding)
       decryptedPK = try aesCipher.decrypt(cryptoCiphertext.bytes)
     case "aes-128-cbc":
-      let aesCipher = try AES(key: decryptionKey.bytes, blockMode: .CBC(iv: crypto.cipherparams.iv.bytes), padding: .noPadding)
+      let aesCipher = try AES(key: decryptionKey.bytes, blockMode: CBC(iv: crypto.cipherparams.iv.bytes), padding: .noPadding)
       decryptedPK = try aesCipher.decrypt(cryptoCiphertext.bytes)
     default:
       throw KeyError.unsupportedCipher

@@ -2,10 +2,20 @@
 // Created by Artur Guseinov
 
 
-
 import UIKit
 import StoreKit
 
+fileprivate extension BiometryType {
+  
+  var imageName: String {
+    switch self {
+    case .faceId:
+      return R.image.pinFaceId.name
+    default:
+      return R.image.settingsFingerprint.name
+    }
+  }
+}
 
 class SettingsPresenter {
     
@@ -16,6 +26,12 @@ class SettingsPresenter {
   
   var currencies = Constants.Wallet.supportedCurrencies
   var selectedCurrency = Constants.Wallet.defaultCurrency
+  
+  private func setupTouchId() {
+    let biometry = interactor.biometry
+    view.setTouchId(title: Localized.settingsBiometic(biometry.label), image: biometry.imageName)
+    view.setIsTouchIdEnabled(Defaults.isTouchIDAllowed)
+  }
 }
 
 
@@ -25,7 +41,7 @@ extension SettingsPresenter: SettingsViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
-    view.setIsTouchIdEnabled(Defaults.isTouchIDAllowed)
+    setupTouchId()
     interactor.getWallet()
   }
   

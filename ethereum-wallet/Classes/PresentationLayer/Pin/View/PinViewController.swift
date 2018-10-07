@@ -127,6 +127,7 @@ extension PinViewController: PinViewInput {
   func didReceivePinInfo(_ info: PinInfo) {
     titleLabel.text = info.title
     touchIDButton.isTransparent = !info.isTouchIDAllowed
+    touchIDButton.setImage(UIImage(named: info.biometricImage), for: .normal)
     navigationItem.hidesBackButton = !info.isCancellable
   }
 

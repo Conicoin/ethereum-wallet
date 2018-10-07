@@ -116,7 +116,7 @@ enum Chain: String {
     case .ropsten:
       fatalError("Not supported yet")
     case .rinkeby:
-      return "https://rinkeby.trustwalletapp.com"
+      return "http://18.216.110.94:8000"
     }
   }
   

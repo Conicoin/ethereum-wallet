@@ -46,7 +46,7 @@ extension ScanViewController: ScanViewInput {
     videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
     videoPreviewLayer?.frame = view.layer.bounds
     view.layer.addSublayer(videoPreviewLayer!)
-    view.bringSubview(toFront: cancelButton)
+    view.bringSubviewToFront(cancelButton)
   }
 
 }

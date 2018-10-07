@@ -43,7 +43,7 @@ class TransactionsViewController: UIViewController {
     tableView.refreshControl = refresh
     tableView.registerNib(TransactionCell.self)
     tableView.setEmptyView(with: Localized.transactionsEmptyTitle())
-    bottomLoader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    bottomLoader = UIActivityIndicatorView(style: .gray)
     bottomLoader.hidesWhenStopped = true
     tableView.tableFooterView = bottomLoader
     refresh.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)

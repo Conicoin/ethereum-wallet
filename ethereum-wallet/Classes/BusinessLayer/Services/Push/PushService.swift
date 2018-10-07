@@ -11,13 +11,13 @@ class PushService: PushServiceProtocol {
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
       
       guard granted else {
-        completion(.failure(error!))
+        completion(.failure(error ?? PushError.disabled))
         return
       }
       
       UNUserNotificationCenter.current().getNotificationSettings { settings in
         guard settings.authorizationStatus == .authorized else {
-          completion(.failure(error!))
+          completion(.failure(error ?? PushError.disabled))
           return
         }
         

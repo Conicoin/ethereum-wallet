@@ -9,8 +9,8 @@ extension UITableView {
   func setEmptyView(with text: String) {
     emptyDataSetView() { view in
       let attributed = NSAttributedString(string: text, attributes: [
-        NSAttributedStringKey.foregroundColor: Theme.Color.gray,
-        NSAttributedStringKey.font: Theme.Font.regular16
+        NSAttributedString.Key.foregroundColor: Theme.Color.gray,
+        NSAttributedString.Key.font: Theme.Font.regular16
         ])
       
       let offset = self.tableHeaderView?.bounds.height ?? 0

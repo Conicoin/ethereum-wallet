@@ -43,7 +43,7 @@
                         <color key="textColor" name="coni_gray"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 5 Ξ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZa-2W-f5U">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 5 Ξ" textAlignment="right" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZa-2W-f5U">
                         <rect key="frame" x="320" y="16" width="39" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="Wmj-AJ-Vba"/>
@@ -64,6 +64,7 @@
                     <constraint firstItem="tM0-dD-MyC" firstAttribute="leading" secondItem="C2b-yK-EGl" secondAttribute="trailing" constant="16" id="4Sr-K0-LT9"/>
                     <constraint firstItem="C2b-yK-EGl" firstAttribute="centerY" secondItem="652-P5-dW4" secondAttribute="centerY" id="COF-bL-oPO"/>
                     <constraint firstItem="C2b-yK-EGl" firstAttribute="leading" secondItem="652-P5-dW4" secondAttribute="leading" constant="16" id="N7q-FE-IgF"/>
+                    <constraint firstItem="TZa-2W-f5U" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tM0-dD-MyC" secondAttribute="trailing" constant="8" id="NQa-Dv-fQC"/>
                     <constraint firstItem="TZa-2W-f5U" firstAttribute="trailing" secondItem="Gh1-tF-6c6" secondAttribute="trailing" constant="-4" id="Sir-bV-cUt"/>
                     <constraint firstItem="zbd-m9-u9A" firstAttribute="top" secondItem="tM0-dD-MyC" secondAttribute="bottom" id="ThN-XR-4lJ"/>
                     <constraint firstAttribute="trailing" secondItem="TZa-2W-f5U" secondAttribute="trailing" constant="16" id="VTI-D9-fZg"/>

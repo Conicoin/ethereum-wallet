@@ -61,7 +61,7 @@ class MnemonicViewController: UIViewController {
   }
   
   private func setupNotifications() {
-    NotificationCenter.default.addObserver(forName: .UIApplicationUserDidTakeScreenshot, object: nil, queue: OperationQueue.main) { [unowned self] notification in
+    NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification, object: nil, queue: OperationQueue.main) { [unowned self] notification in
       self.showScreenshotsAreInsecure()
     }
   }

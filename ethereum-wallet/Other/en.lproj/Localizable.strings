@@ -5,6 +5,8 @@
 "common.ok" = "OK";
 "common.cancel" = "Cancel";
 "common.notNow" = "Not now";
+"common.touchId" = "Touch ID";
+"common.faceId" = "Face ID";
 
 // MARK: - Tabs
 "tab.balance" = "Balance";
@@ -40,6 +42,7 @@
 "welcome.restore.title" = "Restore with passphrase";
 "welcome.import.title" = "Import wallet";
 "welcome.title" = "Welcome to Conicoin";
+"welcome.title.testnet" = "Welcome to Conicoin\nRinkeby Testnet";
 "welcome.subtitle" = "Lets start by creating a new wallet or restoring the existing one";
 "welcome.github.link" = "Source code available on Github";
 "welcome.import.alert" = "Import";
@@ -66,7 +69,7 @@
 // MARK: - Token details
 "token.details.name" = "%@ ∙ %@";
 "token.details.send" = "Send";
-"token.details.desc" = "Desription";
+"token.details.desc" = "Description";
 "token.details.info" = "Information";
 "token.details.address" = "Address";
 "token.details.supply" = "Total supply";
@@ -83,7 +86,7 @@
 "send.title" = "Send %@";
 "send.fee" = "Fee";
 "send.total" = "Total";
-"send.address.placeholder" = "Recepient address";
+"send.address.placeholder" = "Recipient address";
 
 // MARK: - Send Settings
 "send.adv.title" = "Advanced";
@@ -125,7 +128,7 @@
 "settings.title" = "Settings";
 "settings.currency" = "Reference currency";
 "settings.changePasscode" = "Change passcode";
-"settings.touchId" = "Use Touch ID";
+"settings.biometic" = "Use %@";
 "settings.push" = "App notifications";
 "settings.backup" = "Backup wallet";
 "settings.rate" = "Rate App";
@@ -155,9 +158,9 @@
 
 // MARK: Popup
 // - Touch Id
-"popup.touch.title" = "Unlock Conicoin with Touch ID";
-"popup.touch.description" = "Use your Touch ID for quick and easy entry.";
-"popup.touch.confirm" = "Use Touch ID";
+"popup.touch.title" = "Unlock Conicoin with %@";
+"popup.touch.description" = "Use your %@ for quick and easy entry.";
+"popup.touch.confirm" = "Use %@";
 // - Transaction Sent
 "popup.txSent.title" = "You have sent %@ to";
 "popup.txSent.confirm" = "Done";
@@ -165,7 +168,9 @@
 "popup.push.title" = "Push notifications";
 "popup.push.description" = "Be aware of all transactions to your address";
 "popup.push.confirm" = "Enable push notifications";
+"popup.push.error.disabled.title" = "Push notifications disabled";
+"popup.push.error.disabled.message" = "Please enable Push Notifications for the Conicoin Wallet in the device settings";
 
 // MARK: TouchId
-"touchId.error.title" = "Touch ID error";
+"touchId.error.title" = "%@ error";
 

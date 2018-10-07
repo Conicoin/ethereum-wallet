@@ -12,4 +12,5 @@ protocol SettingsViewInput: class, Presentable {
   func setIsTouchIdEnabled(_ isTouchIdEnabled: Bool)
   func setCurrency(_ currency: FiatCurrency)
   func setPushSwitch(_ iOn: Bool)
+  func setTouchId(title: String, image: String)
 }

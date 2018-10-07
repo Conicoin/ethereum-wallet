@@ -189,7 +189,7 @@ class MnemonicView: UIView {
     button.titleLabel?.minimumScaleFactor = 0.5
     button.backgroundColor = buttonBackgroundColor
     let inset = UIDevice.screenType.scalableInset
-    button.contentEdgeInsets = UIEdgeInsetsMake(6, inset, 4, inset)
+    button.contentEdgeInsets = UIEdgeInsets.init(top: 6, left: inset, bottom: 4, right: inset)
     button.layer.cornerRadius = 12
     button.addTarget(self, action: #selector(wordPressed(sender:)), for: .touchUpInside)
     

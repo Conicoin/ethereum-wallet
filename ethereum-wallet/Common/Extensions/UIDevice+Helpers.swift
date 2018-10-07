@@ -10,6 +10,8 @@ enum ScreenType {
   case iPhone8
   case iPhone8Plus
   case iPhoneX
+  case iPhoneXSMax
+  case iphoneXR
   
   var prefix: String {
     switch self {
@@ -23,6 +25,10 @@ enum ScreenType {
       return "8P"
     case .iPhoneX:
       return "X"
+    case .iPhoneXSMax:
+      return "XSMax"
+    case .iphoneXR:
+      return "XR"
     }
   }
   
@@ -45,6 +51,10 @@ extension UIDevice {
       return .iPhone8Plus
     case 2436:
       return .iPhoneX
+    case 2688:
+      return .iPhoneXSMax
+    case 1792:
+      return .iphoneXR
     default:
       return .iPhone8
     }

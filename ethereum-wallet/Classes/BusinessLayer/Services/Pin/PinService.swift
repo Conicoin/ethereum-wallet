@@ -2,7 +2,6 @@
 // Created by Artur Guseinov
 
 import Foundation
-import LocalAuthentication
 
 class PinService: PinServiceProtocol {
   
@@ -10,19 +9,30 @@ class PinService: PinServiceProtocol {
   
   let configuration: PinConfigurationProtocol
   let repository: PinRepositoryProtocol
+  let biometryService: BiometryServiceProtocol
   var lockState: PinStateProtocol
   
   private lazy var pin = [String]()
   
-  init(state: PinStateProtocol, configuration: PinConfigurationProtocol) {
+  init(state: PinStateProtocol, configuration: PinConfigurationProtocol, biometryService: BiometryServiceProtocol) {
     precondition(configuration.pinLength > 0, "Pin length sould be greather than zero.")
     self.lockState = state
     self.configuration = configuration
     self.repository = configuration.repository
+    self.biometryService = biometryService
   }
   
   var isTouchIDAllowed: Bool {
     return isTouchIDEnabled() && configuration.isTouchIDAllowed && lockState.isTouchIDAllowed
+  }
+  
+  var biometricImage: String {
+    switch biometryService.biometry {
+    case .faceId:
+      return R.image.pinFaceId.name
+    default:
+      return R.image.pinTouchId.name
+    }
   }
   
   func addSign(_ sign: String) {
@@ -51,24 +61,16 @@ class PinService: PinServiceProtocol {
   
   func authenticateWithBiometrics() {
     guard isTouchIDAllowed else { return }
-    let context = LAContext()
-    context.localizedFallbackTitle = Localized.pinTouchIDButton()
     
-    // iOS 8+ users with Biometric and Custom (Fallback button) verification
-    var policy: LAPolicy = .deviceOwnerAuthenticationWithBiometrics
-    
-    // Depending the iOS version we'll need to choose the policy we are able to use
-    if #available(iOS 9.0, *) {
-      // iOS 9+ users with Biometric and Passcode verification
-      policy = .deviceOwnerAuthentication
-    }
-    
-    var err: NSError?
-    guard context.canEvaluatePolicy(policy, error: &err) else { return }
-    
+    let fallback = Localized.pinTouchIDButton()
     let reason = lockState.touchIdReason ?? Localized.pinTouchIDReason()
-    context.evaluatePolicy(policy, localizedReason: reason) {  success, error in
-      self.handleTouchIDResult(success)
+    biometryService.authenticate(fallback: fallback, reason: reason) { result in
+      switch result {
+      case .success(let isSuccess):
+        self.handleTouchIDResult(isSuccess)
+      case .failure(let error):
+        print(error.localizedDescription)
+      }
     }
   }
   
@@ -84,8 +86,7 @@ class PinService: PinServiceProtocol {
   }
   
   private func isTouchIDEnabled() -> Bool {
-    let context = LAContext()
-    return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+    return biometryService.isBiometryAvailable
   }
 }
 

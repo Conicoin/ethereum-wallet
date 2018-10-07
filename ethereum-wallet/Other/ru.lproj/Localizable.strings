@@ -5,6 +5,8 @@
 "common.ok" = "ОК";
 "common.cancel" = "Отмена";
 "common.notNow" = "Пропустить";
+"common.touchId" = "Touch ID";
+"common.faceId" = "Face ID";
 
 // MARK: - Tabs
 "tab.balance" = "Баланс";
@@ -25,14 +27,14 @@
 "mnemonic.writing.button.title" = "Проверить";
 // - Verifying state
 "mnemonic.verifying.title" = "Проверка фразы восстановления";
-"mnemonic.verifying.subtitle" = "Введите фразу востановления в правильной последовательности. Это поможет убедиться в том, что вы правильно её записали";
+"mnemonic.verifying.subtitle" = "Введите фразу восстановления в правильной последовательности. Это поможет убедиться в том, что вы правильно её записали";
 // - Correct state
 "mnemonic.correct.title" = "Правильно!";
 "mnemonic.correct.subtitle" = "Храните вашу фразу восстановления в безопасном месте.\nОна понадобится вам для восстановления доступа к средствам";
 "mnemonic.correct.button.title" = "Продолжить";
 // - Incorrect state
 "mnemonic.incorrect.title" = "Не правильно!";
-"mnemonic.incorrect.subtitle" = "Потеряв фразу востановления вы больше не сможете получить доступ к вашим средствам.\nПожалуйста, попробуйте заново";
+"mnemonic.incorrect.subtitle" = "Потеряв фразу восстановления вы больше не сможете получить доступ к вашим средствам.\nПожалуйста, попробуйте заново";
 "mnemonic.incorrect.button.title" = "Начать заново";
 
 // MARK: - Welcome
@@ -40,6 +42,7 @@
 "welcome.restore.title" = "Восстановить с паролем";
 "welcome.import.title" = "Восстановить";
 "welcome.title" = "Conicoin";
+"welcome.title.testnet" = "Conicoin\nRinkeby Testnet";
 "welcome.subtitle" = "Начните с создания нового кошелька или восстановления существующего";
 "welcome.github.link" = "Исходный код доступен на Github";
 "welcome.import.alert" = "Восстановить с помощью";
@@ -61,7 +64,7 @@
 "balance.send" = "Отправить";
 "balance.eth.title" = "ETH ∙ Ethereum";
 "balance.label" = "%@ ∙ %@";
-"balance.empty.title" = "У вас нет ERC20 токенов. Так только они появятся, будут отображены здесь.";
+"balance.empty.title" = "У вас нет ERC20 токенов. Как только они появятся, будут отображены здесь.";
 
 // MARK: - Token details
 "token.details.name" = "%@ ∙ %@";
@@ -125,7 +128,7 @@
 "settings.title" = "Настройки";
 "settings.currency" = "Выбранная валюта";
 "settings.changePasscode" = "Изменить пароль";
-"settings.touchId" = "Использовать Touch ID";
+"settings.biometic" = "Использовать %@";
 "settings.push" = "Push уведомления";
 "settings.backup" = "Создать резервную копию";
 "settings.rate" = "Оцените нас";
@@ -155,9 +158,9 @@
 
 // MARK: Popup
 // - Touch Id
-"popup.touch.title" = "Разблокировать Conicoin с Touch ID";
-"popup.touch.description" = "Используйте Touch ID для простого и быстрого входа.";
-"popup.touch.confirm" = "Использовать Touch ID";
+"popup.touch.title" = "Разблокировать Conicoin с %@";
+"popup.touch.description" = "Используйте %@ для простого и быстрого входа.";
+"popup.touch.confirm" = "Использовать %@";
 // - Transaction Sent
 "popup.txSent.title" = "Вы успешно отправили %@ на";
 "popup.txSent.confirm" = "Готово";
@@ -165,7 +168,8 @@
 "popup.push.title" = "Push уведомления";
 "popup.push.description" = "И будьте в курсе всех входящих на ваш адрес транзакций";
 "popup.push.confirm" = "Включить push уведомления";
+"popup.push.error.disabled.title" = "Push уведомления отключены";
+"popup.push.error.disabled.message" = "Пожалуйста включите Push уведомления для Conicoin Wallet в настройках устройства";
 
 // MARK: TouchId
-"touchId.error.title" = "Ошибка Touch ID";
-
+"touchId.error.title" = "Ошибка %@";

@@ -16,12 +16,17 @@ class SettingsInteractor {
   var pushConfigurator: PushConfiguratorProtocol!
   var keychain: Keychain!
   var accountService: AccountServiceProtocol!
+  var biometryService: BiometryServiceProtocol!
 }
 
 
 // MARK: - SettingsInteractorInput
 
 extension SettingsInteractor: SettingsInteractorInput {
+  
+  var biometry: BiometryType {
+    return biometryService.biometry
+  }
   
   var passphrase: String {
     guard let oldPin = keychain.passphrase else {
