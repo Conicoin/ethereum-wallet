@@ -65,7 +65,7 @@ extension String {
 
   func withLeadingZero(_ count: Int) -> String {
     var string = self
-    while string.count != 64 {
+    while string.count != count {
       string = "0" + string
     }
     return string

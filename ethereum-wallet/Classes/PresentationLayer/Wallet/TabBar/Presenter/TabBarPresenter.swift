@@ -17,6 +17,7 @@ class TabBarPresenter {
     module.output = self
     return module
   }()
+  private lazy var partnersModule: PartnersModuleInput = PartnersModule.create()
   private lazy var transactionsModule: TransactionsModuleInput = TransactionsModule.create()
   private lazy var settingsModule: SettingsModuleInput = SettingsModule.create()
   
@@ -24,6 +25,7 @@ class TabBarPresenter {
     
     view.viewControllers = [
       balanceModule.viewController.wrapToNavigationController(),
+      partnersModule.viewController.wrapToNavigationController(),
       transactionsModule.viewController.wrapToNavigationController(),
       settingsModule.viewController.wrapToNavigationController()
     ]

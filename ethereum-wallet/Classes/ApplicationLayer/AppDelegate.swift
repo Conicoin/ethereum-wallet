@@ -29,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     liveServices.locker.autolock()
+    
+    let insurance = InsuranceService(address: "0xab1d03b5122357002c412e45ea0938d31a28c772")
+    insurance.getPartners() { result in
+      
+    }
             
     return true
   }

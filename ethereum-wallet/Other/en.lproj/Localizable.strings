@@ -10,6 +10,7 @@
 
 // MARK: - Tabs
 "tab.balance" = "Balance";
+"tab.partners" = "Partners";
 "tab.transactions" = "Transactions";
 "tab.settings" = "Settings";
 

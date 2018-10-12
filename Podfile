@@ -11,11 +11,12 @@ target 'ethereum-wallet' do
   pod 'AlamofireObjectMapper'
   pod 'CryptoSwift'
   pod 'secp256k1_ios'
-  pod 'PullToDismiss', '~> 2.1'
+  pod 'PullToDismiss'
   pod 'lottie-ios'
   pod 'Dwifft'
   pod 'FirebaseAnalytics'
-  pod 'EmptyDataSet-Swift', '~> 4.0.5'
+  pod 'EmptyDataSet-Swift'
+  pod 'JSONRPCKit'
 end
 
 target 'ConicoinTests' do
@@ -23,10 +24,20 @@ target 'ConicoinTests' do
   pod 'secp256k1_ios'
 end
 
+swift4 = ['PullToDismiss', 'R.swift.Library']
+
 post_install do |installer|
   installer.pods_project.build_configurations.each do |config|
     config.build_settings.delete('CODE_SIGNING_ALLOWED')
     config.build_settings.delete('CODE_SIGNING_REQUIRED')
+  end
+  
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      if swift4.include?(target.name)
+        config.build_settings['SWIFT_VERSION'] = '4.0'
+      end
+    end
   end
 end
 
