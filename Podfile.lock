@@ -72,7 +72,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper
   - CryptoSwift
   - Dwifft
-  - EmptyDataSet-Swift
+  - EmptyDataSet-Swift (~> 4.2.0)
   - FirebaseAnalytics
   - Geth
   - JSONRPCKit
@@ -134,6 +134,6 @@ SPEC CHECKSUMS:
   secp256k1_ios: ac9ef04e761f43c58012b28548afa91493761f17
   SpringIndicator: 96eb6158a9dc94c1623d84130639a52225f04056
 
-PODFILE CHECKSUM: b0826ca8f827cf1191e07637604eb69294b20796
+PODFILE CHECKSUM: d52fc198a8d371152755fd915aa52f8e1fff748e
 
 COCOAPODS: 1.5.3

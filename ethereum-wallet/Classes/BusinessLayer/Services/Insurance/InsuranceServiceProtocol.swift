@@ -9,5 +9,6 @@
 import Foundation
 
 protocol InsuranceServiceProtocol {
-  func getPartners(completion: @escaping (Result<String>) -> Void)
+  func getPartners(completion: @escaping (Result<[Address]>) -> Void)
+  func getPartner(address: Address, completion: @escaping (Result<Partner>) -> Void)
 }

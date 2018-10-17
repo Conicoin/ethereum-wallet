@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol ContractCall {
   var method: String { get }
@@ -15,7 +16,18 @@ protocol ContractCall {
 
 extension ContractCall {
   
-  func encode() -> String {
+  func request(to address: Address) -> APIMethodProtocol {
+    let request = RPC.Call(from: nil,
+                           to: address.string,
+                           gasLimit: nil,
+                           gasPrice: nil,
+                           value: nil,
+                           data: encode(),
+                           blockParameter: .latest)
+    return request
+  }
+  
+  private func encode() -> String {
     var raw = "0x" + method.toData().sha3(.keccak256).hex().substring(toIndex: 8)
     for param in params {
       raw.append(param.encode())
@@ -25,11 +37,14 @@ extension ContractCall {
 }
 
 enum ContractCallParam {
+  case address(Address)
   case string(String)
   case uint(UInt)
   
   func encode() -> String {
     switch self {
+    case .address(let address):
+      return address.string.deleting0x().withLeadingZero(64)
     case .string(let string):
       let hex = string.toData().hex()
       return hex.withLeadingZero(64)

@@ -15,7 +15,7 @@ target 'ethereum-wallet' do
   pod 'lottie-ios'
   pod 'Dwifft'
   pod 'FirebaseAnalytics'
-  pod 'EmptyDataSet-Swift'
+  pod 'EmptyDataSet-Swift', '~> 4.2.0'
   pod 'JSONRPCKit'
 end
 

@@ -11,42 +11,61 @@ import Foundation
 
 class InsuranceService: NetworkLoadable, InsuranceServiceProtocol {
   
-  let address: String
+  let contact: Address
   
-  init(address: String) {
-    self.address = address
+  init(contact: Address) {
+    self.contact = contact
   }
   
-  func getPartners(completion: @escaping (Result<String>) -> Void) {
+  func getPartners(completion: @escaping (Result<[Address]>) -> Void) {
     let call = InsuranceGetPartners()
-    let request = RPC.Call(from: nil, to: address, gasLimit: nil, gasPrice: nil, value: nil, data: call.encode(), blockParameter: .latest)
-    loadObjectJSON(request: request, queue: .main) { result in
+    loadObjectJSON(request: call.request(to: contact), queue: .main) { result in
       switch result {
       case .success(let object):
-        guard let json = object as? [String: Any], var result = json["result"] as? String, result.count > 2 else {
+        guard let json = object as? [String: Any], let result = json["result"] as? String else {
           completion(.failure(NetworkError.parseError))
           return
         }
-        result.removeFirst()
-        result.removeFirst()
-        
-        let data = Data(hex: result)
-        print(data.hex())
-        
-        let array = ["0x86a21a43b3e0406b769a63aa8011fb7c38a15846"]
         do {
-          let coded = try RLPEncoder.encode(array)
-          print(Data(bytes: coded).hex())
+          let data = Data(hex: result.deleting0x())
+          let decoder = ABIDecoder(data: data)
+          let decoded = try decoder.decode(type: .dynamicArray(.address))
+          completion(.success(decoded.nativeValue as? [Address] ?? []))
         } catch {
-          print(error)
+          completion(.failure(error))
         }
-        
-//        do {
-//          let decoded = try RLPDecoder().decode(data.bytes)
-//          print(decoded.data.toHexString())
-//        } catch {
-//          fatalError(error.localizedDescription)
-//        }
+      case .failure(let error):
+        completion(.failure(error))
+      }
+    }
+  }
+  
+  func getPartner(address: Address, completion: @escaping (Result<Partner>) -> Void) {
+    let call = InsuranceGetPartner(address: address)
+    loadObjectJSON(request: call.request(to: contact), queue: .main) { result in
+      switch result {
+      case .success(let object):
+        guard let json = object as? [String: Any], let result = json["result"] as? String else {
+          completion(.failure(NetworkError.parseError))
+          return
+        }
+        do {
+          let data = Data(hex: result.deleting0x())
+          let decoder = ABIDecoder(data: data)
+          let decoded = try decoder.decode(type: .tuple([.address, .int(bits: 256), .int(bits: 256)]))
+          guard
+            let nativeValue = decoded.nativeValue as? [Any], nativeValue.count == 3,
+            let address = nativeValue[0] as? Address,
+            let rate = nativeValue[1] as? Decimal,
+            let deadline = nativeValue[2] as? Decimal else {
+            completion(.failure(NetworkError.parseError))
+            return
+          }
+          let partner = Partner.init(address: address, rate: rate, deadline: deadline)
+          completion(.success(partner))
+        } catch {
+          completion(.failure(error))
+        }
       case .failure(let error):
         completion(.failure(error))
       }

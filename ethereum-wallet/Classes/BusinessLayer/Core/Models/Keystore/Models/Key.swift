@@ -23,7 +23,7 @@ struct Key: Codable {
     
     let pubKey = Secp256k1.generatePublicKey(withPrivateKey: privateKey, compression: false)
     let sha3 = pubKey[1...].sha3(.keccak256)
-    self.address = Address(data: sha3[12..<32]).string
+    self.address = try Address(data: sha3[12..<32]).string
   }
   
   func decrypt(password: String) throws -> Data {

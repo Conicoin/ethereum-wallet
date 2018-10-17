@@ -22,8 +22,8 @@ struct PublicKey {
     return data.suffix(20)
   }
   
-  func generateAddress() -> String {
-    return Address(data: addressData).string
+  func generateAddress() throws -> Address {
+    return try Address(data: addressData)
   }
   
   static func from(data: Data, compressed: Bool) -> Data {

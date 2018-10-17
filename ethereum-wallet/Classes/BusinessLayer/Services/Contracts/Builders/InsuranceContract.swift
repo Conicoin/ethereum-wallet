@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct InsuranceGetPartners: ContractCall {
   
   var method: String {
@@ -19,3 +20,15 @@ struct InsuranceGetPartners: ContractCall {
   }
 }
 
+struct InsuranceGetPartner: ContractCall {
+  
+  let address: Address
+  
+  var method: String {
+    return "getPartner(address)"
+  }
+  
+  var params: [ContractCallParam] {
+    return [.address(address)]
+  }
+}
