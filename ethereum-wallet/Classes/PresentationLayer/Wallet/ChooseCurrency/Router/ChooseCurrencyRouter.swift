@@ -6,7 +6,7 @@ import Foundation
 
 
 class ChooseCurrencyRouter {
-
+  var app: Application!
 }
 
 

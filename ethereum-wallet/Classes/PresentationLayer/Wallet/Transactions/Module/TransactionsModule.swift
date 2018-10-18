@@ -7,7 +7,7 @@ import UIKit
 
 class TransactionsModule {
     
-  class func create() -> TransactionsModuleInput {
+  class func create(app: Application) -> TransactionsModuleInput {
     let router = TransactionsRouter()
     let presenter = TransactionsPresenter()
     let interactor = TransactionsInteractor()
@@ -20,6 +20,7 @@ class TransactionsModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // MARK: - Injection
     

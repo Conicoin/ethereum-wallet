@@ -6,11 +6,13 @@ import Foundation
 
 class ApplicationConfigurator: ConfiguratorProtocol {
   
+  let app: Application
   let keychain: Keychain
   let accountService: AccountServiceProtocol
   let walletDataStoreService: WalletDataStoreServiceProtocol
   
-  init(keychain: Keychain, accountService: AccountServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
+  init(app: Application, keychain: Keychain, accountService: AccountServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
+    self.app = app
     self.keychain = keychain
     self.accountService = accountService
     self.walletDataStoreService = walletDataStoreService
@@ -20,12 +22,12 @@ class ApplicationConfigurator: ConfiguratorProtocol {
     let wallet = walletDataStoreService.find()
     if wallet.count > 0 && keychain.isAuthorized {
       let isSecureMode = Defaults.mode.isSecureMode
-      TabBarModule.create(isSecureMode: isSecureMode).present()
+      TabBarModule.create(app: app, isSecureMode: isSecureMode).present()
     } else {
       if let account = accountService.currentAccount {
-        WelcomeModule.create().present(state: .restore(account: account))
+        WelcomeModule.create(app: app).present(state: .restore(account: account))
       } else {
-        WelcomeModule.create().present(state: .new)
+        WelcomeModule.create(app: app).present(state: .new)
       }
     }
   }

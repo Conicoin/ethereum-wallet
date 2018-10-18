@@ -7,7 +7,7 @@ import UIKit
 
 class SendModule {
     
-  class func create(_ type: TransferType) -> SendModuleInput {
+  class func create(app: Application, type: TransferType) -> SendModuleInput {
     let router = SendRouter()
     let presenter = SendPresenter()
     let interactor = SendInteractor()
@@ -20,6 +20,7 @@ class SendModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // MARK: - Injection
     

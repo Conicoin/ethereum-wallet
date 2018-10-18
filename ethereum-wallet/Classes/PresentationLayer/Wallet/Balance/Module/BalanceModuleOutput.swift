@@ -6,5 +6,5 @@ import Foundation
 
 
 protocol BalanceModuleOutput: class {
-  func balanceViewIsReady()
+
 }

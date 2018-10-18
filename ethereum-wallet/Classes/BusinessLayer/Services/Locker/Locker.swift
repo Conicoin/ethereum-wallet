@@ -4,12 +4,14 @@
 import Foundation
 
 class Locker: LockerProtocol {
+
+  let app: Application
+  let keychain: Keychain
+  let unlockPeriod: TimeInterval = 60
+  var lastUnlockDate: Date = Date.distantPast
   
-  private let keychain: Keychain
-  private let unlockPeriod: TimeInterval = 60
-  private var lastUnlockDate: Date = Date.distantPast
-  
-  init(keychain: Keychain) {
+  init(app: Application, keychain: Keychain) {
+    self.app = app
     self.keychain = keychain
   }
   
@@ -33,7 +35,7 @@ class Locker: LockerProtocol {
     
     let rootViewController = AppDelegate.currentWindow.rootViewController!
 
-    PinModule.create(.lock).presentModal(from: rootViewController, postProcess: { _, postProcess in
+    PinModule.create(app: app, state: .lock).presentModal(from: rootViewController, postProcess: { _, postProcess in
       postProcess?(.success(true))
     }) { vc in
       self.keychain.isLocked = false

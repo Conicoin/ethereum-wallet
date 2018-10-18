@@ -6,7 +6,7 @@ import Foundation
 
 
 class ReceiveRouter {
-
+  var app: Application!
 }
 
 

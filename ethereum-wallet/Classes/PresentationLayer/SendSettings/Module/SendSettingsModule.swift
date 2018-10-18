@@ -6,7 +6,7 @@ import UIKit
 
 class SendSettingsModule {
 
-  class func create() -> SendSettingsModuleInput {
+  class func create(app: Application) -> SendSettingsModuleInput {
     let router = SendSettingsRouter()
     let presenter = SendSettingsPresenter()
     let interactor = SendSettingsInteractor()
@@ -19,6 +19,7 @@ class SendSettingsModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
 
     // MARK: Injection
     interactor.walletDataStoreService = WalletDataStoreService()

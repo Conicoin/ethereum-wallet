@@ -12,22 +12,9 @@ class TabBarPresenter {
   var interactor: TabBarInteractorInput!
   var router: TabBarRouterInput!
   
-  private lazy var balanceModule: BalanceModuleInput = {
-    let module = BalanceModule.create()
-    module.output = self
-    return module
-  }()
-  private lazy var transactionsModule: TransactionsModuleInput = TransactionsModule.create()
-  private lazy var settingsModule: SettingsModuleInput = SettingsModule.create()
-  
   private func insertViewControllers() {
-    
-    view.viewControllers = [
-      balanceModule.viewController.wrapToNavigationController(),
-      transactionsModule.viewController.wrapToNavigationController(),
-      settingsModule.viewController.wrapToNavigationController()
-    ]
-    view.setTitles()
+    let viewControllers = router.getTabViewControllers()
+    view.viewControllers = viewControllers
   }
   
 }
@@ -40,6 +27,8 @@ extension TabBarPresenter: TabBarViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     insertViewControllers()
+    view.setTitles()
+    interactor.startSynchronization()
   }
 }
 
@@ -59,11 +48,11 @@ extension TabBarPresenter: TabBarInteractorOutput {
   }
   
   func syncDidChangeProgress(current: Int64, total: Int64) {
-    balanceModule.syncDidChangeProgress(current: current, total: total)
+
   }
   
   func syncDidFinished() {
-    balanceModule.syncDidFinished()
+
   }
   
 }
@@ -83,9 +72,5 @@ extension TabBarPresenter: TabBarModuleInput {
 // MARK: - BalanceModuleOutput
 
 extension TabBarPresenter: BalanceModuleOutput {
-  
-  func balanceViewIsReady() {
-    interactor.startSynchronization()
-  }
-  
+
 }

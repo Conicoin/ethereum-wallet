@@ -5,9 +5,15 @@ import UIKit
 
 class LockerFactory {
   
+  let app: Application
+  
+  init(app: Application) {
+    self.app = app
+  }
+  
   func create() -> LockerProtocol {
     let keychain = Keychain()
-    let service = Locker(keychain: keychain)
+    let service = Locker(app: app, keychain: keychain)
     return service
   }
   

@@ -20,7 +20,7 @@ enum WelcomeState {
 
 class WelcomeModule {
     
-  class func create() -> WelcomeModuleInput {
+  class func create(app: Application) -> WelcomeModuleInput {
     let router = WelcomeRouter()
     let presenter = WelcomePresenter()
     let interactor = WelcomeInteractor()
@@ -33,6 +33,7 @@ class WelcomeModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // MARK: Injection
     

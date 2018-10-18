@@ -6,7 +6,7 @@ import UIKit
 
 class PopupModule {
     
-  class func create(_ popupState: PopupState) -> PopupModuleInput {
+  class func create(app: Application, state: PopupState) -> PopupModuleInput {
     let router = PopupRouter()
     let presenter = PopupPresenter()
     let interactor = PopupInteractor()
@@ -19,12 +19,13 @@ class PopupModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // MARK: Injection
-    presenter.popupState = PopupStateFactory(state: popupState).create()
+    presenter.popupState = PopupStateFactory(state: state).create()
     
     interactor.postProcess = PopupPostProcessFactory(pushService: PushService(),
-                                                     biometryService: BiometryService()).create(popupState)
+                                                     biometryService: BiometryService()).create(state)
         
     return presenter
   }

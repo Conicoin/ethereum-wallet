@@ -29,7 +29,6 @@ extension BalancePresenter: BalanceViewOutput {
   
   func viewIsReady() {
     view.setupInitialState()
-    output?.balanceViewIsReady()
     interactor.getWalletFromDataBase()
     interactor.getCoinsFromDataBase()
     interactor.getTokensFromDataBase()
@@ -115,12 +114,4 @@ extension BalancePresenter: BalanceModuleInput {
   var viewController: UIViewController {
     return view.viewController
   }
-  
-  func syncDidChangeProgress(current: Int64, total: Int64) {
-    
-  }
-  
-  func syncDidFinished() {
-  }
-
 }

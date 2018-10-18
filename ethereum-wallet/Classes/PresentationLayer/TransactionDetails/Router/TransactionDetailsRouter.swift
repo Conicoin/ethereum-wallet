@@ -6,7 +6,7 @@ import UIKit
 import SafariServices
 
 class TransactionDetailsRouter {
-
+  var app: Application!
 }
 
 

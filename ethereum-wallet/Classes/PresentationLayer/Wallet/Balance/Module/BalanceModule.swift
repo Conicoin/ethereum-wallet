@@ -7,7 +7,7 @@ import UIKit
 
 class BalanceModule {
     
-  class func create() -> BalanceModuleInput {
+  class func create(app: Application) -> BalanceModuleInput {
     let router = BalanceRouter()
     let presenter = BalancePresenter()
     let interactor = BalanceInteractor()
@@ -20,6 +20,7 @@ class BalanceModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // MARK: - Injection
     

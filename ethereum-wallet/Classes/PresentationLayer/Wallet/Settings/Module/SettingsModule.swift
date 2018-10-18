@@ -8,7 +8,7 @@ import UIKit
 
 class SettingsModule {
   
-  class func create() -> SettingsModuleInput {
+  class func create(app: Application) -> SettingsModuleInput {
     let router = SettingsRouter()
     let presenter = SettingsPresenter()
     let interactor = SettingsInteractor()
@@ -23,6 +23,7 @@ class SettingsModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // Injection
     let keychain = Keychain()

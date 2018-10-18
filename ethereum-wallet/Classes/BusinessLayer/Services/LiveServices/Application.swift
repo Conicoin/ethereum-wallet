@@ -4,16 +4,16 @@
 import Foundation
 
 
-class LiveServices {
+class Application {
   
   lazy var locker: LockerProtocol = {
-    return LockerFactory().create()
+    return LockerFactory(app: self).create()
   }()
   
   lazy var backupper: BackupServiceProtocol = {
     let keychain = Keychain()
     let accountService = AccountService(keychain: keychain)
-    return BackupService(keychain: keychain, accountService: accountService)
+    return BackupService(app: self, keychain: keychain, accountService: accountService)
   }()
   
   lazy var screenLocker: ScreenLockerProtocol = {

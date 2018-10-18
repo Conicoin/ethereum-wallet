@@ -8,7 +8,7 @@ import UIKit
 
 class ScanModule {
     
-  class func create() -> ScanModuleInput {
+  class func create(app: Application) -> ScanModuleInput {
     let router = ScanRouter()
     let presenter = ScanPresenter()
     let interactor = ScanInteractor()
@@ -22,6 +22,7 @@ class ScanModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
         
     return presenter
   }

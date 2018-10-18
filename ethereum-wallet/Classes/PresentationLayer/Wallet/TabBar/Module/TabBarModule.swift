@@ -7,7 +7,7 @@ import UIKit
 
 class TabBarModule {
     
-  class func create(isSecureMode: Bool) -> TabBarModuleInput {
+  class func create(app: Application, isSecureMode: Bool) -> TabBarModuleInput {
     let router = TabBarRouter()
     let presenter = TabBarPresenter()
     let interactor = TabBarInteractor()
@@ -35,6 +35,7 @@ class TabBarModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     return presenter
   }

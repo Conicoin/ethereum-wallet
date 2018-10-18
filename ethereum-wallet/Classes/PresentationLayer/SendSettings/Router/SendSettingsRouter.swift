@@ -5,7 +5,7 @@ import Foundation
 
 
 class SendSettingsRouter {
-
+  var app: Application!
 }
 
 

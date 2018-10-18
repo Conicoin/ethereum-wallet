@@ -7,7 +7,7 @@ import UIKit
 
 class ReceiveModule {
     
-  class func create() -> ReceiveModuleInput {
+  class func create(app: Application) -> ReceiveModuleInput {
     let router = ReceiveRouter()
     let presenter = ReceivePresenter()
     let interactor = ReceiveInteractor()
@@ -22,6 +22,7 @@ class ReceiveModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
         
     return presenter
   }
