@@ -145,8 +145,8 @@ extension BalanceViewController: BalanceViewInput {
     diffCalculator.rows = tokens
   }
   
-  func setCoin(_ coin: Coin) {
-    balanceLabel.text = coin.balance.amountString
+  func setBalance(_ balance: Currency) {
+    balanceLabel.text = balance.amountString
   }
 
 }

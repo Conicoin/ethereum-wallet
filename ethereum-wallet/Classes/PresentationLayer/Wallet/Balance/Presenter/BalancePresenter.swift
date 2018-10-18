@@ -29,8 +29,9 @@ extension BalancePresenter: BalanceViewOutput {
   
   func viewIsReady() {
     view.setupInitialState()
+    interactor.getCoin()
+    interactor.getBalance()
     interactor.getWalletFromDataBase()
-    interactor.getCoinsFromDataBase()
     interactor.getTokensFromDataBase()
   }
   
@@ -75,18 +76,19 @@ extension BalancePresenter: BalanceViewOutput {
 // MARK: - BalanceInteractorOutput
 
 extension BalancePresenter: BalanceInteractorOutput {
-  
+ 
   func didReceiveWallet(_ wallet: Wallet) {
     self.wallet = wallet
     getBalancesFromNetwork(address: wallet.address)
     view.setTotalTokenAmount(wallet.localCurrency)
   }
   
-  func didReceiveCoins(_ coins: [Coin]) {
-    view.endRefreshing()
-    guard let coin = coins.first else { return }
+  func didReceiveCoin(_ coin: Coin) {
     self.coin = coin
-    view.setCoin(coin)
+  }
+
+  func didReceiveBalance(_ balance: Currency) {
+    view.setBalance(balance)
   }
   
   func didReceiveTokens(_ tokens: [Token]) {

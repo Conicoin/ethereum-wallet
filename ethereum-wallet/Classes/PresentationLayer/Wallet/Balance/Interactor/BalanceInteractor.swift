@@ -6,6 +6,10 @@ import Foundation
 
 
 class BalanceInteractor {
+  enum Signal {
+    case coin
+  }
+  
   weak var output: BalanceInteractorOutput!
   
   var walletNetworkService: WalletNetworkServiceProtocol!
@@ -15,6 +19,11 @@ class BalanceInteractor {
   var ratesDataStoreService: RatesDataStoreServiceProtocol!
   var tokensNetworkService: TokensNetworkServiceProtocol!
   var tokensDataStoreService: TokenDataStoreServiceProtocol!
+  var etherBalancer: EtherBalancer!
+  var coinRepository: CoinRepositiry!
+  
+  let balanceId = Identifier()
+  let coinId = Identifier()
   
   let group = DispatchGroup()
   
@@ -39,6 +48,11 @@ class BalanceInteractor {
     group.notify(queue: .global()) { [weak self] in
       self?.tokensDataStoreService.save(updatedTokens)
     }
+  }
+  
+  deinit {
+    etherBalancer.removeObserver(id: balanceId)
+    coinRepository.removeObserver(id: coinId)
   }
 }
 
@@ -89,9 +103,15 @@ extension BalanceInteractor: BalanceInteractorInput {
     }
   }
   
-  func getCoinsFromDataBase() {
-    coinDataStoreService.observe { [weak self] coins in
-      self?.output.didReceiveCoins(coins)
+  func getBalance() {
+    etherBalancer.start(id: balanceId) { [weak self] balance in
+      self?.output.didReceiveBalance(balance)
+    }
+  }
+  
+  func getCoin() {
+    coinRepository.addObserver(id: coinId) { [weak self] coin in
+      self?.output.didReceiveCoin(coin)
     }
   }
   

@@ -31,6 +31,9 @@ class BalanceModule {
     interactor.ratesDataStoreService = RatesDataStoreService()
     interactor.tokensNetworkService = TokensNetworkService()
     interactor.tokensDataStoreService = TokenDataStoreService()
+    
+    interactor.etherBalancer = app.etherBalancer
+    interactor.coinRepository = app.coinRepository
         
     return presenter
   }

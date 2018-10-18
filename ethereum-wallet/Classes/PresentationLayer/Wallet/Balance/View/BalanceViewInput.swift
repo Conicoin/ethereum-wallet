@@ -10,6 +10,6 @@ protocol BalanceViewInput: class, Presentable {
   func endRefreshing()
   func setTotalTokenAmount(_ currency: String)
   func setPreviewTitle(_ currency: String, coin: Coin)
-  func setCoin(_ coin: Coin)
+  func setBalance(_ balance: Currency)
   func setTokens(_ tokens: [Token])
 }

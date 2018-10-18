@@ -11,6 +11,10 @@ struct Ether {
   var value: Double {
     return raw.double / 1e18
   }
+  
+  init() {
+    self.raw = 0
+  }
 
   init(_ value: Decimal) {
     self.raw = value * 1e18
