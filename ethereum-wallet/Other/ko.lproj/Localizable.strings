@@ -1,0 +1,175 @@
+// Copyright © 2018 Conicoin LLC. All rights reserved.
+// Created by Artur Guseinov
+
+// MARK: - Common
+"common.ok" = "OK";
+"common.cancel" = "취소";
+"common.notNow" = "지금 아닙니다";
+"common.touchId" = "터치ID";
+"common.faceId" = "페이스 ID";
+
+// MARK: - Tabs
+"tab.balance" = "균형";
+"tab.transactions" = "거래";
+"tab.settings" = "설정";
+
+// MARK: - Mnemonic
+// - Common
+"mnemonic.common.delete" = "삭제";
+"mnemonic.common.cancel" = "취소";
+// - Screenshot
+"mnemonic.screenshot.title" = "스크린샷을 하지 마십시오!";
+"mnemonic.screenshot.message" = "스크린샷을 사용하여 복구 문구를 저장하지 않기 바릅니다. 안전하지 않습니다.";
+// - Writing state
+"mnemonic.writing.backup.title" = "예비 지갑";
+"mnemonic.writing.create.title" = "지갑이 창조되었습니다!";
+"mnemonic.writing.subtitle" = "복구 문구는 당신의 펀드의 키입니다.  그냥12단어만 써서 안전한 곳에 보관하십시오.";
+"mnemonic.writing.button.title" = "확인";
+// - Verifying state
+"mnemonic.verifying.title" = "복구 문구를 확인하기";
+"mnemonic.verifying.subtitle" = "복구 문구를 올바른 순서로 입력하십시오. 이렇게 하면 올바르게 쓸 수 있습니다.";
+// - Сorrect state
+"mnemonic.correct.title" = "바로 그겁니다!";
+"mnemonic.correct.subtitle" = "복구 문구를 안전한 곳에 보관하십시오. 펀드에 입장을 복구하기 위해 필요합니다";
+"mnemonic.correct.button.title" = "계속하기";
+// - Incorrect state
+"mnemonic.incorrect.title" = "틀렸습니다!";
+"mnemonic.incorrect.subtitle" = "복구 문구를 잃어버리면 더 이상 펀드에 입장할 수 없게 됩니다.\n 다시 시도하십시오";
+"mnemonic.incorrect.button.title" = "다시 시도하십시오";
+
+// MARK: - Welcome
+"welcome.new.title" = "새로운 지갑을 창조하기";
+"welcome.restore.title" = "암호를 사용하면서 복원하기";
+"welcome.import.title" = "지갑을 수입하기";
+"welcome.title" = "Conicoin에 환영합니다";
+"welcome.title.testnet" = " Conicoin\nRinkeby Testnet에 환영합니다";
+"welcome.subtitle" = "새로운 지갑을 만들거나 기존 지갑을 복원하기부터 시작합시다";
+"welcome.github.link" = "Github에 소스코드를 사용할 수 있습니다";
+"welcome.import.alert" = "수입하기";
+"welcome.import.private" = "개인 키";
+"welcome.import.json" = "JSON 키";
+"welcome.import.mnemonic" = "기억을 돕는 문구";
+
+// MARK: - Import
+"import.title" = "지갑을 수입하기";
+"import.json.title" = "JSON 키를 입력하기";
+"import.private.title" = "개인 키를 입력하기";
+"import.mnemonic.title" = "기억에 돕는 문구를 입력하기";
+"import.icloud.title" = "iCloud에서 수입하기";
+"import.confirm.title" = "확인";
+
+// MARK: - Balance
+"balance.token.count" = "%@ 토큰";
+"balance.receive" = "받기";
+"balance.send" = "보내기";
+"balance.eth.title" = "ETH ∙ Ethereum";
+"balance.label" = "%@ ∙ %@";
+"balance.empty.title" = " ERC20 토큰은 없습니다. 토큰이 나타나면 여기에서 표시됩니다.";
+
+// MARK: - Token details
+"token.details.name" = "%@ ∙ %@";
+"token.details.send" = "보내기";
+"token.details.desc" = "묘사";
+"token.details.info" = "정보";
+"token.details.address" = "주소";
+"token.details.supply" = "전체의 공급";
+"token.details.holders" = "소유자들";
+
+// MARK: - Receive
+"receive.title" = "%@ 받기";
+"receive.address.title" = "사용자의 이더리움 주소";
+"receive.copy.button" = "주소를 복사하기";
+"receive.alert.copy" = "주소가 클립보드에 복사되었습니다";
+
+// MARK: - Send
+"send.title.empty" = "보내기";
+"send.title" = "보내기%@";
+"send.fee" = "요금";
+"send.total" = "합계";
+"send.address.placeholder" = "수취인 주소";
+
+// MARK: - Send Settings
+"send.adv.title" = "고급";
+"send.adv.gasPrice" = "Gas 가격 (Gwei)";
+"send.adv.gasPrice.info" = "Gas 가격은 당신의 거래 수수료를 증가시키지만 당신의 거래 또한 더 급속하게 실행될 겁니다.";
+"send.adv.gasLimit" = "Gas 제한";
+"send.adv.gasLimit.info" = "Gas 제한으로 인해 스마트 계약에서 모든 Ethereum을 소비할 수 없습니다. Gas 제한은 당사가 자동으로 계산하지만 일부 스마트 계약에는 사용자 지정 Gas 제한이 필요할 수 있습니다.";
+"send.adv.txData" = "거래 데이터";
+"send.adv.networkFee" = "총 네트워크 요금";
+"send.adv.save" = "저장";
+
+// MARK: - Transactions
+"transactions.title" = "거래";
+"transactions.pending" = "미결정";
+"transactions.error" = "거래 실패했습니다";
+"transactions.received" = "From %@";
+"transactions.sent" = "To %@";
+"transactions.empty.title" = "거래가 아직 없습니다";
+
+// MARK: - Transaction Details
+"tx.details.completed" = "완료되었습니다";
+"tx.details.txHash" = "TxHash";
+"tx.details.blockHeight" = "블록 높이";
+"tx.details.from" = "From";
+"tx.details.to" = "To";
+"tx.details.spent" = "보냈습니다";
+"tx.details.fee" = "요금";
+"tx.details.alert.title" = "Etherscan에 거래의 정보를 보여드리겠습니까?";
+"tx.details.etherscan" = "Etherscan에서 보기";
+
+// MARK: Timestamp
+"time.today" = "오늘";
+"time.yestarday" = "어제";
+"time.tomorrow" = "내일";
+"time.daysAgo" = "%@ 일전에";
+"time.inDays" = "%@ 일만에";
+
+// MARK: Settings
+"settings.title" = "설정";
+"settings.currency" = "참조 통용";
+"settings.changePasscode" = "암호를 바뀌기";
+"settings.biometic" = " %@ 사용하기";
+"settings.push" = "앱 알림";
+"settings.backup" = "예비 지갑";
+"settings.rate" = "앱 평가하기";
+"settings.logout" = "지갑을 닫기";
+"settings.version" = "버전 %@";
+"settings.exit.alert.title" = "지갑을 닫기";
+"settings.exit.alert.msg" = "모든 데이터가 삭제될 겁니다. 백업을 완료했는지 확인하십시오. 그렇지 않으면 지갑을 복구할 수 없을 겁니다.";
+"settings.change.alert.title" = "암호를 바뀌기";
+"settings.change.alert.msg" = "모든 이전 백업이 여전히 이전 암호를 요구한다는 것을 알아 두십시오.";
+
+// MARK: ChooseCurrency
+"chooseCurrency.title" = "참조 통용";
+
+// MARK: Passcode
+"pin.enterTitle" = "암호를 입력하기";
+"pin.restoreTitle" = "계정을 복구하기 위해\n 암호를 입력하기";
+"pin.setTitle" = "Conicoin계정 위한\n암호를 창조하기";
+"pin.confirmTitle" = "암호를 반복하기";
+"pin.changeTitle" = "이전 암호를 입력하기";
+"pin.mismatchTitle" = "다시 해보세요";
+"pin.touchIDReason" = "계속하려면 인증이 필요합니다";
+"pin.touchIDButton" = "암호를 입력하기";
+"pin.exitTitle" = "지갑에서 내리기 위해\n암호를 입력하기";
+"pin.backupTitle" = "지갑을 백업하기 위해\n암호를 입력하기";
+"pin.confirmPayment" = "발송을 확인하기 %@\n로 %@";
+"pin.lockTitle" = "지갑을 열기 위해\n암호를 입력하기";
+
+// MARK: Popup
+// - Touch Id
+"popup.touch.title" = " %@ 과Conicoin 열기";
+"popup.touch.description" = "빠르고 간편한 입장하기 위해  %@ 사용하기.";
+"popup.touch.confirm" = "사용하기%@";
+// - Transaction Sent
+"popup.txSent.title" = " %@ 보냈습니다";
+"popup.txSent.confirm" = "되었습니다";
+// - Push
+"popup.push.title" = "알림을 밀기";
+"popup.push.description" = "주소와의 모든 거래에 유의하십시오.";
+"popup.push.confirm" = "Push알림을 사용하기";
+"popup.push.error.disabled.title" = "Push 알림 사용 안 하기";
+"popup.push.error.disabled.message" = "디바이스 설정에서 Conicoin Wallet에 대한 알림을 활성화하십시오.";
+
+// MARK: TouchId
+"touchId.error.title" = "%@ 오류";

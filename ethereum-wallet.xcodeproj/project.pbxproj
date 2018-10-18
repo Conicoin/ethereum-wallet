@@ -671,6 +671,7 @@
 		14350EF721529FB2005A6422 /* BiometryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryService.swift; sourceTree = "<group>"; };
 		1436EE40205D931900196AAF /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		1436EE43205EFB5800196AAF /* CustomPinState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinState.swift; sourceTree = "<group>"; };
+		1439414221788325006920CD /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		144102D22053FE0A00F4D192 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		144102D7205409A900F4D192 /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
 		144102DB205409E300F4D192 /* DefaultTextFieldUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextFieldUtils.swift; sourceTree = "<group>"; };
@@ -3257,6 +3258,7 @@
 				en,
 				Base,
 				ru,
+				ko,
 			);
 			mainGroup = 144E4F091EB26F0600AB62B6;
 			productRefGroup = 144E4F131EB26F0600AB62B6 /* Products */;
@@ -3891,6 +3893,7 @@
 			children = (
 				144AB0F120AE1A460031185D /* en */,
 				144AB0F320AE1A640031185D /* ru */,
+				1439414221788325006920CD /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
