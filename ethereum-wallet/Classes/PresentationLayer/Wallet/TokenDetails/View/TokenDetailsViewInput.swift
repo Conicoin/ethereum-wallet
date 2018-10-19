@@ -7,7 +7,7 @@ import UIKit
 
 protocol TokenDetailsViewInput: class, Presentable {
   func setupInitialState()
-  func didReceiveToken(_ token: Token)
+  func didReceiveToken(_ token: TokenViewModel)
   func didReceiveFiatBalance(_ balance: String)
   func didReceiveTransactions(_ transactions: [TransactionDisplayer])
 }

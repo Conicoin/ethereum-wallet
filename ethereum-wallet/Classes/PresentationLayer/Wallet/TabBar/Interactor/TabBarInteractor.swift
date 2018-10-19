@@ -52,9 +52,7 @@ extension TabBarInteractor: SyncCoordinatorDelegate {
   }
   
   func syncDidUpdateBalance(_ balanceHex: String, timestamp: Int64) {
-    guard var coin = coinsDataStoreService.find(withIso: "ETH") else {
-      return
-    }
+    var coin = coinsDataStoreService.find(withIso: "ETH")
     
     let interval = TimeInterval(timestamp)
     let date = Date(timeIntervalSince1970: interval)
@@ -82,8 +80,5 @@ extension TabBarInteractor: SyncCoordinatorDelegate {
   func syncDidReceiveTransactions(_ gethTransactions: [GethTransaction], timestamp: Int64) {
     // TODO: Storing transaction for LES Sync
   }
-  
-  
-  
   
 }

@@ -5,5 +5,5 @@
 import Geth
 
 protocol TransactionFactoryProtocol {
-  func buildTransaction(with info: TransactionInfo, type: TransferType) throws -> GethTransaction
+  func buildTransaction(with info: TransactionInfo, type: CoinType) throws -> GethTransaction
 }

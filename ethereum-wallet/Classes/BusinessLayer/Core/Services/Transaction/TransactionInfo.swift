@@ -7,7 +7,5 @@ import Foundation
 struct TransactionInfo {
   let amount: Decimal
   let address: String
-  let contractAddress: String?
-  let decimals: Int
   let settings: SendSettings
 }

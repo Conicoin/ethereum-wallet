@@ -12,7 +12,7 @@ class SendSettingsPresenter {
   var router: SendSettingsRouterInput!
   
   private var settings: SendSettings!
-  private var coin: CoinDisplayable!
+  private var coin: AbstractCoin!
   private var localCurrency: String!
     
   private func calculateFee() {
@@ -29,7 +29,7 @@ class SendSettingsPresenter {
 extension SendSettingsPresenter: SendSettingsViewOutput {
 
   func viewIsReady() {
-    view.setupInitialState(settings: settings, coin: coin)
+    view.setupInitialState(settings: settings, isToken: coin.isToken)
     interactor.getWallet()
   }
   
@@ -71,7 +71,7 @@ extension SendSettingsPresenter: SendSettingsInteractorOutput {
 
 extension SendSettingsPresenter: SendSettingsModuleInput {
   
-  func present(from viewController: UIViewController, settings: SendSettings, coin: CoinDisplayable, output: SendSettingsModuleOutput?) {
+  func present(from viewController: UIViewController, settings: SendSettings, coin: AbstractCoin, output: SendSettingsModuleOutput?) {
     self.settings = settings
     self.output = output
     self.coin = coin

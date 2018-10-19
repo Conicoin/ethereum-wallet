@@ -18,7 +18,7 @@ class BalanceViewController: UIViewController {
     
   var output: BalanceViewOutput!
   
-  private var diffCalculator: SingleSectionTableViewDiffCalculator<Token>!
+  private var diffCalculator: SingleSectionTableViewDiffCalculator<TokenViewModel>!
   private var refresh: UIRefreshControl!
   
   // MARK: Life cycle
@@ -131,22 +131,22 @@ extension BalanceViewController: BalanceViewInput {
   func setTotalTokenAmount(_ currency: String) {
     var summ: Double = 0
     for token in diffCalculator.rows {
-      summ += token.rawAmount(for: currency)
+      summ += token.rawAmount(in: currency)
     }
     tokenBalanceLabel.text = FiatCurrencyFactory.amount(amount: summ, iso: currency)
     tokenCountLabel.text = Localized.balanceTokenCount("\(diffCalculator.rows.count)")
   }
   
-  func setPreviewTitle(_ currency: String, coin: Coin) {
-    titleLabel.text = coin.fiatLabelString(currency)
+  func setPreviewTitle(_ currency: String, coin: CoinViewModel) {
+    titleLabel.text = coin.fiatLabelString(for: currency)
   }
   
-  func setTokens(_ tokens: [Token]) {
-    diffCalculator.rows = tokens
+  func setTokens(_ viewModels: [TokenViewModel]) {
+    diffCalculator.rows = viewModels
   }
   
-  func setBalance(_ balance: Currency) {
-    balanceLabel.text = balance.amountString
+  func setCoin(_ viewModel: CoinViewModel) {
+    balanceLabel.text = viewModel.currency.amountString
   }
 
 }

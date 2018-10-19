@@ -14,8 +14,6 @@ class ImportViewController: UIViewController {
   
   var output: ImportViewOutput!
 
-  private var shadowImage: UIImage?
-
   // MARK: Life cycle
 
   override func viewDidLoad() {

@@ -68,11 +68,11 @@ extension TokenDetailsViewController: TokenDetailsViewInput {
 
   }
   
-  func didReceiveToken(_ token: Token) {
-    balanceLabel.text = token.balance.amountString
-    fiatBalanceLabel.text = token.description
+  func didReceiveToken(_ viewModel: TokenViewModel) {
+    balanceLabel.text = viewModel.amountString()
+    fiatBalanceLabel.text = viewModel.description()
   
-    addressLabel.text = token.address
+    addressLabel.text = viewModel.token.address
   }
   
   func didReceiveFiatBalance(_ balance: String) {

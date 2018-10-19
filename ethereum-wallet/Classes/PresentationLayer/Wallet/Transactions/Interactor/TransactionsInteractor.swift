@@ -10,7 +10,14 @@ class TransactionsInteractor {
   
   var transactionsNetworkService: TransactionsNetworkServiceProtocol!
   var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
+  var transactionRepository: TransactionRepository!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
+  
+  let transactionId = Identifier()
+  
+  deinit {
+    transactionRepository.removeObserver(id: transactionId)
+  }
 }
 
 
@@ -19,14 +26,14 @@ class TransactionsInteractor {
 extension TransactionsInteractor: TransactionsInteractorInput {
   
   func getTransactions() {
-    transactionsDataStoreService.observe { [unowned self] transactions in
-      self.output.didReceiveTransactions(transactions.map { TransactionDisplayer(tx: $0) })
+    transactionRepository.addObserver(id: transactionId) { [weak self] transactions in
+      self?.output.didReceiveTransactions(transactions.map { TransactionDisplayer(tx: $0) })
     }
   }
   
   func getWallet() {
-    walletDataStoreService.getWallet(queue: .main) { wallet in
-      self.output.didReceiveWallet(wallet)
+    walletDataStoreService.getWallet(queue: .main) { [weak self] wallet in
+      self?.output.didReceiveWallet(wallet)
     }
   }
   

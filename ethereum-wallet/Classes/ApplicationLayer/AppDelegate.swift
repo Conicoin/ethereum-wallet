@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     for configurator in configurators {
       configurator.configure()
     }
-    
+        
     app.locker.autolock()
             
     return true

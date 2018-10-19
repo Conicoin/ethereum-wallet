@@ -4,9 +4,6 @@
 
 import RealmSwift
 
-enum CustomRealmError: Error {
-  case parsingError
-}
 
 class RealmTransaction: Object {
   

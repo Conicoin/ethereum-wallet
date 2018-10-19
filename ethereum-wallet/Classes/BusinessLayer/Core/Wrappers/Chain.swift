@@ -167,10 +167,6 @@ enum Chain: String {
     }
   }
   
-  var isMainnet: Bool {
-    return self == .mainnet
-  }
-  
   static func all() -> [Chain] {
     return [.mainnet, .ropsten, .rinkeby]
   }

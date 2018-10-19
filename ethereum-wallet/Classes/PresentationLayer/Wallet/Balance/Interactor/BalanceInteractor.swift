@@ -6,24 +6,23 @@ import Foundation
 
 
 class BalanceInteractor {
-  enum Signal {
-    case coin
-  }
   
   weak var output: BalanceInteractorOutput!
   
   var walletNetworkService: WalletNetworkServiceProtocol!
-  var walletDataStoreService: WalletDataStoreServiceProtocol!
   var coinDataStoreService: CoinDataStoreServiceProtocol!
   var ratesNetworkService: RatesNetworkServiceProtocol!
   var ratesDataStoreService: RatesDataStoreServiceProtocol!
   var tokensNetworkService: TokensNetworkServiceProtocol!
   var tokensDataStoreService: TokenDataStoreServiceProtocol!
-  var etherBalancer: EtherBalancer!
-  var coinRepository: CoinRepositiry!
+  var walletRepository: WalletRepository!
+  var coinIndexer: CoinIndexer!
+  var tokenIndexer: TokenIndexer!
   
-  let balanceId = Identifier()
-  let coinId = Identifier()
+  
+  let coinIndexId = Identifier()
+  let tokenIndexId = Identifier()
+  let walletId = Identifier()
   
   let group = DispatchGroup()
   
@@ -50,25 +49,7 @@ class BalanceInteractor {
     }
   }
   
-  deinit {
-    etherBalancer.removeObserver(id: balanceId)
-    coinRepository.removeObserver(id: coinId)
-  }
-}
-
-
-// MARK: - BalanceInteractorInput
-
-extension BalanceInteractor: BalanceInteractorInput {
-  
-  func updateRates() {
-    // To background thread
-    var coins = coinDataStoreService.find()
-    var tokens = tokensDataStoreService.find()
-    let coinsCurrenies = coins.map { $0.balance.iso }
-    let tokensCurrencies = tokens.map { $0.balance.iso }
-    let currencies = coinsCurrenies + tokensCurrencies
-    
+  private func updateRates(currencies: [String]) {
     guard currencies.count > 0 else {
       return
     }
@@ -76,19 +57,7 @@ extension BalanceInteractor: BalanceInteractorInput {
     ratesNetworkService.getRate(currencies: currencies, queue: .global()) { [weak self] result in
       switch result {
       case .success(let rates):
-        // TODO: Refactor - move to rate service
-        for (i, coin) in coins.enumerated() {
-          let rates = rates.filter { $0.from == coin.balance.iso }
-          coins[i].rates = rates
-        }
-        self?.coinDataStoreService.save(coins)
-        
-        for (i, token) in tokens.enumerated() {
-          let rates = rates.filter { $0.from == token.balance.iso }
-          tokens[i].rates = rates
-        }
-        self?.tokensDataStoreService.save(tokens)
-        
+        self?.ratesDataStoreService.save(rates)
       case .failure(let error):
         DispatchQueue.main.async {
           self?.output.didFailedWalletReceiving(with: error)
@@ -97,28 +66,33 @@ extension BalanceInteractor: BalanceInteractorInput {
     }
   }
   
-  func getWalletFromDataBase() {
-    walletDataStoreService.observe { [weak self] wallet in
+  deinit {
+    coinIndexer.removeObserver(id: coinIndexId)
+    tokenIndexer.removeObserver(id: tokenIndexId)
+    walletRepository.removeObserver(id: walletId)
+  }
+}
+
+
+// MARK: - BalanceInteractorInput
+
+extension BalanceInteractor: BalanceInteractorInput {
+  
+  func getWallet() {
+    walletRepository.addObserver(id: walletId) { [weak self] wallet in
       self?.output.didReceiveWallet(wallet)
     }
   }
   
-  func getBalance() {
-    etherBalancer.start(id: balanceId) { [weak self] balance in
-      self?.output.didReceiveBalance(balance)
-    }
-  }
-  
   func getCoin() {
-    coinRepository.addObserver(id: coinId) { [weak self] coin in
-      self?.output.didReceiveCoin(coin)
+    coinIndexer.start(id: coinIndexId) { coin in
+      self.output.didReceiveCoin(coin)
     }
   }
   
-  func getTokensFromDataBase() {
-    tokensDataStoreService.observe { [weak self] tokens in
-      let notEmpty = tokens.filter { $0.balance.raw != 0 }
-      self?.output.didReceiveTokens(notEmpty)
+  func getTokens() {
+    tokenIndexer.start(id: tokenIndexId) { index in
+      self.output.didReceiveTokens(index)
     }
   }
   
@@ -130,7 +104,7 @@ extension BalanceInteractor: BalanceInteractorInput {
         var coin = Coin()
         coin.balance = ether
         self?.coinDataStoreService.save(coin)
-        self?.updateRates()
+        self?.updateRates(currencies: [coin.balance.iso])
       case .failure(let error):
         DispatchQueue.main.async {
           self?.output.didFailedWalletReceiving(with: error)
@@ -144,13 +118,13 @@ extension BalanceInteractor: BalanceInteractorInput {
       switch result {
       case .success(let tokens):
         self?.updateTokensBalance(tokens, address: address)
+        self?.updateRates(currencies: tokens.map({$0.balance.iso}))
       case .failure(let error):
         DispatchQueue.main.async {
           self?.output.didFailedTokensReceiving(with: error)
         }
       }
     }
-    
   }
   
 }

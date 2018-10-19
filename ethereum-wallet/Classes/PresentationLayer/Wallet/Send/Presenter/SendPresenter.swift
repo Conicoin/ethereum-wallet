@@ -11,7 +11,7 @@ class SendPresenter {
   var interactor: SendInteractorInput!
   var router: SendRouterInput!
   
-  private var coin: CoinDisplayable!
+  var coin: AbstractCoin!
   private var wallet: Wallet!
   private var settings: SendSettings = {
     return SendSettings(gasPrice: Constants.Send.defaultGasPrice,
@@ -48,7 +48,8 @@ class SendPresenter {
   
   private func calculateTotalAmount() {
     let fee = settings.gasLimit * settings.gasPrice
-    interactor.getCheckout(for: coin, amount: amount, iso: selectedCurrency, fee: fee)
+    let checkout = coin.checkout(amount: amount, iso: selectedCurrency, fee: fee)
+    view.setCheckout(amount: checkout.amount, total: checkout.total, fee: checkout.fee)
   }
   
   private func updateLocalAmount() {
@@ -65,6 +66,7 @@ class SendPresenter {
 extension SendPresenter: SendViewOutput {
   
   func viewIsReady() {
+    settings.gasLimit = coin.gasLimit
     view.setupInitialState()
     view.setCoin(coin)
     updateLocalAmount()
@@ -83,7 +85,7 @@ extension SendPresenter: SendViewOutput {
   func didSendPressed() {
     let amountString = coin.amountString(with: amount)
     router.presentPin(from: view.viewController, amount: amountString, address: address) { [unowned self] pin, routing in
-      self.interactor.sendTransaction(coin: self.coin, amount: self.amount, to: self.address, settings: self.settings, pin: pin, pinResult: routing)
+      self.interactor.sendTransaction(amount: self.amount, to: self.address, settings: self.settings, pin: pin, pinResult: routing)
     }
   }
   
@@ -107,6 +109,7 @@ extension SendPresenter: SendViewOutput {
 // MARK: - SendInteractorOutput
 
 extension SendPresenter: SendInteractorOutput {
+  
   func didReceiveWallet(_ wallet: Wallet) {
     self.wallet = wallet
     self.selectedCurrency = wallet.localCurrency
@@ -120,10 +123,6 @@ extension SendPresenter: SendInteractorOutput {
   
   func didReceiveGasPrice(_ gasPrice: Decimal) {
     settings.gasPrice = gasPrice
-  }
-  
-  func didReceiveCheckout(amount: String, total: String, fiatAmount: String, fee: String) {
-    view.setCheckout(amount: amount, total: total, fee: fee)
   }
   
   func didFailed(with error: Error) {
@@ -141,9 +140,7 @@ extension SendPresenter: SendInteractorOutput {
 
 extension SendPresenter: SendModuleInput {
   
-  func presentSend(with coin: CoinDisplayable, from viewController: UIViewController) {
-    self.coin = coin
-    settings.gasLimit = coin.gasLimit
+  func presentSend(from viewController: UIViewController) {
     view.present(fromViewController: viewController)
   }
   

@@ -15,8 +15,6 @@ class SettingsModule {
     let viewController = R.storyboard.settings.settingsViewController()!
     
     interactor.output = presenter
-    interactor.walletDataStoreService = WalletDataStoreService()
-    interactor.keystore = KeystoreService()
     
     viewController.output = presenter
     
@@ -27,6 +25,9 @@ class SettingsModule {
     
     // Injection
     let keychain = Keychain()
+    interactor.walletDataStoreService = WalletDataStoreService()
+    interactor.walletRepository = app.walletRepository
+    interactor.keystore = KeystoreService()
     interactor.keychain = keychain
     interactor.pushService = PushService()
     interactor.accountService = AccountService(keychain: keychain)

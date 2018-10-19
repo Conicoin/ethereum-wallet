@@ -11,7 +11,7 @@ class BalancePresenter {
   weak var output: BalanceModuleOutput?
   var interactor: BalanceInteractorInput!
   var router: BalanceRouterInput!
-  var coin: Coin?
+  var coin: CoinViewModel?
   var wallet: Wallet?
   
   var selectedCurrency = Constants.Wallet.defaultCurrency
@@ -30,9 +30,9 @@ extension BalancePresenter: BalanceViewOutput {
   func viewIsReady() {
     view.setupInitialState()
     interactor.getCoin()
-    interactor.getBalance()
-    interactor.getWalletFromDataBase()
-    interactor.getTokensFromDataBase()
+    interactor.getTokens()
+    interactor.getWallet()
+
   }
   
   func viewIsAppear() {
@@ -41,18 +41,18 @@ extension BalancePresenter: BalanceViewOutput {
   }
   
   func didSendPressed() {
-    guard let coin = coin else { return }
+    guard let coin = coin?.coin else { return }
     router.presentSend(for: coin, from: viewController)
   }
   
   func didReceivePressed() {
-    guard let coin = coin else { return }
+    guard let coin = coin?.coin else { return }
     router.presentReceive(for: coin, from: view.viewController)
   }
   
   
-  func didSelectToken(_ token: Token) {
-    router.presentDetails(for: token, from: view.viewController)
+  func didSelectToken(_ viewModel: TokenViewModel) {
+    router.presentDetails(for: viewModel, from: view.viewController)
   }
   
   func didRefresh() {
@@ -79,21 +79,18 @@ extension BalancePresenter: BalanceInteractorOutput {
  
   func didReceiveWallet(_ wallet: Wallet) {
     self.wallet = wallet
-    getBalancesFromNetwork(address: wallet.address)
+    self.selectedCurrency = wallet.localCurrency
     view.setTotalTokenAmount(wallet.localCurrency)
   }
   
-  func didReceiveCoin(_ coin: Coin) {
-    self.coin = coin
-  }
-
-  func didReceiveBalance(_ balance: Currency) {
-    view.setBalance(balance)
+  func didReceiveCoin(_ viewModel: CoinViewModel) {
+    self.coin = viewModel
+    view.setCoin(viewModel)
   }
   
-  func didReceiveTokens(_ tokens: [Token]) {
+  func didReceiveTokens(_ viewModels: [TokenViewModel]) {
     view.endRefreshing()
-    view.setTokens(tokens)
+    view.setTokens(viewModels)
     view.setTotalTokenAmount(selectedCurrency)
   }
   

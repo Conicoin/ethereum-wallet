@@ -7,7 +7,7 @@ import UIKit
 
 class ReceiveModule {
     
-  class func create(app: Application) -> ReceiveModuleInput {
+  class func create(app: Application, type: CoinType) -> ReceiveModuleInput {
     let router = ReceiveRouter()
     let presenter = ReceivePresenter()
     let interactor = ReceiveInteractor()
@@ -23,6 +23,9 @@ class ReceiveModule {
     presenter.router = router
     presenter.interactor = interactor
     router.app = app
+  
+    let rateSource = RateService(rateRepository: app.rateRepository)
+    presenter.coin = AbstractCoin(type: type, rateSource: rateSource)
         
     return presenter
   }

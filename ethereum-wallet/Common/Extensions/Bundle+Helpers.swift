@@ -6,10 +6,6 @@ import UIKit
 
 extension Bundle {
   
-  var versionAndBuild: String {
-    return "\(version) build \(build)"
-  }
-  
   var version: String {
     return infoDictionary!["CFBundleShortVersionString"] as! String
   }

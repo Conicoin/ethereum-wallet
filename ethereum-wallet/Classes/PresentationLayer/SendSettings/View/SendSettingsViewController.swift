@@ -105,7 +105,7 @@ class SendSettingsViewController: UIViewController {
 
 extension SendSettingsViewController: SendSettingsViewInput {
   
-  func setupInitialState(settings: SendSettings, coin: CoinDisplayable) {
+  func setupInitialState(settings: SendSettings, isToken: Bool) {
     gasPriceSlider.minimumValue = Constants.Send.minGasPrice.float / 1e9
     gasPriceSlider.maximumValue = Constants.Send.maxGasPrice.float / 1e9
     gasPriceSlider.setValue(settings.gasPrice.float / 1e9, animated: false)
@@ -116,7 +116,7 @@ extension SendSettingsViewController: SendSettingsViewInput {
     
     gasPriceLabel.text = (settings.gasPrice / 1e9).string
     gasLimitLabel.text = settings.gasLimit.string
-    txDataView.isHidden = coin.isToken
+    txDataView.isHidden = isToken
     
     txDataTextView.text = settings.txData?.hex() ?? "0x"
     

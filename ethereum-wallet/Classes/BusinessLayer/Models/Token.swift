@@ -8,7 +8,6 @@ import ObjectMapper
 struct Token {
   
   var balance: Currency!
-  var rates = [Rate]()
   var lastUpdateTime = Date()
   var address: String!
   var decimals: Int!
@@ -23,7 +22,6 @@ extension Token: RealmMappable {
     var token = Token()
     let tokenValue = TokenValue(wei: Decimal(object.balance), name: object.name, iso: object.iso, decimals: object.decimals)
     token.balance = tokenValue
-    token.rates = object.rates.map { Rate.mapFromRealmObject($0) }
     token.lastUpdateTime = object.lastUpdateTime
     token.address = object.address
     token.decimals = object.decimals
@@ -35,7 +33,6 @@ extension Token: RealmMappable {
     realmObject.balance = balance.raw.string
     realmObject.name = balance.name
     realmObject.iso = balance.symbol
-    realmObject.rates.append(objectsIn: rates.map { $0.mapToRealmObject() })
     realmObject.lastUpdateTime = lastUpdateTime
     realmObject.address = address
     realmObject.decimals = decimals

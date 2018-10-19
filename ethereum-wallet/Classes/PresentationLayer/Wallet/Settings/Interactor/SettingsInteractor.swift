@@ -17,6 +17,13 @@ class SettingsInteractor {
   var keychain: Keychain!
   var accountService: AccountServiceProtocol!
   var biometryService: BiometryServiceProtocol!
+  var walletRepository: WalletRepository!
+  
+  let walletId = Identifier()
+  
+  deinit {
+    walletRepository.removeObserver(id: walletId)
+  }
 }
 
 
@@ -43,8 +50,8 @@ extension SettingsInteractor: SettingsInteractorInput {
   }
   
   func getWallet() {
-    walletDataStoreService.observe { [unowned self] wallet in
-      self.output.didReceiveWallet(wallet)
+    walletRepository.addObserver(id: walletId) { [weak self] wallet in
+      self?.output.didReceiveWallet(wallet)
     }
   }
   

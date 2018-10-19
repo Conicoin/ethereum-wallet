@@ -4,35 +4,24 @@
 import RealmSwift
 
 class CoinDataStoreService: RealmStorable<Coin>, CoinDataStoreServiceProtocol {
-    
-  func createCoin() {
+  
+  @discardableResult
+  func createCoin() -> Coin {
     var coin = Coin()
     coin.balance = Ether(weiValue: 0)
     save(coin)
+    return coin
   }
   
-  func find(withIso iso: String) -> Coin? {
-    return findOne("iso = '\(iso)'")
+  func find(withIso iso: String) -> Coin {
+    if let coin = findOne("iso = '\(iso)'") {
+      return coin
+    }
+    return createCoin()
   }
   
   override func save(_ model: Coin) {
     save([model])
-  }
-  
-  override func save(_ models: [Coin]) {
-    let realm = try! Realm()
-    try! realm.write {
-      let models = models.map { coin -> RealmCoin in
-        let realmObject = coin.mapToRealmObject()
-        if let oldCoin = realm.objects(RealmCoin.self).filter("name = '\(coin.balance.name)'").first {
-          if coin.rates.isEmpty {
-            realmObject.rates = oldCoin.rates
-          }
-        }
-        return realmObject
-      }
-      realm.add(models, update: true)
-    }
   }
   
 }

@@ -9,13 +9,13 @@
 import Foundation
 
 
-protocol TransactionsRepository {
+protocol TransactionRepository {
   var transactions: [Transaction] { get }
   func addObserver(id: Identifier, callback: @escaping ([Transaction]) -> Void)
   func removeObserver(id: Identifier)
 }
 
-class TransactionRepositoryService: TransactionsRepository {
+class TransactionRepositoryService: TransactionRepository {
   
   var transactions: [Transaction] = []
   
@@ -23,6 +23,8 @@ class TransactionRepositoryService: TransactionsRepository {
   let transactionDataStoreService: TransactionsDataStoreServiceProtocol
   init(channel: Channel<[Transaction]>, transactionDataStoreService: TransactionsDataStoreServiceProtocol) {
     self.channel = channel
+    
+    // To not release notification block
     self.transactionDataStoreService = transactionDataStoreService
     
     transactionDataStoreService.observe { transactions in

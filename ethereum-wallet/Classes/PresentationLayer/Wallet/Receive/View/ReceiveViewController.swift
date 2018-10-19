@@ -60,8 +60,8 @@ class ReceiveViewController: UIViewController {
 
 extension ReceiveViewController: ReceiveViewInput {
   
-  func didReceiveCoin(_ coin: CoinDisplayable) {
-    let title = Localized.receiveTitle(coin.balance.name)
+  func didReceiveCoin(_ coin: AbstractCoin) {
+    let title = Localized.receiveTitle(coin.currency.name)
     navigationItem.title = title
   }
   

@@ -9,7 +9,7 @@ protocol SendViewInput: class, Presentable {
   func setupInitialState()
   func setCurrency(_ currency: String)
   func inputDataIsValid(_ isValid: Bool)
-  func setCoin(_ coin: CoinDisplayable)
+  func setCoin(_ coin: AbstractCoin)
   func setAddressFromQR(_ address: String)
   func setLocalAmount(_ localAmount: String?)
   func setCheckout(amount: String, total: String, fee: String)

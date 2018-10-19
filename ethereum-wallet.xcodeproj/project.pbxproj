@@ -60,9 +60,7 @@
 		1409BF492114A8C400DBCADC /* MnemonicModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF352114A8C400DBCADC /* MnemonicModuleOutput.swift */; };
 		1409BF4A2114A8C400DBCADC /* MnemonicModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF362114A8C400DBCADC /* MnemonicModuleInput.swift */; };
 		1409BF4B2114A8C400DBCADC /* MnemonicPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF382114A8C400DBCADC /* MnemonicPresenter.swift */; };
-		1409BF4C2114A8C400DBCADC /* WalletCreationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF392114A8C400DBCADC /* WalletCreationInfo.swift */; };
 		1409BF4D2114A8C400DBCADC /* Mnemonic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1409BF3B2114A8C400DBCADC /* Mnemonic.storyboard */; };
-		1409BF4E2114A8C400DBCADC /* WalletPrivateDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF3C2114A8C400DBCADC /* WalletPrivateDisplayable.swift */; };
 		1409BF4F2114A8C400DBCADC /* MnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF3D2114A8C400DBCADC /* MnemonicViewController.swift */; };
 		1409BF502114A8C400DBCADC /* MnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF3E2114A8C400DBCADC /* MnemonicView.swift */; };
 		1409BF512114A8C400DBCADC /* MnemonicViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF3F2114A8C400DBCADC /* MnemonicViewInput.swift */; };
@@ -89,10 +87,6 @@
 		1414E7162059584F0080680E /* NSError+LAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E7152059584F0080680E /* NSError+LAError.swift */; };
 		1414E7192059A9F50080680E /* TokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E7182059A9F50080680E /* TokenCell.swift */; };
 		141CCF2A1FF424E900CA4176 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141CCF291FF424E900CA4176 /* EnumCollection.swift */; };
-		1421A7092062AF2300B4DBC2 /* SendCoinCheckoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421A7082062AF2300B4DBC2 /* SendCoinCheckoutService.swift */; };
-		1421A70B2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421A70A2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift */; };
-		1421A70D2062AFED00B4DBC2 /* SendCheckoutServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421A70C2062AFED00B4DBC2 /* SendCheckoutServiceProtocol.swift */; };
-		1421A70F2062B07400B4DBC2 /* SendCheckoutServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421A70E2062B07400B4DBC2 /* SendCheckoutServiceFactory.swift */; };
 		142729D820C0788D009003CA /* PopupPushState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142729D720C0788D009003CA /* PopupPushState.swift */; };
 		142729DA20C088F8009003CA /* PopupPushPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142729D920C088F8009003CA /* PopupPushPostProcess.swift */; };
 		142730FA1FB8CF0F00ED9968 /* QRCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */; };
@@ -106,6 +100,9 @@
 		14313CB81FB0C492003AEB0C /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB71FB0C492003AEB0C /* String+Helpers.swift */; };
 		143172BB20627DA700238D70 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 143172BA20627DA700238D70 /* currencies.json */; };
 		143172BE2062829C00238D70 /* FiatCurrencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143172BD2062829C00238D70 /* FiatCurrencyFactory.swift */; };
+		14332FAB217A1814001C7F99 /* AbstractCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14332FAA217A1814001C7F99 /* AbstractCoin.swift */; };
+		14332FAE217A1B13001C7F99 /* RateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14332FAD217A1B13001C7F99 /* RateService.swift */; };
+		14332FB0217A2583001C7F99 /* AbstracnCoin+Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14332FAF217A2583001C7F99 /* AbstracnCoin+Send.swift */; };
 		143384BD21133CAD00FD7BE0 /* HDPrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143384BC21133CAD00FD7BE0 /* HDPrivateKey.swift */; };
 		143384C021133FB200FD7BE0 /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143384BF21133FB200FD7BE0 /* PrivateKey.swift */; };
 		143384C221133FEF00FD7BE0 /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143384C121133FEF00FD7BE0 /* PublicKey.swift */; };
@@ -132,13 +129,18 @@
 		1436EE41205D931900196AAF /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE40205D931900196AAF /* Address.swift */; };
 		1436EE42205D948E00196AAF /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE40205D931900196AAF /* Address.swift */; };
 		1436EE44205EFB5900196AAF /* CustomPinState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436EE43205EFB5800196AAF /* CustomPinState.swift */; };
-		143941452178A261006920CD /* BalanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143941442178A261006920CD /* BalanceService.swift */; };
+		143941452178A261006920CD /* CoinIndexerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143941442178A261006920CD /* CoinIndexerService.swift */; };
 		1439414F2178B740006920CD /* CoinRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439414E2178B740006920CD /* CoinRepository.swift */; };
 		143941522178B7D0006920CD /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143941502178B7D0006920CD /* Observer.swift */; };
 		143941532178B7D0006920CD /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143941512178B7D0006920CD /* Channel.swift */; };
 		143941572178B816006920CD /* ChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143941562178B816006920CD /* ChannelRepository.swift */; };
 		143941592178BDEF006920CD /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143941582178BDEF006920CD /* TransactionRepository.swift */; };
 		1439415D2178F350006920CD /* RateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439415C2178F350006920CD /* RateRepository.swift */; };
+		1439415F2178F637006920CD /* TokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439415E2178F637006920CD /* TokenRepository.swift */; };
+		143941612179011D006920CD /* TokenIndexerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143941602179011D006920CD /* TokenIndexerService.swift */; };
+		1439416321790274006920CD /* WalletRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439416221790274006920CD /* WalletRepository.swift */; };
+		14394166217910A5006920CD /* TokenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14394165217910A5006920CD /* TokenViewModel.swift */; };
+		14394168217913FC006920CD /* CoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14394167217913FC006920CD /* CoinViewModel.swift */; };
 		144102D32053FE0A00F4D192 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102D22053FE0A00F4D192 /* DefaultButton.swift */; };
 		144102D8205409A900F4D192 /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102D7205409A900F4D192 /* DefaultTextField.swift */; };
 		144102DC205409E300F4D192 /* DefaultTextFieldUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144102DB205409E300F4D192 /* DefaultTextFieldUtils.swift */; };
@@ -190,7 +192,6 @@
 		146DB0851FA0080A000D3564 /* WalletNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0841FA0080A000D3564 /* WalletNetworkServiceProtocol.swift */; };
 		146DB0871FA00819000D3564 /* WalletNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DB0861FA00819000D3564 /* WalletNetworkService.swift */; };
 		146F32152064F48C0023B52A /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F32142064F48C0023B52A /* Loader.swift */; };
-		14732DFE212CB32000087D11 /* BottomMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14732DFD212CB32000087D11 /* BottomMnemonicView.swift */; };
 		147443D3209C6E7000BAC86B /* ScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147443D2209C6E7000BAC86B /* ScreenManager.swift */; };
 		147443D6209F85F900BAC86B /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 147443D5209F85F900BAC86B /* ObjC.m */; };
 		147443DD20A1033A00BAC86B /* LottiCheckmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 147443DC20A1033A00BAC86B /* LottiCheckmark.json */; };
@@ -249,6 +250,8 @@
 		14B126BB205BDD4D00B98AE1 /* ImportJsonVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B126BA205BDD4D00B98AE1 /* ImportJsonVerificator.swift */; };
 		14B219421FC2458C003092F0 /* Bundle+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B219411FC2458C003092F0 /* Bundle+Helpers.swift */; };
 		14B219451FC2DFC8003092F0 /* ChooseCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B219441FC2DFC8003092F0 /* ChooseCurrencyCell.swift */; };
+		14B341E8217A559200C8FA8F /* CoinIndexerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B341E7217A559200C8FA8F /* CoinIndexerFactory.swift */; };
+		14B341EA217A55EE00C8FA8F /* TokenIndexerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B341E9217A55EE00C8FA8F /* TokenIndexerFactory.swift */; };
 		14B3B6851EF491F0002A0623 /* UIButton+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3B6841EF491F0002A0623 /* UIButton+Helpers.swift */; };
 		14B77EC01F9ACBBC00FCD923 /* WalletDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B77EBF1F9ACBBC00FCD923 /* WalletDataStoreService.swift */; };
 		14B77EC41F9ACD9300FCD923 /* WalletDataStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B77EC31F9ACD9300FCD923 /* WalletDataStoreServiceProtocol.swift */; };
@@ -269,9 +272,7 @@
 		14D47F011FB3D1460095C516 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D47F001FB3D1460095C516 /* Currency.swift */; };
 		14D518901FE087E600A4FB94 /* TokenDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D5188F1FE087E600A4FB94 /* TokenDataStoreService.swift */; };
 		14D518921FE087EE00A4FB94 /* TokenDataStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D518911FE087EE00A4FB94 /* TokenDataStoreServiceProtocol.swift */; };
-		14D518941FE08A7E00A4FB94 /* CoinDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D518931FE08A7E00A4FB94 /* CoinDisplayable.swift */; };
-		14D7E7362017F10E00DADBC3 /* TransferType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7E7352017F10E00DADBC3 /* TransferType.swift */; };
-		14D7E747201A13A000DADBC3 /* UIViewController+NavBarShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7E746201A13A000DADBC3 /* UIViewController+NavBarShadow.swift */; };
+		14D7E7362017F10E00DADBC3 /* CoinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7E7352017F10E00DADBC3 /* CoinType.swift */; };
 		14DC7896212EF6A80032490B /* AmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DC7895212EF6A80032490B /* AmountFormatter.swift */; };
 		14DFA313207DE854008F6F92 /* TxMetaResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFA312207DE854008F6F92 /* TxMetaResolver.swift */; };
 		14DFA315207DEAC6008F6F92 /* NormalTxResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFA314207DEAC6008F6F92 /* NormalTxResolver.swift */; };
@@ -536,9 +537,7 @@
 		1409BF352114A8C400DBCADC /* MnemonicModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicModuleOutput.swift; sourceTree = "<group>"; };
 		1409BF362114A8C400DBCADC /* MnemonicModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicModuleInput.swift; sourceTree = "<group>"; };
 		1409BF382114A8C400DBCADC /* MnemonicPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicPresenter.swift; sourceTree = "<group>"; };
-		1409BF392114A8C400DBCADC /* WalletCreationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletCreationInfo.swift; sourceTree = "<group>"; };
 		1409BF3B2114A8C400DBCADC /* Mnemonic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mnemonic.storyboard; sourceTree = "<group>"; };
-		1409BF3C2114A8C400DBCADC /* WalletPrivateDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletPrivateDisplayable.swift; sourceTree = "<group>"; };
 		1409BF3D2114A8C400DBCADC /* MnemonicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicViewController.swift; sourceTree = "<group>"; };
 		1409BF3E2114A8C400DBCADC /* MnemonicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicView.swift; sourceTree = "<group>"; };
 		1409BF3F2114A8C400DBCADC /* MnemonicViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicViewInput.swift; sourceTree = "<group>"; };
@@ -565,10 +564,6 @@
 		1414E7152059584F0080680E /* NSError+LAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+LAError.swift"; sourceTree = "<group>"; };
 		1414E7182059A9F50080680E /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
 		141CCF291FF424E900CA4176 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
-		1421A7082062AF2300B4DBC2 /* SendCoinCheckoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinCheckoutService.swift; sourceTree = "<group>"; };
-		1421A70A2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTokenCheckoutService.swift; sourceTree = "<group>"; };
-		1421A70C2062AFED00B4DBC2 /* SendCheckoutServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCheckoutServiceProtocol.swift; sourceTree = "<group>"; };
-		1421A70E2062B07400B4DBC2 /* SendCheckoutServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCheckoutServiceFactory.swift; sourceTree = "<group>"; };
 		142729D720C0788D009003CA /* PopupPushState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPushState.swift; sourceTree = "<group>"; };
 		142729D920C088F8009003CA /* PopupPushPostProcess.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = PopupPushPostProcess.swift; sourceTree = "<group>"; tabWidth = 2; };
 		142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCaptureService.swift; sourceTree = "<group>"; };
@@ -582,6 +577,9 @@
 		14313CB71FB0C492003AEB0C /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		143172BA20627DA700238D70 /* currencies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
 		143172BD2062829C00238D70 /* FiatCurrencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatCurrencyFactory.swift; sourceTree = "<group>"; };
+		14332FAA217A1814001C7F99 /* AbstractCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCoin.swift; sourceTree = "<group>"; };
+		14332FAD217A1B13001C7F99 /* RateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateService.swift; sourceTree = "<group>"; };
+		14332FAF217A2583001C7F99 /* AbstracnCoin+Send.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AbstracnCoin+Send.swift"; sourceTree = "<group>"; };
 		143384BC21133CAD00FD7BE0 /* HDPrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDPrivateKey.swift; sourceTree = "<group>"; };
 		143384BF21133FB200FD7BE0 /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		143384C121133FEF00FD7BE0 /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
@@ -679,13 +677,18 @@
 		1436EE40205D931900196AAF /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		1436EE43205EFB5800196AAF /* CustomPinState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinState.swift; sourceTree = "<group>"; };
 		1439414221788325006920CD /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-		143941442178A261006920CD /* BalanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceService.swift; sourceTree = "<group>"; };
+		143941442178A261006920CD /* CoinIndexerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinIndexerService.swift; sourceTree = "<group>"; };
 		1439414E2178B740006920CD /* CoinRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRepository.swift; sourceTree = "<group>"; };
 		143941502178B7D0006920CD /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		143941512178B7D0006920CD /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		143941562178B816006920CD /* ChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRepository.swift; sourceTree = "<group>"; };
 		143941582178BDEF006920CD /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
 		1439415C2178F350006920CD /* RateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateRepository.swift; sourceTree = "<group>"; };
+		1439415E2178F637006920CD /* TokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepository.swift; sourceTree = "<group>"; };
+		143941602179011D006920CD /* TokenIndexerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenIndexerService.swift; sourceTree = "<group>"; };
+		1439416221790274006920CD /* WalletRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRepository.swift; sourceTree = "<group>"; };
+		14394165217910A5006920CD /* TokenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewModel.swift; sourceTree = "<group>"; };
+		14394167217913FC006920CD /* CoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinViewModel.swift; sourceTree = "<group>"; };
 		144102D22053FE0A00F4D192 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		144102D7205409A900F4D192 /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
 		144102DB205409E300F4D192 /* DefaultTextFieldUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextFieldUtils.swift; sourceTree = "<group>"; };
@@ -739,7 +742,6 @@
 		146DB0841FA0080A000D3564 /* WalletNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		146DB0861FA00819000D3564 /* WalletNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNetworkService.swift; sourceTree = "<group>"; };
 		146F32142064F48C0023B52A /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
-		14732DFD212CB32000087D11 /* BottomMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMnemonicView.swift; sourceTree = "<group>"; };
 		147443D2209C6E7000BAC86B /* ScreenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenManager.swift; sourceTree = "<group>"; };
 		147443D4209F85F900BAC86B /* ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjC.h; sourceTree = "<group>"; };
 		147443D5209F85F900BAC86B /* ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
@@ -800,6 +802,8 @@
 		14B126BA205BDD4D00B98AE1 /* ImportJsonVerificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportJsonVerificator.swift; sourceTree = "<group>"; };
 		14B219411FC2458C003092F0 /* Bundle+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Helpers.swift"; sourceTree = "<group>"; };
 		14B219441FC2DFC8003092F0 /* ChooseCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyCell.swift; sourceTree = "<group>"; };
+		14B341E7217A559200C8FA8F /* CoinIndexerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinIndexerFactory.swift; sourceTree = "<group>"; };
+		14B341E9217A55EE00C8FA8F /* TokenIndexerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenIndexerFactory.swift; sourceTree = "<group>"; };
 		14B3B6841EF491F0002A0623 /* UIButton+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Helpers.swift"; sourceTree = "<group>"; };
 		14B77EBF1F9ACBBC00FCD923 /* WalletDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDataStoreService.swift; sourceTree = "<group>"; };
 		14B77EC31F9ACD9300FCD923 /* WalletDataStoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDataStoreServiceProtocol.swift; sourceTree = "<group>"; };
@@ -822,9 +826,7 @@
 		14D47F001FB3D1460095C516 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		14D5188F1FE087E600A4FB94 /* TokenDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDataStoreService.swift; sourceTree = "<group>"; };
 		14D518911FE087EE00A4FB94 /* TokenDataStoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDataStoreServiceProtocol.swift; sourceTree = "<group>"; };
-		14D518931FE08A7E00A4FB94 /* CoinDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDisplayable.swift; sourceTree = "<group>"; };
-		14D7E7352017F10E00DADBC3 /* TransferType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferType.swift; sourceTree = "<group>"; };
-		14D7E746201A13A000DADBC3 /* UIViewController+NavBarShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavBarShadow.swift"; sourceTree = "<group>"; };
+		14D7E7352017F10E00DADBC3 /* CoinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinType.swift; sourceTree = "<group>"; };
 		14DC7895212EF6A80032490B /* AmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountFormatter.swift; sourceTree = "<group>"; };
 		14DFA312207DE854008F6F92 /* TxMetaResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxMetaResolver.swift; sourceTree = "<group>"; };
 		14DFA314207DEAC6008F6F92 /* NormalTxResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTxResolver.swift; sourceTree = "<group>"; };
@@ -1205,7 +1207,6 @@
 			isa = PBXGroup;
 			children = (
 				1409BF382114A8C400DBCADC /* MnemonicPresenter.swift */,
-				1409BF392114A8C400DBCADC /* WalletCreationInfo.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1214,10 +1215,8 @@
 			isa = PBXGroup;
 			children = (
 				1409BF3B2114A8C400DBCADC /* Mnemonic.storyboard */,
-				1409BF3C2114A8C400DBCADC /* WalletPrivateDisplayable.swift */,
 				1409BF3D2114A8C400DBCADC /* MnemonicViewController.swift */,
 				1409BF3E2114A8C400DBCADC /* MnemonicView.swift */,
-				14732DFD212CB32000087D11 /* BottomMnemonicView.swift */,
 				1409BF3F2114A8C400DBCADC /* MnemonicViewInput.swift */,
 				1409BF402114A8C400DBCADC /* MnemonicViewOutput.swift */,
 			);
@@ -1295,17 +1294,6 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		1421A7072062AF1100B4DBC2 /* Send */ = {
-			isa = PBXGroup;
-			children = (
-				1421A70E2062B07400B4DBC2 /* SendCheckoutServiceFactory.swift */,
-				1421A70C2062AFED00B4DBC2 /* SendCheckoutServiceProtocol.swift */,
-				1421A70A2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift */,
-				1421A7082062AF2300B4DBC2 /* SendCoinCheckoutService.swift */,
-			);
-			path = Send;
-			sourceTree = "<group>";
-		};
 		142730FB1FB8CF2000ED9968 /* QRCapture */ = {
 			isa = PBXGroup;
 			children = (
@@ -1363,6 +1351,14 @@
 				143172BD2062829C00238D70 /* FiatCurrencyFactory.swift */,
 			);
 			name = Fiat;
+			sourceTree = "<group>";
+		};
+		14332FAC217A1B06001C7F99 /* Rates */ = {
+			isa = PBXGroup;
+			children = (
+				14332FAD217A1B13001C7F99 /* RateService.swift */,
+			);
+			path = Rates;
 			sourceTree = "<group>";
 		};
 		143384BE21133FA600FD7BE0 /* Keys */ = {
@@ -1561,7 +1557,10 @@
 		143941432178A24A006920CD /* Balance */ = {
 			isa = PBXGroup;
 			children = (
-				143941442178A261006920CD /* BalanceService.swift */,
+				14B341E7217A559200C8FA8F /* CoinIndexerFactory.swift */,
+				14B341E9217A55EE00C8FA8F /* TokenIndexerFactory.swift */,
+				143941442178A261006920CD /* CoinIndexerService.swift */,
+				143941602179011D006920CD /* TokenIndexerService.swift */,
 			);
 			path = Balance;
 			sourceTree = "<group>";
@@ -1571,7 +1570,9 @@
 			children = (
 				1439414E2178B740006920CD /* CoinRepository.swift */,
 				143941582178BDEF006920CD /* TransactionRepository.swift */,
+				1439415E2178F637006920CD /* TokenRepository.swift */,
 				1439415C2178F350006920CD /* RateRepository.swift */,
+				1439416221790274006920CD /* WalletRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1584,6 +1585,15 @@
 				143941562178B816006920CD /* ChannelRepository.swift */,
 			);
 			path = Channel;
+			sourceTree = "<group>";
+		};
+		1439416421791098006920CD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				14394167217913FC006920CD /* CoinViewModel.swift */,
+				14394165217910A5006920CD /* TokenViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		144102D12053FDEE00F4D192 /* Conicoin */ = {
@@ -1730,6 +1740,7 @@
 		144E4F341EB276C700AB62B6 /* BusinessLayer */ = {
 			isa = PBXGroup;
 			children = (
+				1439416421791098006920CD /* ViewModels */,
 				14D027E91EF87A0800F125C3 /* Networking */,
 				14C4D3CE1EDE209800FCA3AF /* Services */,
 				142B5A1D1EDF117D007F73BA /* Common */,
@@ -2004,7 +2015,7 @@
 				149AA05F1FD614E400F961FA /* TransactionServiceProtocol.swift */,
 				149AA0611FD614F900F961FA /* TransactionService.swift */,
 				14BF259D2012653200CAFCFD /* TransactionInfo.swift */,
-				14D7E7352017F10E00DADBC3 /* TransferType.swift */,
+				14D7E7352017F10E00DADBC3 /* CoinType.swift */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -2131,6 +2142,7 @@
 		14C4D3CE1EDE209800FCA3AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				14332FAC217A1B06001C7F99 /* Rates */,
 				143941542178B7D3006920CD /* Channel */,
 				1439414D2178B72F006920CD /* Repository */,
 				143941432178A24A006920CD /* Balance */,
@@ -2143,7 +2155,6 @@
 				14F4A5B120B1E9B80087BB00 /* ScreenLocker */,
 				14F4A5A720B1DEA80087BB00 /* Locker */,
 				14773B74208919DA006B35C0 /* WalletManager */,
-				1421A7072062AF1100B4DBC2 /* Send */,
 				14B126AB205BDADC00B98AE1 /* Import */,
 				1414E6FD20586AF00080680E /* Popup */,
 				144102DF205673E100F4D192 /* Pin */,
@@ -2230,7 +2241,6 @@
 		14D7E748201A14C000DADBC3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				14D7E746201A13A000DADBC3 /* UIViewController+NavBarShadow.swift */,
 				145D1387206A6C5000AF85D2 /* UIScrollView+Conicoin.swift */,
 			);
 			path = UI;
@@ -2711,7 +2721,7 @@
 				67BD8CAD9C02AE0DE1C3E117 /* BalanceViewInput.swift */,
 				D31E63BCAF4ACBEF755C1079 /* BalanceViewOutput.swift */,
 				A2454C178684434DB69F1710 /* BalanceViewController.swift */,
-				14D518931FE08A7E00A4FB94 /* CoinDisplayable.swift */,
+				14332FAA217A1814001C7F99 /* AbstractCoin.swift */,
 				14046CE4201F751F007BD203 /* Balance.storyboard */,
 			);
 			path = View;
@@ -2785,6 +2795,7 @@
 		911F63560AD9853C6D612270 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14332FAF217A2583001C7F99 /* AbstracnCoin+Send.swift */,
 				140E1105209A39F800000ED7 /* SendSettings.storyboard */,
 				71F1B8154D4774D98FD3BF18 /* SendSettingsViewInput.swift */,
 				939CE32A967D4C487421AAAE /* SendSettingsViewOutput.swift */,
@@ -3527,7 +3538,6 @@
 				146CCBF72113262F000C9DBF /* WordList.swift in Sources */,
 				14ADC337205C206400F57875 /* ImportVerificatorFactory.swift in Sources */,
 				14ACA1E51EF2BCC80059E430 /* Defaults.swift in Sources */,
-				14D7E747201A13A000DADBC3 /* UIViewController+NavBarShadow.swift in Sources */,
 				144791D01EF5DE4000029818 /* ApplicationConfigurator.swift in Sources */,
 				14293C2A1F9FCEB4009E49F1 /* UIViewController+Helpers.swift in Sources */,
 				1409C1351FE877FD00803E78 /* UICollectionView+Sugar.swift in Sources */,
@@ -3546,11 +3556,11 @@
 				146CCBFD21132CB8000C9DBF /* ImportMnemonicState.swift in Sources */,
 				1409BF4F2114A8C400DBCADC /* MnemonicViewController.swift in Sources */,
 				143384C021133FB200FD7BE0 /* PrivateKey.swift in Sources */,
-				1421A7092062AF2300B4DBC2 /* SendCoinCheckoutService.swift in Sources */,
 				14D027F71EF9701A00F125C3 /* RealmTransaction.swift in Sources */,
 				145A90FE1FDDEDDC00DED3AC /* TokenValue.swift in Sources */,
 				14BF259C2012626800CAFCFD /* TransactionFactoryProtocol.swift in Sources */,
 				14B77EC41F9ACD9300FCD923 /* WalletDataStoreServiceProtocol.swift in Sources */,
+				14332FAE217A1B13001C7F99 /* RateService.swift in Sources */,
 				1409BF502114A8C400DBCADC /* MnemonicView.swift in Sources */,
 				14D027E01EF6D4CD00F125C3 /* RealmWallet.swift in Sources */,
 				14991D7E205699840046E6CD /* ConfirmPinState.swift in Sources */,
@@ -3582,6 +3592,7 @@
 				14313CB21FB0B4B5003AEB0C /* UIDevice+Helpers.swift in Sources */,
 				1409BF532114A8C400DBCADC /* MnemonicInteractorInput.swift in Sources */,
 				1400FBB91F997DC100EBC84C /* Wallet.swift in Sources */,
+				143941612179011D006920CD /* TokenIndexerService.swift in Sources */,
 				14ACA1F51EF2BD050059E430 /* Helpers.swift in Sources */,
 				14ACA1F11EF2BCF30059E430 /* Timer+Helpers.swift in Sources */,
 				1406465A1FAF457A0013DFFF /* RealmCoin.swift in Sources */,
@@ -3606,7 +3617,6 @@
 				146DB0831FA007F9000D3564 /* TransactionsNetworkServiceProtocol.swift in Sources */,
 				0452F2CC567D5791911CA5C9 /* WelcomeModuleOutput.swift in Sources */,
 				14E26DCA20618FF300976CD1 /* UITextField+Helpers.swift in Sources */,
-				14732DFE212CB32000087D11 /* BottomMnemonicView.swift in Sources */,
 				A2949D797F273018C98217B3 /* WelcomeModule.swift in Sources */,
 				146DB0811FA007E7000D3564 /* TransactionsNetworkService.swift in Sources */,
 				1475CB1720D2D0D6001A1FE9 /* API+Tokens.swift in Sources */,
@@ -3637,7 +3647,6 @@
 				14958E4B1FB7A4D3005CFC6C /* Decimal+Ethereum.swift in Sources */,
 				14DFA32C207F68FB008F6F92 /* PopupTxSentState.swift in Sources */,
 				1414E70820589B4A0080680E /* PopupStateFactory.swift in Sources */,
-				1421A70D2062AFED00B4DBC2 /* SendCheckoutServiceProtocol.swift in Sources */,
 				14D518921FE087EE00A4FB94 /* TokenDataStoreServiceProtocol.swift in Sources */,
 				C0942FB1AB8F55BF9D7D12B0 /* TabBarInteractorInput.swift in Sources */,
 				9420179ECA842F06CAA0BCB8 /* TabBarInteractorOutput.swift in Sources */,
@@ -3651,7 +3660,7 @@
 				146DB0871FA00819000D3564 /* WalletNetworkService.swift in Sources */,
 				59D6CFA789291B0B23AF7D44 /* TabBarModuleInput.swift in Sources */,
 				C951BB60C54E7F507D2ACEBA /* TabBarModuleOutput.swift in Sources */,
-				14D7E7362017F10E00DADBC3 /* TransferType.swift in Sources */,
+				14D7E7362017F10E00DADBC3 /* CoinType.swift in Sources */,
 				14BF25992012624900CAFCFD /* TransactionFactory.swift in Sources */,
 				10A06ED47E380B8CC274721C /* TabBarModule.swift in Sources */,
 				47F9443F0B19E10CF539BC09 /* BalanceViewInput.swift in Sources */,
@@ -3660,6 +3669,7 @@
 				14BE0A751FAF9D610044E3A1 /* Theme.swift in Sources */,
 				14B77EC01F9ACBBC00FCD923 /* WalletDataStoreService.swift in Sources */,
 				141CCF2A1FF424E900CA4176 /* EnumCollection.swift in Sources */,
+				14394168217913FC006920CD /* CoinViewModel.swift in Sources */,
 				7801565CD4A5A450E43A693A /* BalanceViewController.swift in Sources */,
 				87B0C07C69E1B0DD477636A1 /* BalancePresenter.swift in Sources */,
 				CD31E119F20960A64CAC1037 /* BalanceInteractorInput.swift in Sources */,
@@ -3676,6 +3686,7 @@
 				0F2BAFD4E96319C70DE43D5F /* BalanceModule.swift in Sources */,
 				142730FD1FB8CF3400ED9968 /* QRCaptureServiceProtocol.swift in Sources */,
 				142729D820C0788D009003CA /* PopupPushState.swift in Sources */,
+				14B341E8217A559200C8FA8F /* CoinIndexerFactory.swift in Sources */,
 				D63EE237539093A59D2ADF42 /* TransactionsViewInput.swift in Sources */,
 				14991D9920570F690046E6CD /* PinRepository.swift in Sources */,
 				A6EB2074CF07678E771B62CA /* TransactionsViewOutput.swift in Sources */,
@@ -3685,7 +3696,7 @@
 				9FE6B6A40A81AC72E5122D00 /* TransactionsPresenter.swift in Sources */,
 				FDD3F07044EEF6E854645185 /* TransactionsInteractorInput.swift in Sources */,
 				14FEBD731FBB1F210084F1AB /* Node.swift in Sources */,
-				1409BF4E2114A8C400DBCADC /* WalletPrivateDisplayable.swift in Sources */,
+				14394166217910A5006920CD /* TokenViewModel.swift in Sources */,
 				437D18BC71E49AE3BBB15EB5 /* TransactionsInteractorOutput.swift in Sources */,
 				149CD64A20892301005E3DBD /* WalletManagerFactory.swift in Sources */,
 				D46109B070B77F3B2FE90E34 /* TransactionsInteractor.swift in Sources */,
@@ -3715,10 +3726,10 @@
 				2C55D0ED3B3BCEB7B073ABD4 /* SendPresenter.swift in Sources */,
 				144102DC205409E300F4D192 /* DefaultTextFieldUtils.swift in Sources */,
 				14991D742056943A0046E6CD /* PinService.swift in Sources */,
-				1421A70F2062B07400B4DBC2 /* SendCheckoutServiceFactory.swift in Sources */,
 				14991DA1205733410046E6CD /* UIView+Helpers.swift in Sources */,
 				42534B9D2D18A9ADA1BA048F /* SendInteractorInput.swift in Sources */,
 				51506D804AA6C5804C3940CD /* SendInteractorOutput.swift in Sources */,
+				14B341EA217A55EE00C8FA8F /* TokenIndexerFactory.swift in Sources */,
 				BC6115126651451990D4D46D /* SendInteractor.swift in Sources */,
 				8E4DD7577CC4D2F374295B4D /* SendRouterInput.swift in Sources */,
 				9C99544075FF16B392AC685A /* SendRouter.swift in Sources */,
@@ -3771,6 +3782,7 @@
 				1E6249F217CDD3504CEAC29F /* ScanRouter.swift in Sources */,
 				DF4C239FF3946F152551259F /* ScanModuleInput.swift in Sources */,
 				14B126B2205BDC1900B98AE1 /* ImportJsonKeyState.swift in Sources */,
+				1439415F2178F637006920CD /* TokenRepository.swift in Sources */,
 				4E6E2DDFCDE7F98E1FFAB159 /* ScanModuleOutput.swift in Sources */,
 				1436EE44205EFB5900196AAF /* CustomPinState.swift in Sources */,
 				14786EEB201E7A1C009ECC11 /* TokenMeta.swift in Sources */,
@@ -3787,9 +3799,9 @@
 				145C8FF92068FD3000706DB6 /* TransactionHeaderCell.swift in Sources */,
 				14991D9420570EA20046E6CD /* PinServiceFactory.swift in Sources */,
 				AEA8AAD3A3E88E8E2E1438B0 /* SettingsPresenter.swift in Sources */,
-				143941452178A261006920CD /* BalanceService.swift in Sources */,
+				143941452178A261006920CD /* CoinIndexerService.swift in Sources */,
+				1439416321790274006920CD /* WalletRepository.swift in Sources */,
 				A477243D807CEB58F23FA86F /* SettingsInteractorInput.swift in Sources */,
-				14D518941FE08A7E00A4FB94 /* CoinDisplayable.swift in Sources */,
 				143941592178BDEF006920CD /* TransactionRepository.swift in Sources */,
 				425CFC4A10B3C738D451BC3E /* SettingsInteractorOutput.swift in Sources */,
 				E45A2F702226F73527DA21E9 /* SettingsInteractor.swift in Sources */,
@@ -3839,8 +3851,8 @@
 				143384C42113418600FD7BE0 /* HDPublicKey.swift in Sources */,
 				EFE52FD393A96B96AD99DF85 /* TokenDetailsModuleInput.swift in Sources */,
 				737CA34C9BBE98D896697F39 /* TokenDetailsModuleOutput.swift in Sources */,
-				1409BF4C2114A8C400DBCADC /* WalletCreationInfo.swift in Sources */,
 				14929DB7213B42AD00C5B83C /* TokenBalance.swift in Sources */,
+				14332FB0217A2583001C7F99 /* AbstracnCoin+Send.swift in Sources */,
 				AD78CBB127C68F8C4A5BEC93 /* TokenDetailsModule.swift in Sources */,
 				14B126BB205BDD4D00B98AE1 /* ImportJsonVerificator.swift in Sources */,
 				14991D7F205699840046E6CD /* NewPinState.swift in Sources */,
@@ -3853,6 +3865,7 @@
 				1D9908DB5825ECD9F9FD8619 /* ImportPresenter.swift in Sources */,
 				D4CFFB3749BE9EFA28966BFD /* ImportInteractorInput.swift in Sources */,
 				9D2494CED34CF59D8EFA0808 /* ImportInteractorOutput.swift in Sources */,
+				14332FAB217A1814001C7F99 /* AbstractCoin.swift in Sources */,
 				9CAC6FD93C4F7C971918F454 /* ImportInteractor.swift in Sources */,
 				11518E2220C09FBE00510FE3 /* PushNetworkServiceProtocol.swift in Sources */,
 				1409BF562114A8C400DBCADC /* MnemonicRouter.swift in Sources */,
@@ -3873,7 +3886,6 @@
 				3AD610A8116FCCB718EF650D /* PinInteractorInput.swift in Sources */,
 				14E26DC620616F4600976CD1 /* UIColor+Helpers.swift in Sources */,
 				071A29648A9AD5B898A4584E /* PinInteractorOutput.swift in Sources */,
-				1421A70B2062AFCC00B4DBC2 /* SendTokenCheckoutService.swift in Sources */,
 				14F4A5A920B1DEBF0087BB00 /* Locker.swift in Sources */,
 				DE7335F2C6457EE8CF068765 /* PinInteractor.swift in Sources */,
 				1B1384B75741447CF347A336 /* PinRouterInput.swift in Sources */,

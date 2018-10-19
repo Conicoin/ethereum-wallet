@@ -112,7 +112,7 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let header = tableView.dequeue(TransactionHeaderCell.self)
     let sectionKey = diffCalculator.value(forSection: section)
-    header.timeLabel.text = sectionKey.humanReadable()
+    header.timeLabel.text = sectionKey.dayDifference()
     // returning contentView is a workaround: section headers disappear when using -performBatchUpdates
     // https://stackoverflow.com/questions/30149551/tableview-section-headers-disappear-swift
     return header.contentView

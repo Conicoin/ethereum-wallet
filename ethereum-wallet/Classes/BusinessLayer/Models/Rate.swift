@@ -5,7 +5,7 @@
 
 import ObjectMapper
 
-struct Rate: RealmMappable {
+struct Rate: RealmMappable, Equatable {
  
   var value: Double!
   var from: String!

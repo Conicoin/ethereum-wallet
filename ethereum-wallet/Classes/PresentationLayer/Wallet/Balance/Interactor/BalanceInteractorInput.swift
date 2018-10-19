@@ -7,10 +7,8 @@ import Foundation
 
 protocol BalanceInteractorInput: class {
   func getCoin()
-  func getBalance()
-  func getWalletFromDataBase()
-  func getTokensFromDataBase()
+  func getTokens()
+  func getWallet()
   func getEthereumFromNetwork(address: String)
   func getTokensFromNetwork(address: String)
-  func updateRates()
 }

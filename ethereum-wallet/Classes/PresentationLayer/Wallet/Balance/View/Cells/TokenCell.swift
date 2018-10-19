@@ -25,13 +25,13 @@ class TokenCell: UITableViewCell {
     iconImageView.image = nil
   }
   
-  func configure(with token: Token) {
-    titleLabel.text = token.balance.name
-    symbolLabel.text = token.balance.symbol
-    balanceLabel.text = token.balance.amountString
+  func configure(with viewModel: TokenViewModel) {
+    titleLabel.text = viewModel.token.balance.name
+    symbolLabel.text = viewModel.token.balance.symbol
+    balanceLabel.text = viewModel.token.balance.amountString
     
     // Attention! Need to monitor icons location
-    iconImageView.image = UIImage(named: "../token-icons/images/\(token.address!)")
+    iconImageView.image = UIImage(named: "../token-icons/images/\(viewModel.token.address!)")
   }
   
 }

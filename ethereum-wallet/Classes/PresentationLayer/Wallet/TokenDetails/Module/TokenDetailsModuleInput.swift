@@ -7,5 +7,5 @@ import UIKit
 
 protocol TokenDetailsModuleInput: class {
   var output: TokenDetailsModuleOutput? { get set }
-  func present(with token: Token, from: UIViewController)
+  func present(with token: TokenViewModel, from: UIViewController)
 }

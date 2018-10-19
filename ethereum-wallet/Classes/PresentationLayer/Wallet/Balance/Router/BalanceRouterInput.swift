@@ -8,5 +8,5 @@ import UIKit
 protocol BalanceRouterInput: class {
   func presentSend(for coin: Coin, from: UIViewController)
   func presentReceive(for coin: Coin, from: UIViewController)
-  func presentDetails(for token: Token, from: UIViewController)
+  func presentDetails(for viewModel: TokenViewModel, from: UIViewController)
 }

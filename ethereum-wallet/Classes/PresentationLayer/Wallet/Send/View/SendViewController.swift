@@ -89,11 +89,11 @@ extension SendViewController: SendViewInput {
     inputDataIsValid(false)
   }
   
-  func setCoin(_ coin: CoinDisplayable) {
-    let title = Localized.sendTitle(coin.balance.name)
+  func setCoin(_ coin: AbstractCoin) {
+    let title = Localized.sendTitle(coin.currency.name)
     navigationItem.title = title
-    balanceLabel.text = coin.balance.amountString
-    currencyLabel.text = coin.balance.symbol
+    balanceLabel.text = coin.currency.amountString
+    currencyLabel.text = coin.currency.symbol
   }
   
   func setAddressFromQR(_ address: String) {

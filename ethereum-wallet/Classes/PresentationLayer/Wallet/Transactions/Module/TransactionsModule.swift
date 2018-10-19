@@ -25,6 +25,7 @@ class TransactionsModule {
     // MARK: - Injection
     
     interactor.transactionsNetworkService = TransactionsNetworkService()
+    interactor.transactionRepository = app.transactionRepository
     interactor.walletDataStoreService = WalletDataStoreService()
     interactor.transactionsDataStoreService = TransactionsDataStoreService()
     

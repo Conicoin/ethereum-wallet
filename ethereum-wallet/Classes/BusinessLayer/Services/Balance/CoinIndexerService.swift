@@ -1,5 +1,5 @@
 //
-//  BalanceService.swift
+//  CoinIndexerService.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 18/10/2018.
@@ -8,47 +8,53 @@
 
 import Foundation
 
-protocol EtherBalancer {
-  func start(id: Identifier, callback: @escaping (Currency) -> Void)
+
+protocol CoinIndexer {
+  func start(id: Identifier, callback: @escaping (CoinViewModel) -> Void)
   func removeObserver(id: Identifier)
 }
 
-class EtherBalanceService: EtherBalancer {
+class CoinIndexerService: CoinIndexer {
   
-  var callback: ((Currency) -> Void)?
   var coin: Coin?
   var transactions: [Transaction] = []
   
   let coinRepository: CoinRepositiry
-  let transactionsRepository: TransactionsRepository
-  init(coinRepository: CoinRepositiry, transactionsRepository: TransactionsRepository) {
+  let transactionsRepository: TransactionRepository
+  let rateSource: RateSource
+  init(coinRepository: CoinRepositiry,
+       transactionsRepository: TransactionRepository,
+       rateSource: RateSource) {
+    self.rateSource = rateSource
     self.coinRepository = coinRepository
     self.transactionsRepository = transactionsRepository
   }
   
   // MARK: Privates
   
-  private func calculate() -> Currency {
-    var balance = Ether()
+  private func calculate() -> CoinViewModel {
+    var amount = Ether()
     if let coin = coin {
-      balance.raw += coin.balance.raw
+      amount.raw += coin.balance.raw
     }
     let pending = transactions.filter { $0.amount.iso == "ETH" && $0.isPending == true }
     for tx in pending {
-      balance.raw -= tx.amount.raw
+      amount.raw -= tx.amount.raw
     }
-    precondition(balance.raw >= 0)
+    precondition(amount.raw >= 0)
+    
+    let balance = CoinViewModel(coin: coin, currency: amount, rateSource: rateSource)
     return balance
   }
   
-  func start(id: Identifier, callback: @escaping (Currency) -> Void) {
+  func start(id: Identifier, callback: @escaping (CoinViewModel) -> Void) {
     coinRepository.addObserver(id: id) { coin in
       self.coin = coin
-      self.callback?(self.calculate())
+      callback(self.calculate())
     }
     transactionsRepository.addObserver(id: id) { transactions in
       self.transactions = transactions
-      self.callback?(self.calculate())
+      callback(self.calculate())
     }
   }
   

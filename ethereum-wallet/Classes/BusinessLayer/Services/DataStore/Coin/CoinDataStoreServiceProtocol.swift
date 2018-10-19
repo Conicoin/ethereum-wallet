@@ -5,9 +5,10 @@
 import UIKit
 
 protocol CoinDataStoreServiceProtocol {
-  func createCoin()
+  @discardableResult
+  func createCoin() -> Coin
   func find() -> [Coin]
-  func find(withIso iso: String) -> Coin?
+  func find(withIso iso: String) -> Coin
   func observe(updateHandler: @escaping ([Coin]) -> Void)
   func save(_ model: Coin)
   func save(_ models: [Coin])

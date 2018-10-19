@@ -10,5 +10,8 @@ import Foundation
 
 struct ChannelRepository {
   let coinChannel = Channel<Coin>()
+  let tokenChannel = Channel<[Token]>()
   let transactionsChannel = Channel<[Transaction]>()
+  let rateChannel = Channel<[Rate]>()
+  let walletChannel = Channel<Wallet>()
 }

@@ -7,13 +7,14 @@ import RealmSwift
 class MigrationConfigurator: ConfiguratorProtocol {
 
   func configure() {
-    
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 6,
+      schemaVersion: 7,
       migrationBlock: { migration, oldSchemaVersion in
 
-        migration.deleteData(forType: RealmToken.className())
-        
+        if oldSchemaVersion == 6 {
+          migration.deleteData(forType: RealmToken.className())
+          migration.deleteData(forType: RealmCoin.className())
+        }
     })
   }
 

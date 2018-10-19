@@ -83,30 +83,6 @@ enum EthereumError: CustomError {
   
 }
 
-// MARK: - Send errors
-
-enum SendError: CustomError {
-  
-  case coinNotFound
-  
-  var description: ErrorInfo? {
-    return nil
-  }
-  
-}
-
-// MARK: - SendCheckout errors
-
-enum SendCheckoutError: CustomError {
-  
-  case noRate
-  
-  var description: ErrorInfo? {
-    return ("Currency rates haven't been downloaded for some reasons", nil, false)
-  }
-  
-}
-
 // MARK: - TouchId errors
 
 enum TouchIdError: CustomError {

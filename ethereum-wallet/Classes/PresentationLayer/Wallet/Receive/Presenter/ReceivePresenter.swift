@@ -13,7 +13,7 @@ class ReceivePresenter {
   var router: ReceiveRouterInput!
   
   // TODO: Use Coin for BIP21
-  var coin: CoinDisplayable!
+  var coin: AbstractCoin!
 }
 
 
@@ -61,14 +61,7 @@ extension ReceivePresenter: ReceiveInteractorOutput {
 
 extension ReceivePresenter: ReceiveModuleInput {
 
-  func presentSend(for coin: Coin, from: UIViewController) {
-    self.coin = coin
+  func presentSend(from: UIViewController) {
     view.present(fromViewController: from)
   }
-  
-  func presentSend(for token: Token, from: UIViewController) {
-    self.coin = token
-    view.present(fromViewController: from)
-  }
-  
 }
