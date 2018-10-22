@@ -8,6 +8,4 @@ import Foundation
 protocol TransactionsInteractorOutput: class {
   func didReceiveTransactions(_ transactions: [TransactionDisplayer])
   func didFailedTransactionsReceiving(with error: Error)
-  func didReceiveTransactions()
-  func didReceiveWallet(_ wallet: Wallet)
 }

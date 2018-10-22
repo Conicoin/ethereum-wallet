@@ -30,11 +30,6 @@ class Application {
   
   // MARK - Repositories
   
-  lazy var coinRepository = {
-    return CoinRepositiryService(channel: channelRepository.coinChannel,
-                                 coinDataStoreService: CoinDataStoreService())
-  }()
-  
   lazy var transactionRepository = {
     return TransactionRepositoryService(channel: channelRepository.transactionsChannel,
                                         transactionDataStoreService: TransactionsDataStoreService())
@@ -50,11 +45,11 @@ class Application {
                                    walletDataStoreService: WalletDataStoreService())
   }()
   
-  lazy var tokenRepository = {
-    return TokenRepositoryService(channel: channelRepository.tokenChannel,
-                                  tokenDataStoreService: TokenDataStoreService())
-  }()
+  // MARK: - Global updaters
   
+  lazy var balanceUpdater: BalanceUpdater = {
+    return BalanceUpdaterFactory(app: self).create()
+  }()
   
   // MARK: - Channels
   

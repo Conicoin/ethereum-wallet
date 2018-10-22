@@ -1,5 +1,5 @@
 //
-//  CoinIndexerFactory.swift
+//  TokenIndexerFactory.swift
 //  ethereum-wallet
 //
 //  Created by Artur Guseinov on 19/10/2018.
@@ -8,18 +8,18 @@
 
 import Foundation
 
-class CoinIndexerFactory {
+
+class TokenIndexerFactory {
   
   let app: Application
   init(app: Application) {
     self.app = app
   }
   
-  func create() -> CoinIndexer {
+  func create() -> TokenIndexer {
     let rateSource = RateService(rateRepository: app.rateRepository)
-    return CoinIndexerService(coinRepository: app.coinRepository,
-                              transactionsRepository: app.transactionRepository,
-                              rateSource: rateSource)
+    return TokenIndexerService(rateSource: rateSource,
+                               transactionRepository: app.transactionRepository)
   }
   
 }

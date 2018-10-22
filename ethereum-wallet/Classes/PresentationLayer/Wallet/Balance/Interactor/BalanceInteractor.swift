@@ -9,45 +9,17 @@ class BalanceInteractor {
   
   weak var output: BalanceInteractorOutput!
   
-  var walletNetworkService: WalletNetworkServiceProtocol!
-  var coinDataStoreService: CoinDataStoreServiceProtocol!
   var ratesNetworkService: RatesNetworkServiceProtocol!
   var ratesDataStoreService: RatesDataStoreServiceProtocol!
-  var tokensNetworkService: TokensNetworkServiceProtocol!
-  var tokensDataStoreService: TokenDataStoreServiceProtocol!
   var walletRepository: WalletRepository!
-  var coinIndexer: CoinIndexer!
+  var balanceIndexer: BalanceIndexer!
+  var balanceUpdater: BalanceUpdater!
   var tokenIndexer: TokenIndexer!
   
   
-  let coinIndexId = Identifier()
+  let balanceIndexId = Identifier()
   let tokenIndexId = Identifier()
   let walletId = Identifier()
-  
-  let group = DispatchGroup()
-  
-  private func updateTokensBalance(_ tokens: [Token], address: String) {
-    var updatedTokens = tokens
-    for (i, token) in tokens.enumerated() {
-      group.enter()
-      
-      tokensNetworkService.getBalanceForToken(contractAddress: token.address,
-                                              address: address,
-                                              queue: .global()) { [weak self] result in
-                                                switch result {
-                                                case .success(let balanceObj):
-                                                  updatedTokens[i].balance.raw = balanceObj.balance
-                                                case .failure(let error):
-                                                  print(error.localizedDescription)
-                                                }
-                                                self?.group.leave()
-      }
-    }
-    
-    group.notify(queue: .global()) { [weak self] in
-      self?.tokensDataStoreService.save(updatedTokens)
-    }
-  }
   
   private func updateRates(currencies: [String]) {
     guard currencies.count > 0 else {
@@ -67,9 +39,10 @@ class BalanceInteractor {
   }
   
   deinit {
-    coinIndexer.removeObserver(id: coinIndexId)
+    balanceIndexer.removeObserver(id: balanceIndexId)
     tokenIndexer.removeObserver(id: tokenIndexId)
     walletRepository.removeObserver(id: walletId)
+    balanceUpdater.stop()
   }
 }
 
@@ -78,52 +51,29 @@ class BalanceInteractor {
 
 extension BalanceInteractor: BalanceInteractorInput {
   
+  func startUpdater() {
+    balanceUpdater.start()
+  }
+  
+  func updateBalance() {
+    balanceUpdater.update()
+  }
+  
   func getWallet() {
     walletRepository.addObserver(id: walletId) { [weak self] wallet in
       self?.output.didReceiveWallet(wallet)
     }
   }
   
-  func getCoin() {
-    coinIndexer.start(id: coinIndexId) { coin in
-      self.output.didReceiveCoin(coin)
+  func getBalance() {
+    balanceIndexer.start(id: balanceIndexId) { balance in
+      self.output.didReceiveBalance(balance)
     }
   }
   
   func getTokens() {
     tokenIndexer.start(id: tokenIndexId) { index in
       self.output.didReceiveTokens(index)
-    }
-  }
-  
-  func getEthereumFromNetwork(address: String) {
-    walletNetworkService.getBalance(address: address, queue: .global()) { [weak self] result in
-      switch result {
-      case .success(let balance):
-        let ether = Ether(weiString: balance)
-        var coin = Coin()
-        coin.balance = ether
-        self?.coinDataStoreService.save(coin)
-        self?.updateRates(currencies: [coin.balance.iso])
-      case .failure(let error):
-        DispatchQueue.main.async {
-          self?.output.didFailedWalletReceiving(with: error)
-        }
-      }
-    }
-  }
-  
-  func getTokensFromNetwork(address: String) {
-    tokensNetworkService.getTokens(address: address, queue: .global()) { [weak self] result in
-      switch result {
-      case .success(let tokens):
-        self?.updateTokensBalance(tokens, address: address)
-        self?.updateRates(currencies: tokens.map({$0.balance.iso}))
-      case .failure(let error):
-        DispatchQueue.main.async {
-          self?.output.didFailedTokensReceiving(with: error)
-        }
-      }
     }
   }
   

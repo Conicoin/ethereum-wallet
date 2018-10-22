@@ -21,6 +21,7 @@ class RealmTransaction: Object {
   @objc dynamic var isPending = false
   @objc dynamic var isIncoming = false
   @objc dynamic var tokenMeta: RealmTokenMeta?
+  @objc dynamic var input = ""
   
   override static func primaryKey() -> String? {
     return "txHash"

@@ -36,7 +36,7 @@ class PendingTxBuilder {
       switch type {
       case .erc20(let to, let value):
         tx.to = to
-        tx.amount = TokenValue(wei: Decimal(value), name: meta.name, iso: meta.iso, decimals: meta.decimals)
+        tx.tokenMeta?.value.raw = Decimal(value)
       default:
         break
       }

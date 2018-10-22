@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct CoinViewModel {
-  let coin: Coin?
+struct BalanceViewModel {
   let currency: Currency
   let rateSource: RateSource
   

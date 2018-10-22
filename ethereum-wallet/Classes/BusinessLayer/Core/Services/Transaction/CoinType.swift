@@ -13,7 +13,9 @@ enum CoinType {
     case .default:
       return nil
     case .token(let token):
-      return TokenMeta(address: token.address, name: token.balance.name, iso: token.balance.iso, decimals: token.decimals)
+      // TODO: Think about TokenMeta and Token value
+      // Amount will be replaced in PendingTxBuilder
+      return TokenMeta(value: token.balance, address: token.address)
     }
   }
   

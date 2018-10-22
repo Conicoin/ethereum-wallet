@@ -11,17 +11,6 @@ class TransactionsPresenter {
   weak var output: TransactionsModuleOutput?
   var interactor: TransactionsInteractorInput!
   var router: TransactionsRouterInput!
-  
-  var wallet: Wallet?
-  
-  let defaultPageLimit = 20
-  var currentPage = 0
-  
-  private func getTransactionsFromNetworkIfAvailable() {
-    guard let wallet = wallet else { return }
-    interactor.loadTransactions(address: wallet.address, page: currentPage, limit: defaultPageLimit)
-  }
-  
 }
 
 
@@ -31,16 +20,15 @@ extension TransactionsPresenter: TransactionsViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
-    interactor.getWallet()
     interactor.getTransactions()
   }
   
   func viewIsAppear() {
-    getTransactionsFromNetworkIfAvailable()
+
   }
   
   func didRefresh() {
-    getTransactionsFromNetworkIfAvailable()
+    interactor.updateTransactions()
   }
   
   func didTransactionPressed(_ txIndex: TransactionDisplayer) {
@@ -48,11 +36,6 @@ extension TransactionsPresenter: TransactionsViewOutput {
       return
     }
     router.presentDetails(with: txIndex, from: tabBarController)
-  }
-    
-  func loadNextPage() {
-    currentPage += 1
-    getTransactionsFromNetworkIfAvailable()
   }
 
 }
@@ -62,17 +45,9 @@ extension TransactionsPresenter: TransactionsViewOutput {
 
 extension TransactionsPresenter: TransactionsInteractorOutput {
   
-  func didReceiveWallet(_ wallet: Wallet) {
-    self.wallet = wallet
-    getTransactionsFromNetworkIfAvailable()
-  }
-  
   func didReceiveTransactions(_ transactions: [TransactionDisplayer]) {
-    view.setTransactions(transactions)
-  }
-  
-  func didReceiveTransactions() {
     view.stopRefreshing()
+    view.setTransactions(transactions)
   }
   
   func didFailedTransactionsReceiving(with error: Error) {

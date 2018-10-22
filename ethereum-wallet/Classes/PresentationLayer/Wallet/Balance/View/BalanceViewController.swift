@@ -80,6 +80,7 @@ class BalanceViewController: UIViewController {
   }
   
   @objc func refresh(_ sender: UIRefreshControl) {
+    sender.setFallbackTime(3)
     let generator = UISelectionFeedbackGenerator()
     generator.selectionChanged()
     output.didRefresh()
@@ -137,16 +138,16 @@ extension BalanceViewController: BalanceViewInput {
     tokenCountLabel.text = Localized.balanceTokenCount("\(diffCalculator.rows.count)")
   }
   
-  func setPreviewTitle(_ currency: String, coin: CoinViewModel) {
-    titleLabel.text = coin.fiatLabelString(for: currency)
+  func setPreviewTitle(_ currency: String, balance: BalanceViewModel) {
+    titleLabel.text = balance.fiatLabelString(for: currency)
   }
   
   func setTokens(_ viewModels: [TokenViewModel]) {
     diffCalculator.rows = viewModels
   }
   
-  func setCoin(_ viewModel: CoinViewModel) {
-    balanceLabel.text = viewModel.currency.amountString
+  func setBalance(_ balance: BalanceViewModel) {
+    balanceLabel.text = balance.currency.amountString
   }
 
 }

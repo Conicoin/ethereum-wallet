@@ -5,5 +5,6 @@
 import Foundation
 
 protocol TransactionsNetworkServiceProtocol {
-  func getTransactions(address: String, page: Int, limit: Int, queue: DispatchQueue, result: @escaping (Result<[Transaction]>) -> Void)
+  func getTransactions(address: String, queue: DispatchQueue, result: @escaping (Result<[Transaction]>) -> Void)
+  func getTokenTransactions(address: String, queue: DispatchQueue, result: @escaping (Result<[Transaction]>) -> Void)
 }

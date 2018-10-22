@@ -10,7 +10,6 @@ protocol RealmMappable {
   
   associatedtype RealmType: Object
   
-  init()
   func mapToRealmObject() -> RealmType
   static func mapFromRealmObject(_ object: RealmType) -> Self
   

@@ -31,7 +31,7 @@ class TokenCell: UITableViewCell {
     balanceLabel.text = viewModel.token.balance.amountString
     
     // Attention! Need to monitor icons location
-    iconImageView.image = UIImage(named: "../token-icons/images/\(viewModel.token.address!)")
+    iconImageView.image = UIImage(named: "../token-icons/images/\(viewModel.token.address)")
   }
   
 }

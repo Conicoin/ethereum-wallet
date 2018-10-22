@@ -8,10 +8,8 @@ import Foundation
 class TransactionsInteractor {
   weak var output: TransactionsInteractorOutput!
   
-  var transactionsNetworkService: TransactionsNetworkServiceProtocol!
-  var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
   var transactionRepository: TransactionRepository!
-  var walletDataStoreService: WalletDataStoreServiceProtocol!
+  var balanceUpdater: BalanceUpdater!
   
   let transactionId = Identifier()
   
@@ -31,27 +29,8 @@ extension TransactionsInteractor: TransactionsInteractorInput {
     }
   }
   
-  func getWallet() {
-    walletDataStoreService.getWallet(queue: .main) { [weak self] wallet in
-      self?.output.didReceiveWallet(wallet)
-    }
-  }
-  
-  func loadTransactions(address: String, page: Int, limit: Int) {
-    transactionsNetworkService.getTransactions(address: address, page: page, limit: limit, queue: .global()) { [unowned self] result in
-      switch result {
-      case .success(let transactions):
-        self.transactionsDataStoreService.markAndSaveTransactions(transactions, address: address)
-        DispatchQueue.main.async {
-          self.output.didReceiveTransactions()
-        }
-      case .failure(let error):
-        print(error.localizedDescription)
-        DispatchQueue.main.async {
-          self.output.didFailedTransactionsReceiving(with: NetworkError.localized)
-        }
-      }
-    }
+  func updateTransactions() {
+    balanceUpdater.update()
   }
   
 }

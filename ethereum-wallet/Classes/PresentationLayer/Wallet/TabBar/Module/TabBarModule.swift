@@ -28,7 +28,6 @@ class TabBarModule {
     interactor.output = presenter
     interactor.walletDataStoreService = WalletDataStoreService()
     interactor.transactionsDataStoreServise = TransactionsDataStoreService()
-    interactor.coinsDataStoreService = CoinDataStoreService()
 
     viewController.output = presenter
 

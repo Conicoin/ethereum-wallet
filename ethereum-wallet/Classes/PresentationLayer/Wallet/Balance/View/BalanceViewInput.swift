@@ -9,7 +9,7 @@ protocol BalanceViewInput: class, Presentable {
   func setupInitialState()
   func endRefreshing()
   func setTotalTokenAmount(_ currency: String)
-  func setPreviewTitle(_ currency: String, coin: CoinViewModel)
-  func setCoin(_ viewModel: CoinViewModel)
+  func setPreviewTitle(_ currency: String, balance: BalanceViewModel)
+  func setBalance(_ balance: BalanceViewModel)
   func setTokens(_ viewModels: [TokenViewModel])
 }

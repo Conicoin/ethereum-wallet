@@ -24,15 +24,12 @@ class BalanceModule {
     
     // MARK: - Injection
     
-    interactor.walletNetworkService = WalletNetworkService()
-    interactor.coinDataStoreService = CoinDataStoreService()
     interactor.ratesNetworkService = RatesNetworkService()
     interactor.ratesDataStoreService = RatesDataStoreService()
-    interactor.tokensNetworkService = TokensNetworkService()
-    interactor.tokensDataStoreService = TokenDataStoreService()
     
     interactor.walletRepository = app.walletRepository
-    interactor.coinIndexer = CoinIndexerFactory(app: app).create()
+    interactor.balanceUpdater = app.balanceUpdater
+    interactor.balanceIndexer = BalanceIndexerFactory(app: app).create()
     interactor.tokenIndexer = TokenIndexerFactory(app: app).create()
         
     return presenter
