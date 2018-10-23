@@ -147,7 +147,7 @@ extension BalanceViewController: BalanceViewInput {
   }
   
   func setBalance(_ balance: BalanceViewModel) {
-    balanceLabel.text = balance.currency.amountString
+    balanceLabel.text = balance.amountString
   }
 
 }

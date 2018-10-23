@@ -8,6 +8,14 @@ enum CoinType {
   case `default`(Coin)
   case token(Token)
   
+  init(coin: Coin) {
+    self = .default(coin)
+  }
+  
+  init(token: Token) {
+    self = .token(token)
+  }
+  
   var tokenMeta: TokenMeta? {
     switch self {
     case .default:
