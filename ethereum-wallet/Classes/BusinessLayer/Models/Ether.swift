@@ -43,7 +43,7 @@ struct Ether {
 extension Ether: Currency {
   
   var name: String {
-    return "Ethereum"
+    return Localized.commonEthereum()
   }
   
   var iso: String {

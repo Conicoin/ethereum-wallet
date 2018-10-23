@@ -7,6 +7,7 @@
 "common.notNow" = "지금 아닙니다";
 "common.touchId" = "터치ID";
 "common.faceId" = "페이스 ID";
+"common.ethereum" = "Ethereum";
 
 // MARK: - Tabs
 "tab.balance" = "균형";

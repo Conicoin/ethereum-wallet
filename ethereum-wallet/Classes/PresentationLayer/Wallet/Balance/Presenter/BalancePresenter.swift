@@ -40,9 +40,7 @@ extension BalancePresenter: BalanceViewOutput {
   }
   
   func didReceivePressed() {
-    // TODO: !!!
-//    guard let coin = coin?.coin else { return }
-//    router.presentReceive(for: coin, from: view.viewController)
+    router.presentReceive(from: view.viewController)
   }
   
   

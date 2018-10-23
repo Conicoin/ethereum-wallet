@@ -7,6 +7,7 @@
 "common.notNow" = "Пропустить";
 "common.touchId" = "Touch ID";
 "common.faceId" = "Face ID";
+"common.ethereum" = "Ethereum";
 
 // MARK: - Tabs
 "tab.balance" = "Баланс";

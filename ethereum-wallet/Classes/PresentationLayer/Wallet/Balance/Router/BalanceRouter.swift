@@ -19,8 +19,8 @@ extension BalanceRouter: BalanceRouterInput {
     SendModule.create(app: app, type: type).presentSend(from: from)
   }
   
-  func presentReceive(for coin: Coin, from: UIViewController) {
-    ReceiveModule.create(app: app, type: .default(coin)).presentSend(from: from)
+  func presentReceive(from: UIViewController) {
+    ReceiveModule.create(app: app).presentSend(from: from)
   }
   
   func presentDetails(for viewModel: TokenViewModel, from: UIViewController) {

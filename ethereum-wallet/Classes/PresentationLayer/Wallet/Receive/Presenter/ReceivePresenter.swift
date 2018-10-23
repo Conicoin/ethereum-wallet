@@ -11,9 +11,6 @@ class ReceivePresenter {
   weak var output: ReceiveModuleOutput?
   var interactor: ReceiveInteractorInput!
   var router: ReceiveRouterInput!
-  
-  // TODO: Use Coin for BIP21
-  var coin: AbstractCoin!
 }
 
 
@@ -23,7 +20,6 @@ extension ReceivePresenter: ReceiveViewOutput {
 
   func viewIsReady() {
     view.setupInitialState()
-    view.didReceiveCoin(coin)
     interactor.getWallet()
   }
   

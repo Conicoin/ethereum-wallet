@@ -25,6 +25,7 @@ class ReceiveViewController: UIViewController {
   // MARK: Privates
   
   private func localize() {
+    navigationItem.title = Localized.receiveTitle(Localized.commonEthereum())
     addressTitleLabel.text = Localized.receiveAddressTitle()
     copyAddressButton.setTitle(Localized.receiveCopyButton(), for: .normal)
   }
@@ -59,11 +60,6 @@ class ReceiveViewController: UIViewController {
 // MARK: - ReceiveViewInput
 
 extension ReceiveViewController: ReceiveViewInput {
-  
-  func didReceiveCoin(_ coin: AbstractCoin) {
-    let title = Localized.receiveTitle(coin.currency.name)
-    navigationItem.title = title
-  }
   
   func didReceiveWallet(_ wallet: Wallet) {
     addressLabel.text = wallet.address
