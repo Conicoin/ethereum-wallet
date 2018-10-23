@@ -68,17 +68,17 @@ extension BalanceInteractor: BalanceInteractorInput {
   }
   
   func getBalance() {
-    balanceIndexer.start(id: balanceIndexId) { viewModel in
+    balanceIndexer.start(id: balanceIndexId) { [weak self] viewModel in
       DispatchQueue.main.async {
-        self.output.didReceiveBalance(viewModel)
+        self?.output.didReceiveBalance(viewModel)
       }
     }
   }
   
   func getTokens() {
-    tokenIndexer.start(id: tokenIndexId) { viewModels in
+    tokenIndexer.start(id: tokenIndexId) { [weak self] viewModels in
       DispatchQueue.main.async {
-        self.output.didReceiveTokens(viewModels)
+        self?.output.didReceiveTokens(viewModels)
       }
     }
   }

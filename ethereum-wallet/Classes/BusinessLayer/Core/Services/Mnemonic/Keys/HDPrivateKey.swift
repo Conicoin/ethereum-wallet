@@ -32,7 +32,7 @@ struct HDPrivateKey {
   }
   
   func privateKey() -> PrivateKey {
-    return PrivateKey(raw: Data(hex: "0x") + raw)
+    return PrivateKey(raw: raw)
   }
   
   func hdPublicKey() -> HDPublicKey {
