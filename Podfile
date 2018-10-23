@@ -16,6 +16,7 @@ target 'ethereum-wallet' do
   pod 'Dwifft', '0.9'
   pod 'FirebaseAnalytics'
   pod 'EmptyDataSet-Swift', '~> 4.2.0'
+  pod 'JSONRPCKit'
 end
 
 target 'ConicoinTests' do

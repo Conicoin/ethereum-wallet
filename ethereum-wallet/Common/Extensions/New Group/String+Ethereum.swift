@@ -16,5 +16,13 @@ extension String {
     let parts = components(separatedBy: ":")
     return parts.last ?? self
   }
+  
+  func deleting0x() -> String {
+    var string = self
+    if starts(with: "0x") {
+      string.removeFirst(2)
+    }
+    return string
+  }
 
 }

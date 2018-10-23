@@ -45,6 +45,22 @@ extension Decimal {
     self.init(hexString, base: 16)
   }
   
+  init(data: Data) {
+    self.init(hexString: data.hex())
+  }
+  
+  func serialize(bitWidth: Decimal = 256) -> Data {
+    var buffer: [UInt8] = []
+    var n = self
+    
+    while n > 0 {
+      buffer.append((n.truncatingRemainder(dividingBy: bitWidth) as NSDecimalNumber).uint8Value)
+      n = n.integerDivisionBy(bitWidth)
+    }
+    
+    return Data(bytes: buffer.reversed())
+  }
+  
 }
 
 // MARK: - Privates
@@ -97,4 +113,5 @@ extension Decimal {
       .map { String($0, radix: (base as NSDecimalNumber).intValue ) }
       .joined()
   }
+  
 }

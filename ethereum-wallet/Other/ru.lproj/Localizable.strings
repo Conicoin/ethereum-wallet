@@ -11,6 +11,7 @@
 
 // MARK: - Tabs
 "tab.balance" = "Баланс";
+"tab.partners" = "Партнёры";
 "tab.transactions" = "Транзакции";
 "tab.settings" = "Настройки";
 

@@ -31,6 +31,10 @@ extension Decimal {
     return NSDecimalNumber(decimal:self).int64Value
   }
   
+  var int: Int {
+    return NSDecimalNumber(decimal:self).intValue
+  }
+  
   func abbrevation() -> String {
     let numFormatter = NumberFormatter()
     
