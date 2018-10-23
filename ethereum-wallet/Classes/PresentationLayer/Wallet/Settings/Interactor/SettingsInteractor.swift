@@ -51,7 +51,9 @@ extension SettingsInteractor: SettingsInteractorInput {
   
   func getWallet() {
     walletRepository.addObserver(id: walletId) { [weak self] wallet in
-      self?.output.didReceiveWallet(wallet)
+      DispatchQueue.main.async {
+        self?.output.didReceiveWallet(wallet)
+      }
     }
   }
   

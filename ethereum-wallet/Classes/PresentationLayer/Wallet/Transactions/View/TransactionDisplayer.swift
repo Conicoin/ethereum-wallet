@@ -49,7 +49,7 @@ struct TransactionDisplayer {
             Localized.transactionsReceived(shortAddress) :
             Localized.transactionsSent(shortAddress)
         
-        self.amountString = tx.isIncoming ? "+ \(tx.amount.amountString)" : "- \(tx.amount.amountString)"
+        self.amountString = tx.isIncoming ? "+ \(tx.value.amountString)" : "- \(tx.value.amountString)"
         self.isTokenTransfer = tx.tokenMeta != nil
         self.time = tx.timeStamp
     }

@@ -54,7 +54,6 @@
 		14046CF7201F770C007BD203 /* Receive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14046CF6201F770C007BD203 /* Receive.storyboard */; };
 		14046CF9201F776F007BD203 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14046CF8201F776F007BD203 /* Welcome.storyboard */; };
 		14046CFB201F778E007BD203 /* Import.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14046CFA201F778E007BD203 /* Import.storyboard */; };
-		1406465A1FAF457A0013DFFF /* RealmCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140646591FAF457A0013DFFF /* RealmCoin.swift */; };
 		1406465C1FAF46DB0013DFFF /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406465B1FAF46DB0013DFFF /* Coin.swift */; };
 		1409BF482114A8C400DBCADC /* MnemonicModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF342114A8C400DBCADC /* MnemonicModule.swift */; };
 		1409BF492114A8C400DBCADC /* MnemonicModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409BF352114A8C400DBCADC /* MnemonicModuleOutput.swift */; };
@@ -162,7 +161,6 @@
 		1458426D1FB1D55200FA733F /* RatesNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458426C1FB1D55200FA733F /* RatesNetworkService.swift */; };
 		145842701FB1D6BF00FA733F /* RatesDataStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458426F1FB1D6BF00FA733F /* RatesDataStoreServiceProtocol.swift */; };
 		145A3D57214AB6D200FB47E5 /* GoogleService-Info-Testnet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 145A3D56214AB6D100FB47E5 /* GoogleService-Info-Testnet.plist */; };
-		145A90FA1FDDE58B00DED3AC /* RealmToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A90F91FDDE58A00DED3AC /* RealmToken.swift */; };
 		145A90FC1FDDE6C300DED3AC /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A90FB1FDDE6C200DED3AC /* Token.swift */; };
 		145A90FE1FDDEDDC00DED3AC /* TokenValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A90FD1FDDEDDC00DED3AC /* TokenValue.swift */; };
 		145A91001FDF002000DED3AC /* API+Ethplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */; };
@@ -526,7 +524,6 @@
 		14046CF6201F770C007BD203 /* Receive.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Receive.storyboard; sourceTree = "<group>"; };
 		14046CF8201F776F007BD203 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		14046CFA201F778E007BD203 /* Import.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Import.storyboard; sourceTree = "<group>"; };
-		140646591FAF457A0013DFFF /* RealmCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCoin.swift; sourceTree = "<group>"; };
 		1406465B1FAF46DB0013DFFF /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		1409BF342114A8C400DBCADC /* MnemonicModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicModule.swift; sourceTree = "<group>"; };
 		1409BF352114A8C400DBCADC /* MnemonicModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicModuleOutput.swift; sourceTree = "<group>"; };
@@ -707,7 +704,6 @@
 		1458426C1FB1D55200FA733F /* RatesNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesNetworkService.swift; sourceTree = "<group>"; };
 		1458426F1FB1D6BF00FA733F /* RatesDataStoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDataStoreServiceProtocol.swift; sourceTree = "<group>"; };
 		145A3D56214AB6D100FB47E5 /* GoogleService-Info-Testnet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Testnet.plist"; sourceTree = "<group>"; };
-		145A90F91FDDE58A00DED3AC /* RealmToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmToken.swift; sourceTree = "<group>"; };
 		145A90FB1FDDE6C200DED3AC /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		145A90FD1FDDEDDC00DED3AC /* TokenValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenValue.swift; sourceTree = "<group>"; };
 		145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Ethplorer.swift"; sourceTree = "<group>"; };
@@ -2157,8 +2153,6 @@
 			children = (
 				14D027DF1EF6D4CD00F125C3 /* RealmWallet.swift */,
 				14D027F61EF9701A00F125C3 /* RealmTransaction.swift */,
-				140646591FAF457A0013DFFF /* RealmCoin.swift */,
-				145A90F91FDDE58A00DED3AC /* RealmToken.swift */,
 				1458426A1FB112A200FA733F /* RealmRate.swift */,
 				14DFA323207DFF67008F6F92 /* RealmTokenMeta.swift */,
 			);
@@ -3503,7 +3497,6 @@
 				1409C1351FE877FD00803E78 /* UICollectionView+Sugar.swift in Sources */,
 				140EE99B212DA6E7002BCEC2 /* UITableView+EmptyDataSet.swift in Sources */,
 				1409BF512114A8C400DBCADC /* MnemonicViewInput.swift in Sources */,
-				145A90FA1FDDE58B00DED3AC /* RealmToken.swift in Sources */,
 				14F419221F9BF6D6000C500A /* TransactionsDataStoreService.swift in Sources */,
 				1458212A1F995446005047B6 /* R.generated.swift in Sources */,
 				145A91001FDF002000DED3AC /* API+Ethplorer.swift in Sources */,
@@ -3555,7 +3548,6 @@
 				143941612179011D006920CD /* TokenIndexerService.swift in Sources */,
 				14ACA1F51EF2BD050059E430 /* Helpers.swift in Sources */,
 				14ACA1F11EF2BCF30059E430 /* Timer+Helpers.swift in Sources */,
-				1406465A1FAF457A0013DFFF /* RealmCoin.swift in Sources */,
 				5AA5354637039E40AC4B0E98 /* WelcomeViewInput.swift in Sources */,
 				BA76E58726460637DD29E491 /* WelcomeViewOutput.swift in Sources */,
 				14DFA313207DE854008F6F92 /* TxMetaResolver.swift in Sources */,

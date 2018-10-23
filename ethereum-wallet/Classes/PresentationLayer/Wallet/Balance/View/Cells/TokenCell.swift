@@ -12,7 +12,8 @@ class TokenCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
+    balanceLabel.adjustsFontSizeToFitWidth = true
+    balanceLabel.minimumScaleFactor = 0.5
   }
   
   override func setHighlighted(_ highlighted: Bool, animated: Bool) {

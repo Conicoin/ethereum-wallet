@@ -89,6 +89,7 @@ class FiatCurrencyFactory {
   }
   
   static func icon(_ iso: String) -> UIImage? {
+    guard !iso.isEmpty else { return nil }
     return UIImage(named: iso.uppercased())
   }
   

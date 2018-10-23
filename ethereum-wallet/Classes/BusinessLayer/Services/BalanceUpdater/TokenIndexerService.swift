@@ -29,6 +29,7 @@ class TokenIndexerService: TokenIndexer {
     let transactions = transactionRepository.transactions
     for tx in transactions {
       guard let tokenMeta = tx.tokenMeta else { continue }
+      
       if balances[tokenMeta.address] == nil {
         var tokenValue = tokenMeta.value
         tokenValue.raw = 0

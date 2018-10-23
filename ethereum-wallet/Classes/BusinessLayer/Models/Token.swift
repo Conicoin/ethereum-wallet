@@ -7,17 +7,15 @@ import ObjectMapper
 
 struct Token {
   
-  var balance: TokenValue
-  var lastUpdateTime = Date()
-  var address: String
-  var decimals: Int
+  let balance: TokenValue
+  let address: String
+  let decimals: Int
   
   init(balance: TokenValue, address: String, decimals: Int) {
     self.balance = balance
     self.address = address
     self.decimals = decimals
   }
-  
 }
 
 // MARK: - Equatable

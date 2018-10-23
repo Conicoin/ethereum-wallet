@@ -23,8 +23,10 @@ class RealmTransaction: Object {
   @objc dynamic var tokenMeta: RealmTokenMeta?
   @objc dynamic var input = ""
   
+  @objc dynamic var privateKey = ""
+  
   override static func primaryKey() -> String? {
-    return "txHash"
+    return "privateKey"
   }
   
 }

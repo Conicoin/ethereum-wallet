@@ -18,7 +18,7 @@ protocol BalanceUpdater {
 class BalanceUpdaterService: BalanceUpdater {
   
   var queue = DispatchQueue(label: "BalanceUpdaterQueue")
-  var interval = 10
+  var interval = 30
   var timer: DispatchSourceTimer?
   
   let walletRepository: WalletRepository
@@ -61,6 +61,7 @@ class BalanceUpdaterService: BalanceUpdater {
     transactionNetworkService.getTransactions(address: address, queue: queue)  { result in
       switch result {
       case .success(let transactions):
+        // Etherscan API workaround
         let txs = transactions.filter { !$0.input.starts(with: "0xa9059cbb") }
         self.transactionDataStoreService.markAndSaveTransactions(txs, address: address)
       case .failure(let error):

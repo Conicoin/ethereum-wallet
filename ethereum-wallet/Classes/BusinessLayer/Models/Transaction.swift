@@ -22,6 +22,10 @@ struct Transaction {
   var isIncoming = false
   var isPending = false
   var input: String!
+  
+  var value: Currency {
+    return tokenMeta?.value ?? amount
+  }
 }
 
 // MARK: - RealmMappable
@@ -71,6 +75,9 @@ extension Transaction: RealmMappable {
     realmObject.to = to
     realmObject.tokenMeta = tokenMeta?.mapToRealmObject()
     realmObject.input = input
+    
+    let key = tokenMeta == nil ? "normal" : "token"
+    realmObject.privateKey = "\(txHash!)-\(key)"
     
     return realmObject
   }

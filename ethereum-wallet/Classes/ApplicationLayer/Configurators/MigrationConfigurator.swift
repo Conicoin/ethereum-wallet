@@ -8,13 +8,13 @@ class MigrationConfigurator: ConfiguratorProtocol {
 
   func configure() {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 8,
+      schemaVersion: 9,
       migrationBlock: { migration, oldSchemaVersion in
 
         if oldSchemaVersion < 7 {
-          migration.deleteData(forType: RealmToken.className())
-          migration.deleteData(forType: RealmCoin.className())
-        } else if oldSchemaVersion < 8 {
+          migration.deleteData(forType: "RealmToken")
+          migration.deleteData(forType: "RealmCoin")
+        } else if oldSchemaVersion < 9 {
           migration.deleteData(forType: RealmTransaction.className())
         }
     })

@@ -13,7 +13,8 @@ class TransactionCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
+    amountLabel.adjustsFontSizeToFitWidth = true
+    amountLabel.minimumScaleFactor = 0.9
   }
   
   func configure(with displayer: TransactionDisplayer) {

@@ -20,6 +20,8 @@ struct Constants {
   }
   
   struct Wallet {
+    static let noName = "No name"
+    static let noSymbol = "???"
     static let defaultCurrency = "USD"
     static let supportedCurrencies = ["BTC","ETH","USD","EUR","CNY","GBP"]
   }

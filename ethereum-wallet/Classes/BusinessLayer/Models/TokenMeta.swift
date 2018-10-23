@@ -38,9 +38,12 @@ extension TokenMeta: ImmutableMappable {
   
   init(map: Map) throws {
     let amount = try map.value("value") as String
-    let name = try map.value("tokenName") as String
-    let iso = try map.value("tokenSymbol") as String
+    let nameString = try map.value("tokenName") as String
+    let isoString = try map.value("tokenSymbol") as String
     let decimals = Int(try map.value("tokenDecimal") as String) ?? 0
+    
+    let name = !nameString.isEmpty ? nameString : Constants.Wallet.noName
+    let iso = !isoString.isEmpty ? isoString : Constants.Wallet.noSymbol
     value = TokenValue(wei: Decimal(amount), name: name, iso: iso, decimals: decimals)
     address = try map.value("contractAddress")
   }
