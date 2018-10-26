@@ -78,7 +78,7 @@
 "token.details.holders" = "Держатели";
 
 // MARK: - Receive
-"receive.title" = "Получить %@";
+"receive.title" = "Получить ETH & Tokens";
 "receive.address.title" = "Ваш Ethereum адрес";
 "receive.copy.button" = "Скопировать адрес";
 "receive.alert.copy" = "Ваш адрес успешно скопирован";

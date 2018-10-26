@@ -77,7 +77,7 @@
 "token.details.holders" = "소유자들";
 
 // MARK: - Receive
-"receive.title" = "%@ 받기";
+"receive.title" = "ETH 및 토큰 획득";
 "receive.address.title" = "사용자의 이더리움 주소";
 "receive.copy.button" = "주소를 복사하기";
 "receive.alert.copy" = "주소가 클립보드에 복사되었습니다";

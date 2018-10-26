@@ -78,7 +78,7 @@
 "token.details.holders" = "Holders";
 
 // MARK: - Receive
-"receive.title" = "Receive %@";
+"receive.title" = "Receive ETH & Tokens";
 "receive.address.title" = "Your Ethereum Address";
 "receive.copy.button" = "Copy address";
 "receive.alert.copy" = "You address was copied to clipboard";

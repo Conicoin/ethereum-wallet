@@ -25,7 +25,7 @@ class ReceiveViewController: UIViewController {
   // MARK: Privates
   
   private func localize() {
-    navigationItem.title = Localized.receiveTitle(Localized.commonEthereum())
+    navigationItem.title = Localized.receiveTitle()
     addressTitleLabel.text = Localized.receiveAddressTitle()
     copyAddressButton.setTitle(Localized.receiveCopyButton(), for: .normal)
   }
