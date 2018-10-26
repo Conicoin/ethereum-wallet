@@ -2,6 +2,7 @@
 // Created by Artur Guseinov
 
 import Foundation
+import CryptoSwift
 
 struct Address: Hashable {
   static let size = 20
@@ -62,7 +63,7 @@ extension Address {
   fileprivate static func computeEIP55String(for data: Data) -> String {
     let addressString = data.hex()
     let hashInput = addressString.data(using: .ascii)!
-    let hash = CryptoHash.sha256(hashInput).hex()
+    let hash = SHA3(variant: .keccak256).calculate(for: hashInput.bytes).toHexString()
     
     var string = "0x"
     for (a, h) in zip(addressString, hash) {

@@ -86,6 +86,8 @@
 		14280E6F1FE1F6F900121F85 /* TransactionDetailsShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14280E6E1FE1F6F900121F85 /* TransactionDetailsShadowView.swift */; };
 		14285E841FB2831200DD3CB5 /* API+Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14285E831FB2831200DD3CB5 /* API+Rate.swift */; };
 		14293C2A1F9FCEB4009E49F1 /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */; };
+		142B348E2182A4F6009D06D2 /* String+Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5CAB01FB925C300CE5419 /* String+Ethereum.swift */; };
+		142B348F2182A55E009D06D2 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB71FB0C492003AEB0C /* String+Helpers.swift */; };
 		142B5A1A1EDF0EEB007F73BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142B5A191EDF0EEB007F73BA /* Security.framework */; };
 		14313CB21FB0B4B5003AEB0C /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */; };
 		14313CB81FB0C492003AEB0C /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB71FB0C492003AEB0C /* String+Helpers.swift */; };
@@ -3447,7 +3449,7 @@
 				TargetAttributes = {
 					14004B88205D41AB00EA8199 = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = V9XXJGN69B;
+						DevelopmentTeam = BY9338Q38W;
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 144E4F111EB26F0600AB62B6;
@@ -3655,6 +3657,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				142B348F2182A55E009D06D2 /* String+Helpers.swift in Sources */,
+				142B348E2182A4F6009D06D2 /* String+Ethereum.swift in Sources */,
 				14DFA328207E305C008F6F92 /* Decimal+Ethereum.swift in Sources */,
 				14DFA327207E3031008F6F92 /* Decimal+Helpers.swift in Sources */,
 				14DFA322207DFAD3008F6F92 /* TxMetaChain.swift in Sources */,
@@ -4261,7 +4265,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9XXJGN69B;
+				DEVELOPMENT_TEAM = BY9338Q38W;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = ConicoinTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -4384,7 +4388,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9XXJGN69B;
+				DEVELOPMENT_TEAM = BY9338Q38W;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = ConicoinTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -4498,7 +4502,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9XXJGN69B;
+				DEVELOPMENT_TEAM = BY9338Q38W;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = ConicoinTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -4610,7 +4614,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9XXJGN69B;
+				DEVELOPMENT_TEAM = BY9338Q38W;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = ConicoinTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

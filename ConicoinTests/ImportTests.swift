@@ -2,6 +2,7 @@
 // Created by Artur Guseinov
 
 import XCTest
+import CryptoSwift
 @testable import ethereum_wallet
 
 class ImportTests: XCTestCase {
@@ -47,7 +48,9 @@ class ImportTests: XCTestCase {
       XCTAssertEqual(privateKey.raw.hex(), _privateKey)
                   
       let publicKey = privateKey.publicKey
-      XCTAssertEqual(publicKey.generateAddress().lowercased(), _address.lowercased())
+      print(SHA3(variant: .keccak256).calculate(for: publicKey.raw.bytes).toHexString())
+      print(CryptoHash.sha256(publicKey.raw).hex())
+      XCTAssertEqual(try! publicKey.generateAddress().string, _address)
       XCTAssertEqual(privateKey.raw.hex(), _privateKey)
       
     } catch {

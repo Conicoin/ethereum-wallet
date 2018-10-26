@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CryptoSwift
 
 /// Encodes fields according to Ethereum's Application Binary Interface Specification
 ///
@@ -155,7 +156,7 @@ final class ABIEncoder {
     guard let bytes = signature.data(using: .utf8) else {
       throw ABIError.invalidUTF8String
     }
-    let hash = CryptoHash.sha256(bytes)
-    return hash[0..<4]
+    let hash = SHA3(variant: .keccak256).calculate(for: bytes.bytes)
+    return Data(hash[0..<4])
   }
 }

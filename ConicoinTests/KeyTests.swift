@@ -2,6 +2,7 @@
 // Created by Artur Guseinov
 
 import XCTest
+@testable import ethereum_wallet
 
 class KeyTests: XCTestCase {
   
