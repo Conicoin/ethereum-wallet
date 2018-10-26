@@ -140,6 +140,8 @@
 "settings.exit.alert.msg" = "Все данные будут стерты. Пожалуйста, убедитесь, что вы сделали резервную копию, в противном случае все ваши средства будут утеряны.";
 "settings.change.alert.title" = "Изменить пароль";
 "settings.change.alert.msg" = "Примите к сведению, что все сделанные ранее резервные копии, по-прежнему будут требовать старый пароль.";
+"settings.twitter.title" = "Подписаться в Twitter";
+"settings.github.title" = "Исходный код";
 
 // MARK: ChooseCurrency
 "chooseCurrency.title" = "Выбранная валюта";

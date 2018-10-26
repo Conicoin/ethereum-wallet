@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RcW-Xo-VhX">
-                                        <rect key="frame" x="0.0" y="66" width="375" height="563"/>
+                                        <rect key="frame" x="0.0" y="66" width="375" height="717"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJz-Fv-pJm">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -263,15 +263,88 @@
                                                     <constraint firstItem="rGj-mp-hV8" firstAttribute="top" secondItem="L1g-pM-NVm" secondAttribute="top" id="oqj-Ow-McW"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPT-Mr-aEy">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFq-sI-mZz">
                                                 <rect key="frame" x="0.0" y="438" width="375" height="24"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="3kr-9J-wV6"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5I-YU-qxQ">
+                                                <rect key="frame" x="0.0" y="462" width="375" height="65"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter" translatesAutoresizingMaskIntoConstraints="NO" id="wML-5c-hhL">
+                                                        <rect key="frame" x="16" y="20.5" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="VYO-MA-HSt"/>
+                                                            <constraint firstAttribute="width" constant="24" id="jSx-0E-TVo"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqq-5r-zce">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <inset key="titleEdgeInsets" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="$Twitter">
+                                                            <color key="titleColor" name="coni_black"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="twitterPressed:" destination="YQz-Hp-mg9" eventType="touchUpInside" id="Itu-7t-lXK"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="wML-5c-hhL" firstAttribute="leading" secondItem="n5I-YU-qxQ" secondAttribute="leading" constant="16" id="42b-0S-NAE"/>
+                                                    <constraint firstItem="fqq-5r-zce" firstAttribute="leading" secondItem="n5I-YU-qxQ" secondAttribute="leading" id="8T6-U0-7o1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fqq-5r-zce" secondAttribute="trailing" id="R47-3J-4ZL"/>
+                                                    <constraint firstItem="wML-5c-hhL" firstAttribute="centerY" secondItem="n5I-YU-qxQ" secondAttribute="centerY" id="UMA-jz-Q7x"/>
+                                                    <constraint firstItem="fqq-5r-zce" firstAttribute="top" secondItem="n5I-YU-qxQ" secondAttribute="top" id="acc-ev-Z7G"/>
+                                                    <constraint firstAttribute="height" constant="65" id="fEm-N7-Nln"/>
+                                                    <constraint firstAttribute="bottom" secondItem="fqq-5r-zce" secondAttribute="bottom" id="y9C-Uk-sbq"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hD-Uk-syp">
+                                                <rect key="frame" x="0.0" y="527" width="375" height="65"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Github" translatesAutoresizingMaskIntoConstraints="NO" id="8mH-gy-Gxd">
+                                                        <rect key="frame" x="16" y="20.5" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="24" id="uu7-6m-C4e"/>
+                                                            <constraint firstAttribute="height" constant="24" id="x4O-Sr-qEg"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5j-h1-H8i">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <inset key="titleEdgeInsets" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="$Github">
+                                                            <color key="titleColor" name="coni_black"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="githubPressed:" destination="YQz-Hp-mg9" eventType="touchUpInside" id="iYh-SS-aGN"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="8mH-gy-Gxd" firstAttribute="leading" secondItem="2hD-Uk-syp" secondAttribute="leading" constant="16" id="FUs-Im-FtN"/>
+                                                    <constraint firstItem="O5j-h1-H8i" firstAttribute="top" secondItem="2hD-Uk-syp" secondAttribute="top" id="NdU-hE-KW8"/>
+                                                    <constraint firstAttribute="bottom" secondItem="O5j-h1-H8i" secondAttribute="bottom" id="dGk-oW-p8D"/>
+                                                    <constraint firstAttribute="height" constant="65" id="oGT-rq-Lf9"/>
+                                                    <constraint firstAttribute="trailing" secondItem="O5j-h1-H8i" secondAttribute="trailing" id="rbJ-3r-Usu"/>
+                                                    <constraint firstItem="O5j-h1-H8i" firstAttribute="leading" secondItem="2hD-Uk-syp" secondAttribute="leading" id="ua7-1n-HD9"/>
+                                                    <constraint firstItem="8mH-gy-Gxd" firstAttribute="centerY" secondItem="2hD-Uk-syp" secondAttribute="centerY" id="uiT-nP-xqW"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPT-Mr-aEy">
+                                                <rect key="frame" x="0.0" y="592" width="375" height="24"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="i6G-d8-ouE"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT9-jt-ejX">
-                                                <rect key="frame" x="0.0" y="462" width="375" height="65"/>
+                                                <rect key="frame" x="0.0" y="616" width="375" height="65"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aG4-Hp-Kcs">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -294,7 +367,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4B-SO-nWb">
-                                                <rect key="frame" x="0.0" y="527" width="375" height="36"/>
+                                                <rect key="frame" x="0.0" y="681" width="375" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Version 1.1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5w-Mq-cug">
                                                         <rect key="frame" x="143.5" y="9.5" width="88.5" height="17"/>
@@ -342,6 +415,7 @@
                         <outlet property="currencyButton" destination="0hp-9C-kNr" id="SEU-4c-Q8Y"/>
                         <outlet property="currencyImageView" destination="sRk-Dz-jwt" id="IqP-cD-emk"/>
                         <outlet property="currencyIsoLabel" destination="Lrn-XN-edN" id="9z1-Nk-jaf"/>
+                        <outlet property="githubButton" destination="O5j-h1-H8i" id="deU-fQ-PuL"/>
                         <outlet property="logoutButton" destination="aG4-Hp-Kcs" id="lhc-G9-7zW"/>
                         <outlet property="pushButton" destination="AIK-4Q-omB" id="AEg-z3-zfR"/>
                         <outlet property="pushSwitch" destination="Ez5-5a-wUx" id="lhK-GM-Wc9"/>
@@ -350,6 +424,7 @@
                         <outlet property="touchIdButton" destination="kaX-qn-FFd" id="d5Z-R7-AeC"/>
                         <outlet property="touchIdImageView" destination="nXs-0Y-wue" id="0GB-P9-ISG"/>
                         <outlet property="touchIdSwitch" destination="ywv-oE-AO8" id="gKw-Aj-tnt"/>
+                        <outlet property="twitterButton" destination="fqq-5r-zce" id="7an-Cc-Dmr"/>
                         <outlet property="versionLabel" destination="y5w-Mq-cug" id="c4A-fj-3Fi"/>
                     </connections>
                 </viewController>
@@ -359,12 +434,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Github" width="24" height="24"/>
         <image name="SettingsBackup" width="24" height="24"/>
         <image name="SettingsChangePasscode" width="24" height="24"/>
         <image name="SettingsFingerprint" width="24" height="24"/>
         <image name="SettingsPush" width="18" height="22"/>
         <image name="SettingsRate" width="20" height="20"/>
         <image name="SettingsTab" width="20" height="20"/>
+        <image name="Twitter" width="24" height="19"/>
         <namedColor name="coni_black">
             <color red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -18,6 +18,8 @@ class SettingsViewController: UIViewController {
   @IBOutlet var pushButton: UIButton!
   @IBOutlet var pushSwitch: UISwitch!
   @IBOutlet var rateButton: UIButton!
+  @IBOutlet var twitterButton: UIButton!
+  @IBOutlet var githubButton: UIButton!
   @IBOutlet var backupButton: UIButton!
   @IBOutlet var logoutButton: UIButton!
   @IBOutlet var versionLabel: UILabel!
@@ -42,6 +44,8 @@ class SettingsViewController: UIViewController {
     changePasscodeButton.setTitle(Localized.settingsChangePasscode(), for: .normal)
     pushButton.setTitle(Localized.settingsPush(), for: .normal)
     rateButton.setTitle(Localized.settingsRate(), for: .normal)
+    twitterButton.setTitle(Localized.settingsTwitterTitle(), for: .normal)
+    githubButton.setTitle(Localized.settingsGithubTitle(), for: .normal)
     backupButton.setTitle(Localized.settingsBackup(), for: .normal)
     logoutButton.setTitle(Localized.settingsLogout(), for: .normal)
     versionLabel.text = Localized.settingsVersion(Bundle.main.version)
@@ -87,6 +91,14 @@ class SettingsViewController: UIViewController {
   
   @IBAction func ratePressed(_ sender: UIButton) {
     output.didRateAppPressed()
+  }
+  
+  @IBAction func twitterPressed(_ sender: UIButton) {
+    UIApplication.shared.openURL(URL(string: Constants.Conicoin.twitter)!)
+  }
+  
+  @IBAction func githubPressed(_ sender: UIButton) {
+    UIApplication.shared.openURL(URL(string: Constants.Conicoin.github)!)
   }
   
   @IBAction func logoutPressed(_ sender: UIButton) {

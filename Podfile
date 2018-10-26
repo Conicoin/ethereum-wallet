@@ -14,7 +14,6 @@ target 'ethereum-wallet' do
   pod 'PullToDismiss', '2.1'
   pod 'lottie-ios', '2.5.2'
   pod 'Dwifft', '0.9'
-  pod 'FirebaseAnalytics'
   pod 'EmptyDataSet-Swift', '~> 4.2.0'
   pod 'JSONRPCKit'
 end

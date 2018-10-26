@@ -139,6 +139,8 @@
 "settings.exit.alert.msg" = "모든 데이터가 삭제될 겁니다. 백업을 완료했는지 확인하십시오. 그렇지 않으면 지갑을 복구할 수 없을 겁니다.";
 "settings.change.alert.title" = "암호를 바뀌기";
 "settings.change.alert.msg" = "모든 이전 백업이 여전히 이전 암호를 요구한다는 것을 알아 두십시오.";
+"settings.twitter.title" = "트위터에서 우리를 따라와";
+"settings.github.title" = "소스 코드";
 
 // MARK: ChooseCurrency
 "chooseCurrency.title" = "참조 통용";

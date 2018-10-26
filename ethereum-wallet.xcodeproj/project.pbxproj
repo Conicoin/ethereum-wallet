@@ -87,7 +87,6 @@
 		14285E841FB2831200DD3CB5 /* API+Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14285E831FB2831200DD3CB5 /* API+Rate.swift */; };
 		14293C2A1F9FCEB4009E49F1 /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */; };
 		142B5A1A1EDF0EEB007F73BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142B5A191EDF0EEB007F73BA /* Security.framework */; };
-		142C288A2136F2C700D935F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 142C28892136F2C700D935F3 /* GoogleService-Info.plist */; };
 		14313CB21FB0B4B5003AEB0C /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */; };
 		14313CB81FB0C492003AEB0C /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB71FB0C492003AEB0C /* String+Helpers.swift */; };
 		143172BB20627DA700238D70 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 143172BA20627DA700238D70 /* currencies.json */; };
@@ -157,7 +156,6 @@
 		1458426B1FB112A200FA733F /* RealmRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458426A1FB112A200FA733F /* RealmRate.swift */; };
 		1458426D1FB1D55200FA733F /* RatesNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458426C1FB1D55200FA733F /* RatesNetworkService.swift */; };
 		145842701FB1D6BF00FA733F /* RatesDataStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458426F1FB1D6BF00FA733F /* RatesDataStoreServiceProtocol.swift */; };
-		145A3D57214AB6D200FB47E5 /* GoogleService-Info-Testnet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 145A3D56214AB6D100FB47E5 /* GoogleService-Info-Testnet.plist */; };
 		145A90FC1FDDE6C300DED3AC /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A90FB1FDDE6C200DED3AC /* Token.swift */; };
 		145A90FE1FDDEDDC00DED3AC /* TokenValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A90FD1FDDEDDC00DED3AC /* TokenValue.swift */; };
 		145A91001FDF002000DED3AC /* API+Ethplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */; };
@@ -586,7 +584,6 @@
 		14285E831FB2831200DD3CB5 /* API+Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Rate.swift"; sourceTree = "<group>"; };
 		14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		142B5A191EDF0EEB007F73BA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		142C28892136F2C700D935F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
 		14313CB71FB0C492003AEB0C /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		143172BA20627DA700238D70 /* currencies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
@@ -731,7 +728,6 @@
 		1458426A1FB112A200FA733F /* RealmRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRate.swift; sourceTree = "<group>"; };
 		1458426C1FB1D55200FA733F /* RatesNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesNetworkService.swift; sourceTree = "<group>"; };
 		1458426F1FB1D6BF00FA733F /* RatesDataStoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDataStoreServiceProtocol.swift; sourceTree = "<group>"; };
-		145A3D56214AB6D100FB47E5 /* GoogleService-Info-Testnet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Testnet.plist"; sourceTree = "<group>"; };
 		145A90FB1FDDE6C200DED3AC /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		145A90FD1FDDEDDC00DED3AC /* TokenValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenValue.swift; sourceTree = "<group>"; };
 		145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Ethplorer.swift"; sourceTree = "<group>"; };
@@ -1770,8 +1766,6 @@
 				146CE4DF212ED3F40009E5A7 /* Colors.xcassets */,
 				14C4D3CD1EDE1F3700FCA3AF /* Bridging-Header.h */,
 				14ACA1F71EF2BD170059E430 /* Info.plist */,
-				142C28892136F2C700D935F3 /* GoogleService-Info.plist */,
-				145A3D56214AB6D100FB47E5 /* GoogleService-Info-Testnet.plist */,
 				14ACA1FC1EF2BD630059E430 /* LaunchScreen.storyboard */,
 				144AB0F220AE1A460031185D /* Localizable.strings */,
 				143172BA20627DA700238D70 /* currencies.json */,
@@ -3509,7 +3503,6 @@
 			files = (
 				14046CF5201F76F0007BD203 /* Send.storyboard in Resources */,
 				14046CF7201F770C007BD203 /* Receive.storyboard in Resources */,
-				142C288A2136F2C700D935F3 /* GoogleService-Info.plist in Resources */,
 				14046CE7201F7584007BD203 /* TabBar.storyboard in Resources */,
 				143172BB20627DA700238D70 /* currencies.json in Resources */,
 				1485B4372089353500FB4C85 /* token-icons in Resources */,
@@ -3519,7 +3512,6 @@
 				14046CF1201F76B2007BD203 /* ChooseCurrency.storyboard in Resources */,
 				140E1106209A39F800000ED7 /* SendSettings.storyboard in Resources */,
 				147443DD20A1033A00BAC86B /* LottiCheckmark.json in Resources */,
-				145A3D57214AB6D200FB47E5 /* GoogleService-Info-Testnet.plist in Resources */,
 				1409BF4D2114A8C400DBCADC /* Mnemonic.storyboard in Resources */,
 				144AB0F020AE1A460031185D /* Localizable.strings in Resources */,
 				14991D8C2056F8E40046E6CD /* Pin.storyboard in Resources */,
@@ -3604,7 +3596,6 @@
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Dwifft/Dwifft.framework",
 				"${BUILT_PRODUCTS_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PullToDismiss/PullToDismiss.framework",
@@ -3614,7 +3605,6 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SpringIndicator/SpringIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -3624,7 +3614,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dwifft.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyDataSet_Swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToDismiss.framework",
@@ -3634,7 +3623,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpringIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_ios.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
