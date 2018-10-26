@@ -20,7 +20,7 @@ extension Wallet: RealmMappable {
     var wallet = Wallet()
     wallet.address = object.address
     wallet.localCurrency = object.localCurrency
-    wallet.gasLimit = Decimal(string: object.gasLimit)
+    wallet.gasLimit = Decimal(object.gasLimit)
     return wallet
   }
   
