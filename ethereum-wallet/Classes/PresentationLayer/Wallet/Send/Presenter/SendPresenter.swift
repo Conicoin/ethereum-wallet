@@ -53,8 +53,7 @@ class SendPresenter {
   }
   
   private func updateLocalAmount() {
-    let fiatAmount = Ether(self.amount)
-    let fiatAmountString = coin.fiatString(amount: fiatAmount, iso: selectedCurrency)
+    let fiatAmountString = coin.fiatString(amount: amount, iso: selectedCurrency)
     view.setLocalAmount(fiatAmountString)
   }
   

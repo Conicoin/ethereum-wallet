@@ -9,7 +9,12 @@ struct Ether {
   
   var raw: Decimal
   var value: Double {
-    return raw.double / 1e18
+    get {
+      return raw.double / 1e18
+    }
+    set {
+      raw = Decimal(newValue * 1e18)
+    }
   }
   
   init() {

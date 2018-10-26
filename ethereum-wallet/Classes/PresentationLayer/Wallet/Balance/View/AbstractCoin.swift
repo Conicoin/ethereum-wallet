@@ -55,8 +55,10 @@ struct AbstractCoin {
     return rateSource.fiatLabelString(currency: currency, selectedCurrency: selectedCurrency)
   }
   
-  func fiatString(amount: Currency, iso: String) -> String? {
-    return rateSource.fiatString(for: amount, in: iso)
+  func fiatString(amount: Decimal, iso: String) -> String? {
+    var currencyWithAmount = currency
+    currencyWithAmount.value = amount.double
+    return rateSource.fiatString(for: currencyWithAmount, in: iso)
   }
   
 }

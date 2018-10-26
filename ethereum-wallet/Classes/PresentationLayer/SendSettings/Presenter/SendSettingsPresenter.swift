@@ -16,9 +16,10 @@ class SendSettingsPresenter {
   private var localCurrency: String!
     
   private func calculateFee() {
-    let amount = Ether(weiValue: settings.gasLimit * settings.gasPrice)
+    let amount = settings.gasLimit * settings.gasPrice
+    let ether = Ether(weiValue: amount)
     let fiatString = coin.fiatString(amount: amount, iso: localCurrency)
-    view.setFeeAmount(amount.amountString, fiatAmount: fiatString)
+    view.setFeeAmount(ether.amountString, fiatAmount: fiatString)
   }
     
 }

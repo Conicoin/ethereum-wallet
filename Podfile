@@ -10,7 +10,6 @@ target 'ethereum-wallet' do
   pod 'SpringIndicator', '4.0.1'
   pod 'AlamofireObjectMapper', '5.1.0'
   pod 'CryptoSwift', '0.12.0'
-  pod 'secp256k1_ios', '0.1.3'
   pod 'PullToDismiss', '2.1'
   pod 'lottie-ios', '2.5.2'
   pod 'Dwifft', '0.9'
@@ -20,7 +19,6 @@ end
 
 target 'ConicoinTests' do
   pod 'CryptoSwift'
-  pod 'secp256k1_ios'
 end
 
 swift4 = ['PullToDismiss', 'R.swift.Library']
