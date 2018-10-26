@@ -34,9 +34,9 @@ extension BalancePresenter: BalanceViewOutput {
   }
   
   func didSendPressed() {
-    // TODO: !!!
-//    guard let coin = coin?.coin else { return }
-//    router.presentSend(for: coin, from: viewController)
+    guard let balance = balance else { return }
+    let coin = Coin(balance: balance.currency)
+    router.presentSend(for: coin, from: viewController)
   }
   
   func didReceivePressed() {

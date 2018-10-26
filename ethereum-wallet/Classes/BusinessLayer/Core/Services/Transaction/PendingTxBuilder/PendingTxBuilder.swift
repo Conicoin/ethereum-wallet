@@ -22,9 +22,9 @@ class PendingTxBuilder {
     tx.gas = Decimal(gethTx.getGas())
     tx.gasPrice = Decimal(gethTx.getGasPrice().getString(10))
     tx.gasUsed = tx.gas
-    tx.error = ""
+    tx.error = nil
     tx.tokenMeta = tokenMeta
-    
+    tx.input = gethTx.getData()?.hex() ?? "0x"
     tx.amount = Ether(weiString: gethTx.getValue().string()!)
     
     if let meta = tokenMeta {
