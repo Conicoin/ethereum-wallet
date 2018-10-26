@@ -6,7 +6,7 @@ import UIKit
 
 class PinModule {
     
-  class func create(_ pinState: PinState) -> PinModuleInput {
+  class func create(app: Application, state: PinState) -> PinModuleInput {
     let router = PinRouter()
     let presenter = PinPresenter()
     let interactor = PinInteractor()
@@ -18,10 +18,11 @@ class PinModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // MARK: Injection
 
-    let pinService = PinServiceFactory.create(with: pinState, delegate: presenter)
+    let pinService = PinServiceFactory.create(with: state, delegate: presenter)
     interactor.pinService = pinService
 
     return presenter

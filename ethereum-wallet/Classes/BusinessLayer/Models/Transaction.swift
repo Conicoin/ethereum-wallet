@@ -21,7 +21,11 @@ struct Transaction {
   var tokenMeta: TokenMeta?
   var isIncoming = false
   var isPending = false
+  var input: String!
   
+  var value: Currency {
+    return tokenMeta?.value ?? amount
+  }
 }
 
 // MARK: - RealmMappable
@@ -42,6 +46,7 @@ extension Transaction: RealmMappable {
     tx.isIncoming = object.isIncoming
     tx.from = object.from
     tx.to = object.to
+    tx.input = object.input
     
     if let meta = object.tokenMeta {
       tx.tokenMeta = TokenMeta.mapFromRealmObject(meta)
@@ -69,6 +74,10 @@ extension Transaction: RealmMappable {
     realmObject.from = from
     realmObject.to = to
     realmObject.tokenMeta = tokenMeta?.mapToRealmObject()
+    realmObject.input = input
+    
+    let key = tokenMeta == nil ? "normal" : "token"
+    realmObject.privateKey = "\(txHash!)-\(key)"
     
     return realmObject
   }
@@ -80,30 +89,54 @@ extension Transaction: RealmMappable {
 extension Transaction: ImmutableMappable {
   
   init(map: Map) throws {
-    txHash = try map.value("id")
-    blockNumber = try map.value("blockNumber")
+//    txHash = try map.value("id")
+//    blockNumber = try map.value("blockNumber")
+//    timeStamp = try map.value("timeStamp", using: DateTransform())
+//    nonce = try map.value("nonce")
+//    from = try map.value("from")
+//    error = try? map.value("error")
+//
+//    let gasString: String = try map.value("gas")
+//    let gasPriceString: String = try map.value("gasPrice")
+//    let gasUsedString: String = try map.value("gasUsed")
+//    self.gas = Decimal(gasString)
+//    self.gasPrice = Decimal(gasPriceString)
+//    self.gasUsed = Decimal(gasUsedString)
+//
+//    if let meta: TokenMeta = try? map.value("operations.0.contract") {
+//      self.tokenMeta = meta
+//      self.to = try map.value("operations.0.to")
+//      let value: String = try map.value("operations.0.value")
+//      self.amount = TokenValue(wei: Decimal(value), name: meta.name, iso: meta.iso, decimals: meta.decimals)
+//    } else {
+//      self.to = try map.value("to")
+//      let value: String = try map.value("value")
+//      self.amount = Ether(weiString: value)
+//    }
+    
+    txHash = try map.value("hash")
+    blockNumber = Int64(try map.value("blockNumber") as String) ?? 0
     timeStamp = try map.value("timeStamp", using: DateTransform())
-    nonce = try map.value("nonce")
+    nonce = Int64(try map.value("nonce") as String) ?? 0
     from = try map.value("from")
-    error = try? map.value("error")
+    to = try map.value("to")
+    gas = Decimal(try map.value("gas") as String)
+    gasPrice = Decimal(try map.value("gasPrice") as String)
+    gasUsed = Decimal(try map.value("gasUsed") as String)
     
-    let gasString: String = try map.value("gas")
-    let gasPriceString: String = try map.value("gasPrice")
-    let gasUsedString: String = try map.value("gasUsed")
-    self.gas = Decimal(gasString)
-    self.gasPrice = Decimal(gasPriceString)
-    self.gasUsed = Decimal(gasUsedString)
-    
-    if let meta: TokenMeta = try? map.value("operations.0.contract") {
-      self.tokenMeta = meta
-      self.to = try map.value("operations.0.to")
-      let value: String = try map.value("operations.0.value")
-      self.amount = TokenValue(wei: Decimal(value), name: meta.name, iso: meta.iso, decimals: meta.decimals)
-    } else {
-      self.to = try map.value("to")
-      let value: String = try map.value("value")
-      self.amount = Ether(weiString: value)
+    if let isError = try? map.value("isError") as String, isError == "1" {
+      error = "Transaction failed"
     }
+    
+    if let meta = try? TokenMeta(map: map) {
+      tokenMeta = meta
+      amount = Ether(Decimal(0))
+    } else {
+      let value = Decimal(try map.value("value") as String)
+      amount = Ether(weiValue: value)
+    }
+    
+    input = try map.value("input")
   }
   
 }

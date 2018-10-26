@@ -11,15 +11,9 @@ class BalancePresenter {
   weak var output: BalanceModuleOutput?
   var interactor: BalanceInteractorInput!
   var router: BalanceRouterInput!
-  var coin: Coin?
-  var wallet: Wallet?
+  var balance: BalanceViewModel?
   
   var selectedCurrency = Constants.Wallet.defaultCurrency
-  
-  private func getBalancesFromNetwork(address: String) {
-    interactor.getEthereumFromNetwork(address: address)
-    interactor.getTokensFromNetwork(address: address)
-  }
 }
 
 
@@ -29,35 +23,33 @@ extension BalancePresenter: BalanceViewOutput {
   
   func viewIsReady() {
     view.setupInitialState()
-    output?.balanceViewIsReady()
-    interactor.getWalletFromDataBase()
-    interactor.getCoinsFromDataBase()
-    interactor.getTokensFromDataBase()
+    interactor.startUpdater()
+    interactor.getBalance()
+    interactor.getTokens()
+    interactor.getWallet()
+
   }
   
   func viewIsAppear() {
-    guard let wallet = wallet else { return }
-    getBalancesFromNetwork(address: wallet.address)
   }
   
   func didSendPressed() {
-    guard let coin = coin else { return }
+    guard let balance = balance else { return }
+    let coin = Coin(balance: balance.currency)
     router.presentSend(for: coin, from: viewController)
   }
   
   func didReceivePressed() {
-    guard let coin = coin else { return }
-    router.presentReceive(for: coin, from: view.viewController)
+    router.presentReceive(from: view.viewController)
   }
   
   
-  func didSelectToken(_ token: Token) {
-    router.presentDetails(for: token, from: view.viewController)
+  func didSelectToken(_ viewModel: TokenViewModel) {
+    router.presentDetails(for: viewModel, from: view.viewController)
   }
   
   func didRefresh() {
-    guard let wallet = wallet else { return }
-    getBalancesFromNetwork(address: wallet.address)
+    interactor.updateBalance()
   }
   
   func didBalanceViewPressed() {
@@ -65,9 +57,9 @@ extension BalancePresenter: BalanceViewOutput {
     guard let index = list.index(of: selectedCurrency) else { return }
     selectedCurrency = list[(index + 1) % list.count]
     
-    guard let coin = coin else { return }
+    guard let balance = balance else { return }
     view.setTotalTokenAmount(selectedCurrency)
-    view.setPreviewTitle(selectedCurrency, coin: coin)
+    view.setPreviewTitle(selectedCurrency, balance: balance)
   }
 
 }
@@ -76,23 +68,20 @@ extension BalancePresenter: BalanceViewOutput {
 // MARK: - BalanceInteractorOutput
 
 extension BalancePresenter: BalanceInteractorOutput {
-  
+ 
   func didReceiveWallet(_ wallet: Wallet) {
-    self.wallet = wallet
-    getBalancesFromNetwork(address: wallet.address)
+    self.selectedCurrency = wallet.localCurrency
     view.setTotalTokenAmount(wallet.localCurrency)
   }
   
-  func didReceiveCoins(_ coins: [Coin]) {
-    view.endRefreshing()
-    guard let coin = coins.first else { return }
-    self.coin = coin
-    view.setCoin(coin)
+  func didReceiveBalance(_ balance: BalanceViewModel) {
+    self.balance = balance
+    view.setBalance(balance)
   }
   
-  func didReceiveTokens(_ tokens: [Token]) {
+  func didReceiveTokens(_ viewModels: [TokenViewModel]) {
     view.endRefreshing()
-    view.setTokens(tokens)
+    view.setTokens(viewModels)
     view.setTotalTokenAmount(selectedCurrency)
   }
   
@@ -115,12 +104,4 @@ extension BalancePresenter: BalanceModuleInput {
   var viewController: UIViewController {
     return view.viewController
   }
-  
-  func syncDidChangeProgress(current: Int64, total: Int64) {
-    
-  }
-  
-  func syncDidFinished() {
-  }
-
 }

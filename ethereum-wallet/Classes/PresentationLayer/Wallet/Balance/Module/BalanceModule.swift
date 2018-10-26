@@ -7,7 +7,7 @@ import UIKit
 
 class BalanceModule {
     
-  class func create() -> BalanceModuleInput {
+  class func create(app: Application) -> BalanceModuleInput {
     let router = BalanceRouter()
     let presenter = BalancePresenter()
     let interactor = BalanceInteractor()
@@ -20,16 +20,17 @@ class BalanceModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // MARK: - Injection
     
-    interactor.walletDataStoreService = WalletDataStoreService()
-    interactor.walletNetworkService = WalletNetworkService()
-    interactor.coinDataStoreService = CoinDataStoreService()
     interactor.ratesNetworkService = RatesNetworkService()
     interactor.ratesDataStoreService = RatesDataStoreService()
-    interactor.tokensNetworkService = TokensNetworkService()
-    interactor.tokensDataStoreService = TokenDataStoreService()
+    
+    interactor.walletRepository = app.walletRepository
+    interactor.balanceUpdater = app.balanceUpdater
+    interactor.balanceIndexer = BalanceIndexerFactory(app: app).create()
+    interactor.tokenIndexer = TokenIndexerFactory(app: app).create()
         
     return presenter
   }

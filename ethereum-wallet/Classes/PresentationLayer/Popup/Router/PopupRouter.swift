@@ -5,7 +5,7 @@ import Foundation
 
 
 class PopupRouter {
-
+  var app: Application!
 }
 
 

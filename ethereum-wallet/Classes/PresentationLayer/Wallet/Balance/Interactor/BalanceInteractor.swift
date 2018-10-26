@@ -6,39 +6,43 @@ import Foundation
 
 
 class BalanceInteractor {
+  
   weak var output: BalanceInteractorOutput!
   
-  var walletNetworkService: WalletNetworkServiceProtocol!
-  var walletDataStoreService: WalletDataStoreServiceProtocol!
-  var coinDataStoreService: CoinDataStoreServiceProtocol!
   var ratesNetworkService: RatesNetworkServiceProtocol!
   var ratesDataStoreService: RatesDataStoreServiceProtocol!
-  var tokensNetworkService: TokensNetworkServiceProtocol!
-  var tokensDataStoreService: TokenDataStoreServiceProtocol!
+  var walletRepository: WalletRepository!
+  var balanceIndexer: BalanceIndexer!
+  var balanceUpdater: BalanceUpdater!
+  var tokenIndexer: TokenIndexer!
   
-  let group = DispatchGroup()
   
-  private func updateTokensBalance(_ tokens: [Token], address: String) {
-    var updatedTokens = tokens
-    for (i, token) in tokens.enumerated() {
-      group.enter()
-      
-      tokensNetworkService.getBalanceForToken(contractAddress: token.address,
-                                              address: address,
-                                              queue: .global()) { [weak self] result in
-                                                switch result {
-                                                case .success(let balanceObj):
-                                                  updatedTokens[i].balance.raw = balanceObj.balance
-                                                case .failure(let error):
-                                                  print(error.localizedDescription)
-                                                }
-                                                self?.group.leave()
-      }
+  let balanceIndexId = Identifier()
+  let tokenIndexId = Identifier()
+  let walletId = Identifier()
+  
+  private func updateRates(currencies: [String]) {
+    guard currencies.count > 0 else {
+      return
     }
     
-    group.notify(queue: .global()) { [weak self] in
-      self?.tokensDataStoreService.save(updatedTokens)
+    ratesNetworkService.getRate(currencies: currencies, queue: .global()) { [weak self] result in
+      switch result {
+      case .success(let rates):
+        self?.ratesDataStoreService.save(rates)
+      case .failure(let error):
+        DispatchQueue.main.async {
+          self?.output.didFailedWalletReceiving(with: error)
+        }
+      }
     }
+  }
+  
+  deinit {
+    balanceIndexer.removeObserver(id: balanceIndexId)
+    tokenIndexer.removeObserver(id: tokenIndexId)
+    walletRepository.removeObserver(id: walletId)
+    balanceUpdater.stop()
   }
 }
 
@@ -47,90 +51,36 @@ class BalanceInteractor {
 
 extension BalanceInteractor: BalanceInteractorInput {
   
-  func updateRates() {
-    // To background thread
-    var coins = coinDataStoreService.find()
-    var tokens = tokensDataStoreService.find()
-    let coinsCurrenies = coins.map { $0.balance.iso }
-    let tokensCurrencies = tokens.map { $0.balance.iso }
-    let currencies = coinsCurrenies + tokensCurrencies
-    
-    guard currencies.count > 0 else {
-      return
-    }
-    
-    ratesNetworkService.getRate(currencies: currencies, queue: .global()) { [weak self] result in
-      switch result {
-      case .success(let rates):
-        // TODO: Refactor - move to rate service
-        for (i, coin) in coins.enumerated() {
-          let rates = rates.filter { $0.from == coin.balance.iso }
-          coins[i].rates = rates
-        }
-        self?.coinDataStoreService.save(coins)
-        
-        for (i, token) in tokens.enumerated() {
-          let rates = rates.filter { $0.from == token.balance.iso }
-          tokens[i].rates = rates
-        }
-        self?.tokensDataStoreService.save(tokens)
-        
-      case .failure(let error):
-        DispatchQueue.main.async {
-          self?.output.didFailedWalletReceiving(with: error)
-        }
+  func startUpdater() {
+    balanceUpdater.start()
+  }
+  
+  func updateBalance() {
+    balanceUpdater.update()
+  }
+  
+  func getWallet() {
+    walletRepository.addObserver(id: walletId) { [weak self] wallet in
+      DispatchQueue.main.async {
+        self?.output.didReceiveWallet(wallet)
       }
     }
   }
   
-  func getWalletFromDataBase() {
-    walletDataStoreService.observe { [weak self] wallet in
-      self?.output.didReceiveWallet(wallet)
-    }
-  }
-  
-  func getCoinsFromDataBase() {
-    coinDataStoreService.observe { [weak self] coins in
-      self?.output.didReceiveCoins(coins)
-    }
-  }
-  
-  func getTokensFromDataBase() {
-    tokensDataStoreService.observe { [weak self] tokens in
-      let notEmpty = tokens.filter { $0.balance.raw != 0 }
-      self?.output.didReceiveTokens(notEmpty)
-    }
-  }
-  
-  func getEthereumFromNetwork(address: String) {
-    walletNetworkService.getBalance(address: address, queue: .global()) { [weak self] result in
-      switch result {
-      case .success(let balance):
-        let ether = Ether(weiString: balance)
-        var coin = Coin()
-        coin.balance = ether
-        self?.coinDataStoreService.save(coin)
-        self?.updateRates()
-      case .failure(let error):
-        DispatchQueue.main.async {
-          self?.output.didFailedWalletReceiving(with: error)
-        }
+  func getBalance() {
+    balanceIndexer.start(id: balanceIndexId) { [weak self] viewModel in
+      DispatchQueue.main.async {
+        self?.output.didReceiveBalance(viewModel)
       }
     }
   }
   
-  func getTokensFromNetwork(address: String) {
-    tokensNetworkService.getTokens(address: address, queue: .global()) { [weak self] result in
-      switch result {
-      case .success(let tokens):
-        self?.updateTokensBalance(tokens, address: address)
-      case .failure(let error):
-        DispatchQueue.main.async {
-          self?.output.didFailedTokensReceiving(with: error)
-        }
+  func getTokens() {
+    tokenIndexer.start(id: tokenIndexId) { [weak self] viewModels in
+      DispatchQueue.main.async {
+        self?.output.didReceiveTokens(viewModels)
       }
     }
-    
   }
   
 }

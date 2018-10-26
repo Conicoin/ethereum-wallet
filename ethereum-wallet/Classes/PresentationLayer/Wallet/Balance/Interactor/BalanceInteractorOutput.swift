@@ -7,8 +7,8 @@ import Foundation
 
 protocol BalanceInteractorOutput: class {
   func didReceiveWallet(_ wallet: Wallet)
-  func didReceiveCoins(_ coins: [Coin])
-  func didReceiveTokens(_ tokens: [Token])
+  func didReceiveTokens(_ viewModels: [TokenViewModel])
+  func didReceiveBalance(_ balance: BalanceViewModel)
   func didFailedWalletReceiving(with error: Error)
   func didFailedTokensReceiving(with error: Error)
 }

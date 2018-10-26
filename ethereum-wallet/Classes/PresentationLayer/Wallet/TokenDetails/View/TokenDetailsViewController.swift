@@ -21,16 +21,17 @@ class TokenDetailsViewController: UIViewController {
   @IBOutlet var sendButtonLabel: UILabel!
   @IBOutlet var tableView: UITableView!
   @IBOutlet var tableHeight: NSLayoutConstraint!
-
+  
   var output: TokenDetailsViewOutput!
   var transactions = [TransactionDisplayer]()
   let cellHeight: CGFloat = 76
   
   // MARK: Life cycle
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     localize()
+    customize()
     scrollView.delegate = self
     scrollView.setupBorder()
     tableView.registerNib(TransactionCell.self)
@@ -39,7 +40,12 @@ class TokenDetailsViewController: UIViewController {
   
   // MARK: Privates
   
-  func localize() {
+  private func customize() {
+    balanceLabel.adjustsFontSizeToFitWidth = true
+    balanceLabel.minimumScaleFactor = 0.7
+  }
+  
+  private func localize() {
     addressTitleLabel.text = Localized.tokenDetailsAddress()
     holdersTitleLabel.text = Localized.tokenDetailsHolders()
     supplyTitleLabel.text = Localized.tokenDetailsSupply()
@@ -63,16 +69,16 @@ class TokenDetailsViewController: UIViewController {
 // MARK: - TokenDetailsViewInput
 
 extension TokenDetailsViewController: TokenDetailsViewInput {
-    
+  
   func setupInitialState() {
-
+    
   }
   
-  func didReceiveToken(_ token: Token) {
-    balanceLabel.text = token.balance.amountString
-    fiatBalanceLabel.text = token.description
-  
-    addressLabel.text = token.address
+  func didReceiveToken(_ viewModel: TokenViewModel) {
+    balanceLabel.text = viewModel.amountString()
+    fiatBalanceLabel.text = viewModel.description()
+    
+    addressLabel.text = viewModel.token.address
   }
   
   func didReceiveFiatBalance(_ balance: String) {
@@ -85,7 +91,7 @@ extension TokenDetailsViewController: TokenDetailsViewInput {
     tableHeight.constant = cellHeight * CGFloat(transactions.count)
     view.layoutIfNeeded()
   }
-
+  
 }
 
 
@@ -116,7 +122,7 @@ extension TokenDetailsViewController: UITableViewDataSource, UITableViewDelegate
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return cellHeight
   }
-
+  
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     output.didTransactionPressed(transactions[indexPath.row])

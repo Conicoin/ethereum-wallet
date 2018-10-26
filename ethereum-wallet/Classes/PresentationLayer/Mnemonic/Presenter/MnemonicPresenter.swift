@@ -122,11 +122,7 @@ extension MnemonicPresenter: MnemonicViewOutput {
     status = .writtingDown
     interactor.getMnemonic()
   }
-  
-  func backPressed() {
-    view.dissmiss()
-  }
-  
+
   func okPressed() {
     switch status {
       

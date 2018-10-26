@@ -6,52 +6,10 @@ PODS:
   - CryptoSwift (0.12.0)
   - Dwifft (0.9)
   - EmptyDataSet-Swift (4.2.0)
-  - FirebaseAnalytics (5.2.0):
-    - FirebaseCore (~> 5.1)
-    - FirebaseInstanceID (~> 3.2)
-    - GoogleAppMeasurement (~> 5.2)
-    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
-    - GoogleUtilities/MethodSwizzler (~> 5.2)
-    - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
-    - nanopb (~> 0.3)
-  - FirebaseCore (5.1.5):
-    - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseInstanceID (3.2.2):
-    - FirebaseCore (~> 5.1)
-    - GoogleUtilities/Environment (~> 5.3)
-    - GoogleUtilities/UserDefaults (~> 5.3)
   - Geth (1.8.17)
-  - GoogleAppMeasurement (5.2.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
-    - GoogleUtilities/MethodSwizzler (~> 5.2)
-    - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
-    - nanopb (~> 0.3)
-  - GoogleUtilities/AppDelegateSwizzler (5.3.3):
-    - GoogleUtilities/Environment
-    - GoogleUtilities/Logger
-    - GoogleUtilities/Network
-  - GoogleUtilities/Environment (5.3.3)
-  - GoogleUtilities/Logger (5.3.3):
-    - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (5.3.3):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/Network (5.3.3):
-    - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
-    - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (5.3.3)"
-  - GoogleUtilities/Reachability (5.3.3):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (5.3.3):
-    - GoogleUtilities/Logger
+  - JSONRPCKit (3.0.0):
+    - Result (~> 3.2.0)
   - lottie-ios (2.5.2)
-  - nanopb (0.3.8):
-    - nanopb/decode (= 0.3.8)
-    - nanopb/encode (= 0.3.8)
-  - nanopb/decode (0.3.8)
-  - nanopb/encode (0.3.8)
   - ObjectMapper (3.3.0)
   - PullToDismiss (2.1)
   - R.swift (4.0.0):
@@ -62,22 +20,22 @@ PODS:
   - Realm/Headers (3.11.0)
   - RealmSwift (3.11.0):
     - Realm (= 3.11.0)
-  - secp256k1_ios (0.1.3)
+  - Result (3.2.4)
   - SpringIndicator (4.0.1)
 
 DEPENDENCIES:
-  - AlamofireObjectMapper
+  - AlamofireObjectMapper (= 5.1.0)
   - CryptoSwift
-  - Dwifft
+  - CryptoSwift (= 0.12.0)
+  - Dwifft (= 0.9)
   - EmptyDataSet-Swift (~> 4.2.0)
-  - FirebaseAnalytics
-  - Geth
-  - lottie-ios
-  - PullToDismiss
-  - R.swift
-  - RealmSwift
-  - secp256k1_ios
-  - SpringIndicator
+  - Geth (= 1.8.17)
+  - JSONRPCKit
+  - lottie-ios (= 2.5.2)
+  - PullToDismiss (= 2.1)
+  - R.swift (= 4.0.0)
+  - RealmSwift (= 3.11.0)
+  - SpringIndicator (= 4.0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -86,21 +44,16 @@ SPEC REPOS:
     - CryptoSwift
     - Dwifft
     - EmptyDataSet-Swift
-    - FirebaseAnalytics
-    - FirebaseCore
-    - FirebaseInstanceID
     - Geth
-    - GoogleAppMeasurement
-    - GoogleUtilities
+    - JSONRPCKit
     - lottie-ios
-    - nanopb
     - ObjectMapper
     - PullToDismiss
     - R.swift
     - R.swift.Library
     - Realm
     - RealmSwift
-    - secp256k1_ios
+    - Result
     - SpringIndicator
 
 SPEC CHECKSUMS:
@@ -109,23 +62,18 @@ SPEC CHECKSUMS:
   CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
   Dwifft: 42912068ed2a8146077d1a1404df18625bd086e1
   EmptyDataSet-Swift: 1fa0b35f530a35f852ecb2b53564728b0c300aaf
-  FirebaseAnalytics: 831f1f127f4a75698e9875a87bf7e2668730d953
-  FirebaseCore: c6079de64c1a87000e52e9b408dddcadc901177f
-  FirebaseInstanceID: 78ba376fcd5b94c001f9999b2cbd3d1f1e56e78d
   Geth: f75304914f9feda13bd388bad8e2ba2fd46cb2df
-  GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
-  GoogleUtilities: 8208aee3e97a1ae93d44c57e96c476a5a3b03f0a
+  JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
-  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   PullToDismiss: 5513d561c382d201d0e3fbbdab9a47196cf5d2e2
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
-  secp256k1_ios: ac9ef04e761f43c58012b28548afa91493761f17
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SpringIndicator: 96eb6158a9dc94c1623d84130639a52225f04056
 
-PODFILE CHECKSUM: daa8657872ecae71068989bbd333ac09244db2a9
+PODFILE CHECKSUM: b4a068b62ca2934b027e056783a20db1fd6c197d
 
 COCOAPODS: 1.5.3

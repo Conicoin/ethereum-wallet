@@ -7,58 +7,15 @@ import ObjectMapper
 
 struct Token {
   
-  var balance: Currency!
-  var rates = [Rate]()
-  var lastUpdateTime = Date()
-  var address: String!
-  var decimals: Int!
+  let balance: TokenValue
+  let address: String
+  let decimals: Int
   
-}
-
-// MARK: - RealmMappable
-
-extension Token: RealmMappable {
-  
-  static func mapFromRealmObject(_ object: RealmToken) -> Token {
-    var token = Token()
-    let tokenValue = TokenValue(wei: Decimal(object.balance), name: object.name, iso: object.iso, decimals: object.decimals)
-    token.balance = tokenValue
-    token.rates = object.rates.map { Rate.mapFromRealmObject($0) }
-    token.lastUpdateTime = object.lastUpdateTime
-    token.address = object.address
-    token.decimals = object.decimals
-    return token
+  init(balance: TokenValue, address: String, decimals: Int) {
+    self.balance = balance
+    self.address = address
+    self.decimals = decimals
   }
-  
-  func mapToRealmObject() -> RealmToken {
-    let realmObject = RealmToken()
-    realmObject.balance = balance.raw.string
-    realmObject.name = balance.name
-    realmObject.iso = balance.symbol
-    realmObject.rates.append(objectsIn: rates.map { $0.mapToRealmObject() })
-    realmObject.lastUpdateTime = lastUpdateTime
-    realmObject.address = address
-    realmObject.decimals = decimals
-    return realmObject
-  }
-  
-}
-
-// MARK: - ImmutableMappable
-
-extension Token: ImmutableMappable {
-  
-  init(map: Map) throws {
-    address = try map.value("contract.contract")
-    decimals = try map.value("contract.decimals")
-    
-    let balanceString: String = try map.value("balance")
-    let balanceDecimal = Decimal(balanceString)
-    let name: String = try map.value("contract.name")
-    let iso: String = try map.value("contract.symbol")
-    balance = TokenValue(wei: balanceDecimal, name: name, iso: iso, decimals: decimals)
-  }
-  
 }
 
 // MARK: - Equatable

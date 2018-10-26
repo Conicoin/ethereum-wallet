@@ -5,6 +5,6 @@ import UIKit
 
 
 protocol SendSettingsViewInput: class, Presentable {
-  func setupInitialState(settings: SendSettings, coin: CoinDisplayable)
+  func setupInitialState(settings: SendSettings, isToken: Bool)
   func setFeeAmount(_ amount: String, fiatAmount: String?)
 }

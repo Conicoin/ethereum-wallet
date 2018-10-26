@@ -30,8 +30,13 @@ class AmountFormatter: AmountFormatterProtocol {
     
     let decimalSeparator = formatter.decimalSeparator ?? "."
     
-    if let _ = formatter.number(from: input) {
-      let numberComponents = input.components(separatedBy: decimalSeparator)
+    // iOS SDK Bug woraround (https://forums.developer.apple.com/thread/93338)
+    var formattedInput = input
+    formattedInput = formattedInput.replacingOccurrences(of: ".", with: decimalSeparator)
+    formattedInput = formattedInput.replacingOccurrences(of: ",", with: decimalSeparator)
+    
+    if let _ = formatter.number(from: formattedInput) {
+      let numberComponents = formattedInput.components(separatedBy: decimalSeparator)
       let fractionDigits = numberComponents.count == 2 ? numberComponents.last ?? "" : ""
       return fractionDigits.count <= decimals
     }

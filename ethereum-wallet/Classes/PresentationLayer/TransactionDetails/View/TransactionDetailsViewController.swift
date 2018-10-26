@@ -39,11 +39,17 @@ class TransactionDetailsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     localize()
+    customize()
     setupPullToDismiss()
     output.viewIsReady()
   }
   
   // MARK: Privates
+  
+  private func customize() {
+    amountLabel.adjustsFontSizeToFitWidth = true
+    amountLabel.minimumScaleFactor = 0.7
+  }
   
   private func setupPullToDismiss() {
     pullToDismiss = PullToDismiss(scrollView: scrollView)

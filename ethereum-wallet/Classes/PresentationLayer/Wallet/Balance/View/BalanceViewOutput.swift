@@ -9,7 +9,7 @@ protocol BalanceViewOutput: class {
   func viewIsReady()
   func viewIsAppear()
   func didRefresh()
-  func didSelectToken(_ token: Token)
+  func didSelectToken(_ viewModel: TokenViewModel)
   func didSendPressed()
   func didReceivePressed()
   func didBalanceViewPressed()

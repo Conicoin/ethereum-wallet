@@ -9,7 +9,16 @@ struct Ether {
   
   var raw: Decimal
   var value: Double {
-    return raw.double / 1e18
+    get {
+      return raw.double / 1e18
+    }
+    set {
+      raw = Decimal(newValue * 1e18)
+    }
+  }
+  
+  init() {
+    self.raw = 0
   }
 
   init(_ value: Decimal) {
@@ -39,7 +48,7 @@ struct Ether {
 extension Ether: Currency {
   
   var name: String {
-    return "Ethereum"
+    return Localized.commonEthereum()
   }
   
   var iso: String {

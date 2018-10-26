@@ -8,24 +8,26 @@ import UIKit
 
 class SettingsModule {
   
-  class func create() -> SettingsModuleInput {
+  class func create(app: Application) -> SettingsModuleInput {
     let router = SettingsRouter()
     let presenter = SettingsPresenter()
     let interactor = SettingsInteractor()
     let viewController = R.storyboard.settings.settingsViewController()!
     
     interactor.output = presenter
-    interactor.walletDataStoreService = WalletDataStoreService()
-    interactor.keystore = KeystoreService()
     
     viewController.output = presenter
     
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // Injection
     let keychain = Keychain()
+    interactor.walletDataStoreService = WalletDataStoreService()
+    interactor.walletRepository = app.walletRepository
+    interactor.keystore = KeystoreService()
     interactor.keychain = keychain
     interactor.pushService = PushService()
     interactor.accountService = AccountService(keychain: keychain)

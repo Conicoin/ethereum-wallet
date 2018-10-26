@@ -10,7 +10,6 @@ class BorderView: UIView {
   private let initialImageView = UIImageView()
   private let scrolledImageView = UIImageView()
   
-  private let separatorImage = UIImage(color: UIColor(red: 206.0/255.0, green: 213.0/255.0, blue: 219.0/255.0, alpha: 0.48))
   private let shadowImage = UIImage(named: "HeaderShadow")
   
   var initialImage: UIImage? {

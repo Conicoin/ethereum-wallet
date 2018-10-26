@@ -5,7 +5,7 @@ import UIKit
 
 
 class MnemonicRouter {
-
+  var app: Application!
 }
 
 

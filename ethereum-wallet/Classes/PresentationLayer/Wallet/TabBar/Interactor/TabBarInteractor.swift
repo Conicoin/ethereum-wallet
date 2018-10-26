@@ -8,7 +8,6 @@ import Geth
 class TabBarInteractor {
   weak var output: TabBarInteractorOutput!
   var walletDataStoreService: WalletDataStoreServiceProtocol!
-  var coinsDataStoreService: CoinDataStoreServiceProtocol!
   var ethereumService: EthereumCoreProtocol!
   var transactionsDataStoreServise: TransactionsDataStoreServiceProtocol!
 }
@@ -52,23 +51,7 @@ extension TabBarInteractor: SyncCoordinatorDelegate {
   }
   
   func syncDidUpdateBalance(_ balanceHex: String, timestamp: Int64) {
-    guard var coin = coinsDataStoreService.find(withIso: "ETH") else {
-      return
-    }
-    
-    let interval = TimeInterval(timestamp)
-    let date = Date(timeIntervalSince1970: interval)
-    
-    guard coin.lastUpdateTime < date else {
-      return
-    }
-    
-    let newBalance = Decimal(hexString: balanceHex)
-    coin.balance = Ether(newBalance)
-    coin.lastUpdateTime = date
-    coinsDataStoreService.save(coin)
-    
-    output.syncDidUpdateBalance(newBalance)
+//    output.syncDidUpdateBalance(newBalance)
   }
   
   func syncDidUpdateGasLimit(_ gasLimit: Int64) {
@@ -82,8 +65,5 @@ extension TabBarInteractor: SyncCoordinatorDelegate {
   func syncDidReceiveTransactions(_ gethTransactions: [GethTransaction], timestamp: Int64) {
     // TODO: Storing transaction for LES Sync
   }
-  
-  
-  
   
 }

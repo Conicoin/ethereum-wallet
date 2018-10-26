@@ -11,9 +11,9 @@ class TransactionService: TransactionServiceProtocol {
   private let keystore: KeystoreService
   private let chain: Chain
   private let factory: TransactionFactoryProtocol
-  private let transferType: TransferType
+  private let transferType: CoinType
   
-  init(core: Ethereum, keystore: KeystoreService, transferType: TransferType) {
+  init(core: Ethereum, keystore: KeystoreService, transferType: CoinType) {
     self.context = core.context
     self.client = core.client
     self.chain = core.chain

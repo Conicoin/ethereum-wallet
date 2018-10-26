@@ -8,6 +8,7 @@ extension API {
   
   enum Etherscan {
     case transactions(address: String)
+    case tokenTransactions(address: String)
     case balance(address: String)
     case tokenBalance(address: String, contractAddress: String)
   }
@@ -31,6 +32,16 @@ extension API.Etherscan: APIMethodProtocol {
       return [
         "module": "account",
         "action": "txlist",
+        "address": address,
+        "startblock": 0,
+        "endblock": 99999999,
+        "sort": "asc",
+        "apiKey": Constants.Etherscan.apiKey
+      ]
+    case .tokenTransactions(let address):
+      return [
+        "module": "account",
+        "action": "tokentx",
         "address": address,
         "startblock": 0,
         "endblock": 99999999,

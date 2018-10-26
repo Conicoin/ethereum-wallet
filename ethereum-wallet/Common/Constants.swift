@@ -8,6 +8,8 @@ struct Constants {
   
   struct Conicoin {
     static let privacyUrl = "http://conicoin.io/privacy"
+    static let twitter = "https://twitter.com/ConicoinWallet"
+    static let github = "https://github.com/Conicoin/ethereum-wallet"
   }
   
   struct Ethereum {
@@ -20,6 +22,8 @@ struct Constants {
   }
   
   struct Wallet {
+    static let noName = "No name"
+    static let noSymbol = "???"
     static let defaultCurrency = "USD"
     static let supportedCurrencies = ["BTC","ETH","USD","EUR","CNY","GBP"]
   }

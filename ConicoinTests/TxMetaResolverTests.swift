@@ -27,7 +27,7 @@ class TxMetaResolverTests: XCTestCase {
       let normalType = resolver.resolve(input: normalInput)
       XCTAssertEqual(normalType, .normal, "NormalTx not resolved")
       
-      let erc20Input = try Data(hexString: erc20InputString)
+      let erc20Input = try Data(hexString: erc20InputString.deleting0x())
       let erc20Type = resolver.resolve(input: erc20Input)
       XCTAssertEqual(erc20Type, .erc20(to: "0xc1eb62f54b426d6050eb26fdef2f5f4955176280", value: "2"), "Erc20 not resolved")
     } catch {

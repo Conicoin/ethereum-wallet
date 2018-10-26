@@ -6,5 +6,5 @@ import UIKit
 
 
 protocol TabBarRouterInput: class {
-
+  func getTabViewControllers() -> [UIViewController]
 }

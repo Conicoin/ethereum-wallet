@@ -7,7 +7,6 @@ import UIKit
 
 protocol ReceiveViewInput: class, Presentable {
   func setupInitialState()
-  func didReceiveCoin(_ coin: CoinDisplayable)
   func didReceiveWallet(_ wallet: Wallet)
   func didReceiveQRImage(_ image: UIImage)
 }

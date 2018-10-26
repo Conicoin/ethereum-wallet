@@ -6,7 +6,7 @@ import UIKit
 
 
 class TokenDetailsRouter {
-
+  var app: Application!
 }
 
 
@@ -14,12 +14,13 @@ class TokenDetailsRouter {
 
 extension TokenDetailsRouter: TokenDetailsRouterInput {
   
-  func presentSend(for token: Token, from: UIViewController) {
-    SendModule.create(.token(token)).presentSend(with: token, from: from)
+  func presentSend(for viewModel: TokenViewModel, from: UIViewController) {
+    let type = CoinType.token(viewModel.token)
+    SendModule.create(app: app, type: type).presentSend(from: from)
   }
   
   func presentDetails(with transaction: TransactionDisplayer, from: UIViewController) {
-    TransactionDetailsModule.create(isToken: transaction.isTokenTransfer).present(with: transaction, from: from)
+    TransactionDetailsModule.create(app: app, isToken: transaction.isTokenTransfer).present(with: transaction, from: from)
   }
     
 }

@@ -11,7 +11,7 @@ class SendInteractor {
   var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
   var transactionService: TransactionServiceProtocol!
   var gasService: GasServiceProtocol!
-  var checkoutService: SendCheckoutServiceProtocol!
+  var pendingTxBuilder: PendingTxBuilder!
 }
 
 
@@ -19,32 +19,21 @@ class SendInteractor {
 
 extension SendInteractor: SendInteractorInput {
   
-  func getCheckout(for coin: CoinDisplayable, amount: Decimal, iso: String, fee: Decimal) {
-    do {
-      let checkout = try checkoutService.checkout(for: coin, amount: amount, iso: iso, fee: fee)
-      output.didReceiveCheckout(amount: checkout.amount, total: checkout.total, fiatAmount: checkout.fiatAmount, fee: checkout.fee)
-    } catch let error {
-      output.didFailed(with: error)
-    }
-  }
-  
   func getWallet() {
     walletDataStoreService.getWallet(queue: .main) { wallet in
       self.output.didReceiveWallet(wallet)
     }
   }
   
-  func sendTransaction(coin: CoinDisplayable, amount: Decimal, to: String, settings: SendSettings, pin: String, pinResult: PinResult?) {
+  func sendTransaction(amount: Decimal, to: String, settings: SendSettings, pin: String, pinResult: PinResult?) {
 
-    let info = TransactionInfo(amount: amount, address: to, contractAddress: coin.contract, decimals: coin.decimals, settings: settings)
-    
+    let info = TransactionInfo(amount: amount, address: to, settings: settings)
     transactionService.sendTransaction(with: info, passphrase: pin) { [unowned self] result in
       switch result {
       case .success(let sendedTransaction):
         
         self.walletDataStoreService.getWallet(queue: .global()) { wallet in
-          let builder = PendingTxBuilder()
-          var transaction = builder.build(sendedTransaction, from: wallet.address, time: Date(), txMeta: coin.tokenMeta)
+          var transaction = self.pendingTxBuilder.build(sendedTransaction, from: wallet.address, time: Date())
           transaction.isPending = true
           transaction.isIncoming = false
           self.transactionsDataStoreService.save(transaction)

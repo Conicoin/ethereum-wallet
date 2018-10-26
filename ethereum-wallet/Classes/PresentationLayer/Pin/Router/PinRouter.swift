@@ -7,7 +7,7 @@ import SafariServices
 
 
 class PinRouter {
-
+  var app: Application!
 }
 
 

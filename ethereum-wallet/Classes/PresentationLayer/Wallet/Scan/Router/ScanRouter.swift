@@ -7,7 +7,7 @@ import Foundation
 
 
 class ScanRouter {
-
+  var app: Application!
 }
 
 

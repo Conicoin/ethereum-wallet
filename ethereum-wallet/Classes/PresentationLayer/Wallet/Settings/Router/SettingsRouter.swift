@@ -7,7 +7,7 @@ import UIKit
 
 
 class SettingsRouter {
-
+  var app: Application!
 }
 
 
@@ -16,29 +16,29 @@ class SettingsRouter {
 extension SettingsRouter: SettingsRouterInput {
   
   func presentMnemonicBackup(from: UIViewController) {
-    MnemonicModule.create().presentModal(from: from, state: .backup) { vc in
+    MnemonicModule.create(app: app).presentModal(from: from, state: .backup) { vc in
       vc.dismiss(animated: true, completion: nil)
     }
   }
   
   func presentChooseCurrency(from: UIViewController, selectedIso: String, output: ChooseCurrencyModuleOutput) {
-    ChooseCurrencyModule.create().present(from: from, selectedIso: selectedIso, output: output)
+    ChooseCurrencyModule.create(app: app).present(from: from, selectedIso: selectedIso, output: output)
   }
   
   func presentPinOnExit(from: UIViewController, postProcess: PinPostProcess?) {
-    PinModule.create(.exit).present(from: from, postProcess: postProcess) { vc in
-      WelcomeModule.create().present(state: .new)
+    PinModule.create(app: app, state: .exit).present(from: from, postProcess: postProcess) { vc in
+      WelcomeModule.create(app: self.app).present(state: .new)
     }
   }
   
   func presentPinOnChangePin(from: UIViewController, postProcess: PinPostProcess?) {
-    PinModule.create(.change).present(from: from, postProcess: postProcess) { vc in
+    PinModule.create(app: app, state: .change).present(from: from, postProcess: postProcess) { vc in
       vc.pop()
     }
   }
   
   func presentPinOnBackup(from: UIViewController, postProcess: PinPostProcess?) {
-    PinModule.create(.backup).present(from: from, postProcess: postProcess) { vc in
+    PinModule.create(app: app, state: .backup).present(from: from, postProcess: postProcess) { vc in
       vc.pop()
     }
   }

@@ -12,7 +12,7 @@ enum ImportState {
 
 class ImportModule {
     
-  class func create(with state: ImportState) -> ImportModuleInput {
+  class func create(app: Application, state: ImportState) -> ImportModuleInput {
     let router = ImportRouter()
     let presenter = ImportPresenter()
     let interactor = ImportInteractor()
@@ -25,6 +25,7 @@ class ImportModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // MARK: Injection
     

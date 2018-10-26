@@ -7,7 +7,7 @@ import UIKit
 
 class SendModule {
     
-  class func create(_ type: TransferType) -> SendModuleInput {
+  class func create(app: Application, type: CoinType) -> SendModuleInput {
     let router = SendRouter()
     let presenter = SendPresenter()
     let interactor = SendInteractor()
@@ -20,6 +20,7 @@ class SendModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // MARK: - Injection
     
@@ -30,7 +31,10 @@ class SendModule {
     interactor.walletDataStoreService = WalletDataStoreService()
     interactor.transactionsDataStoreService = TransactionsDataStoreService()
     interactor.transactionService = TransactionService(core: core, keystore: keystore, transferType: type)
-    interactor.checkoutService = SendCheckoutServiceFactory().create(type)
+    interactor.pendingTxBuilder = PendingTxBuilder(tokenMeta: type.tokenMeta)
+    
+    let rateSource = RateService(rateRepository: app.rateRepository)
+    presenter.coin = AbstractCoin(type: type, rateSource: rateSource)
     
     viewController.amountFormatter = AmountFormatter(decimals: type.decimals)
         

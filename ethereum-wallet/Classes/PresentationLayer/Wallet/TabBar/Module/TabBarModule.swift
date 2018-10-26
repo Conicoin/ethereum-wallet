@@ -7,7 +7,7 @@ import UIKit
 
 class TabBarModule {
     
-  class func create(isSecureMode: Bool) -> TabBarModuleInput {
+  class func create(app: Application, isSecureMode: Bool) -> TabBarModuleInput {
     let router = TabBarRouter()
     let presenter = TabBarPresenter()
     let interactor = TabBarInteractor()
@@ -28,13 +28,13 @@ class TabBarModule {
     interactor.output = presenter
     interactor.walletDataStoreService = WalletDataStoreService()
     interactor.transactionsDataStoreServise = TransactionsDataStoreService()
-    interactor.coinsDataStoreService = CoinDataStoreService()
 
     viewController.output = presenter
 
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     return presenter
   }

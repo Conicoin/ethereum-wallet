@@ -7,7 +7,7 @@ import UIKit
 
 class TokenDetailsModule {
     
-  class func create() -> TokenDetailsModuleInput {
+  class func create(app: Application) -> TokenDetailsModuleInput {
     let router = TokenDetailsRouter()
     let presenter = TokenDetailsPresenter()
     let interactor = TokenDetailsInteractor()
@@ -20,6 +20,7 @@ class TokenDetailsModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // Injection
     interactor.transactionsDataStoreService = TransactionsDataStoreService()

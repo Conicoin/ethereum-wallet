@@ -6,7 +6,7 @@ import UIKit
 
 
 class BalanceRouter {
-
+  var app: Application!
 }
 
 
@@ -15,15 +15,16 @@ class BalanceRouter {
 extension BalanceRouter: BalanceRouterInput {
 
   func presentSend(for coin: Coin, from: UIViewController) {
-    SendModule.create(.default(coin)).presentSend(with: coin, from: from)
+    let type = CoinType.default(coin)
+    SendModule.create(app: app, type: type).presentSend(from: from)
   }
   
-  func presentReceive(for coin: Coin, from: UIViewController) {
-    ReceiveModule.create().presentSend(for: coin, from: from)
+  func presentReceive(from: UIViewController) {
+    ReceiveModule.create(app: app).presentSend(from: from)
   }
   
-  func presentDetails(for token: Token, from: UIViewController) {
-    TokenDetailsModule.create().present(with: token, from: from)
+  func presentDetails(for viewModel: TokenViewModel, from: UIViewController) {
+    TokenDetailsModule.create(app: app).present(with: viewModel, from: from)
   }
   
 }

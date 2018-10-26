@@ -15,6 +15,7 @@ class EthDefaultTxInputBuilder: EthTxInputBuilder {
   
 }
 
+// TODO: - Connect to transaction service
 class EthTokenTxInputBuilder: EthTxInputBuilder {
   
   let decimals: Int

@@ -6,8 +6,12 @@ import Foundation
 
 class TransactionsNetworkService: NetworkLoadable, TransactionsNetworkServiceProtocol  {
   
-  func getTransactions(address: String, page: Int, limit: Int, queue: DispatchQueue, result: @escaping (Result<[Transaction]>) -> Void) {
-    loadArray(request: API.Transactions.transactions(address: address, page: page, limit: limit), keyPath: "docs", queue: queue, completion: result)
+  func getTransactions(address: String, queue: DispatchQueue, result: @escaping (Result<[Transaction]>) -> Void) {
+    loadArray(request: API.Etherscan.transactions(address: address), keyPath: "result", queue: queue, completion: result)
+  }
+  
+  func getTokenTransactions(address: String, queue: DispatchQueue, result: @escaping (Result<[Transaction]>) -> Void) {
+    loadArray(request: API.Etherscan.tokenTransactions(address: address), keyPath: "result", queue: queue, completion: result)
   }
 
 }

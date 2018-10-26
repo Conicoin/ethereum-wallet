@@ -5,13 +5,15 @@ import Foundation
 
 class BackupService: BackupServiceProtocol {
   
+  let app: Application
   let keychain: Keychain
   let accountService: AccountServiceProtocol
   
   private let unlockPeriod: TimeInterval = 1200
   private var lastUnlockDate: Date = Date()
   
-  init(keychain: Keychain, accountService: AccountServiceProtocol) {
+  init(app: Application, keychain: Keychain, accountService: AccountServiceProtocol) {
+    self.app = app
     self.keychain = keychain
     self.accountService = accountService
   }
@@ -45,7 +47,7 @@ class BackupService: BackupServiceProtocol {
   
   private func backup() {
     let rootViewContoller = AppDelegate.currentWindow.rootViewController!
-    MnemonicModule.create().presentModal(from: rootViewContoller, state: .backup) { vc in
+    MnemonicModule.create(app: app).presentModal(from: rootViewContoller, state: .backup) { vc in
       vc.dismiss(animated: true, completion: nil)
     }
   }

@@ -42,6 +42,7 @@ final class Defaults: NSObject {
       UserDefaults.standard.removeObject(forKey: key.rawValue)
     }
   }
+  
 }
 
 private extension Defaults {

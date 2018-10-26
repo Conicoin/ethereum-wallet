@@ -7,17 +7,14 @@ class WalletManager: WalletManagerProtocol {
   
   let keychain: Keychain
   let walletDataStoreService: WalletDataStoreServiceProtocol
-  let coinDataStoreService: CoinDataStoreServiceProtocol
   let keystoreService: KeystoreServiceProtocol
   let mnemonicService: MnemonicServiceProtocol
   
   init(keyhcain: Keychain,
        walletDataStoreService: WalletDataStoreServiceProtocol,
-       coinDataStoreService: CoinDataStoreServiceProtocol,
        keystoreService: KeystoreServiceProtocol,
        mnemonicService: MnemonicServiceProtocol) {
     self.walletDataStoreService = walletDataStoreService
-    self.coinDataStoreService = coinDataStoreService
     self.keystoreService = keystoreService
     self.mnemonicService = mnemonicService
     self.keychain = keyhcain
@@ -79,7 +76,6 @@ class WalletManager: WalletManagerProtocol {
   
   private func commonWalletInitialization(address: String) {
     walletDataStoreService.createWallet(address: address)
-    coinDataStoreService.createCoin()
   }
   
 }

@@ -15,10 +15,6 @@ extension Keychain {
     case hdWalletBackuped = "hd_wallet_backuped"
   }
   
-  var isAccountBackuped: Bool {
-    return exist(.jsonKey)
-  }
-  
   var currentAccount: Int {
     get {
       return getInt(key: .currenctAccount) ?? 0
@@ -72,15 +68,7 @@ extension Keychain {
     }
   }
   
-  // MARK: - Getters
-
-  
-  func getPassphrase() throws -> String {
-    guard let passphrase = passphrase else {
-      throw KeychainError.noPassphrase
-    }
-    return passphrase
-  }
+  // MARK: - Helpers
   
   var isAuthorized: Bool {
     return passphrase != nil && !accounts.isEmpty

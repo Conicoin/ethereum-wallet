@@ -7,7 +7,7 @@ import UIKit
 
 class ChooseCurrencyModule {
     
-  class func create() -> ChooseCurrencyModuleInput {
+  class func create(app: Application) -> ChooseCurrencyModuleInput {
     let router = ChooseCurrencyRouter()
     let presenter = ChooseCurrencyPresenter()
     let interactor = ChooseCurrencyInteractor()
@@ -20,6 +20,7 @@ class ChooseCurrencyModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // MARK: - Injection
           

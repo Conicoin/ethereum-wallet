@@ -4,9 +4,6 @@
 
 import RealmSwift
 
-enum CustomRealmError: Error {
-  case parsingError
-}
 
 class RealmTransaction: Object {
   
@@ -24,9 +21,12 @@ class RealmTransaction: Object {
   @objc dynamic var isPending = false
   @objc dynamic var isIncoming = false
   @objc dynamic var tokenMeta: RealmTokenMeta?
+  @objc dynamic var input = ""
+  
+  @objc dynamic var privateKey = ""
   
   override static func primaryKey() -> String? {
-    return "txHash"
+    return "privateKey"
   }
   
 }

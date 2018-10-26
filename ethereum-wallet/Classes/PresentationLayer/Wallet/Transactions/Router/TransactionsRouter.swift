@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 class TransactionsRouter {
-
+  var app: Application!
 }
 
 
@@ -15,7 +15,7 @@ class TransactionsRouter {
 extension TransactionsRouter: TransactionsRouterInput {
   
   func presentDetails(with txIndex: TransactionDisplayer, from: UIViewController) {
-    TransactionDetailsModule.create(isToken: txIndex.isTokenTransfer).present(with: txIndex, from: from)
+    TransactionDetailsModule.create(app: app, isToken: txIndex.isTokenTransfer).present(with: txIndex, from: from)
   }
   
 }

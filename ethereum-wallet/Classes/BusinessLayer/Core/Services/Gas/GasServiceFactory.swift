@@ -11,7 +11,7 @@ class GasServiceFactory {
     self.core = core
   }
   
-  func create(_ type: TransferType) -> GasServiceProtocol {
+  func create(_ type: CoinType) -> GasServiceProtocol {
     switch type {
     case .default:
       let callMsgBuilder = DefaultCallMsgBuilder()

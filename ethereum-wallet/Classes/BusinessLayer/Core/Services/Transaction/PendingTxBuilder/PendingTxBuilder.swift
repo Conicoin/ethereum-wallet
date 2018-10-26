@@ -6,7 +6,12 @@ import Geth
 
 class PendingTxBuilder {
   
-  func build(_ gethTx: GethTransaction, from: String, time: Date, txMeta: TokenMeta?) -> Transaction {
+  let tokenMeta: TokenMeta?
+  init(tokenMeta: TokenMeta?) {
+    self.tokenMeta = tokenMeta
+  }
+  
+  func build(_ gethTx: GethTransaction, from: String, time: Date) -> Transaction {
     var tx = Transaction()
     tx.txHash = gethTx.getHash().getHex()
     tx.blockNumber = 0
@@ -17,12 +22,12 @@ class PendingTxBuilder {
     tx.gas = Decimal(gethTx.getGas())
     tx.gasPrice = Decimal(gethTx.getGasPrice().getString(10))
     tx.gasUsed = tx.gas
-    tx.error = ""
-    tx.tokenMeta = txMeta
-    
+    tx.error = nil
+    tx.tokenMeta = tokenMeta
+    tx.input = gethTx.getData()?.hex() ?? "0x"
     tx.amount = Ether(weiString: gethTx.getValue().string()!)
     
-    if let meta = txMeta {
+    if let meta = tokenMeta {
       tx.tokenMeta = meta
       
       // Resolve tx type
@@ -31,7 +36,7 @@ class PendingTxBuilder {
       switch type {
       case .erc20(let to, let value):
         tx.to = to
-        tx.amount = TokenValue(wei: Decimal(value), name: meta.name, iso: meta.iso, decimals: meta.decimals)
+        tx.tokenMeta?.value.raw = Decimal(value)
       default:
         break
       }

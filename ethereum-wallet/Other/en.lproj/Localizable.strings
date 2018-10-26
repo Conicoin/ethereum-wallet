@@ -7,9 +7,11 @@
 "common.notNow" = "Not now";
 "common.touchId" = "Touch ID";
 "common.faceId" = "Face ID";
+"common.ethereum" = "Ethereum";
 
 // MARK: - Tabs
 "tab.balance" = "Balance";
+"tab.partners" = "Partners";
 "tab.transactions" = "Transactions";
 "tab.settings" = "Settings";
 
@@ -76,7 +78,7 @@
 "token.details.holders" = "Holders";
 
 // MARK: - Receive
-"receive.title" = "Receive %@";
+"receive.title" = "Receive ETH & Tokens";
 "receive.address.title" = "Your Ethereum Address";
 "receive.copy.button" = "Copy address";
 "receive.alert.copy" = "You address was copied to clipboard";
@@ -138,6 +140,8 @@
 "settings.exit.alert.msg" = "All data will be erased. Please make sure you have made a backup, otherwise you will not be able to restore your wallet";
 "settings.change.alert.title" = "Change passcode";
 "settings.change.alert.msg" = "Please note that all previously made backups still require your old password";
+"settings.twitter.title" = "Follow us on Twitter";
+"settings.github.title" = "Source code";
 
 // MARK: ChooseCurrency
 "chooseCurrency.title" = "Reference currency";

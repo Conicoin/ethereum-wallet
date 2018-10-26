@@ -5,10 +5,8 @@
 import ObjectMapper
 
 struct TokenMeta {
-  var address: String!
-  var name: String!
-  var iso: String!
-  var decimals: Int!
+  var value: TokenValue
+  var address: String
 }
 
 // MARK: - RealmMappable
@@ -16,34 +14,38 @@ struct TokenMeta {
 extension TokenMeta: RealmMappable {
   
   static func mapFromRealmObject(_ object: RealmTokenMeta) -> TokenMeta {
-    var tokenMeta = TokenMeta()
-    tokenMeta.name = object.name
-    tokenMeta.iso = object.symbol
-    tokenMeta.address = object.address
-    tokenMeta.decimals = object.decimals
-    return tokenMeta
+    let value = TokenValue(wei: Decimal(object.amount), name: object.name, iso: object.symbol, decimals: object.decimals)
+    let address = object.address
+    return TokenMeta(value: value, address: address)
   }
   
   func mapToRealmObject() -> RealmTokenMeta {
     let realmObject = RealmTokenMeta()
-    realmObject.name = name
-    realmObject.symbol = iso
+    realmObject.amount = value.raw.string
+    realmObject.name = value.name
+    realmObject.symbol = value.symbol
+    realmObject.decimals = value.decimals
     realmObject.address = address
-    realmObject.decimals = decimals
     return realmObject
   }
   
 }
+
 
 // MARK: - ImmutableMappable
 
 extension TokenMeta: ImmutableMappable {
   
   init(map: Map) throws {
-    name = try map.value("name")
-    iso = try map.value("symbol")
-    address = try map.value("address")
-    decimals = try map.value("decimals")
+    let amount = try map.value("value") as String
+    let nameString = try map.value("tokenName") as String
+    let isoString = try map.value("tokenSymbol") as String
+    let decimals = Int(try map.value("tokenDecimal") as String) ?? 0
+    
+    let name = !nameString.isEmpty ? nameString : Constants.Wallet.noName
+    let iso = !isoString.isEmpty ? isoString : Constants.Wallet.noSymbol
+    value = TokenValue(wei: Decimal(amount), name: name, iso: iso, decimals: decimals)
+    address = try map.value("contractAddress")
   }
   
 }

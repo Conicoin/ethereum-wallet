@@ -6,7 +6,7 @@ import UIKit
 
 class MnemonicModule {
   
-  class func create() -> MnemonicModuleInput {
+  class func create(app: Application) -> MnemonicModuleInput {
     let router = MnemonicRouter()
     let presenter = MnemonicPresenter()
     let interactor = MnemonicInteractor()
@@ -19,6 +19,7 @@ class MnemonicModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
     
     // Injection
     let keychain = Keychain()

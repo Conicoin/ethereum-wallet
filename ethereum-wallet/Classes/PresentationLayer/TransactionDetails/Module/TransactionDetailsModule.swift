@@ -6,7 +6,7 @@ import UIKit
 
 class TransactionDetailsModule {
 
-  class func create(isToken: Bool) -> TransactionDetailsModuleInput {
+  class func create(app: Application, isToken: Bool) -> TransactionDetailsModuleInput {
     let router = TransactionDetailsRouter()
     let presenter = TransactionDetailsPresenter()
     let interactor = TransactionDetailsInteractor()
@@ -19,6 +19,7 @@ class TransactionDetailsModule {
     presenter.view = viewController
     presenter.router = router
     presenter.interactor = interactor
+    router.app = app
 
     return presenter
   }

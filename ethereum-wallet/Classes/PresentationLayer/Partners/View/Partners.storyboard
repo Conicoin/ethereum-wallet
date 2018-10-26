@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Partners-->
+        <scene sceneID="hMb-qH-R1y">
+            <objects>
+                <viewController storyboardIdentifier="PartnersViewController" id="IpQ-kh-DVu" customClass="PartnersViewController" customModule="ethereum_wallet" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G9C-vw-dll">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mPk-Ti-o9G">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PartnerCell" rowHeight="71" id="wdv-XX-yuM" customClass="PartnerCell" customModule="ethereum_wallet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wdv-XX-yuM" id="2K4-JY-Bvr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <progressView opaque="NO" alpha="0.5" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="29s-ZQ-VaK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70.5"/>
+                                                </progressView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luz-mb-4Pp">
+                                                    <rect key="frame" x="301" y="11" width="50" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$Funded" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzn-Qj-51T">
+                                                    <rect key="frame" x="301" y="38" width="69" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iRW-Hp-SWV">
+                                                    <rect key="frame" x="15" y="16" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZH-30-sfE">
+                                                    <rect key="frame" x="68" y="11" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$Symbol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ga-xv-vZW">
+                                                    <rect key="frame" x="68" y="39" width="68" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="29s-ZQ-VaK" secondAttribute="bottom" id="C2U-fW-v3c"/>
+                                                <constraint firstAttribute="trailing" secondItem="29s-ZQ-VaK" secondAttribute="trailing" id="gVf-hR-Otz"/>
+                                                <constraint firstItem="29s-ZQ-VaK" firstAttribute="leading" secondItem="2K4-JY-Bvr" secondAttribute="leading" id="kHr-O4-o7L"/>
+                                                <constraint firstItem="29s-ZQ-VaK" firstAttribute="top" secondItem="2K4-JY-Bvr" secondAttribute="top" id="s4J-t2-2Vp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fundProgress" destination="29s-ZQ-VaK" id="eYS-MD-yQ4"/>
+                                            <outlet property="fundedLabel" destination="wzn-Qj-51T" id="LjY-mJ-IB0"/>
+                                            <outlet property="iconImageView" destination="iRW-Hp-SWV" id="zae-Cu-u9r"/>
+                                            <outlet property="priceLabel" destination="luz-mb-4Pp" id="D30-iF-rux"/>
+                                            <outlet property="symbolLabel" destination="2ga-xv-vZW" id="uKF-6S-xBB"/>
+                                            <outlet property="titleLabel" destination="tZH-30-sfE" id="rdK-qQ-bcB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IpQ-kh-DVu" id="KrG-94-lUo"/>
+                                    <outlet property="delegate" destination="IpQ-kh-DVu" id="tQw-dU-bA2"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mPk-Ti-o9G" firstAttribute="top" secondItem="gLH-Yd-1sz" secondAttribute="top" id="DzP-Pb-KtO"/>
+                            <constraint firstItem="gLH-Yd-1sz" firstAttribute="trailing" secondItem="mPk-Ti-o9G" secondAttribute="trailing" id="Kdj-xl-cmw"/>
+                            <constraint firstItem="mPk-Ti-o9G" firstAttribute="leading" secondItem="gLH-Yd-1sz" secondAttribute="leading" id="Rny-Nl-UmR"/>
+                            <constraint firstItem="gLH-Yd-1sz" firstAttribute="bottom" secondItem="mPk-Ti-o9G" secondAttribute="bottom" id="cdC-xt-xed"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gLH-Yd-1sz"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Partners" id="P4T-2s-NAb"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="mPk-Ti-o9G" id="atn-Au-dF7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v27-vM-fZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-44" y="-117.39130434782609"/>
+        </scene>
+    </scenes>
+</document>

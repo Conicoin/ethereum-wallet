@@ -4,6 +4,7 @@
 import RealmSwift
 
 class RealmTokenMeta: Object {
+  @objc dynamic var amount = ""
   @objc dynamic var address = ""
   @objc dynamic var name = ""
   @objc dynamic var symbol = ""

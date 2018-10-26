@@ -6,7 +6,7 @@ import CoreGraphics
 
 class ReceiveInteractor {
   weak var output: ReceiveInteractorOutput!
-  var walletDataStoreService: WalletDataStoreServiceProtocol!
+  var walletRepsitory: WalletRepository!
   var qrService: QRServiceProtocol!
 }
 
@@ -16,9 +16,8 @@ class ReceiveInteractor {
 extension ReceiveInteractor: ReceiveInteractorInput {
   
   func getWallet() {
-    walletDataStoreService.getWallet(queue: .main) { wallet in
-      self.output.didReceiveWallet(wallet)
-    }
+    let wallet = walletRepsitory.wallet
+    output.didReceiveWallet(wallet)
   }
   
   func getQrImage(from string: String, size: CGSize) {
