@@ -28,16 +28,17 @@ extension API.Push: APIMethodProtocol {
   }
   
   var params: Params? {
+    let deviceId = UIDevice.current.identifierForVendor!.uuidString
     switch self {
     case .register(let token, let address):
       return [
         "wallets": [address],
-        "deviceID": UUID().uuidString.lowercased(),
+        "deviceID": deviceId.lowercased(),
         "token": token
       ]
     case .unregister:
       return [
-        "deviceID": UUID().uuidString.lowercased()
+        "deviceID": deviceId.lowercased()
       ]
     }
   }

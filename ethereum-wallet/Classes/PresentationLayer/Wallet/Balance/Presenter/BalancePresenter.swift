@@ -23,7 +23,8 @@ extension BalancePresenter: BalanceViewOutput {
   
   func viewIsReady() {
     view.setupInitialState()
-    interactor.startUpdater()
+    interactor.startBalanceUpdater()
+    interactor.startRatesUpdater()
     interactor.getBalance()
     interactor.getTokens()
     interactor.getWallet()

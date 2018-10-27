@@ -7,7 +7,7 @@ import Foundation
 class SendInteractor {
   weak var output: SendInteractorOutput!
   
-  var walletDataStoreService: WalletDataStoreServiceProtocol!
+  var walletRepository: WalletRepository!
   var transactionsDataStoreService: TransactionsDataStoreServiceProtocol!
   var transactionService: TransactionServiceProtocol!
   var gasService: GasServiceProtocol!
@@ -20,31 +20,31 @@ class SendInteractor {
 extension SendInteractor: SendInteractorInput {
   
   func getWallet() {
-    walletDataStoreService.getWallet(queue: .main) { wallet in
-      self.output.didReceiveWallet(wallet)
-    }
+    let wallet = walletRepository.wallet
+    output.didReceiveWallet(wallet)
   }
   
   func sendTransaction(amount: Decimal, to: String, settings: SendSettings, pin: String, pinResult: PinResult?) {
-
+    
     let info = TransactionInfo(amount: amount, address: to, settings: settings)
-    transactionService.sendTransaction(with: info, passphrase: pin) { [unowned self] result in
+    transactionService.sendTransaction(with: info, passphrase: pin, queue: .global()) { [unowned self] result in
       switch result {
       case .success(let sendedTransaction):
         
-        self.walletDataStoreService.getWallet(queue: .global()) { wallet in
-          var transaction = self.pendingTxBuilder.build(sendedTransaction, from: wallet.address, time: Date())
-          transaction.isPending = true
-          transaction.isIncoming = false
-          self.transactionsDataStoreService.save(transaction)
-          DispatchQueue.main.async {
-            pinResult?(.success(true))
-          }
+        let wallet = self.walletRepository.wallet
+        var transaction = self.pendingTxBuilder.build(sendedTransaction, from: wallet.address, time: Date())
+        transaction.isPending = true
+        transaction.isIncoming = false
+        self.transactionsDataStoreService.save(transaction)
+        DispatchQueue.main.async {
+          pinResult?(.success(true))
         }
         
       case .failure(let error):
-        pinResult?(.failure(error))
-        self.output.didFailedSending(with: error)
+        DispatchQueue.main.async {
+          pinResult?(.failure(error))
+          self.output.didFailedSending(with: error)
+        }
       }
     }
   }

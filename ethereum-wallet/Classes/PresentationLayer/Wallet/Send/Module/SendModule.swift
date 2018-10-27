@@ -28,7 +28,7 @@ class SendModule {
     let keystore = KeystoreService()
     
     interactor.gasService = GasServiceFactory(core: core).create(type)
-    interactor.walletDataStoreService = WalletDataStoreService()
+    interactor.walletRepository = app.walletRepository
     interactor.transactionsDataStoreService = TransactionsDataStoreService()
     interactor.transactionService = TransactionService(core: core, keystore: keystore, transferType: type)
     interactor.pendingTxBuilder = PendingTxBuilder(tokenMeta: type.tokenMeta)

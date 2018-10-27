@@ -55,11 +55,6 @@ extension TabBarInteractor: SyncCoordinatorDelegate {
   }
   
   func syncDidUpdateGasLimit(_ gasLimit: Int64) {
-    walletDataStoreService.getWallet(queue: .global()) { wallet in
-      var updated = wallet
-      updated.gasLimit = Decimal(gasLimit)
-      self.walletDataStoreService.save(updated)
-    }
   }
   
   func syncDidReceiveTransactions(_ gethTransactions: [GethTransaction], timestamp: Int64) {

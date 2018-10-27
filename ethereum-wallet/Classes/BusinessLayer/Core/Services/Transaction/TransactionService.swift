@@ -24,18 +24,18 @@ class TransactionService: TransactionServiceProtocol {
     self.factory = factory
   }
 
-  func sendTransaction(with info: TransactionInfo, passphrase: String, result: @escaping (Result<GethTransaction>) -> Void) {
+  func sendTransaction(with info: TransactionInfo, passphrase: String, queue: DispatchQueue, result: @escaping (Result<GethTransaction>) -> Void) {
     Ethereum.syncQueue.async {
       do {
         let account = try self.keystore.getAccount(at: 0)
         let transaction = try self.factory.buildTransaction(with: info, type: self.transferType)
         let signedTransaction = try self.keystore.signTransaction(transaction, account: account, passphrase: passphrase, chainId: self.chain.chainId)
         try self.sendTransaction(signedTransaction)
-        DispatchQueue.main.async {
+        queue.async {
           result(.success(signedTransaction))
         }
       } catch {
-        DispatchQueue.main.async {
+        queue.async {
           result(.failure(error))
         }
       }

@@ -9,16 +9,8 @@ class WalletDataStoreService: RealmStorable<Wallet>, WalletDataStoreServiceProto
   typealias PlainType = Wallet
   
   func createWallet(address: String) {
-    let wallet = Wallet(address: address.lowercased(), localCurrency: Constants.Wallet.defaultCurrency, gasLimit: 21000)
+    let wallet = Wallet(address: address.lowercased(), localCurrency: Constants.Wallet.defaultCurrency)
     save(wallet)
-  }
-  
-  func getWallet(queue: DispatchQueue, completion: @escaping (Wallet) -> Void) {
-    DispatchQueue.global().async { [unowned self] in
-      queue.async {
-        completion(self.find().first!)
-      }
-    }
   }
   
   func getWallet() -> Wallet {

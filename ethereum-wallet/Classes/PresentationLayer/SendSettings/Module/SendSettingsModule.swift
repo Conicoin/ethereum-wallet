@@ -22,7 +22,7 @@ class SendSettingsModule {
     router.app = app
 
     // MARK: Injection
-    interactor.walletDataStoreService = WalletDataStoreService()
+    interactor.walletRepository = app.walletRepository
 
     return presenter
   }

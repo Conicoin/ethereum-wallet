@@ -6,6 +6,7 @@ import Foundation
 
 class Application {
   
+  
   // MARK: - App delegate services
   
   lazy var locker: LockerProtocol = {
@@ -24,7 +25,7 @@ class Application {
   
   lazy var pushConfigurator: PushConfiguratorProtocol = {
     return PushConfigurator(pushNetworkService: PushNetworkService(),
-                            walletDataStoreService: WalletDataStoreService())
+                            walletRepository: walletRepository)
   }()
   
   
@@ -45,17 +46,46 @@ class Application {
                                    walletDataStoreService: WalletDataStoreService())
   }()
   
+  
+  // MARK: - Indexers
+  
+  lazy var balanceIndexer: BalanceIndexer = {
+    let rateSource = RateService(rateRepository: rateRepository)
+    return BalanceIndexerService(channel: channelRepository.balanceChannel,
+                                 rateSource: rateSource,
+                                 transactionRepository: transactionRepository,
+                                 rateRepository: rateRepository)
+  }()
+  
+  lazy var tokenIndexer: TokenIndexer = {
+    let rateSource = RateService(rateRepository: rateRepository)
+    return TokenIndexerService(channel: channelRepository.tokenChannel,
+                               rateSource: rateSource,
+                               transactionRepository: transactionRepository,
+                               rateRepository: rateRepository)
+  }()
+  
+  
   // MARK: - Global updaters
   
   lazy var balanceUpdater: BalanceUpdater = {
-    return BalanceUpdaterFactory(app: self).create()
+    return BalanceUpdaterService(walletRepository: walletRepository,
+                                 transactionDataStoreService: TransactionsDataStoreService(),
+                                 transactionNetworkService: TransactionsNetworkService())
   }()
+  
+  lazy var ratesUpdater: RatesUpdater = {
+    return RatesUpdaterService(tokenIndexer: tokenIndexer,
+                               rateDataStoreService: RatesDataStoreService(),
+                               rateNetworkService: RatesNetworkService())
+  }()
+  
   
   // MARK: - Channels
   
   lazy var channelRepository: ChannelRepository = {
     return ChannelRepository()
   }()
-
+  
 }
 

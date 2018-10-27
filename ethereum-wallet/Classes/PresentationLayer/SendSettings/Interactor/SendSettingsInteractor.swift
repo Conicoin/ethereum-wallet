@@ -7,7 +7,7 @@ import Foundation
 class SendSettingsInteractor {
   weak var output: SendSettingsInteractorOutput!
   
-  var walletDataStoreService: WalletDataStoreServiceProtocol!
+  var walletRepository: WalletRepository!
 }
 
 
@@ -16,9 +16,8 @@ class SendSettingsInteractor {
 extension SendSettingsInteractor: SendSettingsInteractorInput {
   
   func getWallet() {
-    walletDataStoreService.getWallet(queue: .main) { [unowned self] wallet in
-      self.output.didReceiveWallet(wallet)
-    }
+    let wallet = walletRepository.wallet
+    output.didReceiveWallet(wallet)
   }
 
 }

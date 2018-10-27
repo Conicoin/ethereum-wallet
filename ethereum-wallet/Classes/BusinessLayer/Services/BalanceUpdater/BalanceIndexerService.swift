@@ -10,26 +10,48 @@ import Foundation
 
 
 protocol BalanceIndexer {
+  var viewModel: BalanceViewModel! { get }
   func start(id: Identifier, callback: @escaping (BalanceViewModel) -> Void)
   func removeObserver(id: Identifier)
 }
 
 class BalanceIndexerService: BalanceIndexer {
   
+  let id = Identifier()
+  var viewModel: BalanceViewModel!
+  
+  let channel: Channel<BalanceViewModel>
   let rateSource: RateSource
   let transactionRepository: TransactionRepository
-  init(rateSource: RateSource,
-       transactionRepository: TransactionRepository) {
+  let rateRepository: RateRepositoryService
+  
+  init(channel: Channel<BalanceViewModel>,
+       rateSource: RateSource,
+       transactionRepository: TransactionRepository,
+       rateRepository: RateRepositoryService) {
+    self.channel = channel
     self.rateSource = rateSource
     self.transactionRepository = transactionRepository
+    self.rateRepository = rateRepository
+    
+    transactionRepository.addObserver(id: id) { _ in
+      let viewModel = self.calculate()
+      self.viewModel = viewModel
+      channel.send(viewModel)
+    }
+    
+    rateRepository.addObserver(id: id) { _ in
+      // Just ask to update ui
+      channel.send(self.viewModel)
+    }
   }
   
+  // MARK: BalanceIndexer
+  
   func start(id: Identifier, callback: @escaping (BalanceViewModel) -> Void) {
-    callback(calculate(transactionRepository.transactions))
-    transactionRepository.addObserver(id: id) { transactions in
-      // TODO: Check is transactions changed
-      callback(self.calculate(transactions))
-    }
+    callback(viewModel)
+    let observer = Observer<BalanceViewModel>(id: id, callback: callback)
+    channel.addObserver(observer)
   }
   
   func removeObserver(id: Identifier) {
@@ -38,8 +60,9 @@ class BalanceIndexerService: BalanceIndexer {
   
   // MARK: Privates
   
-  private func calculate(_ transactions: [Transaction]) -> BalanceViewModel {
+  private func calculate() -> BalanceViewModel {
     var amount: Decimal = 0
+    let transactions = transactionRepository.transactions
     for tx in transactions {
       
       if !tx.isIncoming {

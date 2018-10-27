@@ -23,14 +23,12 @@ class BalanceModule {
     router.app = app
     
     // MARK: - Injection
-    
-    interactor.ratesNetworkService = RatesNetworkService()
-    interactor.ratesDataStoreService = RatesDataStoreService()
-    
+
     interactor.walletRepository = app.walletRepository
     interactor.balanceUpdater = app.balanceUpdater
-    interactor.balanceIndexer = BalanceIndexerFactory(app: app).create()
-    interactor.tokenIndexer = TokenIndexerFactory(app: app).create()
+    interactor.ratesUpdater = app.ratesUpdater
+    interactor.balanceIndexer = app.balanceIndexer
+    interactor.tokenIndexer = app.tokenIndexer
         
     return presenter
   }

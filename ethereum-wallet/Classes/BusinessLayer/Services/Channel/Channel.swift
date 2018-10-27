@@ -9,11 +9,9 @@
 import Foundation
 
 class Channel<SignalData> {
-  private let queue: DispatchQueue
   private var observers: Set<Observer<SignalData>>
   
-  init(queue: DispatchQueue) {
-    self.queue = queue
+  init() {
     self.observers = Set<Observer<SignalData>>()
   }
   
@@ -37,10 +35,8 @@ class Channel<SignalData> {
   }
   
   func send(_ value: SignalData) {
-    queue.async {
-      for observer in self.observers {
-        observer.send(value)
-      }
+    for observer in self.observers {
+      observer.send(value)
     }
   }
 }

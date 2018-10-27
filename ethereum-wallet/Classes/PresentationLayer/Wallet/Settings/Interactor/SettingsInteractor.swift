@@ -18,12 +18,6 @@ class SettingsInteractor {
   var accountService: AccountServiceProtocol!
   var biometryService: BiometryServiceProtocol!
   var walletRepository: WalletRepository!
-  
-  let walletId = Identifier()
-  
-  deinit {
-    walletRepository.removeObserver(id: walletId)
-  }
 }
 
 
@@ -50,17 +44,17 @@ extension SettingsInteractor: SettingsInteractorInput {
   }
   
   func getWallet() {
-    walletRepository.addObserver(id: walletId) { [weak self] wallet in
-      DispatchQueue.main.async {
-        self?.output.didReceiveWallet(wallet)
-      }
-    }
+    let wallet = walletRepository.wallet
+    output.didReceiveWallet(wallet)
   }
   
   func selectCurrency(_ currency: String) {
-    walletDataStoreService.getWallet(queue: .global()) { wallet in
-      var updated = wallet
-      updated.localCurrency = currency
+    let wallet = walletRepository.wallet
+    var updated = wallet
+    updated.localCurrency = currency
+    output.didReceiveWallet(updated)
+    
+    DispatchQueue.global().async {
       self.walletDataStoreService.save(updated)
     }
   }

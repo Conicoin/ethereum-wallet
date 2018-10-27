@@ -9,22 +9,58 @@
 import Foundation
 
 protocol TokenIndexer {
+  var viewModels: [TokenViewModel] { get } 
   func start(id: Identifier, callback: @escaping ([TokenViewModel]) -> Void)
   func removeObserver(id: Identifier)
 }
 
 class TokenIndexerService: TokenIndexer {
   
-  let transactionRepository: TransactionRepository
+  let id = Identifier()
+  var viewModels: [TokenViewModel] = []
+  
+  let channel: Channel<[TokenViewModel]>
   let rateSource: RateSource
-  init(rateSource: RateSource, transactionRepository: TransactionRepository) {
+  let transactionRepository: TransactionRepository
+  let rateRepository: RateRepository
+  
+  init(channel: Channel<[TokenViewModel]>,
+       rateSource: RateSource,
+       transactionRepository: TransactionRepository,
+       rateRepository: RateRepository) {
+    self.channel = channel
     self.rateSource = rateSource
     self.transactionRepository = transactionRepository
+    self.rateRepository = rateRepository
+    
+    transactionRepository.addObserver(id: id) { _ in
+      let viewModels = self.calculate()
+      self.viewModels = viewModels
+      channel.send(viewModels)
+    }
+    
+    rateRepository.addObserver(id: id) { _ in
+      // Just ask to update ui
+      channel.send(self.viewModels)
+    }
+  }
+  
+  // MARK: TokenIndexer
+  
+  func start(id: Identifier, callback: @escaping ([TokenViewModel]) -> Void) {
+    callback(viewModels)
+    let observer = Observer<[TokenViewModel]>(id: id, callback: callback)
+    channel.addObserver(observer)
+  }
+  
+  
+  func removeObserver(id: Identifier) {
+    transactionRepository.removeObserver(id: id)
   }
   
   // MARK: Privates
   
-  private func calculate(_ transactions: [Transaction]) -> [TokenViewModel] {
+  private func calculate() -> [TokenViewModel] {
     var balances = [String: TokenValue]()
     let transactions = transactionRepository.transactions
     for tx in transactions {
@@ -50,17 +86,6 @@ class TokenIndexerService: TokenIndexer {
       return viewModel
     }
     return viewModels
-  }
-  
-  func start(id: Identifier, callback: @escaping ([TokenViewModel]) -> Void) {
-    transactionRepository.addObserver(id: id) { transactions in
-      callback(self.calculate(transactions))
-    }
-  }
-  
-  
-  func removeObserver(id: Identifier) {
-    transactionRepository.removeObserver(id: id)
   }
   
 }

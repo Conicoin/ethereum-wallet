@@ -32,8 +32,7 @@ class SettingsModule {
     interactor.pushService = PushService()
     interactor.accountService = AccountService(keychain: keychain)
     interactor.biometryService = BiometryService()
-    interactor.pushConfigurator = PushConfigurator(pushNetworkService: PushNetworkService(),
-                                                   walletDataStoreService: WalletDataStoreService())
+    interactor.pushConfigurator = app.pushConfigurator
     
     return presenter
   }

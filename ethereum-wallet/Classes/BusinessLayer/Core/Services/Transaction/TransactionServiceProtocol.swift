@@ -10,5 +10,5 @@ protocol TransactionServiceProtocol {
   /// - Parameters:
   ///   - info: TransactionInfo object containing: amount, address, gas limit
   ///   - passphrase: Password to unlock wallet
-  func sendTransaction(with info: TransactionInfo, passphrase: String, result: @escaping (Result<GethTransaction>) -> Void)
+  func sendTransaction(with info: TransactionInfo, passphrase: String, queue: DispatchQueue, result: @escaping (Result<GethTransaction>) -> Void)
 }

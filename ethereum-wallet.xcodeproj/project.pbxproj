@@ -89,6 +89,7 @@
 		142B348E2182A4F6009D06D2 /* String+Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5CAB01FB925C300CE5419 /* String+Ethereum.swift */; };
 		142B348F2182A55E009D06D2 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB71FB0C492003AEB0C /* String+Helpers.swift */; };
 		142B5A1A1EDF0EEB007F73BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142B5A191EDF0EEB007F73BA /* Security.framework */; };
+		1430690B21834FE100C0141B /* RatesUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430690A21834FE100C0141B /* RatesUpdater.swift */; };
 		14313CB21FB0B4B5003AEB0C /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */; };
 		14313CB81FB0C492003AEB0C /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14313CB71FB0C492003AEB0C /* String+Helpers.swift */; };
 		143172BB20627DA700238D70 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 143172BA20627DA700238D70 /* currencies.json */; };
@@ -227,8 +228,6 @@
 		14A799812098E7FF00CA9101 /* PendingTxBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A799802098E7FF00CA9101 /* PendingTxBuilder.swift */; };
 		14AC7447217E4A800018D7BA /* BalanceUpdaterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC7446217E4A800018D7BA /* BalanceUpdaterService.swift */; };
 		14AC744A217E4DC90018D7BA /* BalanceIndexerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC7449217E4DC90018D7BA /* BalanceIndexerService.swift */; };
-		14AC744C217E57760018D7BA /* BalanceUpdaterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC744B217E57760018D7BA /* BalanceUpdaterFactory.swift */; };
-		14AC744E217E581C0018D7BA /* BalanceIndexerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC744D217E581C0018D7BA /* BalanceIndexerFactory.swift */; };
 		14AC7450217E62BD0018D7BA /* UIRefreshControl+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC744F217E62BD0018D7BA /* UIRefreshControl+Helpers.swift */; };
 		14ACA1D71EF2BC840059E430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1D61EF2BC840059E430 /* AppDelegate.swift */; };
 		14ACA1E01EF2BCB70059E430 /* EthereumCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ACA1DE1EF2BCB70059E430 /* EthereumCore.swift */; };
@@ -253,7 +252,6 @@
 		14B1DE11216A8AC7001F9DA3 /* PartnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1DE10216A8AC7001F9DA3 /* PartnerCell.swift */; };
 		14B219421FC2458C003092F0 /* Bundle+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B219411FC2458C003092F0 /* Bundle+Helpers.swift */; };
 		14B219451FC2DFC8003092F0 /* ChooseCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B219441FC2DFC8003092F0 /* ChooseCurrencyCell.swift */; };
-		14B341EA217A55EE00C8FA8F /* TokenIndexerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B341E9217A55EE00C8FA8F /* TokenIndexerFactory.swift */; };
 		14B3B6851EF491F0002A0623 /* UIButton+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3B6841EF491F0002A0623 /* UIButton+Helpers.swift */; };
 		14B762902176F9B000412E37 /* ABIDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7628F2176F9B000412E37 /* ABIDecoder.swift */; };
 		14B762942176F9FB00412E37 /* ABIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B762932176F9FB00412E37 /* ABIType.swift */; };
@@ -586,6 +584,7 @@
 		14285E831FB2831200DD3CB5 /* API+Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Rate.swift"; sourceTree = "<group>"; };
 		14293C291F9FCEB4009E49F1 /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		142B5A191EDF0EEB007F73BA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1430690A21834FE100C0141B /* RatesUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatesUpdater.swift; sourceTree = "<group>"; };
 		14313CB11FB0B4B5003AEB0C /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
 		14313CB71FB0C492003AEB0C /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		143172BA20627DA700238D70 /* currencies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
@@ -800,8 +799,6 @@
 		14A799802098E7FF00CA9101 /* PendingTxBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingTxBuilder.swift; sourceTree = "<group>"; };
 		14AC7446217E4A800018D7BA /* BalanceUpdaterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceUpdaterService.swift; sourceTree = "<group>"; };
 		14AC7449217E4DC90018D7BA /* BalanceIndexerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceIndexerService.swift; sourceTree = "<group>"; };
-		14AC744B217E57760018D7BA /* BalanceUpdaterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceUpdaterFactory.swift; sourceTree = "<group>"; };
-		14AC744D217E581C0018D7BA /* BalanceIndexerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceIndexerFactory.swift; sourceTree = "<group>"; };
 		14AC744F217E62BD0018D7BA /* UIRefreshControl+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Helpers.swift"; sourceTree = "<group>"; };
 		14ACA1D61EF2BC840059E430 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 2; };
 		14ACA1DE1EF2BCB70059E430 /* EthereumCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumCore.swift; sourceTree = "<group>"; };
@@ -827,7 +824,6 @@
 		14B1DE10216A8AC7001F9DA3 /* PartnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerCell.swift; sourceTree = "<group>"; };
 		14B219411FC2458C003092F0 /* Bundle+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Helpers.swift"; sourceTree = "<group>"; };
 		14B219441FC2DFC8003092F0 /* ChooseCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyCell.swift; sourceTree = "<group>"; };
-		14B341E9217A55EE00C8FA8F /* TokenIndexerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenIndexerFactory.swift; sourceTree = "<group>"; };
 		14B3B6841EF491F0002A0623 /* UIButton+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Helpers.swift"; sourceTree = "<group>"; };
 		14B7628F2176F9B000412E37 /* ABIDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABIDecoder.swift; sourceTree = "<group>"; };
 		14B762932176F9FB00412E37 /* ABIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABIType.swift; sourceTree = "<group>"; };
@@ -1382,6 +1378,14 @@
 				1414E7152059584F0080680E /* NSError+LAError.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1430690C21834FE700C0141B /* RatesUpdater */ = {
+			isa = PBXGroup;
+			children = (
+				1430690A21834FE100C0141B /* RatesUpdater.swift */,
+			);
+			path = RatesUpdater;
 			sourceTree = "<group>";
 		};
 		143172BC2062828800238D70 /* Fiat */ = {
@@ -2106,11 +2110,8 @@
 		14AC7448217E4A930018D7BA /* BalanceUpdater */ = {
 			isa = PBXGroup;
 			children = (
-				14B341E9217A55EE00C8FA8F /* TokenIndexerFactory.swift */,
 				143941602179011D006920CD /* TokenIndexerService.swift */,
-				14AC744B217E57760018D7BA /* BalanceUpdaterFactory.swift */,
 				14AC7446217E4A800018D7BA /* BalanceUpdaterService.swift */,
-				14AC744D217E581C0018D7BA /* BalanceIndexerFactory.swift */,
 				14AC7449217E4DC90018D7BA /* BalanceIndexerService.swift */,
 			);
 			path = BalanceUpdater;
@@ -2284,6 +2285,7 @@
 				146DB07C1FA00695000D3564 /* Base */,
 				146DB07D1FA007A5000D3564 /* Networking */,
 				14B77EC11F9ACD6300FCD923 /* DataStore */,
+				1430690C21834FE700C0141B /* RatesUpdater */,
 				14AC7448217E4A930018D7BA /* BalanceUpdater */,
 			);
 			path = Services;
@@ -3678,6 +3680,7 @@
 				1433852B2113826700FD7BE0 /* Resolver.swift in Sources */,
 				1433BDB71FD6C9780081D872 /* LesSyncCoordinator.swift in Sources */,
 				1409BF492114A8C400DBCADC /* MnemonicModuleOutput.swift in Sources */,
+				1430690B21834FE100C0141B /* RatesUpdater.swift in Sources */,
 				1433BDB81FD6C9780081D872 /* SyncCoordinatorProtocol.swift in Sources */,
 				1439415D2178F350006920CD /* RateRepository.swift in Sources */,
 				1433BDB91FD6C9780081D872 /* SyncCoordinatorDelegate.swift in Sources */,
@@ -3780,7 +3783,6 @@
 				1414E704205894D90080680E /* PopupTouchState.swift in Sources */,
 				11518E1F20C09A7300510FE3 /* API+Push.swift in Sources */,
 				14F7DE3E20C1C3B80085F186 /* PushServiceProtocol.swift in Sources */,
-				14AC744E217E581C0018D7BA /* BalanceIndexerFactory.swift in Sources */,
 				1433BDC41FD750550081D872 /* StandardSyncCoordinator.swift in Sources */,
 				14B126AE205BDAFD00B98AE1 /* ImportStateProtocol.swift in Sources */,
 				14F4A5B320B1E9DF0087BB00 /* ScreenLocker.swift in Sources */,
@@ -3889,7 +3891,6 @@
 				14B970CA216DBA3000D89E11 /* JSONRPCError.swift in Sources */,
 				42534B9D2D18A9ADA1BA048F /* SendInteractorInput.swift in Sources */,
 				51506D804AA6C5804C3940CD /* SendInteractorOutput.swift in Sources */,
-				14B341EA217A55EE00C8FA8F /* TokenIndexerFactory.swift in Sources */,
 				BC6115126651451990D4D46D /* SendInteractor.swift in Sources */,
 				8E4DD7577CC4D2F374295B4D /* SendRouterInput.swift in Sources */,
 				14B762962176FA4400412E37 /* Function.swift in Sources */,
@@ -4090,7 +4091,6 @@
 				143384C221133FEF00FD7BE0 /* PublicKey.swift in Sources */,
 				E2C3FC3C51E105EF003D2E5B /* TransactionDetailsModule.swift in Sources */,
 				3CCB9900F0FF32A6303B9AA7 /* SendSettingsViewInput.swift in Sources */,
-				14AC744C217E57760018D7BA /* BalanceUpdaterFactory.swift in Sources */,
 				800C073EEDDE426887F6F98B /* SendSettingsViewOutput.swift in Sources */,
 				C9E6C4299B8D6BF4F811B171 /* SendSettingsViewController.swift in Sources */,
 				5BA2F144F6EF08E0FDAD5681 /* SendSettingsPresenter.swift in Sources */,

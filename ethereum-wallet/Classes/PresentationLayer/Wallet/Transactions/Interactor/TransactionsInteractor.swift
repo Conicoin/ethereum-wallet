@@ -26,9 +26,7 @@ extension TransactionsInteractor: TransactionsInteractorInput {
   func getTransactions() {
     transactionRepository.addObserver(id: transactionId) { [weak self] transactions in
       let displayers = transactions.map { TransactionDisplayer(tx: $0) }
-      DispatchQueue.main.async {
-        self?.output.didReceiveTransactions(displayers)
-      }
+      self?.output.didReceiveTransactions(displayers)
     }
   }
   

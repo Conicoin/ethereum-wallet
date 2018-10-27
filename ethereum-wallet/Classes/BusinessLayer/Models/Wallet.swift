@@ -8,8 +8,6 @@ struct Wallet {
   
   var address: String!
   var localCurrency: String!
-  var gasLimit: Decimal!
-  
 }
 
 // MARK: - RealmMappable
@@ -20,7 +18,6 @@ extension Wallet: RealmMappable {
     var wallet = Wallet()
     wallet.address = object.address
     wallet.localCurrency = object.localCurrency
-    wallet.gasLimit = Decimal(object.gasLimit)
     return wallet
   }
   
@@ -28,7 +25,6 @@ extension Wallet: RealmMappable {
     let realmObject = RealmWallet()
     realmObject.address = address
     realmObject.localCurrency = localCurrency
-    realmObject.gasLimit = gasLimit.string
     return realmObject
   }
   

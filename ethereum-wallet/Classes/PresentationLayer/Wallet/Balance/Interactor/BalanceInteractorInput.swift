@@ -6,7 +6,8 @@ import Foundation
 
 
 protocol BalanceInteractorInput: class {
-  func startUpdater()
+  func startBalanceUpdater()
+  func startRatesUpdater()
   func getBalance()
   func getTokens()
   func getWallet()

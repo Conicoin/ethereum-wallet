@@ -6,32 +6,31 @@ import Foundation
 class PushConfigurator: PushConfiguratorProtocol {
   
   let pushNetworkService: PushNetworkServiceProtocol
-  let walletDataStoreService: WalletDataStoreServiceProtocol
+  let walletRepository: WalletRepository
   
   let maxAttemptsCount = 3
   var attemptsCount = 0
   
-  init(pushNetworkService: PushNetworkServiceProtocol, walletDataStoreService: WalletDataStoreServiceProtocol) {
+  init(pushNetworkService: PushNetworkServiceProtocol, walletRepository: WalletRepository) {
     self.pushNetworkService = pushNetworkService
-    self.walletDataStoreService = walletDataStoreService
+    self.walletRepository = walletRepository
   }
   
   func configureRemoteNotifications(token: Data) {
-    walletDataStoreService.getWallet(queue: .global()) { [unowned self] wallet in
-      let tokenString = token.hex()
-      self.registerDeviceToken(address: wallet.address, token: tokenString)
-    }
+    let wallet = walletRepository.wallet
+    let tokenString = token.hex()
+    registerDeviceToken(address: wallet.address, token: tokenString)
   }
   
   func unregister() {
-    walletDataStoreService.getWallet(queue: .global()) { [unowned self ]wallet in
-      self.pushNetworkService.unregister(queue: .main) { result in
-        switch result {
-        case .success:
-          print("Push notification configuration unregistered")
-        case .failure(let error):
-          print("Push notification configuration unregister error: \(error.localizedDescription)")
-        }
+    let wallet = walletRepository.wallet
+    
+    pushNetworkService.unregister(queue: .main) { result in
+      switch result {
+      case .success:
+        print("Push notification configuration unregistered")
+      case .failure(let error):
+        print("Push notification configuration unregister error: \(error.localizedDescription)")
       }
     }
   }
