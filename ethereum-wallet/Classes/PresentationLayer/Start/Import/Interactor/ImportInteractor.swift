@@ -9,6 +9,7 @@ class ImportInteractor {
   weak var output: ImportInteractorOutput!
   
   var keychain: Keychain!
+  var keystore: KeystoreServiceProtocol!
   var verificator: ImportVerificatorProtocol!
   var walletManager: WalletManagerProtocol!
 }
@@ -32,6 +33,8 @@ extension ImportInteractor: ImportInteractorInput {
   func importKey(_ key: WalletKey, passcode: String, completion: PinResult?) {
     DispatchQueue.global().async { [unowned self] in
       do {
+        
+        try self.keystore.deleteAllAccounts(passphrase: passcode)
        
         switch key {
         case .jsonKey(let jsonKey):

@@ -9,6 +9,7 @@ class WelcomeInteractor {
   weak var output: WelcomeInteractorOutput!
   
   var walletManager: WalletManagerProtocol!
+  var keystore: KeystoreServiceProtocol!
 }
 
 
@@ -18,6 +19,7 @@ extension WelcomeInteractor: WelcomeInteractorInput {
   
   func createWallet(passcode: String, completion: PinResult?) {
     do {
+      try keystore.deleteAllAccounts(passphrase: passcode)
       try walletManager.createWallet(passphrase: passcode)
       completion?(.success(true))
     } catch {
@@ -27,6 +29,7 @@ extension WelcomeInteractor: WelcomeInteractorInput {
   
   func importPrivateKey(_ key: String, passcode: String, completion: PinResult?) {
     do {
+      try keystore.deleteAllAccounts(passphrase: passcode)
       let data = try Data(hexString: key)
       try walletManager.importWallet(privateKey: data, passphrase: passcode)
       completion?(.success(true))
@@ -37,6 +40,7 @@ extension WelcomeInteractor: WelcomeInteractorInput {
   
   func importMnemonic(_ mnemonic: String, passcode: String, completion: PinResult?) {
     do {
+      try keystore.deleteAllAccounts(passphrase: passcode)
       let mnemoicWords = mnemonic.components(separatedBy: " ")
       try walletManager.importWallet(mnemonic: mnemoicWords, passphrase: passcode)
       completion?(.success(true))

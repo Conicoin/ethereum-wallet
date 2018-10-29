@@ -109,17 +109,6 @@ enum Chain: String {
     }
   }
   
-  var backend: String {
-    switch self {
-    case .mainnet:
-      return "https://api.trustwalletapp.com"
-    case .ropsten:
-      fatalError("Not supported yet")
-    case .rinkeby:
-      return "http://18.216.110.94:8000"
-    }
-  }
-  
   var pushBackend: String {
     switch self {
     case .mainnet:

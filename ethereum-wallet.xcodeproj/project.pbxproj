@@ -187,7 +187,6 @@
 		147443DD20A1033A00BAC86B /* LottiCheckmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 147443DC20A1033A00BAC86B /* LottiCheckmark.json */; };
 		1474CEBC209C3E5700139C3C /* SendSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474CEBB209C3E5700139C3C /* SendSettings.swift */; };
 		14757DD32177656E0002FA20 /* Partner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14757DD22177656E0002FA20 /* Partner.swift */; };
-		1475CB1720D2D0D6001A1FE9 /* API+Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475CB1620D2D0D6001A1FE9 /* API+Tokens.swift */; };
 		1475CB1B20D2E0BD001A1FE9 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1475CB1A20D2E0BD001A1FE9 /* TransactionCell.xib */; };
 		14773B7620891A49006B35C0 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14773B7520891A49006B35C0 /* WalletManager.swift */; };
 		14786ED7201E05E1009ECC11 /* HexDataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14786ED6201E05E1009ECC11 /* HexDataTransform.swift */; };
@@ -287,7 +286,6 @@
 		14DFA321207DF4BB008F6F92 /* TxMetaChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFA320207DF4BB008F6F92 /* TxMetaChain.swift */; };
 		14DFA322207DFAD3008F6F92 /* TxMetaChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFA320207DF4BB008F6F92 /* TxMetaChain.swift */; };
 		14DFA324207DFF67008F6F92 /* RealmTokenMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFA323207DFF67008F6F92 /* RealmTokenMeta.swift */; };
-		14DFA326207E20CF008F6F92 /* API+Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFA325207E20CF008F6F92 /* API+Transactions.swift */; };
 		14DFA327207E3031008F6F92 /* Decimal+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D0D1D1FC0DDBC003C0C3E /* Decimal+Helpers.swift */; };
 		14DFA328207E305C008F6F92 /* Decimal+Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14958E4A1FB7A4D3005CFC6C /* Decimal+Ethereum.swift */; };
 		14DFA32A207F6898008F6F92 /* PopupNoPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFA329207F6898008F6F92 /* PopupNoPostProcess.swift */; };
@@ -757,7 +755,6 @@
 		147443DC20A1033A00BAC86B /* LottiCheckmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottiCheckmark.json; sourceTree = "<group>"; };
 		1474CEBB209C3E5700139C3C /* SendSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSettings.swift; sourceTree = "<group>"; };
 		14757DD22177656E0002FA20 /* Partner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Partner.swift; sourceTree = "<group>"; };
-		1475CB1620D2D0D6001A1FE9 /* API+Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Tokens.swift"; sourceTree = "<group>"; };
 		1475CB1A20D2E0BD001A1FE9 /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		14773B7520891A49006B35C0 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		14786ED6201E05E1009ECC11 /* HexDataTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexDataTransform.swift; sourceTree = "<group>"; };
@@ -856,7 +853,6 @@
 		14DFA31A207DF29D008F6F92 /* TxMetaResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxMetaResolverTests.swift; sourceTree = "<group>"; };
 		14DFA320207DF4BB008F6F92 /* TxMetaChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxMetaChain.swift; sourceTree = "<group>"; };
 		14DFA323207DFF67008F6F92 /* RealmTokenMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTokenMeta.swift; sourceTree = "<group>"; };
-		14DFA325207E20CF008F6F92 /* API+Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Transactions.swift"; sourceTree = "<group>"; };
 		14DFA329207F6898008F6F92 /* PopupNoPostProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupNoPostProcess.swift; sourceTree = "<group>"; };
 		14DFA32B207F68FB008F6F92 /* PopupTxSentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupTxSentState.swift; sourceTree = "<group>"; };
 		14E26DBD20613A9E00976CD1 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
@@ -2333,9 +2329,7 @@
 				14D027EF1EF96ACC00F125C3 /* API+Etherscan.swift */,
 				14285E831FB2831200DD3CB5 /* API+Rate.swift */,
 				145A90FF1FDF002000DED3AC /* API+Ethplorer.swift */,
-				14DFA325207E20CF008F6F92 /* API+Transactions.swift */,
 				11518E1E20C09A7300510FE3 /* API+Push.swift */,
-				1475CB1620D2D0D6001A1FE9 /* API+Tokens.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -3776,7 +3770,6 @@
 				14E26DCA20618FF300976CD1 /* UITextField+Helpers.swift in Sources */,
 				A2949D797F273018C98217B3 /* WelcomeModule.swift in Sources */,
 				146DB0811FA007E7000D3564 /* TransactionsNetworkService.swift in Sources */,
-				1475CB1720D2D0D6001A1FE9 /* API+Tokens.swift in Sources */,
 				1414E704205894D90080680E /* PopupTouchState.swift in Sources */,
 				11518E1F20C09A7300510FE3 /* API+Push.swift in Sources */,
 				14F7DE3E20C1C3B80085F186 /* PushServiceProtocol.swift in Sources */,
@@ -3786,7 +3779,6 @@
 				14E3F5161FB1013500161EA2 /* QRServiceProtocol.swift in Sources */,
 				14991D8E2056FA2D0046E6CD /* PinStateFactory.swift in Sources */,
 				14F419261F9BF88E000C500A /* Transaction.swift in Sources */,
-				14DFA326207E20CF008F6F92 /* API+Transactions.swift in Sources */,
 				14B219421FC2458C003092F0 /* Bundle+Helpers.swift in Sources */,
 				149973D81FB1D71E00B16901 /* RatesDataStoreService.swift in Sources */,
 				14AC744A217E4DC90018D7BA /* BalanceIndexerService.swift in Sources */,

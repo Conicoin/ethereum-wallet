@@ -39,6 +39,7 @@ class WelcomeModule {
     
     let walletManager = WalletManagerFactory().create()
     interactor.walletManager = walletManager
+    interactor.keystore = KeystoreService()
         
     return presenter
   }

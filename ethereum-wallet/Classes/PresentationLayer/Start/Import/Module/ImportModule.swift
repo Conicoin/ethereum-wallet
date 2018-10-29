@@ -29,6 +29,7 @@ class ImportModule {
     
     // MARK: Injection
     
+    interactor.keystore = KeystoreService()
     interactor.keychain = Keychain()
     interactor.walletManager = WalletManagerFactory().create()
 
