@@ -10,7 +10,7 @@ import Foundation
 
 protocol WalletRepository {
   var wallet: Wallet { get }
-  func addObserver(id: Identifier, callback: @escaping (Wallet) -> Void)
+  func addObserver(id: Identifier, fire: Bool, callback: @escaping (Wallet) -> Void)
   func removeObserver(id: Identifier)
 }
 
@@ -33,8 +33,10 @@ class WalletRepositoryService: WalletRepository {
     }
   }
   
-  func addObserver(id: Identifier, callback: @escaping (Wallet) -> Void) {
-    callback(wallet)
+  func addObserver(id: Identifier, fire: Bool, callback: @escaping (Wallet) -> Void) {
+    if fire {
+      callback(wallet)
+    }
     let observer = Observer<Wallet>(id: id, callback: callback)
     channel.addObserver(observer)
   }

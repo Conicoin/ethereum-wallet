@@ -37,8 +37,18 @@ final class Defaults: NSObject {
     }
   }
   
+  class var walletCreated: Bool {
+    get {
+      return getBool(forKey: .walletCreated)
+    }
+    
+    set {
+      set(value: newValue, forKey: .walletCreated)
+    }
+  }
+  
   class func deleteAll() {
-    for key in Keys.allValues {
+    for key in Keys.allCases {
       UserDefaults.standard.removeObject(forKey: key.rawValue)
     }
   }
@@ -47,9 +57,10 @@ final class Defaults: NSObject {
 
 private extension Defaults {
   
-  enum Keys: String, EnumCollection {
+  enum Keys: String, CaseIterable {
     case chain = "chainKey"
     case mode = "syncMode"
+    case walletCreated = "walletCreated"
     case isTouchIDAllowed = "isTouchIDAllowed"
   }
   

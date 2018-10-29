@@ -47,7 +47,7 @@ extension BalanceInteractor: BalanceInteractorInput {
   }
   
   func getWallet() {
-    walletRepository.addObserver(id: walletId) { [weak self] wallet in
+    walletRepository.addObserver(id: walletId, fire: true) { [weak self] wallet in
       self?.output.didReceiveWallet(wallet)
     }
   }

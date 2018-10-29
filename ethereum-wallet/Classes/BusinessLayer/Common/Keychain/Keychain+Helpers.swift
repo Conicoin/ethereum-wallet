@@ -6,7 +6,7 @@ import UIKit
 
 extension Keychain {
   
-  enum KeychainKeys: String, EnumCollection {
+  enum KeychainKeys: String, CaseIterable {
     case jsonKey = "json_key_data"
     case passphrase = "passphrase"
     case isLocked = "is_locked"
@@ -68,16 +68,10 @@ extension Keychain {
     }
   }
   
-  // MARK: - Helpers
-  
-  var isAuthorized: Bool {
-    return passphrase != nil && !accounts.isEmpty
-  }
-  
   // MARK: - Utils
   
   func deleteAll() {
-    for key in KeychainKeys.allValues {
+    for key in KeychainKeys.allCases {
       delete(for: key.rawValue)
     }
   }

@@ -11,7 +11,7 @@ import Foundation
 
 protocol TransactionRepository {
   var transactions: [Transaction] { get }
-  func addObserver(id: Identifier, callback: @escaping ([Transaction]) -> Void)
+  func addObserver(id: Identifier, fire: Bool, callback: @escaping ([Transaction]) -> Void)
   func removeObserver(id: Identifier)
 }
 
@@ -33,8 +33,10 @@ class TransactionRepositoryService: TransactionRepository {
     }
   }
   
-  func addObserver(id: Identifier, callback: @escaping ([Transaction]) -> Void) {
-    callback(transactions)
+  func addObserver(id: Identifier, fire: Bool, callback: @escaping ([Transaction]) -> Void) {
+    if fire {
+      callback(transactions)
+    }
     let observer = Observer<[Transaction]>(id: id, callback: callback)
     channel.addObserver(observer)
   }

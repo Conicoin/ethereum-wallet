@@ -18,7 +18,7 @@ protocol RatesUpdater {
 class RatesUpdaterService: RatesUpdater {
   
   let id = Identifier()
-  var currencies = Set<String>()
+  var tokensIso = Set<String>()
   var queue = DispatchQueue(label: "BalanceUpdaterQueue")
   var interval = 75
   var timer: DispatchSourceTimer?
@@ -34,12 +34,12 @@ class RatesUpdaterService: RatesUpdater {
     self.rateNetworkService = rateNetworkService
     
     tokenIndexer.start(id: id) { viewModels in
-      let isos = viewModels.map { $0.currency.iso } + ["ETH"]
+      let isos = viewModels.map { $0.currency.iso }
       let set = Set(isos)
       
-      let diff = set.symmetricDifference(self.currencies)
+      let diff = set.symmetricDifference(self.tokensIso)
       self.updateRates(for: diff)
-      self.currencies = set
+      self.tokensIso = set
     }
   }
   
@@ -63,6 +63,8 @@ class RatesUpdaterService: RatesUpdater {
   // MARK: Privates
   
   private func updateTick() {
+    var currencies = tokensIso
+    currencies.insert("ETH")
     updateRates(for: currencies)
   }
   

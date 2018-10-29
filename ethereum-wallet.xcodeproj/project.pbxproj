@@ -78,7 +78,6 @@
 		1414E7162059584F0080680E /* NSError+LAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E7152059584F0080680E /* NSError+LAError.swift */; };
 		1414E7192059A9F50080680E /* TokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414E7182059A9F50080680E /* TokenCell.swift */; };
 		1415D7AC217F69E000D61FD7 /* RPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415D7AB217F69E000D61FD7 /* RPC.swift */; };
-		141CCF2A1FF424E900CA4176 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141CCF291FF424E900CA4176 /* EnumCollection.swift */; };
 		142729D820C0788D009003CA /* PopupPushState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142729D720C0788D009003CA /* PopupPushState.swift */; };
 		142729DA20C088F8009003CA /* PopupPushPostProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142729D920C088F8009003CA /* PopupPushPostProcess.swift */; };
 		142730FA1FB8CF0F00ED9968 /* QRCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */; };
@@ -575,7 +574,6 @@
 		1414E7152059584F0080680E /* NSError+LAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+LAError.swift"; sourceTree = "<group>"; };
 		1414E7182059A9F50080680E /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
 		1415D7AB217F69E000D61FD7 /* RPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPC.swift; sourceTree = "<group>"; };
-		141CCF291FF424E900CA4176 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		142729D720C0788D009003CA /* PopupPushState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPushState.swift; sourceTree = "<group>"; };
 		142729D920C088F8009003CA /* PopupPushPostProcess.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = PopupPushPostProcess.swift; sourceTree = "<group>"; tabWidth = 2; };
 		142730F91FB8CF0E00ED9968 /* QRCaptureService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCaptureService.swift; sourceTree = "<group>"; };
@@ -1802,7 +1800,6 @@
 				14ACA1F21EF2BD050059E430 /* Constants.swift */,
 				14BE0A741FAF9D610044E3A1 /* Theme.swift */,
 				14ACA1F31EF2BD050059E430 /* Helpers.swift */,
-				141CCF291FF424E900CA4176 /* EnumCollection.swift */,
 				147443D2209C6E7000BAC86B /* ScreenManager.swift */,
 				147443D4209F85F900BAC86B /* ObjC.h */,
 				147443D5209F85F900BAC86B /* ObjC.m */,
@@ -3828,7 +3825,6 @@
 				145842701FB1D6BF00FA733F /* RatesDataStoreServiceProtocol.swift in Sources */,
 				14BE0A751FAF9D610044E3A1 /* Theme.swift in Sources */,
 				14B77EC01F9ACBBC00FCD923 /* WalletDataStoreService.swift in Sources */,
-				141CCF2A1FF424E900CA4176 /* EnumCollection.swift in Sources */,
 				14394168217913FC006920CD /* BalanceViewModel.swift in Sources */,
 				7801565CD4A5A450E43A693A /* BalanceViewController.swift in Sources */,
 				87B0C07C69E1B0DD477636A1 /* BalancePresenter.swift in Sources */,

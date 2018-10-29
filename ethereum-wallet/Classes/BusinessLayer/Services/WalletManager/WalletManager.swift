@@ -76,6 +76,7 @@ class WalletManager: WalletManagerProtocol {
   
   private func commonWalletInitialization(address: String) {
     walletDataStoreService.createWallet(address: address)
+    Defaults.walletCreated = true
   }
   
 }

@@ -14,11 +14,8 @@ class ApplicationConfiguratorFactory {
   func create() -> ConfiguratorProtocol {
     let keychain = Keychain()
     let accountService = AccountService(keychain: keychain)
-    let walletDataStoreService = WalletDataStoreService()
     let applicationConfigurator = ApplicationConfigurator(app: app,
-                                                          keychain: keychain,
-                                                          accountService: accountService,
-                                                          walletDataStoreService: walletDataStoreService)
+                                                          accountService: accountService)
     return applicationConfigurator
   }
 

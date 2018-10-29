@@ -34,15 +34,10 @@ class BalanceIndexerService: BalanceIndexer {
     self.transactionRepository = transactionRepository
     self.rateRepository = rateRepository
     
-    transactionRepository.addObserver(id: id) { _ in
+    transactionRepository.addObserver(id: id, fire: true) { _ in
       let viewModel = self.calculate()
       self.viewModel = viewModel
       channel.send(viewModel)
-    }
-    
-    rateRepository.addObserver(id: id) { _ in
-      // Just ask to update ui
-      channel.send(self.viewModel)
     }
   }
   
@@ -50,8 +45,14 @@ class BalanceIndexerService: BalanceIndexer {
   
   func start(id: Identifier, callback: @escaping (BalanceViewModel) -> Void) {
     callback(viewModel)
+    
     let observer = Observer<BalanceViewModel>(id: id, callback: callback)
     channel.addObserver(observer)
+    
+    rateRepository.addObserver(id: id, fire: false) { _ in
+      // Just ask to update ui
+      callback(self.viewModel)
+    }
   }
   
   func removeObserver(id: Identifier) {

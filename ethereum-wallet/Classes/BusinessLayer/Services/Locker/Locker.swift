@@ -33,6 +33,8 @@ class Locker: LockerProtocol {
   private func lock() {
     keychain.isLocked = true
     
+    guard Defaults.walletCreated else { return }
+    
     let rootViewController = AppDelegate.currentWindow.rootViewController!
 
     PinModule.create(app: app, state: .lock).presentModal(from: rootViewController, postProcess: { _, postProcess in

@@ -24,7 +24,7 @@ class TransactionsInteractor {
 extension TransactionsInteractor: TransactionsInteractorInput {
   
   func getTransactions() {
-    transactionRepository.addObserver(id: transactionId) { [weak self] transactions in
+    transactionRepository.addObserver(id: transactionId, fire: true) { [weak self] transactions in
       let displayers = transactions.map { TransactionDisplayer(tx: $0) }
       self?.output.didReceiveTransactions(displayers)
     }

@@ -4,6 +4,7 @@
 import Foundation
 
 protocol AccountServiceProtocol {
+  var isAuthorized: Bool { get }
   var currentAccount: Account? { get }
 }
 
@@ -20,6 +21,10 @@ class AccountService: AccountServiceProtocol {
       return nil
     }
     return keychain.accounts[keychain.currentAccount]
+  }
+  
+  var isAuthorized: Bool {
+    return keychain.passphrase != nil && currentAccount != nil
   }
 
 }

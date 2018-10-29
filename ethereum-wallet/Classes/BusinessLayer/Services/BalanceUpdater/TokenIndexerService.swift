@@ -33,15 +33,10 @@ class TokenIndexerService: TokenIndexer {
     self.transactionRepository = transactionRepository
     self.rateRepository = rateRepository
     
-    transactionRepository.addObserver(id: id) { _ in
+    transactionRepository.addObserver(id: id, fire: true) { _ in
       let viewModels = self.calculate()
       self.viewModels = viewModels
       channel.send(viewModels)
-    }
-    
-    rateRepository.addObserver(id: id) { _ in
-      // Just ask to update ui
-      channel.send(self.viewModels)
     }
   }
   
@@ -49,8 +44,14 @@ class TokenIndexerService: TokenIndexer {
   
   func start(id: Identifier, callback: @escaping ([TokenViewModel]) -> Void) {
     callback(viewModels)
+    
     let observer = Observer<[TokenViewModel]>(id: id, callback: callback)
     channel.addObserver(observer)
+    
+    rateRepository.addObserver(id: id, fire: false) { _ in
+      // Just ask to update ui
+      callback(self.viewModels)
+    }
   }
   
   

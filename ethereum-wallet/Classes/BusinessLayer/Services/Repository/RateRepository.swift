@@ -11,7 +11,7 @@ import Foundation
 
 protocol RateRepository {
   var rates: [Rate] { get }
-  func addObserver(id: Identifier, callback: @escaping ([Rate]) -> Void)
+  func addObserver(id: Identifier, fire: Bool, callback: @escaping ([Rate]) -> Void)
   func removeObserver(id: Identifier)
 }
 
@@ -33,8 +33,10 @@ class RateRepositoryService: RateRepository {
     }
   }
   
-  func addObserver(id: Identifier, callback: @escaping ([Rate]) -> Void) {
-    callback(rates)
+  func addObserver(id: Identifier, fire: Bool, callback: @escaping ([Rate]) -> Void) {
+    if fire {
+      callback(rates)
+    }
     let observer = Observer<[Rate]>(id: id, callback: callback)
     channel.addObserver(observer)
   }
