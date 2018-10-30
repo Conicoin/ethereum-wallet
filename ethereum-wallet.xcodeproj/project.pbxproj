@@ -318,7 +318,6 @@
 		1B1384B75741447CF347A336 /* PinRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46658DF38F9AB2315E5B49C /* PinRouterInput.swift */; };
 		1D9908DB5825ECD9F9FD8619 /* ImportPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3ACF0BD6769176BB96ACF6 /* ImportPresenter.swift */; };
 		1E6249F217CDD3504CEAC29F /* ScanRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF612EFE98DF5854D3111D1 /* ScanRouter.swift */; };
-		20CB23A748D43EB501099EC9 /* Pods_ConicoinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAC726B54148FF24E0E4DC0 /* Pods_ConicoinTests.framework */; };
 		26D5FCE98A67870F9E716431 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AD351C6C474ECB0B5572D /* PopupViewController.swift */; };
 		279D451DE8FC8AF874C39256 /* PinModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F47AD2E7B344BF80997752 /* PinModuleOutput.swift */; };
 		29C073848D352631119886FD /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54463C19B415435B550F67E7 /* TabBarPresenter.swift */; };
@@ -382,6 +381,7 @@
 		71BAB3056DCC8788CB6C26AD /* ChooseCurrencyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C5CE8A45110FC4568D45B /* ChooseCurrencyRouter.swift */; };
 		730C62F82E21085B2E925EFA /* ScanViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FAAED3A01ACF2CD12756E7 /* ScanViewInput.swift */; };
 		737CA34C9BBE98D896697F39 /* TokenDetailsModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38E0CC1B5CB04A0BEA17C9F /* TokenDetailsModuleOutput.swift */; };
+		737FAB40283C4B18FFEF5758 /* Pods_ethereum_wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A0AE9A82C08E72D94608534 /* Pods_ethereum_wallet.framework */; };
 		742D32056ED5FF1E21D65D9B /* PinModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEA1BD246A39DC6C6F8A66F /* PinModule.swift */; };
 		7801565CD4A5A450E43A693A /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2454C178684434DB69F1710 /* BalanceViewController.swift */; };
 		79944F642E82C370396B0353 /* SendSettingsModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BF7FAE298B3C308A44D1E /* SendSettingsModuleOutput.swift */; };
@@ -480,6 +480,7 @@
 		F2AA578388902CE8ADA90170 /* SettingsViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0150A047EA51ED1DDBA54282 /* SettingsViewInput.swift */; };
 		F2C1D232990D685616AA3DB5 /* TransactionsModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B62BEAF4BB45973BDBC68D /* TransactionsModuleInput.swift */; };
 		F5A3A418C2CB8089F676ED1F /* PopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC19FD56C51BA1D15803CF44 /* PopupPresenter.swift */; };
+		F6211CB4F42E7B94F4C2193E /* Pods_ConicoinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC0DF7D3B02C7BFF0158827 /* Pods_ConicoinTests.framework */; };
 		F9250D5B1071EF6CC9B3AC6C /* ReceiveModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DBAE3694B7946B56C1AE8B /* ReceiveModuleInput.swift */; };
 		FA1C95C98254FBB9E3ADDC6B /* PartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371AA32688D83DC189D9BEB6 /* PartnersViewController.swift */; };
 		FB9874037FECF14FF952A0B3 /* PinViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D7D7CBDC2300F8CA891A2 /* PinViewOutput.swift */; };
@@ -487,7 +488,6 @@
 		FD7D750E0A051F3A963485D1 /* PopupModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425AA56082049CE1373546AC /* PopupModule.swift */; };
 		FDC9A091AA6AA18BCB4E0F79 /* ImportRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B963810D5271838C6ADA30D2 /* ImportRouter.swift */; };
 		FDD3F07044EEF6E854645185 /* TransactionsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C6EF77015406A6D98FAB4 /* TransactionsInteractorInput.swift */; };
-		FEA3373E34810DC2996A44FF /* Pods_ethereum_wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF90233BE004F1A72A53D19 /* Pods_ethereum_wallet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -512,8 +512,8 @@
 		08DA7E063ACEFF81AC0DF636 /* SettingsModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsModuleInput.swift; sourceTree = "<group>"; };
 		09DB419A418C3F6701CACAFB /* SendInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendInteractorOutput.swift; sourceTree = "<group>"; };
 		0B6331DCDD63B2B63627CC9C /* PopupModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupModuleOutput.swift; sourceTree = "<group>"; };
+		0C69F3B35351E3A29566C5BD /* Pods-ConicoinTests.debug-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.debug-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.debug-testnet.xcconfig"; sourceTree = "<group>"; };
 		0E1188829331B84C9CDFBDFA /* TabBarRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarRouterInput.swift; sourceTree = "<group>"; };
-		10F4DE972F105FEE5B694ABB /* Pods-ConicoinTests.debug-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.debug-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.debug-mainnet.xcconfig"; sourceTree = "<group>"; };
 		11518E1D20C099D600510FE3 /* ethereum-wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ethereum-wallet.entitlements"; sourceTree = "<group>"; };
 		11518E1E20C09A7300510FE3 /* API+Push.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "API+Push.swift"; sourceTree = "<group>"; tabWidth = 2; };
 		11518E2120C09FBE00510FE3 /* PushNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNetworkServiceProtocol.swift; sourceTree = "<group>"; };
@@ -886,11 +886,9 @@
 		19E8598CE80F9DEACD010E9A /* PartnersInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PartnersInteractorOutput.swift; sourceTree = "<group>"; };
 		1B3CD3B80C8D97EC588048AE /* TokenDetailsInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenDetailsInteractorInput.swift; sourceTree = "<group>"; };
 		1C669B6FA7BF6312D54E819B /* PartnersInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PartnersInteractor.swift; sourceTree = "<group>"; };
-		21C4CB5E4776F30A1AFD1EE4 /* Pods-ethereum-wallet.release-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.release-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.release-testnet.xcconfig"; sourceTree = "<group>"; };
 		22D8DF1541342FFFD0BB1A76 /* ScanPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanPresenter.swift; sourceTree = "<group>"; };
 		22FCE500AA1B03D94C9D2E39 /* TransactionDetailsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionDetailsRouter.swift; sourceTree = "<group>"; };
 		241B4276BED5A4833F0D7E20 /* SendViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
-		25880532C678423235AB5D8C /* Pods-ConicoinTests.release-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.release-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.release-mainnet.xcconfig"; sourceTree = "<group>"; };
 		25C1D5DDE6ECD398588D3CDD /* BalancePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BalancePresenter.swift; sourceTree = "<group>"; };
 		277F0C5E96765B5897436528 /* ImportViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImportViewInput.swift; sourceTree = "<group>"; };
 		279D7D7CBDC2300F8CA891A2 /* PinViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinViewOutput.swift; sourceTree = "<group>"; };
@@ -909,7 +907,6 @@
 		3223CF9AA54D42A6EA3A3AFD /* ReceiveInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReceiveInteractor.swift; sourceTree = "<group>"; };
 		32A3B7375814B66C6768C2AD /* SettingsRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsRouterInput.swift; sourceTree = "<group>"; };
 		3517836A45FEE47323B6557F /* SendViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendViewOutput.swift; sourceTree = "<group>"; };
-		3531CD48E2E84A647F2A4D89 /* Pods-ethereum-wallet.debug-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.debug-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.debug-testnet.xcconfig"; sourceTree = "<group>"; };
 		35E3AF7B2B39AAC9E1A5687A /* PopupRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupRouter.swift; sourceTree = "<group>"; };
 		369BF5136126037D35B56E99 /* ScanViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanViewOutput.swift; sourceTree = "<group>"; };
 		371AA32688D83DC189D9BEB6 /* PartnersViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PartnersViewController.swift; sourceTree = "<group>"; };
@@ -918,7 +915,6 @@
 		3A049468F453832759E172F2 /* ScanModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanModule.swift; sourceTree = "<group>"; };
 		3D3ACF0BD6769176BB96ACF6 /* ImportPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImportPresenter.swift; sourceTree = "<group>"; };
 		3E18C42830BB0F8436D54E5D /* TabBarViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarViewInput.swift; sourceTree = "<group>"; };
-		3EB20FE1F7D12A1991B8FFF7 /* Pods-ethereum-wallet.release-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.release-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.release-mainnet.xcconfig"; sourceTree = "<group>"; };
 		3F59F832CE11710531461201 /* TransactionsViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = TransactionsViewOutput.swift; sourceTree = "<group>"; tabWidth = 2; };
 		3FF709BE84D603D5A0EB3795 /* PartnersViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PartnersViewInput.swift; sourceTree = "<group>"; };
 		425AA56082049CE1373546AC /* PopupModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupModule.swift; sourceTree = "<group>"; };
@@ -936,7 +932,6 @@
 		54463C19B415435B550F67E7 /* TabBarPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		546B27889626E648F111EC24 /* ScanInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanInteractorInput.swift; sourceTree = "<group>"; };
 		5490CD95BC679C2BF6FA011E /* TransactionsInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionsInteractorOutput.swift; sourceTree = "<group>"; };
-		549FCE76BDED074251588580 /* Pods-ethereum-wallet.debug-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.debug-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.debug-mainnet.xcconfig"; sourceTree = "<group>"; };
 		55E3A7D16CC08D31B3828D50 /* ChooseCurrencyViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyViewInput.swift; sourceTree = "<group>"; };
 		5810AB5F05139C23471CD067 /* TokenDetailsModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenDetailsModule.swift; sourceTree = "<group>"; };
 		58F1948DE998E6E81D89CBD3 /* ScanInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanInteractor.swift; sourceTree = "<group>"; };
@@ -947,6 +942,7 @@
 		5D721A6C43F8AA0481FF5277 /* TabBarModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarModule.swift; sourceTree = "<group>"; };
 		5EA4EBE53A4AB1D756046EB8 /* ChooseCurrencyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyViewController.swift; sourceTree = "<group>"; };
 		5F10B47177A5FD5F66689841 /* TransactionsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = TransactionsInteractor.swift; sourceTree = "<group>"; tabWidth = 2; };
+		623CB257CF4F6AAE617AEEBA /* Pods-ethereum-wallet.debug-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.debug-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.debug-mainnet.xcconfig"; sourceTree = "<group>"; };
 		650E1646D536873069FFBC57 /* PartnersInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PartnersInteractorInput.swift; sourceTree = "<group>"; };
 		66C8124F390AA63E0964B5C9 /* SendSettingsInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendSettingsInteractorOutput.swift; sourceTree = "<group>"; };
 		677A0ECFE705A9AFC8A12E4C /* PinInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinInteractorOutput.swift; sourceTree = "<group>"; };
@@ -959,17 +955,17 @@
 		71F1B8154D4774D98FD3BF18 /* SendSettingsViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendSettingsViewInput.swift; sourceTree = "<group>"; };
 		72A656FD1882AC4921831872 /* WelcomePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		74FAAED3A01ACF2CD12756E7 /* ScanViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanViewInput.swift; sourceTree = "<group>"; };
-		761F03F84B8C0556C5B9D105 /* Pods-ConicoinTests.release-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.release-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.release-testnet.xcconfig"; sourceTree = "<group>"; };
 		76200A57665ECCA841ADDBC2 /* PinViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		766F796C8AC0D231D21BD317 /* SettingsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		7680D0BC4BFA0E97BBCEE7C8 /* PinRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinRouter.swift; sourceTree = "<group>"; };
+		76C3507FF46A18D6E0CDCC7D /* Pods-ethereum-wallet.release-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.release-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.release-testnet.xcconfig"; sourceTree = "<group>"; };
 		77052E03680C618182BE6617 /* ChooseCurrencyModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyModule.swift; sourceTree = "<group>"; };
 		774E5CAF2E21BBC59117ADF9 /* SendPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendPresenter.swift; sourceTree = "<group>"; };
 		794AD7FD6FA6F063085095D1 /* PopupViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupViewInput.swift; sourceTree = "<group>"; };
-		7BF90233BE004F1A72A53D19 /* Pods_ethereum_wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ethereum_wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AC0DF7D3B02C7BFF0158827 /* Pods_ConicoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConicoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B3E13FCF72268C09BAC66CD /* Pods-ConicoinTests.release-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.release-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.release-mainnet.xcconfig"; sourceTree = "<group>"; };
 		7C0729BE8A71046B71CA4ED2 /* SettingsViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewOutput.swift; sourceTree = "<group>"; };
 		7C725EBC64867089872BB663 /* ChooseCurrencyPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyPresenter.swift; sourceTree = "<group>"; };
-		7EAC726B54148FF24E0E4DC0 /* Pods_ConicoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConicoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F3895946093FC198882B60F /* TransactionsViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionsViewInput.swift; sourceTree = "<group>"; };
 		8288B0C980FE875FC8652A8E /* PinInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinInteractor.swift; sourceTree = "<group>"; };
 		848F2660E07A2882B2DEBEDE /* ImportViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
@@ -987,7 +983,9 @@
 		92AA6A4F80908EACC0376B9D /* SendSettingsModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendSettingsModule.swift; sourceTree = "<group>"; };
 		937BFB7E8E79F1F415BEF77F /* TransactionDetailsModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionDetailsModuleOutput.swift; sourceTree = "<group>"; };
 		939CE32A967D4C487421AAAE /* SendSettingsViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendSettingsViewOutput.swift; sourceTree = "<group>"; };
+		97FB6AAC32CC8225101D993B /* Pods-ConicoinTests.release-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.release-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.release-testnet.xcconfig"; sourceTree = "<group>"; };
 		98EDC690A0ADD3409ECA7F44 /* PartnersRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PartnersRouter.swift; sourceTree = "<group>"; };
+		9A0AE9A82C08E72D94608534 /* Pods_ethereum_wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ethereum_wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AAE4DF56F06245C8FF4AECA /* TabBarInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarInteractorOutput.swift; sourceTree = "<group>"; };
 		9C01E571FD79C1E5EDCAE3BA /* WelcomeInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeInteractorInput.swift; sourceTree = "<group>"; };
 		9DD6F87780F64579175D8908 /* PinPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PinPresenter.swift; sourceTree = "<group>"; };
@@ -1026,7 +1024,7 @@
 		D3E1D0A81B23B920EEB9FCC3 /* TokenDetailsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenDetailsInteractor.swift; sourceTree = "<group>"; };
 		D4486BEC9A7262F34EE02B5E /* ChooseCurrencyViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyViewOutput.swift; sourceTree = "<group>"; };
 		D58A8F4BE993A3AFCC1B8F43 /* PopupModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupModuleInput.swift; sourceTree = "<group>"; };
-		D638DDBBEB7C98A01E6824E6 /* Pods-ConicoinTests.debug-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.debug-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.debug-testnet.xcconfig"; sourceTree = "<group>"; };
+		D6B17F1361CB8DC16534D891 /* Pods-ethereum-wallet.debug-testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.debug-testnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.debug-testnet.xcconfig"; sourceTree = "<group>"; };
 		D6B36E09E90B2B58E5EFF1DE /* SendInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendInteractor.swift; sourceTree = "<group>"; };
 		D91D18C86E66F10885934F6C /* BalanceInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BalanceInteractorOutput.swift; sourceTree = "<group>"; };
 		D957E0A1F813A0CEED01357E /* TokenDetailsModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenDetailsModuleInput.swift; sourceTree = "<group>"; };
@@ -1036,6 +1034,7 @@
 		DDBEC1CC3F11CA60E2B0FE7A /* ImportRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImportRouterInput.swift; sourceTree = "<group>"; };
 		DEA26F71450DB9CC4F717584 /* BalanceInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BalanceInteractorInput.swift; sourceTree = "<group>"; };
 		DF1C11152A736F6072F9B78D /* BalanceRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BalanceRouterInput.swift; sourceTree = "<group>"; };
+		E17E614989E3D923D532F819 /* Pods-ConicoinTests.debug-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConicoinTests.debug-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests.debug-mainnet.xcconfig"; sourceTree = "<group>"; };
 		E197F31440006C7B845E4A4E /* ChooseCurrencyInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyInteractorOutput.swift; sourceTree = "<group>"; };
 		E1D4D35A11CF42CFA2A06285 /* TransactionDetailsViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionDetailsViewOutput.swift; sourceTree = "<group>"; };
 		E2DF46B08608BA48281E2648 /* TransactionDetailsModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionDetailsModule.swift; sourceTree = "<group>"; };
@@ -1061,6 +1060,7 @@
 		F9BAAAA17440E1D2FB2B674F /* TokenDetailsViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenDetailsViewInput.swift; sourceTree = "<group>"; };
 		FB07D31C45A1185028AB2CE6 /* WelcomeModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomeModuleInput.swift; sourceTree = "<group>"; };
 		FC19FD56C51BA1D15803CF44 /* PopupPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopupPresenter.swift; sourceTree = "<group>"; };
+		FCF7C24F0FD8094FAEF9C46C /* Pods-ethereum-wallet.release-mainnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethereum-wallet.release-mainnet.xcconfig"; path = "Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet.release-mainnet.xcconfig"; sourceTree = "<group>"; };
 		FDD365ADF81F6E52997BE885 /* BalanceModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BalanceModule.swift; sourceTree = "<group>"; };
 		FE311FE0329FE10EC27D0F38 /* TokenDetailsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenDetailsPresenter.swift; sourceTree = "<group>"; };
 		FED4559600E15D2B2E416E4B /* TransactionsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionsRouter.swift; sourceTree = "<group>"; };
@@ -1072,7 +1072,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14004BA6205D5B2B00EA8199 /* CryptoSwift.framework in Frameworks */,
-				20CB23A748D43EB501099EC9 /* Pods_ConicoinTests.framework in Frameworks */,
+				F6211CB4F42E7B94F4C2193E /* Pods_ConicoinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1082,7 +1082,7 @@
 			files = (
 				142B5A1A1EDF0EEB007F73BA /* Security.framework in Frameworks */,
 				14338517211344FA00FD7BE0 /* libcrypto.a in Frameworks */,
-				FEA3373E34810DC2996A44FF /* Pods_ethereum_wallet.framework in Frameworks */,
+				737FAB40283C4B18FFEF5758 /* Pods_ethereum_wallet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1723,7 +1723,7 @@
 				144E4F131EB26F0600AB62B6 /* Products */,
 				ACD32142393BFB283A320AA3 /* Frameworks */,
 				145821291F995446005047B6 /* R.generated.swift */,
-				FAC585B449785D561FF6C0FB /* Pods */,
+				853CEEBB2B79A7B954588F45 /* Pods */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -2863,6 +2863,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		853CEEBB2B79A7B954588F45 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C69F3B35351E3A29566C5BD /* Pods-ConicoinTests.debug-testnet.xcconfig */,
+				E17E614989E3D923D532F819 /* Pods-ConicoinTests.debug-mainnet.xcconfig */,
+				97FB6AAC32CC8225101D993B /* Pods-ConicoinTests.release-testnet.xcconfig */,
+				7B3E13FCF72268C09BAC66CD /* Pods-ConicoinTests.release-mainnet.xcconfig */,
+				D6B17F1361CB8DC16534D891 /* Pods-ethereum-wallet.debug-testnet.xcconfig */,
+				623CB257CF4F6AAE617AEEBA /* Pods-ethereum-wallet.debug-mainnet.xcconfig */,
+				76C3507FF46A18D6E0CDCC7D /* Pods-ethereum-wallet.release-testnet.xcconfig */,
+				FCF7C24F0FD8094FAEF9C46C /* Pods-ethereum-wallet.release-mainnet.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8815D5D7C051348FBFB6EF59 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -3054,8 +3069,8 @@
 				14004B98205D43EF00EA8199 /* RealmSwift.framework */,
 				14004B96205D43DB00EA8199 /* Realm.framework */,
 				142B5A191EDF0EEB007F73BA /* Security.framework */,
-				7EAC726B54148FF24E0E4DC0 /* Pods_ConicoinTests.framework */,
-				7BF90233BE004F1A72A53D19 /* Pods_ethereum_wallet.framework */,
+				7AC0DF7D3B02C7BFF0158827 /* Pods_ConicoinTests.framework */,
+				9A0AE9A82C08E72D94608534 /* Pods_ethereum_wallet.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3350,21 +3365,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		FAC585B449785D561FF6C0FB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D638DDBBEB7C98A01E6824E6 /* Pods-ConicoinTests.debug-testnet.xcconfig */,
-				10F4DE972F105FEE5B694ABB /* Pods-ConicoinTests.debug-mainnet.xcconfig */,
-				761F03F84B8C0556C5B9D105 /* Pods-ConicoinTests.release-testnet.xcconfig */,
-				25880532C678423235AB5D8C /* Pods-ConicoinTests.release-mainnet.xcconfig */,
-				3531CD48E2E84A647F2A4D89 /* Pods-ethereum-wallet.debug-testnet.xcconfig */,
-				549FCE76BDED074251588580 /* Pods-ethereum-wallet.debug-mainnet.xcconfig */,
-				21C4CB5E4776F30A1AFD1EE4 /* Pods-ethereum-wallet.release-testnet.xcconfig */,
-				3EB20FE1F7D12A1991B8FFF7 /* Pods-ethereum-wallet.release-mainnet.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		FC338772EAB78DA83F7B2F7D /* Pin */ = {
 			isa = PBXGroup;
 			children = (
@@ -3394,11 +3394,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14004B90205D41AB00EA8199 /* Build configuration list for PBXNativeTarget "ConicoinTests" */;
 			buildPhases = (
-				1158093905661EC7357EF7E0 /* [CP] Check Pods Manifest.lock */,
+				BDA98AF703C8B57C84A73FA5 /* [CP] Check Pods Manifest.lock */,
 				14004B85205D41AB00EA8199 /* Sources */,
 				14004B86205D41AB00EA8199 /* Frameworks */,
 				14004B87205D41AB00EA8199 /* Resources */,
-				71294A471501F85774B6DA6B /* [CP] Embed Pods Frameworks */,
+				BF0C11C316C88B082D1FEBBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3414,12 +3414,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 144E4F241EB26F0600AB62B6 /* Build configuration list for PBXNativeTarget "ethereum-wallet" */;
 			buildPhases = (
-				E96D8F5406E6D0FF5F9B633B /* [CP] Check Pods Manifest.lock */,
+				9C1CB91C5352B3F9C9DA5924 /* [CP] Check Pods Manifest.lock */,
 				1438CCDA1EF1A1AB00C6AA3F /* R.swift */,
 				144E4F0E1EB26F0600AB62B6 /* Sources */,
 				144E4F0F1EB26F0600AB62B6 /* Frameworks */,
 				144E4F101EB26F0600AB62B6 /* Resources */,
-				804DD92B76F8ED1059495518 /* [CP] Embed Pods Frameworks */,
+				F6B2527E59DC3EC852D5E4B7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3527,7 +3527,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1158093905661EC7357EF7E0 /* [CP] Check Pods Manifest.lock */ = {
+		1438CCDA1EF1A1AB00C6AA3F /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+		};
+		9C1CB91C5352B3F9C9DA5924 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ethereum-wallet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDA98AF703C8B57C84A73FA5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3545,21 +3577,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1438CCDA1EF1A1AB00C6AA3F /* R.swift */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = R.swift;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
-		};
-		71294A471501F85774B6DA6B /* [CP] Embed Pods Frameworks */ = {
+		BF0C11C316C88B082D1FEBBC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3577,7 +3595,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		804DD92B76F8ED1059495518 /* [CP] Embed Pods Frameworks */ = {
+		F6B2527E59DC3EC852D5E4B7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3619,24 +3637,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E96D8F5406E6D0FF5F9B633B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ethereum-wallet-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -4209,7 +4209,7 @@
 		};
 		14929DBC213B51A900C5B83C /* Debug-Testnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3531CD48E2E84A647F2A4D89 /* Pods-ethereum-wallet.debug-testnet.xcconfig */;
+			baseConfigurationReference = D6B17F1361CB8DC16534D891 /* Pods-ethereum-wallet.debug-testnet.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APP_DISPLAY_NAME = "Conicoin Testnet";
@@ -4240,7 +4240,7 @@
 		};
 		14929DBD213B51A900C5B83C /* Debug-Testnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D638DDBBEB7C98A01E6824E6 /* Pods-ConicoinTests.debug-testnet.xcconfig */;
+			baseConfigurationReference = 0C69F3B35351E3A29566C5BD /* Pods-ConicoinTests.debug-testnet.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -4332,11 +4332,11 @@
 		};
 		14929DBF213B51BC00C5B83C /* Debug-Mainnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 549FCE76BDED074251588580 /* Pods-ethereum-wallet.debug-mainnet.xcconfig */;
+			baseConfigurationReference = 623CB257CF4F6AAE617AEEBA /* Pods-ethereum-wallet.debug-mainnet.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APP_DISPLAY_NAME = Conicoin;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Testnet";
 				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
 				DEVELOPMENT_TEAM = BY9338Q38W;
 				ENABLE_BITCODE = NO;
@@ -4363,7 +4363,7 @@
 		};
 		14929DC0213B51BC00C5B83C /* Debug-Mainnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10F4DE972F105FEE5B694ABB /* Pods-ConicoinTests.debug-mainnet.xcconfig */;
+			baseConfigurationReference = E17E614989E3D923D532F819 /* Pods-ConicoinTests.debug-mainnet.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -4444,7 +4444,7 @@
 		};
 		14929DC2213B51CF00C5B83C /* Release-Testnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21C4CB5E4776F30A1AFD1EE4 /* Pods-ethereum-wallet.release-testnet.xcconfig */;
+			baseConfigurationReference = 76C3507FF46A18D6E0CDCC7D /* Pods-ethereum-wallet.release-testnet.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APP_DISPLAY_NAME = "Conicoin Testnet";
@@ -4477,7 +4477,7 @@
 		};
 		14929DC3213B51CF00C5B83C /* Release-Testnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 761F03F84B8C0556C5B9D105 /* Pods-ConicoinTests.release-testnet.xcconfig */;
+			baseConfigurationReference = 97FB6AAC32CC8225101D993B /* Pods-ConicoinTests.release-testnet.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -4556,11 +4556,11 @@
 		};
 		14929DC5213B51E300C5B83C /* Release-Mainnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3EB20FE1F7D12A1991B8FFF7 /* Pods-ethereum-wallet.release-mainnet.xcconfig */;
+			baseConfigurationReference = FCF7C24F0FD8094FAEF9C46C /* Pods-ethereum-wallet.release-mainnet.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APP_DISPLAY_NAME = Conicoin;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Testnet";
 				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BY9338Q38W;
@@ -4589,7 +4589,7 @@
 		};
 		14929DC6213B51E300C5B83C /* Release-Mainnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25880532C678423235AB5D8C /* Pods-ConicoinTests.release-mainnet.xcconfig */;
+			baseConfigurationReference = 7B3E13FCF72268C09BAC66CD /* Pods-ConicoinTests.release-mainnet.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;

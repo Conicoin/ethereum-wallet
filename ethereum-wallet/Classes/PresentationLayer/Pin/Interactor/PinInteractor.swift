@@ -3,7 +3,7 @@
 
 import Foundation
 
-typealias PinInfo = (title: String, isCancellable: Bool, isTouchIDAllowed: Bool, biometricImage: String)
+typealias PinInfo = (title: String, isCancellable: Bool, isTouchIDAllowed: Bool, biometricImage: String, isTermsShown: Bool)
 
 class PinInteractor {
   weak var output: PinInteractorOutput!
@@ -21,7 +21,8 @@ extension PinInteractor: PinInteractorInput {
       title: pinService.lockState.title,
       isCancellable: pinService.lockState.isCancellableAction,
       isTouchIDAllowed: pinService.isTouchIDAllowed,
-      biometricImage: pinService.biometricImage
+      biometricImage: pinService.biometricImage,
+      isTermsShown: pinService.lockState.isTermsShown
     )
     output.didReceivePinInfo(info)
   }

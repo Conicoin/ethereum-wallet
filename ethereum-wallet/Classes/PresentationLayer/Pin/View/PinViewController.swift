@@ -129,6 +129,7 @@ extension PinViewController: PinViewInput {
     touchIDButton.isTransparent = !info.isTouchIDAllowed
     touchIDButton.setImage(UIImage(named: info.biometricImage), for: .normal)
     navigationItem.hidesBackButton = !info.isCancellable
+    termsTextView.isHidden = !info.isTermsShown
   }
 
 }

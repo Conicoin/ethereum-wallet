@@ -68,9 +68,9 @@ extension SendPresenter: SendViewOutput {
     settings.gasLimit = coin.gasLimit
     view.setupInitialState()
     view.setCoin(coin)
-    updateLocalAmount()
     interactor.getWallet()
     interactor.getGasPrice()
+    updateLocalAmount()
   }
   
   func didCurrencyPressed() {

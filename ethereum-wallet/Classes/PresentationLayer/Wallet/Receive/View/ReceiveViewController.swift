@@ -41,16 +41,7 @@ class ReceiveViewController: UIViewController {
     let text = addressLabel.text!
     let image = qrImageView.image!
     let activity = UIActivityViewController(activityItems: [image, text], applicationActivities: nil)
-    activity.excludedActivityTypes = [
-      .airDrop,
-      .copyToPasteboard,
-      .message,
-      .mail,
-      .postToFacebook,
-      .postToTwitter,
-      .postToFlickr,
-      .markupAsPDF,
-    ]
+    activity.excludedActivityTypes = [.print, .assignToContact]
     present(activity, animated: true, completion: nil)
   }
 

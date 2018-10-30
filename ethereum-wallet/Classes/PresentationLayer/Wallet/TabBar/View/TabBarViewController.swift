@@ -40,7 +40,6 @@ extension TabBarViewController: TabBarViewInput {
     guard let viewControllers = viewControllers else { return }
     let titles = [
       Localized.tabBalance(),
-      Localized.tabPartners(),
       Localized.tabTransactions(),
       Localized.tabSettings()
     ]
