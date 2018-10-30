@@ -4336,7 +4336,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APP_DISPLAY_NAME = Conicoin;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Testnet";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
 				DEVELOPMENT_TEAM = BY9338Q38W;
 				ENABLE_BITCODE = NO;
@@ -4560,7 +4560,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APP_DISPLAY_NAME = Conicoin;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Testnet";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ethereum-wallet/ethereum-wallet.entitlements";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BY9338Q38W;
