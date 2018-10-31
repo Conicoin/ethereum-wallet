@@ -38,6 +38,7 @@ class SendPresenter {
       && address.isValidAddress()
     
     view.inputDataIsValid(isValid)
+    calculateTotalAmount()
     
     guard isValid else { return }
     interactor.getGasLimit(from: wallet.address,
