@@ -11,12 +11,12 @@ struct TokenValue: Currency {
   let iso: String
   let decimals: Int
   
-  var value: Double {
+  var value: Decimal {
     get {
-      return raw.double / pow(10, Double(decimals))
+      return raw / pow(10, decimals)
     }
     set {
-      raw = Decimal(newValue * pow(10, Double(decimals)))
+      raw = newValue * pow(10, decimals)
     }
   }
   

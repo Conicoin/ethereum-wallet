@@ -66,11 +66,11 @@ class BalanceIndexerService: BalanceIndexer {
     let transactions = transactionRepository.transactions
     for tx in transactions {
       
-      if !tx.isIncoming {
+      if !tx.isIncoming && tx.isNormal {
         amount -= (tx.gasUsed * tx.gasPrice)
       }
 
-      guard tx.amount.iso == "ETH" && tx.error == nil else {
+      guard !tx.isTokenTransfer && tx.error == nil else {
         continue
       }
       

@@ -26,9 +26,9 @@ class FiatCurrencyFactory {
                         icon: icon(iso))
   }
   
-  static func amount(amount: Double, currency: Currency, iso: String, rate: Double) -> String {
+  static func amount(amount: Decimal, currency: Currency, iso: String, rate: Double) -> String {
     let currency = FiatCurrencyFactory.create(iso: iso)
-    let total = amount * rate
+    let total = amount * Decimal(rate)
     let currencyFormatter = NumberFormatter()
     currencyFormatter.numberStyle = .currency
     currencyFormatter.locale = .current
@@ -36,7 +36,7 @@ class FiatCurrencyFactory {
     currencyFormatter.currencySymbol = currency.symbol
     currencyFormatter.maximumFractionDigits = 5
     currencyFormatter.minimumFractionDigits = 0
-    return currencyFormatter.string(from: Decimal(floatLiteral: total) as NSDecimalNumber)!
+    return currencyFormatter.string(from: total as NSDecimalNumber)!
   }
   
   static func amount(currency: Currency, rate: Double) -> String {
@@ -47,12 +47,12 @@ class FiatCurrencyFactory {
     return FiatCurrencyFactory.amount(amount: currency.value, currency: currency, iso: iso, rate: rate)
   }
   
-  static func amount(amount: Double, iso: String) -> String {
+  static func amount(amount: Decimal, iso: String) -> String {
     let currency = Ether(amount)
     return FiatCurrencyFactory.amount(amount: amount, currency: currency, iso: iso, rate: 1)
   }
   
-  static func amount(amount: Double, currency: Currency) -> String {
+  static func amount(amount: Decimal, currency: Currency) -> String {
     return FiatCurrencyFactory.amount(amount: amount, currency: currency, iso: currency.iso, rate: 1)
   }
   

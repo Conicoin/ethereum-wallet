@@ -8,12 +8,12 @@ import UIKit
 struct Ether {
   
   var raw: Decimal
-  var value: Double {
+  var value: Decimal {
     get {
-      return raw.double / 1e18
+      return raw / 1e18
     }
     set {
-      raw = Decimal(newValue * 1e18)
+      raw = newValue * 1e18
     }
   }
   

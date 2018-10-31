@@ -102,6 +102,7 @@
 
 // MARK: - Transactions
 "transactions.title" = "Транзакции";
+"transactions.creation" = "Создание Контракта";
 "transactions.pending" = "отправка";
 "transactions.error" = "ошибка";
 "transactions.received" = "От %@";

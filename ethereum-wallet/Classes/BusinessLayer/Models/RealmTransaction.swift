@@ -20,6 +20,7 @@ class RealmTransaction: Object {
   @objc dynamic var error: String?
   @objc dynamic var isPending = false
   @objc dynamic var isIncoming = false
+  @objc dynamic var isNormal = true
   @objc dynamic var tokenMeta: RealmTokenMeta?
   @objc dynamic var input = ""
   

@@ -9,9 +9,11 @@
 import Foundation
 
 struct ChannelRepository {
-  let transactionsChannel = Channel<[Transaction]>()
-  let rateChannel = Channel<[Rate]>()
-  let walletChannel = Channel<Wallet>()
-  let tokenChannel = Channel<[TokenViewModel]>()
-  let balanceChannel = Channel<BalanceViewModel>()
+  private let channelQueue = DispatchQueue(label: "ChannelQueue")
+  
+  lazy var transactionsChannel = Channel<[Transaction]>(queue: channelQueue)
+  lazy var rateChannel = Channel<[Rate]>(queue: channelQueue)
+  lazy var walletChannel = Channel<Wallet>(queue: channelQueue)
+  lazy var tokenChannel = Channel<[TokenViewModel]>(queue: channelQueue)
+  lazy var balanceChannel = Channel<BalanceViewModel>(queue: channelQueue)
 }

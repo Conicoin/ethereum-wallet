@@ -25,8 +25,11 @@ extension TransactionsInteractor: TransactionsInteractorInput {
   
   func getTransactions() {
     transactionRepository.addObserver(id: transactionId, fire: true) { [weak self] transactions in
-      let displayers = transactions.map { TransactionDisplayer(tx: $0) }
-      self?.output.didReceiveTransactions(displayers)
+      let txs = transactions.filter { !($0.isNormal && $0.input.starts(with: "0xa9059cbb")) }
+      let displayers = txs.map { TransactionDisplayer(tx: $0) }
+      DispatchQueue.main.async {
+        self?.output.didReceiveTransactions(displayers)
+      }
     }
   }
   

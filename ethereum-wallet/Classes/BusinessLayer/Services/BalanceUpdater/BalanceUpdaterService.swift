@@ -61,9 +61,7 @@ class BalanceUpdaterService: BalanceUpdater {
     transactionNetworkService.getTransactions(address: address, queue: queue)  { result in
       switch result {
       case .success(let transactions):
-        // Etherscan API workaround
-        let txs = transactions.filter { !$0.input.starts(with: "0xa9059cbb") }
-        self.transactionDataStoreService.markAndSaveTransactions(txs, address: address)
+        self.transactionDataStoreService.markAndSaveTransactions(transactions, address: address, isNormal: true)
       case .failure(let error):
         print(error.localizedDescription)
       }
@@ -74,7 +72,7 @@ class BalanceUpdaterService: BalanceUpdater {
     transactionNetworkService.getTokenTransactions(address: address, queue: queue) { [unowned self] result in
       switch result {
       case .success(let transactions):
-        self.transactionDataStoreService.markAndSaveTransactions(transactions, address: address)
+        self.transactionDataStoreService.markAndSaveTransactions(transactions, address: address, isNormal: false)
       case .failure(let error):
         print(error.localizedDescription)
       }

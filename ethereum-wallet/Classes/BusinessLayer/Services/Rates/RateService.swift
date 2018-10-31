@@ -10,7 +10,7 @@ import Foundation
 
 protocol RateSource {
   func fiatString(for amount: Currency, in iso: String) -> String
-  func rawAmount(for amount: Currency, in iso: String) -> Double
+  func rawAmount(for amount: Currency, in iso: String) -> Decimal
   func fiatLabelString(currency: Currency, selectedCurrency: String) -> String
 }
 
@@ -33,11 +33,11 @@ class RateService: RateSource {
     return FiatCurrencyFactory.amount(currency: amount, iso: iso, rate: rate.value)
   }
   
-  func rawAmount(for amount: Currency, in iso: String) -> Double {
+  func rawAmount(for amount: Currency, in iso: String) -> Decimal {
     guard let rate = rate(from: amount.iso, to: iso) else {
       return 0
     }
-    return amount.value * rate.value
+    return amount.value * Decimal(rate.value)
   }
   
   func fiatLabelString(currency: Currency, selectedCurrency: String) -> String {

@@ -130,7 +130,7 @@ extension BalanceViewController: BalanceViewInput {
   }
   
   func setTotalTokenAmount(_ currency: String) {
-    var summ: Double = 0
+    var summ: Decimal = 0
     for token in diffCalculator.rows {
       summ += token.rawAmount(in: currency)
     }

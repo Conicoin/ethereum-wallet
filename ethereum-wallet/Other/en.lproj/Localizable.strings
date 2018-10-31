@@ -102,6 +102,7 @@
 
 // MARK: - Transactions
 "transactions.title" = "Transactions";
+"transactions.creation" = "Contract Creation";
 "transactions.pending" = "pending";
 "transactions.error" = "transaction failed";
 "transactions.received" = "From %@";

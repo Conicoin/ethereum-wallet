@@ -10,8 +10,10 @@ import Foundation
 
 class Channel<SignalData> {
   private var observers: Set<Observer<SignalData>>
+  private var queue: DispatchQueue
   
-  init() {
+  init(queue: DispatchQueue) {
+    self.queue = queue
     self.observers = Set<Observer<SignalData>>()
   }
   

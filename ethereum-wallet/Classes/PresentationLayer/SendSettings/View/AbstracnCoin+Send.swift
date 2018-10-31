@@ -37,7 +37,7 @@ extension AbstractCoin {
       return (amount: fiatAmount.amountString, total: ethAmountString, fiatAmount: fiatAmountString, fee: feeAmountString)
     
     case .token(let token):
-      let ethAmountString = FiatCurrencyFactory.amount(amount: amount.double, currency: token.balance)
+      let ethAmountString = FiatCurrencyFactory.amount(amount: amount, currency: token.balance)
       return (amount: ethAmountString, total: ethAmountString, fiatAmount: fiatAmountString, fee: feeAmountString)
     }
   }

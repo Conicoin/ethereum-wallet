@@ -5,7 +5,8 @@
 import Foundation
 
 protocol TransactionsDataStoreServiceProtocol {
-  func markAndSaveTransactions(_ transactions: [Transaction], address: String)
+  func find() -> [Transaction]
+  func markAndSaveTransactions(_ transactions: [Transaction], address: String, isNormal: Bool)
   func observe(updateHandler: @escaping ([Transaction]) -> Void)
   func observe(token: Token, updateHandler: @escaping ([Transaction]) -> Void)
   func save(_ transaction: Transaction)

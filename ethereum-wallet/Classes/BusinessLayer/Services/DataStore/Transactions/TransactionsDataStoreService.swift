@@ -6,10 +6,6 @@ import Foundation
 import RealmSwift
 
 class TransactionsDataStoreService: RealmStorable<Transaction>, TransactionsDataStoreServiceProtocol {
-    
-  func getTransactions() -> [Transaction] {
-    return find()
-  }
   
   func getTransaction(txHash: String) -> Transaction? {
     return findOne("txHash = '\(txHash)'")
@@ -19,10 +15,11 @@ class TransactionsDataStoreService: RealmStorable<Transaction>, TransactionsData
     super.observe(predicate: "tokenMeta.address = '\(token.address)'", updateHandler: updateHandler)
   }
   
-  func markAndSaveTransactions(_ transactions: [Transaction], address: String) {
+  func markAndSaveTransactions(_ transactions: [Transaction], address: String, isNormal: Bool) {
     var txs = transactions
     for (i, tx) in txs.enumerated() {
       txs[i].isIncoming = tx.to == address
+      txs[i].isNormal = isNormal
     }
     save(txs)
   }

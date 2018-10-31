@@ -13,7 +13,7 @@ struct TokenViewModel {
   let currency: Currency
   let rateSource: RateSource
   
-  func rawAmount(in selectedCurrency: String) -> Double {
+  func rawAmount(in selectedCurrency: String) -> Decimal {
     return rateSource.rawAmount(for: currency, in: selectedCurrency)
   }
   

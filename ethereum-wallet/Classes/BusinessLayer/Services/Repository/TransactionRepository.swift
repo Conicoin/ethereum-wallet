@@ -27,6 +27,7 @@ class TransactionRepositoryService: TransactionRepository {
     // To not release notification block
     self.transactionDataStoreService = transactionDataStoreService
     
+    self.transactions = transactionDataStoreService.find()
     transactionDataStoreService.observe { transactions in
       self.transactions = transactions
       self.channel.send(transactions)

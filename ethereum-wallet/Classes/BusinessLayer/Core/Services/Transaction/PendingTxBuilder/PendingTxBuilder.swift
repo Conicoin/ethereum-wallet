@@ -26,6 +26,7 @@ class PendingTxBuilder {
     tx.tokenMeta = tokenMeta
     tx.input = gethTx.getData()?.hex() ?? "0x"
     tx.amount = Ether(weiString: gethTx.getValue().string()!)
+    tx.isNormal = true
     
     if let meta = tokenMeta {
       tx.tokenMeta = meta

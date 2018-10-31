@@ -47,7 +47,7 @@ struct AbstractCoin {
     return rateSource.fiatString(for: currency, in: iso)
   }
   
-  func rawAmount(iso: String) -> Double {
+  func rawAmount(iso: String) -> Decimal {
     return rateSource.rawAmount(for: currency, in: iso)
   }
   
@@ -57,7 +57,7 @@ struct AbstractCoin {
   
   func fiatString(amount: Decimal, iso: String) -> String? {
     var currencyWithAmount = currency
-    currencyWithAmount.value = amount.double
+    currencyWithAmount.value = amount
     return rateSource.fiatString(for: currencyWithAmount, in: iso)
   }
   

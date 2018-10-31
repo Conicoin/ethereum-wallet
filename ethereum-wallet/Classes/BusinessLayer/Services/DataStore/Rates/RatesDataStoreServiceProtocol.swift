@@ -6,6 +6,7 @@
 import UIKit
 
 protocol RatesDataStoreServiceProtocol {
+  func find() -> [Rate]
   func getRates(currency: String) -> [Rate]
   func save(_ rates: [Rate])
   func observe(updateHandler: @escaping ([Rate]) -> Void)

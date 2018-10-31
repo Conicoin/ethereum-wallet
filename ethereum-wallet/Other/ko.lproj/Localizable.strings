@@ -101,6 +101,7 @@
 
 // MARK: - Transactions
 "transactions.title" = "거래";
+"transactions.creation" = "계약 생성";
 "transactions.pending" = "미결정";
 "transactions.error" = "거래 실패했습니다";
 "transactions.received" = "From %@";

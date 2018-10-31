@@ -48,19 +48,25 @@ extension BalanceInteractor: BalanceInteractorInput {
   
   func getWallet() {
     walletRepository.addObserver(id: walletId, fire: true) { [weak self] wallet in
-      self?.output.didReceiveWallet(wallet)
+      DispatchQueue.main.async {
+        self?.output.didReceiveWallet(wallet)
+      }
     }
   }
   
   func getBalance() {
     balanceIndexer.start(id: balanceIndexId) { [weak self] viewModel in
-      self?.output.didReceiveBalance(viewModel)
+      DispatchQueue.main.async {
+        self?.output.didReceiveBalance(viewModel)
+      }
     }
   }
   
   func getTokens() {
     tokenIndexer.start(id: tokenIndexId) { [weak self] viewModels in
-      self?.output.didReceiveTokens(viewModels)
+      DispatchQueue.main.async {
+        self?.output.didReceiveTokens(viewModels)
+      }
     }
   }
   

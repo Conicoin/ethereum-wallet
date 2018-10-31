@@ -27,6 +27,7 @@ class RateRepositoryService: RateRepository {
     // To not release notification block
     self.rateDataStoreService = rateDataStoreService
     
+    self.rates = rateDataStoreService.find()
     rateDataStoreService.observe { rates in
       self.rates = rates
       channel.send(rates)
