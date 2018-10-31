@@ -6,12 +6,12 @@ import RealmSwift
 
 class RealmWallet: Object {
   
-  @objc dynamic var privateKey = "Wallet_primaryKey"
+  @objc dynamic var primaryKeyConstant = "Wallet_primaryKey"
   @objc dynamic var address = ""
   @objc dynamic var localCurrency = ""
   
   override static func primaryKey() -> String? {
-    return "privateKey"
+    return "primaryKeyConstant"
   }
   
 }

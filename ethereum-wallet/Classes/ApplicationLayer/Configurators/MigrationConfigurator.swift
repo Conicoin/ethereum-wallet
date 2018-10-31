@@ -5,19 +5,22 @@ import Foundation
 import RealmSwift
 
 class MigrationConfigurator: ConfiguratorProtocol {
-
+  
   func configure() {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
       schemaVersion: 10,
       migrationBlock: { migration, oldSchemaVersion in
-
+        
         if oldSchemaVersion < 7 {
           migration.deleteData(forType: "RealmToken")
           migration.deleteData(forType: "RealmCoin")
-        } else if oldSchemaVersion < 10 {
+        }
+        if oldSchemaVersion < 10 {
           migration.deleteData(forType: RealmTransaction.className())
+          migration.renameProperty(onType: RealmWallet.className(), from: "privateKey", to: "primaryKeyConstant")
         }
     })
   }
-
+  
 }
+

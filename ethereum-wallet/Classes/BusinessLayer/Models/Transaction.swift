@@ -77,7 +77,7 @@ extension Transaction: RealmMappable {
     realmObject.input = input
     
     let key = tokenMeta == nil ? "normal" : "token"
-    realmObject.privateKey = "\(txHash!)-\(key)"
+    realmObject.primaryKeyConstant = "\(txHash!)-\(key)"
     
     return realmObject
   }
