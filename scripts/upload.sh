@@ -45,8 +45,8 @@ read -s -p "Password: " PASSWORD
 
 start=`date +%s`
 
-# prepareBuild "$workspace" "$scheme_mainnet" "$configuration_mainnet" "$build_dir"
-# prepareBuild "$workspace" "$scheme_testnet" "$configuration_testnet" "$build_dir"
+prepareBuild "$workspace" "$scheme_mainnet" "$configuration_mainnet" "$build_dir"
+prepareBuild "$workspace" "$scheme_testnet" "$configuration_testnet" "$build_dir"
 
 upload "$scheme_mainnet" "$build_dir" "$USERNAME" "$PASSWORD"
 upload "$scheme_testnet" "$build_dir" "$USERNAME" "$PASSWORD"
