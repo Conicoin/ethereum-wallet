@@ -41,7 +41,7 @@
 
 // MARK: - Welcome
 "welcome.new.title" = "Create new wallet";
-"welcome.restore.title" = "Restore with passphrase";
+"welcome.restore.title" = "Restore with passcode";
 "welcome.import.title" = "Import wallet";
 "welcome.title" = "Welcome to Conicoin";
 "welcome.title.testnet" = "Welcome to Conicoin\nRinkeby Testnet";
