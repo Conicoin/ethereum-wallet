@@ -25,7 +25,6 @@ PODS:
 
 DEPENDENCIES:
   - AlamofireObjectMapper (= 5.1.0)
-  - CryptoSwift
   - CryptoSwift (= 0.12.0)
   - Dwifft (= 0.9)
   - EmptyDataSet-Swift (~> 4.2.0)
@@ -74,6 +73,6 @@ SPEC CHECKSUMS:
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SpringIndicator: 96eb6158a9dc94c1623d84130639a52225f04056
 
-PODFILE CHECKSUM: b4a068b62ca2934b027e056783a20db1fd6c197d
+PODFILE CHECKSUM: ccd5a6f5a1a7b056f9a5fa171aaf5f02387fb134
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.2

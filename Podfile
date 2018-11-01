@@ -18,7 +18,7 @@ target 'ethereum-wallet' do
 end
 
 target 'ConicoinTests' do
-  pod 'CryptoSwift'
+  pod 'CryptoSwift', '0.12.0'
 end
 
 swift4 = ['PullToDismiss', 'R.swift.Library']

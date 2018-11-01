@@ -3583,7 +3583,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -3592,7 +3592,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ConicoinTests/Pods-ConicoinTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6B2527E59DC3EC852D5E4B7 /* [CP] Embed Pods Frameworks */ = {
@@ -3601,7 +3601,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
@@ -3636,7 +3636,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ethereum-wallet/Pods-ethereum-wallet-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -4221,7 +4221,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ethereum-wallet",
 				);
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "ethereum-wallet/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -4344,7 +4347,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ethereum-wallet",
 				);
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "ethereum-wallet/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -4457,7 +4463,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ethereum-wallet",
 				);
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "ethereum-wallet/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -4569,7 +4578,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ethereum-wallet",
 				);
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/ethereum-wallet/Other/External/Crypto/openssl/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "ethereum-wallet/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
