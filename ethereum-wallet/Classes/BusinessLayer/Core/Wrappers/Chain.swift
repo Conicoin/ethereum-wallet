@@ -120,17 +120,6 @@ enum Chain: String {
     }
   }
   
-  var insurance: String {
-    switch self {
-    case .mainnet:
-      return "0xab1d03b5122357002c412e45ea0938d31a28c772"
-    case .ropsten:
-      return "0xab1d03b5122357002c412e45ea0938d31a28c772"
-    case .rinkeby:
-      return "0xab1d03b5122357002c412e45ea0938d31a28c772"
-    }
-  }
-  
   var privateKeyPrefix: UInt32 {
     let mainnetPrefix: UInt32 = 0x0488ade4
     let testnetPrefix: UInt32 = 0x04358394

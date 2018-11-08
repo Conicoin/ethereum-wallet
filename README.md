@@ -1,12 +1,11 @@
-# Conicoin
-<p><b>Native Ethereum Wallet - iOS</b></p>
+# Conicoin - Ethereum wallet
+<p><b>Secure and Fast Ethereum wallet with full ERC20 tokens support</b></p>
 
-[<img src=Screenshots/appstore.png height="50">](https://itunes.apple.com/us/app/conicoin-ethereum-wallet/id1317351647?ls=1&mt=8)
+[<img src=Screenshots/appstore.png height="50">](https://itunes.apple.com/us/app/conicoin-ethereum-wallet/id1434562691)
 
 <br>
 <p align="center">
-<img src=Screenshots/1.png width="350"/>
-<img src=Screenshots/2.png width="350"/>
+<img src=Screenshots/1.png width="1300"/>
 </p>
 <br>
 
@@ -18,27 +17,25 @@ To run the project you just need to install and update pods
 pod install; pod update
 ```
 
+To switch between Testnet and Mainnet, switch the xcode scheme.
+* [Conicoin - Ethereum Wallet](https://itunes.apple.com/us/app/conicoin-ethereum-wallet/id1434562691)
+* [Conicoin - Rinkeby Testnet](https://itunes.apple.com/us/app/conicoin-rinkeby-testnet/id1434991023)
+
 ### Features
 
-<b>Conicoin</b> is 100% native ethereum wallet, created with iOS version of Geth client. Currently supported Rinkeby, Ropsten and Mainnet(not fully tested).
+Conicoin always stick to these 3 simple rules:
 
-* keys <b>never</b> leave the device and stored in keychain in password protected UTC format
-* not a single line of Java script (no web3.js)
-* written with VIPER architecture principles
-* simple native iOS design
+<b>Secure</b>
+- Your keys <b>never</b> leave your device and stored under protection of several security levels.
+- 3-stap security check for access to the application, including key encryption by password, pin code, touch/face id
 
+<b>Serverless</b>
+- We do not store any information about users and keys in ourselves or anywhere else
 
-### ToDo:
+<b>Open-Source</b>
+- All code is here
 
-* ✅ Blockchain synchronization
-* ✅ Account managment
-* ✅ Transactions list
-* ✅ Receiving funds
-* ✅ Sending funds
-* ✅ ERC20 tokens
-* Transaction details
-* Landing web page
+### Authors
 
-## Authors
-
-* [**Artur Guseynov**](https://github.com/flypaper0) - *iOS dev*
+* [**Artur Guseinov**](https://github.com/flypaper0) - *iOS dev*
+* [**Conicoin LLC**](http://conicoin.io)
