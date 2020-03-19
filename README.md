@@ -39,3 +39,7 @@ Conicoin always stick to these 3 simple rules:
 
 * [**Artur Guseinov**](https://github.com/flypaper0) - *iOS dev*
 * [**Conicoin LLC**](http://conicoin.io)
+
+### Contributors
+
+* [**Daniil Miroshnichenko**](https://github.com/otlichnikus) - *iOS dev*
